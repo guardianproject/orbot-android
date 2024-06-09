@@ -31,4 +31,11 @@
     <style name="BottomSheetRadio" parent="android:Widget.CompoundButton.RadioButton">
         <item name="buttonTint">@color/menu_header</item>
     </style>
+
+    <style name="SegmentedButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:textColor">@color/panel_background_main</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.TitleMedium</item>
+    </style>
+
 </resources>
