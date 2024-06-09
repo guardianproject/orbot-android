@@ -16,6 +16,14 @@
         <item name="colorPrimaryDark">@color/new_background_secondary</item>
     </style>
 
+    <style name="OrbotActivityMaterialTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:statusBarColor">@color/new_background_secondary</item>
+        <item name="android:windowBackground">@color/new_background_secondary</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="colorPrimary">@color/new_background_secondary</item>
+        <item name="colorPrimaryDark">@color/new_background_secondary</item>
+    </style>
+
     <style name="OrbotDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:background">@color/new_background_secondary</item>
         <item name="android:textColor">@android:color/white</item>
