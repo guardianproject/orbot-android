@@ -106,6 +106,61 @@ class TorifiedApp : Comparable<TorifiedApp> {
             return apps
         }
 
+        fun getAppsFiltered(
+            context: Context,
+            prefs: SharedPreferences,
+            filterInclude: List<String>? = null,
+            filterRemove: List<String>? = null
+        ): ArrayList<TorifiedApp> {
+            val pMgr = context.packageManager
+            val tordApps = prefs.getString(OrbotConstants.PREFS_KEY_TORIFIED, "")
+                ?.split("|")
+                ?.sorted()
+                ?: emptyList()
+
+            val allPackages = pMgr.getInstalledApplications(0)
+            val result = ArrayList<TorifiedApp>()
+
+            for (aInfo in allPackages) {
+                if (!aInfo.enabled) continue
+                if (OrbotConstants.BYPASS_VPN_PACKAGES.contains(aInfo.packageName)) continue
+                if ("org.torproject.android" in aInfo.packageName) continue
+                if (filterInclude != null && aInfo.packageName !in filterInclude) continue
+                if (filterRemove != null && aInfo.packageName in filterRemove) continue
+
+                val app = TorifiedApp()
+
+                try {
+                    val pInfo = pMgr.getPackageInfo(aInfo.packageName, PackageManager.GET_PERMISSIONS)
+                    app.usesInternet = pInfo.requestedPermissions?.contains(Manifest.permission.INTERNET) == true
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+
+                if (!app.usesInternet) continue
+
+                try {
+                    app.name = pMgr.getApplicationLabel(aInfo).toString()
+                } catch (_: Exception) {
+                    continue // Skip apps without a name
+                }
+
+                app.apply {
+                    isEnabled = aInfo.enabled
+                    uid = aInfo.uid
+                    username = pMgr.getNameForUid(app.uid)
+                    procname = aInfo.processName
+                    packageName = aInfo.packageName
+                    isTorified = tordApps.binarySearch(app.packageName) >= 0
+                }
+
+                result.add(app)
+            }
+
+            result.sort()
+            return result
+        }
+
         fun sortAppsForTorifiedAndAbc(apps: List<TorifiedApp>?) {
             apps?.sortedWith(compareBy<TorifiedApp> { !it.isTorified }.thenBy {
                 Normalizer.normalize(it.name ?: "", Normalizer.Form.NFD)
