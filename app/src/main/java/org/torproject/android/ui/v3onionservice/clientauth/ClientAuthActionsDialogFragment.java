@@ -2,8 +2,11 @@ package org.torproject.android.ui.v3onionservice.clientauth;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.Html;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.StyleSpan;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
@@ -22,10 +25,13 @@ public class ClientAuthActionsDialogFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        SpannableString backupKeyText = new SpannableString(getString(R.string.v3_backup_key));
+        backupKeyText.setSpan(new StyleSpan(Typeface.BOLD), 0, backupKeyText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
         AlertDialog ad = new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.v3_client_auth_activity_title)
                 .setItems(new CharSequence[]{
-                        Html.fromHtml(getString(R.string.v3_backup_key), Html.FROM_HTML_MODE_LEGACY),
+                        backupKeyText,
                         getString(R.string.v3_delete_client_authorization)
                 }, null)
                 .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.dismiss())

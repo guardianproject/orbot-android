@@ -2,8 +2,11 @@ package org.torproject.android.ui
 
 import android.app.AlertDialog
 import android.app.Dialog
+import android.graphics.Typeface
 import android.os.Bundle
-import android.text.Html
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.style.StyleSpan
 import android.view.View
 import android.widget.TextView
 
@@ -22,10 +25,8 @@ class AboutDialogFragment : DialogFragment() {
 
     companion object {
         const val TAG = "AboutDialogFragment"
-        const val VERSION = "${BuildConfig.VERSION_NAME}"
+        const val VERSION = BuildConfig.VERSION_NAME
         private const val BUNDLE_KEY_TV_ABOUT_TEXT = "about_tv_txt"
-        private const val ABOUT_LICENSE_EQUALSIGN =
-            "==============================================================================="
     }
 
     private lateinit var tvAbout: TextView
@@ -56,11 +57,14 @@ class AboutDialogFragment : DialogFragment() {
 
         if (buildAboutText) {
             try {
+                val equalsBlockRegex = Regex("={3,}")
                 var aboutText = DiskUtils.readFileFromAssets("LICENSE", requireContext())
-                aboutText =
-                    aboutText.replace(ABOUT_LICENSE_EQUALSIGN, "\n").replace("\n\n", "<br/><br/>")
-                        .replace("\n", "")
-                tvAbout.text = Html.fromHtml(aboutText, Html.FROM_HTML_MODE_LEGACY)
+                aboutText = aboutText.replace(equalsBlockRegex, "")
+
+                val spannableAboutText = SpannableStringBuilder(aboutText)
+                spannableAboutText.setSpan(StyleSpan(Typeface.BOLD), 0, aboutText.indexOf("\n"), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+                tvAbout.text = spannableAboutText
             } catch (e: IOException) {
                 e.printStackTrace()
             }
