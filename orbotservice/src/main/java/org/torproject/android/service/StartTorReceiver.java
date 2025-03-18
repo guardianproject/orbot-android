@@ -1,5 +1,7 @@
 package org.torproject.android.service;
 
+import static org.torproject.android.service.OrbotConstants.*;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +12,7 @@ import androidx.core.content.ContextCompat;
 import org.torproject.android.service.util.Prefs;
 
 
-public class StartTorReceiver extends BroadcastReceiver implements OrbotConstants {
+public class StartTorReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -24,7 +26,7 @@ public class StartTorReceiver extends BroadcastReceiver implements OrbotConstant
                 if (Prefs.allowBackgroundStarts()) {
                     Intent startTorIntent = new Intent(context, OrbotService.class).setAction(action).putExtra(OrbotConstants.EXTRA_NOT_SYSTEM, true);
                     if (packageName != null) {
-                        startTorIntent.putExtra(OrbotService.EXTRA_PACKAGE_NAME, packageName);
+                        startTorIntent.putExtra(OrbotConstants.EXTRA_PACKAGE_NAME, packageName);
                     }
                     ContextCompat.startForegroundService(context, startTorIntent);
                 } else if (!TextUtils.isEmpty(packageName)) {

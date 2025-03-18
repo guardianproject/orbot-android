@@ -39,7 +39,7 @@ import org.torproject.android.service.vpn.TorifiedApp
 import java.util.Arrays
 import java.util.StringTokenizer
 
-class AppManagerActivity : AppCompatActivity(), View.OnClickListener, OrbotConstants {
+class AppManagerActivity : AppCompatActivity(), View.OnClickListener {
     inner class TorifiedAppWrapper {
         var header: String? = null
         var subheader: String? = null

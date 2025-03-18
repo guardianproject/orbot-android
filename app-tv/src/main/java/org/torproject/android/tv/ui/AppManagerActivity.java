@@ -3,6 +3,8 @@
 
 package org.torproject.android.tv.ui;
 
+import static org.torproject.android.service.OrbotConstants.*;
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,7 +29,6 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import org.torproject.android.tv.R;
-import org.torproject.android.service.OrbotConstants;
 import org.torproject.android.service.util.Prefs;
 import org.torproject.android.service.vpn.TorifiedApp;
 
@@ -39,7 +40,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.StringTokenizer;
 
-public class AppManagerActivity extends AppCompatActivity implements OrbotConstants {
+public class AppManagerActivity extends AppCompatActivity {
 
     private GridView listApps;
     private ListAdapter adapterApps;

@@ -3,6 +3,8 @@
 
 package org.torproject.android.tv;
 
+import static org.torproject.android.service.OrbotConstants.*;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
@@ -72,7 +74,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.StringTokenizer;
 
-public class TeeveeMainActivity extends Activity implements OrbotConstants, OnLongClickListener {
+public class TeeveeMainActivity extends Activity implements OnLongClickListener {
 
     private static final String DEFAULT_ENCODING = StandardCharsets.UTF_8.name();
     private static final int RESULT_CLOSE_ALL = 0;
@@ -193,8 +195,8 @@ public class TeeveeMainActivity extends Activity implements OrbotConstants, OnLo
             } else if (action.equals(LOCAL_ACTION_PORTS)) {
 
                 Message msg = mStatusUpdateHandler.obtainMessage(MESSAGE_PORTS);
-                msg.getData().putInt("socks", intent.getIntExtra(OrbotService.EXTRA_SOCKS_PROXY_PORT, -1));
-                msg.getData().putInt("http", intent.getIntExtra(OrbotService.EXTRA_HTTP_PROXY_PORT, -1));
+                msg.getData().putInt("socks", intent.getIntExtra(OrbotConstants.EXTRA_SOCKS_PROXY_PORT, -1));
+                msg.getData().putInt("http", intent.getIntExtra(OrbotConstants.EXTRA_HTTP_PROXY_PORT, -1));
 
                 mStatusUpdateHandler.sendMessage(msg);
 

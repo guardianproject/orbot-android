@@ -3,6 +3,7 @@
 
 package org.torproject.android.service;
 
+import static org.torproject.android.service.OrbotConstants.*;
 import static org.torproject.jni.TorService.ACTION_ERROR;
 
 import android.annotation.SuppressLint;
@@ -84,7 +85,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 
 @SuppressWarnings("StringConcatenationInsideStringBufferAppend")
-public class OrbotService extends VpnService implements OrbotConstants {
+public class OrbotService extends VpnService {
 
     public final static String BINARY_TOR_VERSION = TorService.VERSION_NAME;
 
