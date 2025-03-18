@@ -9,7 +9,9 @@ import android.net.VpnService
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.text.Html
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.style.AbsoluteSizeSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -221,7 +223,6 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     }
 
     fun doLayoutOff() {
-
         ivOnion.setImageResource(R.drawable.toroff)
         stopAnimations()
         tvSubtitle.visibility = View.VISIBLE
@@ -233,34 +234,31 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
         tvConfigure.text = getString(R.string.btn_configure)
         tvConfigure.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         tvConfigure.setOnClickListener { openConfigureTorConnection() }
+
         with(btnStartVpn) {
             visibility = View.VISIBLE
 
             var connectStr = ""
-            if (Prefs.getConnectionPathway().equals(Prefs.PATHWAY_DIRECT)) connectStr =
-                context.getString(R.string.action_use) + ' ' + getString(R.string.direct_connect)
-            else if (Prefs.getConnectionPathway().equals(Prefs.PATHWAY_SNOWFLAKE)) connectStr =
-                context.getString(R.string.action_use) + ' ' + getString(R.string.snowflake)
-            else if (Prefs.getConnectionPathway().equals(Prefs.PATHWAY_SNOWFLAKE_AMP)) connectStr =
-                context.getString(R.string.action_use) + ' ' + getString(R.string.snowflake_amp)
-            else if (Prefs.getConnectionPathway().equals(Prefs.PATHWAY_CUSTOM)) connectStr =
-                context.getString(R.string.action_use) + ' ' + getString(R.string.custom_bridge)
+            when (Prefs.getConnectionPathway()) {
+                Prefs.PATHWAY_DIRECT -> connectStr = context.getString(R.string.action_use) + ' ' + getString(R.string.direct_connect)
+                Prefs.PATHWAY_SNOWFLAKE -> connectStr = context.getString(R.string.action_use) + ' ' + getString(R.string.snowflake)
+                Prefs.PATHWAY_SNOWFLAKE_AMP -> connectStr = context.getString(R.string.action_use) + ' ' + getString(R.string.snowflake_amp)
+                Prefs.PATHWAY_CUSTOM -> connectStr = context.getString(R.string.action_use) + ' ' + getString(R.string.custom_bridge)
+            }
 
-            text = if (Prefs.isPowerUserMode()) getString(R.string.connect)
-            else if (connectStr.isEmpty()) Html.fromHtml(
-                "<big>${getString(R.string.btn_start_vpn)}</big>", Html.FROM_HTML_MODE_LEGACY
-            )
-            else Html.fromHtml(
-                "<big>${getString(R.string.btn_start_vpn)}</big><br/><small>${connectStr}</small>",
-                Html.FROM_HTML_MODE_LEGACY
-            )
-
+            text = when {
+                Prefs.isPowerUserMode() -> getString(R.string.connect)
+                connectStr.isEmpty() -> SpannableStringBuilder()
+                    .append(getString(R.string.btn_start_vpn), AbsoluteSizeSpan(18, true), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                else -> SpannableStringBuilder()
+                    .append(getString(R.string.btn_start_vpn), AbsoluteSizeSpan(18, true), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    .append("\n")
+                    .append(connectStr, AbsoluteSizeSpan(12, true), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            }
 
             isEnabled = true
             backgroundTintList = ColorStateList.valueOf(
-                ContextCompat.getColor(
-                    requireContext(), R.color.orbot_btn_enabled_purple
-                )
+                ContextCompat.getColor(requireContext(), R.color.orbot_btn_enabled_purple)
             )
             setOnClickListener { startTorAndVpn() }
             //logBottomSheet.resetLog()
@@ -270,7 +268,6 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
             startTorAndVpn()
         }
     }
-
 
     fun doLayoutStarting(context: Context) {
 

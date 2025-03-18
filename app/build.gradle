@@ -126,3 +126,10 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.fastlane.screengrab)
 }
+
+tasks.register("copyLicenseToAssets", Copy) {
+    from("../LICENSE")
+    into("$projectDir/src/main/assets")
+}
+
+preBuild.dependsOn copyLicenseToAssets
