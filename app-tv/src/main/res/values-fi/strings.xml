@@ -97,7 +97,7 @@
   <string name="pref_transport_summary">Portti, jossa Torin läpinäkyvä välityspalvelin on (oletus: 9040, 0 = poista käytöstä)</string>
   <string name="pref_transport_dialog">TransProxy-portin valinta</string>
   <string name="pref_dnsport_title">Tor DNS-portti</string>
-  <string name="pref_dnsport_summary">Portti, jossa Torin DNS on (oletus: 5400, 0 = poista käytöstä)</string>
+  <string name="pref_dnsport_summary">Portti, jossa Torin DNS on (oletus: 9053, 0 = poista käytöstä)</string>
   <string name="pref_dnsport_dialog">DNS-portin valinta</string>
   <string name="pref_torrc_title">Torrc:n mukautetut asetukset</string>
   <string name="pref_torrc_summary">VAIN ASIANTUNTIJAT: syötä torrc:n määritysrivejä suoraan</string>

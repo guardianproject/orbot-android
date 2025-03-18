@@ -187,7 +187,7 @@
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_dialog">SOCKS Port Config</string>
     <string name="pref_http_title">Tor HTTP</string>
-    <string name="pref_dnsport_summary">Port that Tor offers its DNS on (default: 5400 or 0 to disable)</string>
+    <string name="pref_dnsport_summary">Port that Tor offers its DNS on (default: 9053 or 0 to disable)</string>
     <string name="pref_torrc_title">Torrc Custom Config</string>
     <string name="kibibyte">KiB</string>
     <string name="restart_orbot_to_use_this_bridge_">Please restart Orbot to enable the changes</string>

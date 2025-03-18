@@ -689,12 +689,12 @@ public class OrbotService extends VpnService implements OrbotConstants {
         extraLines.append("RunAsDaemon 0").append('\n');
         extraLines.append("AvoidDiskWrites 1").append('\n');
 
-        var socksPortPref = prefs.getString(PREF_SOCKS, SOCKS_PROXY_PORT_DEFAULT);
+        var socksPortPref = prefs.getString(PREF_SOCKS, String.valueOf(SOCKS_PROXY_PORT_DEFAULT));
         if (socksPortPref.indexOf(':') != -1) socksPortPref = socksPortPref.split(":")[1];
 
         socksPortPref = checkPortOrAuto(socksPortPref);
 
-        var httpPortPref = prefs.getString(PREF_HTTP, HTTP_PROXY_PORT_DEFAULT);
+        var httpPortPref = prefs.getString(PREF_HTTP, String.valueOf(HTTP_PROXY_PORT_DEFAULT));
         if (httpPortPref.indexOf(':') != -1) httpPortPref = httpPortPref.split(":")[1];
 
         httpPortPref = checkPortOrAuto(httpPortPref);
@@ -749,8 +749,8 @@ public class OrbotService extends VpnService implements OrbotConstants {
             extraLines.append("ReducedCircuitPadding 1").append('\n');
         }
 
-        var transPort = prefs.getString("pref_transport", TOR_TRANSPROXY_PORT_DEFAULT + "");
-        var dnsPort = prefs.getString("pref_dnsport", TOR_DNS_PORT_DEFAULT + "");
+        var transPort = prefs.getString(PREF_TRANSPORT, String.valueOf(TOR_TRANSPROXY_PORT_DEFAULT));
+        var dnsPort = prefs.getString(PREF_DNSPORT, String.valueOf(TOR_DNS_PORT_DEFAULT));
 
         extraLines.append("TransPort ").append(checkPortOrAuto(transPort)).append(isolate).append('\n');
         extraLines.append("DNSPort ").append(checkPortOrAuto(dnsPort)).append(isolate).append('\n');
@@ -796,7 +796,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
                 if (isPortUsed) //the specified port is not available, so let Tor find one instead
                     port++;
             }
-            return port + "";
+            return String.valueOf(port);
         }
 
         return portString;

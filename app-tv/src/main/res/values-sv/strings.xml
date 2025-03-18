@@ -102,7 +102,7 @@
   <string name="pref_transport_summary">Port som Tor erbjuder sin transparenta proxy på (standard: 9040 eller 0 för att inaktivera)</string>
   <string name="pref_transport_dialog">TransProxy-port-inställningar</string>
   <string name="pref_dnsport_title">Tor DNS-port</string>
-  <string name="pref_dnsport_summary">Port som Tor erbjuder sin DNS på (standard: 5400 eller 0 för att inaktivera)</string>
+  <string name="pref_dnsport_summary">Port som Tor erbjuder sin DNS på (standard: 9053 eller 0 för att inaktivera)</string>
   <string name="pref_dnsport_dialog">DNS-port-inställningar</string>
   <string name="pref_torrc_title">Torrc anpassad konfiguration</string>
   <string name="pref_torrc_summary">ENDAST EXPERTER: ange torrc konfiguration direkt</string>

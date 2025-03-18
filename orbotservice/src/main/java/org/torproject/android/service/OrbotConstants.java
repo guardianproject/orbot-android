@@ -22,9 +22,10 @@ public interface OrbotConstants {
 
     String PREF_TOR_SHARED_PREFS = "org.torproject.android_preferences";
 
-    String PREF_SOCKS = "pref_socks";
-
+    String PREF_DNSPORT = "pref_dnsport";
     String PREF_HTTP = "pref_http";
+    String PREF_SOCKS = "pref_socks";
+    String PREF_TRANSPORT = "pref_transport";
 
     String PREF_ISOLATE_DEST = "pref_isolate_dest";
     String PREF_ISOLATE_PORT = "pref_isolate_port";
@@ -38,11 +39,9 @@ public interface OrbotConstants {
     String PREF_PREFER_IPV6 = "pref_prefer_ipv6";
     String PREF_DISABLE_IPV4 = "pref_disable_ipv4";
 
-
     String APP_TOR_KEY = "_app_tor";
     String APP_DATA_KEY = "_app_data";
     String APP_WIFI_KEY = "_app_wifi";
-
 
     String DIRECTORY_TOR_DATA = "tordata";
 
@@ -51,11 +50,9 @@ public interface OrbotConstants {
     String GEOIP6_ASSET_KEY = "geoip6";
 
     int TOR_TRANSPROXY_PORT_DEFAULT = 9040;
-
-    int TOR_DNS_PORT_DEFAULT = 5400;
-
-    String HTTP_PROXY_PORT_DEFAULT = "8118"; // like Privoxy!
-    String SOCKS_PROXY_PORT_DEFAULT = "9050";
+    int TOR_DNS_PORT_DEFAULT = 9053;
+    int HTTP_PROXY_PORT_DEFAULT = 8118;
+    int SOCKS_PROXY_PORT_DEFAULT = 9050;
 
     //control port
     String LOG_NOTICE_HEADER = "NOTICE: ";
@@ -133,7 +130,6 @@ public interface OrbotConstants {
     String LOCAL_EXTRA_SMART_STATUS = "status";
     String SMART_STATUS_NO_DIRECT = "no_direct";
     String SMART_STATUS_CIRCUMVENTION_ATTEMPT_FAILED = "bad_attempt_suggestion";
-
 
     /**
      * All tor-related services and daemons are stopped

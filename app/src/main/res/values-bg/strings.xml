@@ -86,7 +86,7 @@
     <string name="pref_transport_summary">Порт, на който Тор предлага прозрачен сървър за прокси (подразбиран: 9040 или 0 за изключване)</string>
     <string name="pref_transport_dialog">Настройка на порта на прозрачен сървър за прокси</string>
     <string name="pref_dnsport_title">Порт за DNS на Тор</string>
-    <string name="pref_dnsport_summary">Порт, на който Тор предлага услуга за DNS (подразбиран: 5400 или 0 за изключване)</string>
+    <string name="pref_dnsport_summary">Порт, на който Тор предлага услуга за DNS (подразбиран: 9053 или 0 за изключване)</string>
     <string name="pref_dnsport_dialog">Настройка на порта за DNS</string>
     <string name="pref_torrc_title">Потребителски настройки на Torrc</string>
     <string name="pref_torrc_summary">ЗА ЕКСПЕРТИ: въведете редовете с настройки за torrc</string>

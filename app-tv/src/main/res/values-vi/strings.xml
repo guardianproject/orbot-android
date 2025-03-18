@@ -97,7 +97,7 @@
   <string name="pref_transport_summary">Cổng để Tor đặt proxy trong suốt lên (mặc định: 9040 hoặc 0 để vô hiệu hóa)</string>
   <string name="pref_transport_dialog">Cấu hình cổng proxy trong suốt</string>
   <string name="pref_dnsport_title">Cổng DNS Tor</string>
-  <string name="pref_dnsport_summary">Cổng để Tor đặt DNS của nó lên (mặc định: 5400 hoặc 0 để vô hiệu hóa)</string>
+  <string name="pref_dnsport_summary">Cổng để Tor đặt DNS của nó lên (mặc định: 9053 hoặc 0 để vô hiệu hóa)</string>
   <string name="pref_dnsport_dialog">Cấu hình cổng DNS</string>
   <string name="pref_torrc_title">Cấu hình tùy chỉnh cho Torrc</string>
   <string name="pref_torrc_summary">CHỈ NGƯỜI DÙNG CHUYÊN MÔN: nhập các thiết lập trực tiếp cho torrc</string>

@@ -88,7 +88,7 @@
     <string name="pref_transport_summary">Tor saydam vekil sunucusu için kullanılacak bağlantı noktası (öntanımlı değer: 9040 ya da devre dışı bırakmak için 0)</string>
     <string name="pref_transport_dialog">TransProxy Bağlantı Noktası Ayarı</string>
     <string name="pref_dnsport_title">Tor DNS Bağlantı Noktası</string>
-    <string name="pref_dnsport_summary">Tor DNS hizmeti için kullanılacak bağlantı noktası (öntanımlı değer: 5400 ya da devre dışı bırakmak için 0)</string>
+    <string name="pref_dnsport_summary">Tor DNS hizmeti için kullanılacak bağlantı noktası (öntanımlı değer: 9053 ya da devre dışı bırakmak için 0)</string>
     <string name="pref_dnsport_dialog">DNS Bağlantı Noktası Ayarı</string>
     <string name="pref_torrc_title">Özel Torrc Ayarları</string>
     <string name="pref_torrc_summary">UZMANLAR İÇİN: doğrudan torrc yapılandırma satırlarını girin</string>

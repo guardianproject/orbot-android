@@ -102,7 +102,7 @@
   <string name="pref_transport_summary">Port que ofereix el seu servidor intermediari transparent al Tor (per defecte: 9040 or 0 per inhabilitar)</string>
   <string name="pref_transport_dialog">Configuració del port TransProxy</string>
   <string name="pref_dnsport_title">Port DNS del Tor</string>
-  <string name="pref_dnsport_summary">Port que ofereix les DNS al Tor (per defecte: 5400 or 0 per inhabilitar)</string>
+  <string name="pref_dnsport_summary">Port que ofereix les DNS al Tor (per defecte: 9053 or 0 per inhabilitar)</string>
   <string name="pref_dnsport_dialog">Configuració del port DNS</string>
   <string name="pref_torrc_title">Configuració personalitzada del Torrc</string>
   <string name="pref_torrc_summary">NOMÉS EXPERTS: Escriviu les línies de configuració directa del Torrc</string>

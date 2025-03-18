@@ -102,7 +102,7 @@
   <string name="pref_transport_summary">Порт, який Tor надає своєму відкритому проксі (за замовчуванням: 9040 або 0 для вимкнення)</string>
   <string name="pref_transport_dialog">Налаштування порту Tor TransProxy</string>
   <string name="pref_dnsport_title">Порт Tor DNS</string>
-  <string name="pref_dnsport_summary">Порт, який Tor надає своєму DNS (за замовчуванням: 5400 або 0 для вимкнення)</string>
+  <string name="pref_dnsport_summary">Порт, який Tor надає своєму DNS (за замовчуванням: 9053 або 0 для вимкнення)</string>
   <string name="pref_dnsport_dialog">Налаштування порту DNS</string>
   <string name="pref_torrc_title">Додаткові налаштування Torrc</string>
   <string name="pref_torrc_summary">ЛИШЕ ДЛЯ ЕКСПЕРТІВ: введіть безпосередні рядки налаштувань torrc</string>

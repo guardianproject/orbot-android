@@ -97,7 +97,7 @@ Tor: https://www.torproject.org</string>
   <string name="pref_transport_summary">Torun təklif etdiyi Port Transparent proksi işləyir (standart: 9040, yaxud söndürmək üçün 0) </string>
   <string name="pref_transport_dialog">TransProxy Port Config</string>
   <string name="pref_dnsport_title">Tor DNS Port</string>
-  <string name="pref_dnsport_summary">Torun təklif etdiyi Port DNS işləyir (standart: 5400, yaxud söndürmək üçün 0)</string>
+  <string name="pref_dnsport_summary">Torun təklif etdiyi Port DNS işləyir (standart: 9053, yaxud söndürmək üçün 0)</string>
   <string name="pref_dnsport_dialog">DNS Port Config</string>
   <string name="pref_torrc_title">Torrc Custom Config</string>
   <string name="pref_torrc_summary">YALNIZ EKSPERTLƏR: birbaşa torrc config xətlərini daxil edin</string>

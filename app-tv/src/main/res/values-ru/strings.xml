@@ -102,7 +102,7 @@
   <string name="pref_transport_summary">Порт, на котором Tor предоставляет свой прозрачный прокси (по умолчанию: 9040, 0 - для отключения)</string>
   <string name="pref_transport_dialog">Настройка порта прозрачного прокси</string>
   <string name="pref_dnsport_title">Порт DNS Tor</string>
-  <string name="pref_dnsport_summary">Порт, на котором Tor предоставляет свой DNS (по умолчанию: 5400, 0 - для отключения)</string>
+  <string name="pref_dnsport_summary">Порт, на котором Tor предоставляет свой DNS (по умолчанию: 9053, 0 - для отключения)</string>
   <string name="pref_dnsport_dialog">Настройка порта DNS</string>
   <string name="pref_torrc_title">Пользовательские настройки Torrc</string>
   <string name="pref_torrc_summary">ТОЛЬКО ДЛЯ ЭКСПЕРТОВ: внесите настройки напрямую в строки файла конфигурации torrc</string>

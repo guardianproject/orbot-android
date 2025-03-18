@@ -83,7 +83,7 @@
     <string name="consider_disable_battery_optimizations">Hostede tjenester kører, overvej at deaktivere batterioptimeringer</string>
     <string name="v3_delete_client_authorization_confirm">Slet klienttilladelse</string>
     <string name="v3_backup_name_hint">Backup filnavn…</string>
-    <string name="pref_dnsport_summary">Port, som Tor tilbyder sin DNS på (standard: 5400 eller 0 for at deaktivere)</string>
+    <string name="pref_dnsport_summary">Port, som Tor tilbyder sin DNS på (standard: 9053 eller 0 for at deaktivere)</string>
     <string name="pref_torrc_title">Torrc brugerdefineret konfiguration</string>
     <string name="kibibyte">KiB</string>
     <string name="v3_onion">.onion-domæne</string>

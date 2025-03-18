@@ -56,7 +56,7 @@
     <string name="pref_transport_dialog">Configuración del puerto TransProxy</string>
     <string name="pref_http_summary">Puerto en el que Tor ofrece tu proxy HTTP (predeterminado: 8118 o 0 para deshabilitar)</string>
     <string name="pref_transport_title">Puerto Tor TransProxy</string>
-    <string name="pref_dnsport_summary">Puerto en el que Tor ofrece tu DNS (predeterminado: 5400 o 0 para deshabilitar)</string>
+    <string name="pref_dnsport_summary">Puerto en el que Tor ofrece tu DNS (predeterminado: 9053 o 0 para deshabilitar)</string>
     <string name="get_bridges_email">Correo Electronico</string>
     <string name="pref_isolate_dest">Aislar direcciones de destino</string>
     <string name="pref_torrc_title">Configuración personalizada Torrc</string>

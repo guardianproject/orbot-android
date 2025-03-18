@@ -149,7 +149,7 @@
     <string name="pref_http_title">Tori HTTP</string>
     <string name="pref_transport_summary">Port, millel Tor pakub oma läbipaistvat proksi (vaikimisi: 9040 või 0, et keelata)</string>
     <string name="pref_dnsport_title">Tor DNS-port</string>
-    <string name="pref_dnsport_summary">Port, millel Tor pakub oma DNS-i (vaikimisi: 5400 või 0, et keelata)</string>
+    <string name="pref_dnsport_summary">Port, millel Tor pakub oma DNS-i (vaikimisi: 9053 või 0, et keelata)</string>
     <string name="pref_torrc_title">Torrc kohandatud konfiguratsioon</string>
     <string name="mebibyte">MiB</string>
     <string name="bridges_updated">Ajakohastatud sillad</string>

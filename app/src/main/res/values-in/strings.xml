@@ -86,7 +86,7 @@
     <string name="pref_transport_summary">Port tempat Proxy Transparan Tor aktif (standar: 9040 atau 0 untuk mematikan)</string>
     <string name="pref_transport_dialog">Konfigurasi Port TransProxy</string>
     <string name="pref_dnsport_title">Port DNS Tor</string>
-    <string name="pref_dnsport_summary">Port tempat DNS Tor aktif (standar: 5400 atau 0 untuk mematikan)</string>
+    <string name="pref_dnsport_summary">Port tempat DNS Tor aktif (standar: 9053 atau 0 untuk mematikan)</string>
     <string name="pref_dnsport_dialog">Konfigurasi Port DNS</string>
     <string name="pref_torrc_title">Konfigurasi Torrc</string>
     <string name="pref_torrc_summary">HANYA UNTUK AHLI: masukkan baris konfigurasi direct Torrc</string>

@@ -88,7 +88,7 @@
     <string name="pref_transport_summary">Port, amelyen a Tor a transzparens proxyt ajánl (alapértelmezett: 9040 vagy 0 a tiltáshoz)</string>
     <string name="pref_transport_dialog">TransProxy port konfiguráció</string>
     <string name="pref_dnsport_title">Tor DNS port</string>
-    <string name="pref_dnsport_summary">Port, amelyen a Tor a saját DNS-t ajánlja (alapértelmezett: 5400 vagy 0 a letiltáshoz)</string>
+    <string name="pref_dnsport_summary">Port, amelyen a Tor a saját DNS-t ajánlja (alapértelmezett: 9053 vagy 0 a letiltáshoz)</string>
     <string name="pref_dnsport_dialog">DNS port konfiguráció</string>
     <string name="pref_torrc_title">Torrc egyedi konfiguráció</string>
     <string name="pref_torrc_summary">CSAK SZAKÉRTŐKNEK: torrc konfigurációs sorok közvetlen beírása</string>

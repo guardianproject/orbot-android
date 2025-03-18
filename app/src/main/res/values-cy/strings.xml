@@ -117,7 +117,7 @@
     <string name="bridge_community">Cysylltwch trwy weinyddion cymunedol</string>
     <string name="bridge_cloud">Cysylltwch trwy weinyddion cwmwl</string>
     <string name="pref_circuit_padding">Padin cylched</string>
-    <string name="pref_dnsport_summary">Porthladd y mae Tor yn cynnig ei DNS arno (rhagosodedig: 5400 neu 0 i\'w analluogi)</string>
+    <string name="pref_dnsport_summary">Porthladd y mae Tor yn cynnig ei DNS arno (rhagosodedig: 9053 neu 0 i\'w analluogi)</string>
     <string name="pref_isolate_dest_summary">Defnyddiwch gylched wahanol ar gyfer pob cyfeiriad cyrchfan</string>
     <string name="v3_hosted_services">Gwasanaethau Winwns a Gynhelir</string>
     <string name="msg_try_something_else">Rhowch gynnig ar rywbeth arall</string>

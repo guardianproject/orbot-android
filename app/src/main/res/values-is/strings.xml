@@ -88,7 +88,7 @@
     <string name="pref_transport_summary">Gátt sem Tor býður gegnsæja milliþjónsbeiningu á (sjálfgefið: 9040 eða 0 til að gera óvirkt)</string>
     <string name="pref_transport_dialog">Uppsetning gáttar fyrir gegnsæja milliþjónabeiningu (TransProxy)</string>
     <string name="pref_dnsport_title">Tor DNS-gátt</string>
-    <string name="pref_dnsport_summary">Gátt sem Tor býður DNS á (sjálfgefið: 5400 eða 0 til að gera óvirkt)</string>
+    <string name="pref_dnsport_summary">Gátt sem Tor býður DNS á (sjálfgefið: 9053 eða 0 til að gera óvirkt)</string>
     <string name="pref_dnsport_dialog">Stilling á DNS-gátt</string>
     <string name="pref_torrc_title">Sérsniðnar stillingar Torrc</string>
     <string name="pref_torrc_summary">AÐEINS SÉRFRÆÐINGAR: sláðu inn stillingarlínur beint í torrc</string>

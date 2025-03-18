@@ -89,7 +89,7 @@
     <string name="pref_transport_summary">Waythapiwja kawkïrxaruti Torax Qhana proxyp churañ muni (utt\'ata: jiwt\'ayañatakix 9040 jan ukax 0)</string>
     <string name="pref_transport_dialog">TransProxy waythapiwj mayjt\'ayaña</string>
     <string name="pref_dnsport_title">Tor DNS waythapiwja</string>
-    <string name="pref_dnsport_summary">Waythapiwja kawkïrxaruti Torax DNS ukap churañ muni: (utt\'ata: jiwt\'ayañatakix 5400 jan ukax 0)</string>
+    <string name="pref_dnsport_summary">Waythapiwja kawkïrxaruti Torax DNS ukap churañ muni: (utt\'ata: jiwt\'ayañatakix 9053 jan ukax 0)</string>
     <string name="pref_dnsport_dialog">DNS waythapiwj mayjt\'ayaña</string>
     <string name="pref_torrc_title">Torrc mayjt\'ayaña</string>
     <string name="pref_torrc_summary">YATIRINAKATAKIKI: torrc apthapitan chiqak mayjt\'ayam</string>

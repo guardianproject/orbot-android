@@ -123,7 +123,7 @@
 
 
     <string name="pref_dnsport_title">Tor DNS Port</string>
-    <string name="pref_dnsport_summary">Port that Tor offers its DNS on (default: 5400 or 0 to disable)</string>
+    <string name="pref_dnsport_summary">Port that Tor offers its DNS on (default: 9053 or 0 to disable)</string>
     <string name="pref_dnsport_dialog">DNS Port Config</string>
 
 

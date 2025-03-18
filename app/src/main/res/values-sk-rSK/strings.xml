@@ -189,7 +189,7 @@
     <string name="pref_dnsport_dialog">Konfigurácia portu DNS</string>
     <string name="pref_transport_dialog">Konfigurácia portu TransProxy</string>
     <string name="pref_dnsport_title">Port Tor DNS</string>
-    <string name="pref_dnsport_summary">Port, na ktorom Tor ponúka svoj DNS (predvolené: 5400 alebo 0 pre vypnutie)</string>
+    <string name="pref_dnsport_summary">Port, na ktorom Tor ponúka svoj DNS (predvolené: 9053 alebo 0 pre vypnutie)</string>
     <string name="pref_torrc_title">Vlastná konfigurácia Torrc</string>
     <string name="pref_torrc_summary">Len pre odborníkov: zadajte priame konfiguračné riadky torrc</string>
     <string name="pref_torrc_dialog">Vlastné Torrc</string>

@@ -97,7 +97,7 @@
   <string name="pref_transport_summary">Port który oferuje Transparent Proxy (domyślnie: 9040 lub 0, aby wyłączyć)</string>
   <string name="pref_transport_dialog">Konfiguracja portu TransProxy</string>
   <string name="pref_dnsport_title">Tor DNS Port</string>
-  <string name="pref_dnsport_summary">Port na którym Tor oferuje swój DNS (domyślnie: 5400 lub 0, aby wyłączyć)</string>
+  <string name="pref_dnsport_summary">Port na którym Tor oferuje swój DNS (domyślnie: 9053 lub 0, aby wyłączyć)</string>
   <string name="pref_dnsport_dialog">Konfiguracja portu DNS</string>
   <string name="pref_torrc_title">Konfiguracja Torrc klienta</string>
   <string name="pref_torrc_summary">TYLKO DLA EKSPERTÓW: wpisz linijki konfiguracyjne torrc</string>

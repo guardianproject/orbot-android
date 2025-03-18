@@ -88,7 +88,7 @@
     <string name="pref_transport_summary">Poort waarop Tor de transparante proxy aanbiedt (standaard: 9040 of 0 om uit te schakelen)</string>
     <string name="pref_transport_dialog">TransProxy-poortconfiguratie</string>
     <string name="pref_dnsport_title">Tor DNS-poort</string>
-    <string name="pref_dnsport_summary">Poort waarop Tor de DNS aanbiedt (standaard: 5400 of 0 om uit te schakelen)</string>
+    <string name="pref_dnsport_summary">Poort waarop Tor de DNS aanbiedt (standaard: 9053 of 0 om uit te schakelen)</string>
     <string name="pref_dnsport_dialog">DNS-poortconfiguratie</string>
     <string name="pref_torrc_title">Torrc aangepaste configuratie</string>
     <string name="pref_torrc_summary">ENKEL VOOR GEVORDERDEN: voer rechtstreeks torrc-configuratieregels in</string>

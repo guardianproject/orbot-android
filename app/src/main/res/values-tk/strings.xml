@@ -233,7 +233,7 @@
     <string name="pref_http_summary">Tor, HTTP proksi hödürleýän port (deslapky: 8118 ýa-da 0 ýapmak üçin)</string>
     <string name="pref_transport_summary">Tor-uň aç-açan proksi hödürleýän porty (deslapky: 9040 ýa-da 0 ýapmak üçin)</string>
     <string name="pref_transport_dialog">TransProxy Port Sazlamalary</string>
-    <string name="pref_dnsport_summary">Tor DNS-i hödürleýän port (deslapky: 5400 ýa-da 0 ýapmak üçin)</string>
+    <string name="pref_dnsport_summary">Tor DNS-i hödürleýän port (deslapky: 9053 ýa-da 0 ýapmak üçin)</string>
     <string name="pref_torrc_title">Torrc Aýratyn Sazlamalar</string>
     <string name="pref_torrc_summary">HÜNARMENLER ÜÇIN: torrc sazlamalar setirlerini göni giriziň</string>
     <string name="pref_torrc_dialog">Aýratyn Torrc</string>

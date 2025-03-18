@@ -158,7 +158,7 @@
     <string name="pref_http_dialog">Formësim Porte HTTP</string>
     <string name="pref_transport_title">Portë Tor TransProxy</string>
     <string name="pref_dnsport_title">Portë DNS Tor</string>
-    <string name="pref_dnsport_summary">Portë ku Tor-i ofron DNS-në e vet (parazgjedhje: 5400, ose 0 për ta çaktivizuar)</string>
+    <string name="pref_dnsport_summary">Portë ku Tor-i ofron DNS-në e vet (parazgjedhje: 9053, ose 0 për ta çaktivizuar)</string>
     <string name="pref_torrc_title">Formësim Torrc Vetjake</string>
     <string name="mebibyte">MiB</string>
     <string name="bridges_updated">Urat u Përditësuan</string>

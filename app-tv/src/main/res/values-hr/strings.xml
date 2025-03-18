@@ -97,7 +97,7 @@
   <string name="pref_transport_summary">Port na kojem Tor pruža Transparentni Proxy (zadano: 9040, 0 za onemogućivanje)</string>
   <string name="pref_transport_dialog">Konfiguracija TransProxy porta</string>
   <string name="pref_dnsport_title">Tor DNS Port</string>
-  <string name="pref_dnsport_summary">Port na kojem Tor pruža DNS (zadano 5400, 0 za onemogućivanje)</string>
+  <string name="pref_dnsport_summary">Port na kojem Tor pruža DNS (zadano 9053, 0 za onemogućivanje)</string>
   <string name="pref_dnsport_dialog">Postavljanje DNS porta</string>
   <string name="pref_torrc_title">Torrc prilagođena konfiguracija</string>
   <string name="pref_torrc_summary">SAMO ZA STRUČNJAKE: unesite direktno torrc konfiguracijske linije</string>

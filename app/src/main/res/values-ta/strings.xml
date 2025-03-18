@@ -217,7 +217,7 @@
     <string name="pref_http_summary">துறைமுகம் அந்த டோர் அதன் HTTP ப்ராக்சியை வழங்குகிறது (இயல்புநிலை: 8118 அல்லது 0 முடக்க)</string>
     <string name="pref_http_dialog">HTTP துறைமுகம் கட்டமைப்பு</string>
     <string name="pref_transport_title">டோர் டிரான்ச்ப்ராக்சி துறைமுகம்</string>
-    <string name="pref_dnsport_summary">டோர் அதன் டி.என்.எச்சை வழங்கும் துறைமுகம் (இயல்புநிலை: 5400 அல்லது 0 முடக்க)</string>
+    <string name="pref_dnsport_summary">டோர் அதன் டி.என்.எச்சை வழங்கும் துறைமுகம் (இயல்புநிலை: 9053 அல்லது 0 முடக்க)</string>
     <string name="pref_dnsport_dialog">டி.என்.எச் துறைமுகம் கட்டமைப்பு</string>
     <string name="pref_torrc_title">டோர்க் தனிப்பயன் கட்டமைப்பு</string>
     <string name="pref_torrc_summary">வல்லுநர்கள் மட்டும்: நேரடி டோர்க் கட்டமைப்பு வரிகளை உள்ளிடவும்</string>

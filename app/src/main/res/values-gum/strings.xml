@@ -92,7 +92,7 @@
   <string name="pref_transport_summary">Toryu kepiamik transparente teik wam pirishipik teik (srɵ kutri tamara pasrikpe: 9040 kape 0 trek tamarikwan yunɵmaramik)</string>
   <string name="pref_transport_dialog">TransProxy Kepampamtik srɵlmeran tamaramik</string>
   <string name="pref_dnsport_title"> Tor DNS kepampamtik srɵl</string>
-  <string name="pref_dnsport_summary">Toryu kepiamik  wam pirishipik DNS teik (srɵ kutri tamara pasrikpe: 5400 kape 0 trek tamarikwan yunɵmaramik)</string>
+  <string name="pref_dnsport_summary">Toryu kepiamik  wam pirishipik DNS teik (srɵ kutri tamara pasrikpe: 9053 kape 0 trek tamarikwan yunɵmaramik)</string>
   <string name="pref_dnsport_dialog">Puerto DNSmeran Tamaramik</string>
   <string name="pref_torrc_title">Torrcwan na asikmei tamara pasramik</string>
   <string name="pref_torrc_summary">IKWANE TSAPɵ ASHIPELɵTɵ MARAMIK: kan meitɵ torrc tamaramik srɵlmeran ker</string>

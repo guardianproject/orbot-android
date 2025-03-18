@@ -102,7 +102,7 @@
   <string name="pref_transport_summary">پورتی که تور ارائه می دهد Transparent Proxy روی (پیش فرض:  9040 یا  0 برای غیرفعال کردن)</string>
   <string name="pref_transport_dialog">پیکربندی پورت Transproxy</string>
   <string name="pref_dnsport_title">پورت Tor DNS</string>
-  <string name="pref_dnsport_summary">پورتی که Tor ارائه می دهد آن DNS روی (به طور پیش فرض: 5400 یا 0 برای غیر فعال کردن)</string>
+  <string name="pref_dnsport_summary">پورتی که Tor ارائه می دهد آن DNS روی (به طور پیش فرض: 9053 یا 0 برای غیر فعال کردن)</string>
   <string name="pref_dnsport_dialog">پیکربندی پورت DNS</string>
   <string name="pref_torrc_title">پیکربندی سفارشی Torrc</string>
   <string name="pref_torrc_summary">فقط متخصصان:  enter direct torrc config lines</string>

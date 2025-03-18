@@ -91,7 +91,7 @@ Notificaciones ampliadas</string>
   <string name="pref_transport_summary">Toryu’ naa vxitxkwetek proxy’s ũsu’ (naate: 9040 khimeeçxa 0 fxĩçxhawa’)</string>
   <string name="pref_transport_dialog">TransProxi vxitxkwe\'s phuse\'jwa\'</string>
   <string name="pref_dnsport_title">DNS Tor vxitx</string>
-  <string name="pref_dnsport_summary">Toryu’ naa vxitxkwetek DNSku ũsu’ (naate: 5400 khimeeçxa 0 fxĩçxhawa’)</string>
+  <string name="pref_dnsport_summary">Toryu’ naa vxitxkwetek DNSku ũsu’ (naate: 9053 khimeeçxa 0 fxĩçxhawa’)</string>
   <string name="pref_dnsport_dialog">DNS vxitxkwe\'s phuse\'jwa\'</string>
   <string name="pref_torrc_title">Idx phuse\'jnxi Torrc</string>
   <string name="pref_torrc_summary">MEH JIISA:  mki’ph Torrctewe’sx phuse’jnxi westxi</string>

@@ -154,7 +154,7 @@
     <string name="pref_start_boot_summary">Automatiškai paleisti „Orbot“ ir prijunkti „Tor“, kai įsijungs „Android“ įrenginys</string>
     <string name="backup_service">Atsarginio kopijavimo paslauga <i>(Įspėjimas: tai gali atskleisti jūsų paslaugos konfigūraciją kitoms programoms)</i></string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Įgalinti derinimo žurnalo išvestį (norėdami peržiūrėti turite naudoti adb arba aLogcat)</string>
-    <string name="pref_dnsport_summary">Prievadas, kuriuo „Tor“ siūlo savo DNS (numatytoji reikšmė: 5400 arba 0, jei norite išjungti)</string>
+    <string name="pref_dnsport_summary">Prievadas, kuriuo „Tor“ siūlo savo DNS (numatytoji reikšmė: 9053 arba 0, jei norite išjungti)</string>
     <string name="in_a_browser">Naršyklėje apsilankykite %s ir bakstelėkite Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="pref_connection_padding_summary">Visada įjungiamas ryšio užpildymas, kad būtų apsisaugota nuo kai kurių srauto analizės formų. Numatytoji reikšmė: auto</string>
     <string name="pref_transport_summary">Prievadas, per kurį „Tor“ siūlo savo skaidrųjį įgaliotąjį serverį (numatytoji reikšmė: 9040 arba 0, jei norite išjungti)</string>

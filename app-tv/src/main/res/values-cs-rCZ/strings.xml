@@ -96,7 +96,7 @@
   <string name="pref_transport_summary">Port, na kterém Tor nabízí transparentní proxy (default: 9040, 0 pro zakázání)</string>
   <string name="pref_transport_dialog">TransProxy nastavení portu</string>
   <string name="pref_dnsport_title">Tor DNS port</string>
-  <string name="pref_dnsport_summary">Port, na kterém Tor nabízí DNS (default: 5400, 0 pro zakázání)</string>
+  <string name="pref_dnsport_summary">Port, na kterém Tor nabízí DNS (default: 9053, 0 pro zakázání)</string>
   <string name="pref_dnsport_dialog">DNS nastavení portu</string>
   <string name="pref_torrc_title">Torrc vstastní konfigurace</string>
   <string name="pref_torrc_summary">POUZE PRO EXPERTY: zadejte přímo řádky nastavení torrc</string>

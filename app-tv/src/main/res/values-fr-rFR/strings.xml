@@ -97,7 +97,7 @@
   <string name="pref_transport_summary">Port sur lequel Tor offre son mandataire transparent (par défaut : 9040 ou 0 pour le désactiver)</string>
   <string name="pref_transport_dialog">Configuration du port TransProxy</string>
   <string name="pref_dnsport_title">Port DNS de Tor</string>
-  <string name="pref_dnsport_summary">Port sur lequel Tor offre son DNS (par défaut : 5400 ou 0 pour le désactiver)</string>
+  <string name="pref_dnsport_summary">Port sur lequel Tor offre son DNS (par défaut : 9053 ou 0 pour le désactiver)</string>
   <string name="pref_dnsport_dialog">Configuration du port DNS</string>
   <string name="pref_torrc_title">Configuration personnalisée de Torrc</string>
   <string name="pref_torrc_summary">EXPERTS SEULEMENT : saisissez les lignes de configuration de torrc direct</string>

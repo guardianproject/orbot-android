@@ -90,7 +90,7 @@
     <string name="pref_transport_summary">Acaltecoyan ic Tor quimaca Transparent Proxy (Achtopa:9040 nozo 0 ic quipopoloa)</string>
     <string name="pref_transport_dialog">Quitlayocoya iacaltecoyan TransProxy</string>
     <string name="pref_dnsport_title">Tzalantli DNS Tor</string>
-    <string name="pref_dnsport_summary">Acaltecoyan ic Tor quimaca DNS (Achtopa: 5400 nozo 0 ic quipopoloa)</string>
+    <string name="pref_dnsport_summary">Acaltecoyan ic Tor quimaca DNS (Achtopa: 9053 nozo 0 ic quipopoloa)</string>
     <string name="pref_dnsport_dialog">Mocentilia DNS tzalantli</string>
     <string name="pref_torrc_title">Quitlacoya zan Torrc</string>
     <string name="pref_torrc_summary">Zan tlamatinimeh: Xiquicalaqui in tequitl itlayocoyaliz</string>

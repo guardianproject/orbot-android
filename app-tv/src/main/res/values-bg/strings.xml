@@ -97,7 +97,7 @@
   <string name="pref_transport_summary">Порт, на който Tor предлага своето Transparent прокси прокси(подразбиране: 9040 или 0, за да забраниш)</string>
   <string name="pref_transport_dialog">TransProxy Port Config</string>
   <string name="pref_dnsport_title">Tor DNS Port</string>
-  <string name="pref_dnsport_summary">Порт, на който Tor предлага своят DNS (подразбиране: 5400 или 0, за да забраниш)</string>
+  <string name="pref_dnsport_summary">Порт, на който Tor предлага своят DNS (подразбиране: 9053 или 0, за да забраниш)</string>
   <string name="pref_dnsport_dialog">DNS Port Config</string>
   <string name="pref_torrc_title">Torrc Custom Config</string>
   <string name="pref_torrc_summary">САМО ЗА ЕКСПЕРТИ: въведи директно torrc конфигурационният код</string>

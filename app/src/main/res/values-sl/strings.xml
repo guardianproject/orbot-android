@@ -134,7 +134,7 @@
     <string name="pref_transport_summary">vrata, na katerih Tor ponuja svoj transparentni proxy (privzeto: 9040 ali 0 za onemogočanje)</string>
     <string name="pref_transport_dialog">Konfiguracija pristanišča TransProxy</string>
     <string name="pref_dnsport_title">Tor DNS Port</string>
-    <string name="pref_dnsport_summary">vrata, na katerih Tor ponuja svoj DNS (privzeto: 5400 ali 0 za onemogočanje)</string>
+    <string name="pref_dnsport_summary">vrata, na katerih Tor ponuja svoj DNS (privzeto: 9053 ali 0 za onemogočanje)</string>
     <string name="pref_dnsport_dialog">Konfiguracija pristanišča DNS</string>
     <string name="pref_torrc_title">Konfiguracija po meri Torrc</string>
     <string name="pref_torrc_summary">Samo strokovnjaki: vnesite neposredne konfiguracijske vrstice torrc</string>

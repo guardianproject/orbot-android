@@ -101,7 +101,7 @@
   <string name="pref_transport_summary">Toran Qhan Apnaqat Proxy apayañ thakh churañ munatapa (Nayra utt\'atatakix 9040, jiwt\'ayañatakix 0)</string>
   <string name="pref_transport_dialog">TransProxyn apayañ thakhinak mayjt\'ayaña</string>
   <string name="pref_dnsport_title">Tor DNS apayañ thakhi</string>
-  <string name="pref_dnsport_summary">Toran DNS apayañ thakhipa: (nayra utt\'atatakix 5400, jiwt\'ayañatakix 0)</string>
+  <string name="pref_dnsport_summary">Toran DNS apayañ thakhipa: (nayra utt\'atatakix 9053, jiwt\'ayañatakix 0)</string>
   <string name="pref_dnsport_dialog">DNS apayañ thakhinak mayjt\'ayaña</string>
   <string name="pref_torrc_title">Torrc mayjt\'ayaña</string>
   <string name="pref_torrc_summary">YATIRINAKATAKIKI: torrc apthapitan chiqak mayjt\'ayam</string>
