@@ -236,8 +236,8 @@
     <string name="smart_connect_subtitle">Orbot tries connecting to Tor through any way available: Direct, Snowflake, Bridge.</string>
     <string name="direct_connect">Direct Connection to Tor</string>
     <string name="direct_connect_subtitle">The best way to connect to Tor. Use if Tor is not blocked.</string>
-    <string name="snowflake">Snowflake (Original)</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake">Snowflake</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="snowflake_subtitle">Connects through Tor volunteers. Gets around some Tor blocking.</string>
     <string name="get_a_bridge">Bridge from Tor (Obfs4)</string>
     <string name="get_a_bridge_subtitle">Cloaks your traffic. Gets around some Tor blocking.</string>

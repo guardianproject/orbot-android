@@ -149,7 +149,7 @@
             </LinearLayout>
 
         </LinearLayout>
-<!--
+
         <LinearLayout
             android:id="@+id/snowflakeAmpContainer"
             android:layout_width="wrap_content"
@@ -180,7 +180,7 @@
                     android:visibility="gone" />
             </LinearLayout>
 
-        </LinearLayout>-->
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/requestContainer"
