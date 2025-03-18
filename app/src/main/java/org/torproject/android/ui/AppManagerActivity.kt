@@ -5,24 +5,29 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
+import android.view.inputmethod.InputMethodManager
 import android.widget.CheckBox
-import android.widget.GridView
 import android.widget.ImageView
-import android.widget.ListAdapter
 import android.widget.ProgressBar
 import android.widget.TextView
 
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -36,9 +41,6 @@ import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.vpn.TorifiedApp
 
-import java.util.Arrays
-import java.util.StringTokenizer
-
 class AppManagerActivity : AppCompatActivity(), View.OnClickListener, OrbotConstants {
     inner class TorifiedAppWrapper {
         var header: String? = null
@@ -48,10 +50,15 @@ class AppManagerActivity : AppCompatActivity(), View.OnClickListener, OrbotConst
 
     private var pMgr: PackageManager? = null
     private var mPrefs: SharedPreferences? = null
-    private var listAppsAll: GridView? = null
-    private var adapterAppsAll: ListAdapter? = null
+    private var recyclerView: RecyclerView? = null
+    private var adapterAppsAll: RecyclerView.Adapter<*>? = null
     private var progressBar: ProgressBar? = null
     private var alSuggested: List<String>? = null
+    private var searchBar: TextInputEditText? = null
+
+    private var allApps: List<TorifiedApp>? = null
+    private var suggestedApps: List<TorifiedApp>? = null
+    private var uiList: MutableList<TorifiedAppWrapper> = ArrayList()
 
     private val job = Job()
     private val scope = CoroutineScope(Dispatchers.Main + job)
@@ -61,17 +68,49 @@ class AppManagerActivity : AppCompatActivity(), View.OnClickListener, OrbotConst
         pMgr = packageManager
         this.setContentView(R.layout.layout_apps)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        listAppsAll = findViewById(R.id.applistview)
+        recyclerView = findViewById(R.id.applistview)
         progressBar = findViewById(R.id.progressBar)
+        searchBar = findViewById(R.id.searchBar)
 
         // Need a better way to manage this list
         alSuggested = OrbotConstants.VPN_SUGGESTED_APPS
+
+        searchBar?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                filterApps(s.toString())
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
+        val searchBarLayout = findViewById<TextInputLayout>(R.id.searchBarLayout)
+        searchBarLayout.setEndIconOnClickListener {
+            searchBar?.text?.clear()
+            searchBar?.clearFocus()
+            hideKeyboard()
+            reloadApps()
+        }
+
+        recyclerView?.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onResume() {
         super.onResume()
         mPrefs = Prefs.getSharedPrefs(applicationContext)
         reloadApps()
+    }
+
+    override fun onClick(v: View) {
+        val cbox = when (v) {
+            is CheckBox -> v
+            else -> v.tag as? CheckBox
+        }
+
+        cbox?.let {
+            val app = it.tag as TorifiedApp
+            app.isTorified = !app.isTorified
+            it.isChecked = app.isTorified
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -92,262 +131,226 @@ class AppManagerActivity : AppCompatActivity(), View.OnClickListener, OrbotConst
         return super.onOptionsItemSelected(item)
     }
 
-    private fun reloadApps() {
-        scope.launch {
-            progressBar?.visibility = View.VISIBLE
-            withContext(Dispatchers.IO) {
-                loadApps()
-            }
-            listAppsAll?.adapter = adapterAppsAll
-            progressBar?.visibility = View.GONE
-        }
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         job.cancel()
     }
 
-    private var allApps: List<TorifiedApp>? = null
-    private var suggestedApps: List<TorifiedApp>? = null
-    var uiList: MutableList<TorifiedAppWrapper> = ArrayList()
+    private fun hideKeyboard() {
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(searchBar?.windowToken, 0)
+    }
 
-    private fun loadApps() {
-        if (allApps == null) allApps = getApps(this@AppManagerActivity, mPrefs, null, alSuggested)
-        TorifiedApp.sortAppsForTorifiedAndAbc(allApps)
-        if (suggestedApps == null) suggestedApps =
-            getApps(this@AppManagerActivity, mPrefs, alSuggested, null)
-        val inflater = layoutInflater
-        // only show suggested apps, text, etc and other apps header if there are any suggested apps installed...
-        if (suggestedApps!!.isNotEmpty()) {
+    private fun calculateAppListHash(apps: List<TorifiedApp>?): Int {
+        return apps?.sumOf { it.packageName.hashCode() } ?: -1
+    }
+
+    private fun reloadApps() {
+        val sharedPreferences = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val cachedAppListHash = sharedPreferences.getString("cachedAppListHash", null)?.toIntOrNull()
+
+        scope.launch {
+            val currentAppListHash = calculateAppListHash(getApps(mPrefs, null, alSuggested))
+
+            if (currentAppListHash != cachedAppListHash) {
+                progressBar?.visibility = View.VISIBLE
+                loadAppsAsync(fromCache = false)
+                sharedPreferences.edit().putString("cachedAppListHash", currentAppListHash.toString()).apply()
+                progressBar?.visibility = View.GONE
+            } else {
+                loadAppsAsync(fromCache = true)
+            }
+            recyclerView?.adapter = adapterAppsAll
+        }
+    }
+
+    private suspend fun loadAppsAsync(fromCache: Boolean) {
+        withContext(Dispatchers.Default) {
+            if (fromCache) {
+                val sharedPreferences = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+                val allAppsJson = sharedPreferences.getString("allApps", null)
+                val suggestedAppsJson = sharedPreferences.getString("suggestedApps", null)
+                allApps = Gson().fromJson(allAppsJson, object : TypeToken<List<TorifiedApp>>() {}.type)
+                suggestedApps = Gson().fromJson(suggestedAppsJson, object : TypeToken<List<TorifiedApp>>() {}.type)
+            } else {
+                allApps = getApps(mPrefs, null, alSuggested)
+                TorifiedApp.sortAppsForTorifiedAndAbc(allApps)
+                suggestedApps = getApps(mPrefs, alSuggested, null)
+                saveAppsToPrefs(allApps, suggestedApps)
+            }
+
+            val tordApps = mPrefs?.getString(OrbotConstants.PREFS_KEY_TORIFIED, "")?.split("|")?.sorted() ?: emptyList()
+            allApps?.forEach { it.isTorified = tordApps.contains(it.packageName) }
+            suggestedApps?.forEach { it.isTorified = tordApps.contains(it.packageName) }
+
+            populateUiList()
+            adapterAppsAll = createAdapter(uiList)
+        }
+    }
+
+    private fun saveAppsToPrefs(allApps: List<TorifiedApp>?, suggestedApps: List<TorifiedApp>?) {
+        val sharedPreferences = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("allApps", Gson().toJson(allApps))
+        editor.putString("suggestedApps", Gson().toJson(suggestedApps))
+        editor.apply()
+    }
+
+    private fun populateUiList() {
+        uiList.clear()
+        if (!suggestedApps.isNullOrEmpty()) {
             val headerSuggested = TorifiedAppWrapper()
             headerSuggested.header = getString(R.string.apps_suggested_title)
             uiList.add(headerSuggested)
+
             val subheaderSuggested = TorifiedAppWrapper()
             subheaderSuggested.subheader = getString(R.string.app_suggested_subtitle)
             uiList.add(subheaderSuggested)
-            for (app in suggestedApps!!) {
-                val taw = TorifiedAppWrapper()
-                taw.app = app
-                uiList.add(taw)
-            }
+
+            suggestedApps?.mapTo(uiList) { TorifiedAppWrapper().apply { app = it } }
+
             val headerAllApps = TorifiedAppWrapper()
             headerAllApps.header = getString(R.string.apps_other_apps)
             uiList.add(headerAllApps)
         }
-        for (app in allApps!!) {
-            val taw = TorifiedAppWrapper()
-            taw.app = app
-            uiList.add(taw)
+        allApps?.mapTo(uiList) { TorifiedAppWrapper().apply { app = it } }
+    }
+
+    class AppViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val container: ViewGroup = view.findViewById(R.id.appContainer)
+        val icon: ImageView = view.findViewById(R.id.itemicon)
+        val box: CheckBox = view.findViewById(R.id.itemcheck)
+        val text: TextView = view.findViewById(R.id.itemtext)
+        val header: TextView = view.findViewById(R.id.tvHeader)
+        val subheader: TextView = view.findViewById(R.id.tvSubheader)
+    }
+
+    class AppAdapter(
+        private val list: List<TorifiedAppWrapper>,
+        private val pMgr: PackageManager,
+        private val onClickListener: View.OnClickListener
+    ) : RecyclerView.Adapter<AppViewHolder>() {
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppViewHolder {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_apps_item, parent, false)
+            return AppViewHolder(view)
         }
-        adapterAppsAll = object : ArrayAdapter<TorifiedAppWrapper?>(
-            this,
-            R.layout.layout_apps_item,
-            R.id.itemtext,
-            uiList as List<TorifiedAppWrapper?>
-        ) {
-            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-                var convertView = convertView
-                var entry: ListEntry? = null
-                if (convertView == null) convertView =
-                    inflater.inflate(R.layout.layout_apps_item, parent, false) else entry =
-                    convertView.tag as ListEntry
-                if (entry == null) {
-                    // Inflate a new view
-                    entry = ListEntry()
-                    entry.container = convertView!!.findViewById(R.id.appContainer)
-                    entry.icon = convertView.findViewById(R.id.itemicon)
-                    entry.box = convertView.findViewById(R.id.itemcheck)
-                    entry.text = convertView.findViewById(R.id.itemtext)
-                    entry.header = convertView.findViewById(R.id.tvHeader)
-                    entry.subheader = convertView.findViewById(R.id.tvSubheader)
-                    convertView.tag = entry
+
+        override fun onBindViewHolder(holder: AppViewHolder, position: Int) {
+            val taw = list[position]
+            if (taw.header != null) {
+                holder.header.text = taw.header
+                holder.header.visibility = View.VISIBLE
+                holder.subheader.visibility = View.GONE
+                holder.container.visibility = View.GONE
+            } else if (taw.subheader != null) {
+                holder.subheader.visibility = View.VISIBLE
+                holder.subheader.text = taw.subheader
+                holder.container.visibility = View.GONE
+                holder.header.visibility = View.GONE
+            } else {
+                val app = taw.app
+                holder.header.visibility = View.GONE
+                holder.subheader.visibility = View.GONE
+                holder.container.visibility = View.VISIBLE
+                try {
+                    holder.icon.setImageDrawable(pMgr.getApplicationIcon(app!!.packageName))
+                    holder.icon.tag = holder.box
+                    holder.icon.setOnClickListener(onClickListener)
+                } catch (e: Exception) {
+                    e.printStackTrace()
                 }
-                val taw = uiList[position]
-                if (taw.header != null) {
-                    entry.header!!.text = taw.header
-                    entry.header!!.visibility = View.VISIBLE
-                    entry.subheader!!.visibility = View.GONE
-                    entry.container!!.visibility = View.GONE
-                } else if (taw.subheader != null) {
-                    entry.subheader!!.visibility = View.VISIBLE
-                    entry.subheader!!.text = taw.subheader
-                    entry.container!!.visibility = View.GONE
-                    entry.header!!.visibility = View.GONE
-                } else {
-                    val app = taw.app
-                    entry.header!!.visibility = View.GONE
-                    entry.subheader!!.visibility = View.GONE
-                    entry.container!!.visibility = View.VISIBLE
-                    if (entry.icon != null) {
-                        try {
-                            entry.icon!!.setImageDrawable(pMgr!!.getApplicationIcon(app!!.packageName))
-                            entry.icon!!.tag = entry.box
-                            entry.icon!!.setOnClickListener(this@AppManagerActivity)
-                        } catch (e: Exception) {
-                            e.printStackTrace()
-                        }
-                    }
-                    if (entry.text != null) {
-                        entry.text!!.text = app!!.name
-                        entry.text!!.tag = entry.box
-                        entry.text!!.setOnClickListener(this@AppManagerActivity)
-                    }
-                    if (entry.box != null) {
-                        entry.box!!.isChecked = app!!.isTorified
-                        entry.box!!.tag = app
-                        entry.box!!.setOnClickListener(this@AppManagerActivity)
-                    }
-                }
-                convertView!!.onFocusChangeListener =
-                    OnFocusChangeListener { v: View, hasFocus: Boolean ->
-                        if (hasFocus) v.setBackgroundColor(
-                            ContextCompat.getColor(
-                                context, R.color.dark_purple
-                            )
-                        ) else {
-                            v.setBackgroundColor(
-                                ContextCompat.getColor(
-                                    context,
-                                    android.R.color.transparent
-                                )
-                            )
-                        }
-                    }
-                return convertView
+                holder.text.text = app!!.name
+                holder.text.tag = holder.box
+                holder.text.setOnClickListener(onClickListener)
+                holder.box.isChecked = app.isTorified
+                holder.box.tag = app
+                holder.box.setOnClickListener(onClickListener)
             }
         }
+
+        override fun getItemCount(): Int = list.size
+    }
+
+    private fun createAdapter(list: List<TorifiedAppWrapper>): RecyclerView.Adapter<AppViewHolder> {
+        return AppAdapter(list, pMgr!!, this)
+    }
+
+    private fun filterApps(query: String) {
+        val filteredList = uiList.filter {
+            it.app?.name?.contains(query, ignoreCase = true) == true
+        }
+        adapterAppsAll = createAdapter(filteredList)
+        recyclerView?.adapter = adapterAppsAll
     }
 
     private fun saveAppSettings() {
         val tordApps = StringBuilder()
         val response = Intent()
-        for (tApp in allApps!!) {
-            if (tApp.isTorified) {
-                tordApps.append(tApp.packageName)
-                tordApps.append("|")
+
+        val saveTorifiedApps: (List<TorifiedApp>?) -> Unit = { apps ->
+            apps?.filter { it.isTorified }?.forEach { tApp ->
+                tordApps.append(tApp.packageName).append("|")
                 response.putExtra(tApp.packageName, true)
             }
         }
-        for (tApp in suggestedApps!!) {
-            if (tApp.isTorified) {
-                tordApps.append(tApp.packageName)
-                tordApps.append("|")
-                response.putExtra(tApp.packageName, true)
-            }
+
+        saveTorifiedApps(allApps)
+        saveTorifiedApps(suggestedApps)
+
+        mPrefs?.edit()?.apply {
+            putString(OrbotConstants.PREFS_KEY_TORIFIED, tordApps.toString().trimEnd('|'))
+            apply()
         }
-        val edit = mPrefs!!.edit()
-        edit.putString(OrbotConstants.PREFS_KEY_TORIFIED, tordApps.toString())
-        edit.apply()
+
         setResult(RESULT_OK, response)
     }
 
-    override fun onClick(v: View) {
-        var cbox: CheckBox? = null
-        if (v is CheckBox) cbox = v else if (v.tag is CheckBox) cbox =
-            v.tag as CheckBox else if (v.tag is ListEntry) cbox = (v.tag as ListEntry).box
-        if (cbox != null) {
-            val app = cbox.tag as TorifiedApp
-            app.isTorified = !app.isTorified
-            cbox.isChecked = app.isTorified
-        }
-    }
+    private fun getApps(
+        prefs: SharedPreferences?,
+        filterInclude: List<String>?,
+        filterRemove: List<String>?
+    ): ArrayList<TorifiedApp> {
+        val tordApps = prefs?.getString(OrbotConstants.PREFS_KEY_TORIFIED, "")?.split("|")?.sorted() ?: emptyList()
+        val apps = ArrayList<TorifiedApp>()
 
-    private class ListEntry {
-        var box: CheckBox? = null
-        var text: TextView? = null // app name
-        var icon: ImageView? = null
-        var container: View? = null
-        var header: TextView? = null
-        var subheader: TextView? = null
-    }
+        pMgr?.getInstalledApplications(0)?.forEach { aInfo ->
+            if (!aInfo.enabled ||
+                OrbotConstants.BYPASS_VPN_PACKAGES.contains(aInfo.packageName) ||
+                BuildConfig.APPLICATION_ID == aInfo.packageName) return@forEach
 
-    companion object {
-        /**
-         * @return true if the app is "enabled", not Orbot, and not in
-         * [.BYPASS_VPN_PACKAGES]
-         */
-        private fun includeAppInUi(applicationInfo: ApplicationInfo): Boolean {
-            if (!applicationInfo.enabled) return false
-            return if (OrbotConstants.BYPASS_VPN_PACKAGES.contains(applicationInfo.packageName)) false else BuildConfig.APPLICATION_ID != applicationInfo.packageName
-        }
+            if (filterInclude != null && aInfo.packageName !in filterInclude) return@forEach
+            if (filterRemove != null && aInfo.packageName in filterRemove) return@forEach
 
-        fun getApps(
-            context: Context,
-            prefs: SharedPreferences?,
-            filterInclude: List<String>?,
-            filterRemove: List<String>?
-        ): ArrayList<TorifiedApp> {
-            val pMgr = context.packageManager
-            val tordAppString = prefs!!.getString(OrbotConstants.PREFS_KEY_TORIFIED, "")
-            val tordApps: Array<String?>
-            val st = StringTokenizer(tordAppString, "|")
-            tordApps = arrayOfNulls(st.countTokens())
-            var tordIdx = 0
-            while (st.hasMoreTokens()) {
-                tordApps[tordIdx++] = st.nextToken()
-            }
-            Arrays.sort(tordApps)
-            val lAppInfo = pMgr.getInstalledApplications(0)
-            val itAppInfo: Iterator<ApplicationInfo> = lAppInfo.iterator()
-            val apps = ArrayList<TorifiedApp>()
-            while (itAppInfo.hasNext()) {
-                val aInfo = itAppInfo.next()
-                if (!includeAppInUi(aInfo)) continue
-                if (filterInclude != null) {
-                    var wasFound = false
-                    for (filterId in filterInclude) if (filterId == aInfo.packageName) {
-                        wasFound = true
-                        break
-                    }
-                    if (!wasFound) continue
-                }
-                if (filterRemove != null) {
-                    var wasFound = false
-                    for (filterId in filterRemove) if (filterId == aInfo.packageName) {
-                        wasFound = true
-                        break
-                    }
-                    if (wasFound) continue
-                }
-                val app = TorifiedApp()
+            val app = TorifiedApp().apply {
                 try {
-                    val pInfo = pMgr.getPackageInfo(aInfo.packageName, PackageManager.GET_PERMISSIONS)
-                    if (pInfo?.requestedPermissions != null) {
-                        for (permInfo in pInfo.requestedPermissions) {
-                            if (permInfo == Manifest.permission.INTERNET) {
-                                app.setUsesInternet(true)
-                            }
-                        }
+                    pMgr?.getPackageInfo(aInfo.packageName, PackageManager.GET_PERMISSIONS)?.requestedPermissions?.let { perms ->
+                        if (Manifest.permission.INTERNET in perms) setUsesInternet(true)
                     }
                 } catch (e: Exception) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace()
                 }
 
                 try {
-                    app.name = pMgr.getApplicationLabel(aInfo).toString()
+                    name = pMgr?.getApplicationLabel(aInfo).toString()
                 } catch (e: Exception) {
-                    // No name, we only show apps with names
-                    continue
+                    return@forEach
                 }
 
-                if (!app.usesInternet()) continue else {
-                    apps.add(app)
-                }
+                if (!usesInternet()) return@forEach
 
-                app.isEnabled = aInfo.enabled
-                app.uid = aInfo.uid
-                app.username = pMgr.getNameForUid(app.uid)
-                app.procname = aInfo.processName
-                app.packageName = aInfo.packageName
-
-                // Check if this application is allowed
-                app.isTorified = Arrays.binarySearch(tordApps, app.packageName) >= 0
+                isEnabled = aInfo.enabled
+                uid = aInfo.uid
+                username = pMgr?.getNameForUid(uid)
+                procname = aInfo.processName
+                packageName = aInfo.packageName
+                isTorified = tordApps.contains(packageName)
             }
-            apps.sort()
 
-            return apps
+            apps.add(app)
         }
+
+        apps.sort()
+        return apps
     }
 }
