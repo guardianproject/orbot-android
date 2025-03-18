@@ -25,6 +25,7 @@ import net.freehaven.tor.control.TorControlCommands
 
 import org.torproject.android.core.NetworkUtils.isNetworkAvailable
 import org.torproject.android.core.putNotSystem
+import org.torproject.android.core.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Prefs
@@ -97,8 +98,8 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     }
 
     private fun stopTorAndVpn() {
-        sendIntentToService(OrbotConstants.ACTION_STOP)
-        sendIntentToService(OrbotConstants.ACTION_STOP_VPN)
+        requireContext().sendIntentToService(OrbotConstants.ACTION_STOP)
+        requireContext().sendIntentToService(OrbotConstants.ACTION_STOP_VPN)
     }
 
     private fun stopAnimations() {
@@ -107,7 +108,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     }
 
     private fun sendNewnymSignal() {
-        sendIntentToService(TorControlCommands.SIGNAL_NEWNYM)
+        requireContext().sendIntentToService(TorControlCommands.SIGNAL_NEWNYM)
         ivOnion.animate().alpha(0f).duration = 500
         Handler().postDelayed({ ivOnion.animate().alpha(1f).duration = 500 }, 600)
     }
@@ -133,9 +134,9 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
             }
             // todo we need to add a power user mode for users to start the VPN without tor
             Prefs.putUseVpn(!Prefs.isPowerUserMode())
-            sendIntentToService(OrbotConstants.ACTION_START)
+            requireContext().sendIntentToService(OrbotConstants.ACTION_START)
 
-            if (!Prefs.isPowerUserMode()) sendIntentToService(OrbotConstants.ACTION_START_VPN)
+            if (!Prefs.isPowerUserMode()) requireContext().sendIntentToService(OrbotConstants.ACTION_START_VPN)
         }
     }
 
@@ -161,7 +162,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
         } else if (requestCode == OrbotActivity.REQUEST_CODE_SETTINGS && resultCode == AppCompatActivity.RESULT_OK) {
             // todo respond to language change extra data here...
         } else if (requestCode == OrbotActivity.REQUEST_VPN_APP_SELECT && resultCode == AppCompatActivity.RESULT_OK) {
-            sendIntentToService(OrbotConstants.ACTION_RESTART_VPN) // is this enough todo?
+            requireContext().sendIntentToService(OrbotConstants.ACTION_RESTART_VPN) // is this enough todo?
             refreshMenuList(requireContext())
         }
     }
@@ -324,7 +325,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
         //tor format expects "{" for country code
         Prefs.setExitNodes("{$exitNode}")
 
-        sendIntentToService(
+        requireContext().sendIntentToService(
             Intent(
                 requireActivity(),
                 OrbotService::class.java
@@ -332,16 +333,5 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
         )
 
         refreshMenuList(requireContext())
-    }
-
-
-    /** Sends intent to service, first modifying it to indicate it is not from the system */
-    private fun sendIntentToService(intent: Intent) =
-        ContextCompat.startForegroundService(requireActivity(), intent.putNotSystem())
-
-    private fun sendIntentToService(action: String) {
-        sendIntentToService(Intent(requireActivity(), OrbotService::class.java).apply {
-            this.action = action
-        })
     }
 }

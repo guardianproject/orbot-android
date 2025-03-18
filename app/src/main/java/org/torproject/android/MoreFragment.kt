@@ -9,11 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
+
 import androidx.fragment.app.Fragment
+
 import org.torproject.android.OrbotActivity.Companion.REQUEST_CODE_SETTINGS
 import org.torproject.android.OrbotActivity.Companion.REQUEST_VPN_APP_SELECT
-import org.torproject.android.core.putNotSystem
+import org.torproject.android.core.sendIntentToService
 import org.torproject.android.core.ui.SettingsActivity
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
@@ -115,18 +116,10 @@ class MoreFragment : Fragment() {
             requireActivity(), OrbotService::class.java
         ).setAction(OrbotConstants.ACTION_STOP)
             .putExtra(OrbotConstants.ACTION_STOP_FOREGROUND_TASK, true)
-        sendIntentToService(OrbotConstants.ACTION_STOP_VPN)
-        sendIntentToService(killIntent)
+        requireContext().sendIntentToService(OrbotConstants.ACTION_STOP_VPN)
+        requireContext().sendIntentToService(killIntent)
         requireActivity().finish()
     }
-
-    private fun sendIntentToService(intent: Intent) =
-        ContextCompat.startForegroundService(requireActivity(), intent.putNotSystem())
-
-    private fun sendIntentToService(action: String) =
-        sendIntentToService(Intent(requireActivity(), OrbotService::class.java).apply {
-            this.action = action
-        })
 
     private fun showLog() {
         (activity as OrbotActivity).showLog()

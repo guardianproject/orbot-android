@@ -1,18 +1,17 @@
 package org.torproject.android
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+
 import androidx.appcompat.widget.SwitchCompat
-import androidx.core.content.ContextCompat
-import org.torproject.android.core.putNotSystem
+import androidx.fragment.app.Fragment
+
+import org.torproject.android.core.sendIntentToService
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Prefs
 
 class KindnessFragment : Fragment() {
@@ -41,7 +40,7 @@ class KindnessFragment : Fragment() {
         swVolunteerMode.setOnCheckedChangeListener { _, isChecked ->
             Prefs.setBeSnowflakeProxy(isChecked)
             showPanelStatus(isChecked)
-            sendIntentToService(OrbotConstants.CMD_SNOWFLAKE_PROXY)
+            requireContext().sendIntentToService(OrbotConstants.CMD_SNOWFLAKE_PROXY)
         }
 
         view.findViewById<TextView>(R.id.swVolunteerAdjust).setOnClickListener {
@@ -54,13 +53,6 @@ class KindnessFragment : Fragment() {
 
         showPanelStatus(Prefs.beSnowflakeProxy())
         return view
-    }
-
-    private fun sendIntentToService(action: String) {
-        val intent = Intent(requireContext(), OrbotService::class.java)
-            .setAction(action)
-            .putNotSystem()
-        ContextCompat.startForegroundService(requireContext(), intent)
     }
 
     private fun showPanelStatus(isActivated: Boolean) {
