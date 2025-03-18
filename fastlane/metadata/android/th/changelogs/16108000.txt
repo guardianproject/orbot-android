@@ -1,4 +1,4 @@
-* การแก้ไขที่สำคัญสำหรับโหมด VPN
-* bridgeเริ่มต้นใหม่
-* อัปเดตเป็น tor 0.4.0.4
-* รองรับโหมด 64 บิตและ Android Q
+* Major fixes for VPN mode
+* New default bridges
+* Updated to tor 0.4.0.4
+* Support for 64-bit mode and Android Q
