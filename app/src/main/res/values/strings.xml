@@ -188,7 +188,7 @@
     <string name="request_bridges_from_torproject">Request Bridges from torproject.org</string>
     <string name="custom_bridges">Custom Bridges</string>
     <string name="configure_custom_bridges">Configure Custom Bridges</string>
-    <!-- CustomBridgesActivity -->
+    <!-- CustomBridgesFragment -->
     <string name="use_custom_bridges">Use Custom Bridges</string>
     <string name="in_a_browser">In a browser, visit %s and tap "Get Bridges" &gt; "Just Give Me Bridges!"</string>
     <string name="paste_bridges">Paste Bridges</string>

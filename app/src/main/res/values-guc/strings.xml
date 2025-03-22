@@ -178,7 +178,7 @@
   <string name="request_bridges_from_torproject">püchunta sülatia sünainje torproject.org</string>
   <string name="custom_bridges">sülatia wanewaii</string>
   <string name="configure_custom_bridges">sükümajia sülatia wanewaii</string>
-  <!--CustomBridgesActivity-->
+  <!--CustomBridgesFragment-->
   <string name="use_custom_bridges">paapa tü sülatiakat wanewai</string>
   <string name="in_a_browser">sünain wane navegador , pünala%sy toque \"einjatüin sülatia\"&gt;\"¡shiyane papüinjatka sülatia!\"</string>
   <string name="paste_bridges">pü´ntirera sülatia</string>

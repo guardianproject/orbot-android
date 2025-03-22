@@ -181,7 +181,7 @@ Trek tamaramikwane  asha mar</string>
   <string name="request_bridges_from_torproject">torproject.org piuntsik teilkan miamik</string>
   <string name="custom_bridges">Neteelɵ Piuntsikmera </string>
   <string name="configure_custom_bridges">Na isuikmei piuntsik teiklan tamaramik</string>
-  <!--CustomBridgesActivity-->
+  <!--CustomBridgesFragment-->
   <string name="use_custom_bridges">Piuntsikmera teiklan naaship tamara pɵnsramik</string>
   <string name="in_a_browser">Kan wampirishipiku, \"piuntsikmera\" chipiku kepintrɵ %s&gt; \"piuntsikmerantɵ trantra!\"</string>
   <string name="paste_bridges">Pasta piuntsik teiklɵ</string>

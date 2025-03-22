@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_purple"
-    tools:context=".ui.onboarding.CustomBridgesActivity">
+    tools:context=".ui.onboarding.CustomBridgesFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

@@ -180,7 +180,7 @@ Notificaciones ampliadas</string>
   <string name="request_bridges_from_torproject">Wehtxi’ ayte mpẽhy torproject.org </string>
   <string name="custom_bridges">Idx weh.</string>
   <string name="configure_custom_bridges">Idx wehtx Mphuse\'j</string>
-  <!--CustomBridgesActivity-->
+  <!--CustomBridgesFragment-->
   <string name="use_custom_bridges">Idx wehtx miikseelpi’j </string>
   <string name="in_a_browser">Internette pakwenxite, na’s %s mtheg jĩiçxa ayte miikxtheth \"weh muy\" &gt; \"¡wehçxaatx mah!\"</string>
   <string name="paste_bridges">Wehtx miikne’ta’j</string>

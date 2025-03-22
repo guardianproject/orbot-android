@@ -181,7 +181,7 @@ atl oquitlapatic</string>
     <string name="request_bridges_from_torproject">Ipan torprojet.org xictlani in cuauhpanco</string>
     <string name="custom_bridges">Neuhyantica cuauhpanco</string>
     <string name="configure_custom_bridges">Quitlayocoya neuhyantica cuauhpanco</string>
-    <!--CustomBridgesActivity-->
+    <!--CustomBridgesFragment-->
     <string name="use_custom_bridges">Xicchihua neuhyantica cuauhpanco</string>
     <string name="in_a_browser">Ipan ce panoliztli, quitetlapalo %s ihuan xicmahpilhuia \"Quipia cuauhpanco\" &gt; \"¡ Zan xinechnamaca cuauhpanco!\" </string>
     <string name="paste_bridges">Quitzaloa in cuauhpanco</string>

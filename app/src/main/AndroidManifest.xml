@@ -80,10 +80,6 @@
                 android:value=".OrbotActivity"/>
         </activity>
 
-        <activity
-            android:name=".ui.onboarding.CustomBridgesActivity"
-            android:label="@string/use_custom_bridges" />
-
         <provider
             android:name=".ui.v3onionservice.OnionServiceContentProvider"
             android:authorities="${applicationId}.ui.v3onionservice"
