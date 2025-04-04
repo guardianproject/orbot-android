@@ -18,6 +18,7 @@ androidx-work = "2.10.0"
 apl-appintro = "v4.2.3"
 espresso-core = "3.6.1"
 fastlane-screengrab = "2.1.1"
+gson = "2.12.1"
 guardian-jtorctl = "0.4.5.7"
 junit = "4.13.2"
 junit-version = "1.2.1"
@@ -56,6 +57,7 @@ androidx-work-kotlin = { group = "androidx.work", name = "work-runtime-ktx", ver
 apl-appintro = { group = "com.github.apl-devs", name = "appintro", version.ref = "apl-appintro" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 fastlane-screengrab = { group = "tools.fastlane", name = "screengrab", version.ref = "fastlane-screengrab" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 guardian-jtorctl = { group = "info.guardianproject", name = "jtorctl", version.ref = "guardian-jtorctl" }
 junit = { module = "junit:junit", version.ref = "junit" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
