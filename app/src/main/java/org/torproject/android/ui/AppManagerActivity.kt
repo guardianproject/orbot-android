@@ -32,7 +32,9 @@ import kotlinx.coroutines.withContext
 
 import org.torproject.android.BuildConfig
 import org.torproject.android.R
+import org.torproject.android.core.putNotSystem
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.vpn.TorifiedApp
 
@@ -82,10 +84,7 @@ class AppManagerActivity : AppCompatActivity(), View.OnClickListener, OrbotConst
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menu_save_apps) {
-            saveAppSettings()
-            finish()
-        } else if (item.itemId == android.R.id.home) {
+        if (item.itemId == android.R.id.home) {
             finish()
             return true
         }
@@ -219,6 +218,16 @@ class AppManagerActivity : AppCompatActivity(), View.OnClickListener, OrbotConst
         }
     }
 
+    /** Sends intent to service, first modifying it to indicate it is not from the system */
+    private fun sendIntentToService(intent: Intent) =
+        ContextCompat.startForegroundService(this, intent.putNotSystem())
+
+    private fun sendIntentToService(action: String) {
+        sendIntentToService(Intent(this, OrbotService::class.java).apply {
+            this.action = action
+        })
+    }
+
     private fun saveAppSettings() {
         val tordApps = StringBuilder()
         val response = Intent()
@@ -240,6 +249,8 @@ class AppManagerActivity : AppCompatActivity(), View.OnClickListener, OrbotConst
         edit.putString(OrbotConstants.PREFS_KEY_TORIFIED, tordApps.toString())
         edit.apply()
         setResult(RESULT_OK, response)
+
+        sendIntentToService(OrbotConstants.ACTION_RESTART_VPN) // is this enough todo?
     }
 
     override fun onClick(v: View) {
@@ -250,6 +261,7 @@ class AppManagerActivity : AppCompatActivity(), View.OnClickListener, OrbotConst
             val app = cbox.tag as TorifiedApp
             app.isTorified = !app.isTorified
             cbox.isChecked = app.isTorified
+            saveAppSettings()
         }
     }
 
