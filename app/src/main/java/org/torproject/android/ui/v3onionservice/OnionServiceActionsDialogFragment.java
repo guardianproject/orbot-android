@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Html;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.StyleSpan;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,10 +33,14 @@ public class OnionServiceActionsDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Bundle arguments = getArguments();
+
+        SpannableString backupServiceText = new SpannableString(getString(R.string.backup_service));
+        backupServiceText.setSpan(new StyleSpan(Typeface.BOLD), 0, backupServiceText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
         AlertDialog ad = new AlertDialog.Builder(requireActivity())
                 .setItems(new CharSequence[]{
                         getString(R.string.copy_address_to_clipboard),
-                        Html.fromHtml(getString(R.string.backup_service), Html.FROM_HTML_MODE_LEGACY),
+                        backupServiceText,
                         getString(R.string.delete_service)}, null)
                 .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.dismiss())
                 .setTitle(R.string.hidden_services)

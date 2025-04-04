@@ -18,6 +18,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -25,8 +26,10 @@ import android.net.VpnService;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.text.Html;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -406,11 +409,10 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
     }
 
     private void showAbout() {
-
         LayoutInflater li = LayoutInflater.from(this);
         View view = li.inflate(R.layout.layout_about, null);
 
-        String version = "";
+        String version;
 
         try {
             version = getPackageManager().getPackageInfo(getPackageName(), 0).versionName + " (Tor " + OrbotService.BINARY_TOR_VERSION + ")";
@@ -425,9 +427,24 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
 
         try {
             String aboutText = DiskUtils.readFileFromAssets("LICENSE", this);
-            aboutText = aboutText.replace("\n", "<br/>");
-            aboutOther.setText(Html.fromHtml(aboutText, Html.FROM_HTML_MODE_LEGACY));
+
+            aboutText = aboutText.replace("\n\n", "\n");
+
+            SpannableStringBuilder spannableAboutText = new SpannableStringBuilder(aboutText);
+
+            int firstNewLine = aboutText.indexOf("\n");
+            if (firstNewLine > 0) {
+                spannableAboutText.setSpan(
+                        new StyleSpan(Typeface.BOLD),
+                        0,
+                        firstNewLine,
+                        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                );
+            }
+
+            aboutOther.setText(spannableAboutText);
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
         new AlertDialog.Builder(this)

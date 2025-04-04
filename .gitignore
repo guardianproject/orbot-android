@@ -39,3 +39,6 @@ OrbotLib/OrbotIPtProxy
 # Fastlane
 /fastlane/report.xml
 /fastlane/README.md
+
+# License
+app/src/main/assets/LICENSE
