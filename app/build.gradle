@@ -1,5 +1,7 @@
+plugins {
+    alias(libs.plugins.kotlin.android)
+}
 apply from: "../commons.gradle"
-apply plugin: 'kotlin-android'
 
 // Gets the version name from the latest Git tag, stripping the leading v off
 def getVersionName = { ->

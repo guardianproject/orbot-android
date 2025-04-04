@@ -1,14 +1,15 @@
 [versions]
+agp = "8.5.1"
 android-material = "1.12.0"
 android-shell = "1.0.0"
 android-snowfall = "1.2.1"
 android-volley = "1.2.1"
 androidx-appcompat = "1.7.0"
-androidx-constraint = "2.2.0"
-androidx-coordinator = "1.2.0"
+androidx-constraint = "2.2.1"
+androidx-coordinator = "1.3.0"
 androidx-core = "1.15.0"
-androidx-leanback = "1.2.0-alpha04"
-androidx-leanback-paging = "1.1.0-alpha11"
+androidx-leanback = "1.2.0-beta01"
+androidx-leanback-paging = "1.1.0-beta01"
 androidx-leanback-tab = "1.1.0-beta01"
 androidx-localbroadcast = "1.1.0"
 androidx-palette = "1.0.0"
@@ -21,13 +22,13 @@ fastlane-screengrab = "2.1.1"
 guardian-jtorctl = "0.4.5.7"
 junit = "4.13.2"
 junit-version = "1.2.1"
-navigation-fragment-ktx = "2.8.5"
+navigation-fragment-ktx = "2.8.9"
 retrofit = "2.11.0"
 rootbeer-lib = "0.1.1"
 tor-android = "0.4.8.13.2"
 pcap-core = "1.8.2"
 pcap-factory = "1.8.2"
-kotlin = "2.1.0"
+kotlin = "2.1.20"
 
 [libraries]
 android-material = { group = "com.google.android.material", name = "material", version.ref = "android-material" }
@@ -63,5 +64,8 @@ rootbeer-lib = { module = "com.scottyab:rootbeer-lib", version.ref = "rootbeer-l
 tor-android = { group = "info.guardianproject", name = "tor-android", version.ref = "tor-android" }
 pcap-core = { group = "org.pcap4j", name = "pcap4j-core", version.ref = "pcap-core" }
 pcap-factory = { group = "org.pcap4j", name = "pcap4j-packetfactory-static", version.ref = "pcap-factory" }
+
 [plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

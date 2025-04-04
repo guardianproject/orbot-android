@@ -1,7 +1,7 @@
 plugins {
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
 }
-apply plugin: "com.android.library"
 
 android {
     namespace = "org.torproject.android.service"
