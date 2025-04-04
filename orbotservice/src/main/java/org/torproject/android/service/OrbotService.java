@@ -750,8 +750,8 @@ public class OrbotService extends VpnService {
             extraLines.append("ReducedCircuitPadding 1").append('\n');
         }
 
-        var transPort = prefs.getString("pref_transport", TOR_TRANSPROXY_PORT_DEFAULT + "");
-        var dnsPort = prefs.getString("pref_dnsport", TOR_DNS_PORT_DEFAULT + "");
+        var transPort = prefs.getString(PREF_TRANSPORT, String.valueOf(TOR_TRANSPROXY_PORT_DEFAULT));
+        var dnsPort = prefs.getString(PREF_DNSPORT, String.valueOf(TOR_DNS_PORT_DEFAULT));
 
         extraLines.append("TransPort ").append(checkPortOrAuto(transPort)).append(isolate).append('\n');
         extraLines.append("DNSPort ").append(checkPortOrAuto(dnsPort)).append(isolate).append('\n');
@@ -797,7 +797,7 @@ public class OrbotService extends VpnService {
                 if (isPortUsed) //the specified port is not available, so let Tor find one instead
                     port++;
             }
-            return port + "";
+            return String.valueOf(port);
         }
 
         return portString;

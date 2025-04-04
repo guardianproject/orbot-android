@@ -86,7 +86,7 @@
     <string name="pref_transport_summary">Ports, uz kura Tor piedāvā savu Transparent starpniekserveri (noklusējumvērtība: 9040 vai 0 lai atspējotu)</string>
     <string name="pref_transport_dialog">TransProxy Port Config</string>
     <string name="pref_dnsport_title">Tor DNS Ports</string>
-    <string name="pref_dnsport_summary">Ports, uz kura Tor piedāvā savu DNS (noklusējumvērtība: 5400 vai 0 lai atspējotu)</string>
+    <string name="pref_dnsport_summary">Ports, uz kura Tor piedāvā savu DNS (noklusējumvērtība: 9053 vai 0 lai atspējotu)</string>
     <string name="pref_dnsport_dialog">DNS Port konfigurēšana</string>
     <string name="pref_torrc_title">Torrc pielāgota konfigurēšana</string>
     <string name="pref_torrc_summary">VIENĪGI EKSPERTIEM: tieši ievadīt torrc konfigurēšanas rindas</string>

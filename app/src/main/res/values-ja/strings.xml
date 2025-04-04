@@ -88,7 +88,7 @@
     <string name="pref_transport_summary">Tor が透過プロキシを提供するポート (初期設定: 9040、0にすると無効)</string>
     <string name="pref_transport_dialog">透過プロキシポート設定</string>
     <string name="pref_dnsport_title">Tor DNS ポート</string>
-    <string name="pref_dnsport_summary">Tor が DNS を提供するポート (初期設定: 5400、0にすると無効)</string>
+    <string name="pref_dnsport_summary">Tor が DNS を提供するポート (初期設定: 9053、0にすると無効)</string>
     <string name="pref_dnsport_dialog">DNS ポート設定</string>
     <string name="pref_torrc_title">Torrc カスタム設定</string>
     <string name="pref_torrc_summary">上級者向け: 直接 torrc 設定行を入力します</string>

@@ -13,9 +13,10 @@ object OrbotConstants {
 
     const val PREF_TOR_SHARED_PREFS = "org.torproject.android_preferences"
 
-    const val PREF_SOCKS = "pref_socks"
-
+    const val PREF_DNSPORT = "pref_dnsport"
     const val PREF_HTTP = "pref_http"
+    const val PREF_SOCKS = "pref_socks"
+    const val PREF_TRANSPORT = "pref_transport"
 
     const val PREF_ISOLATE_DEST = "pref_isolate_dest"
     const val PREF_ISOLATE_PORT = "pref_isolate_port"
@@ -29,11 +30,9 @@ object OrbotConstants {
     const val PREF_PREFER_IPV6 = "pref_prefer_ipv6"
     const val PREF_DISABLE_IPV4 = "pref_disable_ipv4"
 
-
     const val APP_TOR_KEY = "_app_tor"
     const val APP_DATA_KEY = "_app_data"
     const val APP_WIFI_KEY = "_app_wifi"
-
 
     const val DIRECTORY_TOR_DATA = "tordata"
 
@@ -41,12 +40,11 @@ object OrbotConstants {
     const val GEOIP_ASSET_KEY = "geoip"
     const val GEOIP6_ASSET_KEY = "geoip6"
 
-    const val TOR_TRANSPROXY_PORT_DEFAULT = 9040
-
-    const val TOR_DNS_PORT_DEFAULT = 5400
-
-    const val HTTP_PROXY_PORT_DEFAULT = "8118" // like Privoxy!
+    const val HTTP_PROXY_PORT_DEFAULT = "8118"
     const val SOCKS_PROXY_PORT_DEFAULT = "9050"
+
+    const val TOR_DNS_PORT_DEFAULT = 9053
+    const val TOR_TRANSPROXY_PORT_DEFAULT = 9040
 
     // control port
     const val LOG_NOTICE_HEADER = "NOTICE: "

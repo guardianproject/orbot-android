@@ -103,7 +103,7 @@ direcciones (o rangos). No prevalecen sobre las configuraciones de exclusión de
   <string name="pref_transport_summary">Puerto sobre el que Tor ofrece su Proxy Transparente (por defecto: 9040 o 0 para deshabilitarlo)</string>
   <string name="pref_transport_dialog">Configuración del puerto de TransProxy</string>
   <string name="pref_dnsport_title">Puerto DNS de Tor</string>
-  <string name="pref_dnsport_summary">Puerto sobre el que Tor ofrece su DNS (por defecto: 5400 o 0 para deshabilitarlo)</string>
+  <string name="pref_dnsport_summary">Puerto sobre el que Tor ofrece su DNS (por defecto: 9053 o 0 para deshabilitarlo)</string>
   <string name="pref_dnsport_dialog">Configuración del puerto DNS</string>
   <string name="pref_torrc_title">Configuración personalizada de torrc</string>
   <string name="pref_torrc_summary">SÓLO EXPERTOS: Introduzca directamente las líneas de configuración en el fichero torrc</string>

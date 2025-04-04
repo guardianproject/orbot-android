@@ -102,7 +102,7 @@
   <string name="pref_transport_summary">Θύρα που προσφέρει ο Tor στον Transparent Proxy του (προεπιλογή: 9040 ή 0 για απενεργοποίηση)</string>
   <string name="pref_transport_dialog">Διάρθρωση Θύρας TransProxy</string>
   <string name="pref_dnsport_title">Tor Θύρα DNS </string>
-  <string name="pref_dnsport_summary">Θύρα που προσφέρει ο Tor στο DNS του (προεπιλογή: 5400 ή 0 για απενεργοποίηση)</string>
+  <string name="pref_dnsport_summary">Θύρα που προσφέρει ο Tor στο DNS του (προεπιλογή: 9053 ή 0 για απενεργοποίηση)</string>
   <string name="pref_dnsport_dialog">Διάρθρωση Θύρας DNS</string>
   <string name="pref_torrc_title">Torrc Custom Config</string>
   <string name="pref_torrc_summary">ΜΟΝΟ ΓΙΑ ΕΙΔΙΚΟΥΣ: πληκτρολογήστε απευθείας torrc config γραμμές</string>

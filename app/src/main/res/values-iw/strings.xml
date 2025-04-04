@@ -97,7 +97,7 @@
     <string name="pref_open_proxy_on_all_interfaces_title">פתיחת מתווך על כל המנשקים</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">לאפשר לעמיתים ברשת האלחוטית, מכשירים קשורים ולכל מי שיכול להתחבר ל־IP שלך לגשת לתור</string>
     <string name="pref_socks_summary">פתחה אשר תור מציע את מתווך ה־SOCKS שלו עליה (ברירת מחדל: 9050 או 0 כדי להשבית)</string>
-    <string name="pref_dnsport_summary">פתחה שדרכה יוגש ה־DNS של תור (ברירת מחדל: 5400 או 0 כדי להשבית)</string>
+    <string name="pref_dnsport_summary">פתחה שדרכה יוגש ה־DNS של תור (ברירת מחדל: 9053 או 0 כדי להשבית)</string>
     <string name="pref_dnsport_dialog">תצורת פתחת DNS</string>
     <string name="pref_torrc_title">תצורה מותאמת אישית של Torrc</string>
     <string name="pref_torrc_summary">מומחים בלבד: הכנסת שורות תצורת torrc ישירות</string>

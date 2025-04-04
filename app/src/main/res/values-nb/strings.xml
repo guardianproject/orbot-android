@@ -86,7 +86,7 @@
     <string name="pref_transport_summary">Porten Tor tilbyr transparent mellomtjening på (forvalg: 9040 eller 0 for å skru av)</string>
     <string name="pref_transport_dialog">Portoppsett for TransProxy</string>
     <string name="pref_dnsport_title">Tor DNS-port</string>
-    <string name="pref_dnsport_summary">Porten Tor tilbyr sin DNS-tjeneste på (forvalg: 5400 eller 0 for å skru av)</string>
+    <string name="pref_dnsport_summary">Porten Tor tilbyr sin DNS-tjeneste på (forvalg: 9053 eller 0 for å skru av)</string>
     <string name="pref_dnsport_dialog">DNS-portoppsett</string>
     <string name="pref_torrc_title">Egendefinert torrc-oppsett</string>
     <string name="pref_torrc_summary">BARE FOR EKSPERTER: skriv inn direkte torrc-oppsettslinjer</string>

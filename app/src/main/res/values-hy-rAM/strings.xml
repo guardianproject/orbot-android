@@ -148,7 +148,7 @@
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_http_title">Tor HTTP</string>
     <string name="pref_dnsport_title">Tor DNS մատույց</string>
-    <string name="pref_dnsport_summary">Մատույցը, որով Tor-ն առաջարկում է իր «DNS»-ը (լռելայնը՝ 5400 կամ 0՝ կարողազրկման համար)</string>
+    <string name="pref_dnsport_summary">Մատույցը, որով Tor-ն առաջարկում է իր «DNS»-ը (լռելայնը՝ 9053 կամ 0՝ կարողազրկման համար)</string>
     <string name="local_port">Տեղական մատույց</string>
     <string name="please_restart_Orbot_to_enable_the_changes">Փոփոխությունների կատարման համար խնդրում ենք վերսկսել «Orbot»-ը</string>
     <string name="pref_prefer_ipv6">Նախընտել IPv6 միացումները</string>

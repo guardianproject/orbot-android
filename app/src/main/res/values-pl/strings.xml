@@ -86,7 +86,7 @@
     <string name="pref_transport_summary">Port, na którym Tor oferuje swoje przezroczyste proxy (domyślnie: 9040 lub 0, aby wyłączyć)</string>
     <string name="pref_transport_dialog">Konfiguracja portu przezroczystego proxy</string>
     <string name="pref_dnsport_title">Port DNS Tor</string>
-    <string name="pref_dnsport_summary">Port na którym Tor oferuje swój DNS (domyślnie: 5400 lub 0, aby wyłączyć)</string>
+    <string name="pref_dnsport_summary">Port na którym Tor oferuje swój DNS (domyślnie: 9053 lub 0, aby wyłączyć)</string>
     <string name="pref_dnsport_dialog">Konfiguracja portu DNS</string>
     <string name="pref_torrc_title">Konfiguracja Torrc klienta</string>
     <string name="pref_torrc_summary">TYLKO DLA EKSPERTÓW: wpisz linijki konfiguracyjne torrc</string>

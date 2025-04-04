@@ -88,7 +88,7 @@
     <string name="pref_transport_summary">Tor-ek bere Proxy gardena eskaintzeko ataka (Lehenetsia: 9040 edo 0 desgaitzeko)</string>
     <string name="pref_transport_dialog">Proxy gardenaren atakaren konfigurazioa</string>
     <string name="pref_dnsport_title">Tor DNS ataka</string>
-    <string name="pref_dnsport_summary">Tor-ek bere DNS-a eskaintzeko ataka (Lehenetsia: 5400 edo 0 desgaitzeko)</string>
+    <string name="pref_dnsport_summary">Tor-ek bere DNS-a eskaintzeko ataka (Lehenetsia: 9053 edo 0 desgaitzeko)</string>
     <string name="pref_dnsport_dialog">DNS atakaren konfigurazioa</string>
     <string name="pref_torrc_title">Torrc konfigurazio pertsonala</string>
     <string name="pref_torrc_summary">ADITUAK BESTERIK EZ: sartu torrc konfigurazio lerroak</string>

@@ -103,7 +103,7 @@
   <string name="pref_transport_summary">पोर्ट उस टो पर अपने पारदर्शी प्रॉक्सी प्रदान करता है (डिफ़ॉल्ट: 9040 या अक्षम करने के लिए 0)</string>
   <string name="pref_transport_dialog">ट्रांसप्रोक्सी पोर्ट कॉन्फ़िग</string>
   <string name="pref_dnsport_title">टोरी डीएनएस पोर्ट</string>
-  <string name="pref_dnsport_summary">पोर्ट उस टोर पर अपने डीएनएस प्रदान करता है (डिफ़ॉल्ट: 5400 या अक्षम करने के लिए 0)</string>
+  <string name="pref_dnsport_summary">पोर्ट उस टोर पर अपने डीएनएस प्रदान करता है (डिफ़ॉल्ट: 9053 या अक्षम करने के लिए 0)</string>
   <string name="pref_dnsport_dialog">डीनस पोर्ट कॉन्फ़िग</string>
   <string name="pref_torrc_title">टोररक कस्टम कॉन्फ़िग</string>
   <string name="pref_torrc_summary">केवल विशेषज्ञ: प्रत्यक्ष टॉर्च कॉन्फ़िग लाइनें दर्ज करें</string>

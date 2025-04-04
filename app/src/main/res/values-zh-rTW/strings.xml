@@ -88,7 +88,7 @@
     <string name="pref_transport_summary">Tor 提供通透式代理的連接埠 (預設：9040，若設為 0 則關閉)</string>
     <string name="pref_transport_dialog">設定通透式代理連接埠</string>
     <string name="pref_dnsport_title">Tor DNS 埠</string>
-    <string name="pref_dnsport_summary">Tor 提供域名解析服務（DNS）的連接埠 (預設：5400，若設為0則關閉)</string>
+    <string name="pref_dnsport_summary">Tor 提供域名解析服務（DNS）的連接埠 (預設：9053，若設為0則關閉)</string>
     <string name="pref_dnsport_dialog">DNS連接埠設定</string>
     <string name="pref_torrc_title">Torrc 自訂設置</string>
     <string name="pref_torrc_summary">僅限專家：輸入 torrc 設定指令</string>

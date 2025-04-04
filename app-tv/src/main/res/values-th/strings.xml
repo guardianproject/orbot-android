@@ -102,7 +102,7 @@
   <string name="pref_transport_summary">พอร์ตที่ Tor ให้บริการพร็อกซีแบบ Transparent (ค่าเริ่มต้น: 9040 หรือ 0 ไปถึงไม่เปิดใช้งาน)</string>
   <string name="pref_transport_dialog">กำหนดค่าพอร์ตพร็อกซีแบบ Transparent</string>
   <string name="pref_dnsport_title">พอร์ต DNS ของ Tor</string>
-  <string name="pref_dnsport_summary">พอร์ตที่ Tor ให้บริการ DNS (ค่าเริ่มต้น: 5400 หรือ 0 ไปถึงไม่เปิดใช้งาน)</string>
+  <string name="pref_dnsport_summary">พอร์ตที่ Tor ให้บริการ DNS (ค่าเริ่มต้น: 9053 หรือ 0 ไปถึงไม่เปิดใช้งาน)</string>
   <string name="pref_dnsport_dialog">กำหนดค่าพอร์ต DNS</string>
   <string name="pref_torrc_title">กำหนดค่า Torrc เอง</string>
   <string name="pref_torrc_summary">สำหรับผู้เชี่ยวชาญเท่านั้น: ระบุบรรทัดที่กำหนดค่า torcc โดยตรง</string>

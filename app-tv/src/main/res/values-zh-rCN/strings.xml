@@ -97,7 +97,7 @@
   <string name="pref_transport_summary">Tor 提供透明代理的端口 (默认: 9040, 0 禁用)</string>
   <string name="pref_transport_dialog">透明代理配置</string>
   <string name="pref_dnsport_title">Tor DNS 端口</string>
-  <string name="pref_dnsport_summary">Tor 提供 DNS 的端口 (默认: 5400, 0 禁用)</string>
+  <string name="pref_dnsport_summary">Tor 提供 DNS 的端口 (默认: 9053, 0 禁用)</string>
   <string name="pref_dnsport_dialog">DNS 端口配置</string>
   <string name="pref_torrc_title">Torrc 自定义配置</string>
   <string name="pref_torrc_summary">仅供专家：直接输入 torrc 配置行</string>

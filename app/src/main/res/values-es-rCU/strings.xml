@@ -91,7 +91,7 @@
     <string name="action_activate">Activar</string>
     <string name="apps_other_apps">Otras aplicaciones</string>
     <string name="pref_dnsport_title">Puerto DNS de Tor</string>
-    <string name="pref_dnsport_summary">Puerto por el cual Tor ofrece su conexión DNS (por defecto: 5400 o 0 para inhabilitar)</string>
+    <string name="pref_dnsport_summary">Puerto por el cual Tor ofrece su conexión DNS (por defecto: 9053 o 0 para inhabilitar)</string>
     <string name="pref_dnsport_dialog">Configuración del puerto DNS</string>
     <string name="pref_disable_network_summary">Desactivar Tor cuando no hay internet disponible</string>
     <string name="newnym">¡Has cambiado a una nueva identidad Tor!</string>

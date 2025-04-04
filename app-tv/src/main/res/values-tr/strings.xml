@@ -102,7 +102,7 @@
   <string name="pref_transport_summary">Tor saydam vekil sunucusu için kullanılacak kapı numarası (Varsayılan 9040 ya da devre dışı bırakmak için 0)</string>
   <string name="pref_transport_dialog">Aktarım Vekil Sunucusu Kapı Numarası Ayarı</string>
   <string name="pref_dnsport_title">Tor DNS Kapı Numarası</string>
-  <string name="pref_dnsport_summary">Tor DNS hizmeti için kullanılacak kapı numarası (Varsayılan 5400 ya da devre dışı bırakmak için 0)</string>
+  <string name="pref_dnsport_summary">Tor DNS hizmeti için kullanılacak kapı numarası (Varsayılan 9053 ya da devre dışı bırakmak için 0)</string>
   <string name="pref_dnsport_dialog">DNS Kapı Numarası Ayarı</string>
   <string name="pref_torrc_title">Özel Torrc Ayarları</string>
   <string name="pref_torrc_summary">UZMANLAR İÇİN: torrc ayar satırlarını doğrudan yazın</string>

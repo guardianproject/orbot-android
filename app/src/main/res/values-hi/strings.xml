@@ -88,7 +88,7 @@
     <string name="pref_transport_summary">वो पोर्ट जिसपे टॉर अपनी ट्रांस्पैरंट प्रॉक्सी देत है (डिफॉल्ट: 9040 या 0 बंद करने के लिए)</string>
     <string name="pref_transport_dialog">ट्रांसप्रॉक्सी पोर्ट सेटिंग</string>
     <string name="pref_dnsport_title">टॉर डीएनएस पोर्ट</string>
-    <string name="pref_dnsport_summary">वो पोर्ट जिसपे टॉर अपना डीएनएस देता है (डिफॉल्ट: 5400 या 0 बंद करने के लिए)</string>
+    <string name="pref_dnsport_summary">वो पोर्ट जिसपे टॉर अपना डीएनएस देता है (डिफॉल्ट: 9053 या 0 बंद करने के लिए)</string>
     <string name="pref_dnsport_dialog">डीएनएस पोर्ट सेटिंग</string>
     <string name="pref_torrc_title">टॉर्रक कस्टम सेटिंग</string>
     <string name="pref_torrc_summary">सिर्फ एक्सपर्ट के लिए: डायरेक्ट टॉर्रक सेटिंग लाइनें डालें</string>

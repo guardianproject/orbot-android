@@ -121,7 +121,7 @@
     <string name="pref_torrc_summary">SOMENTE EXPERIENTES: adicione sua própria linha de configuração torrc</string>
     <string name="pref_torrc_title">Configuração Personalizada do Torrc</string>
     <string name="pref_dnsport_dialog">Configuração da Porta DNS</string>
-    <string name="pref_dnsport_summary">Porta em que Tor oferece DNS dele (predefinição: 5400 ou 0 para desativar)</string>
+    <string name="pref_dnsport_summary">Porta em que Tor oferece DNS dele (predefinição: 9053 ou 0 para desativar)</string>
     <string name="pref_transport_dialog">Configuração da Porta TransProxy</string>
     <string name="pref_transport_summary">Porta em que Tor oferece o Proxy Transparente dele (predefinição: 9040 ou 0 para desativar)</string>
     <string name="pref_transport_title">Porta TransProxy Tor</string>

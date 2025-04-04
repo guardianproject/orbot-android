@@ -98,7 +98,7 @@
   <string name="pref_transport_summary">منفذ الشبكات الحاسوبية الذي يقدمه تور إلى البروكسي الشفاف (المنفذ 9040 او 0 عدم القدرة)</string>
   <string name="pref_transport_dialog">تهيئة منفذ البروكسي الشفاف</string>
   <string name="pref_dnsport_title">منفذ الشبكات الحاسوبية لنظام أسماء النطاقات الخاص ب تور</string>
-  <string name="pref_dnsport_summary">منفذ الشبكات الحاسوبية او بورت الذي يقدمه تور الى خدمة اسماء النطاق دي ان اس. (التقصير 5400 او 0 لعدم القدرة)</string>
+  <string name="pref_dnsport_summary">منفذ الشبكات الحاسوبية او بورت الذي يقدمه تور الى خدمة اسماء النطاق دي ان اس. (التقصير 9053 او 0 لعدم القدرة)</string>
   <string name="pref_dnsport_dialog">إعدادات بورت خادم اسماء النطاق</string>
   <string name="pref_torrc_title">ترتيبات خاصة بـ torrc</string>
   <string name="pref_torrc_summary">للخبراء فقط : أدخل أسطر ملف torrc مباشرةً</string>

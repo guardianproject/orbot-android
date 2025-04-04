@@ -102,7 +102,7 @@
   <string name="pref_transport_summary">Anschluss auf dem der Transparente Proxy von Tor bereitgestellt wird (Standard: 9040 oder 0 zum deaktivieren)</string>
   <string name="pref_transport_dialog">TransProxy Anschluss-Konfiguration</string>
   <string name="pref_dnsport_title">Tor DNS-Anschluss</string>
-  <string name="pref_dnsport_summary">Anschluss, auf dem Tor seinen DNS bereitstellt (Standard: 5400 oder 0 zum deaktivieren)</string>
+  <string name="pref_dnsport_summary">Anschluss, auf dem Tor seinen DNS bereitstellt (Standard: 9053 oder 0 zum deaktivieren)</string>
   <string name="pref_dnsport_dialog">DNS Anschluss Konfiguration</string>
   <string name="pref_torrc_title">Benutzerdefinierte Torrc-Konfiguration</string>
   <string name="pref_torrc_summary">NUR FÜR EXPERTEN: torrc-Konfigurationszeilen direkt eingeben</string>

@@ -86,7 +86,7 @@
     <string name="pref_transport_summary">투명프록시에 사용할 포트 (기본: 9040 / 0은 비활성화)</string>
     <string name="pref_transport_dialog">투명프록시 포트 설정</string>
     <string name="pref_dnsport_title">토르 DNS 포트</string>
-    <string name="pref_dnsport_summary">토르 DNS를 제공할 포트 (기본: 5400 / 0은 비활성화)</string>
+    <string name="pref_dnsport_summary">토르 DNS를 제공할 포트 (기본: 9053 / 0은 비활성화)</string>
     <string name="pref_dnsport_dialog">DNS 포트 설정</string>
     <string name="pref_torrc_title">사용자 지정 Torrc 구성</string>
     <string name="pref_torrc_summary">전문가 전용: torrc 구성 줄을 직접 입력합니다</string>

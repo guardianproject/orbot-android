@@ -86,7 +86,7 @@
     <string name="pref_transport_summary">Portti, jonka kautta Torin lähinäkyvä välityspalvelin on tavoitettavissa (oletus on 9040 tai pois käytöstä arvolla 0).</string>
     <string name="pref_transport_dialog">Syötä TransProxy-porttimääritys</string>
     <string name="pref_dnsport_title">Tor DNS-portti</string>
-    <string name="pref_dnsport_summary">Portti, jonka Torin DNS on tavoitettavissa (oletus on 5400 tai pois käytöstä arvolla 0).</string>
+    <string name="pref_dnsport_summary">Portti, jonka Torin DNS on tavoitettavissa (oletus on 9053 tai pois käytöstä arvolla 0).</string>
     <string name="pref_dnsport_dialog">Syötä DNS-porttimääritys</string>
     <string name="pref_torrc_title">Omat Torrc-määritykset</string>
     <string name="pref_torrc_summary">VAIN KOKENEILLE KÄYTTÄJILLE: Syötä Torrc-määritysrivejä suoraan.</string>

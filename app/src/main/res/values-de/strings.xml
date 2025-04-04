@@ -88,7 +88,7 @@
     <string name="pref_transport_summary">Port, der den transparenten Proxy von Tor bereitstellt (Standard: 9040 oder 0, um ihn zu deaktivieren)</string>
     <string name="pref_transport_dialog">TransProxy-Port-Konfiguration</string>
     <string name="pref_dnsport_title">Tor-DNS-Port</string>
-    <string name="pref_dnsport_summary">Port, an dem Tor seinen DNS bereitstellt (Standard: 5400 oder 0, um ihn zu deaktivieren)</string>
+    <string name="pref_dnsport_summary">Port, an dem Tor seinen DNS bereitstellt (Standard: 9053 oder 0, um ihn zu deaktivieren)</string>
     <string name="pref_dnsport_dialog">DNS-Port-Konfiguration</string>
     <string name="pref_torrc_title">Benutzerdefinierte Torrc-Konfiguration</string>
     <string name="pref_torrc_summary">NUR FÜR EXPERTEN: torrc-Konfigurationszeilen direkt eingeben</string>

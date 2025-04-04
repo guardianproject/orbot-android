@@ -101,7 +101,7 @@
   <string name="pref_transport_summary">Порт, на якім Tor прапануе свой празрысты проксі (па змаўчанні: 9040, 0 - для адключэння)</string>
   <string name="pref_transport_dialog">Налада порта празрыстага проксі</string>
   <string name="pref_dnsport_title">Порт DNS Tor</string>
-  <string name="pref_dnsport_summary">Порт, на якім Tor прапануе свой DNS (па змаўчанні: 5400, 0 - для адключэння)</string>
+  <string name="pref_dnsport_summary">Порт, на якім Tor прапануе свой DNS (па змаўчанні: 9053, 0 - для адключэння)</string>
   <string name="pref_dnsport_dialog">Налада порта DNS</string>
   <string name="pref_torrc_title">Карыстальніцкія налады Torrc</string>
   <string name="pref_torrc_summary">ТОЛЬКІ ДЛЯ ЭКСПЕРТАЎ: унясіце налады наўпрост у радкі файла канфігурацыі torrc</string>

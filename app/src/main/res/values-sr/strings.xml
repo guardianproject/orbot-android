@@ -88,7 +88,7 @@
     <string name="pref_transport_summary">Port који Тор нуди је Transparent Proxy укључен (уобичајено: 9040 или 0 за искључивање)</string>
     <string name="pref_transport_dialog">TransProxy Port Подешавања</string>
     <string name="pref_dnsport_title">Toр DNS Port</string>
-    <string name="pref_dnsport_summary">Port који Тор нуди је DNS укључен (уобичајено: 5400 или 0 за искључивање)</string>
+    <string name="pref_dnsport_summary">Port који Тор нуди је DNS укључен (уобичајено: 9053 или 0 за искључивање)</string>
     <string name="pref_dnsport_dialog">DNS Port Подешавања</string>
     <string name="pref_torrc_title">Torrc Прерађена Подешавања</string>
     <string name="pref_torrc_summary">САМО ЗА ЕКСПЕРТЕ: унети директно torrc линије подешавања</string>
