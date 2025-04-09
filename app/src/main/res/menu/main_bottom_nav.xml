@@ -1,18 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/connectFragment"
-        android:enabled="true"
         android:icon="@drawable/ic_onion"
         android:title="@string/connect"/>
     <item
         android:id="@+id/kindnessFragment"
-        android:enabled="true"
-        android:icon="@drawable/ic_heart"
+        android:icon="@drawable/ic_kindness_selector"
         android:title="@string/menu_kindness"/>
-
     <item
         android:id="@+id/moreFragment"
-        android:enabled="true"
-        android:icon="@drawable/ic_more"
+        android:icon="@drawable/ic_more_selector"
         android:title="@string/menu_more"/>
 </menu>
