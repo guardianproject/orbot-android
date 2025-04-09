@@ -11,15 +11,18 @@ import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.*
+
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
+
 import org.torproject.android.core.LocaleHelper
-import org.torproject.android.core.putNotSystem
+import org.torproject.android.core.sendIntentToService
 import org.torproject.android.core.ui.BaseActivity
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
@@ -168,18 +171,6 @@ class OrbotActivity : BaseActivity() {
         super.onDestroy()
         LocalBroadcastManager.getInstance(this).unregisterReceiver(orbotServiceBroadcastReceiver)
     }
-
-
-    /** Sends intent to service, first modifying it to indicate it is not from the system */
-    private fun sendIntentToService(intent: Intent) =
-        ContextCompat.startForegroundService(this, intent.putNotSystem())
-
-    private fun sendIntentToService(action: String) = sendIntentToService(android.content.Intent(
-        this,
-        org.torproject.android.service.OrbotService::class.java
-    ).apply {
-        this.action = action
-    })
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
