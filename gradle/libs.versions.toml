@@ -29,6 +29,7 @@ tor-android = "0.4.8.13.2"
 pcap-core = "1.8.2"
 pcap-factory = "1.8.2"
 kotlin = "2.1.20"
+kotlinx-serialization = "1.5.1"
 
 [libraries]
 android-material = { group = "com.google.android.material", name = "material", version.ref = "android-material" }
@@ -64,8 +65,10 @@ rootbeer-lib = { module = "com.scottyab:rootbeer-lib", version.ref = "rootbeer-l
 tor-android = { group = "info.guardianproject", name = "tor-android", version.ref = "tor-android" }
 pcap-core = { group = "org.pcap4j", name = "pcap4j-core", version.ref = "pcap-core" }
 pcap-factory = { group = "org.pcap4j", name = "pcap4j-packetfactory-static", version.ref = "pcap-factory" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

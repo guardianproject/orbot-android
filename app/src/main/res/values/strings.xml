@@ -277,7 +277,7 @@
     <string name="option_only_when_charging">Only when charging</string>
     <string name="setting_padding">Padding</string>
     <string name="setting_debug">Debug</string>
-
+    <string name="search_for_apps">Search for apps</string>
     <string name="connection_direct">Direct</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Custom</string>
