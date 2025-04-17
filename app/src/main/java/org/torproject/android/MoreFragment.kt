@@ -2,7 +2,6 @@ package org.torproject.android
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -15,6 +14,8 @@ import android.widget.ImageView
 import android.widget.TextView
 
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -29,13 +30,19 @@ import org.torproject.android.ui.AppManagerActivity
 import org.torproject.android.ui.MoreActionAdapter
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.ui.v3onionservice.OnionServiceActivity
-import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthActivity
 
 class MoreFragment : Fragment() {
     private var httpPort = -1
     private var socksPort = -1
 
     private lateinit var tvStatus: TextView
+
+    private val navOptions = NavOptions.Builder()
+        .setEnterAnim(R.anim.slide_in_right)
+        .setExitAnim(R.anim.slide_out_left)
+        .setPopEnterAnim(R.anim.slide_in_left)
+        .setPopExitAnim(R.anim.slide_out_right)
+        .build()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -104,7 +111,8 @@ class MoreFragment : Fragment() {
                 startActivity(Intent(requireActivity(), OnionServiceActivity::class.java))
             },
             OrbotMenuAction(R.string.v3_client_auth_activity_title, R.drawable.ic_shield) {
-                startActivity(Intent(requireActivity(), ClientAuthActivity::class.java))
+                requireActivity().findNavController(R.id.nav_fragment)
+                    .navigate(R.id.clientAuthFragment, null, navOptions)
             },
             OrbotMenuAction(R.string.menu_about, R.drawable.ic_about) {
                 AboutDialogFragment().show(

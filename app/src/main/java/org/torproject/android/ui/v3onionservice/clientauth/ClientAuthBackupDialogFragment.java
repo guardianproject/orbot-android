@@ -99,9 +99,9 @@ public class ClientAuthBackupDialogFragment extends DialogFragment {
 
     private void doBackup() {
         String filename = Objects.requireNonNull(etFilename.getText()).toString().trim();
-        if (!filename.endsWith(ClientAuthActivity.CLIENT_AUTH_FILE_EXTENSION))
-            filename += ClientAuthActivity.CLIENT_AUTH_FILE_EXTENSION;
-        Intent createFileIntent = DiskUtils.createWriteFileIntent(filename, ClientAuthActivity.CLIENT_AUTH_SAF_MIME_TYPE);
+        if (!filename.endsWith(ClientAuthFragment.CLIENT_AUTH_FILE_EXTENSION))
+            filename += ClientAuthFragment.CLIENT_AUTH_FILE_EXTENSION;
+        Intent createFileIntent = DiskUtils.createWriteFileIntent(filename, ClientAuthFragment.CLIENT_AUTH_SAF_MIME_TYPE);
         requireActivity().startActivityForResult(createFileIntent, REQUEST_CODE_WRITE_FILE);
     }
 
@@ -117,8 +117,8 @@ public class ClientAuthBackupDialogFragment extends DialogFragment {
     private void attemptToWriteBackup(Uri outputFile) {
         assert getArguments() != null;
         var v3BackupUtils = new V3BackupUtils(getContext());
-        var domain = getArguments().getString(ClientAuthActivity.BUNDLE_KEY_DOMAIN);
-        var hash = getArguments().getString(ClientAuthActivity.BUNDLE_KEY_HASH);
+        var domain = getArguments().getString(ClientAuthFragment.BUNDLE_KEY_DOMAIN);
+        var hash = getArguments().getString(ClientAuthFragment.BUNDLE_KEY_HASH);
         var backup = v3BackupUtils.createV3AuthBackup(domain, hash, outputFile);
         Toast.makeText(getContext(), backup != null ? R.string.backup_saved_at_external_storage : R.string.error, Toast.LENGTH_LONG).show();
         dismiss();
