@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/new_background"
     android:fitsSystemWindows="true"
-    tools:context="org.torproject.android.ui.v3onionservice.clientauth.ClientAuthActivity">
+    tools:context="org.torproject.android.ui.v3onionservice.clientauth.ClientAuthFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

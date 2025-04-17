@@ -20,7 +20,7 @@ import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.ui.*
 import org.torproject.android.ui.v3onionservice.OnionServiceActivity
-import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthActivity
+import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthFragment
 
 class MoreFragment : Fragment() {
     private lateinit var lvMore: ListView
@@ -33,7 +33,6 @@ class MoreFragment : Fragment() {
     override fun onAttach(activity: Activity) {
         super.onAttach(activity)
         //(activity as OrbotActivity).fragMore = this
-
         httpPort = (activity as OrbotActivity).portHttp
         socksPort = (activity as OrbotActivity).portSocks
 
@@ -86,7 +85,12 @@ class MoreFragment : Fragment() {
             },
                 OrbotMenuAction(
                     R.string.v3_client_auth_activity_title, R.drawable.ic_shield
-                ) { startActivity(Intent(requireActivity(), ClientAuthActivity::class.java)) },
+                ) {
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .replace(R.id.nav_fragment, ClientAuthFragment())
+                        .addToBackStack(null)
+                        .commit()
+                },
                 OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
                     activity?.startActivityForResult(
                         Intent(
