@@ -6,26 +6,26 @@
     android:orientation="vertical"
     tools:context=".MoreFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <ListView
-        android:drawSelectorOnTop="true"
-        android:layout_marginTop="10dp"
-        android:dividerHeight="1dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMoreActions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/lvMoreActions" />
+        android:padding="16dp"
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_more_action" />
 
     <TextView
         android:id="@+id/tvVersion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:gravity="center"
         tools:text="Orbot vX.X.X" />
 
     <ImageView
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:id="@+id/ivMascot"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:src="@drawable/orbion"
         android:layout_margin="12dp"
         android:layout_gravity="center_horizontal" />

@@ -1,5 +1,7 @@
 package org.torproject.android
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -7,10 +9,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListView
+import android.view.animation.BounceInterpolator
+import android.widget.ImageView
 import android.widget.TextView
 
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 import org.torproject.android.OrbotActivity.Companion.REQUEST_CODE_SETTINGS
 import org.torproject.android.OrbotActivity.Companion.REQUEST_VPN_APP_SELECT
@@ -18,13 +23,14 @@ import org.torproject.android.core.sendIntentToService
 import org.torproject.android.core.ui.SettingsActivity
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
-import org.torproject.android.ui.*
+import org.torproject.android.ui.AboutDialogFragment
+import org.torproject.android.ui.AppManagerActivity
+import org.torproject.android.ui.MoreActionAdapter
+import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.ui.v3onionservice.OnionServiceActivity
 import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthActivity
 
 class MoreFragment : Fragment() {
-    private lateinit var lvMore: ListView
-
     private var httpPort = -1
     private var socksPort = -1
 
@@ -39,7 +45,6 @@ class MoreFragment : Fragment() {
 
         if (view != null) updateStatus()
     }
-
 
     /**
     fun setPorts(newHttpPort: Int, newSocksPort: Int) {
@@ -72,42 +77,60 @@ class MoreFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_more, container, false)
         tvStatus = view.findViewById(R.id.tvVersion)
 
         updateStatus()
-        lvMore = view.findViewById(R.id.lvMoreActions)
 
-        val listItems =
-            arrayListOf(OrbotMenuAction(R.string.v3_hosted_services, R.drawable.ic_menu_onion) {
+        val rvMore = view.findViewById<RecyclerView>(R.id.rvMoreActions)
+        val ivMascot = view.findViewById<ImageView>(R.id.ivMascot)
+
+        val listItems = listOf(
+            OrbotMenuAction(R.string.v3_hosted_services, R.drawable.ic_menu_onion) {
                 startActivity(Intent(requireActivity(), OnionServiceActivity::class.java))
             },
-                OrbotMenuAction(
-                    R.string.v3_client_auth_activity_title, R.drawable.ic_shield
-                ) { startActivity(Intent(requireActivity(), ClientAuthActivity::class.java)) },
-                OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
-                    activity?.startActivityForResult(
-                        Intent(
-                            requireActivity(), AppManagerActivity::class.java
-                        ), REQUEST_VPN_APP_SELECT
-                    )
-                },
-                OrbotMenuAction(R.string.menu_settings, R.drawable.ic_settings_gear) {
+            OrbotMenuAction(R.string.v3_client_auth_activity_title, R.drawable.ic_shield) {
+                startActivity(Intent(requireActivity(), ClientAuthActivity::class.java))
+            },
+            OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
+                activity?.startActivityForResult(
+                    Intent(requireActivity(), AppManagerActivity::class.java), REQUEST_VPN_APP_SELECT
+                )
+            },
+            OrbotMenuAction(R.string.menu_settings, R.drawable.ic_settings_gear) {
+                activity?.startActivityForResult(
+                    Intent(context, SettingsActivity::class.java), REQUEST_CODE_SETTINGS
+                )
+            },
+            OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) { showLog() },
+            OrbotMenuAction(R.string.menu_about, R.drawable.ic_about) {
+                AboutDialogFragment().show(
+                    requireActivity().supportFragmentManager, AboutDialogFragment.TAG
+                )
+            },
+            OrbotMenuAction(R.string.menu_exit, R.drawable.ic_exit) { doExit() }
+        )
+        rvMore.adapter = MoreActionAdapter(listItems)
 
-                    activity?.startActivityForResult(
-                        Intent(context, SettingsActivity::class.java), REQUEST_CODE_SETTINGS
-                    )
-                },
-                OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) { showLog() },
-                OrbotMenuAction(R.string.menu_about, R.drawable.ic_about) {
-                    AboutDialogFragment().show(
-                        requireActivity().supportFragmentManager, AboutDialogFragment.TAG
-                    )
-                },
-                OrbotMenuAction(R.string.menu_exit, R.drawable.ic_exit) { doExit() })
-        lvMore.adapter = MoreActionAdapter(requireActivity(), listItems)
+        val spanCount = if (resources.configuration.screenWidthDp < 600) 2 else 4
+        rvMore.layoutManager = GridLayoutManager(requireContext(), spanCount)
+
+        ivMascot.setOnClickListener {
+            val scaleX = ObjectAnimator.ofFloat(it, View.SCALE_X, 1f, 1.2f, 1f)
+            val scaleY = ObjectAnimator.ofFloat(it, View.SCALE_Y, 1f, 1.2f, 1f)
+            val rotate = ObjectAnimator.ofFloat(it, View.ROTATION, 0f, 10f, -10f, 0f)
+
+            AnimatorSet().apply {
+                playTogether(scaleX, scaleY, rotate)
+                duration = 500
+                interpolator = BounceInterpolator()
+                start()
+            }
+        }
 
         return view
     }
@@ -115,7 +138,6 @@ class MoreFragment : Fragment() {
     private fun getTorVersion(): String {
         return OrbotService.BINARY_TOR_VERSION.split("-").toTypedArray()[0]
     }
-
 
     private fun doExit() {
         val killIntent = Intent(
@@ -130,5 +152,4 @@ class MoreFragment : Fragment() {
     private fun showLog() {
         (activity as OrbotActivity).showLog()
     }
-
 }
