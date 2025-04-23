@@ -43,5 +43,8 @@ OrbotLib/OrbotIPtProxy
 # License
 app/src/main/assets/LICENSE
 
-# local kotlin config 
+# Local Kotlin config 
 .kotlin/
+
+# Geoip
+app/src/main/assets/geoip.jar

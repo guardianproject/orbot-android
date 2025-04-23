@@ -141,8 +141,53 @@ dependencies {
 }
 
 tasks.register("copyLicenseToAssets", Copy) {
-    from("../LICENSE")
-    into("$projectDir/src/main/assets")
+    from(rootProject.file("LICENSE"))
+    into(layout.projectDirectory.dir("src/main/assets"))
 }
 
-preBuild.dependsOn copyLicenseToAssets
+tasks.register("buildGeoipJar") {
+    group = "custom"
+    description = "Build geoip.jar from Tor source and place it in src/main/assets"
+
+    doLast {
+        def geoipJar = layout.projectDirectory.file("src/main/assets/geoip.jar").asFile
+        def tempAssetsDir = layout.buildDirectory.dir("tmp/geoipAssets").get().asFile
+        def torDir = layout.buildDirectory.dir("tmp/tor").get().asFile
+        def torRepo = "https://gitlab.torproject.org/tpo/core/tor.git"
+
+        if (geoipJar.exists()) geoipJar.delete()
+        if (tempAssetsDir.exists()) tempAssetsDir.deleteDir()
+        if (torDir.exists()) torDir.deleteDir()
+
+        exec {
+            commandLine 'git', 'clone', '--depth=1', torRepo, torDir.absolutePath
+        }
+
+        copy {
+            from(new File(torDir, "src/config/geoip"))
+            into(tempAssetsDir)
+        }
+        copy {
+            from(new File(torDir, "src/config/geoip6"))
+            into(tempAssetsDir)
+        }
+
+        ant.zip(destfile: geoipJar, update: true) {
+            fileset(dir: tempAssetsDir) {
+                include(name: 'geoip')
+                include(name: 'geoip6')
+            }
+        }
+
+        torDir.deleteDir()
+        tempAssetsDir.deleteDir()
+    }
+}
+
+android.applicationVariants.configureEach { variant ->
+    if (variant.buildType.name == "release") {
+        variant.getPreBuildProvider().configure {
+            dependsOn(copyLicenseToAssets, buildGeoipJar)
+        }
+    }
+}

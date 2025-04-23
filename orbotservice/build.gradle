@@ -53,15 +53,13 @@ dependencies {
 //    api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))
 
     implementation(libs.android.shell)
-    implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.localbroadcast)
     implementation(libs.androidx.work)
     implementation(libs.androidx.work.kotlin)
     implementation(libs.pcap.core)
     implementation(libs.pcap.factory)
-
-    implementation(files("../libs/geoip.jar"))
-    implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.serialization.json)
 }
