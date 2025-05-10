@@ -40,8 +40,13 @@ class OrbotActivity : BaseActivity() {
 
     var previousReceivedTorStatus: String? = null
 
+    private var lastSelectedItemId: Int = R.id.connectFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        lastSelectedItemId = savedInstanceState?.getInt(KEY_SELECTED_TAB) ?: lastSelectedItemId
+        previousReceivedTorStatus = savedInstanceState?.getString(KEY_TOR_STATUS)
 
         if (!Prefs.enableRotation()) {
             /* TODO TODO TODO TODO TODO
@@ -76,6 +81,28 @@ class OrbotActivity : BaseActivity() {
 
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt(KEY_SELECTED_TAB, lastSelectedItemId)
+        outState.putString(KEY_TOR_STATUS, previousReceivedTorStatus)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        lastSelectedItemId = savedInstanceState.getInt(KEY_SELECTED_TAB, R.id.connectFragment)
+        previousReceivedTorStatus = savedInstanceState.getString(KEY_TOR_STATUS)
+
+        val navController = findNavController(R.id.nav_fragment)
+        val currentDest = navController.currentDestination?.id
+
+        if (currentDest != lastSelectedItemId) {
+            navController.navigate(lastSelectedItemId)
+        }
+
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).selectedItemId = lastSelectedItemId
+    }
+
     private fun createOrbot() {
         setContentView(R.layout.activity_orbot)
 
@@ -85,7 +112,7 @@ class OrbotActivity : BaseActivity() {
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.setupWithNavController(navController)
 
-        bottomNavigationView.menu.findItem(R.id.connectFragment).isChecked = true
+        bottomNavigationView.selectedItemId = lastSelectedItemId
 
         val navOptionsLeftToRight = NavOptions.Builder()
             .setEnterAnim(R.anim.slide_in_right)
@@ -101,8 +128,6 @@ class OrbotActivity : BaseActivity() {
             .setPopExitAnim(R.anim.slide_out_right)
             .build()
 
-        var lastSelectedItemId = R.id.connectFragment
-
         bottomNavigationView.setOnItemSelectedListener { item ->
             if (item.itemId == lastSelectedItemId) {
                 return@setOnItemSelectedListener true
@@ -113,13 +138,14 @@ class OrbotActivity : BaseActivity() {
             } else {
                 navOptionsRightToLeft
             }
-            lastSelectedItemId = item.itemId
 
             when (item.itemId) {
                 R.id.connectFragment -> navController.navigate(R.id.connectFragment, null, navOptions)
                 R.id.kindnessFragment -> navController.navigate(R.id.kindnessFragment, null, navOptions)
                 R.id.moreFragment -> navController.navigate(R.id.moreFragment, null, navOptions)
             }
+
+            lastSelectedItemId = item.itemId
             true
         }
 
@@ -243,6 +269,7 @@ class OrbotActivity : BaseActivity() {
                             if (previousReceivedTorStatus.equals(OrbotConstants.STATUS_STARTING)) {
                                 if (allCircumventionAttemptsFailed) {
                                     allCircumventionAttemptsFailed = false
+                                    previousReceivedTorStatus = status
                                     return
                                 }
                                 if (!Prefs.getConnectionPathway().equals(Prefs.PATHWAY_SMART) && fragConnect.isAdded && fragConnect.context != null) {
@@ -286,6 +313,8 @@ class OrbotActivity : BaseActivity() {
     }
 
     companion object {
+        private const val KEY_SELECTED_TAB = "selected_tab_id"
+        private const val KEY_TOR_STATUS = "key_tor_status"
         const val REQUEST_CODE_VPN = 1234
         const val REQUEST_CODE_SETTINGS = 2345
         const val REQUEST_VPN_APP_SELECT = 2432
