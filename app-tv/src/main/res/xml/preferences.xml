@@ -201,6 +201,12 @@
             android:summary="@string/pref_isolate_protocol_summary"
             android:title="@string/pref_isolate_protocol" />
         <CheckBoxPreference
+            android:defaultValue="false"
+            android:enabled="true"
+            android:key="pref_isolate_keep_alive"
+            android:summary="@string/pref_isolate_keep_alive_summary"
+            android:title="@string/pref_isolate_keep_alive" />
+        <CheckBoxPreference
             android:defaultValue="true"
             android:enabled="true"
             android:key="pref_prefer_ipv6"

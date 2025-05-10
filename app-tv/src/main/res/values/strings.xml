@@ -181,6 +181,8 @@
     <string name="pref_isolate_port_summary">Use a different circuit for each destination port</string>
     <string name="pref_isolate_protocol">Isolate client protocols</string>
     <string name="pref_isolate_protocol_summary">Use a different circuit for each connecting protocol</string>
+    <string name="pref_isolate_keep_alive">Keep isolated circuits alive</string>
+    <string name="pref_isolate_keep_alive_summary">Keep isolated circuits alive that have at least one stream with SOCKS authentication active</string>
     <string name="pref_connection_padding">Connection padding</string>
     <string name="pref_connection_padding_summary">Always enables connection padding to defend against some forms of traffic analysis. Default: auto</string>
     <string name="pref_reduced_connection_padding">Reduced connection padding</string>

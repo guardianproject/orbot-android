@@ -198,6 +198,14 @@
             app:iconSpaceReserved="false"
             />
         <CheckBoxPreference
+            android:defaultValue="false"
+            android:enabled="true"
+            android:key="pref_isolate_keep_alive"
+            android:summary="@string/pref_isolate_keep_alive_summary"
+            android:title="@string/pref_isolate_keep_alive"
+            app:iconSpaceReserved="false"
+            />
+        <CheckBoxPreference
             android:defaultValue="true"
             android:enabled="true"
             android:key="pref_prefer_ipv6"

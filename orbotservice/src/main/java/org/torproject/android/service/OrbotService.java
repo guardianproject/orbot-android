@@ -714,6 +714,9 @@ public class OrbotService extends VpnService {
         if (prefs.getBoolean(PREF_ISOLATE_PROTOCOL, false)) {
             isolate += " IsolateClientProtocol ";
         }
+        if (prefs.getBoolean(PREF_ISOLATE_KEEP_ALIVE, false)) {
+            isolate += " KeepAliveIsolateSOCKSAuth ";
+        }
 
         var ipv6Pref = "";
         if (prefs.getBoolean(PREF_PREFER_IPV6, true)) {

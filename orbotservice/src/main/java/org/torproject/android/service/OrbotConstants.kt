@@ -21,6 +21,7 @@ object OrbotConstants {
     const val PREF_ISOLATE_DEST = "pref_isolate_dest"
     const val PREF_ISOLATE_PORT = "pref_isolate_port"
     const val PREF_ISOLATE_PROTOCOL = "pref_isolate_protocol"
+    const val PREF_ISOLATE_KEEP_ALIVE = "pref_isolate_keep_alive"
 
     const val PREF_CONNECTION_PADDING = "pref_connection_padding"
     const val PREF_REDUCED_CONNECTION_PADDING = "pref_reduced_connection_padding"
