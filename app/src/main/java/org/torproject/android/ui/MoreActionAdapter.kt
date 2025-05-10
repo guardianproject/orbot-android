@@ -1,34 +1,36 @@
 package org.torproject.android.ui
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ImageView
+import android.widget.TextView
+
+import androidx.recyclerview.widget.RecyclerView
+
 import org.torproject.android.R
-import java.util.*
 
+class MoreActionAdapter(
+    private val items: List<OrbotMenuAction>
+) : RecyclerView.Adapter<MoreActionAdapter.ViewHolder>() {
 
-class MoreActionAdapter(context: Context, list: ArrayList<OrbotMenuAction>) : ArrayAdapter<OrbotMenuAction>(context,
-    R.layout.action_list_view, list) {
-
-    private val layoutInflater =
-        context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val returnView = convertView ?: layoutInflater.inflate(R.layout.action_list_view, null)
-        getItem(position)?.let { model ->
-            val imgView = returnView.findViewById<ImageView>(R.id.ivAction)
-            val tvAction = returnView.findViewById<TextView>(R.id.tvEmoji)
-
-            tvAction.visibility = View.GONE
-            imgView.visibility = View.VISIBLE
-            imgView.setImageResource(model.imgId)
-
-            returnView.findViewById<TextView>(R.id.tvLabel).text = context.getString(model.textId)
-            returnView.setOnClickListener { model.action() }
-        }
-        return returnView
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val icon: ImageView = view.findViewById(R.id.ivIcon)
+        val label: TextView = view.findViewById(R.id.tvLabel)
     }
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_more_action, parent, false)
+        return ViewHolder(view)
+    }
+
+    override fun getItemCount() = items.size
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = items[position]
+        holder.icon.setImageResource(item.imgId)
+        holder.label.setText(item.textId)
+        holder.itemView.setOnClickListener { item.action() }
+    }
 }

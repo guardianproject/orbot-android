@@ -10,4 +10,5 @@
         <color name="new_background_secondary">#1C1425</color>
         <color name="text_purple">#A06DDF</color>
         <color name="panel_widget_background">#272030</color>
+        <color name="panel_card_image">#CAADED</color>
 </resources>
