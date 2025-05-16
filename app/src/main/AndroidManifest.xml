@@ -76,14 +76,6 @@
                 android:value=".OrbotActivity" />
         </activity>
 
-        <activity
-            android:name=".ui.v3onionservice.clientauth.ClientAuthActivity"
-            android:label="@string/v3_client_auth_activity_title">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".OrbotActivity" />
-        </activity>
-
         <provider
             android:name=".ui.v3onionservice.OnionServiceContentProvider"
             android:authorities="${applicationId}.ui.v3onionservice"

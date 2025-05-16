@@ -20,4 +20,9 @@
         android:name="org.torproject.android.KindnessFragment"
         android:label="fragment_kindness"
         tools:layout="@layout/fragment_kindness" />
+    <fragment
+        android:id="@+id/clientAuthFragment"
+        android:name="org.torproject.android.ui.v3onionservice.clientauth.ClientAuthFragment"
+        android:label="@string/v3_client_auth_activity_title"
+        tools:layout="@layout/fragment_client_auth" />
 </navigation>

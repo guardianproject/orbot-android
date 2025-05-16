@@ -175,8 +175,23 @@ class OrbotActivity : BaseActivity() {
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        super.onBackPressed()
-        finish()
+        val navController = findNavController(R.id.nav_fragment)
+
+        when (navController.currentDestination?.id) {
+            R.id.connectFragment,
+            R.id.kindnessFragment,
+            R.id.moreFragment -> {
+                finish()
+            }
+            else -> {
+                super.onBackPressed()
+            }
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = this.findNavController(R.id.nav_fragment)
+        return navController.navigateUp()
     }
 
     private fun requestNotificationPermission() {
