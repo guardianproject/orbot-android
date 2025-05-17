@@ -283,7 +283,7 @@ public class OrbotVpnManager implements Handler.Callback {
     }
 
     private void doAppBasedRouting(VpnService.Builder builder) throws NameNotFoundException {
-        var apps = TorifiedApp.getApps(mService, prefs);
+        var apps = TorifiedApp.Companion.getApps(mService, prefs);
         var individualAppsWereSelected = false;
         var isLockdownMode = isVpnLockdown(mService);
 

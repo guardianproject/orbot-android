@@ -317,7 +317,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
                     if (pInfo?.requestedPermissions != null) {
                         for (permInfo in pInfo.requestedPermissions!!) {
                             if (permInfo == Manifest.permission.INTERNET) {
-                                app.setUsesInternet(true)
+                                app.usesInternet = true
                             }
                         }
                     }
@@ -332,7 +332,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
                     continue
                 }
 
-                if (!app.usesInternet()) continue else {
+                if (!app.usesInternet) continue else {
                     apps.add(app)
                 }
 

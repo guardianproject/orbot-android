@@ -255,7 +255,7 @@ public class AppManagerActivity extends AppCompatActivity {
             }
 
 
-            if (!app.usesInternet())
+            if (!app.getUsesInternet())
                 continue;
             else
             {
