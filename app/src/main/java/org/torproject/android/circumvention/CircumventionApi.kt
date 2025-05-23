@@ -1,17 +1,21 @@
 package org.torproject.android.circumvention
 
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
+
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+
+import kotlinx.serialization.json.Json
+
 import java.net.InetSocketAddress
 import java.net.Proxy
-
 
 interface CircumventionEndpoints {
 
@@ -35,14 +39,17 @@ interface CircumventionEndpoints {
 object ServiceBuilder {
 
     fun <T> buildService(service: Class<T>, proxyPort: Long): T {
-
         val proxy = Proxy(Proxy.Type.SOCKS, InetSocketAddress("127.0.0.1", proxyPort.toInt()))
-
         val client = OkHttpClient.Builder().proxy(proxy).build()
 
+        val json = Json {
+            ignoreUnknownKeys = true
+        }
+
+        val contentType = "application/json".toMediaType()
         val retrofit = Retrofit.Builder()
             .baseUrl("https://bridges.torproject.org/moat/circumvention/")
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(json.asConverterFactory(contentType))
             .client(client)
             .build()
 
