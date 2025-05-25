@@ -296,4 +296,7 @@
     <string name="pref_camo_subtitle">Make Orbot look like another app and hide notification information about Tor.</string>
     <string name="pref_camo_app_select_title">Select Camouflage Theme</string>
     <string name="pref_camo_app_select_subtitle">This will change how Orbot\'s icon and label will appear on your device</string>
+
+    <string name="power_user_mode_permission">Alarms &amp; Reminders Permission Needed for Power User Mode</string>
+    <string name="power_user_mode_permission_msg">Please allow Orbot to set alarms and reminders in order to use power user mode. This won\'t actually set any alarms on your device. This permission is needed to have the system keep OrbotService running when Orbot is not being used as a system-wide VPN.</string>
 </resources>
