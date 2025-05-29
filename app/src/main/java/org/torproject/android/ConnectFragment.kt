@@ -1,10 +1,12 @@
 package org.torproject.android
 
+import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Paint
 import android.net.VpnService
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.text.SpannableStringBuilder
@@ -16,7 +18,6 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.*
-
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -37,6 +38,7 @@ import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.AppManagerActivity
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.ui.OrbotMenuActionAdapter
+import org.torproject.android.ui.RequestScheduleExactAlarmDialogFragment
 
 class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     ExitNodeDialogFragment.ExitNodeSelectedCallback {
@@ -136,16 +138,29 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
         val vpnIntent = VpnService.prepare(requireActivity())?.putNotSystem()
         if (vpnIntent != null && (!Prefs.isPowerUserMode())) {
             startActivityForResult(vpnIntent, OrbotActivity.REQUEST_CODE_VPN)
-        } else {
-            ivOnion.setImageResource(R.drawable.torstarting)
-            with(btnStartVpn) {
-                text = context.getString(android.R.string.cancel)
-            }
-            // todo we need to add a power user mode for users to start the VPN without tor
+        } else { // either the vpn permission hasn't been granted or we are in power user mode
             Prefs.putUseVpn(!Prefs.isPowerUserMode())
-            requireContext().sendIntentToService(OrbotConstants.ACTION_START)
-
-            if (!Prefs.isPowerUserMode()) requireContext().sendIntentToService(OrbotConstants.ACTION_START_VPN)
+            if (Prefs.isPowerUserMode()) {
+                // android 14 awkwardly needs this permission to be explicitly granted to use the
+                // FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED permission without grabbing a VPN Intent
+                val alarmManager = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
+                    RequestScheduleExactAlarmDialogFragment().show(requireActivity().supportFragmentManager, "RequestAlarmPermDialog")
+                } else {
+                    ivOnion.setImageResource(R.drawable.torstarting)
+                    with(btnStartVpn) {
+                        text = context.getString(android.R.string.cancel)
+                    }
+                    requireContext().sendIntentToService(OrbotConstants.ACTION_START)
+                }
+            } else { // normal VPN mode, power user is disabled
+                ivOnion.setImageResource(R.drawable.torstarting)
+                with(btnStartVpn) {
+                    text = context.getString(android.R.string.cancel)
+                }
+                requireContext().sendIntentToService(OrbotConstants.ACTION_START)
+                requireContext().sendIntentToService(OrbotConstants.ACTION_START_VPN)
+            }
         }
     }
 
