@@ -366,7 +366,12 @@ class OrbotActivity : BaseActivity() {
         RequirePasswordPrompt.openPrompt(this, object :
             BiometricPrompt.AuthenticationCallback() {
             override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
-                finish()
+                super.onAuthenticationError(errorCode, errString)
+                if (errorCode == BiometricPrompt.ERROR_NO_DEVICE_CREDENTIAL)
+                    Toast.makeText(this@OrbotActivity, R.string.error_no_password_set, Toast.LENGTH_LONG).show()
+                else
+                    finish()
+
             }
 
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {

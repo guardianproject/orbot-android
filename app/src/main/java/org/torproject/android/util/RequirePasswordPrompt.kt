@@ -14,8 +14,8 @@ class RequirePasswordPrompt {
                 R.string.app_name)
             val promptInfo = BiometricPrompt.PromptInfo.Builder()
                 .setConfirmationRequired(true)
-                .setTitle("Unlock $appName")
-                .setSubtitle("Your device password is needed to unlock Orbot")
+                .setTitle(appName)
+                .setSubtitle(activity.getString(R.string.unlock_app_msg, appName))
                 .setAllowedAuthenticators(BiometricManager.Authenticators.DEVICE_CREDENTIAL)
                 .build()
             val prompt =
