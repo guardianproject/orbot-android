@@ -81,6 +81,9 @@ class OrbotActivity : BaseActivity() {
             } else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         }
 
+        // programmatically set title to "Orbot" since camo mode will overwrite it here from manifest
+        title = getString(R.string.app_name)
+
         try {
             createOrbot()
 

@@ -1,4 +1,4 @@
-package org.torproject.android.ui
+package org.torproject.android.ui.settings
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -10,20 +10,35 @@ class SettingsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_settings)
-
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.settings_container, SettingsPreferenceFragment())
+            .addToBackStack(FRAGMENT_TAG)
+            .add(R.id.settings_container, SettingsPreferenceFragment())
             .commit()
     }
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            finish()
+            if (supportFragmentManager.backStackEntryCount > 1)
+                onBackPressed()
+            else
+                finish()
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 1)
+            super.onBackPressed()
+        else
+            finish()
+    }
+
+    companion object {
+        const val FRAGMENT_TAG = "settings"
     }
 }

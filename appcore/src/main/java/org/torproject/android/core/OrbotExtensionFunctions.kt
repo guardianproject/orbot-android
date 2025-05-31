@@ -41,3 +41,13 @@ fun Context.sendIntentToService(action: String) =
             this.action = action
         }
     )
+
+/**
+ * Returns the first key corresponding to the given [value], or `null`
+ * if such a value is not present in the map.
+ *
+ * This is O(n) complex which is pretty slow, only use for small
+ * reverse map lookups and nothing that requires performance
+ */
+fun <K, V> Map<K, V>.getKey(value: V) =
+    entries.firstOrNull { it.value == value }?.key
