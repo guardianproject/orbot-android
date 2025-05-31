@@ -299,4 +299,9 @@
 
     <string name="pref_camo_mode_title">Camouflage Mode</string>
     <string name="pref_camo_mode_description">Disguise how Orbot\'s icon, label and notification text will appear on your device</string>
+
+    <string name="pref_require_password">Device Password Lock</string>
+    <string name="pref_require_password_description">Prevent access to Orbot until you enter your device\'s password. This can be combined with Camouflage Mode to help hide that Orbot is installed on your device</string>
+    <string name="error_no_password_set">Please set a password on your device in order to use Device Password Lock </string>
+    <string name="unlock_app_msg" formatted="true">Your device password is needed to unlock %s</string>
 </resources>

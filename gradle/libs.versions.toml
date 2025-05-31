@@ -34,6 +34,8 @@ kotlin = "2.1.20"
 coroutines = "1.10.2"
 serialization = "1.7.3"
 app-icon-name-changer = "1.0.7"
+androidx-biometric = "1.1.0"
+androidx-lifecycle = "2.9.0"
 
 [libraries]
 android-material = { group = "com.google.android.material", name = "material", version.ref = "android-material" }
@@ -73,8 +75,10 @@ pcap-core = { group = "org.pcap4j", name = "pcap4j-core", version.ref = "pcap-co
 pcap-factory = { group = "org.pcap4j", name = "pcap4j-packetfactory-static", version.ref = "pcap-factory" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
-appiconnamechanger = { group = "com.github.myinnos", name = "AppIconNameChanger", version.ref = "app-icon-name-changer"}
-
+appiconnamechanger = { group = "com.github.myinnos", name = "AppIconNameChanger", version.ref = "app-icon-name-changer" }
+androidx-biometric = { group = "androidx.biometric", name = "biometric", version.ref = "androidx-biometric" }
+androidx-lifecycle-process = { group = "androidx.lifecycle", name = "lifecycle-process", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-common = { group = "androidx.lifecycle", name = "lifecycle-common", version.ref = "androidx-lifecycle" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }

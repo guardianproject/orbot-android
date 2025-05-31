@@ -2,7 +2,9 @@ package org.torproject.android
 
 import android.app.Application
 import android.content.res.Configuration
-
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ProcessLifecycleOwner
 import org.torproject.android.core.Languages
 import org.torproject.android.core.LocaleHelper
 import org.torproject.android.service.util.Prefs
@@ -14,6 +16,13 @@ class OrbotApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        ProcessLifecycleOwner.get().lifecycle.addObserver(object : DefaultLifecycleObserver {
+            override fun onStop(owner: LifecycleOwner) {
+                super.onStop(owner)
+                shouldRequestPasswordReset = true
+            }
+        })
 
 //      useful for finding unclosed sockets...
 //        StrictMode.setVmPolicy(
@@ -57,5 +66,9 @@ class OrbotApp : Application() {
         if (appLocale != systemLoc) {
             Languages.setLanguage(this, appLocale, true)
         }
+    }
+
+    companion object {
+        var shouldRequestPasswordReset: Boolean = false
     }
 }

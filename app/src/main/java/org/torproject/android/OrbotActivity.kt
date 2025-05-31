@@ -17,6 +17,7 @@ import android.widget.*
 
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -34,6 +35,7 @@ import org.torproject.android.core.ui.BaseActivity
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.LogBottomSheet
+import org.torproject.android.util.RequirePasswordPrompt
 
 class OrbotActivity : BaseActivity() {
 
@@ -47,8 +49,15 @@ class OrbotActivity : BaseActivity() {
 
     private var lastSelectedItemId: Int = R.id.connectFragment
 
+    private var obtainedPassword = false
+
+    // used to hide UI while password isn't obtained
+    private var rootLayout: View? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        obtainedPassword = false
         enableEdgeToEdge()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -122,7 +131,7 @@ class OrbotActivity : BaseActivity() {
 
     private fun createOrbot() {
         setContentView(R.layout.activity_orbot)
-
+        rootLayout = findViewById(R.id.rootLayout)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.nav_fragment)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -242,6 +251,11 @@ class OrbotActivity : BaseActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        promptDevicePasswordIfRequired()
+    }
+
     override fun onResume() {
         super.onResume()
         sendIntentToService(OrbotConstants.CMD_ACTIVE)
@@ -332,6 +346,43 @@ class OrbotActivity : BaseActivity() {
                 else -> {}
             }
         }
+    }
+
+    private fun promptDevicePasswordIfRequired() {
+        if (!Prefs.requireDevicePassword())
+            return
+
+        // if app was closed, we should re-request password upon
+        // re-open, even if we've gotten it already
+        if (OrbotApp.shouldRequestPasswordReset) {
+            OrbotApp.shouldRequestPasswordReset = false
+            obtainedPassword = false
+        }
+
+        if (obtainedPassword) // user already entered password this session
+            return
+
+        rootLayout?.visibility = View.INVISIBLE
+        RequirePasswordPrompt.openPrompt(this, object :
+            BiometricPrompt.AuthenticationCallback() {
+            override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                super.onAuthenticationError(errorCode, errString)
+                if (errorCode == BiometricPrompt.ERROR_NO_DEVICE_CREDENTIAL)
+                    Toast.makeText(this@OrbotActivity, R.string.error_no_password_set, Toast.LENGTH_LONG).show()
+                else
+                    finish()
+
+            }
+
+            override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                obtainedPassword = true
+                rootLayout?.visibility = View.VISIBLE
+            }
+
+            override fun onAuthenticationFailed() {
+                finish()
+            }
+        })
     }
 
     companion object {

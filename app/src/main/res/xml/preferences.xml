@@ -70,6 +70,13 @@
             android:title="@string/pref_camo_mode_title"
             app:iconSpaceReserved="false" />
 
+        <CheckBoxPreference
+            android:title="@string/pref_require_password"
+            android:summary="@string/pref_require_password_description"
+            android:key="pref_require_password"
+            android:defaultValue="false"
+            app:iconSpaceReserved="false"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
