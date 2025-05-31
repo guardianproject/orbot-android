@@ -43,6 +43,7 @@ public class Prefs {
 
     private static final String PREF_CAMO_APP_PACKAGE = "pref_key_camo_app";
     private static final String PREF_CAMO_APP_DISPLAY_NAME = "pref_key_camo_app_display_name";
+    private static final String PREF_REQUIRE_PASSWORD = "pref_require_password";
 
     private static final String PREF_CONNECTION_PATHWAY = "pref_connection_pathway";
     public static final String PATHWAY_SMART = "smart", PATHWAY_DIRECT = "direct",
@@ -277,6 +278,10 @@ public class Prefs {
 
     public static String getCamoAppDisplayName() {
         return prefs.getString(PREF_CAMO_APP_DISPLAY_NAME, "Android");
+    }
+
+    public static boolean requireDevicePassword() {
+        return prefs.getBoolean(PREF_REQUIRE_PASSWORD, false);
     }
 
     public static void setCamoAppDisplayName(String name) {

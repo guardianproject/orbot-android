@@ -299,4 +299,7 @@
 
     <string name="pref_camo_mode_title">Camouflage Mode</string>
     <string name="pref_camo_mode_description">Disguise how Orbot\'s icon, label and notification text will appear on your device</string>
+
+    <string name="pref_require_password">Require Device Password to open Orbot</string>
+    <string name="pref_require_password_description">Prevents access to the application without entering your device\'s password. This can be combined with Camouflage Mode to obscure the fact that Orbot is actually running on your device.</string>
 </resources>

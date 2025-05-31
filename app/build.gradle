@@ -129,6 +129,9 @@ dependencies {
     implementation(libs.appiconnamechanger)
     implementation(libs.androidx.preference)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.biometric)
+    implementation(libs.androidx.lifecycle.common)
+    implementation(libs.androidx.lifecycle.process)
 
     testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.androidx.junit)
