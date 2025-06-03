@@ -56,6 +56,12 @@ import IPtProxy.IPtProxy;
 import IPtProxy.PacketFlow;
 
 public class OrbotVpnManager implements Handler.Callback {
+
+    static {
+        System.loadLibrary("hev-socks5-tunnel");
+    }
+
+
     private static final String TAG = "OrbotVpnManager";
     boolean isStarted = false;
     private final static String mSessionName = "OrbotVPN";

@@ -11,7 +11,24 @@ android {
     defaultConfig {
         minSdk = 21
         targetSdk = 35
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a",'x86','x86_64'
+        }
+        externalNativeBuild {
+            ndkBuild {
+                arguments "APP_CFLAGS+=-DPKGNAME=hev/sockstun -ffile-prefix-map=${rootDir}=."
+                arguments "APP_LDFLAGS+=-Wl,--build-id=none"
+            }
+        }
     }
+
+
+    externalNativeBuild {
+        ndkBuild {
+            path "src/main/jni/Android.mk"
+        }
+    }
+
 
     buildTypes {
         release {
