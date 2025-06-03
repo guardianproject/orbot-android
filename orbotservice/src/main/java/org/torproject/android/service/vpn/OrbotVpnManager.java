@@ -28,6 +28,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.ParcelFileDescriptor;
 import android.system.OsConstants;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ import org.torproject.android.service.R;
 import org.torproject.android.service.util.Prefs;
 
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -54,6 +56,7 @@ import java.util.concurrent.Executors;
 
 import IPtProxy.IPtProxy;
 import IPtProxy.PacketFlow;
+import hev.sockstun.TProxyService;
 
 public class OrbotVpnManager implements Handler.Callback {
 
@@ -76,8 +79,8 @@ public class OrbotVpnManager implements Handler.Callback {
     private Thread mThreadPacket;
     private boolean keepRunningPacket = false;
 
-    private FileInputStream fis;
-    private DataOutputStream fos;
+    private FileInputStream fisVpn;
+    private DataOutputStream fosVpn;
 
     private static final int DELAY_FD_LISTEN_MS = 5000;
 
@@ -115,7 +118,7 @@ public class OrbotVpnManager implements Handler.Callback {
 
                             mTorSocks = torSocks;
                             mTorDns = torDns;
-
+                            Log.d("BIM", "ports, mTorDns=" + mTorDns + " socks=" + mTorSocks);
                             setupTun2Socks(builder);
                         }
                     }
@@ -135,15 +138,16 @@ public class OrbotVpnManager implements Handler.Callback {
         if (mInterface != null) {
             try {
                 Log.d(TAG, "closing interface, destroying VPN interface");
-                IPtProxy.stopSocks();
-                if (fis != null) {
-                    fis.close();
-                    fis = null;
+                TProxyService.TProxyStopService();
+//                IPtProxy.stopSocks();
+                if (fisVpn != null) {
+                    fisVpn.close();
+                    fisVpn = null;
                 }
 
-                if (fos != null) {
-                    fos.close();
-                    fos = null;
+                if (fosVpn != null) {
+                    fosVpn.close();
+                    fosVpn = null;
                 }
 
                 mInterface.close();
@@ -166,22 +170,24 @@ public class OrbotVpnManager implements Handler.Callback {
 
     public final static String FAKE_DNS = "10.0.0.1";
 
+    private static final String VIRTUAL_GATEWAY_IPV4 = "192.168.50.1";
+    private static final String VIRTUAL_GATEWAY_IPV6 = "fdfe:dcba:9876::1";
+
     private synchronized void setupTun2Socks(final VpnService.Builder builder) {
         try {
             final String defaultRoute = "0.0.0.0";
-            final String virtualGateway = "192.168.50.1";
 
-            //    builder.setMtu(VPN_MTU);
-            //   builder.addAddress(virtualGateway, 32);
-            builder.addAddress(virtualGateway, 24)
+//            builder.setMtu(8500);
+            builder
+                    .addAddress(VIRTUAL_GATEWAY_IPV4, 24)
                     .addRoute(defaultRoute, 0)
                     .addRoute(FAKE_DNS, 32)
                     .addDnsServer(FAKE_DNS) //just setting a value here so DNS is captured by TUN interface
                     .setSession(mService.getString(R.string.orbot_vpn));
 
-            //handle ipv6
-            builder.addAddress("fdfe:dcba:9876::1", 126);
-            builder.addRoute("::", 0);
+            builder // handle ipv6
+                    .addAddress(VIRTUAL_GATEWAY_IPV6, 126)
+                    .addRoute("::", 0);
 
             /*
              * Can't use this since our HTTP proxy is only CONNECT and not a full proxy
@@ -197,18 +203,19 @@ public class OrbotVpnManager implements Handler.Callback {
 
                 // Explicitly allow both families, so we do not block
                 // traffic for ones without DNS servers (issue 129).
-                builder.allowFamily(OsConstants.AF_INET);
-                builder.allowFamily(OsConstants.AF_INET6);
+                builder
+                        .allowFamily(OsConstants.AF_INET)
+                        .allowFamily(OsConstants.AF_INET6);
 
             }
 
-            builder.setSession(mSessionName)
+            builder
+                    .setSession(mSessionName)
                     .setConfigureIntent(null) // previously this was set to a null member variable
                     .setBlocking(true);
 
             mInterface = builder.establish();
             mDnsResolver = new DNSResolver(mTorDns);
-
             final Handler handler = new Handler(Looper.getMainLooper());
             handler.postDelayed(() -> {
                 try {
@@ -226,19 +233,56 @@ public class OrbotVpnManager implements Handler.Callback {
     private void startListeningToFD() throws IOException {
         if (mInterface == null) return; // Prepare hasn't been called yet
 
-        fis = new FileInputStream(mInterface.getFileDescriptor());
-        fos = new DataOutputStream(new FileOutputStream(mInterface.getFileDescriptor()));
+        var tProxyFile = new File(mService.getCacheDir(), "tproxy.conf");
+        var TASk_STACK_SIZE = 81920;
+        var TUNNEL_MTU = 8500;
+        var UDP_IN_TCP = true;
+        Log.d("BIM", "test " + tProxyFile.createNewFile());
+        FileOutputStream fos = new FileOutputStream(tProxyFile, false);
 
+        String tproxy_conf = "misc:\n" +
+                "  task-stack-size: " + TASk_STACK_SIZE + "\n" +
+                "tunnel:\n" +
+                "  ipv4: " + VIRTUAL_GATEWAY_IPV4 + "\n" +
+                "  ipv6: " + VIRTUAL_GATEWAY_IPV6 + "\n";
+//                "  mtu: " + TUNNEL_MTU + "\n";
+
+        tproxy_conf += "socks5:\n" +
+                "  port: " + mTorSocks + "\n" +
+                "  address: '" + "127.0.0.1" + "'\n" +
+                "  udp: '" + "udp" + "'\n";
+
+        var proxyUser = prefs.getString("pref_proxy_username", null);
+        var proxyPass = prefs.getString("pref_proxy_password", null);
+
+        if (!TextUtils.isEmpty(proxyUser) && !TextUtils.isEmpty(proxyPass)) {
+            tproxy_conf += "  username: '" + proxyUser + "'\n";
+            tproxy_conf += "  password: '" + proxyPass + "'\n";
+        }
+        Log.d("BIM", tProxyFile.getAbsolutePath());
+        Log.d("BIM", tproxy_conf);
+        try {
+            fos.write(tproxy_conf.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.d("BIM", "error writing tconf");
+        }
+        fos.close();
+
+
+        fisVpn = new FileInputStream(mInterface.getFileDescriptor());
+        fosVpn = new DataOutputStream(new FileOutputStream(mInterface.getFileDescriptor()));
         //write packets back out to TUN
-        PacketFlow pFlow = packet -> {
-            try {
-                fos.write(packet);
-            } catch (IOException e) {
-                Log.e(TAG, "error writing to VPN fd", e);
-            }
-        };
+//        PacketFlow pFlow = packet -> {
+//            try {
+//                fos.write(packet);
+//            } catch (IOException e) {
+//                Log.e(TAG, "error writing to VPN fd", e);
+//            }
+//        };
 
-        IPtProxy.startSocks(pFlow, "127.0.0.1", mTorSocks);
+        TProxyService.TProxyStartService(tProxyFile.getAbsolutePath(), mInterface.getFd());
+//        IPtProxy.startSocks(pFlow, "127.0.0.1", mTorSocks);
 
         //read packets from TUN and send to go-tun2socks
         mThreadPacket = new Thread() {
@@ -248,7 +292,7 @@ public class OrbotVpnManager implements Handler.Callback {
                 keepRunningPacket = true;
                 while (keepRunningPacket) {
                     try {
-                        int pLen = fis.read(buffer); // will block on API 21+
+                        int pLen = fisVpn.read(buffer); // will block on API 21+
 
                         if (pLen > 0) {
                             var pdata = Arrays.copyOf(buffer, pLen);
@@ -256,12 +300,17 @@ public class OrbotVpnManager implements Handler.Callback {
                                 var packet = IpSelector.newPacket(pdata, 0, pdata.length);
 
                                 if (packet instanceof IpPacket ipPacket) {
-                                    if (isPacketDNS(ipPacket))
-                                        mExec.execute(new RequestPacketHandler(ipPacket, pFlow, mDnsResolver));
-                                    else //noinspection StatementWithEmptyBody
-                                        if (isPacketICMP(ipPacket)) {
+                                    if (isPacketDNS(ipPacket)) {
+                                        Log.d("BIM", "got DNS");
+                                        mExec.execute(new RequestPacketHandler(ipPacket, fosVpn, mDnsResolver));
+                                    } else if (isPacketICMP(ipPacket)) {
+                                        Log.d("BIM", "dropping ICMP");
                                         //do nothing, drop!
-                                    } else IPtProxy.inputPacket(pdata);
+                                    } else {
+                                        Log.d("BIM", "else clausing writing byte count: " + pdata.length);
+                                        fosVpn.write(pdata);
+                                    }
+
                                 }
                             } catch (IllegalRawDataException e) {
                                 Log.e(TAG, e.getLocalizedMessage());
@@ -321,7 +370,9 @@ public class OrbotVpnManager implements Handler.Callback {
         }
     }
 
-    /** @noinspection BooleanMethodIsAlwaysInverted*/
+    /**
+     * @noinspection BooleanMethodIsAlwaysInverted
+     */
     public boolean isStarted() {
         return isStarted;
     }
