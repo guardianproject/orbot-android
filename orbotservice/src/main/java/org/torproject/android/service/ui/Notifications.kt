@@ -19,11 +19,11 @@ object Notifications {
         val appName = if (!Prefs.isCamoEnabled())
             context.getString(R.string.app_name)
         else
-            "PLACEHOLDER"
+            Prefs.getCamoAppDisplayName()
         val channelDescription = if (!Prefs.isCamoEnabled())
             context.getString(R.string.app_description)
         else
-            "PLACEHOLDER"
+            Prefs.getCamoAppDisplayName()
         manager.createNotificationChannel(
             NotificationChannel(
                 OrbotService.NOTIFICATION_CHANNEL_ID,
@@ -41,7 +41,7 @@ object Notifications {
     @JvmStatic
     fun configureCamoNotification(notifyBuilder: NotificationCompat.Builder) {
         notifyBuilder
-            .setContentTitle("PLACEHOLDER")
+            .setContentTitle(Prefs.getCamoAppDisplayName())
             .setContentText(null)
             .setSubText(null)
             .setSmallIcon(R.drawable.ic_generic_info)

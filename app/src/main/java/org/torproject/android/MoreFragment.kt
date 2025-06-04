@@ -26,7 +26,7 @@ import org.torproject.android.ui.AboutDialogFragment
 import org.torproject.android.ui.AppManagerActivity
 import org.torproject.android.ui.MoreActionAdapter
 import org.torproject.android.ui.OrbotMenuAction
-import org.torproject.android.ui.SettingsActivity
+import org.torproject.android.ui.settings.SettingsActivity
 import org.torproject.android.ui.v3onionservice.OnionServiceActivity
 import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthActivity
 

@@ -47,7 +47,7 @@
         tools:replace="android:allowBackup">
 
         <activity
-            android:name=".OrbotActivity"
+            android:name="org.torproject.android.OrbotActivity"
             android:excludeFromRecents="false"
 
             android:exported="true"
@@ -60,7 +60,7 @@
         </activity>
 
         <activity
-            android:name=".ui.SettingsActivity"
+            android:name=".ui.settings.SettingsActivity"
             android:theme="@style/OrbotActivityTheme" />
 
         <activity
@@ -70,7 +70,7 @@
 
         <activity
             android:name=".ui.v3onionservice.OnionServiceActivity"
-            android:label="@string/v3_hosted_services"/>
+            android:label="@string/v3_hosted_services" />
 
         <activity
             android:name=".ui.v3onionservice.clientauth.ClientAuthActivity"
@@ -140,10 +140,9 @@
             android:icon="@drawable/ic_camouflage_night_watch"
             android:label="@string/app_icon_chooser_label_night_watch"
             android:launchMode="singleInstance"
-            android:targetActivity=".OrbotActivity">
+            android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -155,10 +154,9 @@
             android:icon="@drawable/ic_camouflage_assistant"
             android:label="@string/app_icon_chooser_label_assistant"
             android:launchMode="singleInstance"
-            android:targetActivity=".OrbotActivity">
+            android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -170,10 +168,9 @@
             android:icon="@drawable/ic_camouflage_paint"
             android:label="@string/app_icon_chooser_label_paint"
             android:launchMode="singleInstance"
-            android:targetActivity=".OrbotActivity">
+            android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -185,28 +182,51 @@
             android:icon="@drawable/ic_camouflage_tetras"
             android:label="@string/app_icon_chooser_label_tetras"
             android:launchMode="singleInstance"
-            android:targetActivity=".OrbotActivity">
+            android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
         </activity-alias>
         <activity-alias
-            android:name=".main.Todo"
+            android:name="org.torproject.android.main.ToDo"
             android:enabled="false"
             android:exported="true"
             android:icon="@drawable/ic_camouflage_todo"
             android:label="@string/app_icon_chooser_label_todo"
             android:launchMode="singleInstance"
-            android:targetActivity=".OrbotActivity">
+            android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
-
+        <activity-alias
+            android:name=".main.FitGrit"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_camouflage_fitgrit"
+            android:label="@string/app_icon_chooser_label_fit_grit"
+            android:launchMode="singleInstance"
+            android:targetActivity="org.torproject.android.OrbotActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="org.torproject.android.main.Birdie"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_camouflage_birdie"
+            android:label="@string/app_icon_chooser_label_birdie"
+            android:launchMode="singleInstance"
+            android:targetActivity="org.torproject.android.OrbotActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
     </application>
 </manifest>

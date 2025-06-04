@@ -41,7 +41,8 @@ public class Prefs {
 
     private static final String PREF_CURRENT_VERSION = "pref_current_version";
 
-    private static final String PREF_CAMO_ENABLED = "pref_key_camo_enabled";
+    private static final String PREF_CAMO_APP_PACKAGE = "pref_key_camo_app";
+    private static final String PREF_CAMO_APP_DISPLAY_NAME = "pref_key_camo_app_display_name";
 
     private static final String PREF_CONNECTION_PATHWAY = "pref_connection_pathway";
     public static final String PATHWAY_SMART = "smart", PATHWAY_DIRECT = "direct",
@@ -260,8 +261,27 @@ public class Prefs {
         return prefs.getBoolean(PREF_SECURE_WINDOW_FLAG, true);
     }
 
+    public static final String DEFAULT_CAMO_DISABLED_ACTIVITY = "org.torproject.android.OrbotActivity";
+
     public static boolean isCamoEnabled() {
-        return prefs.getBoolean(PREF_CAMO_ENABLED, false);
+        var app = prefs.getString(PREF_CAMO_APP_PACKAGE, DEFAULT_CAMO_DISABLED_ACTIVITY);
+        return !app.equals(DEFAULT_CAMO_DISABLED_ACTIVITY);
+    }
+
+    public static String getSelectedCamoApp() {
+        return prefs.getString(PREF_CAMO_APP_PACKAGE, DEFAULT_CAMO_DISABLED_ACTIVITY);
+    }
+
+    public static void setCamoAppPackage(String packageName) {
+        putString(PREF_CAMO_APP_PACKAGE, packageName);
+    }
+
+    public static String getCamoAppDisplayName() {
+        return prefs.getString(PREF_CAMO_APP_DISPLAY_NAME, "Android");
+    }
+
+    public static void setCamoAppDisplayName(String name) {
+        putString(PREF_CAMO_APP_DISPLAY_NAME, name);
     }
 
 }
