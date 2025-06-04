@@ -19,11 +19,8 @@ function fronts_conf {
   jq -r ".bridges.\"$bridge_type\" | .[]" "pt_config.json" | while read -r line; do
     if [ "$bridge_type" == "meek-azure" ]; then
 	    arr=($line)
-	    moat_url=$(echo "${arr[2]}" | cut -d "=" -f 2)
 	    moat_front=$(echo "${arr[3]}" | cut -d "=" -f 2)
-	    echo "moat-url $moat_url"
 	    echo "moat-front $moat_front"
-	    sed -ri "s|^moat-url .+|moat-url ${moat_url}|" ../orbotservice/src/main/assets/fronts
 	    sed -ri "s|^moat-front .+|moat-front ${moat_front}|" ../orbotservice/src/main/assets/fronts
 	    echo
 	    echo "moat fronts updated"
@@ -50,6 +47,6 @@ function fronts_conf {
 
 bridges_conf "meek-azure"
 bridges_conf "snowflake"
-##fronts_conf "meek-azure"
-##fronts_conf "snowflake"
+fronts_conf "meek-azure"
+fronts_conf "snowflake"
 rm pt_config.json
