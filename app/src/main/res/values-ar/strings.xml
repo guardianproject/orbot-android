@@ -290,4 +290,14 @@
     <string name="pref_isolate_keep_alive_summary">أبقِ الدوائر المعزولة حية التي لديها تدفق واحد على الأقل مع استيثاق SOCKS نشطة</string>
     <string name="pref_enable_rotation_title">تدوير الجهاز</string>
     <string name="app_icon_chooser_label_paint">طلاء</string>
+    <string name="bridge_snowflake_sqs">الاتصال من خلال مستخدمي تور الآخرين باستخدام Snowflake (الطريقة 3 - SQS)</string>
+    <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
+    <string name="app_icon_chooser_label_birdie">Birdie</string>
+    <string name="camo_dialog_title" formatted="true">التنكر كـ %1$s</string>
+    <string name="pref_camo_mode_title">وضع التنكر</string>
+    <string name="pref_camo_mode_description">تنكر كيفية ظهور أيقونة اوربوت وتسميته ونص الإشعارات على جهازك</string>
+    <string name="camo_dialog_disable_title">عطّل وضع التنكر</string>
+    <string name="snowflake_sqs">Snowflake SQS</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">سوف يتنكر اوربوت كتطبيق %1$s. سيؤدي هذا إلى إخفاء جميع تفاصيل الإشعارات حول تور وتغيير مظهر اوربوت على شاشتك الرئيسية.\n\nإخفاء الهوية كتطبيق %2$s سيؤدي إلى إعادة تشغيل اوربوت.</string>
+    <string name="camo_dialog_disable_confirm_msg">سيستأنف اوربوت عرض معلومات الإشعارات حول اتصال تور الخاص بك وسيظهر بشكل طبيعي على شاشتك الرئيسية.\n\nسيؤدي تعطيل وضع التنكر إلى إعادة تشغيل اوربوت.</string>
 </resources>

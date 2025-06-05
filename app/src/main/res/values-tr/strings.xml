@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Orbot</string>
-    <string name="app_description">Orbot başka uygulamaların İnterneti daha güvenli olarak kullanmasını sağlayan özgür bir vekil sunucu uygulamasıdır. Orbot, Tor kullanarak İnternet trafiğinizi şifreler ve dünya üzerindeki pek çok farklı bilgisayardan geçirerek gizler. Tor kişisel özgürlüğünüze ve bilgilerinize, gizli ticari işlemlerinize ve ilişkilerinize, devlet güvenliğine karşı tehdit oluşturan ve trafik analizi olarak bilinen ağ izlemelerine karşı koruma sağlayan bir özgür yazılım ve açık ağdır.</string>
-    <string name="menu_settings">Ayarlar</string>
-    <string name="menu_log">Günlük</string>
+    <string name="app_description">Orbot başka uygulamaların interneti daha güvenli olarak kullanmasını sağlayan özgür bir vekil sunucu uygulamasıdır. Orbot, Tor kullanarak İnternet trafiğinizi şifreler ve dünya üzerindeki pek çok farklı bilgisayardan geçirerek gizler. Tor kişisel özgürlüğünüze ve bilgilerinize, gizli ticari işlemlerinize ve ilişkilerinize, devlet güvenliğine karşı tehdit oluşturan ve trafik analizi olarak bilinen ağ izlemelerine karşı koruma sağlayan bir özgür yazılım ve açık ağdır.</string>
+    <string name="menu_settings">Orbot Ayarları</string>
+    <string name="menu_log">Kayıt</string>
     <string name="menu_stop">Durdur</string>
     <string name="menu_about">Hakkında</string>
     <string name="main_layout_download">İndir</string>
@@ -13,7 +13,7 @@
     <string name="menu_scan">QR kodu tara</string>
     <string name="menu_share_bridge">QR kodu paylaş</string>
     <!--Welcome Wizard strings (DJH)-->
-    <string name="wizard_details_msg">Orbot; Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, LibEvent yapılarını kapsayan açık kaynaklı bir uygulamadır. Tor ağına bağlanmak için bir yerel HTTP vekil sunucu (8118) ve bir SOCKS vekil sunucu (9050) sağlar.</string>
+    <string name="wizard_details_msg">Orbot; Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, LibEvent yapılarını kapsayan açık kaynaklı bir uygulamadır. Tor ağına bağlanmak için bir yerel HTTP vekil sunucu (sadece 8118 portunu kullanır) ve bir SOCKS vekil sunucu (9050) sağlar.</string>
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Genel</string>
     <string name="pref_start_boot_title">Orbot Açılışta Başlatılsın</string>
@@ -25,12 +25,12 @@
     <!--TipsAndTricks screen-->
     <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Düğüm Ayarları</string>
-    <string name="pref_node_configuration_summary">Bu gelişmiş ayarlar bağlantınızın isimsizliğini azaltabilir</string>
+    <string name="pref_node_configuration_summary">Bu gelişmiş ayarlar bağlantınızın anonimliğinizi azaltabilir</string>
     <string name="pref_entrance_node">Giriş Düğümleri</string>
     <string name="pref_entrance_node_summary">İlk sıçrama noktası için parmak izleri, kısaltmalar, ülkeler ve adresler</string>
     <string name="pref_entrance_node_dialog">Giriş Düğümlerini Yazın</string>
     <string name="pref_allow_background_starts_title">Arka planda başlatmaya izin ver</string>
-    <string name="pref_allow_background_starts_summary">Herhangi bir uygulamanın Orbot aracılığıyla Tor ve ilgili hizmetleri başlatmasını sağlar</string>
+    <string name="pref_allow_background_starts_summary">Herhangi bir uygulamanın Orbot\'a , Tor ve ilgili hizmetleri başlatmasına izin verin</string>
     <string name="pref_proxy_title">Giden Ağ Sunucusu (İsteğe Bağlı)</string>
     <string name="pref_proxy_type_title">Giden Vekil Sunucu Türü</string>
     <string name="pref_proxy_type_summary">Vekil sunucuda kullanılacak ağ iletişim kuralları: HTTP, HTTPS, Socks4, Socks5</string>
@@ -280,4 +280,5 @@
     <string name="root_warning">Orbot, aygıtınızın root yapılmış olduğunu tespit etti, bu güvenlik sorunlarına neden olabilir.</string>
     <string name="pref_detect_root_title">Root Algılama</string>
     <string name="pref_detect_root_summary">Bu aygıtta root izinleri etkinleştirilmişse başlangıçta uyar</string>
+    <string name="system_vpn_settings">Android VPN Ayarları</string>
 </resources>

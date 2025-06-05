@@ -290,4 +290,14 @@
     <string name="app_icon_chooser_label_assistant">Assistant</string>
     <string name="app_icon_chooser_label_paint">Paint</string>
     <string name="app_icon_chooser_label_todo">To-Do</string>
+    <string name="bridge_snowflake_sqs">Connecta a través d\'altres usuaris del Tor utilitzant el Snowflake (Mètode 3 - SQS)</string>
+    <string name="snowflake_sqs">Snowflake SQS</string>
+    <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
+    <string name="app_icon_chooser_label_birdie">Birdie</string>
+    <string name="camo_dialog_title" formatted="true">Camufla com a %1$s</string>
+    <string name="camo_dialog_disable_title">Desactiva el mode de camuflatge</string>
+    <string name="pref_camo_mode_title">Mode de camuflatge</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">L\'Orbot es camuflarà com a l\'aplicació %1$s. Això amagarà tots els detalls de les notificacions sobre el Tor i canviarà l\'aparença de l\'Orbot a la pantalla d\'inici.\n\nCamuflar-se com a %2$s reiniciarà l\'Orbot.</string>
+    <string name="camo_dialog_disable_confirm_msg">L\'Orbot tornarà a mostrar la informació sobre les notificacions de la connexió Tor i apareixerà de manera normal a la pantalla d\'inici.\n\nDesactivar el mode de camuflatge reiniciarà l\'Orbot.</string>
+    <string name="pref_camo_mode_description">Disfressa com apareixen al vostre dispositiu la icona, el nom i les notificacions de l\'Orbot</string>
 </resources>
