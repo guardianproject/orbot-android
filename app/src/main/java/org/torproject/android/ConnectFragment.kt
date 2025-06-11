@@ -18,10 +18,11 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.*
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -53,15 +54,10 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     lateinit var progressBar: ProgressBar
     private lateinit var lvConnectedActions: ListView
 
-    private val viewModel: ConnectViewModel by viewModels()
+    private val viewModel: ConnectViewModel by activityViewModels()
 
     private val lastStatus: String
         get() = (activity as? OrbotActivity)?.previousReceivedTorStatus ?: ""
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        (activity as OrbotActivity).fragConnect = this
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -72,10 +68,24 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
                     when (state) {
                         is ConnectUiState.NoInternet -> doLayoutNoInternet()
                         is ConnectUiState.Off -> doLayoutOff()
-                        is ConnectUiState.Starting -> doLayoutStarting(requireContext())
+                        is ConnectUiState.Starting -> {
+                            doLayoutStarting(requireContext())
+                            state.bootstrapPercent?.let {
+                                progressBar.progress = it
+                            }
+                        }
                         is ConnectUiState.On -> doLayoutOn(requireContext())
                         is ConnectUiState.Stopping -> {}
                     }
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.events.collect { event ->
+                when (event) {
+                    is ConnectEvent.StartTorAndVpn -> startTorAndVpn()
+                    is ConnectEvent.RefreshMenuList -> refreshMenuList(requireContext())
                 }
             }
         }

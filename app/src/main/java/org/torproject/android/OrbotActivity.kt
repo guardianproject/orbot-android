@@ -17,6 +17,7 @@ import android.widget.*
 
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
@@ -40,7 +41,6 @@ import org.torproject.android.util.RequirePasswordPrompt
 class OrbotActivity : BaseActivity() {
 
     private lateinit var logBottomSheet: LogBottomSheet
-    lateinit var fragConnect: ConnectFragment
 
     var portSocks: Int = -1
     var portHttp: Int = -1
@@ -54,6 +54,7 @@ class OrbotActivity : BaseActivity() {
     // used to hide UI while password isn't obtained
     private var rootLayout: View? = null
 
+    private val connectViewModel: ConnectViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -270,7 +271,7 @@ class OrbotActivity : BaseActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE_VPN && resultCode == RESULT_OK) {
-            fragConnect.startTorAndVpn()
+            connectViewModel.triggerStartTorAndVpn()
         } else if (requestCode == REQUEST_CODE_SETTINGS && resultCode == RESULT_OK) {
             Prefs.setDefaultLocale(data?.getStringExtra("locale"))
             sendIntentToService(OrbotConstants.ACTION_LOCAL_LOCALE_SET)
@@ -279,11 +280,9 @@ class OrbotActivity : BaseActivity() {
             startActivity(Intent(this, OrbotActivity::class.java))
         } else if (requestCode == REQUEST_VPN_APP_SELECT && resultCode == RESULT_OK) {
             sendIntentToService(OrbotConstants.ACTION_RESTART_VPN) // is this enough todo?
-            fragConnect.refreshMenuList(this)
+            connectViewModel.triggerRefreshMenuList()
         }
     }
-
-    var allCircumventionAttemptsFailed = false
 
     private val orbotServiceBroadcastReceiver = object : BroadcastReceiver() {
         @SuppressLint("SetTextI18n")
@@ -291,43 +290,15 @@ class OrbotActivity : BaseActivity() {
             val status = intent?.getStringExtra(OrbotConstants.EXTRA_STATUS)
             when (intent?.action) {
                 OrbotConstants.LOCAL_ACTION_STATUS -> {
-                    if (status.equals(previousReceivedTorStatus)) return
-                    when (status) {
-                        OrbotConstants.STATUS_OFF -> {
-                            if (previousReceivedTorStatus.equals(OrbotConstants.STATUS_STARTING)) {
-                                if (allCircumventionAttemptsFailed) {
-                                    allCircumventionAttemptsFailed = false
-                                    previousReceivedTorStatus = status
-                                    return
-                                }
-                                if (!Prefs.getConnectionPathway()
-                                        .equals(Prefs.PATHWAY_SMART) && fragConnect.isAdded && fragConnect.context != null
-                                ) {
-                                    fragConnect.doLayoutOff()
-                                }
-                            } else if (fragConnect.isAdded && fragConnect.context != null) {
-                                fragConnect.doLayoutOff()
-                            }
-                        }
-
-                        OrbotConstants.STATUS_STARTING -> if (fragConnect.isAdded && fragConnect.context != null) fragConnect.doLayoutStarting(
-                            this@OrbotActivity
-                        )
-
-                        OrbotConstants.STATUS_ON -> if (fragConnect.isAdded && fragConnect.context != null) fragConnect.doLayoutOn(
-                            this@OrbotActivity
-                        )
-
-                        OrbotConstants.STATUS_STOPPING -> {}
+                    if (status != previousReceivedTorStatus) {
+                        connectViewModel.updateState(this@OrbotActivity, status)
+                        previousReceivedTorStatus = status
                     }
-
-                    previousReceivedTorStatus = status
                 }
 
                 OrbotConstants.LOCAL_ACTION_LOG -> {
                     intent.getStringExtra(OrbotConstants.LOCAL_EXTRA_BOOTSTRAP_PERCENT)?.let {
-                        // todo progress bar shouldn't be accessed directly here, *tell* the connect fragment to update
-                        fragConnect.progressBar.progress = Integer.parseInt(it)
+                        connectViewModel.updateBootstrapPercent(it.toIntOrNull() ?: 0)
                     }
                     intent.getStringExtra(OrbotConstants.LOCAL_EXTRA_LOG)?.let {
                         logBottomSheet.appendLog(it)
