@@ -48,7 +48,8 @@ public class Prefs {
     private static final String PREF_CONNECTION_PATHWAY = "pref_connection_pathway";
     public static final String PATHWAY_SMART = "smart", PATHWAY_DIRECT = "direct",
         PATHWAY_SNOWFLAKE = "snowflake", PATHWAY_SNOWFLAKE_AMP = "snowflake_amp",
-        PATHWAY_SNOWFLAKE_SQS = "snowflake_sqs", PATHWAY_CUSTOM = "custom";
+        PATHWAY_SNOWFLAKE_SQS = "snowflake_sqs", PATHWAY_MEEK = "meek",
+        PATHWAY_CUSTOM = "custom";
 
     public static final String PREF_SECURE_WINDOW_FLAG = "pref_flag_secure";
 
