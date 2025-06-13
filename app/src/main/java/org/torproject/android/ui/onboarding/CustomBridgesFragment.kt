@@ -167,7 +167,7 @@ class CustomBridgesFragment : Fragment(), TextWatcher {
         private const val URL_TOR_BRIDGES = "https://bridges.torproject.org/bridges"
 
         private fun userHasSetPreconfiguredBridge(bridges: String?): Boolean {
-            return bridges in listOf("obfs4", "meek", "snowflake", "snowflake-amp")
+            return bridges in listOf("obfs4", "meek", "snowflake", "webtunnel")
         }
     }
 }
