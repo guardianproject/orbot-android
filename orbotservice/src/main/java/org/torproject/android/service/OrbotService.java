@@ -34,6 +34,7 @@ import net.freehaven.tor.control.TorControlCommands;
 import net.freehaven.tor.control.TorControlConnection;
 
 import org.torproject.android.service.circumvention.ContentDeliveryNetworkFronts;
+import org.torproject.android.service.circumvention.LyrebirdClient;
 import org.torproject.android.service.circumvention.SnowflakeClient;
 import org.torproject.android.service.circumvention.SnowflakeProxyWrapper;
 import org.torproject.android.service.db.OnionServiceColumns;
@@ -233,6 +234,8 @@ public class OrbotService extends VpnService {
         // todo particularly this is true for the smart connection case...
         if (connectionPathway.startsWith(Prefs.PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake()) {
             SnowflakeClient.stop(mIptProxy);
+        } else if (connectionPathway.equals(Prefs.PATHWAY_MEEK)) {
+            LyrebirdClient.stop(mIptProxy);
         } else if (connectionPathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null) {
             mIptProxy.stop(IPtProxy.MeekLite);
             mIptProxy.stop(IPtProxy.Obfs4);
@@ -874,6 +877,8 @@ public class OrbotService extends VpnService {
                 processSettingsImplSnowflakeAmpAndSqsModes(extraLines);
             else if (pathway.startsWith(Prefs.PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake())
                 processSettingsImplSnowflake(extraLines);
+            else if (pathway.equals(Prefs.PATHWAY_MEEK))
+                processSettingsImplMeekLite(extraLines);
             else if (pathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null)
                 processSettingsLyrebird(extraLines);
         }
@@ -914,6 +919,13 @@ public class OrbotService extends VpnService {
         }
 
         return extraLines;
+    }
+
+    private void processSettingsImplMeekLite(StringBuffer extraLines) {
+        extraLines.append(LyrebirdClient.getClientTransportPluginTorrcLine(mIptProxy));
+        var brokers = LyrebirdClient.getLocalBrokersMeek(this);
+        for (String bridge : brokers)
+            extraLines.append("Bridge " + bridge + "\n");
     }
 
     private void processSettingsImplSnowflake(StringBuffer extraLines) {
@@ -1057,6 +1069,8 @@ public class OrbotService extends VpnService {
                         SnowflakeClient.startWithAmpRendezvous(mIptProxy);
                     } else if (connectionPathway.equals(Prefs.PATHWAY_SNOWFLAKE_SQS)) {
                         SnowflakeClient.startWithSqsRendezvous(mIptProxy);
+                    } else if (connectionPathway.equals(Prefs.PATHWAY_MEEK)) {
+                        LyrebirdClient.startWithMeekLite(mIptProxy);
                     } else if (connectionPathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null) {
                         for (var transport : Bridge.getTransports(getCustomBridges())) {
                             try {
