@@ -320,13 +320,14 @@ class OrbotActivity : BaseActivity() {
         rootLayout?.visibility = View.INVISIBLE
         RequirePasswordPrompt.openPrompt(this, object :
             BiometricPrompt.AuthenticationCallback() {
-            override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
-                super.onAuthenticationError(errorCode, errString)
-                if (errorCode == BiometricPrompt.ERROR_NO_DEVICE_CREDENTIAL)
-                    Toast.makeText(this@OrbotActivity, R.string.error_no_password_set, Toast.LENGTH_LONG).show()
-                else
-                    finish()
-
+            override fun onAuthenticationError(errorCode: Int, orbotErrorMessage: CharSequence) {
+                super.onAuthenticationError(errorCode, orbotErrorMessage)
+                    Toast.makeText(
+                        this@OrbotActivity,
+                        orbotErrorMessage,
+                        Toast.LENGTH_LONG
+                    ).show()
+                    rootLayout?.visibility = View.VISIBLE
             }
 
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
