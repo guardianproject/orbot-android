@@ -49,8 +49,6 @@ class OrbotActivity : BaseActivity() {
 
     private var lastSelectedItemId: Int = R.id.connectFragment
 
-    private var obtainedPassword = false
-
     // used to hide UI while password isn't obtained
     private var rootLayout: View? = null
 
@@ -58,7 +56,6 @@ class OrbotActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        obtainedPassword = false
         enableEdgeToEdge()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -308,20 +305,23 @@ class OrbotActivity : BaseActivity() {
         if (!Prefs.requireDevicePassword())
             return
 
+        if (!OrbotApp.shouldRequestPasswordReset)
+            return
+
         // if app was closed, we should re-request password upon
         // re-open, even if we've gotten it already
-        if (OrbotApp.shouldRequestPasswordReset) {
-            OrbotApp.shouldRequestPasswordReset = false
-            obtainedPassword = false
-        }
+        OrbotApp.shouldRequestPasswordReset = false
 
-        if (obtainedPassword) // user already entered password this session
+        if (OrbotApp.isAuthenticationPromptOpenLegacyFlag)
             return
+
+        OrbotApp.isAuthenticationPromptOpenLegacyFlag = true
 
         rootLayout?.visibility = View.INVISIBLE
         RequirePasswordPrompt.openPrompt(this, object :
             BiometricPrompt.AuthenticationCallback() {
             override fun onAuthenticationError(errorCode: Int, errorMsg: CharSequence) {
+                OrbotApp.isAuthenticationPromptOpenLegacyFlag = false
                 if (errorCode == BiometricPrompt.ERROR_USER_CANCELED) {
                     finish() // user presses back, just close
                 } else if (errorCode == BiometricPrompt.ERROR_HW_UNAVAILABLE) {
@@ -332,11 +332,13 @@ class OrbotActivity : BaseActivity() {
             }
 
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
-                obtainedPassword = true
+                OrbotApp.shouldRequestPasswordReset = false
+                OrbotApp.isAuthenticationPromptOpenLegacyFlag = false
                 rootLayout?.visibility = View.VISIBLE
             }
 
             override fun onAuthenticationFailed() {
+                OrbotApp.isAuthenticationPromptOpenLegacyFlag = false
                 this@OrbotActivity.finish()
             }
         })
