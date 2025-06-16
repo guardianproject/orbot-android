@@ -28,6 +28,7 @@ import androidx.navigation.ui.setupWithNavController
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
+import org.torproject.android.core.makeToast
 
 import org.torproject.android.core.sendIntentToService
 import org.torproject.android.core.ui.BaseActivity
@@ -320,14 +321,14 @@ class OrbotActivity : BaseActivity() {
         rootLayout?.visibility = View.INVISIBLE
         RequirePasswordPrompt.openPrompt(this, object :
             BiometricPrompt.AuthenticationCallback() {
-            override fun onAuthenticationError(errorCode: Int, orbotErrorMessage: CharSequence) {
-                super.onAuthenticationError(errorCode, orbotErrorMessage)
-                    Toast.makeText(
-                        this@OrbotActivity,
-                        orbotErrorMessage,
-                        Toast.LENGTH_LONG
-                    ).show()
+            override fun onAuthenticationError(errorCode: Int, errorMsg: CharSequence) {
+                if (errorCode == BiometricPrompt.ERROR_USER_CANCELED) {
+                    finish() // user presses back, just close
+                } else if (errorCode == BiometricPrompt.ERROR_HW_UNAVAILABLE) {
+                    // we set this flag when Orbot *can't* authenticate, ie no password or unsupported device
+                    makeToast(errorMsg) // String set in RequirePasswordPrompt.kt
                     rootLayout?.visibility = View.VISIBLE
+                }
             }
 
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
@@ -336,7 +337,7 @@ class OrbotActivity : BaseActivity() {
             }
 
             override fun onAuthenticationFailed() {
-                finish()
+                this@OrbotActivity.finish()
             }
         })
     }
