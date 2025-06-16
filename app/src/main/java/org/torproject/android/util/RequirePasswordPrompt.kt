@@ -1,5 +1,6 @@
 package org.torproject.android.util
 
+import android.annotation.SuppressLint
 import android.content.Context
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
@@ -22,6 +23,7 @@ class RequirePasswordPrompt {
             // display error for no authentication or system error and abort flow
             val authenticationErrorCode = BiometricManager.from(activity).canAuthenticate(AUTHENTICATORS)
             if (authenticationErrorCode != BiometricManager.BIOMETRIC_SUCCESS) {
+                @SuppressLint("WrongConstant") // we are only using the "right" constants here, from the API...
                 callback.onAuthenticationError(authenticationErrorCode, getAuthenticationErrorMessage(authenticationErrorCode, activity))
                 return
             }
