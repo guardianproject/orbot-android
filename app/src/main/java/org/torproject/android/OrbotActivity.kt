@@ -302,7 +302,7 @@ class OrbotActivity : BaseActivity() {
     }
 
     private fun promptDevicePasswordIfRequired() {
-        if (!Prefs.requireDevicePassword())
+        if (!Prefs.requireDeviceAuthentication())
             return
 
         if (!OrbotApp.shouldRequestPasswordReset)

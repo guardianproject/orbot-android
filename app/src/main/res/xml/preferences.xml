@@ -77,6 +77,13 @@
             android:defaultValue="false"
             app:iconSpaceReserved="false"/>
 
+        <CheckBoxPreference
+            android:title="@string/pref_password_only_no_biometric"
+            android:summary="@string/pref_password_only_no_biometric_description"
+            android:key="pref_auth_no_biometrics"
+            android:defaultValue="false"
+            app:iconSpaceReserved="false"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory

@@ -309,7 +309,8 @@
     <string name="device_lock_unsupported">Orbot Authentication is not supported on your device</string>
     <string name="device_lock_security_update_needed">You must download Android security updates for your device in order to use Orbot Authentication</string>
     <string name="unlock_app_msg" formatted="true">Your device password is needed to unlock %s</string>
-
     <string name="invalid_bridge_format">Invalid bridge format</string>
     <string name="error_asking_tor_for_bridges">Error asking Tor how to connect</string>
+    <string name="pref_password_only_no_biometric">Disallow Biometrics for Orbot Authentication</string>
+    <string name="pref_password_only_no_biometric_description">This forces Orbot Authentication to only use your device\'s password even if biometric authentication is configured on your device.</string>
 </resources>

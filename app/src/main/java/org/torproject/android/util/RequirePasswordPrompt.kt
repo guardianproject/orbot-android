@@ -2,6 +2,7 @@ package org.torproject.android.util
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Build
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
@@ -12,18 +13,19 @@ import org.torproject.android.service.util.Prefs
 class RequirePasswordPrompt {
     companion object {
 
-        const val AUTHENTICATORS =
-            BiometricManager.Authenticators.DEVICE_CREDENTIAL or BiometricManager.Authenticators.BIOMETRIC_WEAK
-
         fun openPrompt(
             activity: FragmentActivity,
             callback: BiometricPrompt.AuthenticationCallback
         ) {
-
+            val authenticators = getAuthenticators()
             // display error for no authentication or system error and abort flow
-            val authenticationErrorCode = BiometricManager.from(activity).canAuthenticate(AUTHENTICATORS)
+            val authenticationErrorCode =
+                BiometricManager.from(activity).canAuthenticate(authenticators)
             if (authenticationErrorCode != BiometricManager.BIOMETRIC_SUCCESS) {
-                callback.onAuthenticationError(BiometricPrompt.ERROR_HW_UNAVAILABLE, getAuthenticationErrorMessage(authenticationErrorCode, activity))
+                callback.onAuthenticationError(
+                    BiometricPrompt.ERROR_HW_UNAVAILABLE,
+                    getAuthenticationErrorMessage(authenticationErrorCode, activity)
+                )
                 return
             }
 
@@ -31,15 +33,16 @@ class RequirePasswordPrompt {
                 if (Prefs.isCamoEnabled()) Prefs.getCamoAppDisplayName() else activity.getString(
                     R.string.app_name
                 )
+
             val promptInfo = BiometricPrompt.PromptInfo.Builder()
                 .setConfirmationRequired(true)
                 .setTitle(appName)
                 .setSubtitle(activity.getString(R.string.unlock_app_msg, appName))
-                .setAllowedAuthenticators(AUTHENTICATORS)
+                .setAllowedAuthenticators(authenticators)
                 .build()
-            val prompt =
-                BiometricPrompt(activity, ContextCompat.getMainExecutor(activity), callback)
-            prompt.authenticate(promptInfo)
+
+            BiometricPrompt(activity, ContextCompat.getMainExecutor(activity), callback)
+                .authenticate(promptInfo)
         }
 
         /**
@@ -59,7 +62,20 @@ class RequirePasswordPrompt {
 
                 else -> context.getString(R.string.device_lock_unsupported)
             }
+        }
 
+        // when API < 30 you actually need both password and biometrics, so return that
+        // if >= 30, return that unless a preference disallows biometrics
+        private fun getAuthenticators(): Int {
+            val biometricOrPassword =
+                BiometricManager.Authenticators.DEVICE_CREDENTIAL or BiometricManager.Authenticators.BIOMETRIC_WEAK
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+                return biometricOrPassword
+            }
+            return if (Prefs.disallowBiometricAuthentication())
+                BiometricManager.Authenticators.DEVICE_CREDENTIAL
+            else
+                biometricOrPassword
         }
     }
 }
