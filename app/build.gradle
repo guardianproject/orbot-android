@@ -185,7 +185,12 @@ tasks.register("buildGeoipJar") {
 }
 
 android.applicationVariants.configureEach { variant ->
-    if (variant.buildType.name == "release") {
+    def geoipJar = layout.projectDirectory.file("src/main/assets/geoip.jar").asFile
+
+    if (
+        variant.buildType.name == "release" ||
+        (variant.buildType.name == "debug" && !geoipJar.exists())
+    ) {
         variant.getPreBuildProvider().configure {
             dependsOn(copyLicenseToAssets, buildGeoipJar)
         }
