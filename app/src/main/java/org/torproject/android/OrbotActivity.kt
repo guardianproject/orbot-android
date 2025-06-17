@@ -36,7 +36,6 @@ import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.ui.connect.ConnectViewModel
-import org.torproject.android.util.RequirePasswordPrompt
 import org.torproject.android.util.DeviceAuthenticationPrompt
 
 class OrbotActivity : BaseActivity() {

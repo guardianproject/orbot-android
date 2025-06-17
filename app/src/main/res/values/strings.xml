@@ -304,13 +304,13 @@
     <string name="power_user_mode_permission_msg">Please allow Orbot to set alarms and reminders in order to use power user mode. This won\'t actually set any alarms on your device. This permission is needed to have the system keep OrbotService running when Orbot is not being used as a system-wide VPN.</string>
 
     <string name="pref_require_password">Orbot Authentication</string>
-    <string name="pref_require_password_description">Prevent access to Orbot until you authenticate your device. This can be combined with Camouflage Mode to help hide that Orbot is installed on your device</string>
+    <string name="pref_require_password_description">Prevent access to Orbot until you authenticate by entering your device password or fingerprint. This can be combined with Camouflage Mode to help hide that Orbot is installed on your device</string>
     <string name="error_no_password_set">Please secure your device in order to use Orbot Authentication </string>
     <string name="device_lock_unsupported">Orbot Authentication is not supported on your device</string>
     <string name="device_lock_security_update_needed">You must download Android security updates for your device in order to use Orbot Authentication</string>
-    <string name="unlock_app_msg" formatted="true">Your device password is needed to unlock %s</string>
     <string name="invalid_bridge_format">Invalid bridge format</string>
     <string name="error_asking_tor_for_bridges">Error asking Tor how to connect</string>
+    <string name="unlock_app_msg" formatted="true">Please unlock your device in order to use %s</string>
     <string name="pref_password_only_no_biometric">Disallow Biometrics for Orbot Authentication</string>
-    <string name="pref_password_only_no_biometric_description">This forces Orbot Authentication to only use your device\'s password even if biometric authentication is configured on your device.</string>
+    <string name="pref_password_only_no_biometric_description">This forces Orbot Authentication to only require your device\'s password even if biometric authentication, such as fingerprint or face unlock, are configured on your device.</string>
 </resources>
