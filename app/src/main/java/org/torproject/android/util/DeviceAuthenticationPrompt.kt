@@ -1,6 +1,5 @@
 package org.torproject.android.util
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
 import androidx.biometric.BiometricManager
@@ -10,9 +9,15 @@ import androidx.fragment.app.FragmentActivity
 import org.torproject.android.R
 import org.torproject.android.service.util.Prefs
 
-class RequirePasswordPrompt {
+class DeviceAuthenticationPrompt {
     companion object {
 
+        /**
+         * Launch a system prompt requiring the user to authenticate their
+         * Android device. On APIs lower than 30, this has to support the password
+         * and biometrics (if user configured them). On 30+, it can be toggled to
+         * disallow biometrics
+         */
         fun openPrompt(
             activity: FragmentActivity,
             callback: BiometricPrompt.AuthenticationCallback
@@ -64,8 +69,10 @@ class RequirePasswordPrompt {
             }
         }
 
-        // when API < 30 you actually need both password and biometrics, so return that
-        // if >= 30, return that unless a preference disallows biometrics
+        /**
+         * Get legal BiometricManager.Authenticators for different versions of Android
+         * if on API 30+ this is configured with a preference, otherwise its hardcoded
+         */
         private fun getAuthenticators(): Int {
             val biometricOrPassword =
                 BiometricManager.Authenticators.DEVICE_CREDENTIAL or BiometricManager.Authenticators.BIOMETRIC_WEAK

@@ -21,7 +21,7 @@ class OrbotApp : Application() {
             override fun onStop(owner: LifecycleOwner) {
                 super.onStop(owner)
                 if (!isAuthenticationPromptOpenLegacyFlag)
-                    shouldRequestPasswordReset = true
+                    shouldRequestAuthentication = true
             }
 
         })
@@ -71,7 +71,7 @@ class OrbotApp : Application() {
     }
 
     companion object {
-        var shouldRequestPasswordReset: Boolean = true
+        var shouldRequestAuthentication: Boolean = true
         // see https://github.com/guardianproject/orbot-android/issues/1340
         var isAuthenticationPromptOpenLegacyFlag: Boolean = false
     }

@@ -37,6 +37,7 @@ import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.util.RequirePasswordPrompt
+import org.torproject.android.util.DeviceAuthenticationPrompt
 
 class OrbotActivity : BaseActivity() {
 
@@ -236,7 +237,7 @@ class OrbotActivity : BaseActivity() {
 
     override fun onStart() {
         super.onStart()
-        promptDevicePasswordIfRequired()
+        promptDeviceAuthenticationIfRequired()
     }
 
     override fun onResume() {
@@ -301,16 +302,16 @@ class OrbotActivity : BaseActivity() {
         }
     }
 
-    private fun promptDevicePasswordIfRequired() {
+    private fun promptDeviceAuthenticationIfRequired() {
         if (!Prefs.requireDeviceAuthentication())
             return
 
-        if (!OrbotApp.shouldRequestPasswordReset)
+        if (!OrbotApp.shouldRequestAuthentication)
             return
 
         // if app was closed, we should re-request password upon
         // re-open, even if we've gotten it already
-        OrbotApp.shouldRequestPasswordReset = false
+        OrbotApp.shouldRequestAuthentication = false
 
         if (OrbotApp.isAuthenticationPromptOpenLegacyFlag)
             return
@@ -318,7 +319,7 @@ class OrbotActivity : BaseActivity() {
         OrbotApp.isAuthenticationPromptOpenLegacyFlag = true
 
         rootLayout?.visibility = View.INVISIBLE
-        RequirePasswordPrompt.openPrompt(this, object :
+        DeviceAuthenticationPrompt.openPrompt(this, object :
             BiometricPrompt.AuthenticationCallback() {
             override fun onAuthenticationError(errorCode: Int, errorMsg: CharSequence) {
                 OrbotApp.isAuthenticationPromptOpenLegacyFlag = false
@@ -332,7 +333,7 @@ class OrbotActivity : BaseActivity() {
             }
 
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
-                OrbotApp.shouldRequestPasswordReset = false
+                OrbotApp.shouldRequestAuthentication = false
                 OrbotApp.isAuthenticationPromptOpenLegacyFlag = false
                 rootLayout?.visibility = View.VISIBLE
             }
