@@ -323,6 +323,7 @@ class OrbotActivity : BaseActivity() {
             override fun onAuthenticationError(errorCode: Int, errorMsg: CharSequence) {
                 OrbotApp.isAuthenticationPromptOpenLegacyFlag = false
                 if (errorCode == BiometricPrompt.ERROR_USER_CANCELED) {
+                    OrbotApp.resetLockFlags()
                     finish() // user presses back, just close
                 } else if (errorCode == BiometricPrompt.ERROR_HW_UNAVAILABLE) {
                     // we set this flag when Orbot *can't* authenticate, ie no password or unsupported device
@@ -338,8 +339,8 @@ class OrbotActivity : BaseActivity() {
             }
 
             override fun onAuthenticationFailed() {
-                OrbotApp.isAuthenticationPromptOpenLegacyFlag = false
-                this@OrbotActivity.finish()
+                OrbotApp.resetLockFlags()
+                finish()
             }
         })
     }

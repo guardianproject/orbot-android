@@ -74,5 +74,9 @@ class OrbotApp : Application() {
         var shouldRequestAuthentication: Boolean = true
         // see https://github.com/guardianproject/orbot-android/issues/1340
         var isAuthenticationPromptOpenLegacyFlag: Boolean = false
+        fun resetLockFlags() {
+            shouldRequestAuthentication = true
+            isAuthenticationPromptOpenLegacyFlag = false
+        }
     }
 }
