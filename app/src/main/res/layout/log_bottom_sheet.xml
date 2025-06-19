@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/new_background"
+    android:background="@drawable/bottom_sheet_rounded"
     android:padding="10dp">
 
         <View
             android:id="@+id/handle"
-            android:layout_width="40dp"
+            android:layout_width="30dp"
             android:layout_height="5dp"
             android:background="@android:color/darker_gray"
             android:layout_marginTop="16dp"
@@ -18,17 +18,15 @@
 
         <TextView
             android:id="@+id/orbotLogHeader"
+            style="@style/BottomSheetHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/menu_log"
-            android:textColor="@color/bright_green"
+            android:layout_marginTop="32dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="44dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            app:layout_constraintEnd_toStartOf="@+id/btnCopyLog"
-            android:layout_marginEnd="272dp"
-            app:layout_constraintHorizontal_bias="0.0" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnCopyLog"
@@ -49,6 +47,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/orbotLogHeader"
+            android:paddingTop="16dp"
             android:paddingBottom="@dimen/button_horizontal_large_margin">
 
             <TextView

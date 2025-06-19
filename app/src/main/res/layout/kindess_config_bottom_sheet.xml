@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/new_background"
+    android:background="@drawable/bottom_sheet_rounded"
     android:paddingStart="10dp"
     android:paddingEnd="10dp">
 
     <View
         android:id="@+id/handle"
-        android:layout_width="40dp"
+        android:layout_width="30dp"
         android:layout_height="5dp"
         android:background="@android:color/darker_gray"
         android:layout_marginTop="16dp"
@@ -40,9 +40,11 @@
         android:id="@+id/rowKindnessConfigWifi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:background="@color/panel_widget_background"
-        android:layout_margin="10dp"
+        android:paddingVertical="4dp"
+        android:paddingHorizontal="16dp"
+        android:background="@drawable/btn_shape_round"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCustomBridgeSubHeader">
@@ -53,11 +55,11 @@
             android:layout_height="wrap_content"
             android:text="@string/option_only_on_wifi"
             android:textSize="20sp"
-            android:paddingTop="@dimen/activity_horizontal_margin"
             android:textColor="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/swKindnessConfigWifi"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swKindnessConfigWifi"
@@ -78,9 +80,11 @@
         android:id="@+id/rowKindnessConfigPower"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:background="@color/panel_widget_background"
-        android:layout_margin="10dp"
+        android:paddingVertical="4dp"
+        android:paddingHorizontal="16dp"
+        android:background="@drawable/btn_shape_round"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rowKindnessConfigWifi">
@@ -91,11 +95,11 @@
             android:layout_height="wrap_content"
             android:text="@string/option_only_when_charging"
             android:textSize="20sp"
-            android:paddingTop="@dimen/activity_horizontal_margin"
             android:textColor="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/swKindnessConfigCharging"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swKindnessConfigCharging"

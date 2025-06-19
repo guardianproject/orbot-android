@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#272030"
+    android:background="@drawable/bottom_sheet_rounded"
     android:paddingStart="10dp"
     android:paddingEnd="10dp">
 
     <View
         android:id="@+id/handle"
-        android:layout_width="40dp"
+        android:layout_width="30dp"
         android:layout_height="5dp"
         android:layout_marginTop="16dp"
         android:background="@android:color/darker_gray"
@@ -40,7 +39,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:background="#1C1425"
+        android:background="@drawable/btn_shape_round"
+        android:backgroundTint="#1C1425"
         android:orientation="horizontal"
         android:padding="6dp"
         app:layout_constraintTop_toBottomOf="@id/tvConfigSubHeader">
@@ -50,11 +50,10 @@
             style="@style/BottomSheetRadioHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_margin="16dp"
             android:text="@string/not_sure"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
 
         <Button
             android:id="@+id/btnAskTor"
@@ -92,8 +91,9 @@
                 android:id="@+id/directContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal">
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal"
+                android:background="?android:attr/selectableItemBackground">
 
                 <RadioButton
                     android:id="@+id/rbDirect"
@@ -125,8 +125,9 @@
                 android:id="@+id/snowflakeContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal">
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal"
+                android:background="?android:attr/selectableItemBackground">
 
                 <RadioButton
                     android:id="@+id/rbSnowflake"
@@ -158,8 +159,9 @@
                 android:id="@+id/snowflakeAmpContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal">
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal"
+                android:background="?android:attr/selectableItemBackground">
 
                 <RadioButton
                     android:id="@+id/rbSnowflakeAmp"
@@ -196,8 +198,9 @@
                 android:id="@+id/snowflakeSqsContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="12dp"
                 android:orientation="horizontal"
+                android:background="?android:attr/selectableItemBackground"
                 android:visibility="gone">
 
                 <RadioButton
@@ -230,8 +233,9 @@
                 android:id="@+id/requestContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal">
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal"
+                android:background="?android:attr/selectableItemBackground">
 
                 <RadioButton
                     android:id="@+id/rbRequest"
@@ -263,8 +267,9 @@
                 android:id="@+id/customContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal">
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal"
+                android:background="?android:attr/selectableItemBackground">
 
                 <RadioButton
                     android:id="@+id/rbCustom"
@@ -295,7 +300,6 @@
         </RadioGroup>
     </androidx.core.widget.NestedScrollView>
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/mainGuideline"
         android:layout_width="wrap_content"
@@ -324,13 +328,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/btn_shape_round"
-        android:backgroundTint="@color/orbot_btn_enabled_purple"
         android:paddingStart="@dimen/button_horizontal_large_margin"
         android:paddingEnd="@dimen/button_horizontal_large_margin"
         android:text="@string/connect"
         android:textColor="@android:color/white"
-
+        android:background="@drawable/btn_shape_round"
+        app:backgroundTint="@color/orbot_btn_enabled_purple"
         app:layout_constraintEnd_toEndOf="@id/tvCancel"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="parent"

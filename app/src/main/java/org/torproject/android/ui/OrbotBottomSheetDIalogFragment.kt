@@ -3,14 +3,18 @@ package org.torproject.android.ui
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.DialogInterface
+import android.graphics.Color
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
+
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+
+import org.torproject.android.R
 
 /**
 Class to setup default bottom sheet behavior for Config Connection, MOAT and any other
@@ -43,9 +47,11 @@ open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
         dismiss()
     }
 
-    private fun setupRatio(bsd : BottomSheetDialog) {
+    private fun setupRatio(bsd: BottomSheetDialog) {
         val bottomSheet = bsd.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
         bottomSheet?.let {
+            it.setBackgroundResource(R.drawable.bottom_sheet_rounded)
+            it.setBackgroundColor(Color.TRANSPARENT)
             val behavior = BottomSheetBehavior.from(it)
             val layoutParams = it.layoutParams
             layoutParams.height = getHeight()
