@@ -28,6 +28,7 @@ import androidx.navigation.ui.setupWithNavController
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
+import org.torproject.android.core.makeToast
 
 import org.torproject.android.core.sendIntentToService
 import org.torproject.android.core.ui.BaseActivity
@@ -35,7 +36,7 @@ import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.ui.connect.ConnectViewModel
-import org.torproject.android.util.RequirePasswordPrompt
+import org.torproject.android.util.DeviceAuthenticationPrompt
 
 class OrbotActivity : BaseActivity() {
 
@@ -48,8 +49,6 @@ class OrbotActivity : BaseActivity() {
 
     private var lastSelectedItemId: Int = R.id.connectFragment
 
-    private var obtainedPassword = false
-
     // used to hide UI while password isn't obtained
     private var rootLayout: View? = null
 
@@ -57,7 +56,6 @@ class OrbotActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        obtainedPassword = false
         enableEdgeToEdge()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -238,7 +236,7 @@ class OrbotActivity : BaseActivity() {
 
     override fun onStart() {
         super.onStart()
-        promptDevicePasswordIfRequired()
+        promptDeviceAuthenticationIfRequired()
     }
 
     override fun onResume() {
@@ -303,38 +301,45 @@ class OrbotActivity : BaseActivity() {
         }
     }
 
-    private fun promptDevicePasswordIfRequired() {
-        if (!Prefs.requireDevicePassword())
+    private fun promptDeviceAuthenticationIfRequired() {
+        if (!Prefs.requireDeviceAuthentication())
+            return
+
+        if (!OrbotApp.shouldRequestAuthentication)
             return
 
         // if app was closed, we should re-request password upon
         // re-open, even if we've gotten it already
-        if (OrbotApp.shouldRequestPasswordReset) {
-            OrbotApp.shouldRequestPasswordReset = false
-            obtainedPassword = false
-        }
+        OrbotApp.shouldRequestAuthentication = false
 
-        if (obtainedPassword) // user already entered password this session
+        if (OrbotApp.isAuthenticationPromptOpenLegacyFlag)
             return
 
-        rootLayout?.visibility = View.INVISIBLE
-        RequirePasswordPrompt.openPrompt(this, object :
-            BiometricPrompt.AuthenticationCallback() {
-            override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
-                super.onAuthenticationError(errorCode, errString)
-                if (errorCode == BiometricPrompt.ERROR_NO_DEVICE_CREDENTIAL)
-                    Toast.makeText(this@OrbotActivity, R.string.error_no_password_set, Toast.LENGTH_LONG).show()
-                else
-                    finish()
+        OrbotApp.isAuthenticationPromptOpenLegacyFlag = true
 
+        rootLayout?.visibility = View.INVISIBLE
+        DeviceAuthenticationPrompt.openPrompt(this, object :
+            BiometricPrompt.AuthenticationCallback() {
+            override fun onAuthenticationError(errorCode: Int, errorMsg: CharSequence) {
+                OrbotApp.isAuthenticationPromptOpenLegacyFlag = false
+                if (errorCode == BiometricPrompt.ERROR_USER_CANCELED) {
+                    OrbotApp.resetLockFlags()
+                    finish() // user presses back, just close
+                } else if (errorCode == BiometricPrompt.ERROR_HW_UNAVAILABLE) {
+                    // we set this flag when Orbot *can't* authenticate, ie no password or unsupported device
+                    makeToast(errorMsg) // String set in RequirePasswordPrompt.kt
+                    rootLayout?.visibility = View.VISIBLE
+                }
             }
 
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
-                obtainedPassword = true
+                OrbotApp.shouldRequestAuthentication = false
+                OrbotApp.isAuthenticationPromptOpenLegacyFlag = false
                 rootLayout?.visibility = View.VISIBLE
             }
 
             override fun onAuthenticationFailed() {
+                OrbotApp.resetLockFlags()
                 finish()
             }
         })

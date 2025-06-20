@@ -11,6 +11,7 @@ import androidx.preference.CheckBoxPreference
 import androidx.preference.EditTextPreference
 import androidx.preference.ListPreference
 import androidx.preference.Preference
+import androidx.preference.Preference.OnPreferenceChangeListener
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import org.torproject.android.R
@@ -71,6 +72,24 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
                 replace(R.id.settings_container, CamoFragment())
             }
             true
+        }
+
+        val prefOrbotAuthentication = findPreference<CheckBoxPreference>("pref_require_password")
+        val prefPasswordNoBiometrics = findPreference<CheckBoxPreference>("pref_auth_no_biometrics")
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+            prefPasswordNoBiometrics?.isVisible = false
+        } else {
+            prefPasswordNoBiometrics?.isEnabled = prefOrbotAuthentication?.isChecked == true
+            prefOrbotAuthentication?.onPreferenceChangeListener = object : OnPreferenceChangeListener {
+                override fun onPreferenceChange(
+                    preference: Preference,
+                    newValue: Any?
+                ): Boolean {
+                    val b = newValue as Boolean
+                    prefPasswordNoBiometrics?.isEnabled = newValue
+                    return true
+                }
+            }
         }
     }
 

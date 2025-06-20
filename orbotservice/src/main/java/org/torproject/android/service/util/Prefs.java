@@ -44,6 +44,7 @@ public class Prefs {
     private static final String PREF_CAMO_APP_PACKAGE = "pref_key_camo_app";
     private static final String PREF_CAMO_APP_DISPLAY_NAME = "pref_key_camo_app_display_name";
     private static final String PREF_REQUIRE_PASSWORD = "pref_require_password";
+    private static final String PREF_DISALLOW_BIOMETRIC_AUTH = "pref_auth_no_biometrics";
 
     private static final String PREF_CONNECTION_PATHWAY = "pref_connection_pathway";
     public static final String PATHWAY_SMART = "smart", PATHWAY_DIRECT = "direct",
@@ -281,9 +282,14 @@ public class Prefs {
         return prefs.getString(PREF_CAMO_APP_DISPLAY_NAME, "Android");
     }
 
-    public static boolean requireDevicePassword() {
+    public static boolean requireDeviceAuthentication() {
         return prefs.getBoolean(PREF_REQUIRE_PASSWORD, false);
     }
+
+    public static boolean disallowBiometricAuthentication() {
+        return prefs.getBoolean(PREF_DISALLOW_BIOMETRIC_AUTH, false);
+    }
+
 
     public static void setCamoAppDisplayName(String name) {
         putString(PREF_CAMO_APP_DISPLAY_NAME, name);

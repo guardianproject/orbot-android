@@ -20,8 +20,10 @@ class OrbotApp : Application() {
         ProcessLifecycleOwner.get().lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onStop(owner: LifecycleOwner) {
                 super.onStop(owner)
-                shouldRequestPasswordReset = true
+                if (!isAuthenticationPromptOpenLegacyFlag)
+                    shouldRequestAuthentication = true
             }
+
         })
 
 //      useful for finding unclosed sockets...
@@ -69,6 +71,12 @@ class OrbotApp : Application() {
     }
 
     companion object {
-        var shouldRequestPasswordReset: Boolean = false
+        var shouldRequestAuthentication: Boolean = true
+        // see https://github.com/guardianproject/orbot-android/issues/1340
+        var isAuthenticationPromptOpenLegacyFlag: Boolean = false
+        fun resetLockFlags() {
+            shouldRequestAuthentication = true
+            isAuthenticationPromptOpenLegacyFlag = false
+        }
     }
 }
