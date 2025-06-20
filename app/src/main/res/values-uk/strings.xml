@@ -306,4 +306,6 @@
     <string name="pref_require_password_description">Заборонити доступ до Orbot, доки ви не введете пароль свого пристрою. Це можна поєднати з режимом камуфляжу, щоб приховати, що Orbot встановлено на вашому пристрої</string>
     <string name="error_no_password_set">Будь ласка, встановіть пароль на своєму пристрої, щоб використовувати блокування пристрою паролем</string>
     <string name="unlock_app_msg" formatted="true">Щоб розблокувати %s, потрібен пароль вашого пристрою</string>
+    <string name="invalid_bridge_format">Недійсний формат мосту</string>
+    <string name="error_asking_tor_for_bridges">Помилка під час запиту Tor про підключення</string>
 </resources>
