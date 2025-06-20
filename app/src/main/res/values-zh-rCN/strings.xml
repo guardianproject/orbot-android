@@ -300,4 +300,6 @@
     <string name="pref_require_password">设备密码锁</string>
     <string name="error_no_password_set">请在设备上设置密码以便使用设备密码锁</string>
     <string name="unlock_app_msg" formatted="true">解锁 %s 需要您的设备密码</string>
+    <string name="invalid_bridge_format">网桥格式无效</string>
+    <string name="error_asking_tor_for_bridges">询问 Tor 如何连接时出错</string>
 </resources>
