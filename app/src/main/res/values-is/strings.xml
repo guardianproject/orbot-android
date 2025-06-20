@@ -283,4 +283,7 @@
     <string name="pref_enable_rotation_title">Snúningur tækis</string>
     <string name="app_icon_chooser_label_night_watch">Næturvakt</string>
     <string name="app_icon_chooser_label_tetras">Tetras</string>
+    <string name="app_icon_chooser_label_birdie">Birdie</string>
+    <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
+    <string name="camo_dialog_title" formatted="true">Dulbúast sem %1$s</string>
 </resources>
