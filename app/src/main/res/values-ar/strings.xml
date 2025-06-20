@@ -306,4 +306,6 @@
     <string name="pref_require_password">قفل كلمة سر الجهاز</string>
     <string name="error_no_password_set">الرجاء تعيين كلمة سر على جهازك لاستخدام قفل كلمة سر الجهاز</string>
     <string name="unlock_app_msg" formatted="true">كلمة سر جهازك مطلوبة لفتح %s</string>
+    <string name="invalid_bridge_format">تنسيق الجسر غير صالح</string>
+    <string name="error_asking_tor_for_bridges">خطأ في طلب كيفية الاتصال بتور</string>
 </resources>
