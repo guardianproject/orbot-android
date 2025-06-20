@@ -17,13 +17,18 @@ class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) 
     companion object {
         const val TAG = "CustomBridgeBottomSheet"
         private val bridgeStatement = Regex("(obfs4|meek|webtunnel)")
+        private val meekLiteRegex = Regex("""^meek_lite\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+url=https?://\S+\s+front=\S+\s+utls=\S+$""")
         private val obfs4Regex = Regex("""^obfs4\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+[A-F0-9]{40}(\s+cert=[a-zA-Z0-9+/=]+)?(\s+iat-mode=\d+)?$""")
         private val webtunnelRegex = Regex("""^webtunnel\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+[A-F0-9]{40}(\s+url=https?://\S+)?(\s+ver=\d+\.\d+\.\d+)?$""")
 
         fun isValidBridge(input: String): Boolean {
             return input.lines()
                 .filter { it.isNotEmpty() && it.isNotBlank() }
-                .all { it.matches(obfs4Regex) || it.matches(webtunnelRegex) }
+                .all {
+                    it.matches(obfs4Regex) ||
+                    it.matches(webtunnelRegex) ||
+                    it.matches(meekLiteRegex)
+                }
         }
     }
 

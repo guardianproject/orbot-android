@@ -52,6 +52,10 @@ class Bridge(var raw: String) {
         get() = rawPieces.firstOrNull { it.startsWith("ice=") }
             ?.split("=")?.lastOrNull()
 
+    val utls
+        get() = rawPieces.firstOrNull { it.startsWith("utls=") }
+            ?.split("=")?.lastOrNull()
+
     val utlsImitate
         get() = rawPieces.firstOrNull { it.startsWith("utls-imitate=") }
             ?.split("=")?.lastOrNull()
