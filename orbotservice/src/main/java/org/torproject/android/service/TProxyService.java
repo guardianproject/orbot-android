@@ -9,7 +9,6 @@ public class TProxyService {
         System.loadLibrary("hev-socks5-tunnel");
     }
 
-    public static final String IPV4 = "192.168.0.1";
     public static final int TASK_SIZE = 81920;
     public static final int TUNNEL_MTU = 8500;
 }
