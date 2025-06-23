@@ -23,6 +23,5 @@ include(
         ':app-tv',
         ':appcore',
         ':intentintegrator',
-        ':OrbotLib',
         ':orbotservice'
 )
