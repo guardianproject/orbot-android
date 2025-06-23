@@ -1,17 +1,17 @@
 package org.torproject.android.service.vpn
 
-import IPtProxy.PacketFlow
 import android.util.Log
 import org.pcap4j.packet.DnsPacket
 import org.pcap4j.packet.IpPacket
 import org.pcap4j.packet.IpV4Packet
 import org.pcap4j.packet.IpV6Packet
 import org.pcap4j.packet.UdpPacket
+import java.io.DataOutputStream
 import java.net.Inet6Address
 
 class RequestPacketHandler(
     private val packet: IpPacket,
-    private val pFlow: PacketFlow,
+    private val interfaceOutputStream: DataOutputStream,
     private val mDnsResolver: DNSResolver
 ) : Runnable {
     override fun run() {
@@ -65,7 +65,8 @@ class RequestPacketHandler(
 
                 // only IPv4Packet and IPv6Packet implement IPPacket so this is safe
                 val rawResponse = respPacket!!.rawData
-                pFlow.writePacket(rawResponse)
+
+                interfaceOutputStream.write(rawResponse)
             }
         } catch (ioe: Exception) {
             Log.e("RequestPacketHandler", "could not parse DNS packet: $ioe")
