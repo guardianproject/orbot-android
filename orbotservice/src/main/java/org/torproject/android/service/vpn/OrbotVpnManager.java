@@ -56,7 +56,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class OrbotVpnManager implements Handler.Callback {
-    private static final String TAG = "bim";
+    private static final String TAG = "OrbotVPNManager";
     boolean isStarted = false;
     private ParcelFileDescriptor mInterface;
     private int mTorSocks = -1;
@@ -161,23 +161,35 @@ public class OrbotVpnManager implements Handler.Callback {
 
     public final static String FAKE_DNS = "10.0.0.1";
 
-    private static final String VIRTUAL_GATEWAY_IPV4 = "198.18.0.1";
-    private static final String VIRTUAL_GATEWAY_IPV6 = "fc00::1";
+    private static final String VIRTUAL_GATEWAY_IPV4 = "192.168.50.1";
+    private static final int VIRTUAL_GATEWAY_IPV4_PREFIX_LENGTH = 24;
+    private static final String VIRTUAL_GATEWAY_IPV6 = "fdfe:dcba:9876::1";
+    private static final int VIRTUAL_GATEWAY_IPV6_PREFIX_LENGTH = 126;
 
     private synchronized void setupTun2Socks(final VpnService.Builder builder) {
         try {
             final String defaultRoute = "0.0.0.0";
 
-            builder.setMtu(TProxyService.TUNNEL_MTU);
-            builder.addAddress(VIRTUAL_GATEWAY_IPV4, 32)
+            builder
+                    .setMtu(TProxyService.TUNNEL_MTU)
+                    .addAddress(VIRTUAL_GATEWAY_IPV4, VIRTUAL_GATEWAY_IPV4_PREFIX_LENGTH)
                     .addRoute(defaultRoute, 0)
-                    .addRoute(FAKE_DNS, 32)
-                     .addDnsServer(FAKE_DNS) //just setting a value here so DNS is captured by TUN interface
+                    .addDnsServer(FAKE_DNS) //just setting a value here so DNS is captured by TUN interface
                     .setSession(Notifications.getVpnSessionName(mService));
+                    .setSession(mService.getString(R.string.orbot_vpn))
+                    // add ipv6 gateway
+                    .addAddress(VIRTUAL_GATEWAY_IPV6, VIRTUAL_GATEWAY_IPV6_PREFIX_LENGTH)
+                    .addRoute("::", 0)
+                    .setConfigureIntent(null) // previously this was set to a null member variable
+                    .setBlocking(true);
 
-            //handle ipv6
-            builder.addAddress(VIRTUAL_GATEWAY_IPV6, 128);
-            builder.addRoute("::", 0);
+
+            // Explicitly allow both families, so we do not block
+            // traffic for ones without DNS servers (issue 129).
+            builder.allowFamily(OsConstants.AF_INET);
+            builder.allowFamily(OsConstants.AF_INET6);
+>>>>>>> d371207f (use original defaults, clean up code/builders)
+
 
             /*
              * Can't use this since our HTTP proxy is only CONNECT and not a full proxy
@@ -190,12 +202,6 @@ public class OrbotVpnManager implements Handler.Callback {
             // https://developer.android.com/reference/android/net/VpnService.Builder#setMetered(boolean)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 builder.setMetered(false);
-
-                // Explicitly allow both families, so we do not block
-                // traffic for ones without DNS servers (issue 129).
-                builder.allowFamily(OsConstants.AF_INET);
-                builder.allowFamily(OsConstants.AF_INET6);
-
             }
 
             builder
@@ -266,14 +272,21 @@ public class OrbotVpnManager implements Handler.Callback {
                             var pdata = Arrays.copyOf(buffer, pLen);
                             try {
                                 var packet = IpSelector.newPacket(pdata, 0, pdata.length);
-
                                 if (packet instanceof IpPacket ipPacket) {
                                     if (isPacketDNS(ipPacket))
                                         mExec.execute(new RequestPacketHandler(ipPacket, fos, mDnsResolver));
-                                    else //noinspection StatementWithEmptyBody
+                                    else {
+                                        //noinspection StatementWithEmptyBody
                                         if (isPacketICMP(ipPacket)) {
                                             //do nothing, drop!
-                                        } else fos.write(pdata);
+                                        } else mExec.execute(() -> {
+                                            try {
+                                                fos.write(pdata);
+                                            } catch (IOException e) {
+                                                throw new RuntimeException(e);
+                                            }
+                                        });
+                                    }
                                 }
                             } catch (IllegalRawDataException e) {
                                 Log.e(TAG, e.toString());
@@ -289,6 +302,7 @@ public class OrbotVpnManager implements Handler.Callback {
         mThreadPacket.start();
 
     }
+
     private static boolean isPacketDNS(IpPacket p) {
         if (p.getHeader().getProtocol() == IpNumber.UDP) {
             var up = (UdpPacket) p.getPayload();
