@@ -22,7 +22,6 @@ class RequestPacketHandler(
             if (dnsResp != null) {
                 val dnsRequest = udpPacket.payload as DnsPacket
                 val dnsResponse = DnsPacket.newPacket(dnsResp, 0, dnsResp.size)
-
                 val dnsBuilder = DnsPacket.Builder().apply {
                     questions(dnsRequest.header.questions)
                     id(dnsResponse.header.id)
@@ -39,28 +38,38 @@ class RequestPacketHandler(
                     authorities(dnsResponse.header.authorities)
                 }
 
-                val udpBuilder = UdpPacket.Builder(udpPacket).srcPort(udpPacket.header.dstPort)
-                    .dstPort(udpPacket.header.srcPort).srcAddr(packet.header.dstAddr)
-                    .dstAddr(packet.header.srcAddr).correctChecksumAtBuild(true)
-                    .correctLengthAtBuild(true).payloadBuilder(dnsBuilder)
+                val udpBuilder = UdpPacket.Builder(udpPacket)
+                    .srcPort(udpPacket.header.dstPort)
+                    .dstPort(udpPacket.header.srcPort)
+                    .srcAddr(packet.header.dstAddr)
+                    .dstAddr(packet.header.srcAddr)
+                    .correctChecksumAtBuild(true)
+                    .correctLengthAtBuild(true)
+                    .payloadBuilder(dnsBuilder)
 
                 var respPacket: IpPacket? = null
 
                 if (packet is IpV4Packet) {
                     respPacket = IpV4Packet.Builder()
-                        .version(packet.header.version).protocol(packet.header.protocol)
-                        .tos(packet.header.tos).srcAddr(packet.header.dstAddr)
-                        .dstAddr(packet.header.srcAddr).correctChecksumAtBuild(true)
-                        .correctLengthAtBuild(true).dontFragmentFlag(packet.header.dontFragmentFlag)
+                        .version(packet.header.version)
+                        .protocol(packet.header.protocol)
+                        .tos(packet.header.tos)
+                        .srcAddr(packet.header.dstAddr)
+                        .dstAddr(packet.header.srcAddr)
+                        .correctChecksumAtBuild(true)
+                        .correctLengthAtBuild(true)
+                        .dontFragmentFlag(packet.header.dontFragmentFlag)
                         .reservedFlag(packet.header.reservedFlag)
-                        .moreFragmentFlag(packet.header.moreFragmentFlag).ttl(64.toByte())
+                        .moreFragmentFlag(packet.header.moreFragmentFlag)
+                        .ttl(64.toByte())
                         .payloadBuilder(udpBuilder)
                         .build()
                 } else if (packet is IpV6Packet) {
                     respPacket = IpV6Packet.Builder(packet)
                         .srcAddr(packet.header.dstAddr as Inet6Address)
                         .dstAddr(packet.header.srcAddr as Inet6Address)
-                        .payloadBuilder(udpBuilder).build()
+                        .payloadBuilder(udpBuilder)
+                        .build()
                 }
 
                 // only IPv4Packet and IPv6Packet implement IPPacket so this is safe
