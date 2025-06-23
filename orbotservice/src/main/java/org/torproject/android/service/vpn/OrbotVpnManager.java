@@ -42,7 +42,6 @@ import org.pcap4j.packet.namednumber.UdpPort;
 import org.torproject.android.service.OrbotConstants;
 import org.torproject.android.service.OrbotService;
 import org.torproject.android.service.ui.Notifications;
-import org.torproject.android.service.TProxyService;
 import org.torproject.android.service.util.Prefs;
 
 import java.io.DataOutputStream;
@@ -64,7 +63,9 @@ public class OrbotVpnManager implements Handler.Callback {
     private final SharedPreferences prefs;
     private DNSResolver mDnsResolver;
 
-    private final ExecutorService mExec = Executors.newFixedThreadPool(10);
+
+    private static final int EXECUTOR_THREAD_POOL_COUNT = 10;
+    private final ExecutorService mExec = Executors.newFixedThreadPool(EXECUTOR_THREAD_POOL_COUNT);
     private Thread mThreadPacket;
     private boolean keepRunningPacket = false;
 
@@ -127,8 +128,7 @@ public class OrbotVpnManager implements Handler.Callback {
         if (mInterface != null) {
             try {
                 Log.d(TAG, "closing interface, destroying VPN interface");
-//                IPtProxy.stopSocks();
-                TProxyService.TProxyStopService();
+                TProxyStopService();
                 if (fis != null) {
                     fis.close();
                     fis = null;
@@ -170,24 +170,23 @@ public class OrbotVpnManager implements Handler.Callback {
             final String defaultRoute = "0.0.0.0";
 
             builder
-                    .setMtu(TProxyService.TUNNEL_MTU)
+                    .setMtu(TUNNEL_MTU)
                     .addAddress(VIRTUAL_GATEWAY_IPV4, VIRTUAL_GATEWAY_IPV4_PREFIX_LENGTH)
+                    // todo investigate if this addroute call is something we need
                     .addRoute(defaultRoute, 0)
                     .addDnsServer(FAKE_DNS) //just setting a value here so DNS is captured by TUN interface
-                    .setSession(Notifications.getVpnSessionName(mService));
-                    .setSession(mService.getString(R.string.orbot_vpn))
+                    .setSession(Notifications.getVpnSessionName(mService))
                     // add ipv6 gateway
                     .addAddress(VIRTUAL_GATEWAY_IPV6, VIRTUAL_GATEWAY_IPV6_PREFIX_LENGTH)
                     .addRoute("::", 0)
                     .setConfigureIntent(null) // previously this was set to a null member variable
-                    .setBlocking(true);
+                    .setBlocking(false);
 
 
             // Explicitly allow both families, so we do not block
             // traffic for ones without DNS servers (issue 129).
             builder.allowFamily(OsConstants.AF_INET);
             builder.allowFamily(OsConstants.AF_INET6);
->>>>>>> d371207f (use original defaults, clean up code/builders)
 
 
             /*
@@ -230,12 +229,12 @@ public class OrbotVpnManager implements Handler.Callback {
         var fos = new FileOutputStream(file, false);
 
         var tproxy_conf = "misc:\n" +
-                "  log-level: debug\n" +
-                "  task-stack-size: " + TProxyService.TASK_SIZE + "\n" +
+                "  log-level: warn\n" +
+                "  task-stack-size: " + TASK_SIZE + "\n" +
                 "tunnel:\n" +
                 "  ipv4: '" + VIRTUAL_GATEWAY_IPV4 + "'\n" +
                 "  ipv6: '" + VIRTUAL_GATEWAY_IPV6 + "'\n" +
-                "  mtu: " + TProxyService.TUNNEL_MTU + "\n";
+                "  mtu: " + TUNNEL_MTU + "\n";
 
         tproxy_conf += "socks5:\n" +
                 "  port: " + mTorSocks + "\n" +
@@ -256,7 +255,7 @@ public class OrbotVpnManager implements Handler.Callback {
 
         File conf = getHevSocksTunnelConfFile();
 
-        TProxyService.TProxyStartService(conf.getAbsolutePath(), mInterface.getFd());
+        TProxyStartService(conf.getAbsolutePath(), mInterface.getFd());
         //read packets from TUN and send to go-tun2socks
         mThreadPacket = new Thread() {
             public void run() {
@@ -278,13 +277,9 @@ public class OrbotVpnManager implements Handler.Callback {
                                         //noinspection StatementWithEmptyBody
                                         if (isPacketICMP(ipPacket)) {
                                             //do nothing, drop!
-                                        } else mExec.execute(() -> {
-                                            try {
-                                                fos.write(pdata);
-                                            } catch (IOException e) {
-                                                throw new RuntimeException(e);
-                                            }
-                                        });
+                                        } else {
+                                            fos.write(pdata);
+                                        }
                                     }
                                 }
                             } catch (IllegalRawDataException e) {
@@ -361,4 +356,15 @@ public class OrbotVpnManager implements Handler.Callback {
             return false;
         }
     }
+
+    private static native void TProxyStartService(String config_path, int fd);
+    private static native void TProxyStopService();
+    private static native long[] TProxyGetStats();
+
+    static {
+        System.loadLibrary("hev-socks5-tunnel");
+    }
+
+    public static final int TASK_SIZE = 81920;
+    public static final int TUNNEL_MTU = 8500;
 }
