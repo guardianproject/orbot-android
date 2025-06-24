@@ -222,11 +222,6 @@ class ConfigConnectionBottomSheet :
         btnAskTor.text = getString(R.string.asking)
         btnAskTor.setCompoundDrawablesWithIntrinsicBounds(dLeft, null, null, null)
 
-        val fileCacheDir = File(requireActivity().cacheDir, "pt")
-        if (!fileCacheDir.exists()) {
-            fileCacheDir.mkdir()
-        }
-
         val proxy = OrbotService.getIptProxyController(context)
         proxy.start(IPtProxy.MeekLite, null)
 
