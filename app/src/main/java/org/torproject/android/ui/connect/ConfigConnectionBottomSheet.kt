@@ -1,6 +1,5 @@
 package org.torproject.android.ui.connect
 
-import IPtProxy.IPtProxy
 import android.content.Context
 import android.os.Bundle
 import android.telephony.TelephonyManager
@@ -17,12 +16,9 @@ import org.torproject.android.R
 import org.torproject.android.circumvention.Bridges
 import org.torproject.android.circumvention.CircumventionApiManager
 import org.torproject.android.circumvention.SettingsRequest
-import org.torproject.android.service.OrbotService
+import org.torproject.android.service.circumvention.Moat
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
-import java.io.File
-import java.net.Authenticator
-import java.net.PasswordAuthentication
 import java.util.*
 
 class ConfigConnectionBottomSheet :
@@ -222,25 +218,10 @@ class ConfigConnectionBottomSheet :
         btnAskTor.text = getString(R.string.asking)
         btnAskTor.setCompoundDrawablesWithIntrinsicBounds(dLeft, null, null, null)
 
-        val proxy = OrbotService.getIptProxyController(context)
-        proxy.start(IPtProxy.MeekLite, null)
-
-        val moatUrl = OrbotService.getCdnFront("moat-url")
-        val front = OrbotService.getCdnFront("moat-front")
-
-        val pUsername = "url=$moatUrl;front=$front"
-        val pPassword = "\u0000"
-
-        val authenticator: Authenticator = object : Authenticator() {
-            override fun getPasswordAuthentication(): PasswordAuthentication {
-                return PasswordAuthentication(pUsername, pPassword.toCharArray())
-            }
-        }
-
-        Authenticator.setDefault(authenticator)
+        val meekPort = Moat.startMeekForMoatApi(requireContext())
 
         val countryCodeValue: String = getDeviceCountryCode(requireContext())
-        CircumventionApiManager(proxy.port(IPtProxy.MeekLite)).getSettings(
+        CircumventionApiManager(meekPort).getSettings(
             SettingsRequest(
                 countryCodeValue
             ), {
@@ -252,8 +233,7 @@ class ConfigConnectionBottomSheet :
                     } else { // got bridges
                         setPreferenceForSmartConnect(circumventionApiBridges)
                     }
-
-                    proxy.stop(IPtProxy.MeekLite)
+                    Moat.stopMeekForMoatApi(requireContext())
                 }
             }, {
                 Log.wtf(TAG, "Couldn't hit circumvention API... $it")
@@ -263,7 +243,7 @@ class ConfigConnectionBottomSheet :
                         R.string.error_asking_tor_for_bridges,
                         Toast.LENGTH_LONG
                     ).show()
-                    proxy.stop(IPtProxy.MeekLite)
+                    Moat.stopMeekForMoatApi(requireContext())
                 }
             })
     }
@@ -316,7 +296,7 @@ class ConfigConnectionBottomSheet :
                         btnAskTor.text = getString(R.string.connection_custom)
                     }
                     var bridgeStrings = ""
-                    b.bridge_strings!!.forEach { bridgeString ->
+                    b.bridge_strings?.forEach { bridgeString ->
                         bridgeStrings += "$bridgeString\n"
                     }
                     Prefs.setBridgesList(bridgeStrings)
