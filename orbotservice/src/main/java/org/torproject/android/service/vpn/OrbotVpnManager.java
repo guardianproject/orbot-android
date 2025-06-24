@@ -64,7 +64,9 @@ public class OrbotVpnManager implements Handler.Callback {
     private final SharedPreferences prefs;
     private DNSResolver mDnsResolver;
 
-    private final ExecutorService mExec = Executors.newFixedThreadPool(10);
+
+    private static final int EXECUTOR_THREAD_POOL_COUNT = 10;
+    private final ExecutorService mExec = Executors.newFixedThreadPool(EXECUTOR_THREAD_POOL_COUNT);
     private Thread mThreadPacket;
     private boolean keepRunningPacket = false;
 
@@ -277,13 +279,9 @@ public class OrbotVpnManager implements Handler.Callback {
                                         //noinspection StatementWithEmptyBody
                                         if (isPacketICMP(ipPacket)) {
                                             //do nothing, drop!
-                                        } else mExec.execute(() -> {
-                                            try {
-                                                fos.write(pdata);
-                                            } catch (IOException e) {
-                                                throw new RuntimeException(e);
-                                            }
-                                        });
+                                        } else {
+                                            fos.write(pdata);
+                                        }
                                     }
                                 }
                             } catch (IllegalRawDataException e) {
