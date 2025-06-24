@@ -41,7 +41,6 @@ import org.pcap4j.packet.namednumber.IpNumber;
 import org.pcap4j.packet.namednumber.UdpPort;
 import org.torproject.android.service.OrbotConstants;
 import org.torproject.android.service.OrbotService;
-import org.torproject.android.service.R;
 import org.torproject.android.service.ui.Notifications;
 import org.torproject.android.service.util.Prefs;
 
@@ -173,10 +172,10 @@ public class OrbotVpnManager implements Handler.Callback {
             builder
                     .setMtu(TUNNEL_MTU)
                     .addAddress(VIRTUAL_GATEWAY_IPV4, VIRTUAL_GATEWAY_IPV4_PREFIX_LENGTH)
+                    // todo investigate if this addroute call is something we need
                     .addRoute(defaultRoute, 0)
                     .addDnsServer(FAKE_DNS) //just setting a value here so DNS is captured by TUN interface
-                    .setSession(Notifications.getVpnSessionName(mService));
-                    .setSession(mService.getString(R.string.orbot_vpn))
+                    .setSession(Notifications.getVpnSessionName(mService))
                     // add ipv6 gateway
                     .addAddress(VIRTUAL_GATEWAY_IPV6, VIRTUAL_GATEWAY_IPV6_PREFIX_LENGTH)
                     .addRoute("::", 0)
@@ -188,7 +187,6 @@ public class OrbotVpnManager implements Handler.Callback {
             // traffic for ones without DNS servers (issue 129).
             builder.allowFamily(OsConstants.AF_INET);
             builder.allowFamily(OsConstants.AF_INET6);
->>>>>>> d371207f (use original defaults, clean up code/builders)
 
 
             /*
