@@ -20,7 +20,7 @@ import androidx.fragment.app.Fragment;
 
 import org.torproject.android.R;
 import org.torproject.android.core.DiskUtils;
-import org.torproject.android.core.ui.BaseActivity;
+import org.torproject.android.ui.components.BaseActivity;
 import org.torproject.android.service.db.V3ClientAuthColumns;
 import org.torproject.android.ui.v3onionservice.V3BackupUtils;
 

@@ -1,11 +1,11 @@
-package org.torproject.android.core.ui
+package org.torproject.android.ui.components
 
 import android.content.Context
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import org.torproject.android.core.LocaleHelper
 import org.torproject.android.service.util.Prefs
 

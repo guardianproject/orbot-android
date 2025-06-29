@@ -29,7 +29,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
 
 import org.torproject.android.core.sendIntentToService
-import org.torproject.android.core.ui.BaseActivity
+import org.torproject.android.ui.components.BaseActivity
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.Utils.showToast
