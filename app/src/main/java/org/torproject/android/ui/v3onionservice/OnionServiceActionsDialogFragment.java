@@ -17,8 +17,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
 import org.torproject.android.R;
-import org.torproject.android.core.ClipboardUtils;
-import org.torproject.android.core.DiskUtils;
+import org.torproject.android.util.ClipboardUtils;
+import org.torproject.android.util.DiskUtils;
 
 public class OnionServiceActionsDialogFragment extends DialogFragment {
 

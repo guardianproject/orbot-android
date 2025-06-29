@@ -11,7 +11,7 @@ import android.widget.TextView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.torproject.android.R
 import org.torproject.android.service.util.Utils.showToast
-import org.torproject.android.ui.OrbotBottomSheetDialogFragment
+import org.torproject.android.ui.components.OrbotBottomSheetDialogFragment
 
 class LogBottomSheet : OrbotBottomSheetDialogFragment() {
 

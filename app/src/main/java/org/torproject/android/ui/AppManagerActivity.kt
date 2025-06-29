@@ -38,7 +38,7 @@ import org.torproject.android.service.vpn.TorifiedApp
 import java.util.Arrays
 import java.util.StringTokenizer
 import androidx.core.content.edit
-import org.torproject.android.core.ui.BaseActivity
+import org.torproject.android.ui.components.BaseActivity
 
 class AppManagerActivity : BaseActivity(), View.OnClickListener {
     inner class TorifiedAppWrapper(

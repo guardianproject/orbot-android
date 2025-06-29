@@ -97,7 +97,7 @@
         </receiver>
 
         <receiver
-            android:name=".core.OnBootReceiver"
+            android:name=".OnBootReceiver"
             android:directBootAware="false"
             android:enabled="true"
             android:exported="true"

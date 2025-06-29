@@ -13,7 +13,7 @@ import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import org.torproject.android.BuildConfig
 import org.torproject.android.R
-import org.torproject.android.core.DiskUtils
+import org.torproject.android.util.DiskUtils
 import org.torproject.android.service.OrbotService
 import java.io.IOException
 

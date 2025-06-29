@@ -19,7 +19,7 @@ import org.torproject.android.R
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.Utils
-import org.torproject.android.ui.OrbotMenuAction
+import org.torproject.android.ui.components.OrbotMenuAction
 import java.util.ArrayList
 import java.util.TreeMap
 

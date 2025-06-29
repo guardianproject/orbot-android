@@ -15,8 +15,8 @@ import androidx.preference.Preference.OnPreferenceChangeListener
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import org.torproject.android.R
-import org.torproject.android.core.Languages
-import org.torproject.android.core.ui.BaseActivity
+import org.torproject.android.util.Languages
+import org.torproject.android.ui.components.BaseActivity
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.more.camo.CamoFragment
 

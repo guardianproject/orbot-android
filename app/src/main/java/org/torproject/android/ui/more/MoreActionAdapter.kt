@@ -9,7 +9,7 @@ import androidx.cardview.widget.CardView
 import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import org.torproject.android.R
-import org.torproject.android.ui.OrbotMenuAction
+import org.torproject.android.ui.components.OrbotMenuAction
 
 class MoreActionAdapter(
     private val items: List<OrbotMenuAction>
