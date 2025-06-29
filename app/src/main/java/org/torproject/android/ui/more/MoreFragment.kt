@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.torproject.android.OrbotActivity
 import org.torproject.android.R
-import org.torproject.android.core.sendIntentToService
+import org.torproject.android.util.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.ui.AppManagerActivity

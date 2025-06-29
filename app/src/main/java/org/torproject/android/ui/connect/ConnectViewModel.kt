@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
-import org.torproject.android.core.NetworkUtils.isNetworkAvailable
+import org.torproject.android.util.NetworkUtils.isNetworkAvailable
 import org.torproject.android.service.OrbotConstants
 
 class ConnectViewModel : ViewModel() {

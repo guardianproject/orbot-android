@@ -6,7 +6,7 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import org.torproject.android.core.LocaleHelper
+import org.torproject.android.util.LocaleHelper
 import org.torproject.android.service.util.Prefs
 
 /**

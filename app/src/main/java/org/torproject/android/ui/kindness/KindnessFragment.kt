@@ -10,7 +10,7 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import org.torproject.android.ui.connect.CustomBridgeBottomSheet
 import org.torproject.android.R
-import org.torproject.android.core.sendIntentToService
+import org.torproject.android.util.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
 

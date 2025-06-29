@@ -1,4 +1,4 @@
-package org.torproject.android.util
+package org.torproject.android.ui.components
 
 import android.content.Context
 import android.os.Build

@@ -110,7 +110,6 @@ android {
 dependencies {
     // Use locally built ipt_proxy+go_tun2socks
     implementation(project(":OrbotLib"))
-    implementation(project(":appcore"))
     implementation(project(":intentintegrator"))
     implementation(project(":orbotservice"))
 

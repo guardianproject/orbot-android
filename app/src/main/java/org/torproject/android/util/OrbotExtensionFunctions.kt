@@ -1,4 +1,4 @@
-package org.torproject.android.core
+package org.torproject.android.util
 
 import android.content.Context
 import android.content.Intent

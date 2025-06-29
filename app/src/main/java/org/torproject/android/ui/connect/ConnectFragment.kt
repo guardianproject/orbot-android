@@ -33,8 +33,8 @@ import kotlinx.coroutines.launch
 import net.freehaven.tor.control.TorControlCommands
 import org.torproject.android.OrbotActivity
 import org.torproject.android.R
-import org.torproject.android.core.putNotSystem
-import org.torproject.android.core.sendIntentToService
+import org.torproject.android.util.putNotSystem
+import org.torproject.android.util.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Prefs
