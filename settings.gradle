@@ -20,7 +20,6 @@ dependencyResolutionManagement {
 rootProject.name = "Orbot"
 include(
         ':app',
-        ':app-tv',
         ':appcore',
         ':intentintegrator',
         ':OrbotLib',
