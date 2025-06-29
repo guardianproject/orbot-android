@@ -190,6 +190,7 @@
     <string name="bridge_snowflake">Connect through other Tor users using Snowflake (Method 1 - Fastly)</string>
     <string name="bridge_snowflake_amp">Connect through other Tor users using Snowflake (Method 2 - AMP)</string>
     <string name="bridge_snowflake_sqs">Connect through other Tor users using Snowflake (Method 3 - SQS)</string>
+    <string name="bridge_meek">Connect to Azure bridge using MeekLite</string>
     <string name="snowflake_proxy_msg_title">Show Connection Notification</string>
     <string name="snowflake_proxy_msg_description">Show a message when you help someone circumvent censorship</string>
     <!-- new UX -->
@@ -234,6 +235,7 @@
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_amp">Snowflake AMP</string>
     <string name="snowflake_sqs">Snowflake SQS</string>
+    <string name="meek">Meek Azure</string>
     <string name="snowflake_subtitle">Connects through Tor volunteers. Gets around some Tor blocking.</string>
     <string name="get_a_bridge">Bridge from Tor (Obfs4)</string>
     <string name="get_a_bridge_subtitle">Cloaks your traffic. Gets around some Tor blocking.</string>

@@ -34,6 +34,7 @@ class ConfigConnectionBottomSheet :
     private lateinit var rbSnowflake: RadioButton
     private lateinit var rbSnowflakeAmp: RadioButton
     private lateinit var rbSnowflakeSqs: RadioButton
+    private lateinit var rbMeek: RadioButton
     private lateinit var rbRequestBridge: RadioButton
     private lateinit var rbCustom: RadioButton
 
@@ -59,6 +60,7 @@ class ConfigConnectionBottomSheet :
         rbSnowflake = v.findViewById(R.id.rbSnowflake)
         rbSnowflakeAmp = v.findViewById(R.id.rbSnowflakeAmp)
         rbSnowflakeSqs = v.findViewById(R.id.rbSnowflakeSqs)
+        rbMeek = v.findViewById(R.id.rbMeek)
         rbRequestBridge = v.findViewById(R.id.rbRequest)
         rbCustom = v.findViewById(R.id.rbCustom)
 
@@ -66,6 +68,7 @@ class ConfigConnectionBottomSheet :
         val tvSnowflakeSubtitle = v.findViewById<View>(R.id.tvSnowflakeSubtitle)
         val tvSnowflakeAmpSubtitle = v.findViewById<View>(R.id.tvSnowflakeAmpSubtitle)
         val tvSnowflakeSqsSubtitle = v.findViewById<View>(R.id.tvSnowflakeSqsSubtitle)
+        val tvMeekSubtitle = v.findViewById<View>(R.id.tvMeekSubtitle)
         val tvRequestSubtitle = v.findViewById<View>(R.id.tvRequestSubtitle)
         val tvCustomSubtitle = v.findViewById<View>(R.id.tvCustomSubtitle)
 
@@ -74,6 +77,7 @@ class ConfigConnectionBottomSheet :
             rbSnowflake,
             rbSnowflakeAmp,
             rbSnowflakeSqs,
+            rbMeek,
             rbRequestBridge,
             rbCustom
         )
@@ -82,6 +86,7 @@ class ConfigConnectionBottomSheet :
             rbSnowflake to tvSnowflakeSubtitle,
             rbSnowflakeAmp to tvSnowflakeAmpSubtitle,
             rbSnowflakeSqs to tvSnowflakeSqsSubtitle,
+            rbMeek to tvMeekSubtitle,
             rbRequestBridge to tvRequestSubtitle,
             rbCustom to tvCustomSubtitle
         )
@@ -90,6 +95,7 @@ class ConfigConnectionBottomSheet :
             tvSnowflakeSubtitle,
             tvSnowflakeAmpSubtitle,
             tvSnowflakeSqsSubtitle,
+            tvMeekSubtitle,
             tvRequestSubtitle,
             tvCustomSubtitle
         )
@@ -109,6 +115,8 @@ class ConfigConnectionBottomSheet :
             .setOnClickListener { rbSnowflakeAmp.isChecked = true }
         v.findViewById<View>(R.id.snowflakeSqsContainer)
             .setOnClickListener { rbSnowflakeSqs.isChecked = true }
+        v.findViewById<View>(R.id.meekContainer)
+            .setOnClickListener { rbMeek.isChecked = true }
         v.findViewById<View>(R.id.requestContainer)
             .setOnClickListener { rbRequestBridge.isChecked = true }
         v.findViewById<View>(R.id.customContainer).setOnClickListener { rbCustom.isChecked = true }
@@ -133,6 +141,12 @@ class ConfigConnectionBottomSheet :
             }
         }
         rbSnowflakeSqs.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                nestedRadioButtonKludgeFunction(buttonView as RadioButton, radios)
+                radioSubtitleMap[buttonView]?.let { onlyShowActiveSubtitle(it, allSubtitles) }
+            }
+        }
+        rbMeek.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 nestedRadioButtonKludgeFunction(buttonView as RadioButton, radios)
                 radioSubtitleMap[buttonView]?.let { onlyShowActiveSubtitle(it, allSubtitles) }
@@ -180,6 +194,9 @@ class ConfigConnectionBottomSheet :
             } else if (rbSnowflakeSqs.isChecked) {
                 Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_SQS)
                 closeAndConnect()
+            } else if (rbMeek.isChecked) {
+                Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_MEEK)
+                closeAndConnect()
             } else if (rbCustom.isChecked) {
                 CustomBridgeBottomSheet(object : ConnectionHelperCallbacks {
                     override fun tryConnecting() {
@@ -213,6 +230,7 @@ class ConfigConnectionBottomSheet :
         if (pref.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE)) rbSnowflake.isChecked = true
         if (pref.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_AMP)) rbSnowflakeAmp.isChecked = true
         if (pref.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_SQS)) rbSnowflakeSqs.isChecked = true
+        if (pref.equals(Prefs.CONNECTION_PATHWAY_MEEK)) rbMeek.isChecked = true
         if (pref.equals(Prefs.CONNECTION_PATHWAY_DIRECT)) rbDirect.isChecked = true
     }
 

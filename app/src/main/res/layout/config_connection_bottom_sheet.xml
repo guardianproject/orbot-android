@@ -230,6 +230,39 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/meekContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbMeek"
+                    style="@style/BottomSheetRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/BottomSheetRadioHeader"
+                        android:text="@string/meek" />
+
+                    <TextView
+                        android:id="@+id/tvMeekSubtitle"
+                        style="@style/BottomSheetTextView"
+                        android:text="@string/bridge_meek"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/requestContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

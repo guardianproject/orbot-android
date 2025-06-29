@@ -71,6 +71,11 @@ public class Prefs {
      */
     public static final String CONNECTION_PATHWAY_SNOWFLAKE_SQS = "snowflake_sqs";
     /**
+     * Start lyrebird with meek_lite bridges stored in @{link {@link #getBridgesList()}}
+     * This can be set in manually via the CustomBridgeBottomSheet.
+     */
+    public static final String CONNECTION_PATHWAY_MEEK = "meek";
+    /**
      * Start lyrebird with obfs4 bridges stored in @{link {@link #getBridgesList()}}
      * This can be set in manually via the CustomBridgeBottomSheet. This is also currently
      * set when the user "Gets a bridge from tor" successfully in ConfigConnectionBottomSheet.
@@ -83,7 +88,8 @@ public class Prefs {
             CONNECTION_PATHWAY_OBFS4,
             CONNECTION_PATHWAY_SNOWFLAKE,
             CONNECTION_PATHWAY_SNOWFLAKE_AMP,
-            CONNECTION_PATHWAY_SNOWFLAKE_SQS
+            CONNECTION_PATHWAY_SNOWFLAKE_SQS,
+            CONNECTION_PATHWAY_MEEK
     });
 
     public static final String PREF_SECURE_WINDOW_FLAG = "pref_flag_secure";

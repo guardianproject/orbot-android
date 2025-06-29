@@ -285,6 +285,9 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
                 Prefs.CONNECTION_PATHWAY_SNOWFLAKE_SQS -> connectStr =
                     context.getString(R.string.action_use) + ' ' + getString(R.string.snowflake_sqs)
 
+                Prefs.CONNECTION_PATHWAY_MEEK -> connectStr =
+                    context.getString(R.string.action_use) + ' ' + getString(R.string.meek)
+
                 Prefs.CONNECTION_PATHWAY_OBFS4 -> connectStr =
                     context.getString(R.string.action_use) + ' ' + getString(R.string.custom_bridge)
             }
