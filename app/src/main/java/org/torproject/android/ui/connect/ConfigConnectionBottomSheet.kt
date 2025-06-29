@@ -19,7 +19,7 @@ import org.torproject.android.circumvention.CircumventionApiManager
 import org.torproject.android.circumvention.SettingsRequest
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Prefs
-import org.torproject.android.ui.OrbotBottomSheetDialogFragment
+import org.torproject.android.ui.components.OrbotBottomSheetDialogFragment
 import java.io.File
 import java.net.Authenticator
 import java.net.PasswordAuthentication

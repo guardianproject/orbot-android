@@ -39,7 +39,7 @@ import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.AppManagerActivity
-import org.torproject.android.ui.OrbotMenuAction
+import org.torproject.android.ui.components.OrbotMenuAction
 
 class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     ExitNodeDialogFragment.ExitNodeSelectedCallback {

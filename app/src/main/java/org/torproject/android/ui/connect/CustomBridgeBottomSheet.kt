@@ -10,7 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import org.torproject.android.R
 import org.torproject.android.service.util.Prefs
-import org.torproject.android.ui.OrbotBottomSheetDialogFragment
+import org.torproject.android.ui.components.OrbotBottomSheetDialogFragment
 
 class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) :
     OrbotBottomSheetDialogFragment() {

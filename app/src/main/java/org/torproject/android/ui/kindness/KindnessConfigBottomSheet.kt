@@ -8,7 +8,7 @@ import android.widget.Button
 import androidx.appcompat.widget.SwitchCompat
 import org.torproject.android.R
 import org.torproject.android.service.util.Prefs
-import org.torproject.android.ui.OrbotBottomSheetDialogFragment
+import org.torproject.android.ui.components.OrbotBottomSheetDialogFragment
 
 class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment() {
 

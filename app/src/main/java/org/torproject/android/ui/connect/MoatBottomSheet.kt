@@ -26,7 +26,7 @@ import org.json.JSONObject
 import org.torproject.android.R
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Prefs
-import org.torproject.android.ui.OrbotBottomSheetDialogFragment
+import org.torproject.android.ui.components.OrbotBottomSheetDialogFragment
 import org.torproject.android.circumvention.ProxiedHurlStack
 import java.io.File
 

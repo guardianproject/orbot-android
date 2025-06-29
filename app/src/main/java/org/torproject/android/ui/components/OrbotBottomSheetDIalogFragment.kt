@@ -1,4 +1,4 @@
-package org.torproject.android.ui
+package org.torproject.android.ui.components
 
 import android.annotation.SuppressLint
 import android.app.Dialog
