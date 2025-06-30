@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">ஆர்பாட் </string>
     <string name="app_description">ஆர்பாட், இன்னும பாதுகாப்பான முறையில் இணைய பயன்படுத்த மற்ற பயன்பாடுகள் பலப்படுத்துகிறார் என்று ஒரு இலவச ப்ராக்ஸி பயன்பாடு ஆகும். ஆர்பாட் உங்கள் இணைய போக்குவரத்து குறியாக்க தோர் பயன்படுத்துகிறது மற்றும் அதன் பின்னர் உலகம் முழுவதும் கணினிகள் ஒரு தொடர் மூலம் எதிர்க்கிறது அதை மறுத்தவர். தோர் இலவச மென்பொருள் மற்றும் நீங்கள் போக்குவரத்து பகுப்பாய்வு என்ற தனிப்பட்ட சுதந்திரம் மற்றும் தனியுரிமை, ரகசிய வணிக நடவடிக்கைகள் மற்றும் உறவுகள், மற்றும் மாநில பாதுகாப்பை அச்சுறுத்தும் நெட்வொர்க் கண்காணிப்பு வடிவ எதிராக பாதுகாக்க உதவுகிறது என்று ஒரு திறந்த நெட்வொர்க் ஆகும்.</string>
-    <string name="menu_settings">அமைப்புகள்</string>
+    <string name="menu_settings">சுற்றுப்பாதை அமைப்புகள்</string>
     <string name="menu_log">பதிவுகள்</string>
     <string name="menu_stop">நிறுத்து</string>
     <string name="menu_about">பற்றி</string>
@@ -112,7 +112,7 @@
     <string name="v3_backup_key">காப்புப்பிரதி கிளையன்ட் அங்கீகார விசை</string>
     <string name="done">முடிந்தது!</string>
     <string name="copy_address_to_clipboard">கிளிப்போர்டுக்கு முகவரியை நகலெடுக்கவும்</string>
-    <string name="backup_service">காப்புப்பிரதி பணி <i> (எச்சரிக்கை: இது உங்கள் பணி உள்ளமைவை மற்ற பயன்பாடுகளுக்கு அம்பலப்படுத்தக்கூடும்) </i></string>
+    <string name="backup_service">காப்புப்பிரதி பணி (எச்சரிக்கை: இது உங்கள் பணி உள்ளமைவை மற்ற பயன்பாடுகளுக்கு வெளிப்படுத்தக்கூடும்)</string>
     <string name="delete_service">சேவையை நீக்கு</string>
     <string name="backup_restored">காப்புப்பிரதி மீட்டெடுக்கப்பட்டது</string>
     <string name="pref_reduced_circuit_padding">குறைக்கப்பட்ட சர்க்யூட் திணிப்பு</string>
@@ -121,7 +121,7 @@
     <string name="secure_your_connection_subtitle">பிணைய கண்காணிப்பிலிருந்து பயன்பாடுகளை மறைத்து, அவை தடுக்கப்படும்போது அணுகலைப் பெறுங்கள்.</string>
     <string name="btn_use_custom_bridge">தனிப்பயன் பாலத்தைப் பயன்படுத்தவும்</string>
     <string name="msg_try_something_else">வேறு ஏதாவது முயற்சிக்கவும்</string>
-    <string name="snowflake">ச்னோஃப்ளேக் (அசல்)</string>
+    <string name="snowflake">ச்னோஃப்ளேக்</string>
     <string name="ask_tor">டோர் கேளுங்கள்</string>
     <string name="many_ways">TOR ஐ அடைய பல வழிகள் உள்ளன. சிலர் உங்களுக்காக மற்றவர்களை விட சிறப்பாக செயல்படக்கூடும்.</string>
     <string name="connection_direct">நேரடி</string>
@@ -145,7 +145,7 @@
     <string name="pref_dnsport_title">டோர் டிஎன்எச் துறைமுகம்</string>
     <string name="direct_connect">TOR உடன் நேரடி இணைப்பு</string>
     <string name="direct_connect_subtitle">TOR உடன் இணைக்க சிறந்த வழி. டோர் தடுக்கப்படாவிட்டால் பயன்படுத்தவும்.</string>
-    <string name="snowflake_amp">ச்னோஃப்ளேக் (ஆம்ப்)</string>
+    <string name="snowflake_amp">ச்னோஃப்ளேக் ஆம்ப்</string>
     <string name="snowflake_subtitle">டோர் தன்னார்வலர்கள் மூலம் இணைகிறது. தடுப்பதற்காக யாரையாவது சுற்றி வருக.</string>
     <string name="get_a_bridge">TOR (OBFS4) இலிருந்து பாலம்</string>
     <string name="pref_proxy_title">வெளிச்செல்லும் பிணையம் பதிலாள் (விரும்பினால்)</string>
@@ -273,4 +273,32 @@
     <string name="option_only_on_wifi">வைஃபை மட்டுமே</string>
     <string name="option_only_when_charging">கட்டணம் வசூலிக்கும்போது மட்டுமே</string>
     <string name="root_warning">ஆர்போட் உங்கள் சாதனம் வேரூன்றியிருப்பதைக் கண்டறிந்துள்ளது, இது பாதுகாப்பு சிக்கல்களை ஏற்படுத்தும்.</string>
+    <string name="system_vpn_settings">ஆண்ட்ராய்டு VPN அமைப்புகள்</string>
+    <string name="pref_isolate_keep_alive">தனிமைப்படுத்தப்பட்ட சுற்றுகளை உயிரோடு வைத்திருங்கள்</string>
+    <string name="pref_isolate_keep_alive_summary">தனிமைப்படுத்தப்பட்ட சுற்றுகளை உயிருடன் வைத்திருங்கள், அவை சாக்ச் அங்கீகாரத்துடன் குறைந்தது ஒரு ச்ட்ரீம் கொண்டவை</string>
+    <string name="bridge_snowflake_sqs">ச்னோஃப்ளேக்கைப் பயன்படுத்தி பிற டோர் பயனர்கள் மூலம் இணைக்கவும் (முறை 3 - SQS)</string>
+    <string name="snowflake_sqs">ச்னோஃப்ளேக் சதுர</string>
+    <string name="pref_enable_rotation_summary">சாதன சுழற்சியை இயக்கவும் (மறுதொடக்கம் தேவை)</string>
+    <string name="pref_enable_rotation_title">சாதன சுழற்சி</string>
+    <string name="app_icon_chooser_label_night_watch">இரவு கடிகாரம்</string>
+    <string name="app_icon_chooser_label_assistant">உதவியாளர்</string>
+    <string name="app_icon_chooser_label_paint">வண்ணப்பூச்சு</string>
+    <string name="app_icon_chooser_label_tetras">டெட்ராச்</string>
+    <string name="app_icon_chooser_label_todo">செய்ய வேண்டியவை</string>
+    <string name="app_icon_chooser_label_fit_grit">Fitgrit</string>
+    <string name="app_icon_chooser_label_birdie">பறவை</string>
+    <string name="camo_dialog_title" formatted="true">உருமறைப்பு %1$s</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">ஆர்போட் தன்னை %1$s ஆக மறைக்கும். இது TOR பற்றிய அனைத்து அறிவிப்பு விவரங்களையும் மறைத்து, உங்கள் முகப்புத் திரையில் ஆர்போட்டின் தோற்றத்தை எவ்வாறு மாற்றும். \n\n%2$s என உருமறைப்பது ஆர்போட்டை மறுதொடக்கம் செய்யும்.</string>
+    <string name="camo_dialog_disable_confirm_msg">ஆர்போட் உங்கள் TOR இணைப்பு பற்றிய அறிவிப்பு தகவல்களைக் காண்பிக்கும் மற்றும் உங்கள் முகப்புத் திரையில் இயல்பானதாகத் தோன்றும். \n\nஉருமறைப்பு பயன்முறையை முடக்குவது சுற்றுப்பாதையை மறுதொடக்கம் செய்யும்.</string>
+    <string name="camo_dialog_disable_title">உருமறைப்பு பயன்முறையை முடக்கு</string>
+    <string name="pref_camo_mode_title">உருமறைப்பு முறை</string>
+    <string name="pref_camo_mode_description">உங்கள் சாதனத்தில் ஆர்போட்டின் படவுரு, சிட்டை மற்றும் அறிவிப்பு உரை எவ்வாறு தோன்றும் என்பதை மறைக்கவும்</string>
+    <string name="power_user_mode_permission">பவர் பயனர் பயன்முறைக்கு அலாரங்கள் மற்றும் நினைவூட்டல் இசைவு தேவை</string>
+    <string name="power_user_mode_permission_msg">ஆற்றல் பயனர் பயன்முறையைப் பயன்படுத்த அலாரங்கள் மற்றும் நினைவூட்டல்களை அமைக்க ஆர்போட்டை அனுமதிக்கவும். இது உண்மையில் உங்கள் சாதனத்தில் எந்த அலாரங்களையும் அமைக்காது. கணினி அளவிலான VPN ஆக ஆர்போட் பயன்படுத்தப்படாதபோது, கணினி ஆர்போட்சர்வீசை இயக்குவதற்கு இந்த இசைவு தேவை.</string>
+    <string name="pref_require_password">சாதன கடவுச்சொல் பூட்டு</string>
+    <string name="pref_require_password_description">உங்கள் சாதனத்தின் கடவுச்சொல்லை உள்ளிடும் வரை ஆர்போட்டிற்கான அணுகலைத் தடுக்கவும். உங்கள் சாதனத்தில் ஆர்போட் நிறுவப்பட்டுள்ளது என்பதை மறைக்க உதவும் உருமறைப்பு பயன்முறையுடன் இதை இணைக்கலாம்</string>
+    <string name="error_no_password_set">சாதன கடவுச்சொல் பூட்டைப் பயன்படுத்த உங்கள் சாதனத்தில் கடவுச்சொல்லை அமைக்கவும்</string>
+    <string name="unlock_app_msg" formatted="true">%s ஐ திறக்க உங்கள் சாதன கடவுச்சொல் தேவை</string>
+    <string name="invalid_bridge_format">தவறான பாலம் வடிவம்</string>
+    <string name="error_asking_tor_for_bridges">எவ்வாறு இணைப்பது என்று டோர் கேட்பது</string>
 </resources>
