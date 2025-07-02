@@ -115,7 +115,7 @@ dependencies {
 
     implementation(libs.android.material)
     implementation(libs.android.volley)
-    implementation(libs.androidx.activity)
+    implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.localbroadcast)
     implementation(libs.androidx.navigation.fragment.ktx)
