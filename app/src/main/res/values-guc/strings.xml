@@ -164,7 +164,6 @@
   <string name="refresh_captcha">anoütia CAPTCHA</string>
   <string name="solve_captcha_instruction">painja tü CAPTCHA süpüla achuntia sülatia.</string>
   <string name="captcha">Captcha</string>
-  <string name="enter_characters_from_image">pikerota sünain shajia ipünaa</string>
   <!--BridgeWizardActivity-->
   <string name="request_bridges_from_torproject">püchunta sülatia sünainje torproject.org</string>
   <string name="custom_bridges">sülatia wanewaii</string>
@@ -219,16 +218,10 @@ punjulaa apps, jupula  anaijatuin  pu kachuerrase</string>
   <string name="direct_connect_subtitle">Pansajeer   numa Tor,  paa´pa   maka numojulee. </string>
   <string name="snowflake">Snowflake</string>
   <string name="snowflake_subtitle">Apanjirrawuas numa Tor, jaliaa sútterr nutuma Tor </string>
-  <string name="get_a_bridge">Puntanai\'in  nu pata\'a sé Tor.(Obfs4)</string>
-  <string name="get_a_bridge_subtitle">Onjulawua júlatiaa, jaliaa sútterr nutuma Tor </string>
-  <string name="custom_bridge">Pata\'a pupulajat</string>
-  <string name="custom_bridge_subtitle">Apai\'injirrawuas  numa Tor, maka mojule  puchenter pata\'a jumuin pirrajüi\'in.  </string>
   <string name="connect">Apai\'injirrawua.</string>
   <string name="next">Tu wuanee.</string>
-  <string name="solve_captcha">Painja   tü numaka Captcha</string>
   <string name="incorrect_solution">Mojus junatia</string>
   <string name="bridges_obtained_connecting">Apunus pata\'a  jupula apajirrawua numaa Tor</string>
-  <string name="custom_bridge_description">Pirrajuín   chi apukai pata\'a , pusakirraa maka erre numana\'a</string>
   <string name="having_trouble">Es kazachiki</string>
   <string name="having_trouble_subtitle">Es jupula walatirru\'ín pataa Tor katsa pukalijanuijana wayaa.</string>
   <string name="power_user_mode">Kawatirras.</string>

@@ -150,7 +150,6 @@
     <string name="use_custom_bridges">Bruk egendefinerte broer</string>
     <string name="configure_custom_bridges">Sett opp egendefinerte broer</string>
     <string name="custom_bridges">Egendefinerte broer</string>
-    <string name="enter_characters_from_image">Skriv inn teksten ovenfor</string>
     <string name="captcha">CAPTCHA</string>
     <string name="solve_captcha_instruction">Løs CAPTCHA-en for å forespørre broer</string>
     <string name="refresh_captcha">Gjenoppfrisk CAPTCHA</string>
@@ -194,13 +193,11 @@
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Egendefinert</string>
     <string name="next">Neste</string>
-    <string name="action_use">Bruk</string>
     <string name="setting_padding">Spaltefyll</string>
     <string name="setting_debug">Feilsøking</string>
     <string name="menu_more">Mer</string>
     <string name="trying_to_connect_title">Kobler til…</string>
     <string name="volunteer_mode_alltime_label">Total gjennom tidene</string>
-    <string name="custom_bridge_description">En tilpasset bro leveres av noen du kjenner. Spør i de nettverkene og organisasjonene du stoler på, for å se om noen er vertskap for en.</string>
     <string name="proxy_ports">Proxy-porter</string>
     <string name="no_internet_subtitle">Du trenger en internettforbindelse for å bruke Orbot.</string>
     <string name="msg_try_something_else">Prøv noe annet</string>
@@ -217,8 +214,6 @@
     <string name="ports_not_set">Porter ikke innstilt</string>
     <string name="no_thx">Nei takk</string>
     <string name="ask_tor">Spør Tor</string>
-    <string name="solve_captcha">Løs Captcha</string>
-    <string name="custom_bridge">Tilpasset bro</string>
     <string name="menu_help_others">Hjelp andre</string>
     <string name="power_user_mode">Strømbrukermodus</string>
     <string name="btn_choose_apps">Velg apper</string>
@@ -230,7 +225,6 @@
     <string name="pref_isolate_port_summary">Bruk en annen krets for hver destinasjonsport</string>
     <string name="pref_isolate_protocol">Isolere klientprotokoller</string>
     <string name="secure_your_connection_subtitle">Skjul apper fra nettverksovervåking og få tilgang når de er blokkert.</string>
-    <string name="custom_bridge_subtitle">Det er mest sannsynlig at du kan holde deg tilkoblet hvis Tor er sterkt blokkert. Krever en broadresse fra noen du stoler på.</string>
     <string name="volunteer_mode_weekly_label">Ukentlig Totalt</string>
     <string name="kindness_adjust_title">Juster når den går…</string>
     <string name="apps_suggested_title">Foreslåtte apper</string>
@@ -255,7 +249,6 @@
     <string name="btn_change_exit">Endre utgang</string>
     <string name="snowflake">Snowflake</string>
     <string name="backup_port_exist">Feil: En Onion-tjeneste bruker allerede porten %s</string>
-    <string name="get_a_bridge_subtitle">Skjuler trafikken din. Omgår en del Tor-blokkering.</string>
     <string name="kindness_config_detail">Konfigurer hvordan og når enheten din kan fungere som en Snowflake-proxy for andre Tor-brukere.</string>
     <string name="smart_connect_subtitle">Orbot prøver å koble til Tor på alle tilgjengelige måter: Direkte, Snowflake, Bridge.</string>
     <string name="v3_backup_key_warning">Advarsel: Dette kan eksponere nøkkelen din for andre apper</string>
@@ -266,7 +259,6 @@
     <string name="btn_start_vpn">Starte VPN</string>
     <string name="strict_nodes_description">Behandle Exclude Nodes-innstillingene som et krav for å bygge alle kretser. Dette kan ødelegge funksjonaliteten hvis ingen kretser kan genereres med innstillingene for ekskluderte noder.</string>
     <string name="app_suggested_subtitle">Orbot fungerer best med apper for meldinger og sosiale medier.</string>
-    <string name="get_a_bridge">Bro fra Tor (Obfs4)</string>
     <string name="secure_your_connection_title">Klar til å koble til</string>
     <string name="msg_taking_too_long">Dette ser ut til å ta for lang tid</string>
     <string name="volunteer_mode_title">Hjelp andre

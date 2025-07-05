@@ -127,7 +127,6 @@
     <string name="license">Lisensi:</string>
     <string name="bridge_cloud">Hubungkan melalui server awan</string>
     <string name="solve_captcha_instruction">Selesaikan CAPTCHA untuk meminta jembatan.</string>
-    <string name="enter_characters_from_image">Masukkan teks di atas</string>
     <string name="request_bridges_from_torproject">Minta Jembatan dari torproject.org</string>
     <string name="in_a_browser">Dalam sebuah peramban, kunjungi %s dan ketuk Get Bridgs &gt; Just Give Me Bridges!</string>
     <string name="paste_bridges">Tempelkan Jembatan</string>
@@ -150,12 +149,8 @@
     <string name="direct_connect_subtitle">Cara yang terbaik untuk menghubungkan ke Tor. Gunakan jika Tor tidak diblokir.</string>
     <string name="snowflake">Snowflake (Asli)</string>
     <string name="snowflake_subtitle">Menghubungkan melalui sukarelawan Tor. Melewati beberapa pemblokiran Tor.</string>
-    <string name="get_a_bridge">Jembatan dari Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Menyembunyikan lalu lintas Anda. Melewati beberapa pemblokiran Tor.</string>
-    <string name="custom_bridge">Jembatan Khusus</string>
     <string name="connect">Hubungkan</string>
     <string name="next">Lanjutkan</string>
-    <string name="solve_captcha">Selesaikan Captcha</string>
     <string name="ports_not_set">Porta Tidak Ditetapkan</string>
     <string name="secure_your_connection_title">Siap untuk menghubungkan</string>
     <string name="connected_title">Terhubung</string>
@@ -214,7 +209,6 @@
 \n• Hanya bisa berjalan dengan wifi
 \n
 \n• Dapat dimatikan kapan pun</string>
-    <string name="custom_bridge_subtitle">Kemungkinan untuk membuat Anda tetap terhubung jika kebanyakan Tor diblokir. Membutuhkan alamat jembatan dari seseorang yang Anda percaya.</string>
     <string name="confirm">Konfirmasi</string>
     <string name="v3_backup_key_warning">Peringatan: Ini dapat membocorkan kunci Anda ke aplikasi lain</string>
     <string name="delete_service">Hapus Layanan</string>
@@ -249,7 +243,6 @@
     <string name="refresh_captcha">Muat ulang CAPTCHA</string>
     <string name="incorrect_solution">Solusi Tidak Benar</string>
     <string name="bridges_obtained_connecting">Jembatan didapatkan! Menghubungkan ke tor…</string>
-    <string name="custom_bridge_description">Sebuah jembatan khusus disediakan oleh seseorang yang Anda tahu. Tanya dalam jaringan dan organisasi terpercaya Anda jika seseorang menyediakan sebuah jembatan.</string>
     <string name="having_trouble">Mengalami masalah</string>
     <string name="having_trouble_subtitle">Kami bisa mencoba sebuah jembatan Tor berikut tetapi akan membutuhkan bantuan Anda</string>
     <string name="hide_apps">Sembunyikan aplikasi dari pemantauan jaringan dan dapatkan akses ketika mereka diblokir.</string>
@@ -263,7 +256,6 @@
     <string name="kindness_adjust_title">Pengaturan</string>
     <string name="kindness_config_detail">Atur bagaimana dan kapan perangkat Anda dapat menjadi sebagai proksi Snowflake untuk pengguna Tor lain.</string>
     <string name="asking">MENANYAKAN…</string>
-    <string name="action_use">Gunakan</string>
     <string name="pref_isolate_port_summary">Gunakan sirkuit yang berbeda untuk setiap porta tujuan</string>
     <string name="pref_isolate_port">Isolasi porta tujuan</string>
     <string name="pref_isolate_protocol">Isolasi protokol klien</string>

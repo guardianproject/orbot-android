@@ -105,7 +105,6 @@
     <string name="project_home">Projekt Domov:</string>
     <string name="get_bridges_email">E-pošta</string>
     <string name="share_as_qr">Delite kot QR</string>
-    <string name="enter_characters_from_image">Vnesite zgornje besedilo</string>
     <string name="custom_bridges">Mostovi po meri</string>
     <string name="configure_custom_bridges">Konfiguracija mostov po meri</string>
     <string name="use_custom_bridges">Uporaba mostov po meri</string>
@@ -210,7 +209,6 @@
     <string name="drawer_close">Zapri</string>
     <string name="next">Naprej</string>
     <string name="title_choose_apps">Izberi aplikacije</string>
-    <string name="action_use">Uporabi</string>
     <string name="connection_direct">Neposredno</string>
     <string name="connection_custom">Prilagojeno</string>
     <string name="action_activate">Vklopi</string>
@@ -242,7 +240,6 @@
 \n• Deluje lahko samo prek Wi-Fi-ja
 \n• Kadar koli ga je mogoče izklopiti</string>
     <string name="smart_connect_subtitle">Orbot se poskuša povezati s Torom prek katerega koli razpoložljivega načina: neposredno, snažinka, most.</string>
-    <string name="custom_bridge_description">Most po meri zagotovi nekdo, ki ga poznate. Povprašajte v svojih zaupanja vrednih omrežjih in organizacijah, ali jih kdo gosti.</string>
     <string name="log_copied">Dnevnik kopiran</string>
     <string name="no_internet_title">Povežite se z internetom</string>
     <string name="kindness_config_detail">Konfigurirajte, kako in kdaj lahko vaša naprava deluje kot proksi snežinka za druge uporabnike Tora.</string>
@@ -251,8 +248,6 @@
     <string name="direct_connect">Neposredna povezava s Torom</string>
     <string name="ports_not_set">Vrata niso nastavljena</string>
     <string name="hide_apps">Skrijte aplikacije pred nadzorom omrežja in pridobite dostop, ko so blokirane.</string>
-    <string name="custom_bridge_subtitle">Najverjetneje da boste ostali povezani, če je Tor močno blokiran. Zahteva naslov mosta nekoga, ki mu zaupate.</string>
-    <string name="solve_captcha">Rešite Captcha</string>
     <string name="incorrect_solution">Napačna rešitev</string>
     <string name="bridges_obtained_connecting">Mostovi pridobljeni! Povezovanje s Torom …</string>
     <string name="having_trouble_subtitle">Naslednjič lahko poskusimo s Torovim mostom, vendar bomo potrebovali vašo pomoč</string>
@@ -268,7 +263,6 @@
     <string name="pref_flag_secure_summary">Preprečite drugim aplikacijam snemanje posnetkov zaslona Orbota</string>
     <string name="pref_flag_secure_title">Varnost zaslona</string>
     <string name="snowflake">Snežinka (originalno)</string>
-    <string name="custom_bridge">Most po meri</string>
     <string name="proxy_ports">Proksi vrata</string>
     <string name="volunteer_mode_weekly_label">Skupaj tedensko</string>
     <string name="volunteer_mode_alltime_label">Skupaj vseh časov</string>
@@ -276,6 +270,4 @@
     <string name="direct_connect_subtitle">Najboljši način povezave s Torom. Uporabite če Tor ni blokiran.</string>
     <string name="snowflake_amp">Snežinka (AMP)</string>
     <string name="snowflake_subtitle">Povezuje se prek Torovih prostovoljcev. Zaobide nekaj Torovih preprek.</string>
-    <string name="get_a_bridge">Most it Tora (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Prikrije vaš promet. Zaobide nekaj Torovih preprek.</string>
 </resources>

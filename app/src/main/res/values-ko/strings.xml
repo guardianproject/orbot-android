@@ -93,7 +93,6 @@
     <string name="enable">활성화</string>
     <string name="connected_title">연결됨</string>
     <string name="title_choose_apps">앱 선택</string>
-    <string name="action_use">사용함</string>
     <string name="confirm">확인</string>
     <string name="menu_hidden_services">Onion 서비스</string>
     <string name="done">완료!</string>

@@ -140,7 +140,6 @@
     <string name="bridge_direct_connect">Директно свързване с Тор (най-добре)</string>
     <string name="bridge_cloud">Свързване чрез сървъри в облака</string>
     <string name="pref_disable_ipv4_summary">Указва на изходните възли да не използват адреси от IPv4</string>
-    <string name="enter_characters_from_image">Въведете горния текст</string>
     <string name="restore_backup">Възстановяване от резервно копие</string>
     <string name="create_a_backup_first">Първо създайте резервно копие</string>
     <string name="kibibyte">КБ</string>
@@ -214,10 +213,8 @@
     <string name="smart_connect">Интелигентна връзка (подразбирано)</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Връзката се осъществява през доброволци на Тор. Заобикаля някои забрани на Тор.</string>
-    <string name="custom_bridge">Потребителски мост</string>
     <string name="connect">Свързване</string>
     <string name="next">Напред</string>
-    <string name="solve_captcha">Решаване на Captcha</string>
     <string name="configure_header">Настройка на връзката с Тор</string>
     <string name="proxy_ports">Портове на прокси</string>
     <string name="drawer_close">Затваряне</string>
@@ -226,13 +223,9 @@
     <string name="smart_connect_subtitle">Orbot се опитва да осъществи връзка по всички възможни начини: директен, Снежинка, мост.</string>
     <string name="direct_connect">Директна връзка с Тор</string>
     <string name="direct_connect_subtitle">Най-добрия начин за свързване с Тор. Използвайте ако Тор не е забранен.</string>
-    <string name="get_a_bridge">Мост от Тор (Obfs4)</string>
-    <string name="custom_bridge_subtitle">Най-голяма вероятност да поддържа непрекъсната връзка с Тор при сериозни забрани на Тор. Изисква адрес на мост от човек, на когото имате доверие.</string>
-    <string name="get_a_bridge_subtitle">Прикрива трафика ви. Заобикаля някои забрани на Tor.</string>
     <string name="having_trouble">Има проблем</string>
     <string name="incorrect_solution">Неправилно решение</string>
     <string name="bridges_obtained_connecting">Мостовете са получени! Свързване с Тор…</string>
-    <string name="custom_bridge_description">Потребителски мост се предоставя от ваш познат. Попитайте във вашите доверени среди дали някой не предлага такъв.</string>
     <string name="having_trouble_subtitle">След това можем да опитаме с мост на Тор, но ще се нуждаем от вашата помощ</string>
     <string name="power_user_mode">Режим за напреднали</string>
     <string name="power_user_description">За потребители, запознати с Тор. Дава възможност Орбот да бъде пуснат без настройки на ВЧМ, показва отворените портове на SOCKS и HTTP</string>
@@ -245,7 +238,6 @@
     <string name="hide_apps">Скрийте приложенията от наблюдение на мрежата и получете достъп, когато са блокирани.</string>
     <string name="log_copied">Дневникът е копиран</string>
     <string name="snowflake_amp">Snowflake AMP</string>
-    <string name="action_use">Използване</string>
     <string name="asking">ЗАПИТВАНЕ…</string>
     <string name="no_internet_title">Свързване с интернет</string>
     <string name="kindness_adjust_title">Настройки</string>

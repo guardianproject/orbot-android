@@ -149,7 +149,6 @@
     <string name="configure_custom_bridges">配置自定义网桥</string>
     <string name="custom_bridges">自定义网桥</string>
     <string name="request_bridges_from_torproject">从 torproject.org 请求网桥</string>
-    <string name="enter_characters_from_image">在此处输入上方文本</string>
     <string name="captcha">验证码</string>
     <string name="solve_captcha_instruction">解决验证码来请求网桥。</string>
     <string name="refresh_captcha">刷新验证码</string>
@@ -206,9 +205,7 @@
     <string name="msg_taking_too_long">这似乎花了太长时间</string>
     <string name="btn_refresh">刷新</string>
     <string name="captcha_title">让我们知道您是真人</string>
-    <string name="custom_bridge_subtitle">最有可能让您在 Tor 严重屏蔽时保持连接，需要您信任的人提供网桥地址。</string>
     <string name="connect">连接</string>
-    <string name="solve_captcha">解决验证码</string>
     <string name="configure_header">配置 Tor 连接</string>
     <string name="drawer_close">关闭</string>
     <string name="proxy_ports">代理端口</string>
@@ -218,23 +215,19 @@
     <string name="volunteer_mode_title">帮助他人
 \n连接到 Tor</string>
     <string name="volunteer_mode_alltime_label">所有时间总计</string>
-    <string name="get_a_bridge_subtitle">隐藏您的流量，绕过某些 Tor 屏蔽。</string>
     <string name="volunteer_mode_subtitle_desc">善举模式可让您的设备成为他人的网桥，帮助人们在 Tor 被屏蔽的地方使用 Tor。\n\n• 不会耗尽电池电量\n• 不会减慢网速\n• 只通过 Wi-Fi 运行\n• 可随时关闭</string>
     <string name="snowflake">Snowflake</string>
-    <string name="custom_bridge">自定义网桥</string>
     <string name="smart_connect">智能连接（默认）</string>
     <string name="smart_connect_subtitle">Orbot 尝试通过任何可用的方式连接到 Tor：直接连接、Snowflake、网桥。</string>
     <string name="direct_connect">直接连接到 Tor</string>
     <string name="direct_connect_subtitle">连接 Tor 的最佳方式，在 Tor 未被屏蔽时使用。</string>
     <string name="next">下一步</string>
-    <string name="get_a_bridge">获取 obfs4 网桥</string>
     <string name="snowflake_subtitle">通过 Tor 志愿者连接，绕过某些 Tor 屏蔽。</string>
     <string name="ports_not_set">端口未设置</string>
     <string name="incorrect_solution">验证码输入错误</string>
     <string name="having_trouble">出问题了</string>
     <string name="having_trouble_subtitle">我们接下来可以尝试 Tor 网桥，但需要您的帮助</string>
     <string name="bridges_obtained_connecting">网桥已获取！正在连接到 Tor…</string>
-    <string name="custom_bridge_description">自定义网桥由您认识的人提供。请向您信任的网络和组织询问是否有人托管此类网桥。</string>
     <string name="power_user_mode">高级用户模式</string>
     <string name="power_user_description">适用于熟悉 Tor 的用户。允许您在未设置 VPN 的情况下启动 Orbot，并显示开放的 SOCKS 和 HTTP 端口</string>
     <string name="title_choose_apps">选择应用</string>
@@ -243,7 +236,6 @@
     <string name="apps_other_apps">其他应用</string>
     <string name="action_activate">激活</string>
     <string name="volunteer_status_title">因为有你，\n今天会更好。</string>
-    <string name="action_use">使用</string>
     <string name="no_internet_title">连接到互联网</string>
     <string name="menu_more">更多</string>
     <string name="connection_direct">直接连接</string>

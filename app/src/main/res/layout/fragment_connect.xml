@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,35 +7,35 @@
     android:backgroundTint="@color/new_background">
 
     <ProgressBar
-        style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
-        android:visibility="invisible"
         android:id="@+id/progressBar"
-        android:progressTint="@color/progress_bar_purple"
+        style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:progressTint="@color/progress_bar_purple"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/ivStatus"
-        tools:visibility="visible"
-        tools:progress="33" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:progress="33"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/ivStatus"
-        android:contentDescription="Orbie"
         android:layout_width="148dp"
         android:layout_height="166dp"
         android:layout_marginTop="20dp"
+        android:contentDescription="Orbie"
         android:src="@drawable/toroff"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <ImageView
         android:id="@+id/ivShadow"
-        android:contentDescription="Shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:contentDescription="Shadow"
         android:src="@drawable/orbieshadow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,74 +43,85 @@
         tools:ignore="HardcodedText,ImageContrastCheck" />
 
     <TextView
-        android:layout_marginTop="16dp"
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/secure_your_connection_title"
-        android:textColor="@android:color/white"
-        android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-black"
+        android:text="@string/secure_your_connection_title"
+        android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivShadow" />
 
     <TextView
-        android:textAlignment="center"
+        android:id="@+id/tvSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tvSubtitle"
-        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-        android:text="@string/hide_apps"
-        android:textColor="@android:color/white"
+        android:layout_marginTop="8dp"
         android:gravity="center_horizontal"
         android:paddingStart="@dimen/activity_horizontal_large_margin"
         android:paddingEnd="@dimen/activity_horizontal_large_margin"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/hide_apps"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <Button
-        android:background="@drawable/btn_shape_round"
-        android:backgroundTint="@color/orbot_btn_enabled_purple"
-        android:maxLines="3"
-        android:text="@string/btn_start_vpn"
         android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:background="@drawable/btn_shape_round"
+        android:backgroundTint="@color/orbot_btn_enabled_purple"
+        android:maxLines="3"
         android:paddingStart="@dimen/button_horizontal_large_margin"
-        android:paddingEnd="@dimen/button_horizontal_large_margin"
         android:paddingTop="@dimen/button_horizontal_small_margin"
+        android:paddingEnd="@dimen/button_horizontal_large_margin"
         android:paddingBottom="@dimen/button_horizontal_small_margin"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/btn_start_vpn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSubtitle"
         tools:enabled="false" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swSmartConnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/run_smart_connect_"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnStart"
+        app:switchPadding="8dp" />
 
     <TextView
         android:id="@+id/tvConfigure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/btn_configure"
-        android:layout_marginTop="24dp"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnStart" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swSmartConnect" />
 
     <ListView
-        android:drawSelectorOnTop="true"
-        android:layout_marginTop="10dp"
-        android:visibility="invisible"
-        android:dividerHeight="1dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:id="@+id/lvConnected"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/lvConnected"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        android:dividerHeight="1dp"
+        android:drawSelectorOnTop="true"
+        android:visibility="invisible"
         app:layout_constraintTop_toBottomOf="@id/tvConfigure"
         tools:visibility="gone" />
 

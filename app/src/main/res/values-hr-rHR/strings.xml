@@ -97,7 +97,6 @@
     <string name="btn_refresh">Osvježi</string>
     <string name="menu_header_learn">Saznaj više</string>
     <string name="action_activate">Aktiviraj</string>
-    <string name="action_use">Koristi</string>
     <string name="setting_debug">Otkloni grešku</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Prilagođeno</string>

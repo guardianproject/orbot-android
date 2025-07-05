@@ -39,7 +39,6 @@
     <string name="disable">Diffodd</string>
     <string name="connect">Cysylltu</string>
     <string name="action_activate">Ysgogi</string>
-    <string name="action_use">Wynebfath</string>
     <string name="connection_direct">Preifat</string>
     <string name="connection_custom">Cyfaddas</string>
     <string name="version">Fersiwn:</string>
@@ -141,7 +140,6 @@
     <string name="bridge_direct_connect">Cysylltwch yn uniongyrchol â Tor (Gorau)</string>
     <string name="pref_isolate_protocol">Ynysu protocolau cleientiaid</string>
     <string name="secure_your_connection_subtitle">Cuddio apps rhag monitro rhwydwaith a chael mynediad pan fyddant yn cael eu rhwystro.</string>
-    <string name="enter_characters_from_image">Rhowch y testun uchod</string>
     <string name="paste_bridges">Gludo Pontydd</string>
     <string name="pref_transport_title">Porth TransProxy Tor</string>
     <string name="request_bridges">Cais am Bontydd</string>

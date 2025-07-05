@@ -67,7 +67,6 @@
     <string name="menu_new_identity">Nueva identidad</string>
     <string name="snowflake_proxy_msg_title">Mostrar notificación de conexión</string>
     <string name="refresh_captcha">Refrescar CAPTCHA</string>
-    <string name="enter_characters_from_image">Introduzca el texto de arriba</string>
     <string name="smart_connect_subtitle">Orbot intentará conectarse a Tor a través de cualquier manera disponible: Directo, Snowflake, Puente.</string>
     <string name="direct_connect">Conexión directa a Tor</string>
     <string name="many_ways">Hay muchas maneras de llegar a Tor. Algunas pueden funcionar mejor que otras para ti.</string>
@@ -77,7 +76,6 @@
     <string name="option_only_when_charging">Sólo cuando está cargando</string>
     <string name="setting_padding">Relleno</string>
     <string name="request_bridges_from_torproject">Solicitar puentes desde torproject.org</string>
-    <string name="custom_bridge_subtitle">Probablemente te mantenga conectado si Tor está severamente bloqueado. Requiere una dirección de puente de alguien en quien confíes.</string>
     <string name="bridges_obtained_connecting">¡Puentes obtenidos! Conectando a tor…</string>
     <string name="action_activate">Activar</string>
     <string name="apps_other_apps">Otras aplicaciones</string>
@@ -232,14 +230,9 @@
     <string name="snowflake">Snowflake (Original)</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="snowflake_subtitle">Conectarse a través de voluntarios de Tor. Evita algunas formas de bloqueo de Tor.</string>
-    <string name="get_a_bridge">Puente de Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Enmascarar el tráfico. Evita algunas formas de bloqueo de Tor.</string>
-    <string name="custom_bridge">Puente personalizado</string>
     <string name="connect">Conectar</string>
     <string name="next">Siguiente</string>
-    <string name="solve_captcha">Resolver Captcha</string>
     <string name="incorrect_solution">Solución incorrecta</string>
-    <string name="custom_bridge_description">Un puente personalizado es proporcionado por alguien que conoces. Pregunta dentro de tu círculo cercano y organizaciones de confianza para ver si alguien está hospedando uno.</string>
     <string name="having_trouble">Teniendo problemas</string>
     <string name="having_trouble_subtitle">Podemos probar un puente de Tor, pero necesitaremos tu ayuda</string>
     <string name="power_user_mode">Modo usuario avanzado</string>
@@ -254,7 +247,6 @@
     <string name="log_copied">Historial copiado</string>
     <string name="not_sure">¿No está seguro?</string>
     <string name="ask_tor">Preguntar a Tor</string>
-    <string name="action_use">Usar</string>
     <string name="asking">PIDIENDO…</string>
     <string name="no_internet_title">Conectar a internet</string>
     <string name="no_internet_subtitle">Necesitas una conexión a internet para usar Orbot.</string>

@@ -150,7 +150,6 @@
     <string name="configure_custom_bridges">Konfiguriere personalisierte Brücken</string>
     <string name="custom_bridges">Personalisierte Brücken</string>
     <string name="request_bridges_from_torproject">Brücken von torproject.org anfordern</string>
-    <string name="enter_characters_from_image">Text oben eingeben</string>
     <string name="captcha">CAPTCHA</string>
     <string name="solve_captcha_instruction">Löse das CAPTCHA, um Brücken anzufordern.</string>
     <string name="refresh_captcha">CAPTCHA erneuern</string>
@@ -185,7 +184,6 @@
     <string name="pref_circuit_padding">Circuit-Padding</string>
     <string name="secure_your_connection_title">Bereit zum Verbinden</string>
     <string name="power_user_mode">Power-User-Modus</string>
-    <string name="custom_bridge_description">Eine benutzerdefinierte Brücke wird von jemandem angeboten, den du kennst. Frage in den Netzwerken und Organisationen, denen du vertraust, nach, ob jemand eine solche Brücke bereitstellt.</string>
     <string name="action_activate">Aktivieren</string>
     <string name="apps_suggested_title">Vorgeschlagene Apps</string>
     <string name="volunteer_mode_subtitle_desc">Der Freundlichkeitsmodus erlaubt es deinem Gerät, eine Brücke für andere zu sein. Er hilft Menschen, Tor an Orten zu nutzen, wo es blockiert wird.
@@ -215,13 +213,8 @@
     <string name="direct_connect_subtitle">Der beste Weg, sich mit Tor zu verbinden. Benutze ihn, wenn Tor nicht blockiert wird.</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Verbindet sich durch Tor-Freiwillige. Umgeht einige Tor-Blockierungen.</string>
-    <string name="get_a_bridge">Tor-Brücke (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Tarnt deinen Datenverkehr. Umgeht einige Tor-Blockierungen.</string>
-    <string name="custom_bridge">Benutzerdefinierte Brücke</string>
-    <string name="custom_bridge_subtitle">Hält die Verbindung am ehesten aufrecht, wenn Tor stark blockiert ist. Erfordert eine Brückenadresse von jemandem, dem du vertraust.</string>
     <string name="connect">Verbinden</string>
     <string name="next">Weiter</string>
-    <string name="solve_captcha">Captcha auflösen</string>
     <string name="ports_not_set">Ports nicht eingestellt</string>
     <string name="volunteer_mode">Freundlichkeitsmodus</string>
     <string name="secure_your_connection_subtitle">Verstecke Apps vor der Netzwerküberwachung und erhalte Zugriff, wenn sie blockiert sind.</string>
@@ -255,7 +248,6 @@
     <string name="connection_direct">Direkt</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Benutzerdefiniert</string>
-    <string name="action_use">Verwenden</string>
     <string name="no_internet_title">Mit dem Internet verbinden</string>
     <string name="setting_padding">Rahmenabstand</string>
     <string name="setting_debug">Debug</string>

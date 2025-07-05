@@ -169,7 +169,6 @@
     <string name="pref_reduced_circuit_padding">کاهش لایه‌گذاری مدار</string>
     <string name="pref_reduced_circuit_padding_summary">استفاده از الگوریتم‌های لایه‌گذاری با سربار پایین‌تر برای کاهش مصرف باتری و داده</string>
     <string name="custom_bridges">پل‌های سفارشی</string>
-    <string name="enter_characters_from_image">ورود متن بالا</string>
     <string name="use_qr_code">استفاده از رمز QR</string>
     <string name="paste_bridges">چسباندن پل‌ها</string>
     <string name="configure_custom_bridges">پیکربندی پل‌های سفارشی</string>
@@ -207,7 +206,6 @@
     <string name="btn_use_custom_bridge">استفاده از پل سفارشی</string>
     <string name="strict_nodes_description">تنظیمات گره‌های مستثنی را به عنوان یک الزام برای ساخت همه مدارها در نظر بگیرید. در صورتی که هیچ مداری با تنظیمات گره‌های مستثنی شما ایجاد نشود، ممکن است عملکرد را از بین ببرد.</string>
     <string name="connect">وصل شدن</string>
-    <string name="solve_captcha">حل کپچا</string>
     <string name="volunteer_mode_title">کمک به دیگران در
 \nوصل شدن به تور</string>
     <string name="volunteer_mode_subtitle_desc">حالت مهربانی می‌گذارد افزاره‌تان پلی برای دیگران باشد‌. این کار به استفادهٔ افراد در جاهایی که تور مسدود شده کمک می‌کند.
@@ -225,21 +223,16 @@
     <string name="volunteer_mode_alltime_label">مجموع تمامی زمان‌ها</string>
     <string name="smart_connect">اتّصال هوشمند (پیش‌گزیده)</string>
     <string name="direct_connect">اتّصال مستقیم به تور</string>
-    <string name="get_a_bridge">پل از تور (Obfs4)</string>
-    <string name="custom_bridge">پل شخصی</string>
     <string name="next">بعدی</string>
     <string name="ports_not_set">درگاه تنظیم نشده</string>
     <string name="smart_connect_subtitle">روبوت پیازی تلاش می‌کند از هر راه ممکنی به تور وصل شود: مستقیم، دانه برفی و پل.</string>
     <string name="snowflake">دانه برفی</string>
     <string name="snowflake_subtitle">وصل شدن از طریق داوطلبان تور. رد شدن از برخی مسدودیت‌های تور.</string>
     <string name="direct_connect_subtitle">بهترین روش وصل شدن به تور. استفاده در صورت مسدود نبودن تور.</string>
-    <string name="get_a_bridge_subtitle">پنهان کردن شدآمدتان. رد شدن از برخی مسدودیت‌های تور.</string>
-    <string name="custom_bridge_subtitle">بیش‌ترین احتمال برای وصل نگه داشتنتان به تور در صورت انسداد شدید. نیازمند یک نشانی پل از کسی که اطمینان دارید.</string>
     <string name="having_trouble">مشکل دارید</string>
     <string name="having_trouble_subtitle">در ادامه برای استفاده از یک پل تور تلاش می‌کنیم، ولی نیازمند کمکتانیم</string>
     <string name="bridges_obtained_connecting">پل‌ها گرفته شدند! وصل شدن به تور…</string>
     <string name="incorrect_solution">روش نادرست</string>
-    <string name="custom_bridge_description">یک پل شخصی به دست فردی که می‌شناسید فراهم شده. در سازمان‌ها و شبکه‌های مورد اطمینانتان بپرسید که کسی پلی میزبانی می‌کند یا نه.</string>
     <string name="power_user_mode">حالت کاربری قدرتمند</string>
     <string name="action_activate">فعّال کردن</string>
     <string name="volunteer_status_title">به لطفتان امروز
@@ -258,7 +251,6 @@
     <string name="ask_tor">از تور بپرسید</string>
     <string name="not_sure">مطمئن نیستید؟</string>
     <string name="many_ways">راه‌های زیادی برای اتّصال به تور وجود دارد. برخی ممکن است بهتر از دیگران برای شما کار کنند.</string>
-    <string name="action_use">استفاده</string>
     <string name="asking">پرسیدن…</string>
     <string name="no_internet_title">به اینترنت وصل شوید</string>
     <string name="no_internet_subtitle">برای استفاده از روبوت پیازی نیاز به اینترنت دارید.</string>

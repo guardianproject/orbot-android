@@ -17,10 +17,10 @@ import java.util.*
  */
 object LocaleHelper {
     @JvmStatic
-    fun onAttach(context: Context): Context = setLocale(context, Prefs.getDefaultLocale())
+    fun onAttach(context: Context): Context = setLocale(context, Prefs.defaultLocale)
 
     private fun setLocale(context: Context, language: String): Context {
-        Prefs.setDefaultLocale(language)
+        Prefs.defaultLocale =language
         return updateResources(context, language)
     }
 

@@ -44,7 +44,6 @@
     <string name="volunteer_mode_alltime_label">Total de tote le tempore</string>
     <string name="no_internet_subtitle">Tu besonia un connexion de Internet pro usar Orbot.</string>
     <string name="no_thx">Non, gratias</string>
-    <string name="custom_bridge">Ponte personalisate</string>
     <string name="menu_help_others">Adjuta a alteres</string>
     <string name="power_user_mode">Modo de usator avantiate</string>
     <string name="volunteer_mode_weekly_label">Total del septimana</string>
@@ -59,7 +58,6 @@
     <string name="pref_flag_secure_title">Securitate del schermo</string>
     <string name="menu_app_settings">Parametros del application</string>
     <string name="app_suggested_subtitle">Orbot functiona melior con applicationes de messageria e retes social.</string>
-    <string name="get_a_bridge">Ponte de Tor (Obfs4)</string>
     <string name="volunteer_mode_title">Adjuta a alteres
 \nin connecter se a Tor</string>
     <string name="direct_connect_subtitle">Le melior maniera de connecter se a Tor. Usa lo si Tor non es blocate.</string>

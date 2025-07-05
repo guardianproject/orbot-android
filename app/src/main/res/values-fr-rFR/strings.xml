@@ -141,7 +141,6 @@
     <string name="configure_custom_bridges">Configurer des ponts personnalisés</string>
     <string name="custom_bridges">Ponts personnalisés</string>
     <string name="request_bridges_from_torproject">Demander des ponts de torproject.org</string>
-    <string name="enter_characters_from_image">Saisissez les texte au-dessus</string>
     <string name="captcha">Captcha</string>
     <string name="solve_captcha_instruction">Pour demander des ponts, résolvez le captcha.</string>
     <string name="refresh_captcha">Actualiser le captcha</string>
@@ -200,13 +199,8 @@
     <string name="direct_connect_subtitle">La meilleure façon de se connecter à Tor. Utiliser si Tor n’est pas bloqué.</string>
     <string name="snowflake">Snowflake (Originale)</string>
     <string name="snowflake_subtitle">Se connecte par l’intermédiaire de bénévoles Tor. Permet de contourner certains blocages de Tor.</string>
-    <string name="get_a_bridge">Pont de Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Masque votre trafic. Contourne certains blocages de Tor.</string>
-    <string name="custom_bridge">Pont personnalisé</string>
-    <string name="custom_bridge_subtitle">Le plus probable de vous garder connecté si Tor est sévèrement bloqué. Nécessite une adresse d\'un pont de quelqu\'un de confiance.</string>
     <string name="connect">Se connecter</string>
     <string name="next">Suivant</string>
-    <string name="solve_captcha">Résoudre captcha</string>
     <string name="connected_title">Connecté</string>
     <string name="btn_start_vpn">Démarrer le RPV</string>
     <string name="volunteer_mode_subtitle">Aider les autres à se connecter</string>
@@ -231,13 +225,11 @@
     <string name="secure_your_connection_subtitle">Masquez les applications de la surveillance du réseau et obtenez accès lorsqu\'elles sont bloquées.</string>
     <string name="menu_help_others">Aider les autres</string>
     <string name="msg_try_something_else">Essayez autre chose</string>
-    <string name="custom_bridge_description">Un pont personnalisé est fourni par quelq\'un que vous connaissez. Demandez dans vos réseaux et organisations de confiance pour savoir si quelqu\'un en héberge un.</string>
     <string name="pref_isolate_port">Isoler les ports de destination</string>
     <string name="pref_isolate_protocol">Isoler les protocoles des clients</string>
     <string name="btn_configure">Choisir le mode de connexion</string>
     <string name="proxy_ports">Ports proxy</string>
     <string name="volunteer_mode_weekly_label">Total hebdomadaire</string>
-    <string name="action_use">Utilisation</string>
     <string name="ask_tor">Demander à Tor</string>
     <string name="no_internet_subtitle">Vous avez besoin d\'une connexion internet pour utiliser Orbot.</string>
     <string name="kindness_adjust_title">Paramètres</string>

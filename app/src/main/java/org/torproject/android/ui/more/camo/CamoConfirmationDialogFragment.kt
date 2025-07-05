@@ -27,7 +27,7 @@ class CamoConfirmationDialogFragment : DialogFragment() {
             .setPositiveButton(android.R.string.ok) { _, _ ->
                 val activePackageName = mapping[camoAppName]
                 Prefs.setCamoAppPackage(activePackageName)
-                Prefs.setCamoAppDisplayName(camoAppName)
+                Prefs.camoAppDisplayName = camoAppName
                 val disabledNames = mapping.values.filter { s -> s != activePackageName }
                 AppIconNameChanger.Builder(requireActivity())
                     .packageName(BuildConfig.APPLICATION_ID)

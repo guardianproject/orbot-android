@@ -140,7 +140,6 @@
     <string name="no_thx">No, gràcies</string>
     <string name="menu_faq">Preguntes freqüents</string>
     <string name="menu_header_learn">Més informació</string>
-    <string name="action_use">Utilitza</string>
     <string name="connection_direct">Directe</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Personalitzat</string>
@@ -163,7 +162,6 @@
     <string name="mebibyte">MiB</string>
     <string name="custom_bridges">Ponts personalitzats</string>
     <string name="volunteer_mode_alltime_label">Total global</string>
-    <string name="custom_bridge_description">Un pont personalitzat és aportat per algú que coneixeu. Demaneu en les xarxes i organitzacions de confiança per a veure si algú n\'allotja cap.</string>
     <string name="proxy_ports">Ports proxy</string>
     <string name="pref_circuit_padding">Farciment del circuit</string>
     <string name="no_internet_subtitle">Us cal una connexió a internet per a utilitzar l\'Orbot.</string>
@@ -184,8 +182,6 @@
     <string name="ports_not_set">No s\'ha definit cap port</string>
     <string name="ask_tor">Pregunteu al Tor</string>
     <string name="pref_http_dialog">Configuració del port HTTP</string>
-    <string name="solve_captcha">Resoleu el Captcha</string>
-    <string name="custom_bridge">Pont personalitzat</string>
     <string name="menu_help_others">Ajudeu els altres</string>
     <string name="power_user_mode">Mode d\'usuari avançat</string>
     <string name="btn_choose_apps">Trieu aplicacions</string>
@@ -200,8 +196,6 @@
     <string name="snowflake_proxy_msg_title">Mostra la notificació de connexió</string>
     <string name="pref_isolate_protocol">Aïlla els protocols de client</string>
     <string name="secure_your_connection_subtitle">Oculteu les aplicacions al rastreig de la xarxa i obteniu-ne accés quan són blocades.</string>
-    <string name="enter_characters_from_image">Introduïu el text de sobre</string>
-    <string name="custom_bridge_subtitle">És molt probable que us mantingui connectat si el Tor pateix un blocatge sever. Requereix l\'adreça d\'un pont d\'algú en qui confieu.</string>
     <string name="paste_bridges">Enganxa els ponts</string>
     <string name="volunteer_mode_weekly_label">Total setmanal</string>
     <string name="request_bridges">Sol·licita ponts</string>
@@ -245,7 +239,6 @@
     <string name="snowflake">Snowflake</string>
     <string name="backup_port_exist">Error: Ja hi ha un servei Onion utilitzant el port %s</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Permet accedir al Tor als companys Wi-Fi, als dispositius connectats i a qualsevol que es pugui connectar a la vostra IP</string>
-    <string name="get_a_bridge_subtitle">Emmascara el trànsit. Evita algun blocatge del Tor.</string>
     <string name="snowflake_proxy_msg_description">Mostra un missatge quan ajudeu altra persona a circumval·lar la censura</string>
     <string name="kindness_config_detail">Configureu com i quan el vostre dispositiu pot actuar com a un servidor Snowflake per a altres usuaris del Tor.</string>
     <string name="smart_connect_subtitle">L\'Orbot prova de connectar al Tor mitjançant qualsevol mètode: Directe, Snowflake, Pont.</string>
@@ -261,7 +254,6 @@
     <string name="strict_nodes_description">Tracta els paràmetres d\'exclusió de nodes com a requeriment per a construir tots els circuits. Podria trencar la funcionalitat si no es pot generar cap circuit amb aquests paràmetres.</string>
     <string name="app_suggested_subtitle">L\'Orbot funciona millor amb aplicacions de missatgeria i xarxes socials.</string>
     <string name="configure_custom_bridges">Configura els ponts personalitzats</string>
-    <string name="get_a_bridge">Pont del Tor (Obfs4)</string>
     <string name="secure_your_connection_title">Preparat per a connectar</string>
     <string name="msg_taking_too_long">Sembla que està trigant massa</string>
     <string name="volunteer_mode_title">Ajudeu els altres

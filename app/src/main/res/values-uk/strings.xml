@@ -149,7 +149,6 @@
     <string name="configure_custom_bridges">Сконфігурувати користувацькі мости</string>
     <string name="custom_bridges">Користувацькі мости</string>
     <string name="request_bridges_from_torproject">Запит мостів від torproject.org</string>
-    <string name="enter_characters_from_image">Введіть вказаний вище текст</string>
     <string name="captcha">Captcha</string>
     <string name="solve_captcha_instruction">Розв\'яжіть CAPTCHA для запиту мостів.</string>
     <string name="refresh_captcha">Оновити CAPTCHA</string>
@@ -221,7 +220,6 @@
     <string name="proxy_ports">Порти проксі</string>
     <string name="volunteer_mode_label">Режим доброти</string>
     <string name="volunteer_mode_weekly_label">Усього за тиждень</string>
-    <string name="custom_bridge">Користувацький міст</string>
     <string name="next">Далі</string>
     <string name="volunteer_mode_title">Допомагайте іншим
 \nпід\'єднуватися до Tor</string>
@@ -230,16 +228,11 @@
     <string name="smart_connect_subtitle">Orbot намагається під\'єднатися до Tor будь-яким доступним способом: Безпосередньо, через Snowflake, через міст.</string>
     <string name="direct_connect">Безпосереднє з\'єднання з Tor</string>
     <string name="snowflake_subtitle">З\'єднання через волонтерів Tor. Обходить деякі блокування Tor.</string>
-    <string name="get_a_bridge">Міст з Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Маскує ваш трафік. Обходить деякі блокування Tor.</string>
-    <string name="custom_bridge_subtitle">Швидше за все, допоможе з\'єднуватися, якщо Tor суворо заблокований. Потрібна адреса мосту від людини, якій ви довіряєте.</string>
     <string name="connect">Під\'єднати</string>
-    <string name="solve_captcha">Розв\'язати Captcha</string>
     <string name="incorrect_solution">Неправильне рішення</string>
     <string name="bridges_obtained_connecting">Мости отримано! Під\'єднання до tor…</string>
     <string name="having_trouble">Виникли проблеми</string>
     <string name="having_trouble_subtitle">Далі ми можемо спробувати Tor-міст, але нам знадобиться ваша допомога</string>
-    <string name="custom_bridge_description">Спеціальний міст надається кимось із тих, кого ви знаєте. Поцікавтеся у ваших довірених мережах та організаціях, чи не розміщує хтось такий міст.</string>
     <string name="power_user_mode">Режим досвідченого користувача</string>
     <string name="action_activate">Активувати</string>
     <string name="volunteer_status_title">Сьогодення краще
@@ -251,7 +244,6 @@
     <string name="apps_other_apps">Інші застосунки</string>
     <string name="hide_apps">Приховуйте застосунки від моніторингу мережі та отримуйте доступ, коли вони заблоковані.</string>
     <string name="log_copied">Журнал скопійовано</string>
-    <string name="action_use">Використати</string>
     <string name="many_ways">Існує багато способів отримати доступ до Tor. Деякі з них можуть працювати для вас краще, ніж інші.</string>
     <string name="no_internet_title">Підключення до Інтернету</string>
     <string name="snowflake_amp">Сніжинка AMP</string>

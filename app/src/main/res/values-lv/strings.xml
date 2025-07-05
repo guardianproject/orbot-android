@@ -135,7 +135,6 @@
     <string name="pref_circuit_padding_summary">Iespēja izmantot ķēžu polsterēšanu, lai aizsargātos pret dažiem datplūsmas analīzes veidiem</string>
     <string name="pref_prefer_ipv6">Priekšroka IPv6 savienojumiem</string>
     <string name="captcha">Captcha</string>
-    <string name="enter_characters_from_image">Ievadiet tekstu iepriekš</string>
     <string name="request_bridges_from_torproject">Pieprasīt tiltus no torproject.org</string>
     <string name="custom_bridges">Pielāgotie tilti</string>
     <string name="configure_custom_bridges">Pielāgotu tiltu konfigurēšana</string>
@@ -217,7 +216,6 @@
     <string name="connect">Veidot savienojumu</string>
     <string name="next">Nākamais</string>
     <string name="volunteer_mode_alltime_label">Visu laiku Kopā</string>
-    <string name="custom_bridge_description">Pielāgotu tiltu nodrošina kāds jūsu paziņa. Apjautājieties uzticamos tīklos un organizācijās, lai uzzinātu, vai kāds no tiem šādu tiltu neuztur.</string>
     <string name="proxy_ports">Proxy porti</string>
     <string name="no_internet_subtitle">Lai izmantotu Orbot, ir nepieciešams interneta savienojums.</string>
     <string name="not_sure">Neesat pārliecināts\?</string>
@@ -231,8 +229,6 @@
 \n- To var izslēgt jebkurā laikā</string>
     <string name="ports_not_set">Nav iestatīti porti</string>
     <string name="ask_tor">Jautājiet Toram</string>
-    <string name="solve_captcha">Atrisināt Captcha</string>
-    <string name="custom_bridge">Pielāgotais tilts</string>
     <string name="power_user_mode">Jaudas lietotāja režīms</string>
     <string name="smart_connect">Smart Connect (noklusējuma iestatījums)</string>
     <string name="apps_other_apps">Citas lietotnes</string>
@@ -241,14 +237,12 @@
     <string name="pref_isolate_port_summary">Katrai galamērķa ostai izmantojiet atšķirīgu ķēdi</string>
     <string name="no_internet_title">Savienojums ar internetu</string>
     <string name="pref_isolate_protocol">Izolēt klienta protokolus</string>
-    <string name="custom_bridge_subtitle">Visdrīzāk, lai saglabātu savienojumu, ja Tor ir nopietni bloķēts. Nepieciešama uzticamas personas tilta adrese.</string>
     <string name="volunteer_mode_weekly_label">Nedēļas kopsumma</string>
     <string name="kindness_adjust_title">Noregulējiet, kad tas darbojas…</string>
     <string name="apps_suggested_title">Ieteicamās lietotnes</string>
     <string name="log_copied">Nokopēts žurnāls</string>
     <string name="btn_copy_log">Kopēt žurnālu</string>
     <string name="setting_padding">Polsterējums</string>
-    <string name="action_use">Izmantojiet</string>
     <string name="option_only_on_wifi">Tikai izmantojot Wifi</string>
     <string name="having_trouble_subtitle">Mēs varam izmēģināt Tor tiltu nākamo, bet mums būs nepieciešama jūsu palīdzība</string>
     <string name="having_trouble">Grūtības</string>
@@ -262,14 +256,12 @@
     <string name="pref_flag_secure_title">Ekrāna drošība</string>
     <string name="root_warning">Orbot ir konstatējis, ka jūsu ierīcei ir saknes, kas var radīt drošības problēmas.</string>
     <string name="snowflake">Sniegpārsliņa (oriģināls)</string>
-    <string name="get_a_bridge_subtitle">Slēpj datplūsmu. Apiet dažas Tor bloķēšanas iespējas.</string>
     <string name="kindness_config_detail">Konfigurējiet, kā un kad jūsu ierīce var darboties kā Snowflake starpniekserveris citiem Tor lietotājiem.</string>
     <string name="smart_connect_subtitle">Orbot mēģina izveidot savienojumu ar Tor, izmantojot jebkuru pieejamo veidu: Tiešais, sniega pārsla, tilts.</string>
     <string name="pref_isolate_protocol_summary">Katram savienojuma protokolam izmantojiet atšķirīgu ķēdi</string>
     <string name="incorrect_solution">Nepareizs risinājums</string>
     <string name="bridges_obtained_connecting">Iegūti tilti! Savienojums ar tor…</string>
     <string name="app_suggested_subtitle">Orbot vislabāk darbojas ar ziņapmaiņas un sociālo mediju lietotnēm.</string>
-    <string name="get_a_bridge">Tilts no Tor (Obfs4)</string>
     <string name="volunteer_mode_title">Palīdzēt citiem
 \nizveidot savienojumu ar Tor</string>
     <string name="pref_flag_secure_summary">Neļaujiet citām programmām uzņemt Orbot ekrānšāviņus</string>

@@ -17,14 +17,14 @@ object Notifications {
     @RequiresApi(api = Build.VERSION_CODES.O)
     fun createNotificationChannel(context: Context) {
         val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        val appName = if (!Prefs.isCamoEnabled())
+        val appName = if (!Prefs.isCamoEnabled)
             context.getString(R.string.app_name)
         else
-            Prefs.getCamoAppDisplayName()
-        val channelDescription = if (!Prefs.isCamoEnabled())
+            Prefs.camoAppDisplayName
+        val channelDescription = if (!Prefs.isCamoEnabled)
             context.getString(R.string.app_description)
         else
-            Prefs.getCamoAppDisplayName()
+            Prefs.camoAppDisplayName
         manager.createNotificationChannel(
             NotificationChannel(
                 OrbotService.NOTIFICATION_CHANNEL_ID,
@@ -42,7 +42,7 @@ object Notifications {
     @JvmStatic
     fun configureCamoNotification(notifyBuilder: NotificationCompat.Builder) {
         notifyBuilder
-            .setContentTitle(Prefs.getCamoAppDisplayName())
+            .setContentTitle(Prefs.camoAppDisplayName)
             .setContentText(null)
             .setSubText(null)
             .setSmallIcon(R.drawable.ic_generic_info)
@@ -61,8 +61,8 @@ object Notifications {
 
     @JvmStatic
     fun getVpnSessionName(context: Context) : String {
-        return if (Prefs.isCamoEnabled()) {
-            Prefs.getCamoAppDisplayName()
+        return if (Prefs.isCamoEnabled) {
+            Prefs.camoAppDisplayName ?: ""
         } else context.getString(R.string.orbot_vpn)
     }
 }

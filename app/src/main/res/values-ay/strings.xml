@@ -150,7 +150,6 @@
     <string name="msg_try_something_else">Yaqha yant\'am</string>
     <string name="request_bridges">Chakanak mayiña</string>
     <string name="custom_bridges">Maynichat chakanaka</string>
-    <string name="enter_characters_from_image">Nayrïr qillqa qillqantam</string>
     <string name="request_bridges_from_torproject">torproject.org ukar chakanak mayiña</string>
     <string name="configure_custom_bridges">Maynichat chakanak mayjt\'ayaña</string>
     <string name="use_qr_code">QR chimpu apnaqaña</string>
@@ -166,7 +165,6 @@
     <string name="btn_use_custom_bridge">Maynichat chaka apnaqaña</string>
     <string name="drawer_close">Jist\'antaña</string>
     <string name="volunteer_mode_weekly_label">Simanan taqpacha</string>
-    <string name="custom_bridge">Maynichat Chaka</string>
     <string name="connection_custom">Maynichata</string>
     <string name="use_custom_bridges">Maynichat chakanak apnaqaña</string>
     <string name="asking">Jiskt\'askiwa…</string>
@@ -197,8 +195,6 @@
     <string name="ports_not_set">Waythapiwjanakax janiw mayjt\'ayatäkiti</string>
     <string name="proxy_ports">Proxy waythapiwja</string>
     <string name="connect">Waythapiyaña</string>
-    <string name="get_a_bridge">Tor ukan chakapa (Obfs4)</string>
-    <string name="solve_captcha">Captcha askichaña</string>
     <string name="secure_your_connection_title">Waythapiñataki puchtuki</string>
     <string name="volunteer_mode">Yanapt\'asiña uka</string>
     <string name="btn_change_exit">Mistuñ mayjt\'ayaña</string>
@@ -236,7 +232,6 @@
     <string name="pref_flag_secure_title">Pantalla jark\'aqäwi</string>
     <string name="many_ways">Tor ukarux kunaymantuqit waythapiyasispa. Yaqhipanakax yaqhanakat sipan kusa jumatak irnaqi.</string>
     <string name="kindness_config_detail">Yaqha Tor apnaqirinakatakix kunjama ukat kunawsas tispusitiwumax Snowflake proxy ukjam tukuspa uk mayjt\'ayam.</string>
-    <string name="action_use">Apnaqaña</string>
     <string name="solve_captcha_instruction">Chakanak mayiñatakix CAPTCHA askicham.</string>
     <string name="bridge_snowflake_amp">Snowflake apnaqas yaqha Tor apnaqirinaktuq mantaña (Thakhi 2 )</string>
     <string name="no_internet_subtitle">Orbot apnaqañatakix Internet ukanïñamawa.</string>
@@ -256,7 +251,6 @@
     <string name="strict_nodes_description">Ajllinukut mayjt\'ayañ yant\'am sirkuytunak utjayañatak mayiwjama. Ajllinukutax janitï mayjt\'atakaspax lurawx suyt\'ayaspawa.</string>
     <string name="pref_prefer_ipv6_summary">IPu6 wakiskir mistuñ thakhinak uñt\'ayaña</string>
     <string name="hide_apps">Llikankir uñakipat aplikasyunanak imantam ukat kunawsatï jark\'antatäkan ukha mantam.</string>
-    <string name="get_a_bridge_subtitle">Yatiy thakhim imanti. Janiw Torar yaqhip jark\'antaykiti.</string>
     <string name="btn_choose_apps">Aplikasyunanak ajllt\'ama</string>
     <string name="refresh_apps">Aplikasyunanak jichhaptayaña</string>
     <string name="pref_circuit_padding">Sirkuytu phuqhacha</string>
@@ -267,7 +261,6 @@
     <string name="app_services">Aplikasyunanakan sirwisyunakapa</string>
     <string name="secure_your_connection_subtitle">Uñakipat llika aplikasyunanak imantam ukat kunawsatï jark\'atakan ukha mantam.</string>
     <string name="menu_app_settings">Aplikasyun mayjt\'ayaña</string>
-    <string name="custom_bridge_subtitle">Tor ukati jark\'antatach ukhax waythapitakiskañapawa. Mayninkir chaka thakhipaw munasi.</string>
     <string name="power_user_description">Toramp jichuntat apnaqirinakataki. VPN jan mayjt\'ayampikiw Orbot qalltayi ukatx SOCKS jist\'aratamp HTTP waythapiwjanakamp uñachayi</string>
     <string name="app_suggested_subtitle">Apayanakamp llika aplikasyunanakampiw Orbotax sumpach saranti.</string>
     <string name="pref_flag_secure_summary">Orbotat yaqha aplikasyun waruqirinakat jark\'aqam</string>
@@ -278,5 +271,4 @@
     <string name="paste_bridges">Chakanak lip\'katayaña</string>
     <string name="root_warning">Jawsañamax rutiyataw ukwa Orbotax katji, jark\'aqañaruw jan walt\'ayaspa.</string>
     <string name="setting_padding">K\'iruntata</string>
-    <string name="custom_bridge_description">Mayninkir chakax yaqha uñt\'ataruw iyawst\'i. Llikan utjirinakam chiqa jiskt\'am ukhamat kawkniris imatask uka uñjañataki.</string>
 </resources>

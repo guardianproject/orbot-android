@@ -147,7 +147,6 @@
     <string name="no_thx">لا شكرًا</string>
     <string name="menu_header_features">المزايا</string>
     <string name="connection_custom">مخصّص</string>
-    <string name="action_use">استخدام</string>
     <string name="license">الرخصة:</string>
     <string name="mebibyte">م.بايت</string>
     <string name="wizard_details_msg">Orbot هو تطبيق مفتوح المصدر يحتوي على تور و IPtProxy (Obfs4Proxy و Meek و Snowflake) و Go-Tun2Socks و LibEvent. يوفر نفق VPN ووسيط HTTP محلي (HTTPS فقط على المنفذ 8118) ووسيط SOCKS (9050) في شبكة تور.</string>
@@ -165,7 +164,6 @@
     <string name="volunteer_mode_title">مساعدة الآخرين
 \nالاتصال بتور</string>
     <string name="volunteer_mode_label">وضع اللطف</string>
-    <string name="custom_bridge">جسر مخصّص</string>
     <string name="no_internet_title">اتصل بالإنترنت</string>
     <string name="no_internet_subtitle">تحتاج إلى اتصال بالإنترنت لاستخدام Orbot.</string>
     <string name="kindness_adjust_title">إعدادات</string>
@@ -178,7 +176,6 @@
     <string name="hidden_service_request">يريد أحد التطبيقات فتح خادم البصل على المنفذ %1$s لشبكة تور. هذا آمن إذا كنت تثق في التطبيق.</string>
     <string name="pref_isolate_dest">اعزل عناوين الوجهة</string>
     <string name="configure_header">تضبيط اتصال تور الخاص بك</string>
-    <string name="custom_bridge_subtitle">من المرجح أن تبقيك على اتصال إذا تم حظر تور بشدة. يتطلب عنوان جسر من شخص تثق به.</string>
     <string name="ports_not_set">لم يتم تعيين المنافذ</string>
     <string name="v3_delete_client_authorization">احذف مفتاح استيثاق العميل</string>
     <string name="v3_delete_client_authorization_confirm">احذف استيثاق العميل</string>
@@ -187,7 +184,6 @@
     <string name="pref_reduced_connection_padding">حشوة اتصال منخفضة</string>
     <string name="refresh_captcha">أنعِش كابتشا (CAPTCHA)</string>
     <string name="solve_captcha_instruction">حِل CAPTCHA لطلب الجسور.</string>
-    <string name="enter_characters_from_image">أدخل النص أعلاه</string>
     <string name="request_bridges_from_torproject">طلب جسور من torproject.org</string>
     <string name="custom_bridges">جسور مخصّصة</string>
     <string name="configure_custom_bridges">تضبيط الجسور المخصّصة</string>
@@ -248,12 +244,8 @@
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_amp">ندفة الثلج (Snowflake) AMP</string>
     <string name="snowflake_subtitle">يربط من خلال متطوعي تور. يلتف حول بعض حظر تور.</string>
-    <string name="get_a_bridge">جسر من تور (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">يخفي حركةمرورك. يلتف حول بعض حظر تور.</string>
-    <string name="solve_captcha">حِل Captcha</string>
     <string name="incorrect_solution">حل غير صحيح</string>
     <string name="bridges_obtained_connecting">حصلت على الجسور! جارِ الاتصال بـتور…</string>
-    <string name="custom_bridge_description">يتم توفير جسر مخصّص من قبل شخص تعرفه. اسأل داخل شبكاتك ومؤسساتك الموثوقة لمعرفة ما إذا كان أي شخص يستضيف واحدة.</string>
     <string name="having_trouble">لديك مشكلة</string>
     <string name="kindness_config_detail">اضبط كيف ومتى يمكن لجهازك العمل كوسيط Snowflake لمستخدمي تور الآخرين.</string>
     <string name="having_trouble_subtitle">يمكننا تجربة جسر تور بعد ذلك ولكننا سنحتاج إلى مساعدتك</string>

@@ -6,14 +6,15 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import org.torproject.android.R
+import org.torproject.android.databinding.CustomBridgeBottomSheetBinding
+import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
 class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) :
     OrbotBottomSheetDialogFragment() {
+
     companion object {
         const val TAG = "CustomBridgeBottomSheet"
         private val bridgeStatement = Regex("(obfs4|meek|webtunnel)")
@@ -27,30 +28,33 @@ class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) 
         }
     }
 
-    private lateinit var btnAction: Button
-    private lateinit var etBridges: EditText
+    private lateinit var binding: CustomBridgeBottomSheetBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        val v = inflater.inflate(R.layout.custom_bridge_bottom_sheet, container, false)
-        v.findViewById<View>(R.id.tvCancel).setOnClickListener { dismiss() }
+    ): View {
+        binding = CustomBridgeBottomSheetBinding.inflate(inflater, container, false)
 
-        btnAction = v.findViewById(R.id.btnAction)
-        btnAction.setOnClickListener {
-            Prefs.setBridgesList(etBridges.text.toString())
+        val uri = OrbotConstants.GET_BRIDES_BRIDGES_URI.buildUpon()
+        uri.path("/options")
+        binding.tvCustomBridgeSubHeader.text = getString(R.string.custom_bridges_description, uri.build().toString())
+
+        binding.tvCancel.setOnClickListener { dismiss() }
+
+        binding.btnAction.setOnClickListener {
+            Prefs.bridgesList = binding.etBridges.text.toString()
             closeAllSheets()
             callbacks.tryConnecting()
         }
 
-        etBridges = v.findViewById(R.id.etBridges)
-        configureMultilineEditTextScrollEvent(etBridges)
+        configureMultilineEditTextScrollEvent(binding.etBridges)
 
-        var bridges = Prefs.getBridgesList()
+        var bridges = Prefs.bridgesList ?: ""
         if (!bridges.contains(bridgeStatement)) bridges = ""
-        etBridges.setText(bridges)
+        binding.etBridges.setText(bridges)
 
-        etBridges.addTextChangedListener(object : TextWatcher {
+        binding.etBridges.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 updateUi()
             }
@@ -59,17 +63,17 @@ class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) 
         })
 
         updateUi()
-        return v
+        return binding.root
     }
 
     private fun updateUi() {
-        val inputText = etBridges.text.toString()
-        btnAction.isEnabled = inputText.isNotEmpty() && isValidBridge(inputText)
+        val inputText = binding.etBridges.text.toString()
+        binding.btnAction.isEnabled = inputText.isNotEmpty() && isValidBridge(inputText)
 
         if (!isValidBridge(inputText)) {
-            etBridges.error = requireContext().getString(R.string.invalid_bridge_format)
+            binding.etBridges.error = requireContext().getString(R.string.invalid_bridge_format)
         } else {
-            etBridges.error = null
+            binding.etBridges.error = null
         }
     }
 }

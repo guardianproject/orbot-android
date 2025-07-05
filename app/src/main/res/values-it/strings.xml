@@ -165,7 +165,6 @@
     <string name="configure_custom_bridges">Configura bridge personalizzati</string>
     <string name="custom_bridges">Bridge personalizzati</string>
     <string name="request_bridges_from_torproject">Richiedi i bridge da torproject.org</string>
-    <string name="enter_characters_from_image">Inserisci il testo sopra</string>
     <string name="captcha">Captcha</string>
     <string name="solve_captcha_instruction">Risolvi il CAPTCHA per richiedere i bridge.</string>
     <string name="refresh_captcha">Ricarica CAPTCHA</string>
@@ -194,13 +193,11 @@
     <string name="version">Versione:</string>
     <string name="title_choose_apps">Scegli le app</string>
     <string name="action_activate">Attiva</string>
-    <string name="action_use">Usa</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_header_learn">Maggiori informazioni</string>
     <string name="drawer_close">Chiudi</string>
     <string name="pref_isolate_port">Isola le porte di destinazione</string>
     <string name="pref_isolate_port_summary">Usa un circuito diverso per ogni porta di destinazione</string>
-    <string name="solve_captcha">Risolvi il Captcha</string>
     <string name="apps_other_apps">Altre app</string>
     <string name="in_a_browser">In un browser, visita %s e tocca Ottieni Bridge &gt; Dammi i bridge!</string>
     <string name="pref_isolate_protocol_summary">Usa un circuito diverso per ogni protocollo di connessione</string>
@@ -232,7 +229,6 @@
     <string name="smart_connect">Connessione intelligente (predefinita)</string>
     <string name="smart_connect_subtitle">Orbot cerca di connettersi a Tor in qualsiasi modo disponibile: diretta, Snowflake, bridge.</string>
     <string name="snowflake_subtitle">Si connette tramite volontari di Tor. Aggira qualche blocco di Tor.</string>
-    <string name="get_a_bridge">Bridge da Tor (Obfs4)</string>
     <string name="ports_not_set">Porte non impostate</string>
     <string name="volunteer_mode">Modalità altruista</string>
     <string name="btn_start_vpn">Avvia VPN</string>
@@ -240,7 +236,6 @@
     <string name="snowflake_proxy_msg_description">Mostra un messaggio quando aiuti qualcuno ad aggirare la censura</string>
     <string name="bridges_obtained_connecting">Bridge ottenuti! Connessione a Tor…</string>
     <string name="incorrect_solution">Soluzione sbagliata</string>
-    <string name="custom_bridge_description">Un bridge personalizzato viene fornito da qualcuno che conosci. Chiedi tra le reti e le organizzazioni fidate per vedere se qualcuno ne ospita uno.</string>
     <string name="having_trouble">Ci sono problemi</string>
     <string name="btn_copy_log">Copia log</string>
     <string name="no_internet_subtitle">Ti serve una connessione internet per usare Orbot.</string>
@@ -256,9 +251,6 @@
     <string name="direct_connect_subtitle">Il modo migliore per connettersi a Tor. Usalo se Tor non viene bloccato.</string>
     <string name="snowflake">Snowflake (originale)</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
-    <string name="get_a_bridge_subtitle">Occulta il tuo traffico. Aggira qualche blocco di Tor.</string>
-    <string name="custom_bridge">Bridge personalizzati</string>
-    <string name="custom_bridge_subtitle">È probabile che ti mantenga connesso se Tor viene bloccato attivamente. Richiede un indirizzo bridge da qualcuno di cui ti fidi.</string>
     <string name="having_trouble_subtitle">Possiamo provare un bridge Tor, ma ci servirà il tuo aiuto</string>
     <string name="power_user_description">Per gli utenti familiari con Tor. Consente di avviare Orbot senza l\'impostazione VPN e mostra le porte SOCKS e HTTP aperte</string>
     <string name="volunteer_status_title">Un giorno migliore

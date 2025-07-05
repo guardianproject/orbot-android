@@ -1,5 +1,9 @@
-# update geoip files from tor
-cd libs
-./build-geoip-jar.sh
-cd ../scripts
-./update_snowflake_bridges.sh
+#!/usr/bin/env sh
+
+BASE=$(dirname "$0")
+
+# Update geoip files from tor.
+sh "$BASE/libs/build-geoip-jar.sh"
+
+# Update built-in bridges.
+sh "$BASE/scripts/update-bridges.sh"

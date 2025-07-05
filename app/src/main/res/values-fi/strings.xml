@@ -138,7 +138,6 @@
     <string name="configure_custom_bridges">Määritä omat sillat</string>
     <string name="custom_bridges">Omat sillat</string>
     <string name="request_bridges_from_torproject">Pyydä siltoja torproject.org-sivustolta</string>
-    <string name="enter_characters_from_image">Syötä yllä oleva teksti</string>
     <string name="captcha">Captcha</string>
     <string name="solve_captcha_instruction">Ratkaise CAPTCHA pyytääksesi siltoja.</string>
     <string name="refresh_captcha">Päivitä CAPTCHA</string>
@@ -206,11 +205,7 @@
     <string name="trying_to_connect_title">Yhdistetään…</string>
     <string name="secure_your_connection_subtitle">Piilota sovelluksia verkkoseurannalta ja käytä estettyjä palveluita.</string>
     <string name="btn_use_custom_bridge">Käytä omaa siltaa</string>
-    <string name="custom_bridge_description">Itse määritettäviä siltoja saat lähteistä, joihin luotat. Tiedustele niitä tuntemistasi verkostoista ja organisaatioista.</string>
     <string name="proxy_ports">Välityspalvelimen portit</string>
-    <string name="custom_bridge_subtitle">Todennäköisin säilyttämään yhteytesi, mikäli Tor on vahvasti estetty. Tarvitset sillan osoitteen luotettavasta lähteestä.</string>
-    <string name="get_a_bridge_subtitle">Piilottaa tietoliikenteesi. Kiertää jotkin Tor-estot.</string>
-    <string name="custom_bridge">Oma silta</string>
     <string name="power_user_description">Kokeneille Tor-käyttäjille. Mahdollistaa Orbotin käynnistyksen ilman VPN-asetusta ja näyttää avoimet SOCKS- ja HTTP-portit.</string>
     <string name="power_user_mode">Tehokäyttäjätila</string>
     <string name="action_activate">Aktivoi</string>
@@ -232,10 +227,8 @@
     <string name="direct_connect_subtitle">Paras Tor-yhteyden muodostustapa. Käytä, jos Tor-verkkoa ei ole estetty.</string>
     <string name="snowflake">Snowflake (alkuperäinen)</string>
     <string name="snowflake_subtitle">Muodostaa Tor-yhteyden vapaaehtoisten välityksellä. Kiertää joitakin Tor-estoja.</string>
-    <string name="get_a_bridge">Silta Torilta (obfs4)</string>
     <string name="connect">Yhdistä</string>
     <string name="next">Seuraava</string>
-    <string name="solve_captcha">Ratkaise CAPTCHA</string>
     <string name="ports_not_set">Portteja ei ole määritetty</string>
     <string name="volunteer_mode_subtitle_desc">Ystävällisyystila tekee laitteestasi sillan muille. Se auttaa muita käyttämään Toria paikoissa, joissa se on estetty.
 \n
@@ -252,7 +245,6 @@
     <string name="kindness_adjust_title">Asetukset</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="ask_tor">Kysy Torilta</string>
-    <string name="action_use">käyttö</string>
     <string name="asking">KYSYTÄÄN…</string>
     <string name="no_internet_subtitle">Tarvitset Internet-yhteyden Orbotin käyttöön.</string>
     <string name="kindness_config_detail">Määritä miten ja milloin laitteesi voi toimia Snowflake-välityspalvelimena muille Tor-käyttäjille.</string>

@@ -23,8 +23,8 @@ class SnowflakeProxyWrapper(private val context: Context) {
         if (Prefs.limitSnowflakeProxyingWifi() && !hasWifi) return
         if (Prefs.limitSnowflakeProxyingCharging() && !hasPower) return
         proxy = SnowflakeProxy()
-        val stunServers = OrbotService.getCdnFront("snowflake-stun").split(",".toRegex())
-            .dropLastWhile { it.isEmpty() }.toTypedArray()
+        val stunServers = BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()?.ice
+            ?.split(",".toRegex())?.dropLastWhile { it.isEmpty() }?.toTypedArray() ?: emptyArray()
         val stunUrl = stunServers[SecureRandom().nextInt(stunServers.size)]
 
         proxy = SnowflakeProxy()

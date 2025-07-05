@@ -149,7 +149,6 @@
     <string name="configure_custom_bridges">Configure as Pontes Personalizadas</string>
     <string name="custom_bridges">Pontes Personalizadas</string>
     <string name="request_bridges_from_torproject">Solicite pontes do torproject.org</string>
-    <string name="enter_characters_from_image">Digite o texto acima</string>
     <string name="captcha">Captcha</string>
     <string name="solve_captcha_instruction">Para solicitar pontes resolva o CAPTCHA.</string>
     <string name="refresh_captcha">Atualize o CAPTCHA</string>
@@ -211,7 +210,6 @@
     <string name="title_choose_apps">Escolha as apps</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Conecta-se através de voluntários do Tor. Contorna alguns bloqueios do Tor.</string>
-    <string name="get_a_bridge">Ponte do Tor (Obfs4)</string>
     <string name="having_trouble">Tendo problemas</string>
     <string name="configure_header">Configure a sua conexão Tor</string>
     <string name="drawer_open">Abrir</string>
@@ -231,15 +229,10 @@
     <string name="smart_connect_subtitle">O Orbot tenta se conectar ao Tor por qualquer meio disponível: Direto, Snowflake, Ponte.</string>
     <string name="direct_connect">Conexão direta com o Tor</string>
     <string name="direct_connect_subtitle">A melhor maneira de se conectar ao Tor. Use caso o Tor não esteja bloqueado.</string>
-    <string name="get_a_bridge_subtitle">Oculta o seu tráfego. Contorna alguns bloqueios do Tor.</string>
-    <string name="custom_bridge">Ponte personalizada</string>
-    <string name="custom_bridge_subtitle">O mais provável é mantê-lo conectado caso o Tor esteja totalmente bloqueado. Requer um endereço de ponte de alguém que confie.</string>
     <string name="connect">Conectar</string>
     <string name="next">Próximo</string>
-    <string name="solve_captcha">Resolver o captcha</string>
     <string name="incorrect_solution">Solução incorreta</string>
     <string name="bridges_obtained_connecting">Pontes obtidas! Conectando-se ao tor…</string>
-    <string name="custom_bridge_description">Uma ponte personalizada foi fornecida por alguém que conhece. Pergunte nas suas redes e organizações confiáveis para ver se alguém está hospedando um.</string>
     <string name="having_trouble_subtitle">Podemos tentar uma ponte Tor em seguida, mas precisaremos da sua ajuda</string>
     <string name="power_user_mode">Modo de utilizador avançado</string>
     <string name="power_user_description">Para utilizadores familiarizados com Tor. Permite que inicie o Orbot sem a configuração VPN e mostra as portas SOCKS e HTTP que estejam abertas</string>
@@ -249,7 +242,6 @@
     <string name="app_suggested_subtitle">O Orbot funciona melhor com apps de mensagens e mídias sociais.</string>
     <string name="apps_suggested_title">Sugestões de apps</string>
     <string name="apps_other_apps">Outras apps</string>
-    <string name="action_use">Usar</string>
     <string name="setting_padding">Preenchimento</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Personalizado</string>

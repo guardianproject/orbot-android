@@ -161,7 +161,6 @@
     <string name="app_services">Servicii de aplicații</string>
     <string name="refresh_apps">Aplicații de reîmprospătare</string>
     <string name="request_bridges">Solicită punți</string>
-    <string name="enter_characters_from_image">Introduceți textul de mai sus</string>
     <string name="custom_bridges">Punți personalizate</string>
     <string name="configure_custom_bridges">Configurarea punților personalizate</string>
     <string name="paste_bridges">Lipire adrese punți</string>
@@ -178,7 +177,6 @@
     <string name="drawer_close">Închide</string>
     <string name="proxy_ports">Porturi proxy</string>
     <string name="snowflake_amp">Snowflake AMP</string>
-    <string name="get_a_bridge">Punte de la Tor (Obfs4)</string>
     <string name="asking">CERERE…</string>
     <string name="no_internet_title">Conectare la internet</string>
     <string name="kindness_config_detail">Configurați cum și când dispozitivul dvs. poate acționa ca proxy Snowflake pentru alți utilizatori Tor.</string>
@@ -219,7 +217,6 @@
     <string name="no_thx">Nu, mulţumesc</string>
     <string name="volunteer_mode_alltime_label">Tot timpul total</string>
     <string name="get_bridges_email_request">Solicită punți prin e-mail</string>
-    <string name="custom_bridge_subtitle">Cel mai probabil vă va menține conectat dacă Tor este blocat în mod sever. Necesită o adresă de punte de la o persoană de încredere.</string>
     <string name="apps_mode">Mod VPN</string>
     <string name="if_your_mobile_network_actively_blocks_tor_you_can_use_a_tor_bridge_to_access_the_network_another_way_to_get_bridges_is_to_send_an_email_to_bridges_torproject_org_please_note_that_you_must_send_the_email_using_an_address_from_one_of_the_following_email_providers_riseup_gmail_or_yahoo_">Dacă rețeaua dumneavoastră de telefonie mobilă blochează în mod activ Tor, puteți utiliza un \"Server punte\" ca o cale alternativă de acces. Selectați una dintre opțiuni pentru a configura și testa…</string>
     <string name="pref_http_title">Tor HTTP</string>
@@ -232,15 +229,12 @@
     <string name="in_a_browser">Într-un browser, vizitați %s și atingeți Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="smart_connect_subtitle">Orbot încearcă să se conecteze la Tor prin orice modalitate disponibilă: Direct, Snowflake, Punte.</string>
     <string name="smart_connect">Conectare inteligentă (implicită)</string>
-    <string name="get_a_bridge_subtitle">Camuflează traficul. Ocolește unele blocaje Tor.</string>
-    <string name="custom_bridge">Punte personalizată</string>
     <string name="kindness_adjust_title">Setări</string>
     <string name="snowflake_subtitle">Se conectează prin intermediul voluntarilor Tor. Ocolește unele blocaje Tor.</string>
     <string name="secure_your_connection_title">Gata de conectare</string>
     <string name="snowflake">Snowflake</string>
     <string name="log_copied">Jurnalul a fost copiat</string>
     <string name="bridges_obtained_connecting">Punți obținute! Se conectează la Tor…</string>
-    <string name="custom_bridge_description">O punte personalizată este oferită de cineva cunoscut. Întrebați în cadrul rețelelor și organizațiilor de încredere să vedeți dacă cineva găzduiește una.</string>
     <string name="having_trouble">Am probleme</string>
     <string name="power_user_description">Pentru utilizatorii familiarizați cu Tor. Vă permite să porniți Orbot fără setarea VPN și afișează porturile SOCKS și HTTP deschise</string>
     <string name="action_activate">Activați</string>
@@ -251,7 +245,6 @@
     <string name="not_sure">Nu sunteți siguri\?</string>
     <string name="ask_tor">Adresați-vă Tor</string>
     <string name="many_ways">Există mai multe modalități de a vă conecta la Tor. Unele pot funcționa mai bine decât altele pentru dumneavoastră.</string>
-    <string name="action_use">Utilizați</string>
     <string name="snowflake_proxy_msg_title">Afișați notificarea de conectare</string>
     <string name="volunteer_mode">Modul Bunătate</string>
     <string name="incorrect_solution">Soluție incorectă</string>
@@ -265,7 +258,6 @@
     <string name="volunteer_status_title">Astăzi este mai bine
 \ndatorită vouă.</string>
     <string name="next">Următorul</string>
-    <string name="solve_captcha">Rezolvă Captcha</string>
     <string name="connection_direct">Direct</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Personalizat</string>

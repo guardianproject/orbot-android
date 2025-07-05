@@ -53,7 +53,7 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     open fun resetSecureFlags() {
-        if (Prefs.isSecureWindow())
+        if (Prefs.isSecureWindow)
             window.setFlags(
                 WindowManager.LayoutParams.FLAG_SECURE,
                 WindowManager.LayoutParams.FLAG_SECURE

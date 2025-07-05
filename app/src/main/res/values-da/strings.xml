@@ -90,7 +90,6 @@
     <string name="refresh_captcha">Opdater CAPTCHA</string>
     <string name="solve_captcha_instruction">Løs CAPTCHA\'en for at anmode om broer.</string>
     <string name="captcha">Captcha</string>
-    <string name="enter_characters_from_image">Indtast tegn fra billedet</string>
     <string name="bridge_snowflake">Opret forbindelse via andre Tor-brugere ved hjælp af Snowflake (metode 1)</string>
     <string name="bridge_snowflake_amp">Opret forbindelse via andre Tor-brugere ved hjælp af Snowflake (metode 2)</string>
     <string name="wizard_details_msg">Orbot er et program med åben kildekode, der indeholder Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks og LibEvent. Det giver en VPN-tunnel, en lokal HTTP Connect-proxy (kun HTTPS på port 8118) og en SOCKS-proxy (9050) ind i Tor-netværket.</string>
@@ -206,7 +205,6 @@
     <string name="pref_connection_padding">Polstring af forbindelsen</string>
     <string name="trouble_connecting">Har du problemer med at oprette forbindelse\?</string>
     <string name="request_bridges_from_torproject">Anmodning om broer fra torproject.org</string>
-    <string name="action_use">Brug</string>
     <string name="menu_more">Mere</string>
     <string name="connection_direct">Direkte</string>
     <string name="connection_snowflake">Snowflake</string>

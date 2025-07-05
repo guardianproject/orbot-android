@@ -167,7 +167,6 @@ Trek tamaramikwane  asha mar</string>
   <string name="refresh_captcha">CAPTCHAn srɵilɵ tamaramik</string>
   <string name="solve_captcha_instruction">CAPTCHAn tamar, piuntsik teiklan miamikpe</string>
   <string name="captcha">CAPTCHA</string>
-  <string name="enter_characters_from_image">Wentau pɵrik pasrapikwan pɵr</string>
   <!--BridgeWizardActivity-->
   <string name="request_bridges_from_torproject">torproject.org piuntsik teilkan miamik</string>
   <string name="custom_bridges">Neteelɵ Piuntsikmera </string>
@@ -222,17 +221,10 @@ Toryu kepiam keik kasreik pasrɵpen pekelɵ kepamtreik purukupik kɵn \n\n-nakts
   <string name="direct_connect_subtitle">ɵyamei Toryu kelitsamikpe katɵ kuchi tap kɵn. Tor kuetsik pasrɵmupene kepintrun</string>
   <string name="snowflake">Copo de nieve teik</string>
   <string name="snowflake_subtitle">Ikpe Toryu kepiamik katɵ kuchi mai purukupik kɵn. Tor kuetsik pasrɵmupene kepiamtik kɵntrun</string>
-  <string name="get_a_bridge">Toryu (Obfs4) kutri kan piuntsik teikwan tөka kөmik</string>
-  <string name="get_a_bridge_subtitle">Nu marɵpyu kalɵ kenamisrmɵntrai esekau</string>
-  <string name="custom_bridge">Piuntsik teikwan na isuimei marik</string>
-  <string name="custom_bridge_subtitle">Toryu kutri tap esekaik kuetsik pasramisrene ñui chikɵpen maramelan tap kelitsik pentramisrtrun. 
-Mun kɵpen  purukutracha piuntsik lateik purɵrtra chi</string>
   <string name="connect">Kɵlichip</string>
   <string name="next">Katɵkan</string>
-  <string name="solve_captcha">Captchan Tamaramik</string>
   <string name="incorrect_solution">Tamara pasrikpe kalɵ kɵn</string>
   <string name="bridges_obtained_connecting">Piuntsik meran wetөtran! Toryu kelicha kepip pasran…</string>
-  <string name="custom_bridge_description">Ñun piuntsik palapikpe mu kɵpen ñi ashipik tɵwei purɵrtrun. Ñui pɵtekatan pai mu kɵpen purukuntrun</string>
   <string name="having_trouble">Pesrɵsrtelɵ Ilesrkɵpelɵ</string>
   <string name="having_trouble_subtitle">Toryu kelitsamik kan piuntsik lateik maramtik kɵn inchentɵ ñi purukupene martrun</string>
   <string name="power_user_mode">Power Usermei pasran</string>

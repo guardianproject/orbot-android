@@ -120,7 +120,6 @@
     <string name="pref_connection_padding">Прикључак за повезивање</string>
     <string name="pref_connection_padding_summary">Увек омогућава прикључак за повезивање због заштитите од неких облика анализе саобраћаја. Подразумевано: ауто</string>
     <string name="menu_header_features">Могућности</string>
-    <string name="action_use">Користи</string>
     <string name="no_thx">Не хвала</string>
     <string name="version">Верзија:</string>
     <string name="license">Лиценца:</string>
@@ -176,7 +175,6 @@
     <string name="option_only_on_wifi">Само на Wifi</string>
     <string name="v3_backup_key">Резервна копија кључа за клијентску ауторизацију</string>
     <string name="v3_delete_client_authorization_confirm">Обриши клијентску ауторизацију</string>
-    <string name="enter_characters_from_image">Унеси текст изнад</string>
     <string name="configure_header">Конфигуриши своју Тор везу</string>
     <string name="proxy_ports">Прокси портови</string>
     <string name="pref_http_title">Тор HTTP</string>
@@ -190,7 +188,6 @@
     <string name="menu_help_others">Помози другима</string>
     <string name="menu_header_learn">Сазнај више</string>
     <string name="smart_connect">Паметно повезивање (подразумевано)</string>
-    <string name="custom_bridge_subtitle">Највероватније ће вас одржати повезаним ако је Тор озбиљно блокиран. Захтева адресу моста од некога коме верујете.</string>
     <string name="kindness_adjust_title">Подешавања</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="pref_flag_secure_title">Безбедност екрана</string>
@@ -219,14 +216,10 @@
     <string name="smart_connect_subtitle">Orbot покушава да се повеже на Тор на било који доступан начин: Директно, Snowflake, Bridge.</string>
     <string name="direct_connect">Директна веза са Тором</string>
     <string name="direct_connect_subtitle">Најбољи начин за повезивање на Тор. Користи ако Тор није блокиран.</string>
-    <string name="get_a_bridge">Мост од Тора (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Маскира ваш саобраћај. Заобилази неке блокаде Тора.</string>
-    <string name="solve_captcha">Реши Captcha</string>
     <string name="bridges_obtained_connecting">Мостови добијени! Повезивање на Тор…</string>
     <string name="bridge_snowflake">Повежи се преко других Тор корисника користећи Snowflake (Метод 1 - Fastly)</string>
     <string name="strict_nodes_description">Третирај подешавања за искључивање чворова као захтев за изградњу свих кола. Ово може прекинути функционалност ако није могуће генерисати кола са вашим подешавањима за искључивање чворова.</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Дозволи Wi-Fi корисницима, уређајима повезаним преко tethering-а и свима који могу да се повежу на твој IP, да приступе Тору</string>
-    <string name="custom_bridge">Прилагођени мост</string>
     <string name="having_trouble">Имате проблема</string>
     <string name="v3_onion">.onion домен</string>
     <string name="v3_key_hash">x25519 приватни кључ у Base32</string>
@@ -268,7 +261,6 @@
     <string name="btn_change_exit">Промени излаз</string>
     <string name="captcha_title">Обавести нас да си човек</string>
     <string name="menu_tor_connection">Тор веза</string>
-    <string name="custom_bridge_description">Прилагођени мост обезбеђује неко кога познајете. Питајте унутар својих поузданих мрежа и организација да видите да ли неко хостује један.</string>
     <string name="having_trouble_subtitle">Можемо покушати са Тор мостом следеће, али ће нам требати ваша помоћ</string>
     <string name="power_user_mode">Режим за напредне кориснике</string>
     <string name="power_user_description">За кориснике који су упознати са Тор-ом. Омогућава вам да покренете Orbot без VPN подешавања и приказује отворене SOCKS и HTTP портове</string>

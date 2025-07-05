@@ -115,7 +115,6 @@
     <string name="volunteer_mode_weekly_label">Weekly Total</string>
     <string name="full_device_vpn">Full Device VPN</string>
     <string name="volunteer_mode_label">Kindness Mode</string>
-    <string name="custom_bridge_description">A custom bridge is provided by someone you know. Ask within your trusted networks and organizations to see if anyone is hosting one.</string>
     <string name="solve_captcha_instruction">Solve the CAPTCHA to request bridges.</string>
     <string name="custom_bridges">Custom Bridges</string>
     <string name="use_custom_bridges">Use Custom Bridges</string>
@@ -135,13 +134,8 @@
     <string name="direct_connect_subtitle">The best way to connect to Tor. Use if Tor is not blocked.</string>
     <string name="snowflake">Snowflake (Original)</string>
     <string name="snowflake_subtitle">Connects through Tor volunteers. Gets around some Tor blocking.</string>
-    <string name="get_a_bridge">Bridge from Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Cloaks your traffic. Gets around some Tor blocking.</string>
-    <string name="custom_bridge">Custom Bridge</string>
-    <string name="custom_bridge_subtitle">Most likely to keep you connected if Tor is severely blocked. Requires a bridge address from someone you trust.</string>
     <string name="connect">Connect</string>
     <string name="next">Next</string>
-    <string name="solve_captcha">Solve Captcha</string>
     <string name="pref_node_configuration">Node Configuration</string>
     <string name="volunteer_mode">Kindness Mode</string>
     <string name="secure_your_connection_title">Ready to connect</string>
@@ -200,7 +194,6 @@
     <string name="request_bridges">Request Bridges</string>
     <string name="refresh_captcha">Refresh CAPTCHA</string>
     <string name="captcha">Captcha</string>
-    <string name="enter_characters_from_image">Enter text above</string>
     <string name="request_bridges_from_torproject">Request Bridges from torproject.org</string>
     <string name="configure_custom_bridges">Configure Custom Bridges</string>
     <string name="snowflake_proxy_msg_description">Show a message when you help someone circumvent censorship</string>
@@ -250,7 +243,6 @@
     <string name="not_sure">Not sure?</string>
     <string name="ask_tor">Ask Tor</string>
     <string name="many_ways">There are many ways to reach Tor. Some may work better than others for you.</string>
-    <string name="action_use">Use</string>
     <string name="asking">ASKING…</string>
     <string name="no_internet_subtitle">You need an Internet connection to use Orbot.</string>
     <string name="kindness_adjust_title">Settings</string>

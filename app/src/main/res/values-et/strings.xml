@@ -184,7 +184,6 @@
     <string name="refresh_captcha">Värskenda CAPTCHA</string>
     <string name="solve_captcha_instruction">Sildade taotlemiseks lahendage CAPTCHA.</string>
     <string name="captcha">Captcha</string>
-    <string name="enter_characters_from_image">Sisestage ülaltoodud tekst</string>
     <string name="custom_bridges">Kohandatud sillad</string>
     <string name="configure_custom_bridges">Kohandatud sildade konfigureerimine</string>
     <string name="in_a_browser">Külastage brauseris %s ja koputage nuppu Get Bridges &gt; Just Give Me Bridges!</string>
@@ -206,7 +205,6 @@
     <string name="consider_enable_battery_optimizations">Hostitud teenused töötavad, kaaluge aku optimeerimise väljalülitamist</string>
     <string name="pref_reduced_connection_padding_summary">Sulgeb releeühendused varem ja saadab vähem täitepakette, et vähendada andmete ja aku kasutamist</string>
     <string name="pref_reduced_circuit_padding_summary">Kasutage andmete ja aku kasutamise vähendamiseks väiksema koormusega polsterdamisalgoritme</string>
-    <string name="custom_bridge">Kohandatud sild</string>
     <string name="incorrect_solution">Vale lahendus</string>
     <string name="having_trouble">Probleeme on</string>
     <string name="power_user_mode">Elektrikasutajarežiim</string>
@@ -220,11 +218,9 @@
     <string name="volunteer_mode_alltime_label">Kordi läbi aegade</string>
     <string name="smart_connect_subtitle">Orbot üritab luua ühendust Toriga igal võimalikul viisil: Direct, Snowflake, Bridge.</string>
     <string name="snowflake_subtitle">Ühendab Tori vabatahtlike kaudu. Saab ümber mõnest Tor\'i blokeeringust.</string>
-    <string name="get_a_bridge_subtitle">Varjab teie liiklust. Saab ümber mõnest Tor\'i blokeeringust.</string>
     <string name="direct_connect">Otsene ühendus Toriga</string>
     <string name="connect">Ühendage</string>
     <string name="next">Järgmine</string>
-    <string name="solve_captcha">Lahendage Captcha</string>
     <string name="apps_suggested_title">Soovitatavad rakendused</string>
     <string name="pref_isolate_port">Eraldada sihtkoha sadamad</string>
     <string name="pref_isolate_port_summary">Kasutage iga sihtkoha jaoks erinevat vooluahelat</string>
@@ -233,12 +229,10 @@
     <string name="pref_isolate_protocol">Isoleerida kliendiprotokollid</string>
     <string name="volunteer_mode_weekly_label">Kordi nädalas</string>
     <string name="hide_apps">Peida rakendused võrgu jälgimise eest ja saada juurdepääs, kui need on blokeeritud.</string>
-    <string name="custom_bridge_subtitle">Tõenäoliselt hoiab teid ühenduses, kui Tor on tõsiselt blokeeritud. Nõuab silla aadressi kellegi, keda te usaldate.</string>
     <string name="action_activate">Aktiveeri</string>
     <string name="many_ways">Torini jõudmiseks on mitmeid viise. Mõni neist võib teie jaoks toimida paremini kui teised.</string>
     <string name="bridges_obtained_connecting">Sillad vastu võetud! Ühendame Tori võrguga…</string>
     <string name="having_trouble_subtitle">Järgmisena võime proovida Tori silda, kuid vajame teie abi</string>
-    <string name="custom_bridge_description">Kohandatud silda pakub keegi, keda te tunnete. Küsige oma usaldusväärsetes võrgustikes ja organisatsioonides, et näha, kas keegi võõrustab sellist silda.</string>
     <string name="power_user_description">Toriga tuttavatele kasutajatele. Võimaldab käivitada Orbot ilma VPN-seadistusteta ja näitab avatud SOCKS- ja HTTP-porti</string>
     <string name="volunteer_status_title">Täna on parem
 \ntänu sinule.</string>
@@ -262,9 +256,7 @@
     <string name="ask_tor">Küsi Torilt</string>
     <string name="snowflake">Lumehelbeke (originaal)</string>
     <string name="snowflake_amp">Lumehelbeke (AMP)</string>
-    <string name="get_a_bridge">Tori sild (Obfs4)</string>
     <string name="not_sure">Ei ole kindel\?</string>
-    <string name="action_use">Kasutage</string>
     <string name="connection_direct">Otse</string>
     <string name="connection_custom">Kohandatud</string>
     <string name="setting_debug">Silumine</string>

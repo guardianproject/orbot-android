@@ -33,7 +33,7 @@ object DeviceAuthenticationPrompt {
         }
 
         val appName =
-            if (Prefs.isCamoEnabled()) Prefs.getCamoAppDisplayName() else activity.getString(
+            if (Prefs.isCamoEnabled) Prefs.camoAppDisplayName ?: "" else activity.getString(
                 R.string.app_name
             )
 
@@ -77,7 +77,7 @@ object DeviceAuthenticationPrompt {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
             return biometricOrPassword
         }
-        return if (Prefs.disallowBiometricAuthentication())
+        return if (Prefs.disallowBiometricAuthentication)
             BiometricManager.Authenticators.DEVICE_CREDENTIAL
         else
             biometricOrPassword

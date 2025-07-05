@@ -102,7 +102,6 @@
     <string name="pref_isolate_dest_summary">Pre každú cieľovú adresu použite iný okruh</string>
     <string name="use_qr_code">Používanie kódu QR</string>
     <string name="menu_new_identity">Nová identita</string>
-    <string name="enter_characters_from_image">Zadajte text vyššie</string>
     <string name="custom_bridges">Vlastné mosty</string>
     <string name="strict_nodes_description">Nastavenie Vylúčiť uzly považujte za požiadavku na vytvorenie všetkých okruhov. To môže narušiť funkčnosť, ak sa s nastaveniami Exclude Nodes (Vylúčené uzly) nepodarí vygenerovať žiadne obvody.</string>
     <string name="pref_transport_summary">Port, na ktorom Tor ponúka svoj transparentný proxy server (predvolené: 9040 alebo 0 pre vypnutie)</string>
@@ -216,7 +215,6 @@
     <string name="action_activate">Kedy aktivovať…</string>
     <string name="setting_debug">Ladenie</string>
     <string name="menu_more">Viac</string>
-    <string name="action_use">Použiť</string>
     <string name="pref_isolate_port_summary">Použitie iného okruhu pre každý cieľový port</string>
     <string name="configure_header">Konfigurácia pripojenia Tor</string>
     <string name="direct_connect_subtitle">Najlepší spôsob pripojenia k sieti Tor. Použite, ak Tor nie je blokovaný.</string>
@@ -240,7 +238,6 @@
     <string name="pref_isolate_protocol">Izolácia klientskych protokolov</string>
     <string name="pref_isolate_protocol_summary">Pre každý pripojovací protokol použite iný obvod</string>
     <string name="bridges_obtained_connecting">Získané mosty! Pripájam k Tor…</string>
-    <string name="custom_bridge_description">Vlastný most poskytuje niekto, koho poznáte. Opýtajte sa vo svojich dôveryhodných sieťach a organizáciách, či ho niekto nehostuje.</string>
     <string name="having_trouble">Ťažkosti</string>
     <string name="volunteer_mode_subtitle_desc">Režim láskavosti umožňuje, aby sa vaše zariadenie stalo mostom pre ostatných. Pomáha ľuďom používať Tor na miestach, kde je blokovaný.
 \n
@@ -260,11 +257,6 @@
     <string name="many_ways">Existuje mnoho spôsobov, ako dosiahnuť Tor. Niektoré z nich vám môžu vyhovovať viac ako iné.</string>
     <string name="kindness_adjust_title">Nastavenie</string>
     <string name="snowflake_subtitle">Spája sa prostredníctvom dobrovoľníkov Tor. Obchádza niektoré blokovania Tor.</string>
-    <string name="get_a_bridge">Most z Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Skrýva vašu návštevnosť. Obchádza niektoré blokovania Tor.</string>
-    <string name="custom_bridge">Vlastný mostík</string>
-    <string name="custom_bridge_subtitle">S najväčšou pravdepodobnosťou vás udrží v spojení, ak je Tor výrazne blokovaný. Vyžaduje adresu mosta od niekoho, komu dôverujete.</string>
-    <string name="solve_captcha">Vyriešiť Captcha</string>
     <string name="hide_apps">Skryte aplikácie pred monitorovaním siete a získajte k nim prístup, keď sú blokované.</string>
     <string name="log_copied">Záznam skopírovaný</string>
     <string name="connection_direct">Priamy</string>

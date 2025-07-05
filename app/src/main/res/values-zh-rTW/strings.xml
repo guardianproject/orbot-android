@@ -143,7 +143,6 @@
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">自訂</string>
     <string name="menu_header_learn">深入瞭解</string>
-    <string name="action_use">使用</string>
     <string name="mebibyte">MiB</string>
     <string name="trying_to_connect_title">連線中…</string>
     <string name="action_activate">啟用</string>
@@ -179,7 +178,6 @@
     <string name="strict_nodes_description">將「排除節點」設定視為建構所有迴路的要求。如果因為你的「排除節點」設定而無法產生任何迴路，這可能會破壞功能。</string>
     <string name="app_services">應用程式服務</string>
     <string name="solve_captcha_instruction">解決 CAPTCHA 以請求橋接。</string>
-    <string name="enter_characters_from_image">輸入上方的文字</string>
     <string name="pref_http_dialog">HTTP 連接埠配置</string>
     <string name="v3_delete_client_authorization_confirm">刪除用戶軟體驗證</string>
     <string name="v3_backup_name_hint">備份檔案名稱…</string>
@@ -219,10 +217,8 @@
     <string name="smart_connect">智慧連接（預設）</string>
     <string name="snowflake">Snowflake（原始）</string>
     <string name="btn_change_exit">變更出口</string>
-    <string name="custom_bridge_subtitle">如果 Tor 被嚴重封鎖，最有可能讓你保持連接。需要你信任的人提供橋接器位址。</string>
     <string name="hide_apps">將應用程式隱藏在網路監控之外，並在它們被阻止時取得存取權限。</string>
     <string name="pref_http_summary">Tor 提供 HTTP 代理的連接埠（預設值：8118 ，0 以停用）</string>
-    <string name="custom_bridge_description">自訂橋接器是由你認識的人所提供。詢問你所信任的網絡和組織中是否有人託管橋接。</string>
     <string name="having_trouble_subtitle">接下來我們可以嘗試 Tor 橋接器，但需要你的幫助</string>
     <string name="btn_copy_log">複製記錄</string>
     <string name="not_sure">不確定？</string>
@@ -242,9 +238,6 @@
     <string name="smart_connect_subtitle">Orbot 嘗試以任何可用的方式連接到 Tor：直接、Snowflake、橋接器。</string>
     <string name="direct_connect">直接連接到 Tor</string>
     <string name="direct_connect_subtitle">連接 Tor 的最佳方式。如果 Tor 未被阻止，請使用。</string>
-    <string name="get_a_bridge_subtitle">隱藏你的流量。繞過一些 Tor 封鎖。</string>
-    <string name="custom_bridge">自訂橋接器</string>
-    <string name="solve_captcha">解決 Captcha</string>
     <string name="power_user_description">給熟悉 Tor 的使用者。允許你在沒有 VPN 設定的情況下啟動 Orbot 並顯示開放的 SOCKS 和 HTTP 連接埠</string>
     <string name="apps_suggested_title">推薦的應用程式</string>
     <string name="option_only_on_wifi">僅在 Wi-Fi 上</string>
@@ -274,7 +267,6 @@
     <string name="pref_detect_root_title">Root 檢測</string>
     <string name="msg_taking_too_long">這似乎花了太長時間</string>
     <string name="kindness_adjust_title">設定</string>
-    <string name="get_a_bridge">Tor 橋接器（Obfs4）</string>
     <string name="volunteer_mode_subtitle_desc">善良模式讓您的設備成為他人的橋接器。這有助於人們在被封鎖的地方使用 Tor。
 \n
 \n• 它不會消耗您的電池

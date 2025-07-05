@@ -33,8 +33,8 @@ class KindnessFragment : Fragment() {
         btnActionActivate = view.findViewById(R.id.btnActionActivate)
         pnlActivate = view.findViewById(R.id.panel_kindness_activate)
         pnlStatus = view.findViewById(R.id.panel_kindness_status)
-        tvAllTimeTotal.text = Prefs.getSnowflakesServed().toString()
-        tvWeeklyTotal.text = (Prefs.getSnowflakesServedWeekly()).toString()
+        tvAllTimeTotal.text = Prefs.snowflakesServed.toString()
+        tvWeeklyTotal.text = (Prefs.snowflakesServedWeekly).toString()
 
         swVolunteerMode.isChecked = Prefs.beSnowflakeProxy()
         swVolunteerMode.setOnCheckedChangeListener { _, isChecked ->

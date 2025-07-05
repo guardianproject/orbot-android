@@ -75,7 +75,6 @@
     <string name="request_bridges">Köprüleri Soraň</string>
     <string name="refresh_captcha">CAPTCHA Täzele</string>
     <string name="captcha">Captcha</string>
-    <string name="enter_characters_from_image">Ýokardaky teksti giriziň</string>
     <string name="request_bridges_from_torproject">torproject.org-dan köprini talap ediň</string>
     <string name="custom_bridges">Ýörite Köpriler</string>
     <string name="paste_bridges">Köprileri Salyň</string>
@@ -135,12 +134,8 @@
     <string name="bridge_cloud">Bulut serwerleriniň üsti bilen birikdiriň</string>
     <string name="set_locale_title">Dil</string>
     <string name="snowflake_subtitle">Tor meýletinçileriniň üsti bilen birikýär. Käbir Tor bloklaryndan geçýär.</string>
-    <string name="solve_captcha">Captcha-ny çöz</string>
     <string name="bridges_obtained_connecting">Köpriler alyndy! Tor-a birikdirilýär…</string>
     <string name="pref_flag_secure_title">Ekranyň howpsuzlygy</string>
-    <string name="custom_bridge">Ýörite Köpri</string>
-    <string name="get_a_bridge_subtitle">Trafigiňizi gizleýär. Käbir Tor bloklaryndan geçýär.</string>
-    <string name="custom_bridge_subtitle">Tor gaty petiklenen bolsa, ähtimal sizi baglanyşdyrar. Ynanýan adamyňyzdan baglanyşyk salgysyny talap eder.</string>
     <string name="incorrect_solution">Nädogry çözgüt</string>
     <string name="connect">Birikdir</string>
     <string name="local_port">Ýerli Port</string>
@@ -162,7 +157,6 @@
     <string name="log_copied">Log Göçürildi</string>
     <string name="not_sure">Anyk bilmeýänizmi?</string>
     <string name="ask_tor">Tor-dan Sora</string>
-    <string name="action_use">Ulan</string>
     <string name="asking">SORAÝAR…</string>
     <string name="no_internet_title">Internede baglan</string>
     <string name="no_internet_subtitle">Orbot ulanmak üçin internet birikmesi gerek.</string>
@@ -172,7 +166,6 @@
     <string name="pref_flag_secure_summary">Beýleki programmalaryň Orbot ekran suratlaryny almagynyň öňüni alyň</string>
     <string name="connection_direct">Göni</string>
     <string name="connection_snowflake">Snowflake</string>
-    <string name="custom_bridge_description">Şahsy baglanyşyk, tanaýan adamyňyz tarapyndan üpjün edilýär. Ynamly torlaryňyzda we guramalaryňyzda kimdir biri ony kabul edýärmi diýip soraň.</string>
     <string name="title_choose_apps">Programmalar saýlaň</string>
     <string name="many_ways">Tora barmagyň köp ýoly bar. Käbirleri beýlekilerden has gowy işlemegi mümkin.</string>
     <string name="option_only_when_charging">Diňe zarýad berlende</string>
@@ -264,7 +257,6 @@
     <string name="kindness_config_detail">Enjamyňyzyň beýleki Tor ulanyjylary üçin nädip we haçan Snowflake proksi bolup biljekdigini sazlaň.</string>
     <string name="setting_padding">Ýassyklama</string>
     <string name="setting_debug">Düzediş</string>
-    <string name="get_a_bridge">Tor arkaly (Obfs4) köprisi</string>
     <string name="connection_custom">Ýörite</string>
     <string name="volunteer_mode_subtitle_desc">Sypaýçylyk ülňi enjamyňyzy beýlekiler üçin köpri bolmaga mümkinçilik berýär. Adamlara Tor-uň petiklenen ýerlerinde ulanmagyna kömek edýär.
 \n

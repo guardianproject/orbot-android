@@ -143,7 +143,6 @@
     <string name="kibibyte">KiB</string>
     <string name="deny">Odmów</string>
     <string name="allow">Zezwól</string>
-    <string name="enter_characters_from_image">Wpisz powyższy tekst</string>
     <string name="connected_title">Połączony</string>
     <string name="trying_to_connect_title">Łączenie…</string>
     <string name="secure_your_connection_subtitle">Ukryj aplikacje przed monitorowaniem sieci i uzyskaj dostęp, gdy zostaną zablokowane.</string>
@@ -185,12 +184,7 @@
     <string name="volunteer_mode_weekly_label">Tygodniowo</string>
     <string name="snowflake_proxy_msg_description">Pokaż wiadomość, gdy pomagasz komuś obejść cenzurę</string>
     <string name="connect">Połącz</string>
-    <string name="solve_captcha">Rozwiąż Captcha</string>
     <string name="next">Następny</string>
-    <string name="custom_bridge_subtitle">Najprawdopodobniej utrzymasz połączenie, jeśli Tor zostanie poważnie zablokowany. Wymaga adresu pomostu od osoby, której ufasz.</string>
-    <string name="custom_bridge">Mostek niestandardowy</string>
-    <string name="get_a_bridge">Most od Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Ukrywa twój ruch. Obchodzi niektóre blokady Tor.</string>
     <string name="snowflake">Snowflake (Original)</string>
     <string name="smart_connect_subtitle">Orbot próbuje połączyć się z Tor za pomocą każdego dostępnego sposobu: Bezpośrednio, Snowflake, Mostek.</string>
     <string name="direct_connect_subtitle">Najlepszy sposób na połączenie się z Tor. Użyj, jeśli Tor nie jest zablokowany.</string>
@@ -248,14 +242,12 @@
     <string name="having_trouble">Masz problem</string>
     <string name="bridges_obtained_connecting">Uzyskano mostki! Łączę z Tor…</string>
     <string name="having_trouble_subtitle">Możemy spróbować mostka Tor, ale będziemy potrzebować twojej pomocy</string>
-    <string name="custom_bridge_description">Mostek niestandardowy jest dostarczany przez kogoś, kogo znasz. Zapytaj w swoich zaufanych sieciach i organizacjach, czy ktoś jest gospodarzem takiego mostka.</string>
     <string name="hide_apps">Ukryj aplikacje przed monitorowaniem sieci i uzyskaj dostęp, gdy zostaną zablokowane.</string>
     <string name="pref_isolate_port">Izoluj porty docelowe</string>
     <string name="pref_isolate_protocol">Izolacja protokołów klienta</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="not_sure">Nie wiesz\?</string>
     <string name="no_internet_subtitle">Do korzystania z Orbota potrzebne jest połączenie z internetem.</string>
-    <string name="action_use">Użyj</string>
     <string name="kindness_adjust_title">Ustawienia</string>
     <string name="many_ways">Istnieje wiele sposobów na dotarcie do Tor. Niektóre z nich mogą działać lepiej niż inne dla Ciebie.</string>
     <string name="asking">PYTANIE…</string>

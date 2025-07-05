@@ -53,7 +53,7 @@ class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction
 
                 0 -> {
                     imgView.visibility = View.GONE
-                    val currentExit = Prefs.getExitNodes().replace("{", "").replace("}", "")
+                    val currentExit = Prefs.exitNodes?.replace("{", "")?.replace("}", "") ?: ""
                     if (currentExit.length == 2) tvAction.text =
                         Utils.convertCountryCodeToFlagEmoji(currentExit)
                     else tvAction.text = context.getString(R.string.globe)
@@ -75,7 +75,7 @@ class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction
     private fun drawAppShortcuts(llBoxShortcuts: HorizontalScrollView): Boolean {
 
         val tordAppString =
-            Prefs.getSharedPrefs(context).getString(OrbotConstants.PREFS_KEY_TORIFIED, "")
+            Prefs.getSharedPrefs(context)?.getString(OrbotConstants.PREFS_KEY_TORIFIED, "")
         if (!TextUtils.isEmpty(tordAppString)) {
 
             val packageManager: PackageManager = context.packageManager

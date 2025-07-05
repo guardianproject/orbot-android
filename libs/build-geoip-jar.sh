@@ -1,8 +1,16 @@
-rm geoip.jar
+#!/usr/bin/env sh
+
+BASE=$(dirname "$0")
+
+cd "$BASE" || exit
+
+rm -rf geoip.jar assets
+
 mkdir assets
-git clone https://gitlab.torproject.org/tpo/core/tor.git --depth=1
-cp -a tor/src/config/geoip assets/
-cp -a tor/src/config/geoip6 assets/
-rm -rf tor
-zip -o geoip.jar assets/geoip assets/geoip6
+cd assets || exit
+wget https://gitlab.torproject.org/tpo/core/tor/-/raw/main/src/config/geoip
+wget https://gitlab.torproject.org/tpo/core/tor/-/raw/main/src/config/geoip6
+cd ..
+
+zip -9 -o geoip.jar assets/geoip assets/geoip6
 rm -rf assets

@@ -40,7 +40,6 @@
     <string name="refresh_captcha">Rifresko CAPTCHA-n</string>
     <string name="solve_captcha_instruction">Që të kërkoni ura, zgjidhni CAPTCHA-n.</string>
     <string name="captcha"/>
-    <string name="enter_characters_from_image">Jepni tekstin më sipër</string>
     <string name="snowflake_proxy_msg_title">Shfaq Njoftim Lidhjeje</string>
     <string name="connected_title">I lidhur</string>
     <string name="configure_header">Formësoni Lidhjen tuaj Tor</string>
@@ -79,11 +78,8 @@
     <string name="smart_connect">Lidhje e Mençur (parazgjedhje)</string>
     <string name="direct_connect">Lidhje e drejtpërdrejtë me Tor-in</string>
     <string name="snowflake">Snowflake</string>
-    <string name="get_a_bridge">Urë nga Tor (Obfs4)</string>
-    <string name="custom_bridge">Urë Vetjake</string>
     <string name="connect">Lidhu</string>
     <string name="next">Pasuesi</string>
-    <string name="solve_captcha">Zgjidhni CAPTCHA-n</string>
     <string name="ports_not_set">Porta të Paujdisura</string>
     <string name="btn_start_vpn">Nise VPN-në</string>
     <string name="btn_configure">Zgjidhni Si të Lidhet</string>
@@ -205,9 +201,6 @@
 \n• Mund të çaktivizohet kurdo</string>
     <string name="smart_connect_subtitle">Orbot-i provon të lidhet me Tor-in përmes çfarëdo rruge të mundshme: Drejtpërdrejt, Snowflake, Urë.</string>
     <string name="direct_connect_subtitle">Rruga më e mirë për t’u lidhur me Tor-in. Përdoreni nëse Tor-i s’është i bllokuar.</string>
-    <string name="get_a_bridge_subtitle">Fsheh trafikun tuaj. Anashkalohet ca bllokim Tor-i.</string>
-    <string name="custom_bridge_subtitle">Sipas shumicës së gjasave, për t’ju mbajtur të lidhur, nëse Tor-i është bllokuar keq. Lyp një adresë ure prek dikujt të cilit i zini besë.</string>
-    <string name="custom_bridge_description">Një urë vetjake jepet nga dikush që e njihni. Pyetni mes rrjeteve dhe enteve tuaj të besuar, për të parë nëse dikush strehon të tillë.</string>
     <string name="app_suggested_subtitle">Më mirë se me gjithçka tjetër, Orbot-i funksionon me aplikacione shkëmbimi mesazhesh dhe mediash shoqërore.</string>
     <string name="secure_your_connection_subtitle">Fshihini aplikacione mbikëqyrjes së rrjetit dhe përfitoni hyrje kur janë të bllokuar.</string>
     <string name="volunteer_mode">Mënyra Dashamirësi</string>
@@ -239,7 +232,6 @@
     <string name="pref_proxy_port_title">Portë Ndërmjetësi Në Dalje</string>
     <string name="pref_proxy_username_title">Emër Përdoruesi Ndërmjetësi Në Dalje</string>
     <string name="pref_proxy_password_title">Fjalëkalim Ndërmjetësi Në Dalje</string>
-    <string name="action_use">Përdoreni</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Vetjake</string>
     <string name="setting_debug">Diagnostiojeni</string>

@@ -155,7 +155,6 @@
     <string name="mebibyte">MB</string>
     <string name="menu_header_features">Funkciók</string>
     <string name="connection_custom">Egyedi</string>
-    <string name="action_use">Alkalmaz</string>
     <string name="license">Licensz:</string>
     <string name="connected_title">Csatlakozva</string>
 </resources>

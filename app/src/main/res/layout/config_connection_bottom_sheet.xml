@@ -92,8 +92,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:orientation="horizontal"
-                android:background="?android:attr/selectableItemBackground">
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/rbDirect"
@@ -126,8 +126,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:orientation="horizontal"
-                android:background="?android:attr/selectableItemBackground">
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/rbSnowflake"
@@ -160,8 +160,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:orientation="horizontal"
-                android:background="?android:attr/selectableItemBackground">
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/rbSnowflakeAmp"
@@ -199,8 +199,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:orientation="horizontal"
                 android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal"
                 android:visibility="gone">
 
                 <RadioButton
@@ -230,15 +230,15 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/requestContainer"
+                android:id="@+id/telegramContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:orientation="horizontal"
-                android:background="?android:attr/selectableItemBackground">
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/rbRequest"
+                    android:id="@+id/rbTelegram"
                     style="@style/BottomSheetRadio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -252,12 +252,114 @@
 
                     <TextView
                         style="@style/BottomSheetRadioHeader"
-                        android:text="@string/get_a_bridge" />
+                        android:text="@string/bridges_via_telegram" />
 
                     <TextView
-                        android:id="@+id/tvRequestSubtitle"
+                        android:id="@+id/tvTelegramSubtitle"
                         style="@style/BottomSheetTextView"
-                        android:text="@string/get_a_bridge_subtitle"
+                        android:text="@string/bridges_via_telegram_subtitle"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/obfs4Container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbObfs4"
+                    style="@style/BottomSheetRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/BottomSheetRadioHeader"
+                        android:text="@string/built_in_bridges_obfs4" />
+
+                    <TextView
+                        android:id="@+id/tvObfs4Subtitle"
+                        style="@style/BottomSheetTextView"
+                        android:text="@string/built_in_bridges_obfs4_subtitle"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/emailContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbEmail"
+                    style="@style/BottomSheetRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/BottomSheetRadioHeader"
+                        android:text="@string/bridges_via_email" />
+
+                    <TextView
+                        android:id="@+id/tvEmailSubtitle"
+                        style="@style/BottomSheetTextView"
+                        android:text="@string/bridges_via_email_subtitle"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/meekContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbMeek"
+                    style="@style/BottomSheetRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/BottomSheetRadioHeader"
+                        android:text="@string/bridge_meek_azure" />
+
+                    <TextView
+                        android:id="@+id/tvMeekSubtitle"
+                        style="@style/BottomSheetTextView"
+                        android:text="@string/bridge_meek_azure_subtitle"
                         android:visibility="gone" />
                 </LinearLayout>
 
@@ -268,8 +370,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:orientation="horizontal"
-                android:background="?android:attr/selectableItemBackground">
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/rbCustom"
@@ -286,12 +388,12 @@
 
                     <TextView
                         style="@style/BottomSheetRadioHeader"
-                        android:text="@string/custom_bridge" />
+                        android:text="@string/custom_bridges" />
 
                     <TextView
                         android:id="@+id/tvCustomSubtitle"
                         style="@style/BottomSheetTextView"
-                        android:text="@string/custom_bridge_subtitle"
+                        android:text="@string/custom_bridges_subtitle"
                         android:visibility="gone" />
                 </LinearLayout>
 
@@ -328,11 +430,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:background="@drawable/btn_shape_round"
         android:paddingStart="@dimen/button_horizontal_large_margin"
         android:paddingEnd="@dimen/button_horizontal_large_margin"
         android:text="@string/connect"
         android:textColor="@android:color/white"
-        android:background="@drawable/btn_shape_round"
         app:backgroundTint="@color/orbot_btn_enabled_purple"
         app:layout_constraintEnd_toEndOf="@id/tvCancel"
         app:layout_constraintHorizontal_bias="0.5"

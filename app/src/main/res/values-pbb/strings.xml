@@ -166,7 +166,6 @@ Notificaciones ampliadas</string>
     <string name="refresh_captcha">CAPTCHA’s miikhpuuse’j</string>
     <string name="solve_captcha_instruction">CAPTCHA’s mpaas wehtx pẽywa’</string>
     <string name="captcha">Captcha</string>
-    <string name="enter_characters_from_image">Ente fxi’jnxi pela\'s mki’ph.</string>
     <!--BridgeWizardActivity-->
   <string name="request_bridges_from_torproject">Wehtxi’ ayte mpẽhy torproject.org </string>
     <string name="custom_bridges">Idx weh.</string>
@@ -220,17 +219,11 @@ Notificaciones ampliadas</string>
     <string name="direct_connect_subtitle">Torte u’kwa’ jxthaakwe ewsa. miikseelpi’j napa Tor yujume ũstecxãa</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Na’ Tor pu’cxsayakku açhu’. Tor kyuju’jnxisatx kaahmene’ga </string>
-    <string name="get_a_bridge">Ajxu Tor (Obfs4) teeçx weh mpakwe</string>
-    <string name="get_a_bridge_subtitle">Idx thegnxi’s msuth. Puçsu miijxkhew Tor kyuju’jnxitx</string>
-    <string name="custom_bridge">Idx weh</string>
-    <string name="custom_bridge_subtitle">Isayũ’ açhnxi u’pune’ga makwe Tor kyuju’jnxi ũste. Teeçx dxi’j weh jiyunxisa peejxa’</string>
     <string name="connect">Maçh</string>
     <string name="next">Vxite</string>
-    <string name="solve_captcha">Captcha’s mpaas.</string>
     <string name="incorrect_solution">Paasnxi’ ewme’</string>
     <string name="bridges_obtained_connecting">¡Weh uynxitx¡ torte açhna…
 .</string>
-    <string name="custom_bridge_description">Idx jiimega’ weh phewu’çxha ũssa. Mpaapẽy jiiyunxisatx, idx çaam wessu aan kimçxapa ji’phna</string>
     <string name="having_trouble">Yuwe ewmeesak vxaa</string>
     <string name="having_trouble_subtitle">Teeçx weh Tor iisaya’ ewuudka’w, napa idx pu’çxwa’ pejxiina</string>
     <string name="power_user_mode">Meh kseelpi’jya jiisa</string>

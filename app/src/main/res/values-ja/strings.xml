@@ -197,7 +197,6 @@
     <string name="backup_port_exist">エラー: Onion Service は既にポート %s を使用しています</string>
     <string name="testing_tor_direct">Tor への接続を試行しています…</string>
     <string name="testing_tor_direct_success">成功しました。Tor 接続は良好です!</string>
-    <string name="enter_characters_from_image">上のテキストを入力</string>
     <string name="in_a_browser">ブラウザーで %s にアクセスし、Get Bridges &gt; Just Give Me Bridges! をタップします</string>
     <string name="snowflake_proxy_msg_title">接続通知を表示</string>
     <string name="volunteer_mode_subtitle">他の人の接続を助ける</string>
@@ -214,7 +213,6 @@
     <string name="configure_header">あなたの Tor 接続を構成する</string>
     <string name="next">次へ</string>
     <string name="bridges_obtained_connecting">ブリッジを獲得しました！ Tor に接続しています…</string>
-    <string name="custom_bridge_description">カスタムブリッジは、あなたが知っている誰かによって提供されます。信頼できるネットワークや組織内で、誰かがカスタムブリッジをホストしていないか尋ねてみてください。</string>
     <string name="volunteer_mode_title">他の人の Tor への
 \n接続を支援する</string>
     <string name="volunteer_mode_subtitle_desc">Kindness Mode は、あなたのデバイスが他の人のためのブリッジになることを可能にします。Tor がブロックされている場所でも使えるようにします。
@@ -231,12 +229,7 @@
     <string name="direct_connect_subtitle">Tor に接続する最良の手段です。Tor がブロックされてないときに使用します。</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Tor のボランティアを介した接続です。一部の Tor ブロッキングを回避できます。</string>
-    <string name="get_a_bridge_subtitle">あなたのトラフィックを隠します。一部の Tor ブロッキングを回避できます。</string>
-    <string name="custom_bridge">カスタムブリッジ</string>
-    <string name="custom_bridge_subtitle">Tor が厳格にブロックされている場合、このオプションが接続を維持できる可能性が最も高いです。信頼できる人からのブリッジアドレスが必要です。</string>
-    <string name="get_a_bridge">Tor からのブリッジ (Obfs4)</string>
     <string name="connect">接続</string>
-    <string name="solve_captcha">Captcha を解く</string>
     <string name="incorrect_solution">不正解</string>
     <string name="having_trouble">問題発生</string>
     <string name="having_trouble_subtitle">次に、Tor ブリッジを試すことができますが、あなたの助けが必要です</string>
@@ -253,7 +246,6 @@
     <string name="pref_isolate_protocol">クライアントプロトコルを分離</string>
     <string name="pref_isolate_protocol_summary">接続中のプロトコルごとに別の回路を使用する</string>
     <string name="many_ways">Tor にアクセスする方法はたくさんあります。あなたに合ったものとそうでないものがあるかもしれません。</string>
-    <string name="action_use">使用</string>
     <string name="no_internet_title">インターネットに接続</string>
     <string name="no_internet_subtitle">Orbot を使用するには、インターネット接続が必要です。</string>
     <string name="snowflake_amp">Snowflake AMP</string>

@@ -1,5 +1,6 @@
 package org.torproject.android.service
 
+import androidx.core.net.toUri
 import org.torproject.jni.TorService
 
 object OrbotConstants {
@@ -120,10 +121,6 @@ object OrbotConstants {
     const val LOCAL_ACTION_PORTS = "ports"
     const val LOCAL_ACTION_V3_NAMES_UPDATED = "V3_NAMES_UPDATED"
     const val LOCAL_ACTION_NOTIFICATION_START = "notification_start"
-    const val LOCAL_ACTION_SMART_CONNECT_EVENT = "smart"
-    const val LOCAL_EXTRA_SMART_STATUS = "status"
-    const val SMART_STATUS_NO_DIRECT = "no_direct"
-    const val SMART_STATUS_CIRCUMVENTION_ATTEMPT_FAILED = "bad_attempt_suggestion"
 
 
     /**
@@ -185,4 +182,16 @@ object OrbotConstants {
     )
 
     const val ONION_EMOJI: String = "\uD83E\uDDC5"
+
+
+    // Constants for getting bridges in semi-manual ways.
+
+    val GET_BRIDES_BRIDGES_URI = "https://bridges.torproject.org/".toUri()
+
+    const val GET_BRIDES_EMAIL_RECIPIENT = "bridges@torproject.org"
+
+    const val GET_BRIDES_EMAIL_SUBJECT_AND_BODY = "get transport"
+
+    val GET_BRIDES_TELEGRAM_BOT = "https://t.me/GetBridgesBot".toUri()
+
 }

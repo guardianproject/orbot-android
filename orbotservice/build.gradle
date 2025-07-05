@@ -64,4 +64,7 @@ dependencies {
     implementation(files("../libs/geoip.jar"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.serialization.json)
+
+    implementation(libs.retrofit.converter)
+    implementation(libs.retrofit.lib)
 }

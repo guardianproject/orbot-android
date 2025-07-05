@@ -141,7 +141,6 @@
     <string name="btn_refresh">Vernieuwen</string>
     <string name="menu_header_features">Mogelijkheden</string>
     <string name="title_choose_apps">Kies apps</string>
-    <string name="action_use">Gebruik</string>
     <string name="menu_more">Meer</string>
     <string name="connection_direct">Direct</string>
     <string name="connection_snowflake">Snowflake</string>

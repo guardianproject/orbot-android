@@ -190,7 +190,6 @@
     <string name="request_bridges">Begär broar</string>
     <string name="refresh_captcha">Uppdatera CAPTCHA</string>
     <string name="solve_captcha_instruction">Lös CAPTCHA för att begära broar.</string>
-    <string name="enter_characters_from_image">Ange texten ovan</string>
     <string name="request_bridges_from_torproject">Begär broar från torproject.org</string>
     <string name="custom_bridges">Anpassade broar</string>
     <string name="configure_custom_bridges">Konfigurera anpassade broar</string>
@@ -220,7 +219,6 @@
     <string name="volunteer_status_title">Idag är bättre
 \ntack vare dig.</string>
     <string name="title_choose_apps">Välj appar</string>
-    <string name="action_use">Använd</string>
     <string name="asking">FRÅGAR…</string>
     <string name="no_internet_title">Anslut till internet</string>
     <string name="no_internet_subtitle">Du behöver en internetuppkoppling för att använda Orbot.</string>
@@ -233,11 +231,7 @@
     <string name="smart_connect">Smart Connect (standard)</string>
     <string name="smart_connect_subtitle">Orbot försöker ansluta till Tor på alla möjliga sätt: Direkt, Snowflake, Bridge.</string>
     <string name="snowflake">Snowflake (original)</string>
-    <string name="get_a_bridge_subtitle">Döljer din trafik. Tar sig runt vissa Tor-blockeringar.</string>
-    <string name="custom_bridge">Anpassad bro</string>
     <string name="direct_connect_subtitle">Det bästa sättet att ansluta till Tor. Använd om Tor inte är blockerad.</string>
-    <string name="get_a_bridge">Bro från Tor (Obfs4)</string>
-    <string name="solve_captcha">Lös Captcha</string>
     <string name="pref_isolate_port_summary">Använd en annan krets för varje destinationsport</string>
     <string name="not_sure">Är du inte säker\?</string>
     <string name="pref_isolate_protocol">Isolera klientprotokoll</string>
@@ -245,10 +239,8 @@
     <string name="pref_isolate_protocol_summary">Använd en annan krets för varje anslutningsprotokoll</string>
     <string name="snowflake_subtitle">Anslutningar genom Tor-volontärer. Tar sig runt vissa Tor-blockeringar.</string>
     <string name="log_copied">Logg kopierad</string>
-    <string name="custom_bridge_subtitle">Det är mest troligt att du kan hålla dig ansluten om Tor är blockerad. Kräver en broadress från någon du litar på.</string>
     <string name="next">Nästa</string>
     <string name="incorrect_solution">Felaktig lösning</string>
-    <string name="custom_bridge_description">En skräddarsydd bro tillhandahålls av någon du känner. Fråga i dina betrodda nätverk och organisationer om det finns någon som är värd för en sådan.</string>
     <string name="ports_not_set">Portar inte inställda</string>
     <string name="volunteer_mode_subtitle_desc">Med läget för vänlighet kan din enhet bli en bro för andra. Det hjälper människor att använda Tor på platser där det är blockerat.
 \n

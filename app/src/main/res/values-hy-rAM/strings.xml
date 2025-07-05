@@ -55,7 +55,6 @@
     <string name="secure_your_connection_title">Պատրաստ է միացման</string>
     <string name="btn_use_custom_bridge">Օգտվել հարմարեցրած կամուրջից</string>
     <string name="smart_connect">Խելացի միացում (լռելայն)</string>
-    <string name="get_a_bridge">Կամուրջ Tor-ից (Obfs4)</string>
     <string name="volunteer_status_title">Այսօր ավելի լավ է
 \nՁեր շնորհիվ:</string>
     <string name="not_sure">Վստահ չե՞ք</string>
@@ -105,12 +104,10 @@
     <string name="menu_help_others">Օգնել այլոց</string>
     <string name="direct_connect">Tor-ին ուղիղ միացում</string>
     <string name="direct_connect_subtitle">Tor-ին միանալու լավագույն ձևը: Օգտագործեք եթե Tor-ն արգելափակված չէ:</string>
-    <string name="custom_bridge">Հարմարեցված կամուրջ</string>
     <string name="snowflake">Snowflake (բնօրինակ ձև)</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="bridges_obtained_connecting">Կամուրջները ստացվեցի՜ն: Միացվում է tor-ին…</string>
     <string name="btn_copy_log">Պատճենել մատյանը</string>
-    <string name="action_use">Օգտվել</string>
     <string name="no_internet_title">Միացեք համացանցին</string>
     <string name="no_internet_subtitle">Orbot-ից օգտվելու համար Ձեզ պետք է միացում համացանցին:</string>
     <string name="confirm_service_deletion">Հաստատել ծառայության ջնջումը</string>

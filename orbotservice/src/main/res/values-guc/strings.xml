@@ -24,7 +24,7 @@
     <string name="kibibyte_per_second">KiB/s</string>
     <string name="mebibyte_per_second">MiB/s</string>
 
-    <string name="snowflake_proxy_client_connected_msg">%sPuuproxinka copo de nieve munaka amuliajús wayuu jupula nainjuin tu nainrreka.%s</string>
+    <string name="snowflake_proxy_client_connected_msg">%1$sPuuproxinka copo de nieve munaka amuliajús wayuu jupula nainjuin tu nainrreka.%2$s</string>
 
     <string name="log_notice_unable_to_update_onions">Nojoluinjat  aitanüin junulia cewoolla.</string>
     <string name="log_notice_snowflake_proxy_enabled">Proxy copo de nieve amuliajús jupula painruuín tu paiinrreka </string>

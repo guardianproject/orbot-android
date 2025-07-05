@@ -24,7 +24,7 @@
     <string name="kibibyte_per_second">KiB/s</string>
     <string name="mebibyte_per_second">MiB/s</string>
 
-    <string name="snowflake_proxy_client_connected_msg">Idx snowflake proxi pu’çxhku maasume kaajxkhẽwu’jxa</string>
+    <string name="snowflake_proxy_client_connected_msg">%1$sIdx snowflake proxi pu’çxhku maasume kaajxkhẽwu’jxa%2$s</string>
 
     <string name="log_notice_unable_to_update_onions">Spulxa yase kaateka’jya ewuumeen</string>
     <string name="log_notice_snowflake_proxy_enabled">Naa proxy Snowflake vxiswa’ ewa’ </string>

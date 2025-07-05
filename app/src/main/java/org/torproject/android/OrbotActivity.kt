@@ -36,6 +36,7 @@ import org.torproject.android.service.util.Utils.showToast
 import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.util.DeviceAuthenticationPrompt
+import java.util.Locale
 
 class OrbotActivity : BaseActivity() {
 
@@ -171,10 +172,6 @@ class OrbotActivity : BaseActivity() {
             registerReceiver(
                 orbotServiceBroadcastReceiver, IntentFilter(OrbotConstants.LOCAL_ACTION_PORTS)
             )
-            registerReceiver(
-                orbotServiceBroadcastReceiver,
-                IntentFilter(OrbotConstants.LOCAL_ACTION_SMART_CONNECT_EVENT)
-            )
         }
 
         requestNotificationPermission()
@@ -253,7 +250,7 @@ class OrbotActivity : BaseActivity() {
         if (requestCode == REQUEST_CODE_VPN && resultCode == RESULT_OK) {
             connectViewModel.triggerStartTorAndVpn()
         } else if (requestCode == REQUEST_CODE_SETTINGS && resultCode == RESULT_OK) {
-            Prefs.setDefaultLocale(data?.getStringExtra("locale"))
+            Prefs.defaultLocale = data?.getStringExtra("locale") ?: Locale.getDefault().language
             sendIntentToService(OrbotConstants.ACTION_LOCAL_LOCALE_SET)
             (application as OrbotApp).setLocale()
             finish()
@@ -300,7 +297,7 @@ class OrbotActivity : BaseActivity() {
     }
 
     private fun promptDeviceAuthenticationIfRequired() {
-        if (!Prefs.requireDeviceAuthentication())
+        if (!Prefs.requireDeviceAuthentication)
             return
 
         if (!OrbotApp.shouldRequestAuthentication)

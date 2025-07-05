@@ -8,7 +8,6 @@ import android.graphics.Paint
 import android.net.VpnService
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
@@ -17,11 +16,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.ListView
-import android.widget.ProgressBar
-import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -29,14 +24,18 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import net.freehaven.tor.control.TorControlCommands
 import org.torproject.android.OrbotActivity
 import org.torproject.android.R
 import org.torproject.android.core.putNotSystem
 import org.torproject.android.core.sendIntentToService
+import org.torproject.android.databinding.FragmentConnectBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
+import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.AppManagerActivity
 import org.torproject.android.ui.OrbotMenuAction
@@ -44,20 +43,25 @@ import org.torproject.android.ui.OrbotMenuAction
 class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     ExitNodeDialogFragment.ExitNodeSelectedCallback {
 
-    // main screen UI
-    private lateinit var tvTitle: TextView
-    private lateinit var tvSubtitle: TextView
-    private lateinit var tvConfigure: TextView
-    private lateinit var btnStartVpn: Button
-    private lateinit var ivOnion: ImageView
-    private lateinit var ivOnionShadow: ImageView
-    lateinit var progressBar: ProgressBar
-    private lateinit var lvConnectedActions: ListView
+    private lateinit var binding: FragmentConnectBinding
 
     private val viewModel: ConnectViewModel by activityViewModels()
 
     private val lastStatus: String
         get() = (activity as? OrbotActivity)?.previousReceivedTorStatus ?: ""
+
+    private val startTorResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == AppCompatActivity.RESULT_OK) {
+            startTorAndVpn()
+        }
+    }
+
+    private val restartTorResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == AppCompatActivity.RESULT_OK) {
+            requireContext().sendIntentToService(OrbotConstants.ACTION_RESTART_VPN) // is this enough todo?
+            refreshMenuList(requireContext())
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -71,7 +75,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
                         is ConnectUiState.Starting -> {
                             doLayoutStarting(requireContext())
                             state.bootstrapPercent?.let {
-                                progressBar.progress = it
+                                binding.progressBar.progress = it
                             }
                         }
                         is ConnectUiState.On -> doLayoutOn(requireContext())
@@ -94,26 +98,15 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_connect, container, false)
-        view?.let {
+        binding = FragmentConnectBinding.inflate(inflater, container, false)
 
-            tvTitle = it.findViewById(R.id.tvTitle)
-            tvSubtitle = it.findViewById(R.id.tvSubtitle)
-            tvConfigure = it.findViewById(R.id.tvConfigure)
-            btnStartVpn = it.findViewById(R.id.btnStart)
-            ivOnion = it.findViewById(R.id.ivStatus)
-            ivOnionShadow = it.findViewById(R.id.ivShadow)
-            progressBar = it.findViewById(R.id.progressBar)
-            lvConnectedActions = it.findViewById(R.id.lvConnected)
-
-            if (Prefs.isPowerUserMode()) {
-                btnStartVpn.text = getString(R.string.connect)
-            }
-
-            viewModel.updateState(requireContext(), lastStatus)
+        if (Prefs.isPowerUserMode) {
+            binding.btnStart.text = getString(R.string.connect)
         }
 
-        return view
+        viewModel.updateState(requireContext(), lastStatus)
+
+        return binding.root
     }
 
     override fun onResume() {
@@ -128,14 +121,19 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     }
 
     private fun stopAnimations() {
-        ivOnion.clearAnimation()
-        ivOnionShadow.clearAnimation()
+        binding.ivStatus.clearAnimation()
+        binding.ivShadow.clearAnimation()
     }
 
     private fun sendNewnymSignal() {
         requireContext().sendIntentToService(TorControlCommands.SIGNAL_NEWNYM)
-        ivOnion.animate().alpha(0f).duration = 500
-        Handler().postDelayed({ ivOnion.animate().alpha(1f).duration = 500 }, 600)
+        binding.ivStatus.animate().alpha(0f).duration = 500
+
+        lifecycleScope.launch(Dispatchers.Main) {
+            delay(600)
+
+            binding.ivStatus.animate().alpha(1f).duration = 500
+        }
     }
 
     private fun openExitNodeDialog() {
@@ -146,26 +144,26 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
 
     fun startTorAndVpn() {
         val vpnIntent = VpnService.prepare(requireActivity())?.putNotSystem()
-        if (vpnIntent != null && (!Prefs.isPowerUserMode())) {
-            startActivityForResult(vpnIntent, OrbotActivity.Companion.REQUEST_CODE_VPN)
+        if (vpnIntent != null && !Prefs.isPowerUserMode) {
+            startTorResultLauncher.launch(vpnIntent)
         } else { // either the vpn permission hasn't been granted or we are in power user mode
-            Prefs.putUseVpn(!Prefs.isPowerUserMode())
-            if (Prefs.isPowerUserMode()) {
+            Prefs.putUseVpn(!Prefs.isPowerUserMode)
+            if (Prefs.isPowerUserMode) {
                 // android 14 awkwardly needs this permission to be explicitly granted to use the
                 // FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED permission without grabbing a VPN Intent
                 val alarmManager = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
                     RequestScheduleExactAlarmDialogFragment().show(requireActivity().supportFragmentManager, "RequestAlarmPermDialog")
                 } else {
-                    ivOnion.setImageResource(R.drawable.torstarting)
-                    with(btnStartVpn) {
+                    binding.ivStatus.setImageResource(R.drawable.torstarting)
+                    with(binding.btnStart) {
                         text = context.getString(android.R.string.cancel)
                     }
                     requireContext().sendIntentToService(OrbotConstants.ACTION_START)
                 }
             } else { // normal VPN mode, power user is disabled
-                ivOnion.setImageResource(R.drawable.torstarting)
-                with(btnStartVpn) {
+                binding.ivStatus.setImageResource(R.drawable.torstarting)
+                with(binding.btnStart) {
                     text = context.getString(android.R.string.cancel)
                 }
                 requireContext().sendIntentToService(OrbotConstants.ACTION_START)
@@ -180,117 +178,93 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
                 OrbotMenuAction(R.string.btn_change_exit, 0) { openExitNodeDialog() },
                 OrbotMenuAction(R.string.btn_refresh, R.drawable.ic_refresh) { sendNewnymSignal() },
                 OrbotMenuAction(R.string.btn_tor_off, R.drawable.ic_power) { stopTorAndVpn() })
-        if (!Prefs.isPowerUserMode()) listItems.add(
+        if (!Prefs.isPowerUserMode) listItems.add(
             0,
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
-                startActivityForResult(
-                    Intent(requireActivity(), AppManagerActivity::class.java),
-                    OrbotActivity.Companion.REQUEST_VPN_APP_SELECT
-                )
+                restartTorResultLauncher.launch(Intent(requireActivity(), AppManagerActivity::class.java))
             })
-        lvConnectedActions.adapter = ConnectMenuActionAdapter(context, listItems)
-    }
-
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == OrbotActivity.Companion.REQUEST_CODE_VPN && resultCode == AppCompatActivity.RESULT_OK) {
-            startTorAndVpn()
-        } else if (requestCode == OrbotActivity.Companion.REQUEST_CODE_SETTINGS && resultCode == AppCompatActivity.RESULT_OK) {
-            // todo respond to language change extra data here...
-        } else if (requestCode == OrbotActivity.Companion.REQUEST_VPN_APP_SELECT && resultCode == AppCompatActivity.RESULT_OK) {
-            requireContext().sendIntentToService(OrbotConstants.ACTION_RESTART_VPN) // is this enough todo?
-            refreshMenuList(requireContext())
-        }
-    }
-
-    private fun doLayoutForCircumventionApi() {
-        // TODO prompt user to request bridge over MOAT
-        progressBar.progress = 0
-        tvTitle.text = getString(R.string.having_trouble)
-        tvSubtitle.text = getString(R.string.having_trouble_subtitle)
-        tvSubtitle.visibility = View.VISIBLE
-        btnStartVpn.text = getString(R.string.solve_captcha)
-        btnStartVpn.setOnClickListener {
-            MoatBottomSheet(this).show(
-                requireActivity().supportFragmentManager, "CircumventionFailed"
-            )
-        }
-        tvConfigure.text = getString(android.R.string.cancel)
-        tvConfigure.setOnClickListener {
-            doLayoutOff()
-        }
+        binding.lvConnected.adapter = ConnectMenuActionAdapter(context, listItems)
     }
 
 
     private fun doLayoutNoInternet() {
 
-        ivOnion.setImageResource(R.drawable.nointernet)
+        binding.ivStatus.setImageResource(R.drawable.nointernet)
 
         stopAnimations()
 
-        tvSubtitle.visibility = View.VISIBLE
+        binding.tvSubtitle.visibility = View.VISIBLE
 
-        progressBar.visibility = View.INVISIBLE
-        tvTitle.text = getString(R.string.no_internet_title)
-        tvSubtitle.text = getString(R.string.no_internet_subtitle)
+        binding.progressBar.visibility = View.INVISIBLE
+        binding.tvTitle.text = getString(R.string.no_internet_title)
+        binding.tvSubtitle.text = getString(R.string.no_internet_subtitle)
 
-        btnStartVpn.visibility = View.GONE
-        lvConnectedActions.visibility = View.GONE
-        tvConfigure.visibility = View.GONE
+        binding.btnStart.visibility = View.GONE
+        binding.lvConnected.visibility = View.GONE
+        binding.swSmartConnect.visibility = View.GONE
+        binding.tvConfigure.visibility = View.GONE
     }
 
     fun doLayoutOn(context: Context) {
-        ivOnion.setImageResource(R.drawable.toron)
+        binding.ivStatus.setImageResource(R.drawable.toron)
 
-        tvSubtitle.visibility = View.GONE
-        progressBar.visibility = View.INVISIBLE
-        tvTitle.text = context.getString(R.string.connected_title)
-        btnStartVpn.visibility = View.GONE
-        lvConnectedActions.visibility = View.VISIBLE
-        tvConfigure.visibility = View.GONE
+        binding.tvSubtitle.visibility = View.GONE
+        binding.progressBar.visibility = View.INVISIBLE
+        binding.tvTitle.text = context.getString(R.string.connected_title)
+        binding.btnStart.visibility = View.GONE
+        binding.lvConnected.visibility = View.VISIBLE
+        binding.swSmartConnect.visibility = View.GONE
+        binding.tvConfigure.visibility = View.GONE
 
         refreshMenuList(context)
 
-        ivOnion.setOnClickListener {}
+        binding.ivStatus.setOnClickListener {}
     }
 
     fun doLayoutOff() {
-        ivOnion.setImageResource(R.drawable.toroff)
+        binding.ivStatus.setImageResource(R.drawable.toroff)
         stopAnimations()
-        tvSubtitle.visibility = View.VISIBLE
-        progressBar.visibility = View.INVISIBLE
-        lvConnectedActions.visibility = View.GONE
-        tvTitle.text = getString(R.string.secure_your_connection_title)
-        tvSubtitle.text = getString(R.string.secure_your_connection_subtitle)
-        tvConfigure.visibility = View.VISIBLE
-        tvConfigure.text = getString(R.string.btn_configure)
-        tvConfigure.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        tvConfigure.setOnClickListener { openConfigureTorConnection() }
+        binding.tvSubtitle.visibility = View.VISIBLE
+        binding.progressBar.visibility = View.INVISIBLE
+        binding.lvConnected.visibility = View.GONE
+        binding.tvTitle.text = getString(R.string.secure_your_connection_title)
+        binding.tvSubtitle.text = getString(R.string.secure_your_connection_subtitle)
 
-        with(btnStartVpn) {
+        binding.swSmartConnect.visibility = View.VISIBLE
+        binding.swSmartConnect.isChecked = Prefs.smartConnect
+        binding.swSmartConnect.setOnCheckedChangeListener { _, value ->
+            Prefs.smartConnect = value
+            doLayoutOff()
+        }
+
+        binding.tvConfigure.visibility = View.VISIBLE
+        binding.tvConfigure.text = getString(R.string.btn_configure)
+        binding.tvConfigure.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        binding.tvConfigure.setOnClickListener { openConfigureTorConnection() }
+
+        with(binding.btnStart) {
             visibility = View.VISIBLE
 
-            var connectStr = ""
-            when (Prefs.getTorConnectionPathway()) {
-                Prefs.CONNECTION_PATHWAY_DIRECT -> connectStr =
-                    context.getString(R.string.action_use) + ' ' + getString(R.string.direct_connect)
+            val connectStr: String
 
-                Prefs.CONNECTION_PATHWAY_SNOWFLAKE -> connectStr =
-                    context.getString(R.string.action_use) + ' ' + getString(R.string.snowflake)
-
-                Prefs.CONNECTION_PATHWAY_SNOWFLAKE_AMP -> connectStr =
-                    context.getString(R.string.action_use) + ' ' + getString(R.string.snowflake_amp)
-
-                Prefs.CONNECTION_PATHWAY_SNOWFLAKE_SQS -> connectStr =
-                    context.getString(R.string.action_use) + ' ' + getString(R.string.snowflake_sqs)
-
-                Prefs.CONNECTION_PATHWAY_OBFS4 -> connectStr =
-                    context.getString(R.string.action_use) + ' ' + getString(R.string.custom_bridge)
+            if (Prefs.smartConnect) {
+                connectStr = getString(R.string.action_use_, getString(R.string.smart_connect))
+            }
+            else {
+                connectStr = when (Prefs.transport) {
+                    Transport.NONE -> getString(R.string.action_use_, getString(R.string.direct_connect))
+                    Transport.MEEK_AZURE -> getString(R.string.action_use_, getString(R.string.bridge_meek_azure))
+                    Transport.OBFS4 -> getString(R.string.action_use_, getString(R.string.built_in_bridges_obfs4))
+                    Transport.SNOWFLAKE -> getString(R.string.action_use_, getString(R.string.snowflake))
+                    Transport.SNOWFLAKE_AMP -> getString(R.string.action_use_, getString(R.string.snowflake_amp))
+                    Transport.SNOWFLAKE_SQS -> getString(R.string.action_use_, getString(R.string.snowflake_sqs))
+                    Transport.WEBTUNNEL -> getString(R.string.action_use_, Transport.WEBTUNNEL.id)
+                    Transport.CUSTOM -> getString(R.string.action_use_, getString(R.string.custom_bridges))
+                }
             }
 
             text = when {
-                Prefs.isPowerUserMode() -> getString(R.string.connect)
+                Prefs.isPowerUserMode -> getString(R.string.connect)
                 connectStr.isEmpty() -> SpannableStringBuilder()
                     .append(
                         getString(R.string.btn_start_vpn),
@@ -319,31 +293,33 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
             setOnClickListener { startTorAndVpn() }
         }
 
-        ivOnion.setOnClickListener {
+        binding.ivStatus.setOnClickListener {
             startTorAndVpn()
         }
     }
 
     fun doLayoutStarting(context: Context) {
-        tvSubtitle.visibility = View.GONE
-        with(progressBar) {
+        binding.tvSubtitle.visibility = View.GONE
+        with(binding.progressBar) {
             progress = 0
             visibility = View.VISIBLE
         }
-        ivOnion.setImageResource(R.drawable.torstarting)
+
+        binding.ivStatus.setImageResource(R.drawable.torstarting)
         val animHover = AnimationUtils.loadAnimation(context, R.anim.hover)
         animHover.repeatCount = 7
         animHover.repeatMode = Animation.REVERSE
-        ivOnion.animation = animHover
+        binding.ivStatus.animation = animHover
         animHover.start()
+
         val animShadow = AnimationUtils.loadAnimation(context, R.anim.shadow)
         animShadow.repeatCount = 7
         animShadow.repeatMode = Animation.REVERSE
-        ivOnionShadow.animation = animShadow
+        binding.ivShadow.animation = animShadow
         animShadow.start()
 
-        tvTitle.text = context.getString(R.string.trying_to_connect_title)
-        with(btnStartVpn) {
+        binding.tvTitle.text = context.getString(R.string.trying_to_connect_title)
+        with(binding.btnStart) {
             text = context.getString(android.R.string.cancel)
             isEnabled = true
             backgroundTintList = ColorStateList.valueOf(
@@ -355,14 +331,16 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
                 stopTorAndVpn()
             }
         }
+
+        binding.swSmartConnect.visibility = View.GONE
+        binding.tvConfigure.visibility = View.GONE
     }
 
 
-    private fun openConfigureTorConnection() =
-        ConfigConnectionBottomSheet.Companion.newInstance(this)
-            .show(
-                requireActivity().supportFragmentManager, OrbotActivity::class.java.simpleName
-            )
+    private fun openConfigureTorConnection() {
+        ConfigConnectionBottomSheet.newInstance(this)
+            .show(requireActivity().supportFragmentManager, OrbotActivity::class.java.simpleName)
+    }
 
 
     override fun tryConnecting() {
@@ -372,13 +350,11 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     override fun onExitNodeSelected(countryCode: String, displayCountryName: String) {
 
         //tor format expects "{" for country code
-        Prefs.setExitNodes("{$countryCode}")
+        Prefs.exitNodes = "{$countryCode}"
 
         requireContext().sendIntentToService(
-            Intent(
-                requireActivity(),
-                OrbotService::class.java
-            ).setAction(OrbotConstants.CMD_SET_EXIT).putExtra("exit", countryCode)
+            Intent(requireActivity(),OrbotService::class.java)
+                .setAction(OrbotConstants.CMD_SET_EXIT).putExtra("exit", countryCode)
         )
 
         refreshMenuList(requireContext())

@@ -149,7 +149,6 @@
     <string name="configure_custom_bridges">Özel Köprüleri Yapılandır</string>
     <string name="custom_bridges">Özel Köprüler</string>
     <string name="request_bridges_from_torproject">torproject.org\'dan Köprü İste</string>
-    <string name="enter_characters_from_image">Yukarıdaki metni girin</string>
     <string name="captcha">CAPTCHA</string>
     <string name="solve_captcha_instruction">Köprü istemek için CAPTCHA\'yı çözün.</string>
     <string name="refresh_captcha">CAPTCHA\'yı Yenile</string>
@@ -215,17 +214,12 @@
     <string name="direct_connect">Tor\'a Doğrudan Bağlantı</string>
     <string name="direct_connect_subtitle">Tor\'a bağlanmanın en iyi yolu. Tor engelli değilse kullanın.</string>
     <string name="snowflake_subtitle">Tor gönüllüleri aracılığıyla bağlanır. Bazı Tor engellemelerini aşar.</string>
-    <string name="get_a_bridge">Tor\'dan Köprü (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Trafiğinizi gizler. Bazı Tor engellemelerini aşar.</string>
-    <string name="custom_bridge">Özel Köprü</string>
     <string name="connect">Bağlan</string>
     <string name="next">Sonraki</string>
-    <string name="solve_captcha">Captcha Çöz</string>
     <string name="volunteer_mode_weekly_label">Haftalık Toplam</string>
     <string name="configure_header">Tor Bağlantınızı Yapılandırın</string>
     <string name="proxy_ports">Vekil Bağlantı Noktaları</string>
     <string name="ports_not_set">Bağlantı Noktaları Ayarlanmadı</string>
-    <string name="custom_bridge_subtitle">Tor ciddi şekilde engellendiyse büyük olasılıkla bağlı kalmanızı sağlar. Güvendiğiniz birinden bir köprü adresi gerektirir.</string>
     <string name="volunteer_mode_label">Nezaket Modu</string>
     <string name="volunteer_mode_subtitle_desc">Nezaket modu, aygıtınızın başkaları için bir köprü olmasını sağlar. İnsanların Tor\'u engellendiği yerlerde kullanmasına yardımcı olur.
 \n
@@ -237,7 +231,6 @@
     <string name="snowflake">Snowflake (Orijinal)</string>
     <string name="incorrect_solution">Yanlış Çözüm</string>
     <string name="bridges_obtained_connecting">Köprüler alındı! Tor\'a bağlanılıyor…</string>
-    <string name="custom_bridge_description">Tanıdığınız biri tarafından özel bir köprü sağlanır. Güvenilir ağlarınızda ve kuruluşlarınızda barındıran biri olup olmadığını sorun.</string>
     <string name="having_trouble">Sorun yaşıyorum</string>
     <string name="having_trouble_subtitle">Bir sonraki adımda Tor köprüsünü deneyebiliriz ancak yardımınıza ihtiyacımız olacak</string>
     <string name="volunteer_status_title">Bugün sizin 
@@ -254,7 +247,6 @@
     <string name="not_sure">Emin değil misiniz\?</string>
     <string name="ask_tor">Tor\'a sor</string>
     <string name="many_ways">Tor\'a erişmenin birçok yolu vardır. Bazıları sizin için diğerlerinden daha iyi çalışabilir.</string>
-    <string name="action_use">Kullan</string>
     <string name="asking">SORUYOR…</string>
     <string name="no_internet_title">İnternete bağlan</string>
     <string name="kindness_adjust_title">Ayarlar</string>
