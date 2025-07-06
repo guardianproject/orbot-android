@@ -1,0 +1,3 @@
+[submodule "orbotservice/src/main/jni/hev-socks5-tunnel"]
+	path = orbotservice/src/main/jni/hev-socks5-tunnel
+	url = https://github.com/heiher/hev-socks5-tunnel.git
