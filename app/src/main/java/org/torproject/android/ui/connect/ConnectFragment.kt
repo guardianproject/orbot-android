@@ -42,7 +42,7 @@ import org.torproject.android.ui.AppManagerActivity
 import org.torproject.android.ui.OrbotMenuAction
 
 class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
-    ExitNodeDialogFragment.ExitNodeSelectedCallback {
+    ExitNodeBottomSheet.ExitNodeSelectedCallback {
 
     // main screen UI
     private lateinit var tvTitle: TextView
@@ -139,8 +139,8 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     }
 
     private fun openExitNodeDialog() {
-        ExitNodeDialogFragment(this).show(
-            requireActivity().supportFragmentManager, "ExitNodeDialogFragment"
+        ExitNodeBottomSheet(this).show(
+            requireActivity().supportFragmentManager, "ExitNodeBottomSheet"
         )
     }
 
