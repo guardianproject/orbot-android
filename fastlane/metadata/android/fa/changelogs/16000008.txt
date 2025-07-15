@@ -1,0 +1,8 @@
+- به‌روزرسانی عمده در رابط کاربری!
+- جادوگرهای جدید برای راه‌اندازی و پیکربندی پل‌ها
+- بهبود قابلیت‌های VPN
+- رفع مشکل کرش در پیکربندی سرویس‌های Onion/Hidden
+
+و بسیاری موارد دیگر...
+
+تشکر از: pgerber، syphyr، Khsed4، BjarniRunar، Unpublished، igortoliveira، goapunk، SpotComms، AkshatAgrawal05، dixidroid، arrase و سایرین بابت گزارش باگ‌ها، کامیت‌ها و Pull Requestها

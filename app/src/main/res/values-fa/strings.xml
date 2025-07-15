@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">روبوت پیازی</string>
-    <string name="app_description">روبوت پیازی کارهٔ پیشکار آزادی است که دیگر کاره‌ها را در استفاده امن از اینترنت توانمند می‌کند. روبوت پیازی برای رمزگذاری شدآمد اینترنت‌تان و نهفتنش با عبور از میان دنباله‌ای از رایانه‌ها در سراسر جهان، از تور استفاده می‌کند. تور نرم‌افزار آزاد و شبکه‌ای باز است که به شما در برابر شکلی از نظارت شبکه با نام تجزیهٔ شدآمد که محرمانگی و آزادی فردی، فعّالیت‌های تجاری محرمانه و امنیت ملّی را تهدید می‌کند، یاری می‌رساند.</string>
-    <string name="menu_settings">تنظیمات روبوت پیازی</string>
+    <string name="app_name">Orbot</string>
+    <string name="app_description">Orbot یک برنامه پراکسی رایگان است که به سایر برنامه‌ها امکان می‌دهد از اینترنت به‌صورت امن‌تر استفاده کنند. Orbot از شبکه Tor برای رمزنگاری ترافیک اینترنت شما استفاده می‌کند و سپس با عبور از چندین کامپیوتر در سراسر جهان آن را مخفی می‌کند. Tor یک نرم‌افزار رایگان و شبکه‌ای باز است که به شما کمک می‌کند در برابر نوعی نظارت شبکه‌ای به نام تحلیل ترافیک که آزادی و حریم خصوصی شخصی، فعالیت‌ها و روابط تجاری محرمانه و امنیت دولت را تهدید می‌کند، دفاع کنید.</string>
+    <string name="menu_settings">تنظیمات Orbot</string>
     <string name="menu_log">گزارشات</string>
     <string name="menu_stop">توقّف</string>
     <string name="menu_about">درباره</string>
@@ -308,4 +308,8 @@
     <string name="pref_camo_mode_description">تغییر چگونگی نمایش متن آگاهی، عنوان و نقشک روبوت پیازی روی افزاره‌تان</string>
     <string name="error_asking_tor_for_bridges">خطا در پرسیدن چگونگی وصل شدن از تور</string>
     <string name="invalid_bridge_format">قالب پل نامعتبر</string>
+    <string name="device_lock_unsupported">احراز هویت Orbot در دستگاه شما پشتیبانی نمی‌شود</string>
+    <string name="device_lock_security_update_needed">برای استفاده از احراز هویت Orbot باید به‌روزرسانی‌های امنیتی اندروید را برای دستگاه خود دانلود کنید</string>
+    <string name="pref_password_only_no_biometric">برای احراز هویت Orbot استفاده از بیومتریک را ممنوع کنید</string>
+    <string name="pref_password_only_no_biometric_description">این گزینه باعث می‌شود احراز هویت Orbot فقط به رمز عبور دستگاه نیاز داشته باشد، حتی اگر احراز هویت بیومتریک مانند اثر انگشت یا تشخیص چهره در دستگاه شما فعال باشد.</string>
 </resources>

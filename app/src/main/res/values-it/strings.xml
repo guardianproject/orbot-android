@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot è un\'app proxy libera che permette ad altre app di accedere a internet in modo più sicuro. Orbot usa Tor per cifrare il traffico internet e poi lo nasconde facendolo rimbalzare attraverso una serie di computer nel mondo. Tor è un software libero e una rete aperta che aiuta a difendersi da una forma di sorveglianza che minaccia libertà e privacy personale, le attività e le relazioni commerciali riservate e la sicurezza dello Stato, nota come analisi del traffico.</string>
-    <string name="menu_settings">Impostazioni</string>
+    <string name="menu_settings">Impostazioni di Orbot</string>
     <string name="menu_log">Registro (log)</string>
     <string name="menu_stop">Ferma</string>
     <string name="menu_about">Informazioni</string>
@@ -99,7 +99,7 @@
     <string name="name">Nome</string>
     <string name="done">Fatto!</string>
     <string name="copy_address_to_clipboard">Copia l\'indirizzo negli appunti</string>
-    <string name="backup_service">Servizio di backup <i>(Attenzione: ciò può esporre la configurazione del tuo servizio ad altre app)</i></string>
+    <string name="backup_service">Servizio di backup (Attenzione: ciò può esporre la configurazione del tuo servizio ad altre app)</string>
     <string name="delete_service">Elimina il servizio</string>
     <string name="backup_saved_at_external_storage">Backup salvato nell\'archiviazione esterna</string>
     <string name="backup_restored">Backup ripristinato</string>
@@ -254,8 +254,8 @@
     <string name="volunteer_mode_alltime_label">Totale assoluto</string>
     <string name="direct_connect">Connessione diretta a Tor</string>
     <string name="direct_connect_subtitle">Il modo migliore per connettersi a Tor. Usalo se Tor non viene bloccato.</string>
-    <string name="snowflake">Snowflake (originale)</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake">Snowflake</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="get_a_bridge_subtitle">Occulta il tuo traffico. Aggira qualche blocco di Tor.</string>
     <string name="custom_bridge">Bridge personalizzati</string>
     <string name="custom_bridge_subtitle">È probabile che ti mantenga connesso se Tor viene bloccato attivamente. Richiede un indirizzo bridge da qualcuno di cui ti fidi.</string>
