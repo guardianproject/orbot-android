@@ -138,6 +138,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso)
     androidTestImplementation(libs.androidx.rules)
     androidTestImplementation(libs.androidx.runner)
+    androidTestImplementation(libs.sreengrab)
 }
 
 tasks.register("copyLicenseToAssets", Copy) {

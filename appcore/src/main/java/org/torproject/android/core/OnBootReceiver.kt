@@ -12,12 +12,17 @@ import org.torproject.android.service.util.Prefs
 class OnBootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         try {
+            if (Build.FINGERPRINT.contains("sdk_gphone")) {
+                // on pixels emulated in new android studio on boot
+                // gets launched every time you click run. this is annoying
+                // for debugging and gets in the way of automated screenshots
+                return
+            }
             if (Prefs.startOnBoot() && !sReceivedBoot) {
                 startService(context)
                 sReceivedBoot = true
             }
-        }
-        catch (re: java.lang.RuntimeException) {
+        } catch (re: java.lang.RuntimeException) {
             //catch this to avoid malicious launches as document Cure53 Audit: ORB-01-009 WP1/2: Orbot DoS via exported activity (High)
         }
     }
@@ -32,8 +37,7 @@ class OnBootReceiver : BroadcastReceiver() {
             else {
                 context.startService(intent)
             }
-        }
-        catch (re: java.lang.RuntimeException) {
+        } catch (re: java.lang.RuntimeException) {
             //catch this to avoid malicious launches as document Cure53 Audit: ORB-01-009 WP1/2: Orbot DoS via exported activity (High)
         }
     }
