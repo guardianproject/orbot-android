@@ -14,34 +14,39 @@
     tools:context="org.torproject.android.ui.v3onionservice.OnionServiceActivity"
     tools:showIn="@layout/activity_hosted_services">
 
-
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
         android:text="@string/service_type" />
 
-    <RadioGroup
-        android:paddingStart="-5dp"
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggleButtonGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:orientation="horizontal">
+        app:singleSelection="true">
 
-        <RadioButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/radioUserServices"
-            android:layout_width="140dp"
+            style="@style/SegmentedButtonStyle"
+            android:backgroundTint="@color/orbot_btn_enabled_purple"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClick"
-            android:text="@string/user_services" />
+            android:layout_weight="1"
+            android:text="@string/user_services"
+            app:cornerRadius="10dp" />
 
-        <RadioButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/radioAppServices"
-            android:layout_width="140dp"
+            style="@style/SegmentedButtonStyle"
+            android:backgroundTint="@color/orbot_btn_disable_grey"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClick"
-            android:text="@string/app_services" />
-    </RadioGroup>
+            android:layout_weight="1"
+            android:text="@string/app_services"
+            app:cornerRadius="10dp" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <ListView
         android:id="@+id/onion_list"
