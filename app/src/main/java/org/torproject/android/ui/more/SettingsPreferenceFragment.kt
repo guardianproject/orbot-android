@@ -32,7 +32,7 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         prefLocale?.entryValues = languages?.supportedLocales
         prefLocale?.value = Prefs.defaultLocale
         prefLocale?.onPreferenceChangeListener =
-            Preference.OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
+            OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
                 val language = newValue as String?
                 val intentResult = Intent()
                 intentResult.putExtra("locale", language)
@@ -57,7 +57,7 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
 
         val prefFlagSecure = findPreference<CheckBoxPreference>("pref_flag_secure")
         prefFlagSecure?.onPreferenceChangeListener =
-            Preference.OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
+            OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
 
                 Prefs.isSecureWindow = newValue as Boolean
                 (activity as BaseActivity).resetSecureFlags()
@@ -80,16 +80,11 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
             prefPasswordNoBiometrics?.isVisible = false
         } else {
             prefPasswordNoBiometrics?.isEnabled = prefOrbotAuthentication?.isChecked == true
-            prefOrbotAuthentication?.onPreferenceChangeListener = object : OnPreferenceChangeListener {
-                override fun onPreferenceChange(
-                    preference: Preference,
-                    newValue: Any?
-                ): Boolean {
-                    val b = newValue as Boolean
-                    prefPasswordNoBiometrics?.isEnabled = newValue
-                    return true
+            prefOrbotAuthentication?.onPreferenceChangeListener =
+                OnPreferenceChangeListener { preference, newValue ->
+                    prefPasswordNoBiometrics?.isEnabled = newValue as Boolean
+                    true
                 }
-            }
         }
     }
 

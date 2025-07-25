@@ -16,6 +16,27 @@
 
 default_platform(:android)
 
+  desc "Build"
+  lane :build do
+    gradle(task: "clean assembleRelease")
+  end
+
+  desc "Build debug and test APK for screenshots"
+    lane :build_for_screengrab do
+      gradle(
+        task: 'clean'
+      )
+      gradle(
+        task: 'assemble',
+        build_type: 'Debug'
+      )
+      gradle(
+        task: 'assemble',
+        build_type: 'AndroidTest'
+      )
+    end
+
+=begin
 platform :android do
   desc "Upload the app store metadata"
   lane :metadata do
@@ -50,4 +71,5 @@ lane :beta do
 
   # ...
 end
+=end
 end
