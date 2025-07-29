@@ -70,6 +70,7 @@
             android:theme="@style/OrbotActivityTheme" />
 
         <activity
+            android:theme="@style/OrbotActivityMaterialTheme"
             android:name=".ui.v3onionservice.OnionServiceActivity"
             android:label="@string/v3_hosted_services" />
 
