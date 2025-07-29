@@ -167,7 +167,7 @@ class ConfigConnectionBottomSheet :
         return binding.root
     }
 
-    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+    override fun onCheckedChanged(buttonView: CompoundButton, isChecked: Boolean) {
         if (isChecked) {
             for (radio in radios) {
                 if (radio != buttonView) radio.isChecked = false

@@ -37,7 +37,7 @@ android.applicationVariants.all { variant ->
 
 android {
     namespace = "org.torproject.android"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId "org.torproject.android"
