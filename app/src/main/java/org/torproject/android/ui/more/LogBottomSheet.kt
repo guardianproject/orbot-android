@@ -36,10 +36,9 @@ class LogBottomSheet : OrbotBottomSheetDialogFragment() {
 
     fun appendLog(logLine: String) {
         if (this::tvLog.isInitialized) {
-            tvLog.append(logLine)
-            tvLog.append("\n")
+            tvLog.append("$logLine\n")
         }
-        buffer.append(logLine).append("\n")
+        buffer.append("$logLine\n")
     }
 
 }

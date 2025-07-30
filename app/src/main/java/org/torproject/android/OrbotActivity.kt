@@ -11,6 +11,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowInsetsController
+import androidx.activity.addCallback
 
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -184,12 +185,13 @@ class OrbotActivity : BaseActivity() {
 
             rootDetectionShown = true
         }
-    }
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finish()
+        onBackPressedDispatcher.addCallback(this ) {
+            if (lastSelectedItemId != R.id.connectFragment) {
+                bottomNavigationView.selectedItemId = R.id.connectFragment
+            }
+            else finish()
+        }
     }
 
     private fun requestNotificationPermission() {

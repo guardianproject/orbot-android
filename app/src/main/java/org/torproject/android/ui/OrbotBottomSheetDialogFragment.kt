@@ -21,29 +21,13 @@ Class to setup default bottom sheet behavior for Config Connection, MOAT and any
 bottom sheets to come
  */
 open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
-    private var backPressed = false
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-            val dialog = object : BottomSheetDialog(requireActivity(), theme) {
-                @Deprecated("Deprecated in Java")
-                override fun onBackPressed() {
-                    super.onBackPressed()
-                    backPressed = true
-                }
-            }
+            val dialog = BottomSheetDialog(requireActivity(), theme)
             dialog.setOnShowListener {setupRatio(dialog)}
             return dialog
     }
 
-    override fun onCancel(dialog: DialogInterface) {
-        if (!backPressed) {
-            // todo this method only works for now because OrbotActivity is locked in portrait mode
-           // closeAllSheetsInternal()
-            dismiss()
-        }
-    }
-
     protected fun closeAllSheets() {
-       // closeAllSheetsInternal()
         dismiss()
     }
 

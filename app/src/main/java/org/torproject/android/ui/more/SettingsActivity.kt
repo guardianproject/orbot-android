@@ -22,20 +22,12 @@ class SettingsActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             if (supportFragmentManager.backStackEntryCount > 1)
-                onBackPressed()
+                onBackPressedDispatcher.onBackPressed()
             else
                 finish()
             return true
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount > 1)
-            super.onBackPressed()
-        else
-            finish()
     }
 
     companion object {

@@ -37,13 +37,13 @@ android.applicationVariants.all { variant ->
 
 android {
     namespace = "org.torproject.android"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId "org.torproject.android"
         versionName getVersionName()
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         archivesBaseName = "Orbot"
