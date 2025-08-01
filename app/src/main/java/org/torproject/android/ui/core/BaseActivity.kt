@@ -37,7 +37,7 @@ open class BaseActivity : AppCompatActivity() {
         requestedOrientation = if (isTablet) {
             val currentOrientation = resources.configuration.orientation
             val lockedInOrientation =
-                if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) ActivityInfo.SCREEN_ORIENTATION_USER_LANDSCAPE
                 else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             lockedInOrientation
         } else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
