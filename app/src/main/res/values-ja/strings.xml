@@ -296,4 +296,16 @@
     <string name="error_asking_tor_for_bridges">Tor への接続方法の確認中にエラーが発生しました</string>
     <string name="pref_password_only_no_biometric">Orbot 認証の際に生体認証を許可しない</string>
     <string name="pref_password_only_no_biometric_description">これにより、指紋認証や顔認証などの生体認証がデバイスに設定されている場合でも、Orbot 認証はデバイスのパスワードのみしか許可しないようになります。</string>
+    <string name="bridges_via_telegram">Telegram 経由の Tor (obfs4) からのブリッジ</string>
+    <string name="bridges_via_email">メール経由の Tor (obfs4) からのブリッジ</string>
+    <string name="bridges_via_telegram_subtitle">Tor が厳しく検閲されている場合でも、接続を維持できる可能性があります。この方法を使用すると、Tor Bot Telegram チャンネルが起動します。チャットで「Start」をタップするか、「%1$s」と入力すると、ブリッジアドレスを取得できます。</string>
+    <string name="bridges_via_email_subtitle">トラフィックをカモフラージュします。一部の Tor ブロックを回避します。Gmail または Riseup アカウントからメールを送信する必要があります。</string>
+    <string name="bridge_meek_azure_subtitle">トラフィックをカモフラージュします。一部の Tor ブロックを回避します。非常に遅い可能性があります。</string>
+    <string name="custom_bridges_subtitle">信頼できる人脈や組織内に尋ねて、ブリッジを運用している人がいないかご確認ください。もしいない場合は、友人がブリッジを用意してくれるかもしれません。</string>
+    <string name="custom_bridges_description">受け取ったブリッジアドレスを以下に貼り付けます。または、QR コードをスキャンして追加することもできます。友達は %1$s であなたにブリッジを提供できます。</string>
+    <string name="action_use_">%1$s を使う</string>
+    <string name="built_in_bridges_obfs4">内蔵ブリッジ (obfs4)</string>
+    <string name="built_in_bridges_obfs4_subtitle">トラフィックをカモフラージュします。一部の Tor ブロックを回避します。公衆 WiFi を使っていても、Tor がブロックされていない国では問題ありません。</string>
+    <string name="run_smart_connect_">Smart Connect を実行して最適な方法を見つける</string>
+    <string name="scan_qr_code">QR コードをスキャン</string>
 </resources>
