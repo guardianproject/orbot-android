@@ -301,4 +301,5 @@
     <string name="built_in_bridges_obfs4">Вградени мостове (obfs4)</string>
     <string name="run_smart_connect_">Намира най-добрия начин чрез Smart Connect</string>
     <string name="built_in_bridges_obfs4_subtitle">Маскира трафик. Заобикаля някои ограничения на Tor. Добър вариант ако използвате отворена безжична мрежа и Tor не е ограничен в страната.</string>
+    <string name="scan_qr_code">Сканиране на кода за QR</string>
 </resources>
