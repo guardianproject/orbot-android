@@ -308,4 +308,5 @@
     <string name="built_in_bridges_obfs4_subtitle">トラフィックをカモフラージュします。一部の Tor ブロックを回避します。公衆 WiFi を使っていても、Tor がブロックされていない国では問題ありません。</string>
     <string name="run_smart_connect_">Smart Connect を実行して最適な方法を見つける</string>
     <string name="scan_qr_code">QR コードをスキャン</string>
+    <string name="enter_bridge_address">ブリッジアドレスを入力する</string>
 </resources>
