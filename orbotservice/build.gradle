@@ -10,7 +10,7 @@ plugins {
 android {
     namespace = "org.torproject.android.service"
     compileSdk = 36
-    ndkVersion "26.3.11579264"
+    ndkVersion "28.1.13356709"
 
     defaultConfig {
         minSdk = 24
