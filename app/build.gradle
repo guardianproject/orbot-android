@@ -8,15 +8,11 @@ plugins {
 }
 
 // Gets the version name from the latest Git tag, stripping the leading v off
-def getVersionName = { ->
-    def stdout = new ByteArrayOutputStream()
-    exec {
-        commandLine 'git', 'describe', '--tags', '--always'
-        standardOutput = stdout
-    }
-    return stdout.toString().trim()
+def getVersionName = {
+    providers.exec {
+        commandLine("git", "describe", "--tags", "--always")
+    }.standardOutput.asText.get().trim()
 }
-
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
@@ -46,12 +42,10 @@ android {
         targetSdk = 36
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        archivesBaseName = "Orbot"
     }
 
-
     testOptions {
-        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        execution "ANDROIDX_TEST_ORCHESTRATOR"
     }
 
     signingConfigs {
@@ -73,18 +67,18 @@ android {
     }
 
     buildFeatures {
-        buildConfig true
-        viewBinding true
+        buildConfig = true
+        viewBinding = true
     }
 
     buildTypes {
         release {
-            shrinkResources false
-            minifyEnabled false
+            shrinkResources = false
+            minifyEnabled = false
         }
         debug {
-            debuggable true
-            applicationIdSuffix ".debug"
+            debuggable = true
+            applicationIdSuffix = ".debug"
         }
     }
 
@@ -101,7 +95,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_21
     }
 
-
     flavorDimensions = ["free"]
 
     productFlavors {
@@ -110,7 +103,6 @@ android {
             applicationId "org.torproject.android"
             versionCode 1750300200
             versionName getVersionName()
-            archivesBaseName = "Orbot-${versionName}"
         }
 
         nightly {
@@ -118,7 +110,6 @@ android {
             applicationId "org.torproject.android.nightly"
             versionName getVersionName()
             versionCode versionCodeEpoch()
-            archivesBaseName = "Orbot-${versionName}"
         }
     }
 
@@ -130,21 +121,20 @@ android {
 
     packagingOptions {
         resources {
-            excludes += ['META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version']
+            excludes += ["META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version"]
         }
     }
 
     lint {
         abortOnError false
         checkReleaseBuilds false
-        disable 'InvalidPackage'
+        disable "InvalidPackage"
         htmlReport true
-        lintConfig file('../lint.xml')
+        lintConfig file("../lint.xml")
         textReport false
         xmlReport false
     }
 }
-
 
 private static def versionCodeEpoch() {
     return (new Date().getTime() / 1000).toInteger()
@@ -162,26 +152,25 @@ dependencies {
     implementation(libs.androidx.localbroadcast)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.preference)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.biometric)
+    implementation(libs.androidx.lifecycle.common)
+    implementation(libs.androidx.lifecycle.process)
     implementation(libs.retrofit.converter)
     implementation(libs.retrofit.lib)
     implementation(libs.rootbeer.lib)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.appiconnamechanger)
-    implementation(libs.androidx.preference)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.biometric)
-    implementation(libs.androidx.lifecycle.common)
-    implementation(libs.androidx.lifecycle.process)
 
     testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso)
     androidTestImplementation(libs.androidx.rules)
     androidTestImplementation(libs.androidx.runner)
-    androidTestImplementation(libs.sreengrab)
-    androidTestUtil libs.androidx.orchestrator
-
+    androidTestImplementation(libs.screengrab)
+    androidTestUtil(libs.androidx.orchestrator)
 }
 
 tasks.register("copyLicenseToAssets", Copy) {
