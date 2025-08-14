@@ -10,7 +10,6 @@ import org.pcap4j.packet.namednumber.IpNumber
 import org.pcap4j.packet.namednumber.UdpPort
 import java.io.DataOutputStream
 import java.net.Inet6Address
-import java.util.Arrays
 
 class RequestPacketHandler(
     private val packet: IpPacket,
@@ -76,7 +75,6 @@ class RequestPacketHandler(
         // only IPv4Packet and IPv6Packet implement IPPacket so this is safe
         val rawResponse = respPacket!!.rawData
         try {
-            Log.wtf("abc", "writing ${rawResponse.contentToString()}")
             interfaceOutputStream.write(rawResponse)
         } catch (ioe: Exception) {
             Log.e("RequestPacketHandler", "could not parse DNS packet: $ioe")

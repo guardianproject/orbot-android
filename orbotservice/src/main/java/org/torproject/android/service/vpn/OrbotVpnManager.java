@@ -60,7 +60,7 @@ public class OrbotVpnManager implements Handler.Callback {
     private DNSResolver mDnsResolver;
 
 
-    private static final int EXECUTOR_THREAD_POOL_COUNT = 20;
+    private static final int EXECUTOR_THREAD_POOL_COUNT = 10;
     private final ExecutorService mExec = Executors.newFixedThreadPool(EXECUTOR_THREAD_POOL_COUNT);
     private Thread mThreadPacket;
     private boolean keepRunningPacket = false;
@@ -228,7 +228,6 @@ public class OrbotVpnManager implements Handler.Callback {
                 "  udp: 'udp'\n";
 
         // TODO handle socks username and password here
-        Log.wtf("abc", tproxy_conf);
         fos.write(tproxy_conf.getBytes());
         fos.close();
         return file;
@@ -251,10 +250,8 @@ public class OrbotVpnManager implements Handler.Callback {
                 while (keepRunningPacket) {
                     try {
                         int pLen = fis.read(buffer); // will block on API 21+
-//                        Log.wtf("abc", pLen + " in loop about to read");
                         if (pLen <= 0) continue;
                         var pData = Arrays.copyOf(buffer, pLen);
-                        Log.wtf("abc", "read " + Arrays.toString(pData));
                         var packet = IpSelector.newPacket(pData, 0, pData.length);
                         if (packet instanceof IpPacket ipPacket) {
                             if (RequestPacketHandler.isPacketDNS(ipPacket)) {

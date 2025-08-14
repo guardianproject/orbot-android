@@ -1,6 +1,5 @@
 package org.torproject.android.service.vpn
 
-import android.util.Log
 import java.io.IOException
 import java.net.DatagramPacket
 import java.net.DatagramSocket
@@ -23,7 +22,6 @@ class DNSResolver(private val mPort: Int) {
         datagramSocket.receive(packet)
 
         datagramSocket.close()
-        Log.wtf("abc", "writing ${packet.data.contentToString()}")
         return packet.data
     }
 }
