@@ -117,8 +117,6 @@
     <string name="pref_http_title">Tor HTTP</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Разрешить пирам Wi-Fi, привязанным устройствам и всем, кто может подключиться к вашему IP, доступ к Tor</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Открыть прокси на всех интерфейсах</string>
-    <string name="bridge_snowflake">Использовать Snowflake (метод 1)</string>
-    <string name="in_a_browser">В браузере зайдите на сайт %s и нажмите \"Get Bridges\" &gt; \"Just Give Me Bridges\"!</string>
     <string name="custom_bridges">Пользовательские мосты</string>
     <string name="pref_reduced_circuit_padding_summary">Использовать алгоритмы заполнения с меньшими расходами, чтобы уменьшить расход данных и батареи</string>
     <string name="pref_reduced_circuit_padding">Уменьшенное заполнение цепочки подключения</string>
@@ -146,8 +144,6 @@
     <string name="btn_change_exit">Сменить выходной узел</string>
     <string name="btn_refresh">Обновить</string>
     <string name="volunteer_mode">Режим доброты</string>
-    <string name="menu_help_others">Помочь другим</string>
-    <string name="btn_use_custom_bridge">Использовать пользовательский мост</string>
     <string name="snowflake_proxy_msg_title">Показывать уведомление о подключении</string>
     <string name="snowflake_proxy_msg_description">Показывать уведомление, когда вы помогаете кому-то обходить цензуру</string>
     <string name="version">Версия:</string>
@@ -166,7 +162,6 @@
     <string name="next">Далее</string>
     <string name="snowflake_subtitle">Подключение через добровольцев Tor. Обходит некоторые блокировки Tor.</string>
     <string name="direct_connect_subtitle">Лучший способ подключения к Tor. Используйте, если Tor не заблокирован.</string>
-    <string name="configure_header">Настройте своё подключение к Tor</string>
     <string name="proxy_ports">Порты прокси</string>
     <string name="ports_not_set">Порты не указаны</string>
     <string name="volunteer_mode_subtitle_desc">Режим доброты позволяет вашему устройству быть мостом для других. Это помогает людям использовать Tor в местах, где он заблокирован.

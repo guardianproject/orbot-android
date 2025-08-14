@@ -116,7 +116,6 @@
     <string name="restore_backup">Възстановяване от резервно копие</string>
     <string name="kibibyte">КБ</string>
     <string name="mebibyte">МБ</string>
-    <string name="bridge_snowflake">Свързване чрез други потребители на Тор с помощта на Снежинка (Метод 1 - Fastly)</string>
     <string name="snowflake_proxy_msg_description">Показва известие, когато помагате на някого да заобиколи цензурата</string>
     <string name="backup_service">Услуга за резервни копия (Внимание: по този начин могат да бъдат разкрити настройките на услугата от други приложения)</string>
     <string name="wizard_details_msg">Orbot е приложение с отворен код, което съдържа Тор, IPtProxy (Obfs4Proxy, Meek, Снежинка), Go-Tun2Socks и LibEvent. Предоставя тунел на ВЧМ, местен мрежов посредник на HTTP (HTTPS само на порт 8118) и посредник на SOCKS (9050) към мрежата на Тор.</string>
@@ -138,7 +137,6 @@
     <string name="custom_bridges">Потребителски мостове</string>
     <string name="snowflake_proxy_msg_title">Известие при свързване</string>
     <string name="bridge_snowflake_amp">Свързване чрез други потребители на Тор с помощта на Снежинка (Метод 2 - AMP)</string>
-    <string name="in_a_browser">Посетете %s и докоснете Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="v3_hosted_services">Собствени услуги на Onion</string>
     <string name="consider_enable_battery_optimizations">Собствените услуги не работят, помислете дали да не включите оптимизацията на батерията</string>
     <string name="strict_nodes_description">Настройката „Изключени възли“ да се смята за необходимост при съставяне на обходите. Това може да бъде повод за нарушаване на функционалността, ако е невъзможно да бъдат създадени обходи с тези настройки.</string>
@@ -147,7 +145,6 @@
     <string name="trying_to_connect_title">Свързване…</string>
     <string name="btn_choose_apps">Избор на приложения</string>
     <string name="btn_change_exit">Промяна на изходен възел</string>
-    <string name="menu_help_others">Помагане на други хора</string>
     <string name="secure_your_connection_subtitle">Скрийте приложенията от наблюдение на мрежата и получете достъп, когато са блокирани.</string>
     <string name="volunteer_mode">Режим на доброта</string>
     <string name="secure_your_connection_title">Готови за свързване</string>
@@ -156,7 +153,6 @@
     <string name="btn_configure">Настройки на връзката</string>
     <string name="btn_tor_off">Изключване на Тор</string>
     <string name="btn_refresh">Презареждане</string>
-    <string name="btn_use_custom_bridge">Използване на потребителски мост</string>
     <string name="volunteer_mode_title">Помогнете на другите\nда се свържат с Тор</string>
     <string name="volunteer_mode_weekly_label">Общо седмично</string>
     <string name="volunteer_mode_alltime_label">Общо за цялото време</string>
@@ -165,7 +161,6 @@
     <string name="snowflake_subtitle">Връзката се осъществява през доброволци на Тор. Заобикаля някои забрани на Тор.</string>
     <string name="connect">Свързване</string>
     <string name="next">Напред</string>
-    <string name="configure_header">Настройка на връзката с Тор</string>
     <string name="proxy_ports">Портове на прокси</string>
     <string name="ports_not_set">Няма зададени портове</string>
     <string name="volunteer_mode_subtitle_desc">Режимът на доброта дава възможност устройството ви да бъде използвано като мост. Така други потребители могат да ползват Тор, на места където е забранен.\n\n• не изразходва батерията\n• не забавя връзката с интернет\n• работи само през безжична мрежа\n• може да бъде спрян по всяко време</string>

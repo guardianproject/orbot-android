@@ -136,8 +136,6 @@
   <!--BridgeWizardActivity-->
   <string name="custom_bridges">Neteelɵ Piuntsikmera </string>
   <!--CustomBridgesFragment-->
-  <string name="in_a_browser">Kan wampirishipiku, \"piuntsikmera\" chipiku kepintrɵ %s&gt; \"piuntsikmerantɵ trantra!\"</string>
-  <string name="bridge_snowflake">Toryu pek munchimerayu kutri kepiamik, Snowflake (Método 1 - Fastly) teka </string>
   <string name="bridge_snowflake_amp">Toryu pek munchimerayu kutri kepiamik, Snowflake (Método 2-AMP) teka</string>
   <string name="snowflake_proxy_msg_title">Wam srɵlmera kelichen eshkantrapikwan pila pasramik</string>
   <string name="snowflake_proxy_msg_description">Mun kepen marɵp unikwan  wampiksrɵ kutri ashchap inchen purɵ pasren eshkantrei pasramik</string>
@@ -148,14 +146,11 @@
   <string name="connected_title">Kelitsik</string>
   <string name="btn_start_vpn">VPNen pɵlmaramik</string>
   <string name="btn_configure">Tamaramik</string>
-  <string name="configure_header">Kelitsamikawan tamara pasr</string>
   <string name="trying_to_connect_title">Kelichip</string>
   <string name="btn_choose_apps">Chi netɵ maram purukuntrapelan lawa pɵnsramik</string>
   <string name="btn_change_exit">Wam wepipikwan yunɵmaramik</string>
   <string name="btn_refresh">Srɵ tamara pasrɵp</string>
   <string name="btn_tor_off">Torwan kuecha pasramik</string>
-  <string name="menu_help_others">Sɵtelan isua purukumik</string>
-  <string name="btn_use_custom_bridge">Piuntsik meran kan kan isuimei tamarik tɵka maramik</string>
   <string name="proxy_ports">Proxy wam srɵl mera </string>
   <string name="ports_not_set">Wam srɵlmera tamarikmelɵ kɵn</string>
   <string name="volunteer_mode_title">Katɵkanelan purukumik wan ketlitsamikyu</string>

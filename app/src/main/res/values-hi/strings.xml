@@ -120,7 +120,6 @@
     <string name="license">लाइसेंस:</string>
     <string name="mebibyte">एमबी</string>
     <string name="confirm">पक्का करें</string>
-    <string name="menu_help_others">दूसरों की मदद करें</string>
     <string name="setting_debug">डीबग</string>
     <string name="action_activate">चालू करें</string>
     <string name="title_choose_apps">ऐप चुनें</string>
@@ -174,7 +173,6 @@
     <string name="pref_isolate_protocol">क्लाइंट प्रोटोकॉल अलग करें</string>
     <string name="pref_isolate_protocol_summary">हर जुड़नेवाले प्रोटोकॉल के लिए अलग सर्किट इस्तेमाल करें</string>
     <string name="pref_isolate_port_summary">हर मंज़िल पोर्ट के लिए अलग सर्किट इस्तेमाल करें</string>
-    <string name="in_a_browser">ब्राउज़र में, %s पर जाएँ और गेट ब्रिजेज़ &gt; जस्ट गिव मी ब्रिजेज़ पर टैप करें!</string>
     <string name="direct_connect">टॉर से सीधा कनेक्शन</string>
     <string name="snowflake_amp">स्नोफ्लेक (एएमपी)</string>
     <string name="snowflake">स्नोफ्लेक (असली)</string>
@@ -183,10 +181,8 @@
     <string name="v3_backup_key_warning">खबरदार: ये आपका चाबी दूसरे ऐपों को लीक कर सकता है</string>
     <string name="v3_onion">.onion डोमेन</string>
     <string name="pref_circuit_padding">सर्किट पैडिंग</string>
-    <string name="bridge_snowflake">स्नोफ्लेक से दूसरे टॉर यूज़र से होके जुड़ें (पहला तरीका: तेज़)</string>
     <string name="bridge_snowflake_amp">स्नोफ्लेक से दूसरे टॉर यूज़र से होके जुड़ें (दूसरा तरीका: एएमपी)</string>
     <string name="direct_connect_subtitle">टॉर से जुड़ने का सबसे अच्छा तरीका। टॉर के ब्लॉक होने पे इस्तेमाल करें।</string>
-    <string name="configure_header">अपने टॉर कनेक्शन को सेट करें</string>
     <string name="snowflake_subtitle">टॉर समाज से होके जुड़ें। कुछ टॉर ब्लॉक को बायपास करता है।</string>
     <string name="volunteer_mode">मेहरबानी मोड</string>
     <string name="btn_configure">जुड़ने का तरीका चुनें</string>
@@ -205,7 +201,6 @@
     <string name="v3_key_hash">बेस32 में एक्स25519 निजी चाबी</string>
     <string name="v3_delete_client_authorization">क्लाइंट प्रमाणिकरण चाबी मिटाएं</string>
     <string name="v3_delete_client_authorization_confirm">क्लाइंट प्रमाणिकरण मिटाएं</string>
-    <string name="btn_use_custom_bridge">कस्टम ब्रिज इस्तेमाल करें</string>
     <string name="btn_choose_apps">ऐप चुनें</string>
     <string name="btn_change_exit">आखिरी नोड बदलें</string>
     <string name="btn_tor_off">टॉर बंद करें</string>

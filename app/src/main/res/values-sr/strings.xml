@@ -145,7 +145,6 @@
     <string name="option_only_on_wifi">Само на Wifi</string>
     <string name="v3_backup_key">Резервна копија кључа за клијентску ауторизацију</string>
     <string name="v3_delete_client_authorization_confirm">Обриши клијентску ауторизацију</string>
-    <string name="configure_header">Конфигуриши своју Тор везу</string>
     <string name="proxy_ports">Прокси портови</string>
     <string name="pref_http_title">Тор HTTP</string>
     <string name="pref_disable_ipv4">Онемогући IPv4 везе</string>
@@ -153,7 +152,6 @@
     <string name="pref_circuit_padding_summary">Омогући пуњење кола да би се одбранио од неких облика анализе саобраћаја</string>
     <string name="pref_reduced_circuit_padding_summary">Користи алгоритме пуњења са мањим оптерећењем како би се смањила употреба података и батерије</string>
     <string name="volunteer_mode">Режим доброте</string>
-    <string name="menu_help_others">Помози другима</string>
     <string name="smart_connect">Паметно повезивање (подразумевано)</string>
     <string name="kindness_adjust_title">Подешавања</string>
     <string name="pref_flag_secure_title">Безбедност екрана</string>
@@ -162,7 +160,6 @@
     <string name="bridge_snowflake_amp">Повежи се преко других Тор корисника користећи Snowflake (Метод 2 - AMP)</string>
     <string name="snowflake_proxy_msg_title">Прикажи обавештење о вези</string>
     <string name="ports_not_set">Портови нису подешени</string>
-    <string name="btn_use_custom_bridge">Користи прилагођени мост</string>
     <string name="option_only_when_charging">Само када се пуни</string>
     <string name="pref_flag_secure_summary">Спречите друге апликације да праве снимке екрана Orbot-а</string>
     <string name="pref_http_dialog">Конфигурација HTTP порта</string>
@@ -172,7 +169,6 @@
     <string name="volunteer_mode_weekly_label">Недељни УКУПНО</string>
     <string name="direct_connect">Директна веза са Тором</string>
     <string name="direct_connect_subtitle">Најбољи начин за повезивање на Тор. Користи ако Тор није блокиран.</string>
-    <string name="bridge_snowflake">Повежи се преко других Тор корисника користећи Snowflake (Метод 1 - Fastly)</string>
     <string name="strict_nodes_description">Третирај подешавања за искључивање чворова као захтев за изградњу свих кола. Ово може прекинути функционалност ако није могуће генерисати кола са вашим подешавањима за искључивање чворова.</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Дозволи Wi-Fi корисницима, уређајима повезаним преко tethering-а и свима који могу да се повежу на твој IP, да приступе Тору</string>
     <string name="v3_onion">.onion домен</string>
@@ -200,7 +196,6 @@
     <string name="pref_isolate_port_summary">Користите различит круг за сваки одредишни порт</string>
     <string name="pref_isolate_protocol">Изоловање клијентских протокола</string>
     <string name="custom_bridges">Прилагођени мостови</string>
-    <string name="in_a_browser">У прегледачу, посети %s и кликни на Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="btn_choose_apps">Изабери апликације</string>
     <string name="btn_change_exit">Промени излаз</string>
     <string name="power_user_mode">Режим за напредне кориснике</string>

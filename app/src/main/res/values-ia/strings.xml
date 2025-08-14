@@ -33,13 +33,11 @@
     <string name="app_name">Orbot</string>
     <string name="volunteer_mode_alltime_label">Total de tote le tempore</string>
     <string name="no_internet_subtitle">Tu besonia un connexion de Internet pro usar Orbot.</string>
-    <string name="menu_help_others">Adjuta a alteres</string>
     <string name="power_user_mode">Modo de usator avantiate</string>
     <string name="volunteer_mode_weekly_label">Total del septimana</string>
     <string name="option_only_on_wifi">Solmente in Wi-Fi</string>
     <string name="direct_connect">Connexion directe a Tor</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
-    <string name="btn_use_custom_bridge">Usar un ponte personalisate</string>
     <string name="pref_flag_secure_title">Securitate del schermo</string>
     <string name="app_suggested_subtitle">Orbot functiona melior con applicationes de messageria e retes social.</string>
     <string name="volunteer_mode_title">Adjuta a alteres
@@ -84,7 +82,6 @@
     <string name="v3_hosted_services">Servicios Onion hospite</string>
     <string name="user_services">Servicios de usator</string>
     <string name="app_services">Servicios de application</string>
-    <string name="configure_header">Configurar tu connexion a Tor</string>
     <string name="pref_entrance_node_dialog">Insere le nodos de entrata</string>
     <string name="pref_allow_background_starts_title">Permitter le initio in secunde plano</string>
     <string name="pref_proxy_type_summary">Protocollo a usar pro le servitor proxy: HTTP, HTTPS, SOCKS4, SOCKS5</string>

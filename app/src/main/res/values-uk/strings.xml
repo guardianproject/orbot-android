@@ -117,8 +117,6 @@
     <string name="menu_new_identity">Нова особа</string>
     <string name="user_services">Служби користувача</string>
     <string name="app_services">Служби застосунків</string>
-    <string name="bridge_snowflake">Підʼєднатися через інших користувачів Tor за допомогою Snowflake (Метод1 - Швидкий)</string>
-    <string name="in_a_browser">У переглядачі відкрийте %s і торкніться Отримайте мости &gt; Just Give Me Bridges!</string>
     <string name="custom_bridges">Користувацькі мости</string>
     <string name="mebibyte">МіБ</string>
     <string name="kibibyte">КіБ</string>
@@ -155,11 +153,8 @@
     <string name="btn_configure">Виберіть спосіб підключення</string>
     <string name="btn_choose_apps">Вибрати застосунки</string>
     <string name="btn_start_vpn">Запустити VPN</string>
-    <string name="menu_help_others">Допоможіть іншим</string>
-    <string name="btn_use_custom_bridge">Використовувати власний міст</string>
     <string name="snowflake">Сніжинка</string>
     <string name="ports_not_set">Порти не налаштовані</string>
-    <string name="configure_header">Налаштуйте з\'єднання Tor</string>
     <string name="direct_connect_subtitle">Кращий спосіб під\'єднання до Tor. Використовуйте, якщо Tor не заблокований.</string>
     <string name="volunteer_mode_subtitle_desc">Режим доброти дозволяє вашому пристрою бути мостом для інших. Він допомагає людям користуватися Tor там, де він заблокований.
 \n

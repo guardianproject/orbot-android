@@ -131,11 +131,9 @@
     <string name="v3_hosted_services">Servizi nascosti ospitati</string>
     <string name="mebibyte">MiB</string>
     <string name="kibibyte">KiB</string>
-    <string name="bridge_snowflake">Connetti tramite altri utenti di Tor usando Snowflake (Metodo 1 - Fastly)</string>
     <string name="custom_bridges">Bridge personalizzati</string>
     <string name="license">Licenza:</string>
     <string name="btn_refresh">Aggiorna</string>
-    <string name="menu_help_others">Aiuta gli altri</string>
     <string name="connect">Connetti</string>
     <string name="next">Avanti</string>
     <string name="trying_to_connect_title">Connessione in corso…</string>
@@ -151,7 +149,6 @@
     <string name="pref_isolate_port">Isola le porte di destinazione</string>
     <string name="pref_isolate_port_summary">Usa un circuito diverso per ogni porta di destinazione</string>
     <string name="apps_other_apps">Altre app</string>
-    <string name="in_a_browser">In un browser, visita %s e tocca Ottieni Bridge &gt; Dammi i bridge!</string>
     <string name="pref_isolate_protocol_summary">Usa un circuito diverso per ogni protocollo di connessione</string>
     <string name="secure_your_connection_title">Pronto per connettersi</string>
     <string name="pref_isolate_protocol">Isola i protocolli del client</string>
@@ -160,14 +157,12 @@
     <string name="bridge_snowflake_amp">Connetti tramite altri utenti di Tor usando Snowflake (Metodo 2 - AMP)</string>
     <string name="btn_configure">Scegli come connetterti</string>
     <string name="btn_choose_apps">Scegli le app</string>
-    <string name="btn_use_custom_bridge">Usa bridge personalizzato</string>
     <string name="proxy_ports">Porte del proxy</string>
     <string name="app_suggested_subtitle">Orbot funziona meglio con le app di messaggistica e social.</string>
     <string name="power_user_mode">Modalità utente avanzato</string>
     <string name="strict_nodes_description">Tratta l\'impostazione \"Nodi da escludere\" come requisito per creare tutti i circuiti. Può causare errori se nessun circuito è in grado di essere generato con la tua impostazione \"Nodi da escludere\".</string>
     <string name="option_only_on_wifi">Solo su Wifi</string>
     <string name="option_only_when_charging">Solo quando in carica</string>
-    <string name="configure_header">Configura la tua connessione Tor</string>
     <string name="volunteer_mode_subtitle_desc">La modalità altruista consente al tuo dispositivo di fare da ponte per gli altri. Aiuta le persone ad usare Tor in luoghi dove viene bloccato.
 \n
 \n• Non consumerà la tua batteria

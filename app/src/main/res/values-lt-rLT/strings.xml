@@ -29,7 +29,6 @@
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">Pirštų atspaudai, slapyvardžiai, šalys ir adresai, pirmajam šuoliui</string>
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Pirštų atspaudai, slapyvardžiai, šalys ir adresai, kurių nereikia traukti</string>
     <string name="v3_key_hash">x25519 privatus raktas Base32</string>
-    <string name="bridge_snowflake">Prisijungimas per kitus „Tor“ naudotojus naudojant „Snowflake“ (1 būdas)</string>
     <string name="ports_reachable_behind_a_restrictive_firewall">Prievadai, pasiekiami už ribojančiosios ugniasienės</string>
     <string name="backup_saved_at_external_storage">Atsarginė kopija išsaugota išorinėje saugykloje</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Atidaryti įgaliotąjį serverį visose sąsajose</string>
@@ -115,7 +114,6 @@
     <string name="backup_service">Atsarginio kopijavimo paslauga <i>(Įspėjimas: tai gali atskleisti jūsų paslaugos konfigūraciją kitoms programoms)</i></string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Įgalinti derinimo žurnalo išvestį (norėdami peržiūrėti turite naudoti adb arba aLogcat)</string>
     <string name="pref_dnsport_summary">Prievadas, kuriuo „Tor“ siūlo savo DNS (numatytoji reikšmė: 9053 arba 0, jei norite išjungti)</string>
-    <string name="in_a_browser">Naršyklėje apsilankykite %s ir bakstelėkite Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="pref_connection_padding_summary">Visada įjungiamas ryšio užpildymas, kad būtų apsisaugota nuo kai kurių srauto analizės formų. Numatytoji reikšmė: auto</string>
     <string name="pref_transport_summary">Prievadas, per kurį „Tor“ siūlo savo skaidrųjį įgaliotąjį serverį (numatytoji reikšmė: 9040 arba 0, jei norite išjungti)</string>
     <string name="pref_http_summary">Prievadas, kuriuo „Tor“ siūlo savo HTTP įgaliotąjį serverį (numatytoji reikšmė: 8118 arba 0, jei norite išjungti)</string>
@@ -151,13 +149,10 @@
     <string name="btn_change_exit">Keisti išėjimą</string>
     <string name="btn_tor_off">Išjunkite „Tor“</string>
     <string name="btn_refresh">Atnaujinti</string>
-    <string name="menu_help_others">Padėkite kitiems</string>
-    <string name="btn_use_custom_bridge">Naudoti pasirinktinį tiltą</string>
     <string name="strict_nodes_description">Išskirti mazgų nustatymus vertinkite kaip reikalavimą kuriant visas grandines. Tai gali sutrikdyti funkcionalumą, jei nepavyks sugeneruoti jokių grandinių, naudojant nustatymus Išskirti mazgus.</string>
     <string name="bridge_snowflake_amp">Prisijungimas per kitus „Tor“ naudotojus naudojant „Snowflake“ (2 būdas)</string>
     <string name="snowflake_proxy_msg_title">Rodyti pranešimą apie ryšį</string>
     <string name="snowflake_proxy_msg_description">Rodyti pranešimą, kai padedate kam nors apeiti cenzūrą</string>
-    <string name="configure_header">Konfigūruoti savo „Tor“ ryšį</string>
     <string name="proxy_ports">Įgaliotojo serverio prievadai</string>
     <string name="volunteer_mode_title">Padėkite kitiems
 \nprisijungti prie „Tor“</string>

@@ -32,8 +32,6 @@
     <string name="app_services">Shërbime aplikacionesh</string>
     <string name="snowflake_proxy_msg_title">Shfaq Njoftim Lidhjeje</string>
     <string name="connected_title">I lidhur</string>
-    <string name="configure_header">Formësoni Lidhjen tuaj Tor</string>
-    <string name="btn_use_custom_bridge">Përdorni Urë Vetjake</string>
     <string name="volunteer_mode_title">Ndihmoni të tjerët
 \ntë lidhen me Tor-in</string>
     <string name="volunteer_mode_weekly_label">Gjithsej Javore</string>
@@ -65,7 +63,6 @@
     <string name="btn_change_exit">Ndryshoni dalje</string>
     <string name="btn_refresh">Rifreskoje</string>
     <string name="btn_tor_off">Çaktivizoje Tor-in</string>
-    <string name="menu_help_others">Ndihmoni të Tjerët</string>
     <string name="menu_log">Regjistër</string>
     <string name="main_layout_upload">Ngarkim</string>
     <string name="wizard_details_msg">Orbot-i është një aplikacion me burim të hapët, që përmban Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks dhe LibEvent.AI furnizon një tunel VPN, një ndërmjetës vendor HTTP Connect (HTTPS vetëm në portën 8118) dhe një ndërmjetës SOCKS (9050) te rrjeti Tor.</string>
@@ -98,7 +95,6 @@
     <string name="please_restart_Orbot_to_enable_the_changes">Që të hyjnë në fuqi ndryshimet, ju lutemi, rinisni Orbot-in</string>
     <string name="pref_prefer_ipv6">Parapëlqe lidhje IPv6</string>
     <string name="custom_bridges">Ura Vetjake</string>
-    <string name="in_a_browser">Që nga një shfletues, vizitoni %s dhe prekni Merrni ura &gt; Thjesht Më Jepni Ura!</string>
     <string name="kibibyte">KiB</string>
     <string name="newnym">Kaluat te një identitet i ri Tor!</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Hape Ndërmjetësin në Krejt Ndërfaqet</string>
@@ -162,7 +158,6 @@
     <string name="hidden_service_request">Një aplikacion dëshiron të hapë shërbyes onion te porta %1$s për te rrjeti Tor. Kjo është e parrezik, nëse i zini besë aplikacionit.</string>
     <string name="pref_disable_network_title">Pa Vetë-Fjetje Rrjeti</string>
     <string name="pref_prefer_ipv6_summary">U thotë daljeve se parapëlqehen adresa IPv6</string>
-    <string name="bridge_snowflake">Lidhuni përmes përdoruesish të tjerë të Tor-it, duke përdorur Snowflake (Metoda 1 - Shpejt)</string>
     <string name="pref_transport_summary">Portë te e cila Tor-i ofron Ndërmjetësin e vet Transparent (parazgjedhje: 9040, ose 0 për ta çaktivizuar)</string>
     <string name="pref_torrc_summary">VETËM PËR TË SPROVUARIT: jepni drejtpërsëdrejti rreshta formësimi torrc</string>
     <string name="backup_service">Shërbim Kopjeruajtje (Kujdes: Kjo Mund T’u Ekspozojë Aplikacioneve të Tjera Formësimin Tuaj të Shërbimit)</string>

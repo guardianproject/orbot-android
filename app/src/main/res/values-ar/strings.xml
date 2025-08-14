@@ -134,7 +134,6 @@
     <string name="v3_key_hash">x25519 المفتاح الخاص في Base32</string>
     <string name="hidden_service_request">يريد أحد التطبيقات فتح خادم البصل على المنفذ %1$s لشبكة تور. هذا آمن إذا كنت تثق في التطبيق.</string>
     <string name="pref_isolate_dest">اعزل عناوين الوجهة</string>
-    <string name="configure_header">تضبيط اتصال تور الخاص بك</string>
     <string name="ports_not_set">لم يتم تعيين المنافذ</string>
     <string name="v3_delete_client_authorization">احذف مفتاح استيثاق العميل</string>
     <string name="v3_delete_client_authorization_confirm">احذف استيثاق العميل</string>
@@ -142,8 +141,6 @@
     <string name="pref_connection_padding_summary">يعمل دائمًا على تفعيل حشو الاتصال للدفاع ضد بعض أشكال تحليل حركة المرور. الافتراضي: تلقائي</string>
     <string name="pref_reduced_connection_padding">حشوة اتصال منخفضة</string>
     <string name="custom_bridges">جسور مخصّصة</string>
-    <string name="bridge_snowflake">تواصل من خلال مستخدمي تور الآخرين باستخدام Snowflake (الطريقة 1 - Fastly)</string>
-    <string name="in_a_browser">في المتصفح، زُر %s واضغط على احصل على جسور &gt; أعطني الجسور فقط!</string>
     <string name="bridge_snowflake_amp">تواصل من خلال مستخدمي تور الآخرين باستخدام Snowflake (الطريقة 2 - AMP)</string>
     <string name="snowflake_proxy_msg_title">أظهر إشعار الاتصال</string>
     <string name="snowflake_proxy_msg_description">أظهر رسالة عندما تساعد شخصًا ما في التحايل على الرقابة</string>
@@ -158,8 +155,6 @@
     <string name="secure_your_connection_subtitle">إخفاء التطبيقات من مراقبة الشبكة والوصول إليها عندما يتم حظرها.</string>
     <string name="btn_start_vpn">ابدأ VPN</string>
     <string name="btn_tor_off">أوقف تشغيل تور</string>
-    <string name="menu_help_others">ساعد الآخرين</string>
-    <string name="btn_use_custom_bridge">استخدم جسر مخصّص</string>
     <string name="proxy_ports">منافذ الوسيط</string>
     <string name="app_suggested_subtitle">يعمل Orbot بشكل أفضل مع تطبيقات المراسلة والتواصل الاجتماعي.</string>
     <string name="hide_apps">إخفاء التطبيقات من مراقبة الشبكة والوصول إليها عندما يتم حظرها.</string>

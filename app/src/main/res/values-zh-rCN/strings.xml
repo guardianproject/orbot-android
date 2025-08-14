@@ -117,8 +117,6 @@
     <string name="hidden_services">洋葱服务</string>
     <string name="hidden_service_request">有应用想要打开 Tor 网络 %1$s 端口上的洋葱服务器。如果您信任此应用，这是安全的。</string>
     <string name="pref_connection_padding">连接填充</string>
-    <string name="bridge_snowflake">使用 Snowflake 通过其他 Tor 用户连接（方法 1 - Fastly）</string>
-    <string name="in_a_browser">在浏览器中访问 %s并点击获取网桥 &gt; 给我网桥吧！</string>
     <string name="custom_bridges">自定义网桥</string>
     <string name="pref_reduced_circuit_padding_summary">使用开销较低的填充算法以减少数据和电池用量</string>
     <string name="pref_reduced_circuit_padding">减少线路填充</string>
@@ -149,16 +147,13 @@
     <string name="volunteer_mode">善举模式</string>
     <string name="trying_to_connect_title">连接中…</string>
     <string name="btn_tor_off">关闭 Tor</string>
-    <string name="btn_use_custom_bridge">使用自定义网桥</string>
     <string name="secure_your_connection_subtitle">从网络监控中隐藏应用，在网络屏蔽时获取访问权限。</string>
     <string name="btn_start_vpn">启动 VPN</string>
     <string name="btn_configure">选择连接方式</string>
-    <string name="menu_help_others">帮助他人</string>
     <string name="btn_choose_apps">选择应用</string>
     <string name="btn_change_exit">更改出口</string>
     <string name="btn_refresh">刷新</string>
     <string name="connect">连接</string>
-    <string name="configure_header">配置 Tor 连接</string>
     <string name="proxy_ports">代理端口</string>
     <string name="volunteer_mode_weekly_label">一周总计</string>
     <string name="volunteer_mode_title">帮助他人

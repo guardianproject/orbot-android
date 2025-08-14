@@ -109,8 +109,6 @@
     <string name="menu_new_identity">Nouvelle identité</string>
     <string name="user_services">Services utilisateur</string>
     <string name="app_services">Services d’appli</string>
-    <string name="bridge_snowflake">Se connecter à travers d’autres utilizateurs Tor en utilizant Snowflake (Métode 1 - Rapidement)</string>
-    <string name="in_a_browser">Dans un navigateur,accédez à %s et touchez Obtenez des ponts &gt; Donnez-moi juste des ponts</string>
     <string name="custom_bridges">Ponts personnalisés</string>
     <string name="pref_reduced_circuit_padding_summary">Use des algorithmes de bourrage supplémentaire plus faible afin de réduire l’utilisation des données et de la pile</string>
     <string name="pref_reduced_circuit_padding">Bourrage de circuit réduit</string>
@@ -143,7 +141,6 @@
     <string name="app_suggested_subtitle">Orbot fonctionne mieux avec les applications de messagerie et de médias sociaux.</string>
     <string name="apps_suggested_title">Applications suggérées</string>
     <string name="apps_other_apps">Autres applications</string>
-    <string name="configure_header">Configurer vôtre connexion TOR</string>
     <string name="volunteer_mode_title">Aidez les autres
 \nà se connecter à Tor</string>
     <string name="volunteer_mode_alltime_label">Total de tous les temps</string>
@@ -167,10 +164,8 @@
     <string name="btn_change_exit">Changer la sortie</string>
     <string name="btn_refresh">Actualiser</string>
     <string name="btn_tor_off">Éteindre Tor</string>
-    <string name="btn_use_custom_bridge">Utiliser un pont personnalisé</string>
     <string name="secure_your_connection_title">Prêt à se connecter</string>
     <string name="secure_your_connection_subtitle">Masquez les applications de la surveillance du réseau et obtenez accès lorsqu\'elles sont bloquées.</string>
-    <string name="menu_help_others">Aider les autres</string>
     <string name="pref_isolate_port">Isoler les ports de destination</string>
     <string name="pref_isolate_protocol">Isoler les protocoles des clients</string>
     <string name="btn_configure">Choisir le mode de connexion</string>

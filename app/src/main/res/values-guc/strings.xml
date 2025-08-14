@@ -134,8 +134,6 @@
   <!--BridgeWizardActivity-->
   <string name="custom_bridges">sülatia wanewaii</string>
   <!--CustomBridgesFragment-->
-  <string name="in_a_browser">sünain wane navegador , pünala%sy toque \"einjatüin sülatia\"&gt;\"¡shiyane papüinjatka sülatia!\"</string>
-  <string name="bridge_snowflake">paapajira sünainje wanerüwa sümajatü Tor nayatayain Snowflake (Método 1_Fastly)</string>
   <string name="bridge_snowflake_amp">paapajira sünainje wanerüa sümajat Tor ayatashi süka Snowflake ( Metodo 2 _ AMP)</string>
   <string name="snowflake_proxy_msg_title">piiyater tamuin   erre ana´\'in  jukaipa  configuración</string>
   <string name="snowflake_proxy_msg_description">Jii\'yater epa wuanee  wayuu ain´jein casa mojus</string>
@@ -147,14 +145,11 @@ punjulaa apps, jupula  anaijatuin  pu kachuerrase</string>
   <string name="connected_title">Apai\'injirrawua.</string>
   <string name="btn_start_vpn"> Ottirra\'a VPN</string>
   <string name="btn_configure">Anata\'aa</string>
-  <string name="configure_header">Punata juchuajia Tor</string>
   <string name="trying_to_connect_title">Apai\'injirrawua.</string>
   <string name="btn_choose_apps">Apawua app</string>
   <string name="btn_change_exit">  Awuanajawua  ajui\'tia</string>
   <string name="btn_refresh">Jekets juchikuaaya </string>
   <string name="btn_tor_off">Oyokujaa TOR</string>
-  <string name="menu_help_others">Akalijaa waneirrua.</string>
-  <string name="btn_use_custom_bridge">Pata\'a  püpülajat</string>
   <string name="proxy_ports">Jüntiale Proxy</string>
   <string name="ports_not_set">Antule nojots ketta\'in</string>
   <string name="volunteer_mode_title">pukalijaa  waneirrüa  junain apainjirrawua numa Tor</string>
