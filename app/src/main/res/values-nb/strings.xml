@@ -118,8 +118,6 @@
     <string name="pref_http_summary">Porten Tor tilbyr sin HTTP-mellomtjener på (forvalg: 8118 eller 0 for å skru av)</string>
     <string name="vpn_default_world">Globalt (Auto)</string>
     <string name="pref_reduced_circuit_padding_summary">Bruk utfyllingsalgoritmer med lavere overhead for å redusere data- og batteribruken</string>
-    <string name="in_a_browser">Gå til %s i en nettleser og trykk på Get Bridges &gt; Just Give Me Bridges!</string>
-    <string name="bridge_snowflake">Koble til via andre Tor-brukere ved hjelp av Snowflake (metode 1 - Fastly)</string>
     <string name="custom_bridges">Egendefinerte broer</string>
     <string name="pref_reduced_circuit_padding">Redusert utfylling av kretser</string>
     <string name="pref_circuit_padding_summary">Aktiver kretsutfylling for å beskytte mot visse former for trafikkanalyse</string>
@@ -164,7 +162,6 @@
 \n- Kan slås av når som helst</string>
     <string name="ports_not_set">Porter ikke innstilt</string>
     <string name="ask_tor">Spør Tor</string>
-    <string name="menu_help_others">Hjelp andre</string>
     <string name="power_user_mode">Strømbrukermodus</string>
     <string name="btn_choose_apps">Velg apper</string>
     <string name="smart_connect">Smart Connect (standard)</string>
@@ -188,7 +185,6 @@
     <string name="power_user_description">For brukere som er kjent med Tor. Lar deg starte Orbot uten VPN-innstillingen og viser åpne SOCKS- og HTTP-porter</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="menu_kindness">Vennlighet</string>
-    <string name="btn_use_custom_bridge">Bruk tilpasset bro</string>
     <string name="pref_flag_secure_title">Sikkerhet på skjermen</string>
     <string name="root_warning">Orbot har oppdaget at enheten din er rotfestet, noe som kan føre til sikkerhetsproblemer.</string>
     <string name="btn_change_exit">Endre utgang</string>
@@ -210,5 +206,4 @@
 \npå grunn av deg.</string>
     <string name="many_ways">Det finnes mange måter å nå Tor på. Noen fungerer kanskje bedre enn andre for deg.</string>
     <string name="v3_key_hash">x25519 Privat nøkkel i Base32</string>
-    <string name="configure_header">Konfigurere Tor-tilkoblingen</string>
 </resources>

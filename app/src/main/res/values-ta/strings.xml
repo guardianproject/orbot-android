@@ -48,7 +48,6 @@
     <string name="pref_disable_ipv4_summary">ஐபிவி 4 முகவரிகளுடன் இணைக்க வேண்டாம் என்று வெளியேறுகிறது</string>
     <string name="app_services">பயன்பாட்டு சேவைகள்</string>
     <string name="btn_configure">எவ்வாறு இணைப்பது என்பதைத் தேர்வுசெய்க</string>
-    <string name="configure_header">உங்கள் TOR இணைப்பை உள்ளமைக்கவும்</string>
     <string name="btn_tor_off">அணைக்கவும்</string>
     <string name="power_user_mode">பவர் பயனர் பயன்முறை</string>
     <string name="power_user_description">டோர் நன்கு அறிந்த பயனர்களுக்கு. VPN அமைப்பு இல்லாமல் ஆர்போட் தொடங்க உங்களை அனுமதிக்கிறது மற்றும் திறந்த சாக்ச் மற்றும் HTTP போர்ட்களைக் காட்டுகிறது</string>
@@ -84,7 +83,6 @@
     <string name="pref_disable_ipv4">ஐபிவி 4 இணைப்புகளை முடக்கு</string>
     <string name="secure_your_connection_title">இணைக்க தயாராக உள்ளது</string>
     <string name="secure_your_connection_subtitle">பிணைய கண்காணிப்பிலிருந்து பயன்பாடுகளை மறைத்து, அவை தடுக்கப்படும்போது அணுகலைப் பெறுங்கள்.</string>
-    <string name="btn_use_custom_bridge">தனிப்பயன் பாலத்தைப் பயன்படுத்தவும்</string>
     <string name="snowflake">ச்னோஃப்ளேக்</string>
     <string name="ask_tor">டோர் கேளுங்கள்</string>
     <string name="many_ways">TOR ஐ அடைய பல வழிகள் உள்ளன. சிலர் உங்களுக்காக மற்றவர்களை விட சிறப்பாக செயல்படக்கூடும்.</string>
@@ -187,14 +185,11 @@
     <string name="pref_reduced_connection_padding">குறைக்கப்பட்ட இணைப்பு திணிப்பு</string>
     <string name="pref_prefer_ipv6_summary">ஐபிவி 6 முகவரிகள் விரும்பப்படுகின்றன என்று வெளியேறுகிறது</string>
     <string name="user_services">பயனர் சேவைகள்</string>
-    <string name="in_a_browser">ஒரு உலாவியில், %s ஐப் பார்வையிட்டு, பிரிட்ச்கள் பெறவும்&gt; எனக்கு பாலங்கள் கொடுங்கள்!</string>
-    <string name="bridge_snowflake">ச்னோஃப்ளேக்கைப் பயன்படுத்தி பிற டோர் பயனர்கள் மூலம் இணைக்கவும் (முறை 1 - வேகமாக)</string>
     <string name="bridge_snowflake_amp">ச்னோஃப்ளேக்கைப் பயன்படுத்தி பிற டோர் பயனர்கள் மூலம் இணைக்கவும் (முறை 2 - ஆம்ப்)</string>
     <string name="volunteer_mode">கருணை முறை</string>
     <string name="btn_start_vpn">VPN ஐத் தொடங்குங்கள்</string>
     <string name="btn_choose_apps">பயன்பாடுகளைத் தேர்வுசெய்க</string>
     <string name="btn_change_exit">வெளியேறவும்</string>
-    <string name="menu_help_others">மற்றவர்களுக்கு உதவுங்கள்</string>
     <string name="volunteer_status_title">இன்று சிறந்தது\n நீங்கள் காரணமாக.</string>
     <string name="apps_suggested_title">பரிந்துரைக்கப்பட்ட பயன்பாடுகள்</string>
     <string name="apps_other_apps">பிற பயன்பாடுகள்</string>

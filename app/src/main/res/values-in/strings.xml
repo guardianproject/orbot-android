@@ -105,12 +105,9 @@
     <string name="menu_new_identity">Identitas Baru</string>
     <string name="version">Versi:</string>
     <string name="license">Lisensi:</string>
-    <string name="in_a_browser">Dalam sebuah peramban, kunjungi %s dan ketuk Get Bridgs &gt; Just Give Me Bridges!</string>
-    <string name="bridge_snowflake">Hubungkan melalui pengguna Tor lain menggunakan Snowflake (Metode 1 - Fastly)</string>
     <string name="bridge_snowflake_amp">Hubungkan melalui pengguna Tor lain menggunakan Snowflake (Metode 2 - AMP)</string>
     <string name="snowflake_proxy_msg_title">Tampilkan Notifikasi Koneksi</string>
     <string name="snowflake_proxy_msg_description">Tampilkan pesan ketika Anda membantu seseorang melewati sensor</string>
-    <string name="configure_header">Konfigurasi Koneksi Tor Anda</string>
     <string name="proxy_ports">Porta Proksi</string>
     <string name="volunteer_mode_title">Bantu orang lain
 \nmenghubung ke Tor</string>
@@ -132,8 +129,6 @@
     <string name="btn_change_exit">Pilih nodus keluar</string>
     <string name="btn_refresh">Muat ulang</string>
     <string name="btn_tor_off">Matikan Tor</string>
-    <string name="menu_help_others">Bantu Orang Lain</string>
-    <string name="btn_use_custom_bridge">Gunakan Jembatan Khusus</string>
     <string name="pref_connection_padding">Lapisan koneksi</string>
     <string name="pref_reduced_connection_padding_summary">Menutup koneksi penyampaian lebih cepat dan mengirim lebih sedikit paket lapisan untuk mengurangi penggunaan data dan baterai</string>
     <string name="pref_circuit_padding">Lapisan sirkuit</string>

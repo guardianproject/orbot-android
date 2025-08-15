@@ -134,7 +134,6 @@
     <string name="pref_circuit_padding">迴路填充</string>
     <string name="v3_backup_key_warning">警告：這可能會將你的金鑰暴露給其他應用程式</string>
     <string name="v3_key_hash">Base32 編碼的 x25519 私鑰</string>
-    <string name="in_a_browser">在瀏覽器中，訪問 %s 並點擊 Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="snowflake_proxy_msg_description">當你幫助某人規避審查時顯示訊息</string>
     <string name="strict_nodes_description">將「排除節點」設定視為建構所有迴路的要求。如果因為你的「排除節點」設定而無法產生任何迴路，這可能會破壞功能。</string>
     <string name="app_services">應用程式服務</string>
@@ -151,7 +150,6 @@
     <string name="pref_disable_ipv4">停用 IPv4 連接</string>
     <string name="pref_disable_ipv4_summary">告訴出口不要連接到 IPv4 位址</string>
     <string name="user_services">使用者服務</string>
-    <string name="bridge_snowflake">使用 Snowflake 透過其他 Tor 使用者進行連接（方法 1 - Fastly）</string>
     <string name="bridge_snowflake_amp">使用 Snowflake 透過其他 Tor 使用者進行連接（方法 2 - AMP）</string>
     <string name="snowflake_proxy_msg_title">顯示連接通知</string>
     <string name="volunteer_mode">善良模式</string>
@@ -166,7 +164,6 @@
     <string name="ask_tor">詢問 Tor</string>
     <string name="asking">正在詢問…</string>
     <string name="option_only_when_charging">僅在充電時</string>
-    <string name="configure_header">配置你的 Tor 連接</string>
     <string name="smart_connect">智慧連接（預設）</string>
     <string name="snowflake">Snowflake（原始）</string>
     <string name="btn_change_exit">變更出口</string>
@@ -177,7 +174,6 @@
     <string name="btn_configure">選擇連接方式</string>
     <string name="btn_choose_apps">選擇應用程式</string>
     <string name="btn_tor_off">關閉 Tor</string>
-    <string name="btn_use_custom_bridge">使用自訂橋接器</string>
     <string name="ports_not_set">連接埠未設定</string>
     <string name="volunteer_mode_title">幫助其他人
 \n連接到 Tor</string>
@@ -190,7 +186,6 @@
     <string name="pref_flag_secure_summary">防止其他應用程式對 Orbot 進行螢幕截圖</string>
     <string name="log_copied">記錄已複製</string>
     <string name="pref_flag_secure_title">螢幕安全</string>
-    <string name="menu_help_others">幫助其他人</string>
     <string name="proxy_ports">代理連接埠</string>
     <string name="volunteer_mode_alltime_label">所有時間總計</string>
     <string name="snowflake_amp">Snowflake（AMP）</string>

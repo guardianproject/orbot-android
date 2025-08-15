@@ -135,7 +135,6 @@
     <string name="btn_change_exit">Ändra utgång</string>
     <string name="btn_refresh">Uppdatera</string>
     <string name="btn_tor_off">Stäng av Tor</string>
-    <string name="btn_use_custom_bridge">Använd anpassad bro</string>
     <string name="version">Version:</string>
     <string name="license">Licens:</string>
     <string name="bridge_snowflake_amp">Anslut via andra Tor-användare med Snowflake (metod 2)</string>
@@ -150,11 +149,8 @@
     <string name="pref_circuit_padding_summary">Aktivera kretsstoppning för att skydda sig mot vissa former av trafikanalys</string>
     <string name="pref_reduced_circuit_padding_summary">Använd algoritmer för utfyllnad med lägre overhead för att minska data- och batterianvändningen</string>
     <string name="custom_bridges">Anpassade broar</string>
-    <string name="in_a_browser">Besök %s i en webbläsare och tryck på Get Bridges &gt; Just Give Me Bridges!</string>
-    <string name="menu_help_others">Hjälp andra</string>
     <string name="strict_nodes_description">Behandla inställningarna för Exclude Nodes som ett krav för att bygga alla kretsar. Detta kan störa funktionaliteten om inga kretsar kan genereras med dina inställningar för exkluderade noder.</string>
     <string name="backup_port_exist">Fel: En Onion-tjänst använder redan port %s</string>
-    <string name="bridge_snowflake">Anslut via andra Tor-användare med Snowflake (metod 1)</string>
     <string name="secure_your_connection_title">Redo att ansluta</string>
     <string name="secure_your_connection_subtitle">Dölj appar från nätverksövervakning och få tillgång till dem när de är blockerade.</string>
     <string name="volunteer_mode_title">Hjälpa andra
@@ -172,7 +168,6 @@
     <string name="no_internet_title">Anslut till internet</string>
     <string name="no_internet_subtitle">Du behöver en internetuppkoppling för att använda Orbot.</string>
     <string name="kindness_adjust_title">Inställningar</string>
-    <string name="configure_header">Konfigurera din Tor-anslutning</string>
     <string name="proxy_ports">Proxy-portar</string>
     <string name="volunteer_mode_alltime_label">Alltid Totalt</string>
     <string name="smart_connect">Smart Connect (standard)</string>
