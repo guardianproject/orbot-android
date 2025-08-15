@@ -250,4 +250,5 @@
     <string name="custom_bridges_description">将收到的网桥地址粘贴到下方，或扫描二维码添加。朋友可以通过 %1$s 帮您获取网桥。</string>
     <string name="built_in_bridges_obfs4_subtitle">伪装您的流量，绕过某些 Tor 屏蔽。如果您使用的是公共 Wi-Fi，但所在国家/地区没有屏蔽 Tor，这种方法效果很好。</string>
     <string name="run_smart_connect_">运行智能连接以查找最佳方式</string>
+    <string name="camo_samsung_instructions">在您的 Samsung Galaxy 设备上，伪装模式的通知仅在打开“设置”-&gt;“通知”-&gt;“高级设置”并禁用“在通知中显示应用图标”才能正常工作。点击此处打开“通知设置”。</string>
 </resources>
