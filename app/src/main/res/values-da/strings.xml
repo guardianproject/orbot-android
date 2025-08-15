@@ -77,7 +77,6 @@
     <string name="pref_prefer_ipv6">Foretrækker IPv6-forbindelser</string>
     <string name="pref_reduced_connection_padding_summary">Lukker relæforbindelser tidligere og sender færre padding-pakker for at reducere data- og batteriforbruget</string>
     <string name="pref_prefer_ipv6_summary">Fortæller exits, at IPv6-adresser er at foretrække</string>
-    <string name="bridge_snowflake">Opret forbindelse via andre Tor-brugere ved hjælp af Snowflake (metode 1)</string>
     <string name="bridge_snowflake_amp">Opret forbindelse via andre Tor-brugere ved hjælp af Snowflake (metode 2)</string>
     <string name="wizard_details_msg">Orbot er et program med åben kildekode, der indeholder Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks og LibEvent. Det giver en VPN-tunnel, en lokal HTTP Connect-proxy (kun HTTPS på port 8118) og en SOCKS-proxy (9050) ind i Tor-netværket.</string>
     <string name="secure_your_connection_title">Sikre din forbindelse med Tor</string>
@@ -91,8 +90,6 @@
     <string name="btn_change_exit">Ændring af udgang</string>
     <string name="btn_refresh">Opdater</string>
     <string name="btn_tor_off">Slå Tor fra</string>
-    <string name="menu_help_others">Hjælp andre</string>
-    <string name="btn_use_custom_bridge">Brug brugerdefineret bro</string>
     <string name="pref_allow_background_starts_summary">Lad en hvilken som helst app fortælle Orbot, at Tor og relaterede tjenester skal startes</string>
     <string name="version">Version:</string>
     <string name="license">Licens:</string>
@@ -145,7 +142,6 @@
     <string name="user_services">Brugertjenester</string>
     <string name="app_services">App-tjenester</string>
     <string name="custom_bridges">Brugerdefinerede broer</string>
-    <string name="in_a_browser">Besøg %s i en browser, og tryk på Få broer &gt; Bare giv mig broer!</string>
     <string name="snowflake_proxy_msg_title">Vis meddelelse om forbindelse</string>
     <string name="snowflake_proxy_msg_description">Vis en besked, når din snefnug hjælper nogen med at omgå censuren</string>
     <string name="pref_http_dialog">Konfiguration af HTTP-port</string>

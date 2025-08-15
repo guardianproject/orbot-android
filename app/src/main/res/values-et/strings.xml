@@ -91,8 +91,6 @@
     <string name="btn_change_exit">Muuda väljumist</string>
     <string name="btn_refresh">Värskenda</string>
     <string name="btn_tor_off">Lülita Tor välja</string>
-    <string name="menu_help_others">Aita teisi</string>
-    <string name="btn_use_custom_bridge">Kasuta kohandatud silda</string>
     <string name="wizard_details_msg">Orbot on avatud lähtekoodiga rakendus, mis sisaldab Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks ja LibEvent. Ta võimaldab kasutada VPN-tunnelit, lokaalset HTTP Connect proksit (HTTPS ainult pordis 8118) ja SOCKS-proksit (9050) Tor-võrku.</string>
     <string name="hidden_service_request">Rakendus soovib avada Tor-võrku sibulaserveri sadamas %1$s. See on turvaline, kui te rakendust usaldate.</string>
     <string name="pref_use_expanded_notifications_title">Laiendatud teated</string>
@@ -143,8 +141,6 @@
     <string name="user_services">Kasutajate teenused</string>
     <string name="app_services">Rakendusteenused</string>
     <string name="custom_bridges">Kohandatud sillad</string>
-    <string name="in_a_browser">Külastage brauseris %s ja koputage nuppu Get Bridges &gt; Just Give Me Bridges!</string>
-    <string name="bridge_snowflake">Ühenduse loomine teiste Tori kasutajate kaudu Snowflake\'i abil (meetod 1)</string>
     <string name="bridge_snowflake_amp">Ühenduse loomine teiste Tori kasutajate kaudu Snowflake\'i abil (meetod 2)</string>
     <string name="snowflake_proxy_msg_title">Näita ühenduse teadet</string>
     <string name="snowflake_proxy_msg_description">Näita sõnumit, kui aitad kedagi tsensuurist kõrvale hoida</string>
@@ -187,7 +183,6 @@
     <string name="no_internet_subtitle">Orbot\'i kasutamiseks on vaja internetiühendust.</string>
     <string name="kindness_config_detail">Määratle, kuidas ja millal sinu seade saab toimida Snowflake\'i proksina teiste Tori kasutajate jaoks.</string>
     <string name="log_copied">Logi kopeeritud</string>
-    <string name="configure_header">Tor-ühenduse konfigureerimine</string>
     <string name="smart_connect">Nutikas ühendus (vaikimisi)</string>
     <string name="direct_connect_subtitle">Parim viis Toriga ühendumiseks. Kasutage, kui Tor ei ole blokeeritud.</string>
     <string name="proxy_ports">Proksi pordid</string>

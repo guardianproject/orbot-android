@@ -50,8 +50,6 @@
     <string name="btn_change_exit">Sprememba izhoda</string>
     <string name="btn_refresh">Osvežitev</string>
     <string name="btn_tor_off">Izklop storitve Tor</string>
-    <string name="menu_help_others">Pomagajte drugim</string>
-    <string name="btn_use_custom_bridge">Uporaba mostu po meri</string>
     <string name="pref_start_boot_summary">Samodejno zaženite Orbot in povežite Tor, ko se naprava s sistemom Android zažene</string>
     <string name="pref_entrance_node">Vstopna vozlišča</string>
     <string name="pref_entrance_node_dialog">Vstopite v vstopna vozlišča</string>
@@ -155,8 +153,6 @@
     <string name="pref_reduced_connection_padding">Zmanjšano oblazinjenje povezave</string>
     <string name="consider_disable_battery_optimizations">Gostovane storitve tečejo, razmislite o onemogočanju optimizacij baterije</string>
     <string name="pref_reduced_connection_padding_summary">Prej zapre relejne povezave in pošlje manj polnilnih paketov, da zmanjša porabo podatkov in baterije</string>
-    <string name="bridge_snowflake">Povežite se prek drugih uporabnikov omrežja Tor z uporabo storitve Snowflake (metoda 1)</string>
-    <string name="in_a_browser">V brskalniku obiščite %s in tapnite Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="next">Naprej</string>
     <string name="title_choose_apps">Izberi aplikacije</string>
     <string name="action_activate">Vklopi</string>
@@ -189,7 +185,6 @@
     <string name="no_internet_title">Povežite se z internetom</string>
     <string name="kindness_config_detail">Konfigurirajte, kako in kdaj lahko vaša naprava deluje kot proksi snežinka za druge uporabnike Tora.</string>
     <string name="root_warning">Orbot je zaznal, da je vaša naprava korenirana, kar lahko povzroči varnostne težave.</string>
-    <string name="configure_header">Natavite svojo Tor povezavo</string>
     <string name="direct_connect">Neposredna povezava s Torom</string>
     <string name="ports_not_set">Vrata niso nastavljena</string>
     <string name="hide_apps">Skrijte aplikacije pred nadzorom omrežja in pridobite dostop, ko so blokirane.</string>

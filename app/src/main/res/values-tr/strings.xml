@@ -117,8 +117,6 @@
     <string name="menu_new_identity">Yeni Kimlik</string>
     <string name="user_services">Kullanıcı hizmetleri</string>
     <string name="app_services">Uygulama hizmetleri</string>
-    <string name="bridge_snowflake">Snowflake kullanarak diğer Tor kullanıcıları aracılığıyla bağlanın (Yöntem 1 - Hızlı)</string>
-    <string name="in_a_browser">Bir tarayıcıda %s adresini ziyaret edin ve Get Bridges &gt; Just Give Me Bridges! seçeneğine dokunun!</string>
     <string name="custom_bridges">Özel Köprüler</string>
     <string name="pref_reduced_circuit_padding_summary">Veri ve pil kullanımını azaltmak için daha hafif yastıklama algoritmaları kullanın</string>
     <string name="pref_reduced_circuit_padding">Azaltılmış devre yastıklaması</string>
@@ -149,10 +147,8 @@
     <string name="btn_configure">Nasıl Bağlanılacağını Seç</string>
     <string name="volunteer_mode">Nezaket Modu</string>
     <string name="trying_to_connect_title">Bağlanıyor…</string>
-    <string name="menu_help_others">Başkalarına Yardım Et</string>
     <string name="btn_start_vpn">VPN\'i başlat</string>
     <string name="secure_your_connection_title">Bağlanmaya hazır</string>
-    <string name="btn_use_custom_bridge">Özel Köprü Kullan</string>
     <string name="btn_choose_apps">Uygulamaları seç</string>
     <string name="btn_change_exit">Çıkışı değiştir</string>
     <string name="btn_refresh">Yenile</string>
@@ -167,7 +163,6 @@
     <string name="connect">Bağlan</string>
     <string name="next">Sonraki</string>
     <string name="volunteer_mode_weekly_label">Haftalık Toplam</string>
-    <string name="configure_header">Tor Bağlantınızı Yapılandırın</string>
     <string name="proxy_ports">Vekil Bağlantı Noktaları</string>
     <string name="ports_not_set">Bağlantı Noktaları Ayarlanmadı</string>
     <string name="volunteer_mode_subtitle_desc">Nezaket modu, aygıtınızın başkaları için bir köprü olmasını sağlar. İnsanların Tor\'u engellendiği yerlerde kullanmasına yardımcı olur.

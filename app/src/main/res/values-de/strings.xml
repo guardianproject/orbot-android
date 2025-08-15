@@ -136,9 +136,7 @@
     <string name="version">Version:</string>
     <string name="license">Lizenz:</string>
     <string name="snowflake_proxy_msg_description">Eine Meldung anzeigen, wenn du jemandem hilfst, Zensur zu umgehen</string>
-    <string name="in_a_browser">Im Browser %s aufrufen und auf „Get Bridges &gt; Just Give Me Bridges“ tippen!</string>
     <string name="snowflake_proxy_msg_title">Verbindungsbenachrichtigung anzeigen</string>
-    <string name="bridge_snowflake">Mittels Snowflake über andere Tor-Nutzer verbinden (Methode 1 - Schnell)</string>
     <string name="bridge_snowflake_amp">Mittels Snowflake über andere Tor-Nutzer verbinden (Methode 2 - AMP)</string>
     <string name="pref_reduced_circuit_padding">Reduziertes Circuit-Padding</string>
     <string name="pref_circuit_padding_summary">Circuit-Padding zum Schutz vor einigen Formen der Verkehrsanalyse aktivieren</string>
@@ -160,7 +158,6 @@
 \nwegen dir.</string>
     <string name="app_suggested_subtitle">Orbot funktioniert am besten mit Messaging- und Social-Media-Apps.</string>
     <string name="apps_other_apps">Andere Apps</string>
-    <string name="configure_header">Konfiguriere deine Tor-Verbindung</string>
     <string name="proxy_ports">Proxy-Anschlüsse</string>
     <string name="volunteer_mode_title">Anderen helfen,
 \nsich mit Tor zu verbinden</string>
@@ -184,8 +181,6 @@
     <string name="btn_change_exit">Ausgang ändern</string>
     <string name="btn_refresh">Auffrischen</string>
     <string name="btn_tor_off">Tor ausschalten</string>
-    <string name="menu_help_others">Anderen helfen</string>
-    <string name="btn_use_custom_bridge">Benutzerdefinierte Brücke verwenden</string>
     <string name="hide_apps">Verstecke Apps vor der Netzwerküberwachung und erhalte Zugriff, wenn sie blockiert sind.</string>
     <string name="pref_isolate_port">Zielports isolieren</string>
     <string name="pref_isolate_protocol">Client-Protokolle isolieren</string>

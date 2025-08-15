@@ -143,7 +143,6 @@
     <string name="ports_not_set">No s\'ha definit cap port</string>
     <string name="ask_tor">Pregunteu al Tor</string>
     <string name="pref_http_dialog">Configuració del port HTTP</string>
-    <string name="menu_help_others">Ajudeu els altres</string>
     <string name="power_user_mode">Mode d\'usuari avançat</string>
     <string name="btn_choose_apps">Trieu aplicacions</string>
     <string name="v3_backup_key">Fes una còpia de seguretat de la clau de l\'autorització del client</string>
@@ -166,7 +165,6 @@
     <string name="btn_tor_off">Desconnecta el Tor</string>
     <string name="btn_configure">Trieu el tipus de connexió</string>
     <string name="option_only_on_wifi">Només amb Wi-Fi</string>
-    <string name="bridge_snowflake">Connecta a través d\'altres usuaris del Tor mitjançant l\'Snowflake (Mètode 1 - Més ràpid)</string>
     <string name="direct_connect">Connexió directa al Tor</string>
     <string name="v3_backup_name_hint">Nom de la còpia de seguretat…</string>
     <string name="pref_disable_ipv4">Desactiva les connexions IPv4</string>
@@ -177,7 +175,6 @@
     <string name="menu_kindness">Altruista</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Obre el servidor intermediari en totes les interfícies</string>
     <string name="v3_import_auth_private">Importa .auth_private</string>
-    <string name="btn_use_custom_bridge">Utilitza un pont personalitzat</string>
     <string name="pref_prefer_ipv6_summary">Indica a les sortides que es prefereixen adreces IPv6</string>
     <string name="pref_reduced_circuit_padding">Farciment del circuit reduït</string>
     <string name="v3_client_auth_activity_title">Autorització del client</string>
@@ -208,9 +205,7 @@
 \ngràcies a vós.</string>
     <string name="many_ways">Hi ha moltes maneres d\'arribar al Tor. Algunes podrien funcionar millor que altres.</string>
     <string name="v3_onion">Domini .onion</string>
-    <string name="in_a_browser">En un navegador, visiteu %s i toqueu a Obtén Ponts &gt; Dona\'m ponts!</string>
     <string name="v3_key_hash">Clau privada x25519 en Base32</string>
-    <string name="configure_header">Configureu la connexió al Tor</string>
     <string name="pref_detect_root_summary">Avisa a l\'inici si els permisos d\'administrador estan activats en aquest dispositiu</string>
     <string name="pref_detect_root_title">Detecció d\'administrador</string>
     <string name="pref_isolate_keep_alive">Mantén vius els circuits aïllats</string>

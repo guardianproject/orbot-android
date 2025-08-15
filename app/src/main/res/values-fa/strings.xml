@@ -133,8 +133,6 @@
     <string name="pref_disable_ipv4">غیرفعال‌سازی اتصال‌های IPv4</string>
     <string name="pref_http_dialog">پیکربندی درگاه HTTP</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">اجازه‌دادن به همتایان Wi-Fi، دستگاه‌های وصل‌شده و هرکس دیگری که می‌تواند به IP شما وصل شود، برای دسترسی به Tor</string>
-    <string name="in_a_browser">در مرورگر، از ‎%s بازدیدکنید و روی دریافت پل‌ها&gt;فقط بک پل به من بده، ضربه بزنید!</string>
-    <string name="bridge_snowflake">وصل‌شدن از طریق دیگر کاربران Tor با استفاده از Snowflake (روش ۱ - به‌طور سریع)</string>
     <string name="pref_disable_ipv4_summary">به خروج‌ها اعلام می‌کند که به نشانی‌های IPv4 وصل نشوند</string>
     <string name="pref_reduced_circuit_padding">لایه‌گذاریِ مدارِ کاهش‌یافته</string>
     <string name="pref_reduced_circuit_padding_summary">استفاده از الگوریتم‌های لایه‌گذاری با بالاسری پایین‌تر برای کاهش مصرف باتری و داده</string>
@@ -150,17 +148,14 @@
     <string name="btn_choose_apps">انتخاب برنامه‌ها</string>
     <string name="btn_change_exit">تغییر خروج</string>
     <string name="btn_refresh">تازه‌سازی</string>
-    <string name="menu_help_others">کمک به دیگران</string>
     <string name="connected_title">متصل</string>
     <string name="secure_your_connection_subtitle">برنامه‌ها را از نظارت بر شبکه پنهان کنید و هنگام مسدودشدن، به آن‌ها دسترسی پیدا کنید.</string>
     <string name="trying_to_connect_title">در حال وصل‌شدن…</string>
     <string name="btn_tor_off">Tor را خاموش کنید</string>
-    <string name="btn_use_custom_bridge">استفاده از پل سفارشی</string>
     <string name="strict_nodes_description">با تنظیمات گره‌های مستثنی به‌عنوان یک الزام برای ساخت همه مدارها برخورد کنید. درصورتی که با تنظیمات گره‌های مستثنی شما، هیچ مداری نتواند تولید شود، ممکن است عملکرد را از بین ببرد.</string>
     <string name="connect">وصل‌شدن</string>
     <string name="volunteer_mode_title">کمک به دیگران در \nوصل‌شدن به Tor</string>
     <string name="volunteer_mode_subtitle_desc">حالت مهربانی اجازه می‌دهد تا دستگاه‌تان یک پل برای دیگران باشد‌. این کار به کمک می‌کند تا افراد در مکان‌هایی که Tor مسدود شده از آن استفاده کنند. \n \n- باتریتان را تخلیه نخواهد کرد\n- اینترنتتان را کند نخواهد کرد \n- فقط می‌تواند روی Wi-Fi اجرا شود \n- می‌تواند هر زمانی خاموش شود</string>
-    <string name="configure_header">اتصال Tor خود را پیکربندی کنید</string>
     <string name="proxy_ports">درگاه‌های پراکسی</string>
     <string name="volunteer_mode_weekly_label">مجموع هفتگی</string>
     <string name="volunteer_mode_alltime_label">مجموع تمامی زمان‌ها</string>

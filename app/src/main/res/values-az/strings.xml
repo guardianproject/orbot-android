@@ -151,20 +151,17 @@
     <string name="v3_onion">.onion Domen</string>
     <string name="done">Bitdi!</string>
     <string name="v3_key_hash">Base32-də x25519 Şəxsi Açar</string>
-    <string name="in_a_browser">Brauzerdə %s-ə daxil olun və Körpüləri Al &gt; Sadəcə Mənə Körpüləri verin!</string>
     <string name="btn_choose_apps">Proqramları seçin</string>
     <string name="snowflake_proxy_msg_title">Bağlantı bildirişini göstərin</string>
     <string name="secure_your_connection_subtitle">Tətbiqləri şəbəkə monitorinqindən gizlədin və bloklandıqda giriş əldə edin.</string>
     <string name="btn_tor_off">Tor-u söndürün</string>
     <string name="btn_configure">Necə Qoşulacağını seçin</string>
-    <string name="bridge_snowflake">Snowflake istifadə edərək digər Tor istifadəçiləri ilə əlaqə saxlayın (Metod 1 - Sürətlə)</string>
     <string name="btn_change_exit">Çıxışı dəyişdirin</string>
     <string name="snowflake_proxy_msg_description">Kiməsə senzuradan yayınmağa kömək etdiyiniz zaman mesaj göstərin</string>
     <string name="bridge_snowflake_amp">Snowflake istifadə edərək digər Tor istifadəçiləri ilə əlaqə saxlayın (Metod 2 - AMP)</string>
     <string name="volunteer_mode">Xeyirxahlıq rejimi</string>
     <string name="btn_start_vpn">VPN işə salın</string>
     <string name="secure_your_connection_title">Qoşulmağa hazırdır</string>
-    <string name="configure_header">Tor bağlantınızı konfiqurasiya edin</string>
     <string name="hide_apps">Tətbiqləri şəbəkə monitorinqindən gizlədin və bloklandıqda giriş əldə edin.</string>
     <string name="volunteer_mode_alltime_label">Bütün Zamanların Cəmi</string>
     <string name="proxy_ports">Proksi Portlar</string>
@@ -177,7 +174,6 @@
 \n• Yalnız wifi üzərində işləyə bilər
 \n• İstənilən vaxt söndürülə bilər</string>
     <string name="ports_not_set">Portlar Ayarlanmayıb</string>
-    <string name="menu_help_others">Başqalarına kömək edin</string>
     <string name="power_user_mode">Güc istifadəçi rejimi</string>
     <string name="smart_connect">Smart Connect (defolt)</string>
     <string name="apps_other_apps">Digər Proqramlar</string>
@@ -188,7 +184,6 @@
     <string name="direct_connect">Tor ilə birbaşa əlaqə</string>
     <string name="power_user_description">Tor ilə tanış olan istifadəçilər üçün. VPN ayarı olmadan Orbot-u işə salmağa imkan verir və açıq SOCKS və HTTP portlarını göstərir</string>
     <string name="snowflake_amp">Qar dənəciyi (AMP)</string>
-    <string name="btn_use_custom_bridge">Xüsusi körpüdən istifadə edin</string>
     <string name="snowflake">Snowflake (Orijinal)</string>
     <string name="app_suggested_subtitle">Orbot mesajlaşma və sosial media proqramları ilə ən yaxşı şəkildə işləyir.</string>
     <string name="title_choose_apps">Proqramları seçin</string>

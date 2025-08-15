@@ -143,8 +143,6 @@
     <string name="user_services">Servicios de usuario</string>
     <string name="app_services">Servicios de aplicaciones</string>
     <string name="custom_bridges">Puentes personalizados</string>
-    <string name="in_a_browser">En un navegador, visita %s y toca Obtener puentes &gt; ¡Dame puentes!</string>
-    <string name="bridge_snowflake">Conectar a través de otros usuarios de Tor usando Snowflake (Método 1 - Rápido)</string>
     <string name="bridge_snowflake_amp">Conectar a través de otros usuarios de Tor usando Snowflake (Method 2 - AMP)</string>
     <string name="volunteer_mode">Modo amabilidad</string>
     <string name="secure_your_connection_title">Listo para conectar</string>
@@ -152,15 +150,12 @@
     <string name="connected_title">Conectado</string>
     <string name="btn_start_vpn">Iniciar VPN</string>
     <string name="btn_configure">Elegir cómo conectarse</string>
-    <string name="configure_header">Configurar tu conexión a Tor</string>
     <string name="trying_to_connect_title">Conectando…</string>
     <string name="btn_choose_apps">Elegir aplicaciones</string>
     <string name="btn_change_exit">Cambiar nodo de salida</string>
     <string name="btn_refresh">Refrescar</string>
     <string name="btn_tor_off">Desactivar Tor</string>
     <string name="snowflake_proxy_msg_description">Mostrar un mensaje cuando estés ayudando a alguien a evitar la censura</string>
-    <string name="menu_help_others">Ayudar a otros</string>
-    <string name="btn_use_custom_bridge">Usar puente personalizado</string>
     <string name="proxy_ports">Puertos del Proxy</string>
     <string name="ports_not_set">Puertos no definidos</string>
     <string name="volunteer_mode_title">Ayudar a otros

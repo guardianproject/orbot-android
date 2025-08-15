@@ -119,14 +119,11 @@
     <string name="next">Jutiri</string>
     <string name="btn_refresh">Jichhaptayaña</string>
     <string name="trying_to_connect_title">Waythapiskiwa…</string>
-    <string name="menu_help_others">Yaqhanakar yanapt\'aña</string>
     <string name="custom_bridges">Maynichat chakanaka</string>
     <string name="license">Lisinsya:</string>
-    <string name="in_a_browser">Mä thaqhirinxa, %s ukar mantam ukat Chakanak jikxataña limt\'am &gt; ¡Chakanakak churita!</string>
     <string name="btn_start_vpn">VPN qalltaña</string>
     <string name="connected_title">Waythapita</string>
     <string name="btn_tor_off">Tor jiwt\'ayaña</string>
-    <string name="btn_use_custom_bridge">Maynichat chaka apnaqaña</string>
     <string name="volunteer_mode_weekly_label">Simanan taqpacha</string>
     <string name="asking">Jiskt\'askiwa…</string>
     <string name="ask_tor">Tor ukar jiskt\'am</string>
@@ -160,9 +157,7 @@
     <string name="pref_prefer_ipv6">IPv6 waythapïwinak munaña</string>
     <string name="pref_http_summary">Waythapiwja kawkjanti Tor ukax HTTP proxyp uñachayi (utt\'ayata: jiwt\'ayañatakix 8118 jan ukax 0)</string>
     <string name="user_services">Apnaqirin sirwisyunakapa</string>
-    <string name="bridge_snowflake">Snowflake apnaqas yaqha Tor apnaqirinaktuq mantam (Thakhi 1)</string>
     <string name="btn_configure">Kunjam waythapiyañasa uk ajllt\'am</string>
-    <string name="configure_header">Tor waythapïwim mayjt\'ayam</string>
     <string name="volunteer_mode_title">Yaqhanakar yanapt\'aña
 \nTor ukar mantaña</string>
     <string name="direct_connect">Tor ukar chiqak waythapïwi</string>
