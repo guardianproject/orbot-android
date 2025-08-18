@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot은 다른 앱이 인터넷을 더 안전하게 이용할 수 있도록 도와주는 무료 프록시 앱입니다. Orbot은 Tor를 이용하여 여러분의 인터넷 트래픽을 암호화하고 전 세계에 연결된 컴퓨터를 거쳐서 숨깁니다. Tor는 무료 소프트웨어이면서 개방 네트워크로서 여러분을 개인의 자유, 사생활, 은밀한 사업 활동, 관계, 국가 안보를 위협하는 네트워크 감시인 트래픽 분석으로부터 보호합니다.</string>
-    <string name="menu_settings">설정</string>
+    <string name="menu_settings">Orbot 설정</string>
     <string name="menu_log">로그</string>
     <string name="menu_about">정보</string>
     <string name="main_layout_download">다운로드</string>
@@ -58,7 +58,7 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">디버그 로그 출력 활성화 (보기 위해서는 adb나 aLogCat을 사용해야 함)</string>
     <string name="project_home">프로젝트 홈 페이지:</string>
     <string name="third_party_software">3rd-Party-Software: </string>
-    <string name="pref_use_expanded_notifications">출구 및 IP 정보알림 보이기</string>
+    <string name="pref_use_expanded_notifications">사용 가능한 경우 Tor 종료 노드의 국가 및 IP 주소</string>
     <string name="pref_use_expanded_notifications_title">확장 알림</string>
     <string name="set_locale_title">언어</string>
     <string name="pref_disable_network_title">네트워크가 없을 때의 자동 슬립</string>
@@ -101,4 +101,18 @@
     <string name="no_internet_title">인터넷에 연결하기</string>
     <string name="menu_kindness">상냥함</string>
     <string name="btn_refresh">새로고침</string>
+    <string name="system_vpn_settings">Android VPN 설정</string>
+    <string name="volunteer_status_title">오늘이 더 따뜻해졌어요\n당신 덕분에요.</string>
+    <string name="secure_your_connection_title">연결 준비</string>
+    <string name="wizard_details_msg">Orbot은 Tor, IPtProxy(Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks 및 LibEvent를 포함하는 오픈 소스 애플리케이션입니다. VPN 터널, 로컬 HTTP Connect 프록시(포트 8118에서만 HTTPS) 및 Tor 네트워크에 대한 SOCKS 프록시(9050)를 제공합니다.</string>
+    <string name="hidden_service_request">앱이 Tor 네트워크의 포트 %1$s에서 Onion 서버를 열려고 합니다. 앱을 신뢰하는 경우 안전합니다.</string>
+    <string name="pref_open_proxy_on_all_interfaces_title">모든 인터페이스에서 오픈 프록시</string>
+    <string name="pref_open_proxy_on_all_interfaces_summary">Tor에 접속할 수 있도록 Wi-Fi 피어, 테더링 기기 등 내 IP에 연결된 모든 기기를 허용합니다</string>
+    <string name="pref_http_title">Tor HTTP</string>
+    <string name="pref_http_dialog">HTTP Port 설정</string>
+    <string name="apps_mode">VPN 모드</string>
+    <string name="vpn_default_world">전세계 (자동)</string>
+    <string name="local_port">내부 포트</string>
+    <string name="onion_port">Onion 포트</string>
+    <string name="copy_address_to_clipboard">주소를 클립보드에 복사</string>
 </resources>
