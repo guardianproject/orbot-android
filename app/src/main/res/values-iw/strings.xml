@@ -134,7 +134,6 @@
     <string name="pref_isolate_port">בידוד פתחות יעד</string>
     <string name="pref_isolate_port_summary">להשתמש במעגל נפרד לכל פתחת יעד</string>
     <string name="pref_isolate_protocol">בידוד פרוטוקולי לקוח</string>
-    <string name="btn_use_custom_bridge">להשתמש בגשר משלך</string>
     <string name="backup_service">שירות גיבוי (אזהרה: עלול לחשוף את הגדרות השירות שלך ליישומונים אחרים)</string>
     <string name="hidden_service_request">יישום רוצה לפתוח שרת בצל בפתחה %1$s לרשת הTor. הפעולה בטוחה אם היישום אמין.</string>
     <string name="pref_use_expanded_notifications">להציג בהתראה את המדינה וכתובת ה־IP של צומת היציאה שלך כשזמין</string>
@@ -159,7 +158,6 @@
 \n• ניתן לכבות אותו בכל עת</string>
     <string name="ports_not_set">לא מוגדרות פתחות</string>
     <string name="ask_tor">לשאול את Tor</string>
-    <string name="menu_help_others">סיוע לאחרים</string>
     <string name="consider_disable_battery_optimizations">שירותים מתארחים פועלים, כדאי להשבית את מיטוב הסוללה</string>
     <string name="power_user_mode">מצב משתמש פיכח</string>
     <string name="btn_choose_apps">בחירת יישומונים</string>
@@ -178,7 +176,6 @@
     <string name="btn_configure">נא לבחור איך להתחבר</string>
     <string name="option_only_on_wifi">רק דרך Wifi</string>
     <string name="consider_enable_battery_optimizations">אין שירותים מתארחים פועלים, כדאי לאפשר מיטובי סוללה</string>
-    <string name="bridge_snowflake">התחברות דרך משתמשי Tor אחרים באמצעות Snowflake (שיטה 1 - Fastly)</string>
     <string name="direct_connect">חיבור ישיר ל־Tor</string>
     <string name="v3_backup_name_hint">שם קובץ גיבוי…</string>
     <string name="asking">מתבצע תשאול…</string>
@@ -209,8 +206,6 @@
     <string name="volunteer_status_title">היום טוב יותר
 \nבזכותך.</string>
     <string name="many_ways">ישנן דרכים רבות להגיע ל־Tor. חלקן עשויות לעבוד טוב יותר מאחרות עבורך.</string>
-    <string name="in_a_browser">בדפדפן, יש לבקר ב־%s וללחוץ על קבלת גשרים &gt; אני רוצה רק גשרים!</string>
-    <string name="configure_header">הגדרת חיבור ה־Tor שלך</string>
     <string name="pref_detect_root_summary">להזהיר בהתחלה אם המכשיר הזה פרוץ (root) וההרשאות האלה פעילות</string>
     <string name="pref_detect_root_title">זיהוי פריצה (root)</string>
     <string name="system_vpn_settings">הגדרות ה־VPN של Android</string>

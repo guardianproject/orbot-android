@@ -117,8 +117,6 @@
     <string name="pref_entrance_node_summary">Impressões digitais, apelidos, países e endereços para a primeira etapa</string>
     <string name="pref_entrance_node">Nós de Entrada</string>
     <string name="pref_node_configuration_summary">Aqui estão as configurações avançadas que podem reduzir o seu anonimato</string>
-    <string name="bridge_snowflake">Ligar através de outros utilizadores Tor usando o Floco de Neve (Método 1)</string>
-    <string name="in_a_browser">Visite o %s com um navegador e toque no Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="custom_bridges">Pontes Personalizadas</string>
     <string name="pref_reduced_circuit_padding_summary">Use menos algoritmos de preenchimento para reduzir o uso dos dados e da bateria</string>
     <string name="pref_reduced_circuit_padding">Preenchimento reduzido do circuito</string>
@@ -150,8 +148,6 @@
     <string name="btn_choose_apps">Escolher aplicações</string>
     <string name="btn_change_exit">Mudar saída</string>
     <string name="btn_refresh">Actualizar</string>
-    <string name="menu_help_others">Ajudar Outros</string>
-    <string name="btn_use_custom_bridge">Usar ponte personalizada</string>
     <string name="bridge_snowflake_amp">Ligar através de outros utilizadores Tor usando Floco de Neve (Método 2)</string>
     <string name="snowflake_proxy_msg_description">Mostrar uma mensagem quando se ajuda alguém a contornar a censura</string>
     <string name="snowflake_proxy_msg_title">Mostrar notificação de ligação</string>
@@ -162,7 +158,6 @@
     <string name="title_choose_apps">Escolha as apps</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Conecta-se através de voluntários do Tor. Contorna alguns bloqueios do Tor.</string>
-    <string name="configure_header">Configure a sua conexão Tor</string>
     <string name="proxy_ports">Portas do proxy</string>
     <string name="ports_not_set">Portas não definidas</string>
     <string name="volunteer_mode_title">Ajude outros

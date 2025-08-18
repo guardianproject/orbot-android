@@ -136,9 +136,6 @@ atl oquitlapatic</string>
     <!--MoatActivity-->
     <!--BridgeWizardActivity-->
     <string name="custom_bridges">Neuhyantica cuauhpanco</string>
-    <!--CustomBridgesFragment-->
-    <string name="in_a_browser">Ipan ce panoliztli, quitetlapalo %s ihuan xicmahpilhuia \"Quipia cuauhpanco\" &gt; \"¡ Zan xinechnamaca cuauhpanco!\" </string>
-    <string name="bridge_snowflake">Xiccelili itechpa occequintin itlacahuan Tor ma ticchihuaz tecepayahuitl (Método 1 - Fastly)</string>
     <string name="bridge_snowflake_amp">Xiccelili itechpa occequintin itlacahuan Tor ma ticchihuaz tecepayahuitl (Method 2 - AMP)</string>
     <string name="snowflake_proxy_msg_title">Quimachtia in tenotzalo in centilili</string>
     <string name="snowflake_proxy_msg_description">Quimachtia ce tenotzalo ihcuac motecepayahuiuh quipalehuia ac quicholoa in tetlatzacuiliztli</string>
@@ -149,14 +146,11 @@ atl oquitlapatic</string>
     <string name="connected_title">Tencuitica</string>
     <string name="btn_start_vpn">Pehualtia VPN</string>
     <string name="btn_configure">Mocentilia</string>
-    <string name="configure_header">Ximocentiliz moTortencuiliztli</string>
     <string name="trying_to_connect_title">Tencuitica…</string>
     <string name="btn_choose_apps">Xicpepena tepoztlatlatquitl</string>
     <string name="btn_change_exit">Xipatla quizayan</string>
     <string name="btn_refresh">Papatia</string>
     <string name="btn_tor_off">XicehuiTor</string>
-    <string name="menu_help_others">Xiquinpalehuiz</string>
-    <string name="btn_use_custom_bridge">Quichihua neuhyantica cuauhpanco</string>
     <string name="proxy_ports">Proxy tzalantli</string>
     <string name="ports_not_set">Tzalantli ahmo moachtohuia</string>
     <string name="volunteer_mode_title">Quipalehui occequintin/ahmo quicentia Tor</string>

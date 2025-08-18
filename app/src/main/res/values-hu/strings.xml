@@ -108,7 +108,6 @@
     <string name="confirm">OK</string>
     <string name="trying_to_connect_title">Csatlakozás…</string>
     <string name="menu_new_identity">Új személyazonosság</string>
-    <string name="menu_help_others">Segítsen másoknak</string>
     <string name="action_activate">Aktiválás</string>
     <string name="no_internet_title">Csatlakozás az internethez</string>
     <string name="kibibyte">KiB</string>

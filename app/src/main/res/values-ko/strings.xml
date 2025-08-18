@@ -110,7 +110,6 @@
     <string name="pref_open_proxy_on_all_interfaces_summary">Tor에 접속할 수 있도록 Wi-Fi 피어, 테더링 기기 등 내 IP에 연결된 모든 기기를 허용합니다</string>
     <string name="pref_http_title">Tor HTTP</string>
     <string name="pref_http_dialog">HTTP Port 설정</string>
-    <string name="apps_mode">VPN 모드</string>
     <string name="vpn_default_world">전세계 (자동)</string>
     <string name="local_port">내부 포트</string>
     <string name="onion_port">Onion 포트</string>

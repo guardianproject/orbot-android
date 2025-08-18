@@ -112,7 +112,6 @@
     <string name="v3_client_auth_activity_title">Εξουσιοδότηση πελάτη</string>
     <string name="v3_key_hash">x25519 Ιδιωτικό κλειδί σε Base32</string>
     <string name="v3_onion">.onion Τομέας</string>
-    <string name="bridge_snowflake">Συνδεθείτε μέσω άλλων χρηστών Tor χρησιμοποιώντας το Snowflake (Μέθοδος 1)</string>
     <string name="secure_your_connection_title">Ετοιμοι για σύνδεση</string>
     <string name="secure_your_connection_subtitle">Απόκρυψη εφαρμογών από την παρακολούθηση του δικτύου και πρόσβαση σε αυτές όταν είναι μπλοκαρισμένες.</string>
     <string name="connected_title">Συνδεδεμένο</string>
@@ -124,8 +123,6 @@
     <string name="btn_change_exit">Αλλαγή εξόδου</string>
     <string name="btn_refresh">Ανανέωση</string>
     <string name="btn_tor_off">Απενεργοποιήστε το Tor</string>
-    <string name="menu_help_others">Βοηθήστε άλλους</string>
-    <string name="btn_use_custom_bridge">Χρήση προσαρμοσμένης γέφυρας</string>
     <string name="v3_hosted_services">Υπηρεσίες Onion</string>
     <string name="v3_backup_key_warning">Προειδοποίηση: Αυτό μπορεί να εκθέσει το κλειδί σας σε άλλες εφαρμογές</string>
     <string name="backup_port_exist">Σφάλμα: Μια υπηρεσία Onion χρησιμοποιεί ήδη τη θύρα %s</string>
@@ -134,7 +131,6 @@
     <string name="pref_reduced_circuit_padding">Μειωμένο μαξιλάρι κυκλώματος</string>
     <string name="pref_disable_ipv4">Απενεργοποίηση συνδέσεων IPv4</string>
     <string name="custom_bridges">Προσαρμοσμένες γέφυρες</string>
-    <string name="in_a_browser">Σε ένα πρόγραμμα περιήγησης, επισκεφθείτε το %s και πατήστε Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="bridge_snowflake_amp">Συνδεθείτε μέσω άλλων χρηστών Tor χρησιμοποιώντας το Snowflake (Μέθοδος 2)</string>
     <string name="snowflake_proxy_msg_title">Εμφάνιση ειδοποίησης σύνδεσης</string>
     <string name="snowflake_proxy_msg_description">Εμφανίζει ένα μήνυμα όταν βοηθάτε κάποιον να παρακάμψει τη λογοκρισία</string>
@@ -159,7 +155,6 @@
     <string name="menu_new_identity">Νέα ταυτότητα</string>
     <string name="pref_isolate_port">Απομόνωση θυρών προορισμού</string>
     <string name="pref_isolate_protocol_summary">Χρησιμοποιήστε διαφορετικό κύκλωμα για κάθε πρωτόκολλο σύνδεσης</string>
-    <string name="configure_header">Διαμορφώστε τη σύνδεση Tor</string>
     <string name="ports_not_set">Θύρες που δεν έχουν οριστεί</string>
     <string name="proxy_ports">Θύρες διακομιστή μεσολάβησης</string>
     <string name="pref_isolate_port_summary">Χρήση διαφορετικού κυκλώματος για κάθε θύρα προορισμού</string>

@@ -87,8 +87,6 @@
     <string name="pref_open_proxy_on_all_interfaces_title">Mở Proxy trên tất cả các giao diện</string>
     <string name="hidden_service_request">Một ứng dụng muốn mở máy chủ onion ở cổng %1$s vào mạng Tor. Việc này là an toàn nếu bạn tin tưởng ứng dụng đó.</string>
     <string name="wizard_details_msg">Orbot là một ứng dụng mã nguồn mở chứa Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, LibEvent. Nó cung cấp một proxy HTTP cục bộ (8118) và một proxy SOCKS (9050) vào mạng Tor.</string>
-    <string name="bridge_snowflake">Kết nối thông qua những người sử dụng Tor khác bằng cách sử dụng Snowflake (Phương pháp 1 - Nhanh chóng)</string>
-    <string name="in_a_browser">Trong một trình duyệt, hãy đi đến %s và nhấn Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="custom_bridges">Cầu nối tuỳ chỉnh</string>
     <string name="pref_reduced_connection_padding_summary">Đóng các kết nối chuyển tiếp sớm hơn và gửi ít gói đặt khoảng cách hơn để giảm sử dụng dữ liệu và pin</string>
     <string name="pref_reduced_connection_padding">Giảm khoảng cách kết nối</string>
@@ -153,12 +151,9 @@
     <string name="pref_isolate_protocol">Cô lập các Protocol máy/ứng dụng khách</string>
     <string name="secure_your_connection_subtitle">Ẩn giấu các app ứng dụng khỏi việc bị theo dõi mạng và lấy lại khả năng truy cập khi chúng bị chặn.</string>
     <string name="btn_start_vpn">Khởi động VPN</string>
-    <string name="configure_header">Định cấu hình Kết nối Tor của bạn</string>
     <string name="btn_configure">Lựa chọn làm cách nào để kết nối</string>
     <string name="btn_choose_apps">Lựa chọn app ứng dụng</string>
     <string name="btn_tor_off">Tắt Tor đi</string>
-    <string name="menu_help_others">Giúp đỡ người khác</string>
-    <string name="btn_use_custom_bridge">Sử dụng cầu Bridge tuỳ chỉnh</string>
     <string name="ports_not_set">Các cổng chưa được thiết đặt</string>
     <string name="volunteer_status_title">Ngày hôm nay tốt đẹp hơn
 \nlà do bạn.</string>

@@ -66,7 +66,6 @@
     <string name="btn_change_exit">Çykyşy üýtgediň</string>
     <string name="btn_refresh">Täzele</string>
     <string name="btn_tor_off">Tor-y öçüriň</string>
-    <string name="menu_help_others">Başgalaryna kömek ediň</string>
     <string name="root_warning">Orbot, enjamyňyzyň kök urandygyny (root), howpsuzlyk meselelerine sebäp bolup biljekdigini anyklady.</string>
     <string name="pref_proxy_host_dialog">Proksi Hostyny Giriziň</string>
     <string name="pref_proxy_port_title">Çykýan Proksi Porty</string>
@@ -188,10 +187,6 @@
     <string name="pref_prefer_ipv6_summary">IPv6 salgylarynyň ileri tutulýandygyny görkezýän nokatlaryny aýdýar</string>
     <string name="pref_disable_ipv4_summary">Çykyş nokatlaryna IPv4 salgylaryna birikmezligi aýdýar</string>
     <string name="full_device_vpn">Bütin enjamyňyz üçin VPN</string>
-    <string name="in_a_browser">Brauzeriňizde, %s giriň we Köpri alyň &gt; Diňe maňa köpri ber basyň!</string>
-    <string name="bridge_snowflake">Snowflake ulanyp, beýleki Tor ulanyjylarynyň üsti bilen birikdiriň (1-nji usul - Çalt)</string>
-    <string name="configure_header">Tor baglanşygyňyzy sazlaň</string>
-    <string name="btn_use_custom_bridge">Ýörite Köpri ulanyň</string>
     <string name="proxy_ports">Proksi Portlar</string>
     <string name="strict_nodes_description">Aýrylan düwünleriň sazlamalaryny ähli zynjyrlary gurmak üçin talap hökmünde görüň. Sazlamalaryňyz bilen hiç hili zynjyr döredilip bilinmese, bu işlemegi bozup biler.</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Düzediş ýazgysyny işjeňleşdiriň (görmek üçin adb ýa-da aLogCat talap eder)</string>

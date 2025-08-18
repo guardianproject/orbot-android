@@ -42,7 +42,6 @@
     <string name="pref_disable_ipv4">Disable IPv4 connections</string>
     <string name="exit_nodes">Exit Nodes</string>
     <string name="enter_exit_nodes">Enter Exit Nodes</string>
-    <string name="bridge_snowflake">Connect through other Tor users using Snowflake (Method 1 - Fastly)</string>
     <string name="bridge_snowflake_amp">Connect through other Tor users using Snowflake (Method 2 - AMP)</string>
     <string name="pref_allow_background_starts_title">Allow Background Starts</string>
     <string name="pref_node_configuration_summary">These are advanced settings that can reduce your anonymity</string>
@@ -70,7 +69,6 @@
     <string name="pref_disable_network_title">No Network Auto-Sleep</string>
     <string name="v3_backup_key_warning">Warning: This could expose your key to other apps</string>
     <string name="pref_reduced_connection_padding_summary">Closes relay connections sooner and sends less padding packets to reduce data and battery usage</string>
-    <string name="in_a_browser">In a browser, visit %s and tap Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="pref_proxy_username_summary">Proxy Username (Optional)</string>
     <string name="pref_proxy_password_title">Outbound Proxy Password</string>
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">Fingerprints, nicknames, countries and addresses for the last hop</string>
@@ -99,7 +97,6 @@
     <string name="full_device_vpn">Full Device VPN</string>
     <string name="custom_bridges">Custom Bridges</string>
     <string name="snowflake_proxy_msg_title">Show Connection Notification</string>
-    <string name="configure_header">Configure your Tor Connection</string>
     <string name="proxy_ports">Proxy Ports</string>
     <string name="ports_not_set">Ports Not Set</string>
     <string name="volunteer_mode_title">Help others\nconnect to Tor</string>
@@ -122,8 +119,6 @@
     <string name="btn_change_exit">Change exit</string>
     <string name="btn_refresh">Refresh</string>
     <string name="btn_tor_off">Turn Tor off</string>
-    <string name="menu_help_others">Help Others</string>
-    <string name="btn_use_custom_bridge">Use Custom Bridge</string>
     <string name="pref_start_boot_title">Start Orbot on Boot</string>
     <string name="pref_proxy_username_dialog">Enter Proxy Username</string>
     <string name="pref_proxy_password_summary">Proxy Password (Optional)</string>

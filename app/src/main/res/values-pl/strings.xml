@@ -145,8 +145,6 @@
     <string name="v3_key_hash">Klucz prywatny x25519 w Base32</string>
     <string name="v3_backup_name_hint">Nazwa pliku kopii zapasowej…</string>
     <string name="v3_delete_client_authorization_confirm">Usuń autoryzację klienta</string>
-    <string name="configure_header">Skonfiguruj swoje połączenie Tor</string>
-    <string name="bridge_snowflake">Połącz się przez innych użytkowników sieci Tor za pomocą Snowflake (Metoda 2 - Szybko)</string>
     <string name="proxy_ports">Porty proxy</string>
     <string name="ports_not_set">Porty nie są ustawione</string>
     <string name="volunteer_mode_weekly_label">Tygodniowo</string>
@@ -165,15 +163,12 @@
     <string name="volunteer_mode">Tryb życzliwości</string>
     <string name="btn_tor_off">Wyłącz Tor</string>
     <string name="btn_change_exit">Zmiana wyjścia</string>
-    <string name="menu_help_others">Pomóż innym</string>
-    <string name="btn_use_custom_bridge">Użyj niestandardowego mostka</string>
     <string name="license">Licencja:</string>
     <string name="version">Wersja:</string>
     <string name="pref_reduced_connection_padding">Zmniejszone wypełnienie połączenia</string>
     <string name="pref_circuit_padding_summary">Włącz wypełnianie obwodu, aby bronić się przed niektórymi formami analizy ruchu</string>
     <string name="pref_reduced_circuit_padding">Zmniejszone wypełnienie obwodu</string>
     <string name="pref_reduced_circuit_padding_summary">Użyj algorytmów wypełniania o niższym nakładzie, aby zmniejszyć zużycie danych i baterii</string>
-    <string name="in_a_browser">Za pomocą przeglądarki, odwiedź stronę %s i stuknij opcję Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="bridge_snowflake_amp">Połącz się przez innych użytkowników sieci Tor za pomocą Snowflake (Metoda 2 - AMP)</string>
     <string name="strict_nodes_description">Traktuj ustawienia wykluczonych węzłów jako wymóg dla budowania wszystkich obwodów. Może to spowodować przerwanie funkcjonalności, jeśli żadne obwody nie będą mogły być wygenerowane z twoimi ustawieniami wykluczonych węzłów.</string>
     <string name="confirm">Potwierdź</string>
