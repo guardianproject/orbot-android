@@ -256,4 +256,5 @@
     <string name="run_smart_connect_">شغل الاتصال الذكي لإيجاد أفضل طريقة</string>
     <string name="enter_bridge_address">أدخل عنوان الجسر</string>
     <string name="scan_qr_code">امسح رمز QR</string>
+    <string name="camo_samsung_instructions">على جهاز Samsung Galaxy الخاص بك، لن تعمل إشعارات وضع التنكر إلا بفتح الإعدادات -&gt; الإشعارات -&gt; الإعدادات المتقدمة وتعطيل \"إظهار أيقونة التطبيق في الإشعارات\". انقر هنا لفتح إعدادات الإشعارات.</string>
 </resources>
