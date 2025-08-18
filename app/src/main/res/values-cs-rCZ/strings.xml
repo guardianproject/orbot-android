@@ -118,7 +118,6 @@
     <string name="ports_not_set">Porty nejsou nastaveny</string>
     <string name="ask_tor">Zeptejte se Toru</string>
     <string name="pref_http_dialog">Konfigurace portu HTTP</string>
-    <string name="menu_help_others">Pomáhat ostatním</string>
     <string name="consider_disable_battery_optimizations">Spuštěné hostované služby, zvažte vypnutí optimalizací baterie</string>
     <string name="power_user_mode">Režim Power User</string>
     <string name="btn_choose_apps">Výběr aplikací</string>
@@ -151,7 +150,6 @@
     <string name="btn_configure">Zvolte si, jak se připojit</string>
     <string name="option_only_on_wifi">Pouze v síti Wifi</string>
     <string name="consider_enable_battery_optimizations">Nejsou spuštěny žádné hostované služby, zvažte zapnutí optimalizace baterie</string>
-    <string name="bridge_snowflake">Připojení přes jiné uživatele Toru pomocí vločky Snowflake (metoda 1 - Fastly)</string>
     <string name="direct_connect">Přímé připojení k síti Tor</string>
     <string name="delete_service">Odstranit službu</string>
     <string name="v3_backup_name_hint">Název záložního souboru…</string>
@@ -167,7 +165,6 @@
     <string name="pref_open_proxy_on_all_interfaces_title">Otevření proxy serveru na všech rozhraních</string>
     <string name="v3_import_auth_private">Importovat soubor .auth_private</string>
     <string name="pref_http_title">Tor HTTP</string>
-    <string name="btn_use_custom_bridge">Použití vlastního můstku</string>
     <string name="pref_prefer_ipv6_summary">Informuje exity, že jsou upřednostňovány adresy IPv6</string>
     <string name="pref_reduced_circuit_padding">Zmenšené polstrování obvodů</string>
     <string name="v3_client_auth_activity_title">Autorizace klienta</string>
@@ -207,10 +204,8 @@
     <string name="local_port">Místní přístav</string>
     <string name="backup_restored">Obnovení zálohy</string>
     <string name="v3_onion">Doména .onion</string>
-    <string name="in_a_browser">V prohlížeči navštivte stránku %s a klepněte na možnost Získat mosty &gt; Prostě mi dejte mosty!</string>
     <string name="done">Hotovo!</string>
     <string name="v3_key_hash">x25519 Soukromý klíč v Base32</string>
-    <string name="configure_header">Konfigurace připojení Tor</string>
     <string name="pref_detect_root_summary">Varovat při spuštění, pokud jsou na tomto zařízení zapnuta oprávnění root</string>
     <string name="pref_detect_root_title">Rozpoznání root</string>
 </resources>

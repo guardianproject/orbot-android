@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Orbot</string>
+    <string name="app_description">Is aip seachfhreastalaí saor in aisce é Orbot a chumhachtaíonn aipeanna eile an t-idirlíon a úsáid ar bhealach níos sláine. Úsáideann Orbot Tor chun do thrácht Idirlín a chriptiú agus ansin cuireann sé i bhfolach é trí phreabadh trí shraith ríomhairí ar fud an domhain. Is bogearraí saor in aisce agus líonra oscailte é Tor a chabhraíonn leat cosaint a dhéanamh i gcoinne cineál faireachais líonra a bhagraíonn saoirse phearsanta agus príobháideacht, gníomhaíochtaí agus caidrimh ghnó rúnda, agus slándáil stáit ar a dtugtar anailís tráchta.</string>
+    <string name="menu_settings">Socruithe Orbot</string>
+    <string name="system_vpn_settings">Socruithe VPN Android</string>
+    <string name="menu_log">Logáil</string>
+    <string name="menu_about">Maidir</string>
+    <string name="main_layout_download">Íoslódáil</string>
+    <string name="main_layout_upload">Uaslódáil</string>
+    <string name="menu_exit">Scoir</string>
+    <string name="wizard_details_msg">Is feidhmchlár foinse oscailte é Orbot ina bhfuil Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks agus LibEvent. Soláthraíonn sé tollán VPN, seachfhreastalaí HTTP Connect áitiúil (HTTPS ar phort 8118 amháin) agus seachfhreastalaí SOCKS (9050) isteach sa líonra Tor.</string>
+    <string name="pref_general_group">Ginearálta</string>
+    <string name="pref_start_boot_title">Tosaigh Orbot ar Tosaithe</string>
+    <string name="pref_start_boot_summary">Tosaigh Orbot go huathoibríoch agus ceangail Tor nuair a thosaíonn do ghléas Android</string>
+    <string name="pref_node_configuration">Cumraíocht Nóid</string>
+    <string name="pref_node_configuration_summary">Is socruithe ardleibhéil iad seo a fhéadann do anaithnideacht a laghdú</string>
+    <string name="pref_entrance_node">Nóid Iontrála</string>
+    <string name="pref_entrance_node_summary">Méarloirg, leasainmneacha, tíortha agus seoltaí don chéad hop</string>
+    <string name="pref_entrance_node_dialog">Cuir Nóid Iontrála Isteach</string>
+    <string name="pref_allow_background_starts_title">Ceadaigh Tosaithe sa Chúlra</string>
+    <string name="pref_allow_background_starts_summary">Lig d’aon aip a rá le hOrbot Tor agus seirbhísí gaolmhara a thosú</string>
+    <string name="pref_proxy_title">Seachfhreastalaí Líonra Amach (Roghnach)</string>
+    <string name="pref_proxy_type_title">Cineál Seachfhreastalaí Amach</string>
+    <string name="pref_proxy_type_summary">Prótacal le húsáid le haghaidh seachfhreastalaí: HTTP, HTTPS, SOCKS4, SOCKS5</string>
+    <string name="pref_proxy_type_dialog">Iontráil Cineál Seachfhreastalaí</string>
+    <string name="pref_proxy_host_title">Óstach Seachfhreastalaí Amach</string>
+    <string name="pref_proxy_host_summary">Ainm óstach an fhreastalaí seachfhreastalaí</string>
+    <string name="pref_proxy_host_dialog">Iontráil Óstach Seachfhreastalaí</string>
+    <string name="pref_proxy_port_title">Port Seachfhreastalaí Amach</string>
+    <string name="pref_proxy_port_summary">Port Freastalaí Seachfhreastalaí</string>
+    <string name="pref_proxy_port_dialog">Cuir isteach port seachfhreastalaí</string>
+    <string name="pref_proxy_username_title">Ainm úsáideora Seachfhreastalaí Amach</string>
+    <string name="pref_proxy_username_summary">Ainm úsáideora seachfhreastalaí (Roghnach)</string>
+    <string name="pref_proxy_username_dialog">Cuir isteach Ainm Úsáideora an tSeolaí</string>
+    <string name="pref_proxy_password_title">Pasfhocal Seachfhreastalaí Amach</string>
+    <string name="pref_proxy_password_summary">Pasfhocal Seachfhreastalaí (Roghnach)</string>
+    <string name="pref_proxy_password_dialog">Iontráil Pasfhocal an tSeolaí</string>
+    <string name="error">Earráid</string>
+    <string name="exit_nodes">Nóid Scoir</string>
+</resources>

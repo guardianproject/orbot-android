@@ -134,9 +134,6 @@ Notificaciones ampliadas</string>
     <!--MoatActivity-->
     <!--BridgeWizardActivity-->
     <string name="custom_bridges">Idx weh.</string>
-    <!--CustomBridgesFragment-->
-    <string name="in_a_browser">Internette pakwenxite, na’s %s mtheg jĩiçxa ayte miikxtheth \"weh muy\" &gt; \"¡wehçxaatx mah!\"</string>
-    <string name="bridge_snowflake">Torta’s kseelpi’jsa yaseyak maçh, na’s kseelpi’jcxa Snowflake (Método 1 - Fastly)</string>
     <string name="bridge_snowflake_amp">Tora’s kseelpi’j yaseyak maçh, na’s kseelpi’jcxa Snowflake (Método 2 - AMP)</string>
     <string name="snowflake_proxy_msg_title">Miikthegu’ açhcxa’ kaajiyu’jnxis</string>
     <string name="snowflake_proxy_msg_description">Teeçx yuwe ktheguju’, idx Snowflake vxitetx kaajxkhewũ’ya pu’çxte</string>
@@ -147,14 +144,11 @@ Notificaciones ampliadas</string>
     <string name="connected_title">Kitxanxi ũsa’</string>
     <string name="btn_start_vpn">VPN mpu’tx</string>
     <string name="btn_configure">Mphuse\'j</string>
-    <string name="configure_header">Mphuse\'j Toryak kitxawa\'</string>
     <string name="trying_to_connect_title">Açhnaa…</string>
     <string name="btn_choose_apps">Appetx mtxhitxh</string>
     <string name="btn_change_exit">Kase’jnxi\'s myu’pthe’j </string>
     <string name="btn_refresh">Miikphuusẽe</string>
     <string name="btn_tor_off">Tora’s mfxĩçxha</string>
-    <string name="menu_help_others">Vxitetx mpu’çxh.</string>
-    <string name="btn_use_custom_bridge">Idx weha’s kseelpi’j</string>
     <string name="proxy_ports">Proxy vxitx</string>
     <string name="ports_not_set">Vxitxkwetx phuuse’jnximee</string>
     <string name="volunteer_mode_title">Vxitetx mpu’çxh Torte açya’ ewuukan</string>

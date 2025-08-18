@@ -26,7 +26,6 @@
     <string name="v3_key_hash">x25519 Súkromný kľúč v Base32</string>
     <string name="v3_delete_client_authorization_confirm">Odstránenie autorizácie klienta</string>
     <string name="delete_service">Odstránenie služby</string>
-    <string name="in_a_browser">V prehliadači navštívte stránku %s a ťuknite na položky Získať mosty &gt; Len mi daj mosty!</string>
     <string name="exit_nodes">Výstupné uzly</string>
     <string name="pref_prefer_ipv6">Uprednostňovanie pripojení IPv6</string>
     <string name="save">Uložiť</string>
@@ -39,8 +38,6 @@
     <string name="btn_change_exit">Zmena výstupu</string>
     <string name="btn_refresh">Obnoviť</string>
     <string name="btn_tor_off">Vypnutie Tor</string>
-    <string name="menu_help_others">Pomôžte ostatným</string>
-    <string name="btn_use_custom_bridge">Používanie vlastného mostíka</string>
     <string name="pref_node_configuration_summary">Toto sú pokročilé nastavenia, ktoré môžu znížiť vašu anonymitu</string>
     <string name="pref_entrance_node">Vstupné uzly</string>
     <string name="pref_entrance_node_dialog">Zadajte vstupné uzly</string>
@@ -143,7 +140,6 @@
     <string name="vpn_default_world">Globálne (Automaticky)</string>
     <string name="hidden_services">Cibuľové služby</string>
     <string name="pref_reduced_connection_padding_summary">Uzatvára reléové spojenia skôr a posiela menej paketov s výplňou, aby sa znížila spotreba dát a batérie</string>
-    <string name="bridge_snowflake">Pripojenie cez iných používateľov Tor pomocou aplikácie Snowflake (metóda 1)</string>
     <string name="v3_backup_key">Autorizačný kľúč záložného klienta</string>
     <string name="v3_backup_key_warning">Varovanie: To môže váš kľúč odhaliť pre iné aplikácie</string>
     <string name="pref_prefer_ipv6_summary">Oznamuje odchodom, že sa uprednostňujú adresy IPv6</string>
@@ -164,7 +160,6 @@
     <string name="setting_debug">Ladenie</string>
     <string name="menu_more">Viac</string>
     <string name="pref_isolate_port_summary">Použitie iného okruhu pre každý cieľový port</string>
-    <string name="configure_header">Konfigurácia pripojenia Tor</string>
     <string name="direct_connect_subtitle">Najlepší spôsob pripojenia k sieti Tor. Použite, ak Tor nie je blokovaný.</string>
     <string name="snowflake">Snowflake (originál)</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>

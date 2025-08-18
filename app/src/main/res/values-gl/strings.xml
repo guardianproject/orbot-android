@@ -141,7 +141,6 @@
     <string name="pref_isolate_protocol">Illar protocolos do cliente</string>
     <string name="pref_disable_ipv4_summary">Decir ás saídas que non se conecten a enderezos IPv4</string>
     <string name="bridge_snowflake_amp">Conectarse a través doutros usuarios de Tor utilizando Snowflake (Método 2 - AMP)</string>
-    <string name="bridge_snowflake">Conectarse a través doutros usuarios de Tor utilizando Snowflake (Método 1 - Fastly)</string>
     <string name="btn_choose_apps">Escolle aplicacións</string>
     <string name="snowflake">Snowflake (Orixinal)</string>
     <string name="volunteer_mode_alltime_label">Total de todo o tempo</string>
@@ -158,13 +157,10 @@
     <string name="user_services">Servizos do usuario</string>
     <string name="app_services">Servizos da app</string>
     <string name="custom_bridges">Pontes persoalizadas</string>
-    <string name="in_a_browser">Visite %s nun navegador web e prema en Obter pontes&gt; Dame pontes!</string>
     <string name="snowflake_proxy_msg_description">Amosar unha mensaxe cando axudas a alguén a previr a censura</string>
     <string name="secure_your_connection_title">Listo para conectar</string>
     <string name="secure_your_connection_subtitle">Oculta as apps da supervisión da rede e obteña acceso cando estén bloqueadas.</string>
     <string name="btn_change_exit">Cambiar saída</string>
-    <string name="menu_help_others">Axudar a outros</string>
-    <string name="btn_use_custom_bridge">Utilizar ponte persoalizada</string>
     <string name="proxy_ports">Porto do Proxy</string>
     <string name="direct_connect_subtitle">A mellor maneira de conectarse a Tor. Utilizar se Tor non está bloqueado.</string>
     <string name="btn_start_vpn">Iniciar VPN</string>
@@ -175,7 +171,6 @@
     <string name="no_internet_subtitle">Precísase conexión a Internet para utilizar Orbot.</string>
     <string name="btn_tor_off">Desconectar Tor</string>
     <string name="pref_circuit_padding_summary">Activar o recheo do circuito para defenderse contra algunhas formas de análise de tráfico</string>
-    <string name="configure_header">Configura a túa conexión Tor</string>
     <string name="volunteer_mode_subtitle_desc">O modo bondade permite o uso do teu dispositivo coma ponte para outros. Axuda á xente a utilizar Tor en lugares onde está bloqueado.
 \n
 \n

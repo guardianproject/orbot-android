@@ -96,7 +96,6 @@
     <string name="kibibyte">KiB</string>
     <string name="custom_bridges">Pontydd Custom</string>
     <string name="pref_http_dialog">HTTP Porth Config</string>
-    <string name="menu_help_others">Helpu Eraill</string>
     <string name="consider_disable_battery_optimizations">Gwasanaethau lletyol sy\'n rhedeg, ystyriwch analluogi optimeiddio batri</string>
     <string name="btn_choose_apps">Dewiswch apps</string>
     <string name="onion_port">Porthladd Nionyn</string>
@@ -121,7 +120,6 @@
     <string name="btn_tor_off">Trowch Tor i ffwrdd</string>
     <string name="btn_configure">Dewiswch Sut i Gysylltu</string>
     <string name="consider_enable_battery_optimizations">Dim gwasanaethau lletyol yn rhedeg, ystyriwch alluogi optimeiddio batri</string>
-    <string name="bridge_snowflake">Cysylltu trwy ddefnyddwyr Tor eraill gan ddefnyddio Snowflake (Dull 1 - Yn Gyflym)</string>
     <string name="delete_service">Dileu Gwasanaeth</string>
     <string name="v3_backup_name_hint">Enw ffeil wrth gefn…</string>
     <string name="pref_transport_dialog">TransProxy Port Config</string>
@@ -133,7 +131,6 @@
     <string name="pref_connection_padding_summary">Bob amser yn galluogi padin cysylltiad i amddiffyn yn erbyn rhai mathau o ddadansoddi traffig. Diofyn: auto</string>
     <string name="v3_import_auth_private">Mewnforio .auth_private</string>
     <string name="pref_http_title">Tor HTTP</string>
-    <string name="btn_use_custom_bridge">Defnyddiwch Bont Custom</string>
     <string name="pref_prefer_ipv6_summary">Yn dweud wrth allanfeydd bod cyfeiriadau IPv6 yn cael eu ffafrio</string>
     <string name="pref_dnsport_title">Porth DNS Tor</string>
     <string name="pref_reduced_circuit_padding">Padin cylched llai</string>
@@ -164,8 +161,6 @@
     <string name="local_port">Porthladd Lleol</string>
     <string name="backup_restored">Copi wrth gefn wedi\'i adfer</string>
     <string name="v3_onion">Parth .onion</string>
-    <string name="in_a_browser">Mewn porwr, ewch i %s a thapiwch Cael Pontydd &gt; Rhowch Bontydd i Mi!</string>
     <string name="done">Wedi\'i wneud!</string>
     <string name="v3_key_hash">x25519 Allwedd Breifat yn Sylfaen32</string>
-    <string name="configure_header">Ffurfweddu eich Cysylltiad Tor</string>
 </resources>

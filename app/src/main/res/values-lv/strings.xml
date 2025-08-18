@@ -99,8 +99,6 @@
     <string name="btn_change_exit">Mainīt izeju</string>
     <string name="btn_refresh">Atjaunināt</string>
     <string name="btn_tor_off">Tor izslēgšana</string>
-    <string name="menu_help_others">Palīdzēt citiem</string>
-    <string name="btn_use_custom_bridge">Pielāgotā tilta izmantošana</string>
     <string name="hidden_service_request">Programma vēlas atvērt sīpolu serveri Tor tīklā porta %1$s. Tas ir droši, ja lietotnei uzticaties.</string>
     <string name="kibibyte">KiB</string>
     <string name="v3_backup_name_hint">Rezerves kopijas faila nosaukums…</string>
@@ -153,8 +151,6 @@
     <string name="delete_service">Pakalpojuma dzēšana</string>
     <string name="pref_connection_padding_summary">Vienmēr iespējota savienojuma pildīšana, lai aizsargātos pret dažāda veida datplūsmas analīzi. Noklusējuma iestatījums: automātiskais</string>
     <string name="copy_address_to_clipboard">Kopēt adresi uz starpliktuvi</string>
-    <string name="in_a_browser">Pārlūkprogrammā apmeklējiet %s un pieskarieties vienumam Get Bridges &gt; Just Give Me Bridges!</string>
-    <string name="bridge_snowflake">Savienošanās ar citiem Tor lietotājiem, izmantojot Snowflake (1 metode)</string>
     <string name="secure_your_connection_title">Gatavs savienošanai</string>
     <string name="trying_to_connect_title">Savienošana…</string>
     <string name="action_activate">Atjaunot</string>
@@ -210,5 +206,4 @@
     <string name="volunteer_status_title">Šodien ir labāk
 \npateicoties tev.</string>
     <string name="many_ways">Ir vairāki veidi, kā sasniegt Tor. Daži no tiem jums var darboties labāk nekā citi.</string>
-    <string name="configure_header">Tor savienojuma konfigurēšana</string>
 </resources>

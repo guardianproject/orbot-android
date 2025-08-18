@@ -36,7 +36,6 @@
     <string name="connect">Միանալ</string>
     <string name="btn_start_vpn">Սկսել VPN-ը</string>
     <string name="secure_your_connection_title">Պատրաստ է միացման</string>
-    <string name="btn_use_custom_bridge">Օգտվել հարմարեցրած կամուրջից</string>
     <string name="smart_connect">Խելացի միացում (լռելայն)</string>
     <string name="volunteer_status_title">Այսօր ավելի լավ է
 \nՁեր շնորհիվ:</string>
@@ -69,8 +68,6 @@
     <string name="copy_address_to_clipboard">Պատճենել հասցեն սեղմատախտակի վրա</string>
     <string name="user_services">Օգտագործողի ծառայություններ</string>
     <string name="btn_configure">Որոշեք ինչպես միանալ</string>
-    <string name="configure_header">Կարգավորեք Ձեր Tor-ի միացումը</string>
-    <string name="menu_help_others">Օգնել այլոց</string>
     <string name="direct_connect">Tor-ին ուղիղ միացում</string>
     <string name="direct_connect_subtitle">Tor-ին միանալու լավագույն ձևը: Օգտագործեք եթե Tor-ն արգելափակված չէ:</string>
     <string name="snowflake">Snowflake (բնօրինակ ձև)</string>

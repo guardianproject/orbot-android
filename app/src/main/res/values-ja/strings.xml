@@ -135,15 +135,12 @@
     <string name="btn_change_exit">出口を変更する</string>
     <string name="btn_refresh">リフレッシュ</string>
     <string name="btn_tor_off">Tor をオフにする</string>
-    <string name="menu_help_others">他の人を助ける</string>
-    <string name="btn_use_custom_bridge">カスタムブリッジを使用する</string>
     <string name="version">バージョン:</string>
     <string name="license">ライセンス:</string>
     <string name="pref_reduced_circuit_padding">縮小されたサーキットパディング</string>
     <string name="pref_circuit_padding">サーキットパディング</string>
     <string name="pref_circuit_padding_summary">いくつかの形式のトラフィック解析から防御するために、サーキットパディングを有効にします</string>
     <string name="pref_reduced_circuit_padding_summary">データと電池の消費量を減らすために、低い追加処理パディングアルゴリズムを使います</string>
-    <string name="bridge_snowflake">Snowflake を使って他の Tor ユーザーを経由して接続する (方法1 - Fastly)</string>
     <string name="bridge_snowflake_amp">Snowflake を使って他の Tor ユーザーを経由して接続する(方法2 - AMP)</string>
     <string name="snowflake_proxy_msg_description">検閲回避に協力した際にメッセージを表示する</string>
     <string name="kibibyte">KiB</string>
@@ -152,14 +149,12 @@
     <string name="v3_delete_client_authorization_confirm">クライアント認証を削除</string>
     <string name="v3_backup_name_hint">バックアップファイル名…</string>
     <string name="backup_port_exist">エラー: Onion Service は既にポート %s を使用しています</string>
-    <string name="in_a_browser">ブラウザーで %s にアクセスし、Get Bridges &gt; Just Give Me Bridges! をタップします</string>
     <string name="snowflake_proxy_msg_title">接続通知を表示</string>
     <string name="v3_onion">.onion ドメイン</string>
     <string name="strict_nodes_description">除外ノードの設定は、すべての回路を構築するための要件として扱われます。このため、除外ノードの設定で回路を生成できない場合、根本的な機能が停止することがあります。</string>
     <string name="mebibyte">MiB</string>
     <string name="proxy_ports">プロキシのポート</string>
     <string name="ports_not_set">ポート設定していません</string>
-    <string name="configure_header">あなたの Tor 接続を構成する</string>
     <string name="next">次へ</string>
     <string name="volunteer_mode_title">他の人の Tor への
 \n接続を支援する</string>

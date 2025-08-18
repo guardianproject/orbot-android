@@ -74,7 +74,6 @@
     <string name="pref_disable_network_summary">Pon Tor a dormir cuando no haya Internet disponible</string>
     <string name="pref_use_expanded_notifications">Muestra en la notificación el país y la dirección IP de tu nodo Tor de salida cuando esté disponible</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Permite que las personas conectadas al mismo Wi-Fi, los dispositivos conectados y cualquier otra persona que pueda conectarse a tu IP acceda a Tor</string>
-    <string name="btn_use_custom_bridge">Usar puente personalizado</string>
     <string name="volunteer_mode_subtitle_desc">El modo Solidario permite que tu dispositivo sea un puente para los demás. Ayuda a las personas a usar Tor en lugares donde está bloqueado.
 \n
 \n• No agotará la batería
@@ -152,8 +151,6 @@
     <string name="user_services">Servicios de Usuario</string>
     <string name="app_services">Servicios de aplicaciones</string>
     <string name="custom_bridges">Puentes personalizados</string>
-    <string name="in_a_browser">En un navegador, visita %s y toca Obtener puentes &gt; ¡Solo dame puentes!</string>
-    <string name="bridge_snowflake">Conéctate a través de otros usuarios de Tor usando Snowflake (Método 1 - Rápidamente)</string>
     <string name="bridge_snowflake_amp">Conéctate a través de otros usuarios de Tor usando Snowflake (Método 2 - AMP)</string>
     <string name="snowflake_proxy_msg_title">Mostrar notificación de conexión</string>
     <string name="snowflake_proxy_msg_description">Muestra un mensaje cuando tu Snowflake ayuda a alguien a eludir la censura</string>
@@ -162,12 +159,10 @@
     <string name="connected_title">Connectado</string>
     <string name="btn_start_vpn">Iniciar el VPN</string>
     <string name="btn_configure">Elija cómo conectarse</string>
-    <string name="configure_header">Configura tu conexión Tor</string>
     <string name="trying_to_connect_title">Conectando…</string>
     <string name="btn_choose_apps">Elegir aplicaciones</string>
     <string name="btn_refresh">Actualizar</string>
     <string name="btn_tor_off">Desactiva Tor</string>
-    <string name="menu_help_others">Ayudar a otres</string>
     <string name="proxy_ports">Puertos Proxy</string>
     <string name="ports_not_set">Puertos no establecidos</string>
     <string name="volunteer_mode_title">Ayuda a otres

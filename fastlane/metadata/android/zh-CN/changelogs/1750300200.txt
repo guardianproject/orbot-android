@@ -1,0 +1,3 @@
+- 更新至 tor 0.4.8.17
+- 多项用户界面改进
+- 支持 WebTunnel 和 Snowflake 代理的最新版本

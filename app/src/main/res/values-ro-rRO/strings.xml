@@ -99,7 +99,6 @@
     <string name="pref_reduced_circuit_padding_summary">Utilizați algoritmi de umplutură cu costuri mai mici pentru a reduce utilizarea datelor și a bateriei</string>
     <string name="pref_prefer_ipv6_summary">Spune ieșirilor că sunt preferate adresele IPv6</string>
     <string name="pref_disable_ipv4">Dezactivați conexiunile IPv4</string>
-    <string name="bridge_snowflake">Conectați-vă prin intermediul altor utilizatori Tor folosind Snowflake (Metoda 1 - Fastly)</string>
     <string name="ports_not_set">Porturile nu sunt setate</string>
     <string name="direct_connect">Conexiune directă la Tor</string>
     <string name="direct_connect_subtitle">Cel mai bun mod de a vă conecta la Tor. Utilizați dacă Tor nu este blocat.</string>
@@ -117,7 +116,6 @@
     <string name="no_internet_subtitle">Aveți nevoie de o conexiune la internet pentru a utiliza Orbot.</string>
     <string name="pref_prefer_ipv6">Preferați conexiunile IPv6</string>
     <string name="btn_configure">Alegeți cum să vă conectați</string>
-    <string name="configure_header">Configurați-vă conexiunea Tor</string>
     <string name="volunteer_mode_subtitle_desc">Modul Bunătate permite dispozitivului dvs. să fie o punte de legătură pentru ceilalți. Ajută oamenii să folosească Tor în locurile în care acesta este blocat.
 \n
 \n• Nu vă va consuma bateria
@@ -137,8 +135,6 @@
     <string name="trying_to_connect_title">Se conectează…</string>
     <string name="btn_choose_apps">Alegere aplicații</string>
     <string name="btn_change_exit">Schimbare ieșire</string>
-    <string name="menu_help_others">Ajutați-i pe alții</string>
-    <string name="btn_use_custom_bridge">Utilizați punte personalizată</string>
     <string name="proxy_ports">Porturi proxy</string>
     <string name="snowflake_amp">Snowflake AMP</string>
     <string name="asking">CERERE…</string>
@@ -175,7 +171,6 @@
     <string name="consider_enable_battery_optimizations">Nu rulează servicii găzduite, luați în considerare activarea optimizărilor pentru baterie</string>
     <string name="pref_isolate_dest">Izolați adresele de destinație</string>
     <string name="pref_reduced_connection_padding">Tamponare redusă a conexiunii</string>
-    <string name="in_a_browser">Într-un browser, vizitați %s și atingeți Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="smart_connect">Conectare inteligentă (implicită)</string>
     <string name="kindness_adjust_title">Setări</string>
     <string name="snowflake_subtitle">Se conectează prin intermediul voluntarilor Tor. Ocolește unele blocaje Tor.</string>

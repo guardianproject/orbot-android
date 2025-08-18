@@ -130,8 +130,6 @@
     <string name="trying_to_connect_title">Conectando…</string>
     <string name="btn_choose_apps">Elije las aplicaciones</string>
     <string name="btn_change_exit">Cambiar la salida</string>
-    <string name="menu_help_others">Ayudar a los demás</string>
-    <string name="btn_use_custom_bridge">Utilizar un puente personalizado</string>
     <string name="v3_backup_key_warning">Advertencia: Esto podría exponer tu clave a otras aplicaciones</string>
     <string name="v3_delete_client_authorization">Borrar la clave de autorización del cliente</string>
     <string name="backup_port_exist">Error: Un servicio de Onion ya está usando el puerto %s</string>
@@ -139,7 +137,6 @@
     <string name="pref_reduced_circuit_padding">Reducción del relleno del circuito</string>
     <string name="pref_reduced_circuit_padding_summary">Utilizar algoritmos de relleno de menor carga para reducir el uso de datos y de la batería</string>
     <string name="custom_bridges">Puentes a medida</string>
-    <string name="in_a_browser">En un navegador, visite %s y pulse Obtene puentes &gt; ¡Sólo dame puentes!</string>
     <string name="snowflake_proxy_msg_title">Mostrar notificación de conexión</string>
     <string name="snowflake_proxy_msg_description">Muestra un mensaje cuando ayude a alguien a eludir la censura</string>
     <string name="bridge_snowflake_amp">Conectarse a través de otros usuarios de Tor usando Snowflake (Método 2)</string>
@@ -153,13 +150,11 @@
     <string name="confirm">Confirmar</string>
     <string name="v3_onion">Dominio .onion</string>
     <string name="strict_nodes_description">Trate la configuración de los Nodos Excluidos como un requisito para construir todos los circuitos. Esto puede romper la funcionalidad si no se pueden generar circuitos con su configuración de Nodos Excluidos.</string>
-    <string name="bridge_snowflake">Conéctate a través de otros usuarios de Tor usando Snowflake (Método 1)</string>
     <string name="btn_refresh">Actualizar</string>
     <string name="btn_tor_off">Apagar Tor</string>
     <string name="secure_your_connection_subtitle">Oculta las aplicaciones de la supervisión de la red y obten acceso cuando estén bloqueadas.</string>
     <string name="direct_connect_subtitle">La mejor manera de conectarse a Tor. Usar si Tor no está bloqueado.</string>
     <string name="snowflake_subtitle">Se conecta a través de los voluntarios de Tor. Evita algunos bloqueos de Tor.</string>
-    <string name="configure_header">Configura tu conexión Tor</string>
     <string name="proxy_ports">Puerto de Proxy</string>
     <string name="volunteer_mode_title">Ayudar a otros
 \nconectarse a Tor</string>

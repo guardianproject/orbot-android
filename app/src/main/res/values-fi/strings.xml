@@ -101,7 +101,6 @@
     <string name="confirm">Vahvista</string>
     <string name="mebibyte">MiB</string>
     <string name="kibibyte">KiB</string>
-    <string name="in_a_browser">Avaa osoite %s selaimessasi ja paina Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="pref_reduced_circuit_padding_summary">Käytä kevyempiä pehmustusalgoritmeja vähentääksesi tiedonsiirtoa ja virrankulutusta.</string>
     <string name="pref_reduced_circuit_padding">Kevennetty ketjupehmustus</string>
     <string name="pref_circuit_padding_summary">Pehmusta ketjuja suojautuaksesi eräiltä tietoliikenteen analysointitavoilta.</string>
@@ -113,7 +112,6 @@
     <string name="v3_backup_name_hint">Varmuuskopioi tiedostonimi…</string>
     <string name="v3_backup_key">Varmuuskopioi päätteen todennusavain</string>
     <string name="v3_key_hash">Yksityinen Base32 x25519 -avain</string>
-    <string name="bridge_snowflake">Yhdistä muiden Tor-käyttäjien välityksellä käyttäen Snowflakea (menetelmä 1 - Nopeasti)</string>
     <string name="custom_bridges">Omat sillat</string>
     <string name="app_services">Sovelluspalvelut</string>
     <string name="user_services">Käyttäjäpalvelut</string>
@@ -148,7 +146,6 @@
     <string name="btn_change_exit">Vaihda päätössolmu</string>
     <string name="btn_refresh">Päivitä</string>
     <string name="btn_tor_off">Katkaise Tor-yhteys</string>
-    <string name="menu_help_others">Auta muita</string>
     <string name="strict_nodes_description">Käsittele Ohitettavat solmut -määrityksiä kaikkien ketjujen rakennusehtona. Tämä saattaa rikkoa toiminnan, jos ohitusmäärityksillä ei kyetä luomaan ketjuja.</string>
     <string name="bridge_snowflake_amp">Yhdistä muiden Tor-käyttäjien välityksellä käyttäen Snowflakea (menetelmä 2 - AMP)</string>
     <string name="snowflake_proxy_msg_title">Näytä yhteysilmoitus</string>
@@ -156,7 +153,6 @@
     <string name="secure_your_connection_title">Valmis yhdistämään</string>
     <string name="trying_to_connect_title">Yhdistetään…</string>
     <string name="secure_your_connection_subtitle">Piilota sovelluksia verkkoseurannalta ja käytä estettyjä palveluita.</string>
-    <string name="btn_use_custom_bridge">Käytä omaa siltaa</string>
     <string name="proxy_ports">Välityspalvelimen portit</string>
     <string name="power_user_description">Kokeneille Tor-käyttäjille. Mahdollistaa Orbotin käynnistyksen ilman VPN-asetusta ja näyttää avoimet SOCKS- ja HTTP-portit.</string>
     <string name="power_user_mode">Tehokäyttäjätila</string>
@@ -166,7 +162,6 @@
     <string name="app_suggested_subtitle">Orbot toimii parhaiten viestintäsovellusten ja sosiaalisen median sovellusten kanssa.</string>
     <string name="apps_other_apps">Muut sovellukset</string>
     <string name="apps_suggested_title">Ehdotetut sovellukset</string>
-    <string name="configure_header">Määritä Tor-yhteytesi</string>
     <string name="volunteer_mode_weekly_label">Viikottainen kokonaismäärä</string>
     <string name="volunteer_mode_alltime_label">Kaikkien aikojen kokonaismäärä</string>
     <string name="volunteer_mode_title">Auta muita yhdistämään Tor-verkkoon</string>
