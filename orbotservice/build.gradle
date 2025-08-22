@@ -10,10 +10,25 @@ plugins {
 android {
     namespace = "org.torproject.android.service"
     compileSdk = 36
+    ndkVersion "28.1.13356709"
 
     defaultConfig {
         minSdk = 24
         targetSdk = 36
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", 'x86', 'x86_64'
+        }
+        externalNativeBuild {
+            cmake {
+                arguments "APP_CFLAGS+=-DPKGNAME=org/torproject/android/service/ -ffile-prefix-map=${rootDir}=."
+                arguments "APP_LDFLAGS+=-Wl,--build-id=none"
+            }
+        }
+    }
+    externalNativeBuild {
+        ndkBuild {
+            path "src/main/jni/Android.mk"
+        }
     }
 
     buildTypes {
@@ -52,12 +67,11 @@ tasks.withType(KotlinJvmCompile).configureEach {
 }
 
 dependencies {
-    // Use locally built ipt_proxy+go_tun2socks
-    api(project(":OrbotLib"))
     api(libs.guardian.jtorctl)
     api(libs.tor.android)
 //    api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))
 
+    implementation(libs.iptproxy)
     implementation(libs.android.shell)
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)

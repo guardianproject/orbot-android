@@ -22,7 +22,6 @@ class DNSResolver(private val mPort: Int) {
         datagramSocket.receive(packet)
 
         datagramSocket.close()
-
         return packet.data
     }
 }

@@ -793,7 +793,7 @@ public class OrbotService extends VpnService {
                     startTor();
                     replyWithStatus(mIntent);
                     if (Prefs.useVpn()) {
-                        if (mVpnManager != null && (!mVpnManager.isStarted())) { // start VPN here
+                        if (mVpnManager != null && !mVpnManager.isStarted()) { // start VPN here
                             Intent vpnIntent = VpnService.prepare(OrbotService.this);
                             if (vpnIntent == null) { //then we can run the VPN
                                 mVpnManager.handleIntent(new Builder(), mIntent);
@@ -813,7 +813,7 @@ public class OrbotService extends VpnService {
                 case ACTION_UPDATE_ONION_NAMES -> updateV3OnionNames();
                 case ACTION_STOP_FOREGROUND_TASK -> stopForeground(true);
                 case ACTION_START_VPN -> {
-                    if (mVpnManager != null && (!mVpnManager.isStarted())) {
+                    if (mVpnManager != null && !mVpnManager.isStarted()) {
                         //start VPN here
                         var vpnIntent = VpnService.prepare(OrbotService.this);
                         if (vpnIntent == null) { //then we can run the VPN
