@@ -19,7 +19,6 @@ import org.torproject.android.service.util.getKey
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.more.MoreActionAdapter
 import org.torproject.android.ui.OrbotMenuAction
-import java.lang.reflect.Field
 import kotlin.String
 
 class CamoFragment : Fragment() {
@@ -108,17 +107,12 @@ class CamoFragment : Fragment() {
         return item
     }
 
-    // https://stackoverflow.com/questions/60122037/how-can-i-detect-samsung-one-ui
+    /*
+     * Samsung phones usually don't allow custom ROMs, so this check is fine.
+     */
     private fun hasSamsungOneUI(): Boolean {
-        try {
-            val semPlatformIntField: Field =
-                Build.VERSION::class.java.getDeclaredField("SEM_PLATFORM_INT")
-            val version: Int = semPlatformIntField.getInt(null) - 90000
-            return Build.FINGERPRINT.contains("samsung") &&
-                    version >= 0
-        } catch (_: NoSuchFieldException) {
-            return false
-        }
+        return Build.MANUFACTURER.equals("samsung", ignoreCase = true) &&
+               Build.BRAND.equals("samsung", ignoreCase = true)
     }
 
     companion object {
