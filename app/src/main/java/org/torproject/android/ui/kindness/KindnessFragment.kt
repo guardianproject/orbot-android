@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import org.torproject.android.ui.connect.CustomBridgeBottomSheet
@@ -13,6 +14,7 @@ import org.torproject.android.R
 import org.torproject.android.service.util.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
+import org.torproject.android.service.util.canStartForegroundServices
 
 class KindnessFragment : Fragment() {
 
@@ -44,11 +46,16 @@ class KindnessFragment : Fragment() {
         }
 
         view.findViewById<TextView>(R.id.swVolunteerAdjust).setOnClickListener {
-            KindnessConfigBottomSheet().show(requireActivity().supportFragmentManager, CustomBridgeBottomSheet.Companion.TAG)
+            KindnessConfigBottomSheet().show(
+                requireActivity().supportFragmentManager,
+                CustomBridgeBottomSheet.Companion.TAG
+            )
         }
 
         btnActionActivate.setOnClickListener {
-            swVolunteerMode.isChecked = true
+            if (requireContext().canStartForegroundServices())
+                swVolunteerMode.isChecked = true
+            else Toast.makeText(requireContext(), "cant", Toast.LENGTH_LONG).show()
         }
 
         showPanelStatus(Prefs.beSnowflakeProxy())

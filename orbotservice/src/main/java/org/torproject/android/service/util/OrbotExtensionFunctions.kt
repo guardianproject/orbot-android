@@ -30,23 +30,28 @@ fun Intent.putNotSystem(): Intent = this.putExtra(OrbotConstants.EXTRA_NOT_SYSTE
  * @param intent The Intent to be sent to the service.
  */
 fun Context.sendIntentToService(intent: Intent) {
-    Log.d("Orbot", "sendIntentToService-${intent.action}")
+    //    Log.d("Orbot", "sendIntentToService-${intent.action}")
+    if (canStartForegroundServices()) {
+        ContextCompat.startForegroundService(this, intent.putNotSystem())
+    } else {
+        // Log.e("Orbot", "Need additional permissions to start OrbotService in foreground")
+    }
+}
 
+fun Context.canStartForegroundServices(): Boolean {
     // https://developer.android.com/develop/background-work/services/fgs/service-types
     // if we are below API 34 we don't need additional permissions
     // on API 34+ we need the user to have granted the VPN status to Orbot,
     // or an explicit granting of the SCHEDULE_EXACT_ALARMS permission
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE
-        || VpnService.prepare(this) == null
-        || ContextCompat.checkSelfPermission(
-            this,
-            Manifest.permission.SCHEDULE_EXACT_ALARM
-        ) == PackageManager.PERMISSION_GRANTED
-    ) {
-        ContextCompat.startForegroundService(this, intent.putNotSystem())
-    } else {
-        Log.e("Orbot", "Need additional permissions to start OrbotService in foreground")
-    }
+
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+        return true
+    if (VpnService.prepare(this) == null)
+        return true
+    return ContextCompat.checkSelfPermission(
+        this,
+        Manifest.permission.SCHEDULE_EXACT_ALARM
+    ) == PackageManager.PERMISSION_GRANTED
 
 }
 
