@@ -1,12 +1,15 @@
 package org.torproject.android.service.util
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.VpnService
+import android.os.Build
+import android.util.Log
 import android.widget.Toast
 import androidx.annotation.StringRes
-
 import androidx.core.content.ContextCompat
-
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 
@@ -26,8 +29,26 @@ fun Intent.putNotSystem(): Intent = this.putExtra(OrbotConstants.EXTRA_NOT_SYSTE
  *
  * @param intent The Intent to be sent to the service.
  */
-fun Context.sendIntentToService(intent: Intent) =
-    ContextCompat.startForegroundService(this, intent.putNotSystem())
+fun Context.sendIntentToService(intent: Intent) {
+    Log.d("Orbot", "sendIntentToService-${intent.action}")
+
+    // https://developer.android.com/develop/background-work/services/fgs/service-types
+    // if we are below API 34 we don't need additional permissions
+    // on API 34+ we need the user to have granted the VPN status to Orbot,
+    // or an explicit granting of the SCHEDULE_EXACT_ALARMS permission
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE
+        || VpnService.prepare(this) == null
+        || ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.SCHEDULE_EXACT_ALARM
+        ) == PackageManager.PERMISSION_GRANTED
+    ) {
+        ContextCompat.startForegroundService(this, intent.putNotSystem())
+    } else {
+        Log.e("Orbot", "Need additional permissions to start OrbotService in foreground")
+    }
+
+}
 
 /**
  * Overloaded extension function for `Context` to send an Intent to a foreground service
