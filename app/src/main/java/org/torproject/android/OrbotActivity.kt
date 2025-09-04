@@ -35,6 +35,7 @@ import org.torproject.android.service.util.sendIntentToService
 import org.torproject.android.ui.core.BaseActivity
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
+import org.torproject.android.service.util.canStartForegroundServices
 import org.torproject.android.service.util.showToast
 import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.ui.connect.ConnectViewModel
@@ -244,6 +245,11 @@ class OrbotActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
         sendIntentToService(OrbotConstants.CMD_ACTIVE)
+        // turn off snowflake proxy if on API 34 and you no longer have 
+        // the right permissions to be a foreground service....
+        if (Prefs.beSnowflakeProxy() && !canStartForegroundServices()) {
+            Prefs.setBeSnowflakeProxy(false)
+        }
     }
 
     override fun onDestroy() {
