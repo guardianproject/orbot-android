@@ -2,8 +2,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:iconSpaceReserved="false">
 
-    <PreferenceCategory
+    <PreferenceScreen
         android:title="@string/pref_general_group"
+        android:key="category_general"
         app:iconSpaceReserved="false">
 
         <ListPreference
@@ -77,10 +78,11 @@
             android:defaultValue="false"
             app:iconSpaceReserved="false"/>
 
-    </PreferenceCategory>
+    </PreferenceScreen>
 
-    <PreferenceCategory
+    <PreferenceScreen
         android:title="@string/volunteer_mode"
+        android:key="category_kindness"
         app:iconSpaceReserved="false">
 
         <CheckBoxPreference
@@ -90,9 +92,9 @@
             android:title="@string/snowflake_proxy_msg_title"
             app:iconSpaceReserved="false" />
 
-    </PreferenceCategory>
+    </PreferenceScreen>
 
-    <PreferenceCategory
+    <PreferenceScreen
         android:key="category_node_config"
         android:title="@string/pref_node_configuration"
         app:iconSpaceReserved="false"
@@ -125,10 +127,11 @@
             android:title="@string/strict_nodes"
             app:iconSpaceReserved="false" />
 
-    </PreferenceCategory>
+    </PreferenceScreen>
 
-    <PreferenceCategory
+    <PreferenceScreen
         android:title="@string/reachable_addresses"
+        android:key="category_reachable_addresses"
         app:iconSpaceReserved="false">
         <CheckBoxPreference
             android:defaultValue="false"
@@ -145,11 +148,11 @@
             android:summary="@string/ports_reachable_behind_a_restrictive_firewall"
             android:title="@string/reachable_ports"
             app:iconSpaceReserved="false" />
-    </PreferenceCategory>
+    </PreferenceScreen>
 
-    <PreferenceCategory
+    <PreferenceScreen
         android:title="Connectivity"
-
+        android:key="category_connectivity"
         app:iconSpaceReserved="false">
         <CheckBoxPreference
             android:defaultValue="false"
@@ -193,12 +196,11 @@
             android:summary="@string/pref_disable_ipv4_summary"
             android:title="@string/pref_disable_ipv4"
             app:iconSpaceReserved="false" />
-    </PreferenceCategory>
+    </PreferenceScreen>
 
-    <PreferenceCategory
+    <PreferenceScreen
         android:title="@string/setting_padding"
-
-
+        android:key="category_padding"
         app:iconSpaceReserved="false">
         <CheckBoxPreference
             android:defaultValue="false"
@@ -228,11 +230,11 @@
             android:summary="@string/pref_reduced_circuit_padding_summary"
             android:title="@string/pref_reduced_circuit_padding"
             app:iconSpaceReserved="false" />
-    </PreferenceCategory>
+    </PreferenceScreen>
 
-    <PreferenceCategory
+    <PreferenceScreen
         android:title="@string/pref_proxy_title"
-
+        android:key="category_proxy"
         app:iconSpaceReserved="false">
         <EditTextPreference
             android:dialogTitle="@string/pref_proxy_type_dialog"
@@ -267,11 +269,11 @@
             android:summary="@string/pref_proxy_password_summary"
             android:title="@string/pref_proxy_password_title"
             app:iconSpaceReserved="false" />
-    </PreferenceCategory>
+    </PreferenceScreen>
 
-    <PreferenceCategory
+    <PreferenceScreen
         android:title="@string/setting_debug"
-
+        android:key="category_debug"
         app:iconSpaceReserved="false">
 
         <EditTextPreference
@@ -334,6 +336,6 @@
             android:title="@string/pref_disable_network_title"
             app:iconSpaceReserved="false" />
 
-    </PreferenceCategory>
+    </PreferenceScreen>
 
 </PreferenceScreen>
