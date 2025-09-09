@@ -42,9 +42,11 @@ import org.pcap4j.packet.namednumber.UdpPort;
 import org.torproject.android.service.OrbotConstants;
 import org.torproject.android.service.OrbotService;
 import org.torproject.android.service.ui.Notifications;
+import org.torproject.android.service.TProxyService;
 import org.torproject.android.service.util.Prefs;
 
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -52,11 +54,8 @@ import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import IPtProxy.IPtProxy;
-import IPtProxy.PacketFlow;
-
 public class OrbotVpnManager implements Handler.Callback {
-    private static final String TAG = "OrbotVpnManager";
+    private static final String TAG = "bim";
     boolean isStarted = false;
     private ParcelFileDescriptor mInterface;
     private int mTorSocks = -1;
@@ -128,7 +127,8 @@ public class OrbotVpnManager implements Handler.Callback {
         if (mInterface != null) {
             try {
                 Log.d(TAG, "closing interface, destroying VPN interface");
-                IPtProxy.stopSocks();
+//                IPtProxy.stopSocks();
+                TProxyService.TProxyStopService();
                 if (fis != null) {
                     fis.close();
                     fis = null;
@@ -148,6 +148,7 @@ public class OrbotVpnManager implements Handler.Callback {
 
         if (mThreadPacket != null && mThreadPacket.isAlive()) {
             mThreadPacket.interrupt();
+            mThreadPacket = null;
         }
     }
 
@@ -159,21 +160,22 @@ public class OrbotVpnManager implements Handler.Callback {
 
     public final static String FAKE_DNS = "10.0.0.1";
 
+    private static final String VIRTUAL_GATEWAY_IPV4 = "198.18.0.1";
+    private static final String VIRTUAL_GATEWAY_IPV6 = "fc00::1";
+
     private synchronized void setupTun2Socks(final VpnService.Builder builder) {
         try {
             final String defaultRoute = "0.0.0.0";
-            final String virtualGateway = "192.168.50.1";
 
-            //    builder.setMtu(VPN_MTU);
-            //   builder.addAddress(virtualGateway, 32);
-            builder.addAddress(virtualGateway, 24)
+            builder.setMtu(TProxyService.TUNNEL_MTU);
+            builder.addAddress(VIRTUAL_GATEWAY_IPV4, 32)
                     .addRoute(defaultRoute, 0)
                     .addRoute(FAKE_DNS, 32)
                      .addDnsServer(FAKE_DNS) //just setting a value here so DNS is captured by TUN interface
                     .setSession(Notifications.getVpnSessionName(mService));
 
             //handle ipv6
-            builder.addAddress("fdfe:dcba:9876::1", 126);
+            builder.addAddress(VIRTUAL_GATEWAY_IPV6, 128);
             builder.addRoute("::", 0);
 
             /*
@@ -216,23 +218,39 @@ public class OrbotVpnManager implements Handler.Callback {
         }
     }
 
-    private void startListeningToFD() throws IOException {
-        if (mInterface == null) return; // Prepare hasn't been called yet
+    public File getHevSocksTunnelConfFile() throws IOException {
+        var file = new File(mService.getCacheDir(), "tproxy.conf");
+        file.createNewFile();
+        var fos = new FileOutputStream(file, false);
 
+        var tproxy_conf = "misc:\n" +
+                "  log-level: debug\n" +
+                "  task-stack-size: " + TProxyService.TASK_SIZE + "\n" +
+                "tunnel:\n" +
+                "  ipv4: '" + VIRTUAL_GATEWAY_IPV4 + "'\n" +
+                "  ipv6: '" + VIRTUAL_GATEWAY_IPV6 + "'\n" +
+                "  mtu: " + TProxyService.TUNNEL_MTU + "\n";
+
+        tproxy_conf += "socks5:\n" +
+                "  port: " + mTorSocks + "\n" +
+                "  address: 127.0.0.1\n" +
+                "  udp: 'udp'\n";
+
+        // TODO handle socks username and password here
+
+        fos.write(tproxy_conf.getBytes());
+        fos.close();
+        return file;
+    }
+
+    private void startListeningToFD() throws IOException {
+        if (mInterface == null) return;
         fis = new FileInputStream(mInterface.getFileDescriptor());
         fos = new DataOutputStream(new FileOutputStream(mInterface.getFileDescriptor()));
 
-        //write packets back out to TUN
-        PacketFlow pFlow = packet -> {
-            try {
-                fos.write(packet);
-            } catch (IOException e) {
-                Log.e(TAG, "error writing to VPN fd", e);
-            }
-        };
+        File conf = getHevSocksTunnelConfFile();
 
-        IPtProxy.startSocks(pFlow, "127.0.0.1", mTorSocks);
-
+        TProxyService.TProxyStartService(conf.getAbsolutePath(), mInterface.getFd());
         //read packets from TUN and send to go-tun2socks
         mThreadPacket = new Thread() {
             public void run() {
@@ -250,14 +268,15 @@ public class OrbotVpnManager implements Handler.Callback {
 
                                 if (packet instanceof IpPacket ipPacket) {
                                     if (isPacketDNS(ipPacket))
-                                        mExec.execute(new RequestPacketHandler(ipPacket, pFlow, mDnsResolver));
+                                        mExec.execute(new RequestPacketHandler(ipPacket, fos, mDnsResolver));
                                     else //noinspection StatementWithEmptyBody
                                         if (isPacketICMP(ipPacket)) {
                                             //do nothing, drop!
-                                        } else IPtProxy.inputPacket(pdata);
+                                        } else fos.write(pdata);
                                 }
                             } catch (IllegalRawDataException e) {
-                                Log.e(TAG, e.getLocalizedMessage());
+                                Log.e(TAG, e.toString());
+
                             }
                         }
                     } catch (Exception e) {
@@ -267,8 +286,8 @@ public class OrbotVpnManager implements Handler.Callback {
             }
         };
         mThreadPacket.start();
-    }
 
+    }
     private static boolean isPacketDNS(IpPacket p) {
         if (p.getHeader().getProtocol() == IpNumber.UDP) {
             var up = (UdpPacket) p.getPayload();
