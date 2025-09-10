@@ -50,9 +50,23 @@ class ConnectViewModel : ViewModel() {
             _eventChannel.send(ConnectEvent.RefreshMenuList)
         }
     }
+
+    fun triggerStopTorAndVpn() {
+        viewModelScope.launch {
+            _eventChannel.send(ConnectEvent.StopTorAndVpn)
+        }
+    }
+
+    fun triggerSendNewnymSignal() {
+        viewModelScope.launch {
+            _eventChannel.send(ConnectEvent.SendNewnymSignal)
+        }
+    }
 }
 
 sealed class ConnectEvent {
     object StartTorAndVpn : ConnectEvent()
     object RefreshMenuList : ConnectEvent()
+    object StopTorAndVpn : ConnectEvent()
+    object SendNewnymSignal : ConnectEvent()
 }
