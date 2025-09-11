@@ -53,9 +53,13 @@ class KindnessFragment : Fragment() {
         }
 
         btnActionActivate.setOnClickListener {
-            if (requireContext().canStartForegroundServices())
-                swVolunteerMode.isChecked = true
-            else Toast.makeText(requireContext(), "cant", Toast.LENGTH_LONG).show()
+            activity?.let {
+                if (it.canStartForegroundServices())
+                    swVolunteerMode.isChecked = true
+                else {
+                    KindnessModeForegroundPermissionDialog().createTransactionAndShow(it)
+                }
+            }
         }
 
         showPanelStatus(Prefs.beSnowflakeProxy())

@@ -1,6 +1,7 @@
 package org.torproject.android.service.util
 
 import android.Manifest
+import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -46,13 +47,13 @@ fun Context.canStartForegroundServices(): Boolean {
 
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
         return true
+
+    // prepare returns null if the calling app is the active VPN app (has key icon)
     if (VpnService.prepare(this) == null)
         return true
-    return ContextCompat.checkSelfPermission(
-        this,
-        Manifest.permission.SCHEDULE_EXACT_ALARM
-    ) == PackageManager.PERMISSION_GRANTED
 
+    val alarmManager = ContextCompat.getSystemService(this, AlarmManager::class.java)
+    return alarmManager?.canScheduleExactAlarms() ?: false
 }
 
 /**
