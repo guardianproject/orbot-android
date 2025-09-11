@@ -31,11 +31,14 @@ fun Intent.putNotSystem(): Intent = this.putExtra(OrbotConstants.EXTRA_NOT_SYSTE
  * @param intent The Intent to be sent to the service.
  */
 fun Context.sendIntentToService(intent: Intent) {
-    //    Log.d("Orbot", "sendIntentToService-${intent.action}")
+    //    Log.d("OrbotService", "sendIntentToService-${intent.action}")
     if (canStartForegroundServices()) {
         ContextCompat.startForegroundService(this, intent.putNotSystem())
     } else {
-        // Log.e("Orbot", "Need additional permissions to start OrbotService in foreground")
+        Log.e(
+            "OrbotService",
+            "Need additional permissions to start OrbotService in foreground (action=${intent.action})"
+        )
     }
 }
 

@@ -35,8 +35,6 @@ class KindnessFragment : Fragment() {
         btnActionActivate = view.findViewById(R.id.btnActionActivate)
         pnlActivate = view.findViewById(R.id.panel_kindness_activate)
         pnlStatus = view.findViewById(R.id.panel_kindness_status)
-        tvAllTimeTotal.text = Prefs.snowflakesServed.toString()
-        tvWeeklyTotal.text = (Prefs.snowflakesServedWeekly).toString()
 
         swVolunteerMode.isChecked = Prefs.beSnowflakeProxy()
         swVolunteerMode.setOnCheckedChangeListener { _, isChecked ->
@@ -64,6 +62,13 @@ class KindnessFragment : Fragment() {
 
         showPanelStatus(Prefs.beSnowflakeProxy())
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // updates these values when user returns to screen after running snowflake proxy for some time
+        tvAllTimeTotal.text = "${Prefs.snowflakesServed}"
+        tvWeeklyTotal.text = "${Prefs.snowflakesServedWeekly}"
     }
 
     private fun showPanelStatus(isActivated: Boolean) {
