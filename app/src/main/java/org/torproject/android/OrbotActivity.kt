@@ -34,6 +34,7 @@ import com.scottyab.rootbeer.RootBeer
 import org.torproject.android.service.util.sendIntentToService
 import org.torproject.android.ui.core.BaseActivity
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.ui.kindness.SnowflakeProxyService
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.showToast
 import org.torproject.android.ui.more.LogBottomSheet
@@ -88,7 +89,6 @@ class OrbotActivity : BaseActivity() {
             intent = null
             finish()
         }
-
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -232,7 +232,10 @@ class OrbotActivity : BaseActivity() {
             Log.d("OrbotActivity", "User just granted ${Manifest.permission.POST_NOTIFICATIONS}")
         } else {
             Log.d("OrbotActivity", "Notification denied")
-            RequestPostNotificationPermission().show(supportFragmentManager, "RequestNotificationDialog")
+            RequestPostNotificationPermission().show(
+                supportFragmentManager,
+                "RequestNotificationDialog"
+            )
         }
     }
 
@@ -244,6 +247,9 @@ class OrbotActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
         sendIntentToService(OrbotConstants.CMD_ACTIVE)
+        if (Prefs.beSnowflakeProxy())
+            SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
+
     }
 
     override fun onDestroy() {

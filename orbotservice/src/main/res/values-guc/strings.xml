@@ -27,10 +27,7 @@
     <string name="snowflake_proxy_client_connected_msg">%1$sPuuproxinka copo de nieve munaka amuliajús wayuu jupula nainjuin tu nainrreka.%2$s</string>
 
     <string name="log_notice_unable_to_update_onions">Nojoluinjat  aitanüin junulia cewoolla.</string>
-    <string name="log_notice_snowflake_proxy_enabled">Proxy copo de nieve amuliajús jupula painruuín tu paiinrreka </string>
-    <string name="log_notice_snowflake_proxy_disabled">proxinka copo de nieve Yokúuts</string>
     <string name="log_notice_updating_torrc">Jeketerr  tu anatiakal  tu ipünamiukal C</string>
-    <string name="log_notice_added_event_handler">Kaa´muinshi atumaa  chi ayawuajuikai  kazachiki</string>
     <string name="log_notice_connected_to_tor_control_port">Antirrashi  Tor  juma ipunamuika eki.</string>
 
 </resources>

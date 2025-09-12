@@ -1,12 +1,14 @@
 package org.torproject.android.service.util
 
+import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
+import android.net.VpnService
+import android.os.Build
+import android.util.Log
 import android.widget.Toast
 import androidx.annotation.StringRes
-
 import androidx.core.content.ContextCompat
-
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 
@@ -26,8 +28,34 @@ fun Intent.putNotSystem(): Intent = this.putExtra(OrbotConstants.EXTRA_NOT_SYSTE
  *
  * @param intent The Intent to be sent to the service.
  */
-fun Context.sendIntentToService(intent: Intent) =
-    ContextCompat.startForegroundService(this, intent.putNotSystem())
+fun Context.sendIntentToService(intent: Intent) {
+    //    Log.d("OrbotService", "sendIntentToService-${intent.action}")
+    if (canStartForegroundServices()) {
+        ContextCompat.startForegroundService(this, intent.putNotSystem())
+    } else {
+        Log.e(
+            "OrbotService",
+            "Need additional permissions to start OrbotService in foreground (action=${intent.action})"
+        )
+    }
+}
+
+fun Context.canStartForegroundServices(): Boolean {
+    // https://developer.android.com/develop/background-work/services/fgs/service-types
+    // if we are below API 34 we don't need additional permissions
+    // on API 34+ we need the user to have granted the VPN status to Orbot,
+    // or an explicit granting of the SCHEDULE_EXACT_ALARMS permission
+
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+        return true
+
+    // prepare returns null if the calling app is the active VPN app (has key icon)
+    if (VpnService.prepare(this) == null)
+        return true
+
+    val alarmManager = ContextCompat.getSystemService(this, AlarmManager::class.java)
+    return alarmManager?.canScheduleExactAlarms() ?: false
+}
 
 /**
  * Overloaded extension function for `Context` to send an Intent to a foreground service

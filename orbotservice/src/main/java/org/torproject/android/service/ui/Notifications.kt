@@ -27,7 +27,7 @@ object Notifications {
             Prefs.camoAppDisplayName
         manager.createNotificationChannel(
             NotificationChannel(
-                OrbotService.NOTIFICATION_CHANNEL_ID,
+                ORBOT_SERVICE_NOTIFICATION_CHANNEL,
                 appName,
                 NotificationManager.IMPORTANCE_LOW
             ).apply {
@@ -65,4 +65,6 @@ object Notifications {
             Prefs.camoAppDisplayName ?: ""
         } else context.getString(R.string.orbot_vpn)
     }
+
+    const val ORBOT_SERVICE_NOTIFICATION_CHANNEL = "orbot_channel_1"
 }

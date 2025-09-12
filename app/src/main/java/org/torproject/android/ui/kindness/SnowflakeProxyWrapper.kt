@@ -1,37 +1,34 @@
-package org.torproject.android.service.circumvention
+package org.torproject.android.ui.kindness
 
 import IPtProxy.SnowflakeClientConnected
 import IPtProxy.SnowflakeProxy
-import android.content.Context
 import android.os.Handler
 import com.netzarchitekten.upnp.UPnP
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotConstants.ONION_EMOJI
-import org.torproject.android.service.OrbotService
 import org.torproject.android.service.R
+import org.torproject.android.service.circumvention.BuiltInBridges
+import org.torproject.android.service.circumvention.ContentDeliveryNetworkFronts
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.showToast
 import java.security.SecureRandom
 import kotlin.random.Random
 
-class SnowflakeProxyWrapper(private val context: Context) {
+/**
+ * Manages configuration, state and static methods of Snowflake Proxy via ipt-proxy
+ */
+class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
 
     private var proxy: SnowflakeProxy? = null
 
     private var mappedPorts = mutableListOf<Int>()
 
     @Synchronized
-    fun enableProxy(
-        hasWifi: Boolean,
-        hasPower: Boolean
-    ) {
+    fun enableProxy() {
         if (proxy != null) return
-        if (Prefs.limitSnowflakeProxyingWifi() && !hasWifi) return
-        if (Prefs.limitSnowflakeProxyingCharging() && !hasPower) return
 
         CoroutineScope(Dispatchers.IO).launch {
             val start = Random.nextInt(49152, 65536 - 2)
@@ -49,18 +46,20 @@ class SnowflakeProxyWrapper(private val context: Context) {
                 releaseMappedPorts()
             }
 
-            val stunServers = BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()?.ice
+            val stunServers = BuiltInBridges.Companion.getInstance(service)?.snowflake?.firstOrNull()?.ice
                 ?.split(",".toRegex())?.dropLastWhile { it.isEmpty() }?.toTypedArray() ?: emptyArray()
             val stunUrl = stunServers[SecureRandom().nextInt(stunServers.size)]
 
             proxy = SnowflakeProxy()
+            service.refreshNotification()
+            val fronts = ContentDeliveryNetworkFronts.localFronts(service)
             with(proxy!!) {
-                brokerUrl = OrbotService.getCdnFront("snowflake-target-direct")
+                brokerUrl = fronts["snowflake-target-direct"]
                 capacity = 1L
                 pollInterval = 120L
                 stunServer = stunUrl
-                relayUrl = OrbotService.getCdnFront("snowflake-relay-url")
-                natProbeUrl = OrbotService.getCdnFront("snowflake-nat-probe")
+                relayUrl = fronts["snowflake-relay-url"]
+                natProbeUrl = fronts["snowflake-nat-probe"]
                 clientConnected = SnowflakeClientConnected { onConnected() }
 
                 // Setting these to 0 is equivalent to not setting them at all.
@@ -68,14 +67,6 @@ class SnowflakeProxyWrapper(private val context: Context) {
                 ephemeralMaxPort = (mappedPorts.lastOrNull() ?: 0).toLong()
 
                 start()
-            }
-
-            if (Prefs.showSnowflakeProxyMessage()) {
-                val message = context.getString(R.string.log_notice_snowflake_proxy_enabled)
-
-                withContext(Dispatchers.Main) {
-                    context.applicationContext.showToast(message)
-                }
             }
         }
     }
@@ -87,25 +78,22 @@ class SnowflakeProxyWrapper(private val context: Context) {
         proxy = null
 
         releaseMappedPorts()
-
-        if (Prefs.showSnowflakeProxyMessage()) {
-            val message = context.getString(R.string.log_notice_snowflake_proxy_disabled)
-            Handler(context.mainLooper).post {
-                context.applicationContext.showToast(message)
-            }
-        }
     }
+
+    fun isProxyRunning() : Boolean = proxy != null
+
 
     private fun onConnected() {
         Prefs.addSnowflakeServed()
-        if (!Prefs.showSnowflakeProxyMessage()) return
+        service.refreshNotification()
+        if (!Prefs.showSnowflakeProxyToast()) return
         val message: String = String.format(
-            context.getString(R.string.snowflake_proxy_client_connected_msg),
+            service.getString(R.string.snowflake_proxy_client_connected_msg),
             ONION_EMOJI,
             ONION_EMOJI
         )
-        Handler(context.mainLooper).post {
-            context.applicationContext.showToast(message)
+        Handler(service.mainLooper).post {
+            service.applicationContext.showToast(message)
         }
     }
 

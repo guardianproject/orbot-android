@@ -6,9 +6,11 @@ import android.content.Intent
 import android.net.Uri
 import java.io.BufferedReader
 import java.io.File
+import java.io.FileWriter
 import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
+import java.io.PrintWriter
 
 object DiskUtils {
 
@@ -71,6 +73,15 @@ object DiskUtils {
         }
 
         return out.toString()
+    }
+
+    @JvmStatic
+    @Throws(IOException::class)
+    fun flushTextToFile(file: File, text: String, append: Boolean)  {
+        val ps = PrintWriter(FileWriter(file, append))
+        ps.print(text)
+        ps.flush()
+        ps.close()
     }
 
 }

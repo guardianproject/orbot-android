@@ -8,7 +8,6 @@ import android.preference.PreferenceManager
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
-import org.torproject.android.service.circumvention.ResetSnowflakesServedWeeklyWorker
 import org.torproject.android.service.circumvention.Transport
 import java.util.Locale
 import java.util.concurrent.TimeUnit
@@ -127,7 +126,7 @@ object Prefs {
         return prefs?.getBoolean(PREF_BE_A_SNOWFLAKE, false) ?: false
     }
 
-    fun showSnowflakeProxyMessage(): Boolean {
+    fun showSnowflakeProxyToast(): Boolean {
         return prefs?.getBoolean(PREF_SHOW_SNOWFLAKE_MSG, false) ?: false
     }
 

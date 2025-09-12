@@ -98,6 +98,7 @@
         android:id="@+id/mainGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/button_horizontal_large_margin"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.85" />
 
@@ -105,8 +106,6 @@
         android:id="@+id/tvCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="20dp"
         android:paddingStart="@dimen/button_horizontal_large_margin"
         android:paddingEnd="@dimen/button_horizontal_large_margin"
         android:text="@android:string/cancel"
@@ -121,8 +120,6 @@
         android:id="@+id/btnAction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="20dp"
         android:background="@drawable/btn_shape_round"
         android:paddingStart="@dimen/button_horizontal_large_margin"
         android:paddingEnd="@dimen/button_horizontal_large_margin"
@@ -131,7 +128,6 @@
         app:backgroundTint="@color/orbot_btn_enabled_purple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/tvCancel"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mainGuideline" />
 

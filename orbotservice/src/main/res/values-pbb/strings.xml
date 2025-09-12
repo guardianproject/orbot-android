@@ -27,10 +27,7 @@
     <string name="snowflake_proxy_client_connected_msg">%1$sIdx snowflake proxi pu’çxhku maasume kaajxkhẽwu’jxa%2$s</string>
 
     <string name="log_notice_unable_to_update_onions">Spulxa yase kaateka’jya ewuumeen</string>
-    <string name="log_notice_snowflake_proxy_enabled">Naa proxy Snowflake vxiswa’ ewa’ </string>
-    <string name="log_notice_snowflake_proxy_disabled">Naa proxy Snowflake vxiswa’ ewme’ </string>
     <string name="log_notice_updating_torrc">Torrc Khpuusee’jnxi’s phewu’jna…</string>
-    <string name="log_notice_added_event_handler">Khẽkh vxite u’kacxa thegwa’ </string>
     <string name="log_notice_connected_to_tor_control_port">Txitxanxi ũsa’ çaam pe’pete u’kaya’</string>
 
 </resources>

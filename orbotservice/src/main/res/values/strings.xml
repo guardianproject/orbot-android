@@ -27,10 +27,7 @@
     <string name="snowflake_proxy_client_connected_msg">%1$s Kindness Mode helped someone circumvent censorship %2$s</string>
 
     <string name="log_notice_unable_to_update_onions">unable to upload onion names</string>
-    <string name="log_notice_snowflake_proxy_enabled">Snowflake proxy mode enabled</string>
-    <string name="log_notice_snowflake_proxy_disabled">Snowflake proxy mode disabled</string>
     <string name="log_notice_updating_torrc">Updating torrc custom configuration…</string>
-    <string name="log_notice_added_event_handler">Added control port event handler</string>
     <string name="log_notice_connected_to_tor_control_port">Connected to tor control port</string>
 
 </resources>

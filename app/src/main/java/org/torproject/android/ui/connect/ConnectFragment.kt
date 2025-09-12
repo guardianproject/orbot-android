@@ -151,11 +151,14 @@ class ConnectFragment : Fragment(),
                 val alarmManager =
                     requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
-                    RequestScheduleExactAlarmDialogFragment().show(
-                        requireActivity().supportFragmentManager,
-                        "RequestAlarmPermDialog"
-                    )
+                    PowerUserForegroundPermDialog().createTransactionAndShow(requireActivity())
                     return // user can try again after granting permission
+                } else {
+                    binding.ivStatus.setImageResource(R.drawable.torstarting)
+                    with(binding.btnStart) {
+                        text = context.getString(android.R.string.cancel)
+                    }
+                    requireContext().sendIntentToService(OrbotConstants.ACTION_START)
                 }
             }
             binding.ivStatus.setImageResource(R.drawable.torstarting)

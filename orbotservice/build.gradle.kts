@@ -59,7 +59,6 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.localbroadcast)
     implementation(libs.androidx.work)
-    implementation(libs.androidx.work.kotlin)
     implementation(libs.pcap.core)
     implementation(libs.pcap.factory)
     implementation(files("../libs/geoip.jar"))
@@ -67,5 +66,4 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.retrofit.converter)
     implementation(libs.retrofit.lib)
-    implementation(libs.upnp)
 }

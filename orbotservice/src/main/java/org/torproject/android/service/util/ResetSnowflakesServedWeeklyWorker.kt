@@ -1,9 +1,8 @@
-package org.torproject.android.service.circumvention
+package org.torproject.android.service.util
 
 import android.content.Context
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import org.torproject.android.service.util.Prefs
 
 class ResetSnowflakesServedWeeklyWorker(context: Context, workerParams: WorkerParameters) :
     Worker(context, workerParams) {

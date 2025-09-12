@@ -247,7 +247,7 @@ public class OrbotVpnManager implements Handler.Callback {
                                         } else IPtProxy.inputPacket(pdata);
                                 }
                             } catch (IllegalRawDataException e) {
-                                Log.e(TAG, e.getLocalizedMessage());
+                                Log.e(TAG, e.toString());
                             }
                         }
                     } catch (Exception e) {

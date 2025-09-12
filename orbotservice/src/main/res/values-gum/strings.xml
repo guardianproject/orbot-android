@@ -29,10 +29,7 @@ Torpe kan software kɵn mayaelai chi anwei kɵmɵ, incha chu puisrɵ, kape chu p
     <string name="snowflake_proxy_client_connected_msg">%1$sÑui proxy snowflake purukun munkɵsrɵn asam keilan ashchap inchen %2$s</string>
 
     <string name="log_notice_unable_to_update_onions">Ishik munchi meran asam kaik k​­ɵn</string>
-    <string name="log_notice_snowflake_proxy_enabled">Snowflake proxype kurik pasran </string>
-    <string name="log_notice_snowflake_proxy_disabled">Snowflake proxype kasreik pasran </string>
     <string name="log_notice_updating_torrc">Torrcwan na isuikmai tamaramik</string>
-    <string name="log_notice_added_event_handler">Control portwan keerik pasramisran</string>
     <string name="log_notice_connected_to_tor_control_port">Control portwan kelitsik pasran</string>
 
 </resources>

@@ -43,12 +43,14 @@ open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
         activity?.let {
             val displayMetrics = DisplayMetrics()
             requireActivity().windowManager.defaultDisplay.getMetrics(displayMetrics)
-            val height = displayMetrics.heightPixels * 4 / 5
+            val height = (displayMetrics.heightPixels * getHeightRatio()).toInt()
             val layoutParams = bottomSheet.layoutParams
             layoutParams.height = height
             bottomSheet.layoutParams = layoutParams
         }
     }
+
+    open fun getHeightRatio(): Float = 4 / 5f
 
     @SuppressLint("ClickableViewAccessibility")
     protected fun configureMultilineEditTextScrollEvent(editText: EditText) {

@@ -1,11 +1,13 @@
 package org.torproject.android.ui.kindness
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.widget.SwitchCompat
+import androidx.fragment.app.FragmentActivity
 import org.torproject.android.R
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
@@ -33,5 +35,20 @@ class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment() {
         configWifi.isChecked = Prefs.limitSnowflakeProxyingWifi()
         configCharging.isChecked = Prefs.limitSnowflakeProxyingCharging()
         return v
+    }
+
+    companion object {
+        fun openKindnessSettings(fragmentActivity: FragmentActivity) {
+            KindnessConfigBottomSheet().show(
+                fragmentActivity.supportFragmentManager,
+                "KindnessConfig"
+            )
+        }
+    }
+
+    override fun getHeightRatio(): Float {
+        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
+            return 2 / 5f
+        return super.getHeightRatio()
     }
 }

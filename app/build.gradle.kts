@@ -143,6 +143,9 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.appiconnamechanger)
+    implementation(libs.androidx.work.kotlin)
+    implementation(libs.upnp)
+    
 
     testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.androidx.junit)
@@ -151,6 +154,7 @@ dependencies {
     androidTestImplementation(libs.androidx.runner)
     androidTestImplementation(libs.screengrab)
     androidTestUtil(libs.androidx.orchestrator)
+
 }
 
 tasks.named("preBuild") { dependsOn("copyLicenseToAssets") }

@@ -170,6 +170,14 @@
     <string name="volunteer_mode_weekly_label">Weekly Total</string>
     <string name="volunteer_mode_alltime_label">All Time Total</string>
     <string name="volunteer_mode_subtitle_desc">Kindness mode allows your device to be a bridge for others. It helps people use Tor in places where it is blocked.\n\n• It will not drain your battery\n• It will not slow down your internet\n• It can run only over wifi\n• It can be turned off anytime</string>
+    <string name="kindness_mode_is_running">Kindness Mode is Running</string>
+    <string name="kindness_mode_active_message" formatted="true">You\'ve helped %1$d people circumvent censorship</string>
+    <string name="kindness_mode_disabled">Kindness Mode is Deactivated</string>
+    <string name="kindness_mode_starting">Starting…</string>
+    <string name="kindness_mode_disabled_internet">Connect to the Internet to help people circumvent censorship</string>
+    <string name="kindness_mode_disabled_wifi">Connect to Wi-Fi to help people circumvent censorship</string>
+    <string name="kindness_mode_disabled_power">Connect your device to power to help people circumvent censorship</string>
+
     <string name="smart_connect">Smart Connect (default)</string>
     <string name="direct_connect">Direct Connection to Tor</string>
     <string name="direct_connect_subtitle">The best way to connect to Tor. Use if Tor is not blocked.</string>
