@@ -10,8 +10,8 @@ import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.net.toUri
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.NavHostFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -28,6 +28,7 @@ class ConfigConnectionBottomSheet :
     OrbotBottomSheetDialogFragment(), CompoundButton.OnCheckedChangeListener {
 
     private lateinit var binding: ConfigConnectionBottomSheetBinding
+    private val viewModel: ConnectViewModel by activityViewModels()
 
     private lateinit var radios: List<RadioButton>
     private lateinit var radioSubtitleMap: Map<CompoundButton, View>
@@ -177,9 +178,7 @@ class ConfigConnectionBottomSheet :
 
     private fun closeAndConnect() {
         dismiss()
-        val navHostFragment = requireActivity().supportFragmentManager.fragments[0] as NavHostFragment
-        val connectFrag = navHostFragment.childFragmentManager.fragments.last() as ConnectFragment
-        connectFrag.startTorAndVpn()
+        viewModel.triggerStartTorAndVpn()
     }
 
     private fun selectRadioButtonFromPreference() {

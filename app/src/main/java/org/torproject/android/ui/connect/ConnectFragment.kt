@@ -53,7 +53,7 @@ class ConnectFragment : Fragment(),
     private val startTorResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
-                startTorAndVpn()
+                viewModel.triggerStartTorAndVpn()
             }
         }
 
@@ -61,7 +61,7 @@ class ConnectFragment : Fragment(),
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
                 requireContext().sendIntentToService(OrbotConstants.ACTION_RESTART_VPN) // is this enough todo?
-                refreshMenuList(requireContext())
+                viewModel.triggerRefreshMenuList()
             }
         }
 
@@ -80,7 +80,6 @@ class ConnectFragment : Fragment(),
                                 binding.progressBar.progress = it
                             }
                         }
-
                         is ConnectUiState.On -> doLayoutOn(requireContext())
                         is ConnectUiState.Stopping -> {}
                     }
@@ -93,6 +92,8 @@ class ConnectFragment : Fragment(),
                 when (event) {
                     is ConnectEvent.StartTorAndVpn -> startTorAndVpn()
                     is ConnectEvent.RefreshMenuList -> refreshMenuList(requireContext())
+                    is ConnectEvent.StopTorAndVpn -> stopTorAndVpn()
+                    is ConnectEvent.SendNewnymSignal -> sendNewnymSignal()
                 }
             }
         }
@@ -120,7 +121,6 @@ class ConnectFragment : Fragment(),
     private fun stopTorAndVpn() {
         requireContext().sendIntentToService(OrbotConstants.ACTION_STOP)
         requireContext().sendIntentToService(OrbotConstants.ACTION_STOP_VPN)
-        doLayoutOff()
     }
 
     private fun stopAnimations() {
@@ -182,8 +182,13 @@ class ConnectFragment : Fragment(),
                         "ExitNodeBottomSheet"
                     )
                 },
-                OrbotMenuAction(R.string.btn_refresh, R.drawable.ic_refresh) { sendNewnymSignal() },
-                OrbotMenuAction(R.string.btn_tor_off, R.drawable.ic_power) { stopTorAndVpn() })
+                OrbotMenuAction(R.string.btn_refresh, R.drawable.ic_refresh) {
+                    viewModel.triggerSendNewnymSignal()
+                },
+                OrbotMenuAction(R.string.btn_tor_off, R.drawable.ic_power) {
+                    viewModel.triggerStopTorAndVpn()
+                }
+            )
         if (!Prefs.isPowerUserMode) listItems.add(
             0,
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
@@ -227,7 +232,7 @@ class ConnectFragment : Fragment(),
         binding.swSmartConnect.visibility = View.GONE
         binding.tvConfigure.visibility = View.GONE
 
-        refreshMenuList(context)
+        viewModel.triggerRefreshMenuList()
 
         binding.ivStatus.setOnClickListener {}
     }
@@ -245,7 +250,7 @@ class ConnectFragment : Fragment(),
         binding.swSmartConnect.isChecked = Prefs.smartConnect
         binding.swSmartConnect.setOnCheckedChangeListener { _, value ->
             Prefs.smartConnect = value
-            doLayoutOff()
+            viewModel.updateState(requireContext(), lastStatus)
         }
 
         binding.tvConfigure.visibility = View.VISIBLE
@@ -327,11 +332,13 @@ class ConnectFragment : Fragment(),
             backgroundTintList = ColorStateList.valueOf(
                 ContextCompat.getColor(requireContext(), R.color.orbot_btn_enabled_purple)
             )
-            setOnClickListener { startTorAndVpn() }
+            setOnClickListener {
+                viewModel.triggerStartTorAndVpn()
+            }
         }
 
         binding.ivStatus.setOnClickListener {
-            startTorAndVpn()
+            viewModel.triggerStartTorAndVpn()
         }
     }
 
@@ -365,7 +372,7 @@ class ConnectFragment : Fragment(),
                 )
             )
             setOnClickListener {
-                stopTorAndVpn()
+                viewModel.triggerStopTorAndVpn()
             }
         }
 
@@ -389,6 +396,6 @@ class ConnectFragment : Fragment(),
                 .setAction(OrbotConstants.CMD_SET_EXIT).putExtra("exit", countryCode)
         )
 
-        refreshMenuList(requireContext())
+        viewModel.triggerRefreshMenuList()
     }
 }
