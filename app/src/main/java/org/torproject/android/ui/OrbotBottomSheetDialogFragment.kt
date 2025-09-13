@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Dialog
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.MotionEvent
@@ -30,7 +31,7 @@ open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
             bottomSheetView?.let {
                 it.setBackgroundResource(R.drawable.bottom_sheet_rounded)
                 it.setBackgroundColor(Color.TRANSPARENT)
-                setHeightIfAttached(activity, it)
+                setHeightIfAttached(requireActivity(), it)
                 val behavior = BottomSheetBehavior.from<FrameLayout>(it)
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
             }
@@ -39,15 +40,20 @@ open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
         return dialog
     }
 
-    private fun setHeightIfAttached(activity: Activity?, bottomSheet: View) {
-        activity?.let {
+    private fun setHeightIfAttached(activity: Activity, bottomSheet: View) {
+        val height = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val windowMetrics = activity.windowManager.currentWindowMetrics
+            windowMetrics.bounds.height() * 4 / 5
+        } else {
             val displayMetrics = DisplayMetrics()
-            requireActivity().windowManager.defaultDisplay.getMetrics(displayMetrics)
-            val height = displayMetrics.heightPixels * 4 / 5
-            val layoutParams = bottomSheet.layoutParams
-            layoutParams.height = height
-            bottomSheet.layoutParams = layoutParams
+            @Suppress("DEPRECATION")
+            activity.windowManager.defaultDisplay.getMetrics(displayMetrics)
+            displayMetrics.heightPixels * 4 / 5
         }
+
+        val layoutParams = bottomSheet.layoutParams
+        layoutParams.height = height
+        bottomSheet.layoutParams = layoutParams
     }
 
     @SuppressLint("ClickableViewAccessibility")
