@@ -82,7 +82,7 @@ class OrbotActivity : BaseActivity() {
         try {
             createOrbot()
 
-        } catch (re: RuntimeException) {
+        } catch (_: RuntimeException) {
             //catch this to avoid malicious launches as document Cure53 Audit: ORB-01-009 WP1/2: Orbot DoS via exported activity (High)
 
             //clear malicious intent

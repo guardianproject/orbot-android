@@ -9,7 +9,8 @@ import java.net.Socket
 object NetworkUtils {
     @JvmStatic
     fun isNetworkAvailable(context: Context): Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
         val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
         return when {
@@ -21,7 +22,7 @@ object NetworkUtils {
     }
 
     @JvmStatic
-    fun checkPortOrAuto(portString: String) : String {
+    fun checkPortOrAuto(portString: String): String {
         if (!portString.equals("auto", ignoreCase = true)) {
             var isPortUsed = true
             var port = portString.toInt()
@@ -45,5 +46,20 @@ object NetworkUtils {
         } catch (_: Exception) {
             return false
         }
+    }
+
+    /**
+     * Returns if another VPN app is running right now
+     *
+     * hasTransport with TRANSPORT_VPN will return false if Orbot
+     * is the active VPN
+     */
+    fun isNonOrbotVpnActive(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork = cm.activeNetwork
+        if (activeNetwork == null) return false
+        val capabilities = cm.getNetworkCapabilities(activeNetwork)
+        val vpn = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_VPN) == true
+        return vpn
     }
 }

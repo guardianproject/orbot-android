@@ -84,4 +84,5 @@ class KindnessFragment : Fragment() {
             }
         }
     }
+
 }
