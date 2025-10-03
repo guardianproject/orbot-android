@@ -99,13 +99,14 @@ class SnowflakeProxyService : Service() {
             override fun onAvailable(network: Network) {
                 val capabilities = connectivityManager.getNetworkCapabilities(network)
                 val hasWifi = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true
-                val hasVpn = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_VPN) == true
-
+                if (NetworkUtils.isNonOrbotVpnActive(this@SnowflakeProxyService)) {
+                    stopSnowflakeProxy("Stopping snowflake, other VPN app in use")
+                }
                 if (Prefs.limitSnowflakeProxyingWifi() && !hasWifi) {
                     refreshNotification(getString(R.string.kindness_mode_disabled_wifi))
                     stopSnowflakeProxy("required wifi condition not met")
                 } else {
-                    if (NetworkUtils.isNetworkAvailable(this@SnowflakeProxyService) || hasVpn) {
+                    if (NetworkUtils.isNetworkAvailable(this@SnowflakeProxyService)) {
                         startSnowflakeProxy("got network (wifi=${hasWifi}, limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
                     }
                     else {

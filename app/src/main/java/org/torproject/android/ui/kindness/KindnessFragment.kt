@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import org.torproject.android.R
+import org.torproject.android.service.util.NetworkUtils
 import org.torproject.android.service.util.Prefs
 
 class KindnessFragment : Fragment() {
@@ -53,6 +55,12 @@ class KindnessFragment : Fragment() {
 
         btnActionActivate.setOnClickListener {
             swVolunteerMode.isChecked = true
+        }
+
+        if (NetworkUtils.isNonOrbotVpnActive(requireContext())) {
+            // TODO the disabled btn still looks grey in the UI
+            btnActionActivate.isEnabled = false
+            Toast.makeText(requireContext(), "Please disable other VPN app", Toast.LENGTH_LONG).show()
         }
 
         showPanelStatus(Prefs.beSnowflakeProxy())

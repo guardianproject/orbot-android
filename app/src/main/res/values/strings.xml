@@ -169,7 +169,7 @@
     <string name="volunteer_mode_title">Help others\nconnect to Tor</string>
     <string name="volunteer_mode_weekly_label">Weekly Total</string>
     <string name="volunteer_mode_alltime_label">All Time Total</string>
-    <string name="volunteer_mode_subtitle_desc">Kindness mode allows your device to be a bridge for others. It helps people use Tor in places where it is blocked.\n\n• It will not drain your battery\n• It will not slow down your internet\n• It can run only over wifi\n• It can be turned off anytime</string>
+    <string name="volunteer_mode_subtitle_desc">Kindness mode allows your device to be a bridge for others. It helps people use Tor in places where it is blocked.\n\n• It will not drain your battery\n• It will not slow down your internet\n• It can run only over wifi\n• It can be turned off anytime\n• It can not be used when a VPN app other than Orbot is running</string>
     <string name="kindness_mode_is_running">Kindness Mode is Running</string>
     <string name="kindness_mode_active_message" formatted="true">You\'ve helped %1$d people circumvent censorship</string>
     <string name="kindness_mode_disabled">Kindness Mode is Deactivated</string>
