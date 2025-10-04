@@ -33,6 +33,8 @@ class CustomBridgeBottomSheet() :
             Regex("""(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+[A-F0-9]{40}?$""")
         private val webtunnelRegex =
             Regex("""^webtunnel\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+[A-F0-9]{40}(\s+url=https?://\S+)?(\s+ver=\d+\.\d+\.\d+)?$""")
+        private val snowflakeRegex =
+            Regex("""^snowflake\s+\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+\s+[A-F0-9]{40}\s+fingerprint=[A-F0-9]{40}\s+[a-zA-Z0-9=:/,\s\-\\.]+$""")
 
         fun isValidBridge(input: String): Boolean {
             return input.lines()
@@ -41,7 +43,8 @@ class CustomBridgeBottomSheet() :
                     it.matches(obfs4Regex) ||
                             it.matches(webtunnelRegex) ||
                             it.matches(meekLiteRegex) ||
-                            it.matches(vanillaRegex)
+                            it.matches(vanillaRegex) ||
+                            it.matches(snowflakeRegex)
                 }
         }
     }
