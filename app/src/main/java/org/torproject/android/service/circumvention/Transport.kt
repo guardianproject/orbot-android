@@ -115,13 +115,49 @@ enum class Transport(val id: String) {
 
     fun getTorConfig(context: Context): List<String> {
         val result = mutableListOf<String>()
+        result.add("UseBridges ${if (this == NONE) "0" else "1"}")
 
         for (transport in transportNames) {
             result.add("ClientTransportPlugin $transport socks5 127.0.0.1:${controller.port(transport)}")
         }
 
         when (this) {
-            NONE -> Unit
+            NONE -> {
+                val proxy = Prefs.proxy
+
+                if (proxy != null) {
+                    var hostPort = proxy.host
+                    if (proxy.port > 0 && proxy.port < 65536) hostPort += ":${proxy.port}"
+
+                    // Modern tor only supports https, socks4 and socks5. *No* http!
+                    when (proxy.scheme) {
+                        "https" -> {
+                            result.add("HTTPSProxy $hostPort")
+
+                            if (!proxy.userInfo.isNullOrBlank()) {
+                                result.add("HTTPSProxyAuthenticator ${proxy.userInfo}")
+                            }
+                        }
+                        "socks4" -> {
+                            result.add("Socks4Proxy $hostPort")
+                        }
+                        "socks5" -> {
+                            result.add("Socks5Proxy $hostPort")
+
+                            val userInfo = proxy.userInfo?.split(":")
+
+                            if (!userInfo?.getOrNull(0).isNullOrEmpty()) {
+                                result.add("Socks5ProxyUsername ${userInfo[0]}")
+
+                                var password = userInfo.getOrNull(1) ?: " "
+                                if (password.isEmpty()) password = " "
+
+                                result.add("Socks5ProxyPassword $password")
+                            }
+                        }
+                    }
+                }
+            }
             MEEK_AZURE -> {
                 BuiltInBridges.getInstance(context)?.meekAzure?.forEach {
                     result.add("Bridge ${it.raw}")
@@ -220,8 +256,10 @@ enum class Transport(val id: String) {
             else -> Unit
         }
 
+        val proxy = Prefs.proxy?.toString()
+
         for (transport in transportNames) {
-            controller.start(transport, "")
+            controller.start(transport, if (transport == IPtProxy.Snowflake) null else proxy)
         }
     }
 

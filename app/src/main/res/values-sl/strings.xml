@@ -57,15 +57,11 @@
     <string name="pref_allow_background_starts_summary">Naj katerakoli aplikacija pove Orbotu, naj zažene Tor in povezane storitve</string>
     <string name="pref_proxy_title">Odhodni omrežni posrednik (izbirno)</string>
     <string name="pref_proxy_type_title">Vrsta izhodnega posredniškega strežnika</string>
-    <string name="pref_proxy_type_summary">Protokol, ki se uporablja za posredniški strežnik: HTTP, HTTPS, SOCKS4, SOCKS5</string>
-    <string name="pref_proxy_type_dialog">Vnesite vrsto proxyja</string>
+    <string name="pref_proxy_type_summary">Protokol, ki se uporablja za posredniški strežnik: HTTPS, SOCKS4, SOCKS5</string>
     <string name="pref_proxy_host_summary">Gostiteljsko ime strežnika proxy</string>
-    <string name="pref_proxy_host_dialog">Vnesite gostitelja proxy strežnika</string>
     <string name="pref_proxy_port_title">Odhodna vrata posredniškega strežnika</string>
     <string name="pref_proxy_username_title">Uporabniško ime izhodnega posrednika</string>
-    <string name="pref_proxy_username_dialog">Vnesite uporabniško ime posredniškega strežnika</string>
     <string name="pref_proxy_password_summary">Geslo posrednika (neobvezno)</string>
-    <string name="pref_proxy_password_dialog">Vnesite geslo proxyja</string>
     <string name="enter_exit_nodes">Vozlišča vstopa in izstopa</string>
     <string name="exclude_nodes">Izključi vozlišča</string>
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">prstni odtisi, zareze, države in naslovi za izključitev</string>
@@ -131,7 +127,6 @@
     <string name="app_services">Storitve aplikacij</string>
     <string name="bridge_snowflake_amp">Povežite se prek drugih uporabnikov omrežja Tor z uporabo storitve Snowflake (metoda 2)</string>
     <string name="snowflake_proxy_msg_description">Pokaži sporočilo, ko pomagaš nekomu zaobiti cenzuro</string>
-    <string name="pref_proxy_port_dialog">Vnesite vrata posredniškega strežnika</string>
     <string name="app_description">Orbot je brezplačna proksi aplikacija, ki drugim aplikacijam omogoča varnejšo uporabo interneta. Orbot uporablja Tor za šifriranje vašega internetnega prometa, nato pa ga skrije tako, da ga preusmeri skozi več računalnikov po vsem svetu. Tor je brezplačna programska oprema in odprto omrežje, ki vam pomaga pri obrambi pred obliko nadzora omrežja, ki ogroža osebno svobodo in zasebnost, zaupne poslovne dejavnosti in odnose ter državno varnost, znano kot analiza prometa.</string>
     <string name="pref_start_boot_title">Zagon programa Orbot ob zagonu</string>
     <string name="pref_node_configuration_summary">To so napredne nastavitve, ki lahko zmanjšajo vašo anonimnost</string>

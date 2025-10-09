@@ -7,9 +7,7 @@
     <string name="main_layout_upload">Yuklash</string>
     <string name="menu_exit">Chiqish</string>
     <string name="pref_general_group">Umumiy</string>
-    <string name="pref_proxy_type_dialog">Proksi turini kiriting</string>
     <string name="pref_proxy_password_summary">Proksi maxfiy so\'zi (Qo\'shimcha)</string>
-    <string name="pref_proxy_password_dialog">Proksi maxfiy so\'zini kiriting</string>
     <string name="error">Xato</string>
     <string name="set_locale_title">Til</string>
     <string name="save">Saqlash</string>

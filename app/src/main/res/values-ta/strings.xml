@@ -10,7 +10,6 @@
     <string name="menu_exit">வெளியேறு</string>
     <string name="pref_general_group">பொது</string>
     <string name="pref_proxy_password_summary">பதிலாள் கடவுச்சொல் (கட்டாயமற்ற)</string>
-    <string name="pref_proxy_password_dialog">பதிலாள் கடவுச்சொல்லை உள்ளிடவும்</string>
     <string name="error">பிழை</string>
     <string name="set_locale_title">மொழி</string>
     <string name="save">சேமி</string>
@@ -98,7 +97,6 @@
     <string name="snowflake_amp">ச்னோஃப்ளேக் ஆம்ப்</string>
     <string name="snowflake_subtitle">டோர் தன்னார்வலர்கள் மூலம் இணைகிறது. தடுப்பதற்காக யாரையாவது சுற்றி வருக.</string>
     <string name="pref_proxy_title">வெளிச்செல்லும் பிணையம் பதிலாள் (விரும்பினால்)</string>
-    <string name="pref_proxy_type_dialog">பதிலாள் வகையை உள்ளிடவும்</string>
     <string name="pref_proxy_host_title">வெளிச்செல்லும் பதிலாள் புரவலன்</string>
     <string name="pref_allow_background_starts_title">பின்னணி தொடங்க அனுமதிக்கவும்</string>
     <string name="pref_allow_background_starts_summary">டோர் மற்றும் தொடர்புடைய சேவைகளைத் தொடங்க எந்தவொரு பயன்பாடும் ஆர்போட்டிடம் சொல்லட்டும்</string>
@@ -127,14 +125,11 @@
     <string name="wizard_details_msg">ஆர்போட் என்பது ஒரு திறந்த-மூல பயன்பாடாகும், இது டோர், இப்டிராக்சி (Lyrebird, Mek, Snewflake), hev-socks5-tunnel மற்றும் லிபெவென்ட் ஆகியவற்றைக் கொண்டுள்ளது. இது ஒரு VPN சுரங்கப்பாதை, உள்ளக HTTP இணை Proxy (HTTP கள் துறைமுகம் 8118 இல் மட்டுமே) மற்றும் TOR நெட்வொர்க்கில் ஒரு SOCKS பதிலாள் (9050) ஆகியவற்றை வழங்குகிறது.</string>
     <string name="pref_node_configuration_summary">இவை உங்கள் அநாமதேயத்தை குறைக்கக்கூடிய மேம்பட்ட அமைப்புகள்</string>
     <string name="pref_entrance_node_dialog">நுழைவு முனைகளை உள்ளிடவும்</string>
-    <string name="pref_proxy_type_summary">பதிலாள் சேவையகத்திற்கு பயன்படுத்த நெறிமுறை: HTTP, HTTPS, SOCKS4, SOCKS5</string>
-    <string name="pref_proxy_host_dialog">பதிலாள் ஓச்டை உள்ளிடவும்</string>
+    <string name="pref_proxy_type_summary">பதிலாள் சேவையகத்திற்கு பயன்படுத்த நெறிமுறை: HTTPS, SOCKS4, SOCKS5</string>
     <string name="pref_proxy_port_title">வெளிச்செல்லும் பதிலாள் துறைமுகம்</string>
     <string name="pref_proxy_port_summary">பதிலாள் சர்வர் துறைமுகம்</string>
-    <string name="pref_proxy_port_dialog">பதிலாள் போர்ட்டை உள்ளிடவும்</string>
     <string name="pref_proxy_username_title">வெளிச்செல்லும் பதிலாள் பயனர்பெயர்</string>
     <string name="pref_proxy_username_summary">பதிலாள் பயனர்பெயர் (விரும்பினால்)</string>
-    <string name="pref_proxy_username_dialog">பதிலாள் பயனர்பெயரை உள்ளிடவும்</string>
     <string name="pref_proxy_password_title">வெளிச்செல்லும் பதிலாள் கடவுச்சொல்</string>
     <string name="exit_nodes">வெளியேறும் முனைகள்</string>
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">கடைசி ஆப்பிற்கான கைரேகைகள், நிக்ச், நாடுகள் மற்றும் முகவரிகள்</string>

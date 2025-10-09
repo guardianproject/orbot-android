@@ -9,6 +9,7 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
 import org.torproject.android.service.circumvention.Transport
+import java.net.URI
 import java.util.Locale
 import java.util.concurrent.TimeUnit
 
@@ -226,6 +227,49 @@ object Prefs {
     var smartConnectTimeout: Int
         get() = prefs?.getInt(PREF_SMART_CONNECT_TIMEOUT, 30) ?: 30
         set(value) = putInt(PREF_SMART_CONNECT_TIMEOUT, value)
+
+    val proxy: URI?
+        get() {
+            val scheme = prefs?.getString("pref_proxy_type", null)?.lowercase()?.trim()
+            if (scheme.isNullOrEmpty()) return null
+
+            val host = prefs?.getString("pref_proxy_host", null)?.trim()
+            if (host.isNullOrEmpty()) return null
+
+            val url = StringBuilder(scheme)
+            url.append("://")
+
+            var needsAt = false
+            val username = prefs?.getString("pref_proxy_username", null)
+            if (!username.isNullOrEmpty()) {
+                url.append(username)
+                needsAt = true
+            }
+
+            val password = prefs?.getString("pref_proxy_password", null)
+            if (!password.isNullOrEmpty()) {
+                url.append(":")
+                url.append(password)
+                needsAt = true
+            }
+
+            if (needsAt) url.append("@")
+
+            url.append(host)
+
+            val port = try {
+                prefs?.getString("pref_proxy_port", null)?.trim()?.toInt() ?: 0
+            } catch (_: Throwable) { 0 }
+
+            if (port > 0 && port < 65536) {
+                url.append(":")
+                url.append(port)
+            }
+
+            url.append("/")
+
+            return URI(url.toString())
+        }
 
     val isPowerUserMode: Boolean
         get() = prefs?.getBoolean(PREF_POWER_USER_MODE, false) ?: false

@@ -43,18 +43,13 @@
     <string name="pref_entrance_node_dialog">Zadajte vstupné uzly</string>
     <string name="pref_allow_background_starts_title">Povolenie spustenia na pozadí</string>
     <string name="pref_proxy_type_title">Typ odchádzajúceho proxy servera</string>
-    <string name="pref_proxy_type_dialog">Zadajte typ proxy servera</string>
     <string name="pref_proxy_host_title">Odchádzajúci hostiteľ proxy servera</string>
     <string name="pref_proxy_host_summary">Názov hostiteľa proxy servera</string>
-    <string name="pref_proxy_host_dialog">Zadajte hostiteľa proxy servera</string>
     <string name="pref_proxy_port_title">Odchádzajúci port proxy servera</string>
     <string name="pref_proxy_port_summary">Port servera proxy</string>
-    <string name="pref_proxy_port_dialog">Zadajte port proxy servera</string>
     <string name="pref_proxy_username_title">Odchádzajúce používateľské meno proxy servera</string>
-    <string name="pref_proxy_username_dialog">Zadajte používateľské meno proxy servera</string>
     <string name="pref_proxy_password_title">Heslo odchádzajúceho proxy servera</string>
     <string name="pref_proxy_password_summary">Heslo proxy servera (voliteľné)</string>
-    <string name="pref_proxy_password_dialog">Zadajte heslo proxy servera</string>
     <string name="error">Chyba</string>
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">Odtlačky prstov, značky, krajiny a adresy pre posledný skok</string>
     <string name="enter_exit_nodes">Vstupné výstupné uzly</string>
@@ -122,7 +117,7 @@
     <string name="snowflake_proxy_msg_description">Zobrazenie správy, keď niekomu pomôžete obísť cenzúru</string>
     <string name="pref_start_boot_summary">Automatické spustenie Orbotu a pripojenie Tor pri spustení zariadenia so systémom Android</string>
     <string name="pref_entrance_node_summary">Odtlačky prstov, zárezy, krajiny a adresy pre prvý skok</string>
-    <string name="pref_proxy_type_summary">Protokol, ktorý sa má použiť pre proxy server: HTTP, HTTPS, SOCKS4, SOCKS5</string>
+    <string name="pref_proxy_type_summary">Protokol, ktorý sa má použiť pre proxy server: HTTPS, SOCKS4, SOCKS5</string>
     <string name="pref_allow_background_starts_summary">Nechajte ľubovoľnú aplikáciu povedať Orbotu, aby spustil Tor a súvisiace služby</string>
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Odtlačky prstov, zárezy, krajiny a adresy na vylúčenie</string>
     <string name="pref_proxy_title">Odchádzajúci sieťový proxy server (voliteľné)</string>

@@ -25,7 +25,7 @@ object SmartConnect {
     private var connectionGuard: Timer? = null
 
     @JvmStatic
-    fun handle(context: Context, startTor: () -> Exception?, stopTor: (e: Exception?) -> Unit, completed: () -> Unit) {
+    fun handle(context: Context, startTor: () -> Exception?, reconfigure: () -> Boolean, stopTor: (e: Exception?) -> Unit, completed: () -> Unit) {
         progress = 0
 
         if (!Prefs.smartConnect) {
@@ -84,10 +84,6 @@ object SmartConnect {
 
                     var connected = false
 
-                    mainScope.launch {
-                        stopTor(null)
-                    }
-
                     do {
                         when (Prefs.transport) {
                             Transport.NONE -> {
@@ -140,8 +136,7 @@ object SmartConnect {
                         }
                     } while (!connected)
 
-                    val exception = startTor()
-                    if (exception != null) {
+                    if (!reconfigure()) {
                         // That didn't start? Ok, then try next transport immediately.
                         connectionTimeout = TimeSource.Monotonic.markNow()
                     }

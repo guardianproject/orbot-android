@@ -70,16 +70,11 @@
     <string name="pref_node_configuration_summary">Këto janë rregullime të thelluara që mund të reduktojnë anonimitetin tuaj</string>
     <string name="pref_entrance_node">Nyja Hyrjesh</string>
     <string name="pref_entrance_node_dialog">Jepni Nyja Hyrjesh</string>
-    <string name="pref_proxy_type_summary">Protokoll për t’u përdorur për shërbyes ndërmjetës: HTTP, HTTPS, SOCKS4, SOCKS5</string>
-    <string name="pref_proxy_type_dialog">Jepni Lloj Ndërmjetësi</string>
+    <string name="pref_proxy_type_summary">Protokoll për t’u përdorur për shërbyes ndërmjetës: HTTPS, SOCKS4, SOCKS5</string>
     <string name="pref_proxy_host_summary">Strehëemër Shërbyesi Ndërmjetësi</string>
-    <string name="pref_proxy_host_dialog">Jepni Strehë Ndërmjetësi</string>
     <string name="pref_proxy_port_summary">Portë Shërbyesi Ndërmjetësi</string>
-    <string name="pref_proxy_port_dialog">Jepni portë Ndërmjetësi</string>
     <string name="pref_proxy_username_summary">Emër Përdoruesi Ndërmjetësi (Në daçi)</string>
-    <string name="pref_proxy_username_dialog">Jepni Emër Përdoruesi Ndërmjetësi</string>
     <string name="pref_proxy_password_summary">Fjalëkalim Ndërmjetësi (Opsional)</string>
-    <string name="pref_proxy_password_dialog">Jepni Fjalëkalim Ndërmjetësi</string>
     <string name="enter_exit_nodes">Jepni Nyja Daljeje</string>
     <string name="exclude_nodes">Nyja Përjashtimi</string>
     <string name="enter_exclude_nodes">Jepni Nyja Përjashtimi</string>

@@ -19,10 +19,7 @@
     <string name="pref_allow_background_starts_title">Arka planda başlamaga rugsat beriň</string>
     <string name="pref_proxy_title">Çykýan Network Proksi (islege görä)</string>
     <string name="pref_proxy_type_title">Çykýan Proksi Görnüşi</string>
-    <string name="pref_proxy_type_dialog">Proksi Görnüşini Giriziň</string>
     <string name="pref_proxy_host_summary">Proksi Serweriň host ady</string>
-    <string name="pref_proxy_port_dialog">Proksi Portyny giriziň</string>
-    <string name="pref_proxy_username_dialog">Proksi ulanyjy adyny giriziň</string>
     <string name="pref_proxy_password_title">Çykýan Proksi Paroly</string>
     <string name="license">Ygtyýarnama:</string>
     <string name="pref_use_expanded_notifications_title">Giňeldilen Habarnamalar</string>
@@ -67,12 +64,10 @@
     <string name="btn_refresh">Täzele</string>
     <string name="btn_tor_off">Tor-y öçüriň</string>
     <string name="root_warning">Orbot, enjamyňyzyň kök urandygyny (root), howpsuzlyk meselelerine sebäp bolup biljekdigini anyklady.</string>
-    <string name="pref_proxy_host_dialog">Proksi Hostyny Giriziň</string>
     <string name="pref_proxy_port_title">Çykýan Proksi Porty</string>
     <string name="pref_proxy_port_summary">Proksi Serwer Porty</string>
     <string name="pref_proxy_username_title">Çykýan Proksi Ulanyjy Ady</string>
     <string name="pref_proxy_username_summary">Proksi Ulanyjy Ady (Islege Görä)</string>
-    <string name="pref_proxy_password_dialog">Proksi Parolyny Giriziň</string>
     <string name="error">Ýalňyşlyk</string>
     <string name="enter_exit_nodes">Çykyş Düwünleri Giriziň</string>
     <string name="exclude_nodes">Düwünleri Aýyryň</string>
@@ -151,7 +146,7 @@
     <string name="pref_detect_root_summary">Bu enjam kökli bolsa, başlangyçda duýduryş beriň</string>
     <string name="app_description">Orbot, beýleki programmalara interneti has ygtybarly ulanmaga mümkinçilik berýän mugt proksi serwer programmasydyr. Tor arkaly, Orbot internet trafigiňizi şifrleýär we dünýäniň dürli kompýuterlerinden geçirip gizleýär. Tor, şahsy erkinligiňize we maglumatlaryňyza, gizlin iş amallaryna we gatnaşyklaryňyza, döwlet howpsuzlygy we traffigiň derňewi diýlip atlandyrylýan tor gözegçiliginden goraýan mugt programma üpjünçiligi we açyk ulgamdyr.</string>
     <string name="wizard_details_msg">Orbot; Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks we LibEvent gurluşlaryny öz içine alýan açyk çeşme programmasy. Tor network birikmek üçin ýerli HTTP proksi (8118) we SOCKS proksi (9050) üpjün edýär.</string>
-    <string name="pref_proxy_type_summary">Proksi serwerinde ulanmak üçin tor protokollary: HTTP, HTTPS, SOCKS4, SOCKS5</string>
+    <string name="pref_proxy_type_summary">Proksi serwerinde ulanmak üçin tor protokollary: HTTPS, SOCKS4, SOCKS5</string>
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">Barmak yzlary, gysgaltmalar, ýurtlar we soňky böküş üçin salgylar</string>
     <string name="pref_proxy_host_title">Çykýan Proksi Wekili</string>
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Gatnaşmajak barmak yzlary, gysgaltmalar, ýurtlar we salgylar</string>

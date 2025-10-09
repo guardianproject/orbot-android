@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="proxy_types">
+        <item>HTTPS</item>
+        <item>SOCKS4</item>
+        <item>SOCKS5</item>
+    </array>
+</resources>

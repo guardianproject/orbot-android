@@ -22,21 +22,16 @@
   <string name="pref_allow_background_starts_summary">Mɵ purukupik kɵpen Orbotpa kelicha Torwan pɵlpasrtrai cha karumik</string>
   <string name="pref_proxy_title">Red wepintrai proxy marik (marinkui-marmuinkui)</string>
   <string name="pref_proxy_type_title">Wepintrai proxy marik</string>
-  <string name="pref_proxy_type_summary">Proxyn mantɵ aship maramikwan eshkapik: HTTP, HTTPS, SOCKS4, SOCKS5</string>
-  <string name="pref_proxy_type_dialog">Chi proxy kuikwan ker</string>
+  <string name="pref_proxy_type_summary">Proxyn mantɵ aship maramikwan eshkapik: HTTPS, SOCKS4, SOCKS5</string>
   <string name="pref_proxy_host_title">Proxy Host wepintrai
  </string>
   <string name="pref_proxy_host_summary">Proxywai munchi</string>
-  <string name="pref_proxy_host_dialog">Host Proxyn ker</string>
   <string name="pref_proxy_port_title">Wepintrai puerto Proxy marik</string>
   <string name="pref_proxy_port_summary">Proxyu puerto </string>
-  <string name="pref_proxy_port_dialog">Puerto Proxyn ker </string>
   <string name="pref_proxy_username_title">Proxy wepipikwai munchi</string>
   <string name="pref_proxy_username_summary">Proxyyu munchi pasrikwan asamik (marin kui, marmuik kuik)</string>
-  <string name="pref_proxy_username_dialog">Proxyyu chi munchi pasrikwan ker </string>
   <string name="pref_proxy_password_title">Chi kɵpik wan mu kɵpen ashmɵntrai sɵtɵ pasrapik</string>
   <string name="pref_proxy_password_summary">Chi kɵpik wan mu kɵpen ashmɵntrai sɵtɵ pasrapik (marik marmui)</string>
-  <string name="pref_proxy_password_dialog">Ñui  chi kɵpik wan ashmɵntrai sɵtɵ pɵrik wan pɵr</string>
   <string name="error">Kalɵ kɵn</string>
   <string name="exit_nodes">wepiamik Nodos</string>
   <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">Tasik urek warik, nɵtrɵ pirɵmerai munchi, chu warapelɵ kuisrɵ eshkamik ik utɵwan pɵrtrawa purampamik</string>

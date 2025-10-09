@@ -45,13 +45,11 @@
     <string name="direct_connect_subtitle">Le melior maniera de connecter se a Tor. Usa lo si Tor non es blocate.</string>
     <string name="volunteer_status_title">Hodie es melior
 \ngratias a te.</string>
-    <string name="pref_proxy_type_dialog">Insere typo de proxy</string>
     <string name="copy_address_to_clipboard">Copiar adresse al area de transferentia</string>
     <string name="version">Version:</string>
     <string name="delete_service">Deler le servicio</string>
     <string name="v3_backup_name_hint">Nomine de file del copia de securitate…</string>
     <string name="license">Licentia:</string>
-    <string name="pref_proxy_host_dialog">Insere le servitor proxy</string>
     <string name="service_type">Typo de servicio</string>
     <string name="hidden_services">Servicios onion</string>
     <string name="done">Facite!</string>
@@ -75,21 +73,18 @@
     <string name="pref_proxy_port_title">Porto de servitor proxy de sortita</string>
     <string name="pref_proxy_port_summary">Porto de servitor proxy</string>
     <string name="pref_proxy_username_summary">Nomine de usator de proxy (optional)</string>
-    <string name="pref_proxy_username_dialog">Insere le nomine de usator de proxy</string>
     <string name="pref_proxy_password_title">Contrasigno de proxy de sortita</string>
     <string name="pref_proxy_password_summary">Contrasigno de proxy (Optional)</string>
-    <string name="pref_proxy_password_dialog">Insere contrasigno de proxy</string>
     <string name="v3_hosted_services">Servicios Onion hospite</string>
     <string name="user_services">Servicios de usator</string>
     <string name="app_services">Servicios de application</string>
     <string name="pref_entrance_node_dialog">Insere le nodos de entrata</string>
     <string name="pref_allow_background_starts_title">Permitter le initio in secunde plano</string>
-    <string name="pref_proxy_type_summary">Protocollo a usar pro le servitor proxy: HTTP, HTTPS, SOCKS4, SOCKS5</string>
+    <string name="pref_proxy_type_summary">Protocollo a usar pro le servitor proxy: HTTPS, SOCKS4, SOCKS5</string>
     <string name="pref_proxy_host_title">Servitor proxy de sortita</string>
     <string name="pref_proxy_username_title">Nomine de usator de proxy de sortita</string>
     <string name="enter_exit_nodes">Insere le nodos de sortita</string>
     <string name="option_only_when_charging">Solmente quando tu apparato es cargante</string>
-    <string name="pref_proxy_port_dialog">Insere le porto de proxy</string>
     <string name="vpn_default_world">Global (Automatic)</string>
     <string name="pref_use_expanded_notifications">Monstrar in le notification le pais e adresse IP de tu nodo de sortita quando sia disponibile</string>
     <string name="proxy_ports">Portos de proxy</string>

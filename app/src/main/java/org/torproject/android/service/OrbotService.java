@@ -353,6 +353,20 @@ public class OrbotService extends VpnService {
             }
 
             return null;
+        }, () -> {
+            if (conn == null) return false;
+
+            try {
+                conn.resetConf(Arrays.asList("UseBridges", "ClientTransportPlugin", "Bridge"));
+                conn.setConf(Prefs.getTransport().getTorConfig(this));
+            }
+            catch (IOException e) {
+                logNotice(e.getLocalizedMessage());
+
+                return false;
+            }
+
+            return true;
         }, (Exception e) -> {
             if (e != null) {
                 logNotice(getString(R.string.unable_to_start_tor) + " " + e.getLocalizedMessage());

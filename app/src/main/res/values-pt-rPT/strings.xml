@@ -36,10 +36,7 @@
     <string name="disable">Desativar</string>
     <string name="enable">Ativar</string>
     <string name="wizard_details_msg">O Orbot é um software de código aberto que contem Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, LibEvent. Ele fornece um proxy local HTTP (8118) e um proxy SOCKS (9050) como acesso a rede Tor. Orbot também tem a habilidade, em aparelhos com acesso root, de enviar todo o trafego de Internet via rede Tor.</string>
-    <string name="pref_proxy_type_dialog">Inserir Tipo de Proxy</string>
-    <string name="pref_proxy_port_dialog">Inserir Porta do Proxy</string>
     <string name="pref_proxy_username_summary">Nome do Utilizador do Proxy (Opcional)</string>
-    <string name="pref_proxy_username_dialog">Inserir Nome de Utilizador do Proxy</string>
     <string name="pref_isolate_dest_summary">Usar um circuito diferente para cada endereço de destino</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Permita que pares Wi-Fi, aparelhos conectados e outros que se possam conectar ao seu IP, acessem o Tor</string>
     <string name="user_services">Serviços ao utilizador</string>
@@ -64,14 +61,12 @@
     <string name="ports_reachable_behind_a_restrictive_firewall">Portas alcançáveis por detrás de uma Firewal restritiva</string>
     <string name="pref_proxy_username_title">Nome do Utilizador do Proxy de Saída</string>
     <string name="pref_proxy_host_summary">Nome do Hospedeiro do Servidor Proxy</string>
-    <string name="pref_proxy_type_summary">Protocolo para usar para o servidor proxy: HTTP, HTTPS, Socks4, Socks5</string>
+    <string name="pref_proxy_type_summary">Protocolo para usar para o servidor proxy: HTTPS, Socks4, Socks5</string>
     <string name="pref_proxy_port_summary">Porta do Servidor Proxy</string>
-    <string name="pref_proxy_password_dialog">Inserir palavra-passe do proxy</string>
     <string name="pref_proxy_password_title">Palavra-passe do proxy de saída</string>
     <string name="pref_proxy_title">Proxy de Rede de Saída (Opcional)</string>
     <string name="pref_use_expanded_notifications_title">Notificações Estendidas</string>
     <string name="pref_proxy_host_title">Anfitrião Proxy de Saída</string>
-    <string name="pref_proxy_host_dialog">Inserir Hospedeiro Proxy</string>
     <string name="pref_proxy_password_summary">Palavra-passe do Proxy (Opcional)</string>
     <string name="project_home">Projecto Home:</string>
     <string name="pref_proxy_type_title">Tipo de Proxy de Saída</string>
