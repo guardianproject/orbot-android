@@ -292,5 +292,5 @@
     <string name="log_notice_updating_torrc">Updating torrc custom configuration…</string>
     <string name="log_notice_connected_to_tor_control_port">Connected to tor control port</string>
 
-
+    <string name="search_for_apps">Search for apps</string>
 </resources>
