@@ -1,20 +1,18 @@
 package org.torproject.android.ui.more
 
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.BounceInterpolator
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.launch
 import org.torproject.android.OrbotActivity
 import org.torproject.android.R
 import org.torproject.android.service.util.sendIntentToService
@@ -26,6 +24,8 @@ import org.torproject.android.ui.v3onionservice.OnionServiceActivity
 import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthActivity
 
 class MoreFragment : Fragment() {
+    private val viewModel: MoreViewModel by activityViewModels()
+
     private var httpPort = -1
     private var socksPort = -1
 
@@ -36,30 +36,6 @@ class MoreFragment : Fragment() {
 
         httpPort = (context as OrbotActivity).portHttp
         socksPort = context.portSocks
-
-        if (view != null) updateStatus()
-    }
-
-    private fun updateStatus() {
-        val sb = StringBuilder()
-
-        sb.append(getString(R.string.proxy_ports)).append(" ")
-
-        if (httpPort != -1 && socksPort != -1) {
-            sb.append("\nHTTP: ").append(httpPort).append(" -  SOCKS: ").append(socksPort)
-        } else {
-            sb.append(": " + getString(R.string.ports_not_set))
-        }
-
-        sb.append("\n\n")
-
-        val manager = requireActivity().packageManager
-        val info =
-            manager.getPackageInfo(requireActivity().packageName, PackageManager.GET_ACTIVITIES)
-        sb.append(getString(R.string.app_name)).append(" ${info.versionName}\n")
-        sb.append("Tor v${getTorVersion()}")
-
-        tvStatus.text = sb.toString()
     }
 
     override fun onCreateView(
@@ -70,59 +46,86 @@ class MoreFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_more, container, false)
         tvStatus = view.findViewById(R.id.tvVersion)
 
-        updateStatus()
-
         val rvMore = view.findViewById<RecyclerView>(R.id.rvMoreActions)
-       // val ivMascot = view.findViewById<ImageView>(R.id.ivMascot)
+
+        lifecycleScope.launch {
+            viewModel.statusText.collect { text ->
+                tvStatus.text = text
+            }
+        }
+
+        lifecycleScope.launch {
+            viewModel.events.collect { event ->
+                when (event) {
+                    MoreEvent.OpenSettings -> {
+                        activity?.startActivityForResult(
+                            Intent(context, SettingsActivity::class.java),
+                            OrbotActivity.REQUEST_CODE_SETTINGS
+                        )
+                    }
+                    MoreEvent.OpenVpnSettings -> {
+                        startActivity(Intent("android.net.vpn.SETTINGS").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                    }
+                    MoreEvent.ChooseApps -> {
+                        startActivity(Intent(requireActivity(), AppManagerActivity::class.java))
+                    }
+                    MoreEvent.OpenLog -> showLog()
+                    MoreEvent.OpenOnionServices -> {
+                        startActivity(Intent(requireActivity(), OnionServiceActivity::class.java))
+                    }
+                    MoreEvent.OpenClientAuth -> {
+                        startActivity(Intent(requireActivity(), ClientAuthActivity::class.java))
+                    }
+                    MoreEvent.OpenAbout -> {
+                        AboutDialogFragment().show(
+                            requireActivity().supportFragmentManager,
+                            AboutDialogFragment.TAG
+                        )
+                    }
+                    MoreEvent.ExitApp -> doExit()
+                }
+            }
+        }
+
+        viewModel.updateStatus(requireContext(), httpPort, socksPort)
 
         val listItems = listOf(
             OrbotMenuAction(R.string.menu_settings, R.drawable.ic_settings_gear) {
-                activity?.startActivityForResult(
-                    Intent(context, SettingsActivity::class.java),
-                    OrbotActivity.Companion.REQUEST_CODE_SETTINGS
-                )
+                viewModel.triggerEvent(MoreEvent.OpenSettings)
             },
             OrbotMenuAction(R.string.system_vpn_settings, R.drawable.ic_vpn_key) {
-                activity?.startActivity(
-                    Intent("android.net.vpn.SETTINGS")
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                )
+                viewModel.triggerEvent(MoreEvent.OpenVpnSettings)
             },
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
-                activity?.startActivity(Intent(activity, AppManagerActivity::class.java))
+                viewModel.triggerEvent(MoreEvent.ChooseApps)
             },
-            OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) { showLog() },
+            OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) {
+                viewModel.triggerEvent(MoreEvent.OpenLog)
+            },
             OrbotMenuAction(R.string.v3_hosted_services, R.drawable.ic_menu_onion) {
-                startActivity(Intent(requireActivity(), OnionServiceActivity::class.java))
+                viewModel.triggerEvent(MoreEvent.OpenOnionServices)
             },
             OrbotMenuAction(R.string.v3_client_auth_activity_title, R.drawable.ic_shield) {
-                startActivity(Intent(requireActivity(), ClientAuthActivity::class.java))
+                viewModel.triggerEvent(MoreEvent.OpenClientAuth)
             },
             OrbotMenuAction(R.string.menu_about, R.drawable.ic_about) {
-                AboutDialogFragment().show(
-                    requireActivity().supportFragmentManager,
-                    AboutDialogFragment.Companion.TAG
-                )
+                viewModel.triggerEvent(MoreEvent.OpenAbout)
             },
-            OrbotMenuAction(R.string.menu_exit, R.drawable.ic_exit) { doExit() }
+            OrbotMenuAction(R.string.menu_exit, R.drawable.ic_exit) {
+                viewModel.triggerEvent(MoreEvent.ExitApp)
+            }
         )
-        rvMore.adapter = MoreActionAdapter(listItems)
 
+        rvMore.adapter = MoreActionAdapter(listItems)
         val spanCount = if (resources.configuration.screenWidthDp < 600) 2 else 4
         rvMore.layoutManager = GridLayoutManager(requireContext(), spanCount)
-
 
         return view
     }
 
-    private fun getTorVersion(): String {
-        return OrbotService.BINARY_TOR_VERSION.split("-").toTypedArray()[0]
-    }
-
     private fun doExit() {
-        val killIntent = Intent(
-            requireActivity(), OrbotService::class.java
-        ).setAction(OrbotConstants.ACTION_STOP)
+        val killIntent = Intent(requireActivity(), OrbotService::class.java)
+            .setAction(OrbotConstants.ACTION_STOP)
             .putExtra(OrbotConstants.ACTION_STOP_FOREGROUND_TASK, true)
         requireContext().sendIntentToService(killIntent)
         requireActivity().finish()
