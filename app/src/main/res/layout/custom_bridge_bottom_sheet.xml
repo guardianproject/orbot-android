@@ -64,6 +64,25 @@
             app:layout_constraintBottom_toTopOf="@id/btnAction"
             app:layout_constraintTop_toBottomOf="@id/tvCustomBridgeSubHeader" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bridgeTypeChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:background="@drawable/btn_shape_round"
+            android:backgroundTint="@color/dark_purple"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/btnAction"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <ImageButton
             android:id="@+id/btnScan"
             android:layout_width="wrap_content"

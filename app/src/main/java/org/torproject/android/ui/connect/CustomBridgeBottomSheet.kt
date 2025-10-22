@@ -37,9 +37,7 @@ class CustomBridgeBottomSheet() :
         fun isValidBridge(input: String): Boolean {
             return input.lines()
                 .filter { it.isNotEmpty() && it.isNotBlank() }
-                .all {
-                    it.matches(validBridgeRegex)
-                }
+                .all { it.matches(validBridgeRegex) }
         }
     }
 
@@ -149,6 +147,30 @@ class CustomBridgeBottomSheet() :
             binding.etBridges.error = requireContext().getString(R.string.invalid_bridge_format)
         } else {
             binding.etBridges.error = null
+        }
+
+        val bridgeType = detectBridgeType(inputText)
+
+        if (bridgeType != null) {
+            binding.bridgeTypeChip.visibility = View.VISIBLE
+            binding.bridgeTypeChip.text = "✔ $bridgeType"
+        } else {
+            binding.bridgeTypeChip.visibility = View.GONE
+        }
+    }
+
+    private fun detectBridgeType(input: String): String? {
+        val firstLine = input.lineSequence().firstOrNull { it.isNotBlank() }?.trim() ?: return null
+        val firstToken = firstLine.split(Regex("\\s+"), limit = 2).firstOrNull() ?: return null
+
+        return when (firstToken.lowercase()) {
+            "obfs4" -> "obfs4"
+            "meek_lite" -> "meek_lite"
+            "snowflake" -> "snowflake"
+            "webtunnel" -> "webtunnel"
+            else -> {
+                if (isValidBridge(firstLine)) "vanilla" else null
+            }
         }
     }
 }
