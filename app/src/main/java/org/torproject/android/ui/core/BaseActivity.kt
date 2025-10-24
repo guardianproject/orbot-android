@@ -1,8 +1,6 @@
 package org.torproject.android.ui.core
 
 import android.content.Context
-import android.content.pm.ActivityInfo
-import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
@@ -21,18 +19,6 @@ open class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         resetSecureFlags()
-    }
-
-    protected fun lockActivityOrientation() {
-        val isTablet =
-            resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
-        requestedOrientation = if (isTablet) {
-            val currentOrientation = resources.configuration.orientation
-            val lockedInOrientation =
-                if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) ActivityInfo.SCREEN_ORIENTATION_USER_LANDSCAPE
-                else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-            lockedInOrientation
-        } else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 
     // we need this for on the fly locale changes, especially for supported locales
