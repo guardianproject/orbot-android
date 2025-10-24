@@ -23,25 +23,22 @@ class CustomBridgeBottomSheet() :
 
     companion object {
         const val TAG = "CustomBridgeBottomSheet"
-        private val bridgeStatement =
-            Regex("""(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+])""")
-        private val meekLiteRegex =
-            Regex("""^meek_lite\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+url=https?://\S+\s+front=\S+\s+utls=\S+$""")
-        private val obfs4Regex =
-            Regex("""^obfs4\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+[A-F0-9]{40}(\s+cert=[a-zA-Z0-9+/=]+)?(\s+iat-mode=\d+)?$""")
-        private val vanillaRegex =
-            Regex("""(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+[A-F0-9]{40}?$""")
-        private val webtunnelRegex =
-            Regex("""^webtunnel\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+[A-F0-9]{40}(\s+url=https?://\S+)?(\s+ver=\d+\.\d+\.\d+)?$""")
+
+        // https://regex101.com
+        private val validBridgeRegex = Regex(
+            """^"""
+                    + """((meek_lite|obfs4|webtunnel|snowflake)\s+)?""" // Optional bridge type: Currently supported PTs + vanilla bridges
+                    + """((\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[\da-fA-F:]+])""" // Cheap IPv4 and IPv6 address test
+                    + """(:\d{1,5})?)\s+""" // Optional port number, space after address
+                    + """([\da-fA-F]{40})?""" // Optional bridge fingerprint
+                    + """[ \t\f\w\-/+:=.,]*$""" // Optional bridge arguments (different per bridge type, subject to change)
+        )
 
         fun isValidBridge(input: String): Boolean {
             return input.lines()
                 .filter { it.isNotEmpty() && it.isNotBlank() }
                 .all {
-                    it.matches(obfs4Regex) ||
-                            it.matches(webtunnelRegex) ||
-                            it.matches(meekLiteRegex) ||
-                            it.matches(vanillaRegex)
+                    it.matches(validBridgeRegex)
                 }
         }
     }
@@ -111,8 +108,9 @@ class CustomBridgeBottomSheet() :
 
         configureMultilineEditTextScrollEvent(binding.etBridges)
 
-        var bridges = Prefs.bridgesList.joinToString("\n")
-        if (!bridges.contains(bridgeStatement)) bridges = ""
+        val bridges = Prefs.bridgesList
+            .filter { it.matches(validBridgeRegex) }
+            .joinToString("\n")
         binding.etBridges.setText(bridges)
 
         binding.etBridges.addTextChangedListener(object : TextWatcher {
