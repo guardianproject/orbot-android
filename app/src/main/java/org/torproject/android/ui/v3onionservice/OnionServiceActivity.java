@@ -9,15 +9,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.ListView;
-import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
 
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.torproject.android.R;
@@ -31,7 +31,8 @@ public class OnionServiceActivity extends BaseActivity {
     private static final String BASE_WHERE_SELECTION_CLAUSE = OnionServiceColumns.CREATED_BY_USER + "=";
     private static final String BUNDLE_KEY_SHOW_USER_SERVICES = "show_user_key";
     private static final int REQUEST_CODE_READ_ZIP_BACKUP = 347;
-    private RadioButton radioShowUserServices;
+    private MaterialButton btnShowUserServices;
+    private MaterialButton btnShowAppServices;
     private FloatingActionButton fab;
     private ContentResolver mContentResolver;
     private OnionV3ListAdapter mAdapter;
@@ -44,10 +45,10 @@ public class OnionServiceActivity extends BaseActivity {
         setContentView(R.layout.activity_hosted_services);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        var sab = getSupportActionBar();
-        if (sab != null) sab.setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
 
         mLayoutRoot = findViewById(R.id.hostedServiceCoordinatorLayout);
         fab = findViewById(R.id.fab);
@@ -59,11 +60,27 @@ public class OnionServiceActivity extends BaseActivity {
 
         ListView onionList = findViewById(R.id.onion_list);
 
-        radioShowUserServices = findViewById(R.id.radioUserServices);
-        RadioButton radioShowAppServices = findViewById(R.id.radioAppServices);
-        boolean showUserServices = radioShowAppServices.isChecked() || bundle == null || bundle.getBoolean(BUNDLE_KEY_SHOW_USER_SERVICES, false);
-        if (showUserServices) radioShowUserServices.setChecked(true);
-        else radioShowAppServices.setChecked(true);
+        btnShowUserServices = findViewById(R.id.radioUserServices);
+        btnShowAppServices = findViewById(R.id.radioAppServices);
+
+        btnShowUserServices.setOnClickListener(v -> {
+            btnShowUserServices.setBackgroundColor(ContextCompat.getColor(this, R.color.orbot_btn_enabled_purple));
+            btnShowAppServices.setBackgroundColor(ContextCompat.getColor(this, R.color.orbot_btn_disable_grey));
+            filterServices(true);
+        });
+
+        btnShowAppServices.setOnClickListener(v -> {
+            btnShowUserServices.setBackgroundColor(ContextCompat.getColor(this, R.color.orbot_btn_disable_grey));
+            btnShowAppServices.setBackgroundColor(ContextCompat.getColor(this, R.color.orbot_btn_enabled_purple));
+            filterServices(false);
+        });
+
+        boolean showUserServices = btnShowAppServices.isChecked() || bundle == null || bundle.getBoolean(BUNDLE_KEY_SHOW_USER_SERVICES, false);
+        if (showUserServices) {
+            btnShowUserServices.setChecked(true);
+        } else {
+            btnShowAppServices.setChecked(true);
+        }
         filterServices(showUserServices);
         onionList.setAdapter(mAdapter);
         onionList.setOnItemClickListener((parent, view, position, id) -> {
@@ -98,9 +115,9 @@ public class OnionServiceActivity extends BaseActivity {
     }
 
     @Override
-    protected void onSaveInstanceState(@NonNull Bundle icicle) {
-        super.onSaveInstanceState(icicle);
-        icicle.putBoolean(BUNDLE_KEY_SHOW_USER_SERVICES, radioShowUserServices.isChecked());
+    protected void onSaveInstanceState(@NonNull Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putBoolean(BUNDLE_KEY_SHOW_USER_SERVICES, btnShowUserServices.isChecked());
     }
 
     @Override
@@ -122,14 +139,6 @@ public class OnionServiceActivity extends BaseActivity {
         }
     }
 
-    public void onRadioButtonClick(View view) {
-        int id = view.getId();
-        if (id == R.id.radioUserServices)
-            filterServices(true);
-        else if (id == R.id.radioAppServices)
-            filterServices(false);
-    }
-
     private class OnionServiceObserver extends ContentObserver {
 
         OnionServiceObserver(Handler handler) {
@@ -138,7 +147,7 @@ public class OnionServiceActivity extends BaseActivity {
 
         @Override
         public void onChange(boolean selfChange) {
-            filterServices(radioShowUserServices.isChecked()); // updates adapter
+            filterServices(btnShowUserServices.isChecked());
             showBatteryOptimizationsMessageIfAppropriate();
         }
     }
