@@ -1,4 +1,3 @@
-/* Copyright (c) 2009, Nathan Freitas, Orbot / The Guardian Project - http://openideals.com/guardian */ /* See LICENSE for licensing information */
 package org.torproject.android.ui
 
 import android.Manifest
@@ -8,6 +7,8 @@ import android.content.SharedPreferences
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -22,10 +23,17 @@ import android.widget.ProgressBar
 import android.widget.TextView
 
 import androidx.core.content.ContextCompat
+import androidx.core.content.edit
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -34,17 +42,14 @@ import org.torproject.android.R
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.vpn.TorifiedApp
+import org.torproject.android.service.vpn.TorifiedAppWrapper
+import org.torproject.android.ui.core.BaseActivity
 
 import java.util.Arrays
 import java.util.StringTokenizer
-import androidx.core.content.edit
-import org.torproject.android.ui.core.BaseActivity
 
+@OptIn(FlowPreview::class)
 class AppManagerActivity : BaseActivity(), View.OnClickListener {
-    inner class TorifiedAppWrapper(
-        var header: String? = null,
-        var subheader: String? = null,
-        var app: TorifiedApp? = null)
 
     private var pMgr: PackageManager? = null
     private var mPrefs: SharedPreferences? = null
@@ -52,6 +57,10 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
     private var adapterAppsAll: ListAdapter? = null
     private var progressBar: ProgressBar? = null
     private var alSuggested: List<String>? = null
+    private var searchBar: TextView? = null
+    private var filteredList: MutableList<TorifiedAppWrapper> = ArrayList()
+    private val searchQuery = MutableStateFlow("")
+    private var retainedCheckedPackages: Set<String> = emptySet()
 
     private val job = Job()
     private val scope = CoroutineScope(Dispatchers.Main + job)
@@ -63,18 +72,47 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         listAppsAll = findViewById(R.id.applistview)
         progressBar = findViewById(R.id.progressBar)
+        searchBar = findViewById(R.id.searchBar)
+
+        retainedCheckedPackages = savedInstanceState?.getStringArray("checked_packages")?.toSet() ?: emptySet()
+        val restoredQuery = savedInstanceState?.getString("search_query").orEmpty()
+        if (restoredQuery.isNotEmpty()) {
+            searchBar?.text = restoredQuery
+            searchQuery.value = restoredQuery
+        }
+
+        searchQuery
+            .debounce(250)
+            .distinctUntilChanged()
+            .onEach { filterApps(it) }
+            .launchIn(scope)
+
+        searchBar?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                searchQuery.value = s?.toString().orEmpty()
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
 
         // Need a better way to manage this list
         alSuggested = OrbotConstants.VPN_SUGGESTED_APPS
-
-        // TODO https://github.com/guardianproject/orbot-android/issues/1344
-        lockActivityOrientation()
     }
 
     override fun onResume() {
         super.onResume()
         mPrefs = Prefs.getSharedPrefs(applicationContext)
         reloadApps()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("search_query", searchQuery.value)
+        val checkedPackages = (allApps.orEmpty() + suggestedApps.orEmpty())
+            .filter { it.isTorified }
+            .map { it.packageName }
+            .toTypedArray()
+        outState.putStringArray("checked_packages", checkedPackages)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -103,6 +141,25 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
             }
             listAppsAll?.adapter = adapterAppsAll
             progressBar?.visibility = View.GONE
+
+            filterApps(searchQuery.value)
+        }
+    }
+
+    private fun filterApps(query: String?) {
+        scope.launch(Dispatchers.Default) {
+            val lower = query?.lowercase()?.trim().orEmpty()
+            val results = if (lower.isEmpty()) {
+                uiList
+            } else {
+                uiList.filter { it.app?.name?.lowercase()?.contains(lower) == true }
+            }
+
+            withContext(Dispatchers.Main) {
+                filteredList.clear()
+                filteredList.addAll(results)
+                (adapterAppsAll as? ArrayAdapter<*>)?.notifyDataSetChanged()
+            }
         }
     }
 
@@ -144,7 +201,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
             this,
             R.layout.layout_apps_item,
             R.id.itemtext,
-            uiList as List<TorifiedAppWrapper?>
+            filteredList
         ) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 var cv = convertView
@@ -169,7 +226,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
                     cv?.tag = entry
                 }
 
-                val taw = uiList[position]
+                val taw = filteredList[position]
 
                 if (taw.header != null) {
                     entry.header?.text = taw.header
@@ -229,6 +286,9 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
                 return cv ?: View(context)
             }
         }
+
+        filteredList.clear()
+        filteredList.addAll(uiList)
     }
 
     private fun saveAppSettings() {
@@ -290,8 +350,9 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
          * [.BYPASS_VPN_PACKAGES]
          */
         private fun includeAppInUi(applicationInfo: ApplicationInfo): Boolean {
-            if (!applicationInfo.enabled) return false
-            return if (OrbotConstants.BYPASS_VPN_PACKAGES.contains(applicationInfo.packageName)) false else BuildConfig.APPLICATION_ID != applicationInfo.packageName
+            return applicationInfo.enabled &&
+                   applicationInfo.packageName != BuildConfig.APPLICATION_ID &&
+                   !OrbotConstants.BYPASS_VPN_PACKAGES.contains(applicationInfo.packageName)
         }
 
         fun getApps(
@@ -364,6 +425,9 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
 
                 // Check if this application is allowed
                 app.isTorified = Arrays.binarySearch(tordApps, app.packageName) >= 0
+
+                // Preserve rotation-checked state
+                app.isTorified = app.isTorified || (context as? AppManagerActivity)?.retainedCheckedPackages?.contains(app.packageName) == true
             }
             apps.sort()
 

@@ -1,50 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <!-- todo these two text views should be their own layout -->
+    android:layout_height="wrap_content"
+    android:id="@+id/itemRow">
 
     <TextView
-        android:visibility="visible"
         android:id="@+id/tvHeader"
+        android:visibility="visible"
         android:layout_marginStart="8dp"
         android:textColor="@color/text_purple"
         android:layout_width="wrap_content"
         android:textStyle="bold"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        tools:text="@string/apps_suggested_title" />
 
     <TextView
+        android:id="@+id/tvSubheader"
+        android:paddingTop="4dp"
+        android:visibility="gone"
+        android:textColor="@android:color/white"
         android:layout_marginTop="-4dp"
         android:layout_marginBottom="2dp"
-        android:visibility="gone"
-        android:id="@+id/tvSubheader"
-        android:textColor="@android:color/white"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="4dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        tools:visibility="visible"
+        tools:text="@string/app_suggested_subtitle" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/appContainer"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:visibility="visible">
 
-        <CheckBox
+        <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/itemcheck"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            app:buttonTint="@color/menu_header"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/itemicon"
             android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="4dp"
             app:layout_constraintStart_toEndOf="@id/itemcheck"
             app:layout_constraintTop_toTopOf="parent"
@@ -52,22 +60,25 @@
 
         <TextView
             android:id="@+id/itemtext"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:clickable="true"
             android:ellipsize="marquee"
+            android:singleLine="true"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:scrollHorizontally="true"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="center_vertical"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:scrollHorizontally="true"
-            android:singleLine="true"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@id/itemicon"
+            android:marqueeRepeatLimit ="marquee_forever"
+            android:layout_marginEnd="2dp"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="App Name that is realllllllllllllllllllllllllly long" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/itemicon"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="A really long app name here" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
