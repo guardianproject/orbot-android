@@ -150,5 +150,24 @@ class CustomBridgeBottomSheet() :
         } else {
             binding.etBridges.error = null
         }
+
+        val bridgeType = detectBridgeType(inputText)
+
+        if (bridgeType != null) {
+            binding.bridgeTypeChip.visibility = View.VISIBLE
+            binding.bridgeTypeChip.text = "✔ $bridgeType"
+        } else {
+            binding.bridgeTypeChip.visibility = View.GONE
+        }
+    }
+
+    private fun detectBridgeType(input: String): String? {
+        return when {
+            input.matches(obfs4Regex) -> "obfs4"
+            input.matches(meekLiteRegex) -> "meek_lite"
+            input.matches(webtunnelRegex) -> "webtunnel"
+            input.matches(vanillaRegex) -> "vanilla"
+            else -> null
+        }
     }
 }
