@@ -160,7 +160,7 @@
     <string name="direct_connect">Conexión directa a Tor</string>
     <string name="snowflake">Snowflake</string>
     <string name="connect">Conectar</string>
-    <string name="next">Conectarse</string>
+    <string name="next">Siguiente</string>
     <string name="ports_not_set">Puertos no configurados</string>
     <string name="power_user_mode">Modo de usuario avanzado</string>
     <string name="power_user_description">Para usuarios familiarizados con Tor. Permite iniciar Orbot sin la configuración de la VPN y muestra los puertos SOCKS y HTTP abiertos</string>
