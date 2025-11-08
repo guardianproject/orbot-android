@@ -12,8 +12,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.WindowInsetsController
-import androidx.activity.addCallback
 
+import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -23,10 +23,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import androidx.navigation.NavController
-import androidx.navigation.NavOptions
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
@@ -34,17 +30,22 @@ import com.scottyab.rootbeer.RootBeer
 import org.torproject.android.service.util.sendIntentToService
 import org.torproject.android.ui.core.BaseActivity
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.service.util.NavigationTarget
 import org.torproject.android.ui.kindness.SnowflakeProxyService
 import org.torproject.android.service.util.Prefs
+import org.torproject.android.service.util.navigateTo
 import org.torproject.android.service.util.showToast
+import org.torproject.android.ui.connect.ConnectFragment
 import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.ui.connect.RequestPostNotificationPermission
 import org.torproject.android.ui.core.DeviceAuthenticationPrompt
+import org.torproject.android.ui.kindness.KindnessFragment
+import org.torproject.android.ui.more.MoreFragment
 import java.util.Locale
 
 class OrbotActivity : BaseActivity() {
-
+    private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var logBottomSheet: LogBottomSheet
 
     var portSocks: Int = -1
@@ -58,6 +59,12 @@ class OrbotActivity : BaseActivity() {
     private var rootLayout: View? = null
 
     private val connectViewModel: ConnectViewModel by viewModels()
+
+    private val tabDestinations = mapOf(
+        R.id.connectFragment to ConnectFragment::class,
+        R.id.kindnessFragment to KindnessFragment::class,
+        R.id.moreFragment to MoreFragment::class
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -103,20 +110,15 @@ class OrbotActivity : BaseActivity() {
         lastSelectedItemId = savedInstanceState.getInt(KEY_SELECTED_TAB, R.id.connectFragment)
         previousReceivedTorStatus = savedInstanceState.getString(KEY_TOR_STATUS)
 
-        val navController = findNavController(R.id.nav_fragment)
-        val currentDest = navController.currentDestination?.id
+        bottomNavigationView.selectedItemId = lastSelectedItemId
 
-        if (currentDest != lastSelectedItemId) {
-            navController.navigate(lastSelectedItemId)
-        }
-
-        findViewById<BottomNavigationView>(R.id.bottom_navigation).selectedItemId =
-            lastSelectedItemId
+        switchToTab(lastSelectedItemId, true)
     }
 
     private fun createOrbot() {
         setContentView(R.layout.activity_orbot)
         rootLayout = findViewById(R.id.rootLayout)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.nav_fragment)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -125,44 +127,12 @@ class OrbotActivity : BaseActivity() {
 
         logBottomSheet = LogBottomSheet()
 
-        val navController: NavController = findNavController(R.id.nav_fragment)
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
-        bottomNavigationView.setupWithNavController(navController)
-
+        bottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.selectedItemId = lastSelectedItemId
 
-        val navOptionsLeftToRight = NavOptions.Builder().setEnterAnim(R.anim.slide_in_right)
-            .setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_right)
-            .setPopExitAnim(R.anim.slide_out_left).build()
-
-        val navOptionsRightToLeft = NavOptions.Builder().setEnterAnim(R.anim.slide_in_left)
-            .setExitAnim(R.anim.slide_out_right).setPopEnterAnim(R.anim.slide_in_left)
-            .setPopExitAnim(R.anim.slide_out_right).build()
-
         bottomNavigationView.setOnItemSelectedListener { item ->
-            if (item.itemId == lastSelectedItemId) {
-                return@setOnItemSelectedListener true
-            }
-
-            val navOptions = if (item.itemId > lastSelectedItemId) {
-                navOptionsLeftToRight
-            } else {
-                navOptionsRightToLeft
-            }
-
-            when (item.itemId) {
-                R.id.connectFragment -> navController.navigate(
-                    R.id.connectFragment, null, navOptions
-                )
-
-                R.id.kindnessFragment -> navController.navigate(
-                    R.id.kindnessFragment, null, navOptions
-                )
-
-                R.id.moreFragment -> navController.navigate(R.id.moreFragment, null, navOptions)
-            }
-
-            lastSelectedItemId = item.itemId
+            val forward = item.itemId > lastSelectedItemId
+            switchToTab(item.itemId, forward)
             true
         }
 
@@ -194,6 +164,16 @@ class OrbotActivity : BaseActivity() {
                 bottomNavigationView.selectedItemId = R.id.connectFragment
             } else finish()
         }
+    }
+
+    private fun switchToTab(itemId: Int, isForward: Boolean) {
+        val target = tabDestinations[itemId] ?: return
+        navigateTo(
+            target = NavigationTarget.FragmentTarget(target),
+            animateTransition = true,
+            isForward = isForward
+        )
+        lastSelectedItemId = itemId
     }
 
     private fun requestNotificationPermission() {
@@ -249,7 +229,6 @@ class OrbotActivity : BaseActivity() {
         sendIntentToService(OrbotConstants.CMD_ACTIVE)
         if (Prefs.beSnowflakeProxy())
             SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
-
     }
 
     override fun onDestroy() {

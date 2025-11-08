@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import org.torproject.android.R
+import org.torproject.android.service.util.NavigationTarget
+import org.torproject.android.service.util.navigateTo
 import org.torproject.android.ui.core.BaseActivity
 
 class SettingsActivity : BaseActivity() {
@@ -12,17 +14,17 @@ class SettingsActivity : BaseActivity() {
         setTitle(R.string.menu_settings)
         setContentView(R.layout.activity_settings)
 
-        var toolbar = findViewById<Toolbar>(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        var sab = getSupportActionBar();
-        if (sab != null) sab.setDisplayHomeAsUpEnabled(true);
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.settings_container, SettingsPreferenceFragment())
-            .commit()
+        navigateTo(
+            target = NavigationTarget.FragmentTarget(SettingsPreferenceFragment::class),
+            addToBackStack = false,
+            animateTransition = true,
+            containerId = R.id.settings_container
+        )
     }
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
