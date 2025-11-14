@@ -1,5 +1,6 @@
 import com.android.build.gradle.internal.api.ApkVariantOutputImpl
 import java.io.FileInputStream
+import java.net.URI
 import java.util.*
 
 plugins {
@@ -176,9 +177,87 @@ dependencies {
     androidTestUtil(libs.androidx.orchestrator)
 }
 
-tasks.named("preBuild") { dependsOn("copyLicenseToAssets") }
-tasks.register<Copy>("copyLicenseToAssets") {
+afterEvaluate {
+    tasks.matching {
+        it.name == "preFullpermReleaseBuild" ||
+        it.name == "preNightlyReleaseBuild"
+    }.configureEach {
+        dependsOn(
+            copyLicenseToAssets,
+            fetchBuiltinBridges,
+            verifyBridgesCommitted,
+        )
+    }
+}
+
+val copyLicenseToAssets by tasks.registering(Copy::class) {
     from(rootProject.file("LICENSE"))
     into(layout.projectDirectory.dir("src/main/assets"))
 }
 
+val fetchBuiltinBridges by tasks.registering {
+    val assetsDir = layout.projectDirectory.dir("src/main/assets")
+    val outputFile = assetsDir.file("builtin-bridges.json")
+
+    outputs.file(outputFile)
+
+    doLast {
+        assetsDir.asFile.mkdirs()
+        outputFile.asFile.delete()
+
+        try {
+            URI("https://bridges.torproject.org/moat/circumvention/builtin")
+                .toURL()
+                .openStream()
+                .use { input ->
+                    outputFile.asFile.outputStream().use { output ->
+                        input.copyTo(output)
+                    }
+                }
+
+            println("Successfully fetched builtin bridges from Tor.")
+        } catch (e: Exception) {
+            println("WARNING: Could not fetch builtin bridges: ${e.message}")
+            println("Using existing builtin-bridges.json if present.")
+        }
+    }
+}
+
+val verifyBridgesCommitted by tasks.registering {
+    dependsOn(copyLicenseToAssets)
+    dependsOn(fetchBuiltinBridges)
+
+    val bridgesDir = layout.projectDirectory.dir("src/main/assets")
+    val bridgesFile = bridgesDir.file("builtin-bridges.json").asFile
+
+    inputs.file(bridgesFile)
+
+    doLast {
+        val diffOutput = try {
+            providers.exec {
+                commandLine("git", "diff", "--name-only", bridgesFile.path)
+            }.standardOutput.asText.get().trim()
+        } catch (e: Exception) {
+            throw GradleException(
+                "Could not run 'git' to verify builtin-bridges.json: ${e.message}\n" +
+                 "Ensure git is installed and this is a git repo.", e
+            )
+        }
+
+        if (diffOutput.isNotBlank()) {
+            throw GradleException(
+                """
+                ERROR: builtin-bridges.json has changed but is not committed.
+
+                Please commit this file BEFORE running a release build:
+
+                    git add ${bridgesFile.path}
+                    git commit -m "Update builtin bridges"
+
+                Then re-run:
+                    ./gradlew assembleRelease
+                """.trimIndent()
+            )
+        }
+    }
+}
