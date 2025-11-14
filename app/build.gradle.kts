@@ -1,5 +1,6 @@
 import com.android.build.gradle.internal.api.ApkVariantOutputImpl
 import java.io.FileInputStream
+import java.net.URI
 import java.util.*
 
 plugins {
@@ -176,9 +177,77 @@ dependencies {
     androidTestUtil(libs.androidx.orchestrator)
 }
 
-tasks.named("preBuild") { dependsOn("copyLicenseToAssets") }
-tasks.register<Copy>("copyLicenseToAssets") {
+afterEvaluate {
+    tasks.matching {
+        it.name == "preFullpermReleaseBuild" ||
+        it.name == "preNightlyReleaseBuild"
+    }.configureEach {
+        dependsOn(
+            copyLicenseToAssets,
+            updateBuiltinBridges,
+        )
+    }
+}
+
+val copyLicenseToAssets by tasks.registering(Copy::class) {
     from(rootProject.file("LICENSE"))
     into(layout.projectDirectory.dir("src/main/assets"))
 }
 
+val updateBuiltinBridges by tasks.registering {
+    val assetsDir = layout.projectDirectory.dir("src/main/assets")
+    val outputFile = assetsDir.file("builtin-bridges.json").asFile
+
+    outputs.file(outputFile)
+
+    doLast {
+        assetsDir.asFile.mkdirs()
+
+        val oneDay = 24 * 60 * 60 * 1000L
+        val isOld = !outputFile.exists() || System.currentTimeMillis() - outputFile.lastModified() > oneDay
+
+        if (isOld) {
+            println("builtin-bridges.json missing or older than 24h, downloading...")
+            try {
+                URI("https://bridges.torproject.org/moat/circumvention/builtin")
+                    .toURL()
+                    .openStream()
+                    .use { input ->
+                        outputFile.outputStream().use { output ->
+                            input.copyTo(output)
+                        }
+                    }
+                println("Successfully fetched builtin bridges.")
+            } catch (e: Exception) {
+                throw GradleException("ERROR: Could not fetch builtin bridges: ${e.message}", e)
+            }
+        } else {
+            println("builtin-bridges.json is fresh, skipping download.")
+        }
+
+        val statusOutput = try {
+            providers.exec {
+                commandLine("git", "status", "--porcelain")
+            }.standardOutput.asText.get().trim()
+        } catch (_: Exception) {
+            ""
+        }
+
+        if (statusOutput.isNotEmpty()) {
+            throw GradleException(
+                """
+                ERROR: Your working tree contains uncommitted changes.
+
+                Please commit all changes (including builtin-bridges.json if updated)
+                BEFORE running a release build.
+
+                    git add -A
+                    git commit -m "Commit changes"
+
+                Then re-run:
+                    ./gradlew assembleRelease
+                """.trimIndent()
+            )
+        }
+    }
+}
