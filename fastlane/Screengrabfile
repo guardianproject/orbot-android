@@ -83,6 +83,6 @@ SETTINGS = PREFIX + 'Settings'
 # Keep these all commented out during commits...
 	
 # choose apps makes a toast, that sometimes sneaks its way into other screenshots, run it in isolation
-# use_tests_in_classes([CHOOSE_APPS])
+use_tests_in_classes([CHOOSE_APPS])
 # use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CONNECTED_SCREEN, KINDNESS_SCREEN, MORE_SCREEN, SETTINGS])	
 
