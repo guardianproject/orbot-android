@@ -39,5 +39,5 @@ libs/jtorctl.jar
 # License
 app/src/main/assets/LICENSE
 
-# local kotlin config 
+# Local Kotlin config
 .kotlin/
