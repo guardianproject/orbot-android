@@ -23,7 +23,7 @@ class ScreenshotSettings : BaseScreenshotTest() {
     fun takeScreenshotOfGeneralSettings() {
         val bottomNavigationItemView = onView(
             allOf(
-                withId(R.id.moreFragment), withContentDescription("More"),
+                withId(R.id.moreFragment),
                 childAtPosition(
                     childAtPosition(
                         withId(R.id.bottom_navigation),
@@ -60,7 +60,7 @@ class ScreenshotSettings : BaseScreenshotTest() {
 
         Thread.sleep(300)
 
-        Screengrab.screenshot("E-settings_screen")
+        Screengrab.screenshot("F-settings_screen")
 
     }
 }

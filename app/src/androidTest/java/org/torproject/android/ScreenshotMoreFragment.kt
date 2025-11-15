@@ -33,6 +33,6 @@ class ScreenshotMoreFragment : BaseScreenshotTest() {
             )
         )
         bottomNavigationItemView.perform(click())
-        Screengrab.screenshot("D-more_screen")
+        Screengrab.screenshot("E-more_screen")
     }
 }

@@ -33,7 +33,7 @@ class ScreenshotKindnessModeFragment : BaseScreenshotTest() {
             )
         )
         bottomNavigationItemView.perform(click())
-        Screengrab.screenshot("C-kindness_mode_screen")
+        Screengrab.screenshot("D-kindness_mode_screen")
     }
 
 }
