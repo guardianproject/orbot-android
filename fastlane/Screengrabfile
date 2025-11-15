@@ -19,10 +19,10 @@ BUT_SKIP_THESE_ONES = [] # dont skip any, default...
 
 ALL_LOCALES_WE_TRACK -= BUT_SKIP_THESE_ONES # [1, 2, 3] - [2] == [1, 3]
 
-# locales(ALL_LOCALES_WE_TRACK) # default run everything, except the ones we're passing on
+locales(ALL_LOCALES_WE_TRACK) # default run everything, except the ones we're passing on
 # locales(['fa']) # just Farsi...
 # locales(['en-US'])
-locales(['en-US', 'fa', 'fr-FR'])
+# locales(['en-US', 'fa', 'fr-FR'])
 
 
 # TESTS TO RUN
@@ -44,8 +44,8 @@ SETTINGS = PREFIX + 'Settings'
 # runs all, with pesky CHOOSE_APPS last..
 # use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CONNECTED_SCREEN, KINDNESS_SCREEN, MORE_SCREEN, SETTINGS, CHOOSE_APPS])	
 
-use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CHOOSE_APPS])
-# use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CONNECTED_SCREEN, KINDNESS_SCREEN, MORE_SCREEN, SETTINGS, CHOOSE_APPS])	
+# use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CHOOSE_APPS])
+use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CONNECTED_SCREEN, KINDNESS_SCREEN, MORE_SCREEN, SETTINGS, CHOOSE_APPS])	
 
 # clear all previously generated screenshots in your local output directory before creating new ones
 # if you're running multiple rounds of fastlane screengrab, and especially if use_timestamp_suffix.
