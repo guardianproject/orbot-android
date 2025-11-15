@@ -23,7 +23,7 @@ app_package_name('org.torproject.android.debug')
 APP_APK_PATH= 'app/build/outputs/apk/fullperm/debug/'
 gitCmd = 'git describe --tags --always'
 gitCmdResult = `#{gitCmd}`
-APP_APK_FILENAME= 'Orbot-' + gitCmdResult + '-fullperm-' + EMULATOR_ABI + '-debug.apk'
+APP_APK_FILENAME= 'Orbot-' + gitCmdResult.strip + '-fullperm-' + EMULATOR_ABI + '-debug.apk'
 
 # if fastlane can't find the app APK, just comment this line out and let it try to help you find one...
 app_apk_path(APP_APK_PATH + APP_APK_FILENAME)

@@ -92,4 +92,5 @@ app_apk_path(APP_APK_PATH + APP_APK_FILENAME)
 # use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CONNECTED_SCREEN, KINDNESS_SCREEN, MORE_SCREEN, SETTINGS])
 
 ```
+- If `fastlane` completes without error, it'll render an HTML file of the last batch of screenshots generated at `fastlane/metadata/android/screenshots.html`. This file isn't tracked in git, but is helpful for quickly verifying things aren't broken.
 
