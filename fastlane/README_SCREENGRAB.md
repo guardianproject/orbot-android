@@ -52,59 +52,44 @@ reinstall_app(true)
 This `locales` method can be invoked with just one locale if you want to run screenshots on a specific locale. If you're doing this, you should call `clear_previous_screenshots(false)` using `false` instead of `true` so as to not nuke everything.
 
 
-After ensuring that the `ANDROID_HOME` environment variable is set and points to a valid Android SDK Location, from the root of Orbot, clean and build the main app as well as the test suite. 
+After ensuring that the `ANDROID_HOME` environment variable is set and points to a valid Android SDK Location, from the root of Orbot, clean and build the main app as well as the test suite:
+
 ```bash
-./graldew clean assembleDebug assembleAndroidTest
+./gradlew clean assembleFullpermDebug assembleFullPermdebugAndroidTest
 fastlane screengrab
 ```
 
-Screengrab will ask you for the debug Orbot APK. There are a lot of options, but you need to consider
-what's the hardware architecture of the emulator you are using to run Orbot. Make sure **not** to select the `androidTest` APK here.
+**at the top of `fastlane/Screengrabfile`** set `EMULATOR_ABI` to match the emulator you're capturing
+your screenshots in. Often this is just the ABI of your host machine. The Screengrabfile script uses this to try and find the appropraite Orbot APK to run tests on:
 
-For my case, my emulated pixel is `arm64` so I select `3` here. If you're on an Intel machine you'd want to look for `x86_64` builds.
-```
-[21:38:39]: Select your debug app APK
-1. app/build/outputs/apk/androidTest/fullperm/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-fullperm-debug-androidTest.apk
-2. app/build/outputs/apk/androidTest/nightly/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-nightly-debug-androidTest.apk
-3. app/build/outputs/apk/fullperm/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-fullperm-arm64-v8a-debug.apk
-4. app/build/outputs/apk/fullperm/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-fullperm-armeabi-v7a-debug.apk
-5. app/build/outputs/apk/fullperm/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-fullperm-universal-debug.apk
-6. app/build/outputs/apk/fullperm/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-fullperm-x86-debug.apk
-7. app/build/outputs/apk/fullperm/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-fullperm-x86_64-debug.apk
-8. app/build/outputs/apk/nightly/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-nightly-arm64-v8a-debug.apk
-9. app/build/outputs/apk/nightly/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-nightly-armeabi-v7a-debug.apk
-10. app/build/outputs/apk/nightly/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-nightly-universal-debug.apk
-11. app/build/outputs/apk/nightly/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-nightly-x86-debug.apk
-12. app/build/outputs/apk/nightly/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-nightly-x86_64-debug.apk
-13. appcore/build/outputs/apk/androidTest/debug/appcore-debug-androidTest.apk
-14. orbotservice/build/outputs/apk/androidTest/debug/orbotservice-debug-androidTest.apk
-?
+```ruby
+EMULATOR_ABI_ARM64 = "arm64-v8a"
+EMULATOR_ABI_INTEL64 = "x86_64"
+
+# change this to intel if not running fastlane on an arm machine
+EMULATOR_ABI = EMULATOR_ABI_ARM64
 ```
 
-Then you'll be given the same prompt asking for the test APK. Select the `fullperm` variant, in this case that's `1`.
+If fastlane can't find the app (Orbot) APK, comment out the line to have `fastlane` give you a list of APKs to choose from, or replace this method call with an Orbot APK of your choice..
+
+```ruby
+app_apk_path(APP_APK_PATH + APP_APK_FILENAME)
 ```
-1. app/build/outputs/apk/androidTest/fullperm/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-fullperm-debug-androidTest.apk
-2. app/build/outputs/apk/androidTest/nightly/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-nightly-debug-androidTest.apk
-3. app/build/outputs/apk/fullperm/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-fullperm-arm64-v8a-debug.apk
-4. app/build/outputs/apk/fullperm/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-fullperm-armeabi-v7a-debug.apk
-5. app/build/outputs/apk/fullperm/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-fullperm-universal-debug.apk
-6. app/build/outputs/apk/fullperm/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-fullperm-x86-debug.apk
-7. app/build/outputs/apk/fullperm/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-fullperm-x86_64-debug.apk
-8. app/build/outputs/apk/nightly/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-nightly-arm64-v8a-debug.apk
-9. app/build/outputs/apk/nightly/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-nightly-armeabi-v7a-debug.apk
-10. app/build/outputs/apk/nightly/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-nightly-universal-debug.apk
-11. app/build/outputs/apk/nightly/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-nightly-x86-debug.apk
-12. app/build/outputs/apk/nightly/debug/Orbot-17.5.0-RC-1-tor-0.4.8.16-143-g50f29e8c-nightly-x86_64-debug.apk
-13. appcore/build/outputs/apk/androidTest/debug/appcore-debug-androidTest.apk
-14. orbotservice/build/outputs/apk/androidTest/debug/orbotservice-debug-androidTest.apk
-```
+
 
 `fastlane` will attempt to do its thing, and you'll see your emulator loading the tests and changing locales. This can be a very resource intensive process and works best with your computer haivng nothing else open/doign as little else as possible.
 
-You can safely ignore fastlane's many warning about `java.lang.SecurityException: Package org.torproject.android.debug has not requested permission android.permission.WRITE_EXTERNAL_STORAGE` - it used to need to add this permission to APKs in order to funciton, but we don't use it in Orbot in 2025 Android completely ignores `WRITE_EXTENRAL_STORAGE` anyway...
 
+## `fastlane screengrab` Tips:
 
-If your emualtor is working too slowly, you can tweak some of the unit tests in `app/src/androidTest/`. Perhaps a quick fix for you is to add/increase a call to `Thread.sleep`? 
+- You can safely ignore fastlane's many warning about `java.lang.SecurityException: Package org.torproject.android.debug has not requested permission android.permission.WRITE_EXTERNAL_STORAGE`... it used to need to add this permission to APKs in order to funciton, but we don't use it in Orbot in 2025 Android completely ignores `WRITE_EXTENRAL_STORAGE` anyway...
+- If your emualtor is working too slowly, you can tweak some of the unit tests in `app/src/androidTest/`. Perhaps a quick fix for you is to add/increase a call to `Thread.sleep`? 
+- New tests can be created using the Espresso Test Recorder in Android Studio. In your test, once you've ensured the screen is setup the right way, call `Screengrab.screenshot("screenshot name")` to obtain a screenshot. The `@Before` annotation can be used to have a method run before the test, you can configure Orbot's `SharedPreference`s and other such things here in order to get the screenshot to look exactly how you want it...
+- Un/comment lines in `fastlane/Screengrabfile` to obtain screenshots in a specific language and/or to only obtain screnshots for certain tests
+- **As of right now the app selection screen `Toast`s and this gets in the way of other screenshots. You can run `fastlane screengrab` twice if this is a problem, uncommenting one of these lines the first time, and the other line the second time.**
+```ruby
+# use_tests_in_classes([CHOOSE_APPS])
+# use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CONNECTED_SCREEN, KINDNESS_SCREEN, MORE_SCREEN, SETTINGS])
 
-New tests can be created using the Espresso Test Recorder in Android Studio. In your test, once you've ensured the screen is setup the right way, call `Screengrab.screenshot("screenshot name")` when the UI is at a point where you want to obtain a screenshot. The `@Before` annotation can be used to have a method run before the test, you can configure Orbot's `SharedPreference`s and other such things here in order to get the screenshot to look exactly how you want it.
+```
 
