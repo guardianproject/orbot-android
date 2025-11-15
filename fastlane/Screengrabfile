@@ -9,22 +9,19 @@
 # locale, and then calling use_tests_in_classes() below with an array of one test... Setting clear
 # screenshots to true
 # default. every locale that we're tryign to maintain screenshots of
-ALL_LOCALES_WE_TRACK = ['en-US', 'fr-FR', 'es-MX', 'de-DE', 'ar', 'he', 'tr', 'pt', 'ja', 'hi', 'ru', 'ko-KR']
+ALL_LOCALES_WE_TRACK = ['en-US', 'fr-FR', 'es-MX', 'de-DE', 'ar', 'he', 'tr', 'pt', 'ja', 'hi', 'ru', 'ko-KR', 'bg', 'en_GB', 'id', 'ga', 'it', 'uk', 'ca', 'ro', 'ta', 'pl', 'pt_PT', 'fr', 'es', 'sq', 'de', 'vi', 'pt_BR', 'cs', 'et', 'fi', 'el', 'sr', 'nb_NO', 'az', 'sv', 'sk', 'lv', 'es_CU', 'tk', 'sl', 'zh_Hans'].sort
 
 # get screenshots for all loacles, excluding the ones in this array
 # useful if some screenshots aren't coming out good for some locales, and others are.
 # just exclude the good ones and rerun fastlane screengrab
-BUT_SKIP_THESE_ONES = [] # dont skip any, default...
 # BUT_SKIP_THESE_ONES = ['en-US', 'fr-FR', 'hi', 'pt']
+BUT_SKIP_THESE_ONES = [] # dont skip any, default...
 
-ALL_LOCALES_WE_TRACK -= BUT_SKIP_THESE_ONES # [1, 2, 3] - [2] == [1, 3]
+ALL_LOCALES_WE_TRACK -= BUT_SKIP_THESE_ONES
 
 locales(ALL_LOCALES_WE_TRACK) # default run everything, except the ones we're passing on
-# locales(['fa']) # just Farsi...
-# locales(['en-US'])
+# locales(['fa'])
 # locales(['en-US', 'fa', 'fr-FR'])
-
-
 # TESTS TO RUN
 PREFIX = 'org.torproject.android.Screenshot'
 # full class names, helper variables for use_tests_in_classes below...
@@ -42,9 +39,9 @@ SETTINGS = PREFIX + 'Settings'
 # CHOOSE_APPS makes a toast, that sometimes sneaks its way into other screenshots, run it in isolation
 # also for whatever reason, CHOOSE_APPS only works if another test runs before it... IDK right now. 
 # runs all, with pesky CHOOSE_APPS last..
-# use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CONNECTED_SCREEN, KINDNESS_SCREEN, MORE_SCREEN, SETTINGS, CHOOSE_APPS])	
-
 # use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CHOOSE_APPS])
+
+# explicitly run every test...
 use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CONNECTED_SCREEN, KINDNESS_SCREEN, MORE_SCREEN, SETTINGS, CHOOSE_APPS])	
 
 # clear all previously generated screenshots in your local output directory before creating new ones

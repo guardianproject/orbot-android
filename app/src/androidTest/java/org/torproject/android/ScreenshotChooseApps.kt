@@ -76,7 +76,7 @@ class ScreenshotChooseApps : BaseScreenshotTest() {
             )
         )
         recyclerView.perform(actionOnItemAtPosition<ViewHolder>(2, click()))
-        Thread.sleep(1500) // wait a long time for apps to load on the "Choose Apps" screen
+        Thread.sleep(1750) // wait a long time for apps to load on the "Choose Apps" screen
         // TODO properly wait for desired view to appear in a proper espresso/unit-testy way
         Screengrab.screenshot("C-Choose_Apps")
     }
