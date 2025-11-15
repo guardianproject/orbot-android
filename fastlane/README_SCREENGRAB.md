@@ -39,6 +39,8 @@ Ensure that `adb` is also added to your PATH. You can get it with `brew install 
 Screenshot configuration for Orbot is defined in `fastlane/Screengrabfile`:
 
 ```ruby
+# some settings, more in file...
+
 # add/remove locales to use for screengrab
 locales([
 'en-US', 'fr-CA', 'es-MX', 'de-DE', 'fa', 'ar', 'he'
@@ -59,22 +61,8 @@ After ensuring that the `ANDROID_HOME` environment variable is set and points to
 fastlane screengrab
 ```
 
-**at the top of `fastlane/Screengrabfile`** set `EMULATOR_ABI` to match the emulator you're capturing
-your screenshots in. Often this is just the ABI of your host machine. The Screengrabfile script uses this to try and find the appropraite Orbot APK to run tests on:
 
-```ruby
-EMULATOR_ABI_ARM64 = "arm64-v8a"
-EMULATOR_ABI_INTEL64 = "x86_64"
-
-# change this to intel if not running fastlane on an arm machine
-EMULATOR_ABI = EMULATOR_ABI_ARM64
-```
-
-If fastlane can't find the app (Orbot) APK, comment out the line to have `fastlane` give you a list of APKs to choose from, or replace this method call with an Orbot APK of your choice..
-
-```ruby
-app_apk_path(APP_APK_PATH + APP_APK_FILENAME)
-```
+If fastlane can't find the app (Orbot) APK, comment out the line to have `fastlane` give you a list of APKs to choose from, or replace this method call with an Orbot APK of your choice. You'll have to rerun `./gradlew assembleFullpermDebug` whenever you make a git commit or change branches, since the APK filename is based off the git index per `app/build.gradle.kts`.
 
 
 `fastlane` will attempt to do its thing, and you'll see your emulator loading the tests and changing locales. This can be a very resource intensive process and works best with your computer haivng nothing else open/doign as little else as possible.
@@ -86,11 +74,6 @@ app_apk_path(APP_APK_PATH + APP_APK_FILENAME)
 - If your emualtor is working too slowly, you can tweak some of the unit tests in `app/src/androidTest/`. Perhaps a quick fix for you is to add/increase a call to `Thread.sleep`? 
 - New tests can be created using the Espresso Test Recorder in Android Studio. In your test, once you've ensured the screen is setup the right way, call `Screengrab.screenshot("screenshot name")` to obtain a screenshot. The `@Before` annotation can be used to have a method run before the test, you can configure Orbot's `SharedPreference`s and other such things here in order to get the screenshot to look exactly how you want it...
 - Un/comment lines in `fastlane/Screengrabfile` to obtain screenshots in a specific language and/or to only obtain screnshots for certain tests
-- **As of right now the app selection screen `Toast`s and this gets in the way of other screenshots. You can run `fastlane screengrab` twice if this is a problem, uncommenting one of these lines the first time, and the other line the second time.**
-```ruby
-# use_tests_in_classes([CHOOSE_APPS])
-# use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CONNECTED_SCREEN, KINDNESS_SCREEN, MORE_SCREEN, SETTINGS])
-
-```
 - If `fastlane` completes without error, it'll render an HTML file of the last batch of screenshots generated at `fastlane/metadata/android/screenshots.html`. This file isn't tracked in git, but is helpful for quickly verifying things aren't broken.
+- If you're redoing an existing screenshot, you **NEED** to make sure `clear_previous_screenshots(true)` is set to `true`
 

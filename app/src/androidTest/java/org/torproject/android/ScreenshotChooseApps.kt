@@ -1,6 +1,5 @@
 package org.torproject.android
 
-
 import androidx.core.content.edit
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.test.espresso.Espresso.onView
@@ -11,10 +10,8 @@ import androidx.test.espresso.matcher.ViewMatchers.withClassName
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.filters.LargeTest
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.`is`
-import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -23,7 +20,6 @@ import org.torproject.android.service.OrbotConstants
 import org.torproject.android.util.Prefs
 import tools.fastlane.screengrab.Screengrab
 
-@LargeTest
 @RunWith(AndroidJUnit4::class)
 class ScreenshotChooseApps : BaseScreenshotTest() {
 
@@ -34,13 +30,19 @@ class ScreenshotChooseApps : BaseScreenshotTest() {
         // the test won't complain if Signal is missing, but having it installed shows the
         // suggested apps part of the AppManagerFragment (and we <3 Signal)
         // on your emulator, open Chrome and go to https://signal.org/android/apk and install it.
+        Prefs.setContext(getContext())
+        Prefs.isSecureWindow = false
+        val prefs = Prefs.getSharedPrefs(getContext())!!
+        prefs.edit {
+            // Signal, if installed, should be at the top of the list since it's suggested by Orbot
+            // Chrome, and whatever other non-suggested apps, will be alphabetized beneath signal.
+            // Then sorted list of non-selected non-suggested apps
+            putString(
+                OrbotConstants.PREFS_KEY_TORIFIED,
+                "org.thoughtcrime.securesms|com.android.chrome"
+            )
 
-       Prefs.getSharedPrefs(getContext())!!.edit {
-           // Signal, if installed, should be at the top of the list since it's suggested by Orbot
-           // Chrome, and whatever other non-suggested apps, will be alphabetized beneath signal.
-           // Then sorted list of non-selected non-suggested apps
-           putString(OrbotConstants.PREFS_KEY_TORIFIED, "org.thoughtcrime.securesms|com.android.chrome")
-       }
+        }
     }
 
     @get:Rule
@@ -74,14 +76,8 @@ class ScreenshotChooseApps : BaseScreenshotTest() {
             )
         )
         recyclerView.perform(actionOnItemAtPosition<ViewHolder>(2, click()))
-        Thread.sleep(700) // wait a long time for apps to load on the "Choose Apps" screen
+        Thread.sleep(1500) // wait a long time for apps to load on the "Choose Apps" screen
         // TODO properly wait for desired view to appear in a proper espresso/unit-testy way
         Screengrab.screenshot("C-Choose_Apps")
-5    }
-
-    @After fun waitForToast() {
-        // annoying, need to wait for Toast.LENGTH_lONG to finish after closing choose apps
-        Thread.sleep(350)
     }
-
 }
