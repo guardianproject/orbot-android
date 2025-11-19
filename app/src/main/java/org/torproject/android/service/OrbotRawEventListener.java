@@ -57,6 +57,7 @@ public class OrbotRawEventListener implements RawEventListener {
                 if (Prefs.useDebugLogging()) handleStreamEventsDebugLogging(payload[1], payload[0]);
             }
             case TorControlCommands.EVENT_CIRCUIT_STATUS -> {
+
                 String status = payload[1];
                 String circuitId = payload[0];
                 String path;
@@ -70,6 +71,10 @@ public class OrbotRawEventListener implements RawEventListener {
                     ignoredInternalCircuits.add(Integer.parseInt(circuitId));
                 }
                 handleCircuitStatusExpandedNotifications(status, circuitId, path);
+
+                if (status.equals(
+                        TorControlCommands.CIRC_EVENT_BUILT))
+                    mService.sendLocalStatusONBroadcast();
             }
             case TorControlCommands.EVENT_OR_CONN_STATUS ->
                     handleConnectionStatus(payload[1], payload[0]);

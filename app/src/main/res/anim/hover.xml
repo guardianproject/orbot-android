@@ -8,6 +8,6 @@
         android:fromYDelta="0.0"
         android:toYDelta="40.0"
         android:startOffset="0"
-        android:repeatCount="3"
+        android:repeatCount="10"
         android:duration="500"/>
 </set>

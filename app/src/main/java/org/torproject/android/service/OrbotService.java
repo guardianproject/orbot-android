@@ -41,7 +41,12 @@ import org.torproject.android.service.vpn.OrbotVpnManager;
 import org.torproject.jni.TorService;
 
 import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
@@ -201,6 +206,15 @@ public class OrbotService extends VpnService {
     // if someone stops during startup, we may have to wait for the conn port to be setup, so we can properly shutdown tor
     private void stopTor() {
         if (shouldUnbindTorService) {
+            try {
+                if (conn != null) {
+                    conn.shutdownTor(TorControlCommands.SIGNAL_SHUTDOWN);
+                    debug("sent shutdown to tor daemon");
+                }
+            } catch (IOException e) {
+                debug("error sending shutdown signal to tor: " + e.getLocalizedMessage());
+            }
+
             debug("unbinding tor service");
             unbindService(torServiceConnection); //unbinding from the tor service will stop tor
             shouldUnbindTorService = false;
@@ -416,42 +430,18 @@ public class OrbotService extends VpnService {
         torServiceConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                //moved torService to a local variable, since we only need it once
-                TorService torService = ((TorService.LocalBinder) iBinder).getService();
 
-                while ((conn = torService.getTorControlConnection()) == null) {
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException e) {
-                        Log.e(TAG, e.toString());
-                    }
-                }
+                File fileControlSocket = TorService.getControlSocket(OrbotService.this);
 
-                try { //wait another second before we set our own event listener
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    Log.e(TAG, e.toString());
-                }
+                while (!(fileControlSocket.exists()&& fileControlSocket.canRead()))
+                    try { Thread.sleep(1000);} catch (Exception e){}
 
-                mOrbotRawEventListener = new OrbotRawEventListener(OrbotService.this);
-
-                if (conn == null) return;
                 try {
-                    initControlConnection();
-                    if (conn == null)
-                        return; // maybe there was an error setting up the control connection
-
-                    //override the TorService event listener
-                    conn.addRawEventListener(mOrbotRawEventListener);
-
-                    logNotice(getString(R.string.log_notice_connected_to_tor_control_port));
-
-                    var events = new ArrayList<>(Arrays.asList(TorControlCommands.EVENT_OR_CONN_STATUS, TorControlCommands.EVENT_CIRCUIT_STATUS, TorControlCommands.EVENT_NOTICE_MSG, TorControlCommands.EVENT_WARN_MSG, TorControlCommands.EVENT_ERR_MSG, TorControlCommands.EVENT_BANDWIDTH_USED, TorControlCommands.EVENT_NEW_DESC, TorControlCommands.EVENT_ADDRMAP));
-                    if (Prefs.useDebugLogging())
-                        events.addAll(Arrays.asList(TorControlCommands.EVENT_DEBUG_MSG, TorControlCommands.EVENT_INFO_MSG, TorControlCommands.EVENT_STREAM_STATUS));
-                    conn.setEvents(events);
+                    try { Thread.sleep(5000);} catch (Exception e){}
+                    initTorControlConnection(fileControlSocket);
                 } catch (IOException e) {
-                    Log.e(TAG, e.toString());
+                    debug("unable to init tor control connection");
+                    e.printStackTrace();
                 }
             }
 
@@ -476,14 +466,46 @@ public class OrbotService extends VpnService {
             shouldUnbindTorService = bindService(serviceIntent, BIND_AUTO_CREATE, mExecutor, torServiceConnection);
     }
 
+    private void initTorControlConnection (File fileControlSocket) throws IOException {
+
+        FileDescriptor controlSocketFd = TorService.prepareFileDescriptor(fileControlSocket.getAbsolutePath());
+        InputStream is = new FileInputStream(controlSocketFd);
+        OutputStream os = new FileOutputStream(controlSocketFd);
+        conn = new TorControlConnection(is, os);
+        conn.launchThread(true);
+        conn.authenticate(new byte[0]);
+
+        mOrbotRawEventListener = new OrbotRawEventListener(OrbotService.this);
+
+        try {
+            initTorSettings();
+
+            //override the TorService event listener
+            conn.addRawEventListener(mOrbotRawEventListener);
+
+            logNotice(getString(R.string.log_notice_connected_to_tor_control_port));
+
+            var events = new ArrayList<>(Arrays.asList(TorControlCommands.EVENT_OR_CONN_STATUS, TorControlCommands.EVENT_CIRCUIT_STATUS, TorControlCommands.EVENT_NOTICE_MSG, TorControlCommands.EVENT_WARN_MSG, TorControlCommands.EVENT_ERR_MSG, TorControlCommands.EVENT_BANDWIDTH_USED, TorControlCommands.EVENT_NEW_DESC, TorControlCommands.EVENT_ADDRMAP));
+            if (Prefs.useDebugLogging())
+                events.addAll(Arrays.asList(TorControlCommands.EVENT_DEBUG_MSG, TorControlCommands.EVENT_INFO_MSG, TorControlCommands.EVENT_STREAM_STATUS));
+            conn.setEvents(events);
+        } catch (IOException e) {
+            Log.e(TAG, e.toString());
+        }
+    }
+
     private void sendLocalStatusOffBroadcast() {
         var localOffStatus = new Intent(LOCAL_ACTION_STATUS).putExtra(EXTRA_STATUS, STATUS_OFF);
         LocalBroadcastManager.getInstance(this).sendBroadcast(localOffStatus);
     }
 
-    private void initControlConnection() {
-        if (conn == null) return;
-        try {
+    public void sendLocalStatusONBroadcast() {
+        var localOffStatus = new Intent(LOCAL_ACTION_STATUS).putExtra(EXTRA_STATUS, STATUS_ON);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(localOffStatus);
+    }
+
+    private void initTorSettings() throws IOException {
+
             var confSocks = conn.getInfo("net/listeners/socks");
             var st = new StringTokenizer(confSocks, " ");
             if (confSocks.trim().isEmpty()) {
@@ -522,11 +544,6 @@ public class OrbotService extends VpnService {
             }
             sendCallbackPorts(mPortSOCKS, mPortHTTP, mPortDns, mPortTrans);
 
-        } catch (IOException | NullPointerException e) {
-            Log.e(TAG, e.toString());
-            stopTorOnError(e.getLocalizedMessage());
-            conn = null;
-        }
     }
 
     public void sendSignalActive() {

@@ -125,6 +125,13 @@
         </service>
 
         <service
+            android:name="org.torproject.jni.TorService"
+            android:process=":remote"
+            android:enabled="true"
+            android:exported="false">
+        </service>
+
+        <service
             android:name=".ui.OrbotTileService"
             android:exported="true"
             android:icon="@drawable/ic_launcher_foreground_title"
