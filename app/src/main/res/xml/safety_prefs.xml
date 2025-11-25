@@ -1,0 +1,36 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:iconSpaceReserved="false">
+
+    <PreferenceScreen
+        app:key="pref_key_camo_dialog"
+        android:summary="@string/setting_app_icon_description"
+        android:title="@string/setting_app_icon_title"
+        app:iconSpaceReserved="false" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:enabled="true"
+        android:key="pref_flag_secure"
+        android:summary="@string/setting_block_screenshot_description"
+        android:title="@string/setting_block_screenshot_title"
+        app:iconSpaceReserved="false" />
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:enabled="true"
+        android:key="pref_require_password"
+        android:summary="@string/setting_unlock_pass_description"
+        android:title="@string/setting_unlock_pass_title"
+        app:iconSpaceReserved="false" />
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:enabled="false"
+        android:key="pref_auth_no_biometrics"
+        android:summary="@string/setting_unlock_with_biometrics_description"
+        android:title="@string/setting_unlock_with_biometrics_title"
+        app:iconSpaceReserved="false" />
+
+
+</PreferenceScreen>

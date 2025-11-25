@@ -71,6 +71,14 @@ class MoreFragment : Fragment() {
         val rvMore = view.findViewById<RecyclerView>(R.id.rvMoreActions)
 
         val listItems = listOf(
+
+            OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
+                findNavController().navigate(R.id.more_to_apps)
+            },
+            OrbotMenuAction(R.string.title_safety, R.drawable.lock_24px) {
+                findNavController().navigate(R.id.more_to_safety)
+
+            },
             OrbotMenuAction(R.string.menu_settings, R.drawable.ic_settings_gear) {
                 findNavController().navigate(R.id.more_to_settings)
             },
@@ -79,9 +87,6 @@ class MoreFragment : Fragment() {
                     Intent("android.net.vpn.SETTINGS")
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 )
-            },
-            OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
-                findNavController().navigate(R.id.more_to_apps)
             },
             OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) { showLog() },
             OrbotMenuAction(R.string.v3_hosted_services, R.drawable.ic_menu_onion) {

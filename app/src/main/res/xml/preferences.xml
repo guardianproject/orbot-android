@@ -45,36 +45,9 @@
 
         <CheckBoxPreference
             android:defaultValue="true"
-            android:key="pref_flag_secure"
-            android:summary="@string/pref_flag_secure_summary"
-            android:title="@string/pref_flag_secure_title"
-            app:iconSpaceReserved="false" />
-
-        <CheckBoxPreference
-            android:defaultValue="true"
             android:key="pref_detect_root"
             android:summary="@string/pref_detect_root_summary"
             android:title="@string/pref_detect_root_title"
-            app:iconSpaceReserved="false" />
-
-        <Preference
-            android:key="pref_key_camo_dialog"
-            android:summary="@string/pref_camo_mode_description"
-            android:title="@string/pref_camo_mode_title"
-            app:iconSpaceReserved="false" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_require_password"
-            android:summary="@string/pref_require_password_description"
-            android:title="@string/pref_require_password"
-            app:iconSpaceReserved="false" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_auth_no_biometrics"
-            android:summary="@string/pref_password_only_no_biometric_description"
-            android:title="@string/pref_password_only_no_biometric"
             app:iconSpaceReserved="false" />
 
     </PreferenceScreen>

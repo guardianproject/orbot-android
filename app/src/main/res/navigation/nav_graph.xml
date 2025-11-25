@@ -41,6 +41,29 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
 
+        <action
+            android:id="@+id/more_to_safety"
+            app:destination="@id/safetyFrag"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/safetyFrag"
+        android:name="org.torproject.android.ui.more.SafetyPreferenceFragment"
+        android:label="fragment_safety">
+
+        <action
+            android:id="@+id/open_camo"
+            app:destination="@id/camoFrag"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/kindnessFragment"
@@ -51,16 +74,7 @@
     <fragment
         android:id="@+id/settinsgFragment"
         android:name="org.torproject.android.ui.more.SettingsPreferenceFragment"
-        android:label="fragment_settings">
-
-        <action
-            android:id="@+id/open_camo"
-            app:destination="@id/camoFrag"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
+        android:label="fragment_settings"/>
 
     <fragment
         android:id="@+id/camoFrag"
