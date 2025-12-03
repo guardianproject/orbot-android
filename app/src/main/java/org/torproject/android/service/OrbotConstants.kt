@@ -116,7 +116,6 @@ object OrbotConstants {
     const val LOCAL_EXTRA_BOOTSTRAP_PERCENT = "percent"
     const val LOCAL_ACTION_PORTS = "ports"
     const val LOCAL_ACTION_V3_NAMES_UPDATED = "V3_NAMES_UPDATED"
-    const val LOCAL_ACTION_NOTIFICATION_START = "notification_start"
 
 
     /**

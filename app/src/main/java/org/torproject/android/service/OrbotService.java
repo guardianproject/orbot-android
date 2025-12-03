@@ -103,11 +103,24 @@ public class OrbotService extends VpnService {
             // Tor connection is active
             if (conn != null && mCurrentStatus.equals(STATUS_ON)) { // only add new identity action when there is a connection
                 mNotifyBuilder.setProgress(0, 0, false); // removes progress bar
-                var pendingIntentNewNym = PendingIntent.getBroadcast(this, 0, new Intent(TorControlCommands.SIGNAL_NEWNYM), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+                var i = new Intent(this, OrbotService.class);
+                i.setAction(TorControlCommands.SIGNAL_NEWNYM);
+                i.putExtra(OrbotConstants.EXTRA_NOT_SYSTEM, true);
+
+                var pendingIntentNewNym = PendingIntent.getBroadcast(this, 0, i,
+                        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
                 mNotifyBuilder.addAction(R.drawable.ic_refresh_white_24dp, getString(R.string.menu_new_identity), pendingIntentNewNym);
             } // Tor connection is off
             else if (mCurrentStatus.equals(STATUS_OFF)) {
-                var pendingIntentConnect = PendingIntent.getBroadcast(this, 0, new Intent(LOCAL_ACTION_NOTIFICATION_START), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                var i = new Intent(this, OrbotService.class);
+                i.setAction(ACTION_START);
+                i.putExtra(OrbotConstants.EXTRA_NOT_SYSTEM, true);
+
+                var pendingIntentConnect = PendingIntent.getForegroundService(this, 0, i,
+                        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
                 mNotifyBuilder
                         .addAction(R.drawable.ic_stat_tor, getString(R.string.connect_to_tor), pendingIntentConnect)
                         .setContentText(notifyMsg)
@@ -249,11 +262,9 @@ public class OrbotService extends VpnService {
                 if (mNotificationManager == null)
                     mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-                var filter = new IntentFilter(TorControlCommands.SIGNAL_NEWNYM);
-                filter.addAction(CMD_ACTIVE);
+                var filter = new IntentFilter(CMD_ACTIVE);
                 filter.addAction(ACTION_STATUS);
                 filter.addAction(ACTION_ERROR);
-                filter.addAction(LOCAL_ACTION_NOTIFICATION_START);
 
                 mActionBroadcastReceiver = new ActionBroadcastReceiver();
                 ContextCompat.registerReceiver(this, mActionBroadcastReceiver, filter, ContextCompat.RECEIVER_NOT_EXPORTED);
@@ -699,9 +710,7 @@ public class OrbotService extends VpnService {
             var action = intent.getAction();
             if (action == null) return;
             switch (action) {
-                case TorControlCommands.SIGNAL_NEWNYM -> newIdentity();
                 case CMD_ACTIVE -> sendSignalActive();
-                case LOCAL_ACTION_NOTIFICATION_START -> startTor();
                 case ACTION_ERROR -> {
                     if (showTorServiceErrorMsg) {
                         Toast.makeText(context, getString(R.string.orbot_config_invalid), Toast.LENGTH_LONG).show();
