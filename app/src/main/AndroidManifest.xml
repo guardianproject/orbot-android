@@ -116,6 +116,7 @@
             android:name=".service.OrbotService"
             android:enabled="true"
             android:exported="true"
+            android:process=":tor"
             android:foregroundServiceType="systemExempted"
             android:permission="android.permission.BIND_VPN_SERVICE"
             android:stopWithTask="false">
@@ -123,6 +124,11 @@
                 <action android:name="android.net.VpnService" />
             </intent-filter>
         </service>
+
+        <service android:name="org.torproject.jni.TorService"
+            android:process=":tor"
+            tools:node="merge"
+            tools:replace="android:process" />
 
         <service
             android:name=".ui.OrbotTileService"
