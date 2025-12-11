@@ -28,10 +28,8 @@
         android:id="@+id/pill_navbar"
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:clipToPadding="false"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp" />
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:clipToPadding="false" />
 
 </androidx.cardview.widget.CardView>

@@ -15,11 +15,7 @@
         <color name="bg_gradient_center">@color/bg_gradient_start</color>
         <color name="bg_gradient_end">#33c3fe37</color>
 
-        <color name="pill_selected_color">@color/progress_bar_purple</color>
-        <color name="pill_unselected_color">@color/panel_background_main</color>
-        <color name="pill_icon_tint">@color/panel_background_main</color>
-        <color name="pill_highlight">#1F8AFB</color>
-        <color name="pill_pressed">#1F8AFB33</color>
-        <color name="pill_label">#FFFFFF</color>
-        <color name="bottom_nav_item_tint">#FFFFFFFF</color>
+        <color name="pill_bg_color">#8F00CC</color>
+        <color name="pill_icon_color">#EFEFEF</color>
+        <color name="pill_text_color">#FFFFFF</color>
 </resources>
