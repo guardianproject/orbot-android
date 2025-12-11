@@ -15,7 +15,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.IdRes
 import androidx.core.content.ContextCompat
-import androidx.core.view.forEach
 import androidx.core.view.isVisible
 import androidx.core.view.size
 import androidx.core.view.get
@@ -28,9 +27,20 @@ class PillNavBar @JvmOverloads constructor(
 
     private val pillContainer: LinearLayout
     private val highlight: View
-    private var bottomNav: BottomNavigationView? = null
     private var selectedIndex = 0
     private val animDuration = 260L
+
+    var bottomNav: BottomNavigationView? = null
+        set(value) {
+            field = value
+            value?.let { bn ->
+                buildPillsFromBottomNav(bn)
+                bn.setOnItemSelectedListener { item ->
+                    selectById(item.itemId, animate = true)
+                    false
+                }
+            }
+        }
 
     init {
         setPadding(0, 0, 0, 0)
@@ -55,32 +65,6 @@ class PillNavBar @JvmOverloads constructor(
             layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
         }
         addView(pillContainer)
-    }
-
-    override fun onAttachedToWindow() {
-        super.onAttachedToWindow()
-        bottomNav = findHiddenBottomNav()
-        bottomNav?.let { bn ->
-            buildPillsFromBottomNav(bn)
-            bn.setOnItemSelectedListener { item ->
-                selectById(item.itemId, animate = true)
-                // Important: return false because the real Navigation selection will be handled by activity's listener
-                // but we still want the BottomNavigationView to show selection state for saved state etc.
-                true
-            }
-        }
-    }
-
-    private fun findHiddenBottomNav(): BottomNavigationView? {
-        val parentView = parent
-        if (parentView is ViewGroup) {
-            parentView.forEach { child ->
-                if (child is BottomNavigationView && child.id == R.id.bottom_navigation) {
-                    return child
-                }
-            }
-        }
-        return null
     }
 
     private fun buildPillsFromBottomNav(bn: BottomNavigationView) {

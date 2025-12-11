@@ -40,6 +40,7 @@ import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.ui.connect.RequestPostNotificationPermission
 import org.torproject.android.ui.core.DeviceAuthenticationPrompt
+import org.torproject.android.ui.widget.PillNavBar
 
 class OrbotActivity : BaseActivity() {
 
@@ -111,7 +112,9 @@ class OrbotActivity : BaseActivity() {
 
         navController = findNavController(R.id.nav_fragment)
 
+        val pillNavBar: PillNavBar = findViewById(R.id.pill_navbar)
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        pillNavBar.bottomNav = bottomNavigationView
         bottomNavigationView.setupWithNavController(navController)
 
         val bottomNavigationContainer = findViewById<View>(R.id.bottomNavContainer)
