@@ -1,4 +1,4 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
-    <solid android:color="@color/pill_selected_color"/>
-    <corners android:radius="50dp"/>
+    <solid android:color="@color/pill_bg_color"/>
+    <corners android:radius="36dp"/>
 </shape>

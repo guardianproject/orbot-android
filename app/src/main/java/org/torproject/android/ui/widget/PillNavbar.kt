@@ -2,6 +2,7 @@ package org.torproject.android.ui.widget
 
 import android.animation.ValueAnimator
 import android.content.Context
+import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.Gravity
@@ -103,7 +104,7 @@ class PillNavBar @JvmOverloads constructor(
         val pill = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER
-            setPadding(22.dp, 8.dp, 22.dp, 8.dp)
+            setPadding(16.dp, 8.dp, 16.dp, 8.dp)
             layoutParams = LinearLayout.LayoutParams(0, LayoutParams.WRAP_CONTENT, 1f)
             isClickable = true
             isFocusable = true
@@ -113,18 +114,19 @@ class PillNavBar @JvmOverloads constructor(
 
         val iv = ImageView(context).apply {
             layoutParams = LinearLayout.LayoutParams(24.dp, 24.dp).apply {
-                marginEnd = 0
+                marginEnd = 4.dp
             }
             setImageDrawable(icon)
-            imageTintList = ContextCompat.getColorStateList(context, R.color.pill_icon_tint)
+            imageTintList = ContextCompat.getColorStateList(context, R.color.pill_icon_color)
         }
 
         val tv = TextView(context).apply {
             layoutParams = LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
             text = title
             textSize = 14f
-            setTextColor(ContextCompat.getColor(context, R.color.pill_label))
+            setTextColor(ContextCompat.getColor(context, R.color.pill_text_color))
             isVisible = false
+            setTypeface(typeface, Typeface.BOLD)
         }
 
         pill.addView(iv)
@@ -194,47 +196,36 @@ class PillNavBar @JvmOverloads constructor(
         val target = pillContainer.getChildAt(index) ?: return
 
         target.post {
-            target.measure(
-                MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
-                MeasureSpec.makeMeasureSpec(target.height, MeasureSpec.EXACTLY)
-            )
-
             val targetLeft = target.left
-            val width = target.measuredWidth
-
-            val curLeft = highlight.left
-            val startLeft = if (curLeft == 0) targetLeft else curLeft
+            val targetWidth = target.width
 
             if (animate) {
-                val animator = ValueAnimator.ofFloat(0f, 1f).setDuration(animDuration)
-                animator.interpolator = DecelerateInterpolator()
-                val startWidth = highlight.width.takeIf { it > 0 } ?: width
+                val startX = highlight.x
+                val startWidth = highlight.width.toFloat()
 
-                animator.addUpdateListener { a ->
-                    val t = a.animatedFraction
-                    val newLeft = (startLeft + (targetLeft - startLeft) * t).toInt()
-                    val newWidth = (startWidth + (width - startWidth) * t).toInt()
-                    val lp = highlight.layoutParams as MarginLayoutParams
-                    val startPad = lp.leftMargin - 8.dp
-                    val endPad = lp.rightMargin - 18.dp
-                    highlight.layout(
-                        newLeft + startPad,
-                        highlight.top,
-                        newLeft + startPad + newWidth + endPad,
-                        highlight.bottom
-                    )
+                val deltaX = targetLeft - startX
+                val deltaWidth = targetWidth - startWidth
+
+                val animator = ValueAnimator.ofFloat(0f, 1f).apply {
+                    duration = animDuration
+                    interpolator = DecelerateInterpolator()
+                    addUpdateListener { animation ->
+                        val t = animation.animatedFraction
+                        highlight.x = startX + deltaX * t
+                        val newWidth = startWidth + deltaWidth * t
+                        highlight.layoutParams = (highlight.layoutParams).apply {
+                            width = newWidth.toInt()
+                        }
+                        highlight.requestLayout()
+                    }
                 }
                 animator.start()
             } else {
-                val lp = highlight.layoutParams as MarginLayoutParams
-                val startPad = lp.leftMargin - 8.dp
-                val endPad = lp.rightMargin - 18.dp
-                highlight.layout(
-                    targetLeft + startPad,
-                    highlight.top,
-                    targetLeft + startPad + width + endPad,
-                    highlight.bottom
-                )
+                highlight.x = targetLeft.toFloat()
+                highlight.layoutParams = highlight.layoutParams.apply {
+                    width = targetWidth
+                }
+                highlight.requestLayout()
             }
         }
     }
