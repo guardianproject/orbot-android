@@ -1,5 +1,6 @@
 package org.torproject.android.ui.widget
 
+import android.animation.Animator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Typeface
@@ -123,6 +124,7 @@ class PillNavBar @JvmOverloads constructor(
             textSize = 14f
             setTextColor(ContextCompat.getColor(context, R.color.pill_text_color))
             isVisible = false
+            alpha = 0f
             setTypeface(typeface, Typeface.BOLD)
         }
 
@@ -144,8 +146,8 @@ class PillNavBar @JvmOverloads constructor(
         val idx = findIndexForId(id)
         if (idx == -1) return
         selectedIndex = idx
-        updatePillAppearance(idx)
-        post { moveHighlightToIndex(idx, animate) }
+        updatePillAppearance(idx, animate)
+        moveHighlightToIndex(idx, animate)
     }
 
     private fun findIndexForId(@IdRes id: Int): Int {
@@ -155,31 +157,95 @@ class PillNavBar @JvmOverloads constructor(
         return -1
     }
 
-    private fun updatePillAppearance(selectedIdx: Int) {
+    private fun updatePillAppearance(selectedIdx: Int, animate: Boolean) {
         pillContainer.forEachIndexed { index, view ->
             val pill = view as LinearLayout
             val tv = pill.getChildAt(1) as? TextView
 
             if (index == selectedIdx) {
-                tv?.isVisible = true
                 pill.layoutParams = (pill.layoutParams as LinearLayout.LayoutParams).apply {
                     width = LinearLayout.LayoutParams.WRAP_CONTENT
                     weight = 0f
                     marginStart = pillSpacing
                     marginEnd = pillSpacing
                 }
-                pill.scaleX = 1.02f
-                pill.scaleY = 1.02f
+
+                if (animate) {
+                    tv?.let {
+                        it.isVisible = true
+                        ValueAnimator.ofFloat(0f, 1f).apply {
+                            duration = animDuration
+                            interpolator = DecelerateInterpolator()
+                            addUpdateListener { anim ->
+                                it.alpha = anim.animatedFraction
+                                val margin = (4.dp * anim.animatedFraction).toInt()
+                                (it.layoutParams as? LinearLayout.LayoutParams)?.marginStart = margin
+                                it.requestLayout()
+                            }
+                            start()
+                        }
+                    }
+
+                    ValueAnimator.ofFloat(1f, 1.02f).apply {
+                        duration = animDuration
+                        interpolator = DecelerateInterpolator()
+                        addUpdateListener { anim ->
+                            val scale = anim.animatedValue as Float
+                            pill.scaleX = scale
+                            pill.scaleY = scale
+                        }
+                        start()
+                    }
+                } else {
+                    tv?.isVisible = true
+                    tv?.alpha = 1f
+                    (tv?.layoutParams as? LinearLayout.LayoutParams)?.marginStart = 4.dp
+                    pill.scaleX = 1.02f
+                    pill.scaleY = 1.02f
+                }
             } else {
-                tv?.isVisible = false
                 pill.layoutParams = (pill.layoutParams as LinearLayout.LayoutParams).apply {
                     width = 0
                     weight = 1f
                     marginStart = pillSpacing
                     marginEnd = pillSpacing
                 }
-                pill.scaleX = 1f
-                pill.scaleY = 1f
+
+                if (animate && tv?.isVisible == true) {
+                    ValueAnimator.ofFloat(1f, 0f).apply {
+                        duration = animDuration
+                        interpolator = DecelerateInterpolator()
+                        addUpdateListener { anim ->
+                            val progress = anim.animatedFraction
+                            tv.alpha = 1f - progress
+                            val margin = (4.dp * (1f - progress)).toInt()
+                            (tv.layoutParams as? LinearLayout.LayoutParams)?.marginStart = margin
+                            tv.requestLayout()
+                        }
+                        doOnEnd {
+                            tv.isVisible = false
+                            (tv.layoutParams as? LinearLayout.LayoutParams)?.marginStart = 4.dp
+                        }
+                        start()
+                    }
+
+                    ValueAnimator.ofFloat(0f, 1f).apply {
+                        duration = animDuration
+                        interpolator = DecelerateInterpolator()
+                        addUpdateListener { anim ->
+                            val scale = anim.animatedValue as Float
+                            pill.scaleX = scale
+                            pill.scaleY = scale
+                        }
+                        start()
+                    }
+                } else {
+                    tv?.isVisible = false
+                    tv?.alpha = 0f
+                    (tv?.layoutParams as? LinearLayout.LayoutParams)?.marginStart = 4.dp
+                    pill.scaleX = 1f
+                    pill.scaleY = 1f
+                }
             }
         }
         pillContainer.requestLayout()
@@ -196,23 +262,20 @@ class PillNavBar @JvmOverloads constructor(
                 val startX = highlight.x
                 val startWidth = highlight.width.toFloat()
 
-                val deltaX = targetLeft - startX
-                val deltaWidth = targetWidth - startWidth
-
-                val animator = ValueAnimator.ofFloat(0f, 1f).apply {
+                ValueAnimator.ofFloat(0f, 1f).apply {
                     duration = animDuration
                     interpolator = DecelerateInterpolator()
                     addUpdateListener { animation ->
                         val t = animation.animatedFraction
-                        highlight.x = startX + deltaX * t
-                        val newWidth = (startWidth + deltaWidth * t).toInt()
+                        highlight.x = startX + (targetLeft - startX) * t
+                        val newWidth = startWidth + (targetWidth - startWidth) * t
                         highlight.layoutParams = (highlight.layoutParams as LayoutParams).apply {
-                            width = newWidth
+                            width = newWidth.toInt()
                         }
                         highlight.requestLayout()
                     }
+                    start()
                 }
-                animator.start()
             } else {
                 highlight.x = targetLeft.toFloat()
                 highlight.layoutParams = (highlight.layoutParams as LayoutParams).apply {
@@ -224,6 +287,15 @@ class PillNavBar @JvmOverloads constructor(
     }
 
     private val Int.dp: Int get() = (this * resources.displayMetrics.density).toInt()
+
+    private fun ValueAnimator.doOnEnd(action: () -> Unit) {
+        addListener(object : Animator.AnimatorListener {
+            override fun onAnimationStart(animation: Animator) {}
+            override fun onAnimationEnd(animation: Animator) { action() }
+            override fun onAnimationCancel(animation: Animator) {}
+            override fun onAnimationRepeat(animation: Animator) {}
+        })
+    }
 }
 
 private inline fun ViewGroup.forEachIndexed(action: (index: Int, view: View) -> Unit) {
