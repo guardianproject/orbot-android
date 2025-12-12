@@ -282,18 +282,23 @@ class ConnectFragment : Fragment(),
                 }
             }
 
+            val buttonStr = if (Prefs.isPowerUserMode) {
+                getString(R.string.connect)
+            } else {
+                getString(R.string.btn_start_vpn)
+            }
+
             text = when {
-                Prefs.isPowerUserMode -> getString(R.string.connect)
                 connectStr.isEmpty() -> SpannableStringBuilder()
                     .append(
-                        getString(R.string.btn_start_vpn),
+                        buttonStr,
                         AbsoluteSizeSpan(18, true),
                         Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                     )
 
                 else -> SpannableStringBuilder()
                     .append(
-                        getString(R.string.btn_start_vpn),
+                        buttonStr,
                         AbsoluteSizeSpan(18, true),
                         Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                     )
