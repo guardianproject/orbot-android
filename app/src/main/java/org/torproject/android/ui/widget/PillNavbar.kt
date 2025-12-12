@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -15,9 +14,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.IdRes
 import androidx.core.content.ContextCompat
+import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.core.view.size
 import androidx.core.view.get
+import androidx.core.view.updateLayoutParams
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -26,7 +27,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.torproject.android.R
 
-class PillNavBar @JvmOverloads constructor(
+class PillNavbar @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0,
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
@@ -37,7 +38,6 @@ class PillNavBar @JvmOverloads constructor(
     private val highlight: View
     private val animDuration = 300L
     private val highlightMargin = 12.dp
-    private val pillSpacing = 0.dp
 
     var bottomNav: BottomNavigationView? = null
         set(value) {
@@ -116,10 +116,7 @@ class PillNavBar @JvmOverloads constructor(
                 0,
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 1f
-            ).apply {
-                marginStart = pillSpacing
-                marginEnd = pillSpacing
-            }
+            )
             isClickable = true
             isFocusable = true
             background = ContextCompat.getDrawable(context, R.drawable.bg_pill_transparent)
@@ -130,9 +127,7 @@ class PillNavBar @JvmOverloads constructor(
             layoutParams = LinearLayout.LayoutParams(
                 24.dp,
                 24.dp
-            ).apply {
-                marginStart = 8.dp
-            }
+            ).apply { marginStart = 8.dp }
             setImageDrawable(icon)
             imageTintList = ContextCompat.getColorStateList(context, R.color.pill_icon_color)
         }
@@ -141,9 +136,7 @@ class PillNavBar @JvmOverloads constructor(
             layoutParams = LinearLayout.LayoutParams(
                 LayoutParams.WRAP_CONTENT,
                 LayoutParams.WRAP_CONTENT
-            ).apply {
-                marginStart = 4.dp
-            }
+            ).apply { marginStart = 2.dp }
             text = title
             textSize = 14f
             setTextColor(ContextCompat.getColor(context, R.color.pill_text_color))
@@ -172,38 +165,21 @@ class PillNavBar @JvmOverloads constructor(
     }
 
     private fun findIndexForId(@IdRes id: Int): Int {
-        pillContainer.forEachIndexed { index, view ->
-            if (view.tag == id) return index
-        }
-        return -1
+        return pillContainer.children.indexOfFirst { it.tag == id }
     }
 
     private fun updatePillAppearance(selectedIdx: Int, animate: Boolean) {
-        val selectedLayoutParams = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.WRAP_CONTENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
-        ).apply {
-            marginStart = pillSpacing
-            marginEnd = pillSpacing
-        }
-
-        val unselectedLayoutParams = LinearLayout.LayoutParams(
-            0,
-            LinearLayout.LayoutParams.WRAP_CONTENT,
-            1f
-        ).apply {
-            marginStart = pillSpacing
-            marginEnd = pillSpacing
-        }
-
-        pillContainer.forEachIndexed { index, view ->
+        pillContainer.children.forEachIndexed { index, view ->
             val pill = view as LinearLayout
             val icon = pill.getChildAt(0) as ImageView
             val text = pill.getChildAt(1) as TextView
 
             val isSelected = index == selectedIdx
 
-            pill.layoutParams = if (isSelected) selectedLayoutParams else unselectedLayoutParams
+            pill.updateLayoutParams<LinearLayout.LayoutParams> {
+                width = if (isSelected) LinearLayout.LayoutParams.WRAP_CONTENT else 0
+                weight = if (isSelected) 0f else 1f
+            }
 
             if (animate) {
                 text.isVisible = true
@@ -243,6 +219,8 @@ class PillNavBar @JvmOverloads constructor(
             val targetLeft = target.left + pillContainer.left
             val targetWidth = target.width
 
+            val params = highlight.layoutParams as LayoutParams
+
             if (animate) {
                 val startX = highlight.x
                 val startWidth = highlight.width.toFloat()
@@ -254,26 +232,18 @@ class PillNavBar @JvmOverloads constructor(
                         val t = animation.animatedFraction
                         highlight.x = startX + (targetLeft - startX) * t
                         val newWidth = startWidth + (targetWidth - startWidth) * t
-                        highlight.layoutParams = (highlight.layoutParams as LayoutParams).apply {
-                            width = newWidth.toInt()
-                        }
+                        params.width = newWidth.toInt()
                         highlight.requestLayout()
                     }
                     start()
                 }
             } else {
                 highlight.x = targetLeft.toFloat()
-                highlight.layoutParams = (highlight.layoutParams as LayoutParams).apply {
-                    width = targetWidth
-                }
+                params.width = targetWidth
                 highlight.requestLayout()
             }
         }
     }
 
     private val Int.dp: Int get() = (this * resources.displayMetrics.density).toInt()
-}
-
-private inline fun ViewGroup.forEachIndexed(action: (index: Int, view: View) -> Unit) {
-    for (i in 0 until childCount) action(i, getChildAt(i))
 }
