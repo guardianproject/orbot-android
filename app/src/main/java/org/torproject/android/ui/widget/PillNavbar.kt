@@ -1,6 +1,5 @@
 package org.torproject.android.ui.widget
 
-import android.animation.Animator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Typeface
@@ -20,15 +19,22 @@ import androidx.core.view.isVisible
 import androidx.core.view.size
 import androidx.core.view.get
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import org.torproject.android.R
 
 class PillNavBar @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0,
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
+    private val _selectedId = MutableStateFlow(-1)
+    val selectedId = _selectedId.asStateFlow()
+
     private val pillContainer: LinearLayout
     private val highlight: View
-    private var selectedIndex = 0
     private val animDuration = 260L
     private val highlightMargin = 12.dp
     private val pillSpacing = 0.dp
@@ -39,8 +45,9 @@ class PillNavBar @JvmOverloads constructor(
             value?.let { bn ->
                 buildPillsFromBottomNav(bn)
                 bn.setOnItemSelectedListener { item ->
-                    selectById(item.itemId, animate = true)
-                    false
+                    if (_selectedId.value == item.itemId) return@setOnItemSelectedListener true
+                    _selectedId.value = item.itemId
+                    true
                 }
             }
         }
@@ -69,6 +76,14 @@ class PillNavBar @JvmOverloads constructor(
             }
         }
         addView(pillContainer)
+
+        CoroutineScope(Dispatchers.Main).launch {
+            selectedId.collect { id ->
+                if (id == -1) return@collect
+                selectById(id, animate = true)
+                bottomNav?.selectedItemId = id
+            }
+        }
     }
 
     private fun buildPillsFromBottomNav(bn: BottomNavigationView) {
@@ -83,9 +98,13 @@ class PillNavBar @JvmOverloads constructor(
         }
 
         val initialId = bn.selectedItemId.takeIf { it != NO_ID } ?: menu[0].itemId
+        _selectedId.value = initialId
         selectById(initialId, animate = false)
 
-        post { moveHighlightToIndex(selectedIndex, animate = false) }
+        post {
+            val idx = findIndexForId(initialId)
+            if (idx != -1) moveHighlightToIndex(idx, animate = false)
+        }
     }
 
     private fun createPill(@IdRes id: Int, title: String, icon: Drawable?): View {
@@ -108,7 +127,12 @@ class PillNavBar @JvmOverloads constructor(
         }
 
         val iv = ImageView(context).apply {
-            layoutParams = LinearLayout.LayoutParams(24.dp, 24.dp)
+            layoutParams = LinearLayout.LayoutParams(
+                24.dp,
+                24.dp
+            ).apply {
+                marginStart = 8.dp
+            }
             setImageDrawable(icon)
             imageTintList = ContextCompat.getColorStateList(context, R.color.pill_icon_color)
         }
@@ -132,10 +156,8 @@ class PillNavBar @JvmOverloads constructor(
         pill.addView(tv)
 
         pill.setOnClickListener {
-            bottomNav?.let { bn ->
-                bn.selectedItemId = id
-            }
-            selectById(id, animate = true)
+            if (_selectedId.value == id) return@setOnClickListener
+            _selectedId.value = id
         }
 
         pill.tag = id
@@ -145,7 +167,6 @@ class PillNavBar @JvmOverloads constructor(
     private fun selectById(@IdRes id: Int, animate: Boolean) {
         val idx = findIndexForId(id)
         if (idx == -1) return
-        selectedIndex = idx
         updatePillAppearance(idx, animate)
         moveHighlightToIndex(idx, animate)
     }
@@ -160,9 +181,12 @@ class PillNavBar @JvmOverloads constructor(
     private fun updatePillAppearance(selectedIdx: Int, animate: Boolean) {
         pillContainer.forEachIndexed { index, view ->
             val pill = view as LinearLayout
-            val tv = pill.getChildAt(1) as? TextView
+            val icon = pill.getChildAt(0) as ImageView
+            val text = pill.getChildAt(1) as TextView
 
-            if (index == selectedIdx) {
+            val isSelected = index == selectedIdx
+
+            if (isSelected) {
                 pill.layoutParams = (pill.layoutParams as LinearLayout.LayoutParams).apply {
                     width = LinearLayout.LayoutParams.WRAP_CONTENT
                     weight = 0f
@@ -171,35 +195,32 @@ class PillNavBar @JvmOverloads constructor(
                 }
 
                 if (animate) {
-                    tv?.let {
-                        it.isVisible = true
-                        ValueAnimator.ofFloat(0f, 1f).apply {
-                            duration = animDuration
-                            interpolator = DecelerateInterpolator()
-                            addUpdateListener { anim ->
-                                it.alpha = anim.animatedFraction
-                                val margin = (4.dp * anim.animatedFraction).toInt()
-                                (it.layoutParams as? LinearLayout.LayoutParams)?.marginStart = margin
-                                it.requestLayout()
-                            }
-                            start()
-                        }
-                    }
+                    text.isVisible = true
+                    text.alpha = 0f
+                    (text.layoutParams as LinearLayout.LayoutParams).marginStart = 4.dp
 
-                    ValueAnimator.ofFloat(1f, 1.02f).apply {
-                        duration = animDuration
-                        interpolator = DecelerateInterpolator()
-                        addUpdateListener { anim ->
-                            val scale = anim.animatedValue as Float
-                            pill.scaleX = scale
-                            pill.scaleY = scale
-                        }
-                        start()
-                    }
+                    text.animate()
+                        .alpha(1f)
+                        .setDuration(animDuration)
+                        .setInterpolator(DecelerateInterpolator())
+                        .start()
+
+                    icon.animate()
+                        .translationX(-6.dp.toFloat())
+                        .setDuration(animDuration)
+                        .setInterpolator(DecelerateInterpolator())
+                        .start()
+
+                    pill.animate()
+                        .scaleX(1.02f)
+                        .scaleY(1.02f)
+                        .setDuration(animDuration)
+                        .start()
                 } else {
-                    tv?.isVisible = true
-                    tv?.alpha = 1f
-                    (tv?.layoutParams as? LinearLayout.LayoutParams)?.marginStart = 4.dp
+                    text.isVisible = true
+                    text.alpha = 1f
+                    (text.layoutParams as? LinearLayout.LayoutParams)?.marginStart = 4.dp
+                    icon.translationX = -6.dp.toFloat()
                     pill.scaleX = 1.02f
                     pill.scaleY = 1.02f
                 }
@@ -207,42 +228,36 @@ class PillNavBar @JvmOverloads constructor(
                 pill.layoutParams = (pill.layoutParams as LinearLayout.LayoutParams).apply {
                     width = 0
                     weight = 1f
-                    marginStart = pillSpacing
-                    marginEnd = pillSpacing
                 }
 
-                if (animate && tv?.isVisible == true) {
-                    ValueAnimator.ofFloat(1f, 0f).apply {
-                        duration = animDuration
-                        interpolator = DecelerateInterpolator()
-                        addUpdateListener { anim ->
-                            val progress = anim.animatedFraction
-                            tv.alpha = 1f - progress
-                            val margin = (4.dp * (1f - progress)).toInt()
-                            (tv.layoutParams as? LinearLayout.LayoutParams)?.marginStart = margin
-                            tv.requestLayout()
-                        }
-                        doOnEnd {
-                            tv.isVisible = false
-                            (tv.layoutParams as? LinearLayout.LayoutParams)?.marginStart = 4.dp
-                        }
-                        start()
+                if (animate) {
+                    if (text.isVisible) {
+                        text.animate()
+                            .alpha(0f)
+                            .setDuration(animDuration / 2)
+                            .setInterpolator(DecelerateInterpolator())
+                            .withEndAction {
+                                text.isVisible = false
+                                text.alpha = 0f
+                            }
+                            .start()
                     }
 
-                    ValueAnimator.ofFloat(0f, 1f).apply {
-                        duration = animDuration
-                        interpolator = DecelerateInterpolator()
-                        addUpdateListener { anim ->
-                            val scale = anim.animatedValue as Float
-                            pill.scaleX = scale
-                            pill.scaleY = scale
-                        }
-                        start()
-                    }
+                    icon.animate()
+                        .translationX(0f)
+                        .setDuration(animDuration)
+                        .setInterpolator(DecelerateInterpolator())
+                        .start()
+
+                    pill.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(animDuration)
+                        .start()
                 } else {
-                    tv?.isVisible = false
-                    tv?.alpha = 0f
-                    (tv?.layoutParams as? LinearLayout.LayoutParams)?.marginStart = 4.dp
+                    text.isVisible = false
+                    text.alpha = 0f
+                    icon.translationX = 0f
                     pill.scaleX = 1f
                     pill.scaleY = 1f
                 }
@@ -287,15 +302,6 @@ class PillNavBar @JvmOverloads constructor(
     }
 
     private val Int.dp: Int get() = (this * resources.displayMetrics.density).toInt()
-
-    private fun ValueAnimator.doOnEnd(action: () -> Unit) {
-        addListener(object : Animator.AnimatorListener {
-            override fun onAnimationStart(animation: Animator) {}
-            override fun onAnimationEnd(animation: Animator) { action() }
-            override fun onAnimationCancel(animation: Animator) {}
-            override fun onAnimationRepeat(animation: Animator) {}
-        })
-    }
 }
 
 private inline fun ViewGroup.forEachIndexed(action: (index: Int, view: View) -> Unit) {
