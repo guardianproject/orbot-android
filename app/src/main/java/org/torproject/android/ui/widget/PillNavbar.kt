@@ -35,7 +35,7 @@ class PillNavBar @JvmOverloads constructor(
 
     private val pillContainer: LinearLayout
     private val highlight: View
-    private val animDuration = 260L
+    private val animDuration = 300L
     private val highlightMargin = 12.dp
     private val pillSpacing = 0.dp
 
@@ -179,6 +179,23 @@ class PillNavBar @JvmOverloads constructor(
     }
 
     private fun updatePillAppearance(selectedIdx: Int, animate: Boolean) {
+        val selectedLayoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply {
+            marginStart = pillSpacing
+            marginEnd = pillSpacing
+        }
+
+        val unselectedLayoutParams = LinearLayout.LayoutParams(
+            0,
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            1f
+        ).apply {
+            marginStart = pillSpacing
+            marginEnd = pillSpacing
+        }
+
         pillContainer.forEachIndexed { index, view ->
             val pill = view as LinearLayout
             val icon = pill.getChildAt(0) as ImageView
@@ -186,84 +203,37 @@ class PillNavBar @JvmOverloads constructor(
 
             val isSelected = index == selectedIdx
 
-            if (isSelected) {
-                pill.layoutParams = (pill.layoutParams as LinearLayout.LayoutParams).apply {
-                    width = LinearLayout.LayoutParams.WRAP_CONTENT
-                    weight = 0f
-                    marginStart = pillSpacing
-                    marginEnd = pillSpacing
-                }
+            pill.layoutParams = if (isSelected) selectedLayoutParams else unselectedLayoutParams
 
-                if (animate) {
-                    text.isVisible = true
-                    text.alpha = 0f
-                    (text.layoutParams as LinearLayout.LayoutParams).marginStart = 4.dp
+            if (animate) {
+                text.isVisible = true
+                text.alpha = 0f
 
-                    text.animate()
-                        .alpha(1f)
-                        .setDuration(animDuration)
-                        .setInterpolator(DecelerateInterpolator())
-                        .start()
+                text.animate()
+                    .alpha(if (isSelected) 1f else 0f)
+                    .setDuration(animDuration)
+                    .setInterpolator(DecelerateInterpolator())
+                    .start()
 
-                    icon.animate()
-                        .translationX(-6.dp.toFloat())
-                        .setDuration(animDuration)
-                        .setInterpolator(DecelerateInterpolator())
-                        .start()
+                icon.animate()
+                    .translationX(if (isSelected) -6.dp.toFloat() else 0f)
+                    .setDuration(animDuration)
+                    .setInterpolator(DecelerateInterpolator())
+                    .start()
 
-                    pill.animate()
-                        .scaleX(1.02f)
-                        .scaleY(1.02f)
-                        .setDuration(animDuration)
-                        .start()
-                } else {
-                    text.isVisible = true
-                    text.alpha = 1f
-                    (text.layoutParams as? LinearLayout.LayoutParams)?.marginStart = 4.dp
-                    icon.translationX = -6.dp.toFloat()
-                    pill.scaleX = 1.02f
-                    pill.scaleY = 1.02f
-                }
+                pill.animate()
+                    .scaleX(if (isSelected) 1.02f else 1f)
+                    .scaleY(if (isSelected) 1.02f else 1f)
+                    .setDuration(animDuration)
+                    .start()
             } else {
-                pill.layoutParams = (pill.layoutParams as LinearLayout.LayoutParams).apply {
-                    width = 0
-                    weight = 1f
-                }
-
-                if (animate) {
-                    if (text.isVisible) {
-                        text.animate()
-                            .alpha(0f)
-                            .setDuration(animDuration / 2)
-                            .setInterpolator(DecelerateInterpolator())
-                            .withEndAction {
-                                text.isVisible = false
-                                text.alpha = 0f
-                            }
-                            .start()
-                    }
-
-                    icon.animate()
-                        .translationX(0f)
-                        .setDuration(animDuration)
-                        .setInterpolator(DecelerateInterpolator())
-                        .start()
-
-                    pill.animate()
-                        .scaleX(1f)
-                        .scaleY(1f)
-                        .setDuration(animDuration)
-                        .start()
-                } else {
-                    text.isVisible = false
-                    text.alpha = 0f
-                    icon.translationX = 0f
-                    pill.scaleX = 1f
-                    pill.scaleY = 1f
-                }
+                text.isVisible = isSelected
+                text.alpha = if (isSelected) 1f else 0f
+                icon.translationX = if (isSelected) -6.dp.toFloat() else 0f
+                pill.scaleX = if (isSelected) 1.02f else 1f
+                pill.scaleY = if (isSelected) 1.02f else 1f
             }
         }
-        pillContainer.requestLayout()
     }
 
     private fun moveHighlightToIndex(index: Int, animate: Boolean) {
