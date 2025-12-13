@@ -127,7 +127,7 @@ class PillNavbar @JvmOverloads constructor(
             layoutParams = LinearLayout.LayoutParams(
                 24.dp,
                 24.dp
-            ).apply { marginStart = 8.dp }
+            ).apply { marginStart = 6.dp }
             setImageDrawable(icon)
             imageTintList = ContextCompat.getColorStateList(context, R.color.pill_icon_color)
         }
