@@ -31,6 +31,8 @@ class PillNavbar @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0,
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
+    var onItemSelected: ((Int) -> Unit)? = null
+
     private val _selectedId = MutableStateFlow(-1)
     val selectedId = _selectedId.asStateFlow()
 
@@ -42,13 +44,8 @@ class PillNavbar @JvmOverloads constructor(
     var bottomNav: BottomNavigationView? = null
         set(value) {
             field = value
-            value?.let { bn ->
-                buildPillsFromBottomNav(bn)
-                bn.setOnItemSelectedListener { item ->
-                    if (_selectedId.value == item.itemId) return@setOnItemSelectedListener true
-                    _selectedId.value = item.itemId
-                    true
-                }
+            value?.let {
+                buildPillsFromBottomNav(it)
             }
         }
 
@@ -81,20 +78,24 @@ class PillNavbar @JvmOverloads constructor(
             selectedId.collect { id ->
                 if (id == -1) return@collect
                 selectById(id, animate = true)
-                bottomNav?.selectedItemId = id
             }
         }
+    }
+
+    fun setSelectedItem(@IdRes id: Int, animate: Boolean = true) {
+        if (_selectedId.value == id) return
+        _selectedId.value = id
+        selectById(id, animate)
     }
 
     private fun buildPillsFromBottomNav(bn: BottomNavigationView) {
         val menu = bn.menu
         pillContainer.removeAllViews()
 
-        val itemCount = menu.size
-        for (i in 0 until itemCount) {
-            val mi = menu[i]
-            val pill = createPill(mi.itemId, mi.title?.toString() ?: "", mi.icon)
-            pillContainer.addView(pill)
+        for (i in 0 until menu.size) {
+            menu[i].let {
+                pillContainer.addView(createPill(it.itemId, it.title?.toString().orEmpty(), it.icon))
+            }
         }
 
         val initialId = bn.selectedItemId.takeIf { it != NO_ID } ?: menu[0].itemId
@@ -127,7 +128,7 @@ class PillNavbar @JvmOverloads constructor(
             layoutParams = LinearLayout.LayoutParams(
                 24.dp,
                 24.dp
-            ).apply { marginStart = 8.dp }
+            ).apply { marginStart = 6.dp }
             setImageDrawable(icon)
             imageTintList = ContextCompat.getColorStateList(context, R.color.pill_icon_color)
         }
@@ -150,7 +151,7 @@ class PillNavbar @JvmOverloads constructor(
 
         pill.setOnClickListener {
             if (_selectedId.value == id) return@setOnClickListener
-            _selectedId.value = id
+            onItemSelected?.invoke(id)
         }
 
         pill.tag = id

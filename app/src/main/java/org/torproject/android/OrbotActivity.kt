@@ -33,6 +33,7 @@ import org.torproject.android.ui.core.BaseActivity
 import org.torproject.android.ui.core.DeviceAuthenticationPrompt
 import org.torproject.android.ui.kindness.SnowflakeProxyService
 import org.torproject.android.ui.more.LogBottomSheet
+import org.torproject.android.ui.widget.PillNavbar
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.sendIntentToService
 import org.torproject.android.util.showToast
@@ -107,8 +108,17 @@ class OrbotActivity : BaseActivity() {
 
         navController = findNavController(R.id.nav_fragment)
 
+        val pillNavbar: PillNavbar = findViewById(R.id.pill_navbar)
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        bottomNavigationView.selectedItemId = R.id.connectFragment
+        pillNavbar.setSelectedItem(R.id.connectFragment, animate = false)
+        pillNavbar.bottomNav = bottomNavigationView
+        pillNavbar.onItemSelected = { bottomNavigationView.selectedItemId = it }
         bottomNavigationView.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            pillNavbar.setSelectedItem(destination.id, animate = true)
+        }
 
         val bottomNavigationContainer = findViewById<View>(R.id.bottomNavContainer)
 
