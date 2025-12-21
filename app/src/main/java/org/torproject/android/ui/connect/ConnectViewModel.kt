@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
-import org.torproject.android.service.OrbotConstants
+import org.torproject.android.service.TorStatus
 import org.torproject.android.util.NetworkUtils
 
 class ConnectViewModel : ViewModel() {
@@ -25,11 +25,13 @@ class ConnectViewModel : ViewModel() {
     val events = _eventChannel.receiveAsFlow()
 
     fun updateState(context: Context, status: String?) {
+        val torStatus = TorStatus.from(status)
+
         val newState = when {
             !NetworkUtils.isNetworkAvailable(context) -> ConnectUiState.NoInternet
-            status == OrbotConstants.STATUS_STARTING -> ConnectUiState.Starting(null)
-            status == OrbotConstants.STATUS_ON -> ConnectUiState.On
-            status == OrbotConstants.STATUS_STOPPING -> ConnectUiState.Stopping
+            torStatus == TorStatus.STARTING -> ConnectUiState.Starting(null)
+            torStatus == TorStatus.ON -> ConnectUiState.On
+            torStatus == TorStatus.STOPPING -> ConnectUiState.Stopping
             else -> ConnectUiState.Off
         }
         _uiState.value = newState

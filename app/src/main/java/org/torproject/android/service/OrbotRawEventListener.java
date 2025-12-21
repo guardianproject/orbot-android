@@ -13,7 +13,6 @@ import net.freehaven.tor.control.TorControlCommands;
 import org.torproject.android.R;
 import org.torproject.android.util.Prefs;
 import org.torproject.android.util.StringUtils;
-import org.torproject.jni.TorService;
 
 import java.text.NumberFormat;
 import java.util.HashMap;
@@ -41,7 +40,6 @@ public class OrbotRawEventListener implements RawEventListener {
 
         exitNodeMap = new HashMap<>();
         ignoredInternalCircuits = new HashSet<>();
-
     }
 
     @Override
@@ -93,7 +91,7 @@ public class OrbotRawEventListener implements RawEventListener {
     private void handleBandwidth(long read, long written) {
         String message = formatBandwidthCount(mService, read) + " ↓ / " + formatBandwidthCount(mService, written) + " ↑";
 
-        if (mService.mCurrentStatus.equals(TorService.STATUS_ON))
+        if (mService.mCurrentStatus == TorStatus.ON)
             mService.showBandwidthNotification(message, read != 0 || written != 0);
 
         mTotalBandwidthWritten += written;

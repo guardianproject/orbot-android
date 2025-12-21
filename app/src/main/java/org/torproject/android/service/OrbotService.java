@@ -52,27 +52,41 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.ServiceCompat;
 import androidx.core.content.ContextCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import kotlin.Unit;
 
 public class OrbotService extends VpnService {
 
     public final static String BINARY_TOR_VERSION = TorService.VERSION_NAME;
-    static final int NOTIFY_ID = 1, ERROR_NOTIFY_ID = 3;
-    public static int mPortSOCKS = -1, mPortHTTP = -1, mPortDns = -1, mPortTrans = -1;
-    public static File appBinHome, appCacheHome;
+
+    static final int NOTIFY_ID = 1;
+    static final int ERROR_NOTIFY_ID = 3;
+
+    public static int mPortSOCKS = -1;
+    public static int mPortHTTP = -1;
+    public static int mPortDns = -1;
+    public static int mPortTrans = -1;
+
+    public static File appBinHome;
+    public static File appCacheHome;
+
     protected final ExecutorService mExecutor = Executors.newCachedThreadPool();
-    OrbotRawEventListener mOrbotRawEventListener;
-    OrbotVpnManager mVpnManager;
-    Handler mHandler;
-    ActionBroadcastReceiver mActionBroadcastReceiver;
-    protected String mCurrentStatus = STATUS_OFF;
-    TorControlConnection conn = null;
+    protected Handler mHandler;
+
+    protected TorControlConnection conn;
+    protected OrbotRawEventListener mOrbotRawEventListener;
+    protected OrbotVpnManager mVpnManager;
+
+    private ActionBroadcastReceiver mActionBroadcastReceiver;
     private ServiceConnection torServiceConnection;
+
+    private boolean showTorServiceErrorMsg;
     private boolean shouldUnbindTorService;
+
     private NotificationManager mNotificationManager = null;
     private NotificationCompat.Builder mNotifyBuilder;
+
+    protected TorStatus mCurrentStatus = TorStatus.OFF;
     private File mV3OnionBasePath;
 
     @SuppressLint({"NewApi", "RestrictedApi"})
@@ -99,9 +113,9 @@ public class OrbotService extends VpnService {
                     .setSmallIcon(icon)
                     .setContentText(notifyMsg)
                     .setContentIntent(pendIntent)
-                    .setContentTitle(Notifications.getNotificationTitleForStatus(this, mCurrentStatus));
+                    .setContentTitle(Notifications.getNotificationTitleForStatus(this, mCurrentStatus.getValue()));
             // Tor connection is active
-            if (conn != null && mCurrentStatus.equals(STATUS_ON)) { // only add new identity action when there is a connection
+            if (conn != null && mCurrentStatus == TorStatus.ON) { // only add new identity action when there is a connection
                 mNotifyBuilder.setProgress(0, 0, false); // removes progress bar
 
                 var i = new Intent(this, OrbotService.class);
@@ -112,7 +126,7 @@ public class OrbotService extends VpnService {
 
                 mNotifyBuilder.addAction(R.drawable.ic_refresh_white_24dp, getString(R.string.menu_new_identity), pendingIntentNewNym);
             } // Tor connection is off
-            else if (mCurrentStatus.equals(STATUS_OFF)) {
+            else if (mCurrentStatus == TorStatus.OFF) {
                 var i = new Intent(this, OrbotService.class);
                 i.setAction(ACTION_START);
                 i.putExtra(OrbotConstants.EXTRA_NOT_SYSTEM, true);
@@ -139,7 +153,7 @@ public class OrbotService extends VpnService {
 
             var shouldStartVpnFromSystemIntent = !intent.getBooleanExtra(EXTRA_NOT_SYSTEM, false);
 
-            if (mCurrentStatus.equals(STATUS_OFF))
+            if (mCurrentStatus == TorStatus.OFF)
                 showToolbarNotification(getString(R.string.open_orbot_to_connect_to_tor), NOTIFY_ID, R.drawable.ic_stat_tor);
 
             if (shouldStartVpnFromSystemIntent) {
@@ -309,15 +323,18 @@ public class OrbotService extends VpnService {
 
     @NonNull
     private File updateTorrcCustomFile() throws IOException {
-        var conf = TorConfig.build(this, new File(appBinHome, GEOIP_ASSET_KEY),
-                new File(appBinHome, GEOIP6_ASSET_KEY));
+        File geoIp = new File(appBinHome, GEOIP_ASSET_KEY);
+        File geoIp6 = new File(appBinHome, GEOIP6_ASSET_KEY);
+
+        String torrcConfig = TorConfig.build(this, geoIp, geoIp6);
 
         logNotice(getString(R.string.log_notice_updating_torrc));
-        Log.d(TAG, "torrc.custom=\n" + conf);
+        Log.d(TAG, "torrc.custom=\n" + torrcConfig);
 
-        var fileTorRcCustom = TorService.getTorrc(this);
-        DiskUtils.flushTextToFile(fileTorRcCustom, conf, false);
-        return fileTorRcCustom;
+        File torrcCustomFile = TorService.getTorrc(this);
+        DiskUtils.flushTextToFile(torrcCustomFile, torrcConfig, false);
+
+        return torrcCustomFile;
     }
 
     /**
@@ -328,7 +345,7 @@ public class OrbotService extends VpnService {
     private void replyWithStatus(Intent startRequest) {
         String packageName = startRequest.getStringExtra(EXTRA_PACKAGE_NAME);
         Intent reply = new Intent(ACTION_STATUS)
-                .putExtra(EXTRA_STATUS, mCurrentStatus)
+                .putExtra(EXTRA_STATUS, mCurrentStatus.getValue())
                 .putExtra(EXTRA_SOCKS_PROXY, "socks://127.0.0.1:" + mPortSOCKS)
                 .putExtra(EXTRA_SOCKS_PROXY_HOST, "127.0.0.1")
                 .putExtra(EXTRA_SOCKS_PROXY_PORT, mPortSOCKS)
@@ -345,8 +362,6 @@ public class OrbotService extends VpnService {
         if (mPortSOCKS != -1 && mPortHTTP != -1)
             sendCallbackPorts(mPortSOCKS, mPortHTTP, mPortDns, mPortTrans);
     }
-
-    private boolean showTorServiceErrorMsg = false;
 
     // The entire process for starting tor and related services is run from this method.
     private void startTor() {
@@ -495,7 +510,7 @@ public class OrbotService extends VpnService {
 
     private void sendLocalStatusOffBroadcast() {
         sendBroadcast(new Intent(LOCAL_ACTION_STATUS)
-                .putExtra(EXTRA_STATUS, STATUS_OFF)
+                .putExtra(EXTRA_STATUS, TorStatus.OFF.getValue())
                 .setPackage(getPackageName()));
     }
 
@@ -548,31 +563,31 @@ public class OrbotService extends VpnService {
     }
 
     public void sendSignalActive() {
-        if (conn != null && mCurrentStatus.equals(STATUS_ON)) {
-            try {
-                conn.signal("ACTIVE");
-            } catch (IOException e) {
-                Log.d(TAG, "error send active: " + e.getLocalizedMessage());
-            }
+        if (conn == null || mCurrentStatus != TorStatus.ON) {
+            return;
+        }
+
+        try {
+            conn.signal("ACTIVE");
+        } catch (IOException e) {
+            Log.d(TAG, "error send active: " + e.getLocalizedMessage());
         }
     }
 
     public void newIdentity() {
-        if (conn == null) return;
-        new Thread() {
-            @Override
-            public void run() {
-                try {
-                    if (conn != null && mCurrentStatus.equals(STATUS_ON)) {
-                        mNotifyBuilder.setSubText(null); // clear previous exit node info if present
-                        showToolbarNotification(getString(R.string.newnym), NOTIFY_ID, R.drawable.ic_stat_tor);
-                        conn.signal(TorControlCommands.SIGNAL_NEWNYM);
-                    }
-                } catch (Exception ioe) {
-                    Log.d(TAG, "error requesting newnym: " + ioe.getLocalizedMessage());
-                }
+        if (conn == null || mCurrentStatus != TorStatus.ON) {
+            return;
+        }
+
+        new Thread(() -> {
+            try {
+                mNotifyBuilder.setSubText(null); // clear previous exit node info if present
+                showToolbarNotification(getString(R.string.newnym), NOTIFY_ID, R.drawable.ic_stat_tor);
+                conn.signal(TorControlCommands.SIGNAL_NEWNYM);
+            } catch (Exception ioe) {
+                Log.d(TAG, "error requesting newnym: " + ioe.getLocalizedMessage());
             }
-        }.start();
+        }).start();
     }
 
     private void sendCallbackLogMessage(final String logMessage) {
@@ -612,7 +627,7 @@ public class OrbotService extends VpnService {
     }
 
     void showBandwidthNotification(String message, boolean isActiveTransfer) {
-        if (!mCurrentStatus.equals(STATUS_ON)) return;
+        if (mCurrentStatus != TorStatus.ON) return;
         var icon = !isActiveTransfer ? R.drawable.ic_stat_tor : R.drawable.ic_stat_tor_xfer;
         showToolbarNotification(message, NOTIFY_ID, icon);
     }
@@ -714,7 +729,7 @@ public class OrbotService extends VpnService {
                     if (mVpnManager != null) mVpnManager.restartVPN(new Builder());
                 }
                 case ACTION_STATUS -> {
-                    if (mCurrentStatus.equals(STATUS_OFF))
+                    if (mCurrentStatus == TorStatus.OFF)
                         showToolbarNotification(getString(R.string.open_orbot_to_connect_to_tor), NOTIFY_ID, R.drawable.ic_stat_tor);
                     replyWithStatus(mIntent);
                 }
@@ -747,22 +762,22 @@ public class OrbotService extends VpnService {
                 }
                 case ACTION_STATUS -> {
                     // hack for https://github.com/guardianproject/tor-android/issues/73 remove when fixed
-                    var newStatus = intent.getStringExtra(EXTRA_STATUS);
-                    if (STATUS_OFF.equals(mCurrentStatus) && STATUS_STOPPING.equals(newStatus))
+                    var newStatus = TorStatus.from(intent.getStringExtra(EXTRA_STATUS));
+                    if (mCurrentStatus == TorStatus.OFF && newStatus == TorStatus.STOPPING)
                         break;
                     mCurrentStatus = newStatus;
-                    if (STATUS_OFF.equals(mCurrentStatus)) {
+                    if (mCurrentStatus == TorStatus.OFF) {
                         showToolbarNotification(getString(R.string.open_orbot_to_connect_to_tor), NOTIFY_ID, R.drawable.ic_stat_tor);
                     }
 
                     // Make sure, Smart Connect finishes successfully, even when, for some reason,
                     // progress isn't received up to 100.
-                    if (STATUS_ON.equals(mCurrentStatus)) {
+                    if (mCurrentStatus == TorStatus.ON) {
                         SmartConnect.updateProgress(100);
                     }
 
                     sendBroadcast(new Intent(LOCAL_ACTION_STATUS)
-                            .putExtra(EXTRA_STATUS, mCurrentStatus)
+                            .putExtra(EXTRA_STATUS, mCurrentStatus.getValue())
                             .setPackage(getPackageName())); // update the activity with what's new
                 }
             }

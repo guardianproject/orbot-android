@@ -117,19 +117,6 @@ object OrbotConstants {
     const val LOCAL_ACTION_PORTS = "ports"
     const val LOCAL_ACTION_V3_NAMES_UPDATED = "V3_NAMES_UPDATED"
 
-
-    /**
-     * All tor-related services and daemons are stopped
-     */
-    const val STATUS_OFF = TorService.STATUS_OFF
-
-    /**
-     * All tor-related services and daemons have completed starting
-     */
-    const val STATUS_ON = TorService.STATUS_ON
-    const val STATUS_STARTING = TorService.STATUS_STARTING
-    const val STATUS_STOPPING = TorService.STATUS_STOPPING
-
     /**
      * The user has disabled the ability for background starts triggered by
      * apps. Fallback to the old Intent action that brings up Orbot:
