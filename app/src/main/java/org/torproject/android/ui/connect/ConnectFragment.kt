@@ -67,17 +67,34 @@ fun CompoundButton.setOnThrottledCheckedChangeListener(
             buttonView.isChecked = !isChecked
             val timeRemain = intervalMs - (now - lastChange)
 
-            AlertDialog.Builder(buttonView.context)
+            val progressBar = ProgressBar(buttonView.context, null, android.R.attr.progressBarStyleHorizontal).apply {
+                max = intervalMs.toInt()
+                progress = (now - lastChange).toInt()
+            }
+
+            val dialog = AlertDialog.Builder(buttonView.context)
                 .setMessage(buttonView.context.getString(R.string.toast_throttle_wait, timeRemain/1000))
-                .setView(ProgressBar(buttonView.context).apply { isIndeterminate = true })
+                .setView(progressBar)
                 .setCancelable(false)
                 .create()
-                .also { dialog ->
-                    dialog.show()
-                    Handler(Looper.getMainLooper()).postDelayed({
+                .apply { show() }
+
+            val handler = Handler(Looper.getMainLooper())
+            val updateRunnable = object : Runnable {
+                override fun run() {
+                    val currentTime = System.currentTimeMillis()
+                    val elapsed = (currentTime - lastChange).toInt()
+                    progressBar.progress = elapsed
+
+                    if (elapsed < intervalMs) {
+                        handler.postDelayed(this, 16) // ~60fps update
+                    } else {
                         dialog.dismiss()
-                    }, timeRemain)
+                    }
                 }
+            }
+
+            handler.post(updateRunnable)
         }
     }
 }
