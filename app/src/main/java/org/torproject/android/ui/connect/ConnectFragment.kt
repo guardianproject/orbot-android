@@ -1,6 +1,7 @@
 package org.torproject.android.ui.connect
 
 import android.app.AlarmManager
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
@@ -8,6 +9,8 @@ import android.graphics.Paint
 import android.net.VpnService
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
@@ -17,6 +20,7 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.CompoundButton
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -62,9 +66,18 @@ fun CompoundButton.setOnThrottledCheckedChangeListener(
         } else {
             buttonView.isChecked = !isChecked
             val timeRemain = intervalMs - (now - lastChange)
-            Toast.makeText(buttonView.context,
-                           buttonView.context.getString(R.string.toast_throttle_wait, timeRemain/1000),
-                           Toast.LENGTH_SHORT).show()
+
+            AlertDialog.Builder(buttonView.context)
+                .setMessage(buttonView.context.getString(R.string.toast_throttle_wait, timeRemain/1000))
+                .setView(ProgressBar(buttonView.context).apply { isIndeterminate = true })
+                .setCancelable(false)
+                .create()
+                .also { dialog ->
+                    dialog.show()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        dialog.dismiss()
+                    }, timeRemain)
+                }
         }
     }
 }
