@@ -20,8 +20,6 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.CompoundButton
-import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -32,6 +30,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.progressindicator.LinearProgressIndicator
+import com.google.android.material.textview.MaterialTextView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -70,11 +70,11 @@ fun CompoundButton.setOnThrottledCheckedChangeListener(
             val dialogView = LayoutInflater.from(buttonView.context)
                 .inflate(R.layout.dialog_wait_progress, null)
 
-            val textView = dialogView.findViewById<TextView>(R.id.message).apply {
+            val textView = dialogView.findViewById<com.google.android.material.textview.MaterialTextView>(R.id.message).apply {
                 text = buttonView.context.getString(R.string.toast_throttle_wait, timeRemain/1000)
             }
 
-            val progressBar = dialogView.findViewById<ProgressBar>(R.id.progress).apply {
+            val progressBar = dialogView.findViewById<com.google.android.material.progressindicator.LinearProgressIndicator>(R.id.progress).apply {
                 max = intervalMs.toInt()
                 progress = (now - lastChange).toInt()
             }
