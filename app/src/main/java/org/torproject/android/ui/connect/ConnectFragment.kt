@@ -140,6 +140,7 @@ class ConnectFragment : Fragment(),
                         }
 
                         is ConnectUiState.On -> {
+                            binding.switchConnect.isChecked = true
                             lastState = OrbotConstants.ACTION_START
                             doLayoutOn(requireContext())
                         }
