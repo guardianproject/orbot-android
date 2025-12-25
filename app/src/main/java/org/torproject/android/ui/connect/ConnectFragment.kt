@@ -5,15 +5,11 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
-import android.graphics.Paint
 import android.net.VpnService
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.text.SpannableStringBuilder
-import android.text.Spanned
-import android.text.style.AbsoluteSizeSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,7 +21,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -46,64 +41,6 @@ import org.torproject.android.service.OrbotService
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
-
-private var lastChange = 0L
-private const val DEFAULT_THROTTLE_INTERVAL = 5000L
-
-/**
- * Prevents rapid consecutive checked-change callbacks on this CompoundButton.
- * Only the first change in each [intervalMs] window will be delivered.
- */
-fun CompoundButton.setOnThrottledCheckedChangeListener(
-    intervalMs: Long = DEFAULT_THROTTLE_INTERVAL,
-    onCheckedChange: (button: CompoundButton, isChecked: Boolean) -> Unit
-) {
-    setOnCheckedChangeListener { buttonView, isChecked ->
-        val now = System.currentTimeMillis()
-        if (now - lastChange >= intervalMs) {
-            lastChange = now
-            onCheckedChange(buttonView, isChecked)
-        } else {
-            buttonView.isChecked = !isChecked
-            val timeRemain = intervalMs - (now - lastChange)
-
-            val dialogView = LayoutInflater.from(buttonView.context)
-                .inflate(R.layout.dialog_wait_progress, null)
-
-            val textView = dialogView.findViewById<com.google.android.material.textview.MaterialTextView>(R.id.message).apply {
-                text = buttonView.context.getString(R.string.toast_throttle_wait, timeRemain/1000)
-            }
-
-            val progressBar = dialogView.findViewById<com.google.android.material.progressindicator.LinearProgressIndicator>(R.id.progress).apply {
-                max = intervalMs.toInt()
-                progress = (now - lastChange).toInt()
-            }
-
-            val dialog = AlertDialog.Builder(buttonView.context)
-                .setView(dialogView)
-                .setCancelable(false)
-                .create()
-                .apply { show() }
-
-            val handler = Handler(Looper.getMainLooper())
-            val updateRunnable = object : Runnable {
-                override fun run() {
-                    val currentTime = System.currentTimeMillis()
-                    val elapsed = (currentTime - lastChange).toInt()
-                    progressBar.progress = elapsed
-
-                    if (elapsed < intervalMs) {
-                        handler.postDelayed(this, 16)
-                    } else {
-                        dialog.dismiss()
-                    }
-                }
-            }
-
-            handler.post(updateRunnable)
-        }
-    }
-}
 
 class ConnectFragment : Fragment(),
     ExitNodeBottomSheet.ExitNodeSelectedCallback {
@@ -212,9 +149,6 @@ class ConnectFragment : Fragment(),
                         else if (logline.contains("(loading_descriptors)")) {
                             binding.tvSubtitle.text = getString(R.string.status_loading_descriptors)
                         }
-
-
-
                     }
                 }
             }
@@ -231,19 +165,12 @@ class ConnectFragment : Fragment(),
         }
 
         binding.switchConnect.setOnThrottledCheckedChangeListener{ _, value ->
-
-            if (value == true)
-            {
+            if (value)
                 startTorAndVpn()
-            }
             else
-            {
                 stopTorAndVpn()
-            }
-
         }
         refreshMenuList(requireContext())
-
     }
 
     override fun onCreateView(
@@ -410,10 +337,10 @@ class ConnectFragment : Fragment(),
         refreshMenuList(context)
 
         with(binding.btnStart) {
-            if (Prefs.isPowerUserMode)
-                text = getString(R.string.btn_tor_off)
+            text = if (Prefs.isPowerUserMode)
+                getString(R.string.btn_tor_off)
             else
-                text = "Stop VPN"
+                "Stop VPN"
 
             isEnabled = true
             backgroundTintList = ColorStateList.valueOf(
@@ -552,5 +479,63 @@ class ConnectFragment : Fragment(),
         )
 
         refreshMenuList(requireContext())
+    }
+}
+
+private var connectBtnThrottleTimestamp = 0L
+private const val CONNECT_BTN_THROTTLE_INTERVAL_MS = 5000L
+
+/**
+ * Prevents rapid consecutive checked-change callbacks on this CompoundButton.
+ * Only the first change in each [intervalMs] window will be delivered.
+ */
+fun CompoundButton.setOnThrottledCheckedChangeListener(
+    intervalMs: Long = CONNECT_BTN_THROTTLE_INTERVAL_MS,
+    onCheckedChange: (button: CompoundButton, isChecked: Boolean) -> Unit
+) {
+    setOnCheckedChangeListener { buttonView, isChecked ->
+        val now = System.currentTimeMillis()
+        if (now - connectBtnThrottleTimestamp >= intervalMs) {
+            connectBtnThrottleTimestamp = now
+            onCheckedChange(buttonView, isChecked)
+        } else {
+            buttonView.isChecked = !isChecked
+            val timeRemain = intervalMs - (now - connectBtnThrottleTimestamp)
+
+            val dialogView = LayoutInflater.from(buttonView.context)
+                .inflate(R.layout.dialog_wait_progress, null)
+
+            dialogView.findViewById<MaterialTextView>(R.id.message).apply {
+                text = buttonView.context.getString(R.string.toast_throttle_wait, timeRemain/1000)
+            }
+
+            val progressBar = dialogView.findViewById<LinearProgressIndicator>(R.id.progress).apply {
+                max = intervalMs.toInt()
+                progress = (now - connectBtnThrottleTimestamp).toInt()
+            }
+
+            val dialog = AlertDialog.Builder(buttonView.context)
+                .setView(dialogView)
+                .setCancelable(false)
+                .create()
+                .apply { show() }
+
+            val handler = Handler(Looper.getMainLooper())
+            val updateRunnable = object : Runnable {
+                override fun run() {
+                    val currentTime = System.currentTimeMillis()
+                    val elapsed = (currentTime - connectBtnThrottleTimestamp).toInt()
+                    progressBar.progress = elapsed
+
+                    if (elapsed < intervalMs) {
+                        handler.postDelayed(this, 16)
+                    } else {
+                        dialog.dismiss()
+                    }
+                }
+            }
+
+            handler.post(updateRunnable)
+        }
     }
 }

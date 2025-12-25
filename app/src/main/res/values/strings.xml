@@ -182,7 +182,7 @@
     <string name="bridge_meek_azure_subtitle">Cloaks your traffic. Gets around some Tor blocking. May be very slow.</string>
     <string name="custom_bridges_subtitle">Ask within your trusted networks and organizations to see if anyone is hosting a bridge. If not, a friend can get bridges for you.</string>
     <string name="connect">Connect</string>
-    <string name="toast_throttle_wait">Waiting %d second(s) for Tor process to finish</string>
+    <string name="toast_throttle_wait">Waiting %1$d second(s) for Tor process to finish</string>
     <string name="next">Next</string>
     <string name="custom_bridges_description">Paste the bridge addresses you receive below. Or scan the QR code to add them. Friends can get bridges for you at %1$s.</string>
     <string name="power_user_mode">Power User Mode</string>
