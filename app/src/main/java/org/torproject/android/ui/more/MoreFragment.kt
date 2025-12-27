@@ -2,7 +2,6 @@ package org.torproject.android.ui.more
 
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,25 +38,35 @@ class MoreFragment : Fragment() {
     }
 
     private fun updateStatus() {
-        val sb = StringBuilder()
+        val labels = listOf("HTTP proxy", "SOCKS proxy", "Orbot", "Tor")
+        val labelWidth = labels.maxOf { it.length } + 6
 
-        sb.append(getString(R.string.proxy_ports)).append(" ")
-
-        if (httpPort != -1 && socksPort != -1) {
-            sb.append("\nHTTP: ").append(httpPort).append(" -  SOCKS: ").append(socksPort)
-        } else {
-            sb.append(": " + getString(R.string.ports_not_set))
+        fun row(label: String, value: String): String {
+            return label.padEnd(labelWidth) + value
         }
 
-        sb.append("\n\n")
+        val rows = mutableListOf<String>()
 
-        val manager = requireActivity().packageManager
-        val info =
-            manager.getPackageInfo(requireActivity().packageName, PackageManager.GET_ACTIVITIES)
-        sb.append(getString(R.string.app_name)).append(" ${info.versionName}\n")
-        sb.append("Tor v${getTorVersion()}")
+        rows += if (httpPort != -1 && socksPort != -1) {
+            listOf(
+                row("HTTP proxy", httpPort.toString()),
+                row("SOCKS proxy", socksPort.toString())
+            )
+        } else {
+            listOf(
+                row("HTTP proxy", getString(R.string.ports_not_set)),
+                row("SOCKS proxy", getString(R.string.ports_not_set))
+            )
+        }
 
-        tvStatus.text = sb.toString()
+        val pm = requireActivity().packageManager
+        val info = pm.getPackageInfo(requireActivity().packageName, 0)
+        val normalizedVersion = info.versionName?.substringBefore("tor")?.dropLast(1)
+
+        rows += row("Orbot", "v$normalizedVersion")
+        rows += row("Tor", "v${getTorVersion()}")
+
+        tvStatus.text = rows.joinToString("\n")
     }
 
     override fun onCreateView(
