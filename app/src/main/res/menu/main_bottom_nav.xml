@@ -5,7 +5,7 @@
         android:title="@string/connect"/>
     <item
         android:id="@+id/kindnessFragment"
-        android:icon="@drawable/ic_kindness_selector"
+        android:icon="@drawable/ic_kindness"
         android:title="@string/menu_kindness"/>
     <item
         android:id="@+id/moreFragment"
