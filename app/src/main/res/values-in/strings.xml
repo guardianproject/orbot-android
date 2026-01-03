@@ -94,8 +94,8 @@
 \nmenghubung ke Tor</string>
     <string name="volunteer_mode_weekly_label">Jumlah Setiap Minggu</string>
     <string name="volunteer_mode_alltime_label">Jumlah Sepanjang Waktu</string>
-    <string name="smart_connect">Penghubungan Pintar (bawaan)</string>
-    <string name="direct_connect">Koneksi Langsung ke Tor</string>
+    <string name="smart_connect">Smart Connect</string>
+    <string name="direct_connect">Koneksi Langsung</string>
     <string name="direct_connect_subtitle">Cara yang terbaik untuk menghubungkan ke Tor. Gunakan jika Tor tidak diblokir.</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Menghubungkan melalui sukarelawan Tor. Melewati beberapa pemblokiran Tor.</string>
@@ -215,13 +215,13 @@
     <string name="app_icon_chooser_label_todo">Daftar Tugas</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Burung kecil</string>
-    <string name="camo_samsung_instructions">Pada perangkat Samsung Galaxy Anda, notifikasi Mode Kamuflase hanya akan berfungsi dengan membuka Pengaturan -&gt; Notifikasi -&gt; Pengaturan Lanjutan dan menonaktifkan “Tampilkan ikon aplikasi di notifikasi”. Klik di sini untuk membuka Pengaturan Notifikasi.</string>
+    <string name="camo_samsung_instructions">Pada perangkat Samsung Galaxy Anda, notifikasi Orbot hanya akan beralih ikon dengan membuka Pengaturan -&gt; Notifikasi -&gt; Pengaturan Lanjutan dan menonaktifkan \"Tampilkan ikon aplikasi dalam notifikasi\". Klik di sini untuk membuka Pengaturan Notifikasi.</string>
     <string name="power_user_mode_permission">Izin Alarm &amp; Pengingat Diperlukan untuk Mode Pengguna Lanjutan</string>
     <string name="power_user_mode_permission_msg">Silakan izinkan Orbot untuk mengatur alarm dan pengingat agar dapat menggunakan mode pengguna tingkat lanjut. Izin ini tidak akan benar-benar mengatur alarm di perangkat Anda. Izin ini diperlukan agar sistem dapat menjaga OrbotService tetap berjalan saat Orbot tidak digunakan sebagai VPN sistem.</string>
     <string name="request_notification_permission">Silakan aktifkan notifikasi untuk Orbot</string>
     <string name="request_notification_permission_msg">Tanpa mengaktifkan notifikasi, Orbot tidak dapat berfungsi sebagai VPN Tor atau menggunakan Mode Kebaikan.\n\nSaat diaktifkan, kami hanya menampilkan satu notifikasi saat Orbot sedang berjalan.</string>
     <string name="open_settings">Buka Pengaturan</string>
-    <string name="error_no_password_set">Silakan amankan perangkat Anda untuk menggunakan Otentikasi Orbot</string>
+    <string name="error_no_password_set">Anda perlu menetapkan kata sandi untuk perangkat Android Anda agar dapat menggunakan fitur Layar Kunci</string>
     <string name="device_lock_unsupported">Otentikasi Orbot tidak didukung pada perangkat Anda</string>
     <string name="device_lock_security_update_needed">Anda harus mengunduh pembaruan keamanan Android untuk perangkat Anda agar dapat menggunakan Orbot Authentication</string>
     <string name="invalid_bridge_format">Format jembatan tidak valid</string>
@@ -246,4 +246,30 @@
     <string name="search_for_apps">Cari aplikasi</string>
     <string name="apps_updated_msg">Aplikasi Diperbarui</string>
     <string name="set_transport">Atur Transportasi</string>
+    <string name="app_icon_dialog_title" formatted="true">Beralih ke %1$s</string>
+    <string name="app_icon_dialog_msg" formatted="true">Beralih ke %1$s akan memulai ulang aplikasi</string>
+    <string name="title_safety">Keamanan</string>
+    <string name="setting_app_icon_title">Ikon Aplikasi</string>
+    <string name="setting_app_icon_description">Pilih bagaimana Orbot tampil pada perangkat Anda</string>
+    <string name="setting_block_screenshot_title">Blokir Tangkapan Layar</string>
+    <string name="setting_block_screenshot_description">Mencegah siapa pun mengambil tangkapan layar aplikasi ini</string>
+    <string name="setting_unlock_pass_title">Layar Kunci</string>
+    <string name="setting_unlock_pass_description">Wajibkan PIN, kata sandi, atau pola geser perangkat Anda untuk membuka Orbot</string>
+    <string name="setting_unlock_with_biometrics_title">Gunakan Biometrik (opsional)</string>
+    <string name="setting_unlock_with_biometrics_description">Buka kunci Orbot dengan sidik jari atau Face ID Anda jika telah disiapkan pada perangkat Anda.</string>
+    <string name="status_connected_control_port">Layanan Tor telah dimulai</string>
+    <string name="status_handshake">Menghubungkan ke pintu masuk jaringan Tor</string>
+    <string name="status_handshake_done">Memasuki jaringan Tor</string>
+    <string name="status_circuit_create">Menyiapkan koneksi melalui jaringan Tor</string>
+    <string name="status_done">Siap digunakan!</string>
+    <string name="status_conn_pt">Mencari rute alternatif ke jaringan Tor</string>
+    <string name="status_conn_done_pt">Rute alternatif berhasil dibuat</string>
+    <string name="status_conn_done">Terhubung ke pintu masuk jaringan Tor</string>
+    <string name="status_onehop_create">Mengakses direktori jaringan Tor</string>
+    <string name="status_enough_dirinfo">Direktori jaringan Tor dimuat</string>
+    <string name="status_requesting_status">Meminta status jaringan dari Tor</string>
+    <string name="status_loading_status">Memuat status jaringan</string>
+    <string name="status_loading_keys">Memuat kunci keamanan jaringan</string>
+    <string name="status_requesting_descriptors">Meminta informasi server jaringan</string>
+    <string name="status_loading_descriptors">Memuat informasi server jaringan</string>
 </resources>
