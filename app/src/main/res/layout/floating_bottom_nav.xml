@@ -6,8 +6,8 @@
     android:layout_margin="24dp"
     android:clipToPadding="false"
     android:clipChildren="false"
-    app:cardCornerRadius="32dp"
-    app:cardElevation="12dp"
+    app:cardCornerRadius="36dp"
+    app:cardElevation="6dp"
     app:strokeWidth="0dp"
     app:cardBackgroundColor="@android:color/black"
     app:layout_constraintBottom_toBottomOf="parent"
@@ -18,11 +18,14 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="6dp"
-        android:background="@android:color/transparent"
-        app:itemIconTint="@color/bottom_nav_color"
-        app:itemTextColor="@color/bottom_nav_color"
+        android:visibility="gone"
         app:labelVisibilityMode="selected"
         app:menu="@menu/main_bottom_nav" />
+
+    <org.torproject.android.ui.widget.PillNavbar
+        android:id="@+id/pill_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:clipToPadding="false" />
 
 </androidx.cardview.widget.CardView>
