@@ -11,7 +11,7 @@ plugins {
 
 kotlin { jvmToolchain(21) }
 
-val orbotBaseVersionCode = 1780300300
+val orbotBaseVersionCode = 179020000
 fun getVersionName(): String {
     // Gets the version name from the latest Git tag
     return providers.exec {
