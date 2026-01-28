@@ -104,6 +104,10 @@ object Prefs {
                 value.filter { it.isNotBlank() }.joinToString("\n") { it.trim() })
         }
 
+    var bridgeCountry: String?
+        get() = cr?.getPrefString("pref_bridge_country")
+        set(value) = cr?.putPref("pref_bridge_country", value) ?: Unit
+
     @JvmStatic
     var defaultLocale: String
         get() = cr?.getPrefString(PREF_DEFAULT_LOCALE) ?: Locale.getDefault().language

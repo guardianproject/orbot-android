@@ -1,13 +1,19 @@
 package org.torproject.android.ui.connect
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.CompoundButton
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
@@ -23,15 +29,30 @@ import org.torproject.android.service.circumvention.AutoConf
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
+import org.torproject.android.util.StringUtils
+import java.util.Locale
 
 class ConfigConnectionBottomSheet :
-    OrbotBottomSheetDialogFragment(), CompoundButton.OnCheckedChangeListener {
+    OrbotBottomSheetDialogFragment(), CompoundButton.OnCheckedChangeListener,
+    View.OnClickListener, View.OnKeyListener, View.OnFocusChangeListener,
+    AdapterView.OnItemClickListener {
 
     private lateinit var binding: ConfigConnectionBottomSheetBinding
 
     private lateinit var radios: List<RadioButton>
     private lateinit var radioSubtitleMap: Map<CompoundButton, View>
     private lateinit var allSubtitles: List<View>
+
+    private var selectedCountryCode: String? = null
+
+    private val countryMap by lazy {
+        Locale.getISOCountries().associateBy { code ->
+            val locale = Locale.Builder().setRegion(code).build()
+            val emoji = StringUtils.convertCountryCodeToFlagEmoji(code)
+
+            "$emoji ${locale.displayCountry}"
+        }
+    }
 
     companion object {
         const val TAG = "ConfigConnectionBttmSheet"
@@ -41,6 +62,23 @@ class ConfigConnectionBottomSheet :
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = ConfigConnectionBottomSheetBinding.inflate(inflater, container, false)
+
+        binding.acCountry.setAdapter(ArrayAdapter(requireContext(),
+            android.R.layout.simple_dropdown_item_1line,
+            countryMap.keys.sortedBy { it.substring(5) }))
+
+        selectedCountryCode = Prefs.bridgeCountry
+
+        if (selectedCountryCode != null) {
+            binding.acCountry.setText(countryMap.filterValues { it == selectedCountryCode }.keys.firstOrNull())
+        }
+
+        binding.acCountry.setOnClickListener(this)
+        binding.acCountry.setOnKeyListener(this)
+        binding.acCountry.onFocusChangeListener = this
+        binding.acCountry.onItemClickListener = this
+
+        binding.dnsttContainer.visibility = if (selectedCountryCode == "IR") View.VISIBLE else View.GONE
 
         radios = arrayListOf(
             binding.rbDirect,
@@ -52,6 +90,7 @@ class ConfigConnectionBottomSheet :
             binding.rbObfs4,
             binding.rbEmail,
             binding.rbMeek,
+            binding.rbDnstt,
             binding.rbCustom
         )
         radioSubtitleMap = mapOf<CompoundButton, View>(
@@ -64,6 +103,7 @@ class ConfigConnectionBottomSheet :
             binding.rbObfs4 to binding.tvObfs4Subtitle,
             binding.rbEmail to binding.tvEmailSubtitle,
             binding.rbMeek to binding.tvMeekSubtitle,
+            binding.rbDnstt to binding.tvDnsttSubtitle,
             binding.rbCustom to binding.tvCustomSubtitle
         )
         allSubtitles = arrayListOf(
@@ -76,6 +116,7 @@ class ConfigConnectionBottomSheet :
             binding.tvObfs4Subtitle,
             binding.tvEmailSubtitle,
             binding.tvMeekSubtitle,
+            binding.tvDnsttSubtitle,
             binding.tvCustomSubtitle
         )
 
@@ -93,6 +134,7 @@ class ConfigConnectionBottomSheet :
         binding.obfs4Container.setOnClickListener { binding.rbObfs4.isChecked = true }
         binding.emailContainer.setOnClickListener { binding.rbEmail.isChecked = true }
         binding.meekContainer.setOnClickListener { binding.rbMeek.isChecked = true }
+        binding.dnsttContainer.setOnClickListener { binding.rbDnstt.isChecked = true }
         binding.customContainer.setOnClickListener { binding.rbCustom.isChecked = true }
         binding.tvCancel.setOnClickListener { dismiss() }
 
@@ -105,6 +147,7 @@ class ConfigConnectionBottomSheet :
         binding.rbObfs4.setOnCheckedChangeListener(this)
         binding.rbEmail.setOnCheckedChangeListener(this)
         binding.rbMeek.setOnCheckedChangeListener(this)
+        binding.rbDnstt.setOnCheckedChangeListener(this)
         binding.rbCustom.setOnCheckedChangeListener(this)
 
         binding.tvTelegramSubtitle.text = getString(R.string.bridges_via_telegram_subtitle, "start")
@@ -156,6 +199,20 @@ class ConfigConnectionBottomSheet :
                 Prefs.smartConnect = false
                 closeAndConnect()
             }
+            else if (binding.rbDnstt.isChecked) {
+                Prefs.transport = Transport.DNSTT
+                Prefs.smartConnect = false
+
+                AlertDialog.Builder(requireContext())
+                    .setTitle(R.string.limit_dns_tunnel_use)
+                    .setMessage(R.string.dns_tunnel_usage_description)
+                    .setPositiveButton(R.string.connect) { _, _ ->
+                        closeAndConnect()
+                    }
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .setIconAttribute(android.R.attr.alertDialogIcon)
+                    .show()
+            }
 
             if (binding.rbTelegram.isChecked || binding.rbEmail.isChecked || binding.rbCustom.isChecked) {
                 CustomBridgeBottomSheet().show(requireActivity().supportFragmentManager, CustomBridgeBottomSheet.TAG)
@@ -184,6 +241,57 @@ class ConfigConnectionBottomSheet :
         }
     }
 
+    override fun onClick(view: View?) {
+        binding.acCountry.showDropDown()
+    }
+
+    override fun onKey(view: View?, keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_ENTER && event?.action == KeyEvent.ACTION_UP) {
+            unfocusCountryList()
+        }
+
+        return false
+    }
+
+    override fun onFocusChange(view: View?, hasFocus: Boolean) {
+        if (hasFocus) {
+            binding.acCountry.showDropDown()
+        } else {
+            val currentText = binding.acCountry.text.toString()
+
+            val countryDisplay = countryMap.keys.firstOrNull {
+                it.equals(currentText, true)
+                        || it.substring(5).startsWith(currentText, true)
+            }
+
+            if (currentText.isNotEmpty() && countryDisplay != null) {
+                binding.acCountry.setText(countryDisplay)
+                selectedCountryCode = countryMap[countryDisplay]
+            }
+            else {
+                binding.acCountry.text = null
+                selectedCountryCode = null
+            }
+
+            // TODO: DNSTT is currently only shown for Iranian users.
+            if (selectedCountryCode == "IR") {
+                binding.dnsttContainer.visibility = View.VISIBLE
+            } else {
+                binding.dnsttContainer.visibility = View.GONE
+
+                if (binding.rbDnstt.isChecked) {
+                    binding.rbDirect.isChecked = true
+                }
+            }
+
+            Prefs.bridgeCountry = selectedCountryCode
+        }
+    }
+
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        unfocusCountryList()
+    }
+
     fun closeAndConnect() {
         dismiss()
         val navHostFragment = requireActivity().supportFragmentManager.fragments[0] as NavHostFragment
@@ -206,6 +314,7 @@ class ConfigConnectionBottomSheet :
             Transport.SNOWFLAKE_AMP -> binding.rbSnowflakeAmp.isChecked = true
             Transport.SNOWFLAKE_SQS -> binding.rbSnowflakeSqs.isChecked = true
             Transport.WEBTUNNEL -> TODO() // This should currently not happen, there's no default Webtunnel bridges advertised, yet.
+            Transport.DNSTT -> binding.rbDnstt.isChecked = true
             Transport.CUSTOM -> binding.rbCustom.isChecked = true
         }
     }
@@ -217,7 +326,7 @@ class ConfigConnectionBottomSheet :
             val context = context ?: return@launch
 
             try {
-                val conf = AutoConf.`do`(context, cannotConnectWithoutPt = true)
+                val conf = AutoConf.`do`(context, selectedCountryCode, true)
 
                 withContext(Dispatchers.Main) {
                     if (conf == null) {
@@ -258,6 +367,9 @@ class ConfigConnectionBottomSheet :
                             binding.rbSnowflakeSqs.isChecked = true
                         }
                         Transport.WEBTUNNEL -> TODO() // This should currently not happen, there's no default Webtunnel bridges advertised, yet.
+                        Transport.DNSTT -> {
+                            binding.rbDnstt.isChecked = true
+                        }
                         Transport.CUSTOM -> {
                             binding.rbCustom.isChecked = true
                         }
@@ -294,4 +406,10 @@ class ConfigConnectionBottomSheet :
         binding.btnAskTor.text = text
     }
 
+    private fun unfocusCountryList() {
+        (context?.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager)
+            ?.hideSoftInputFromWindow(binding.acCountry.windowToken, 0)
+
+        binding.acCountry.clearFocus()
+    }
 }

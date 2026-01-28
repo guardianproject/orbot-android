@@ -36,6 +36,8 @@ enum class Transport(val id: String) {
 
     WEBTUNNEL("webtunnel"),
 
+    DNSTT("dnstt"),
+
     /**
      * Start lyrebird with obfs4 bridges stored in @{link {@link #getBridgesList()}}
      * This can be set in manually via the CustomBridgeBottomSheet.
@@ -60,6 +62,7 @@ enum class Transport(val id: String) {
                 SNOWFLAKE_AMP.id -> SNOWFLAKE_AMP
                 SNOWFLAKE_SQS.id -> SNOWFLAKE_SQS
                 WEBTUNNEL.id -> WEBTUNNEL
+                DNSTT.id -> DNSTT
                 CUSTOM.id -> CUSTOM
                 else -> NONE
             }
@@ -67,10 +70,14 @@ enum class Transport(val id: String) {
 
         private val statusCollector = object : OnTransportEvents {
             override fun connected(name: String?) {
+                if (name == null) return
+
                 Log.d(TAG, "$name connected")
             }
 
             override fun error(name: String?, error: Exception?) {
+                if (name == null) return
+
                 Log.e(TAG, "$name error: $error")
             }
 
@@ -101,6 +108,12 @@ enum class Transport(val id: String) {
             "https://sqs.us-east-1.amazonaws.com/893902434899/snowflake-broker"
         private const val SQS_CREDENTIALS =
             "eyJhd3MtYWNjZXNzLWtleS1pZCI6IkFLSUE1QUlGNFdKSlhTN1lIRUczIiwiYXdzLXNlY3JldC1rZXkiOiI3U0RNc0pBNHM1RitXZWJ1L3pMOHZrMFFXV0lsa1c2Y1dOZlVsQ0tRIn0="
+
+        private val DNSTT_BRIDGES = listOf(
+            "dnstt 192.0.2.30:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D doh=https://dns.google/dns-query pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
+            "dnstt 192.0.2.31:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D udp=2.189.44.44:53 pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
+            "dnstt 192.0.2.32:80 A998F319ADB60EE344540EC4B21524CC484F96BE doh=https://dns.google/dns-query pubkey=241169008830694749fe96bb070c4855c5bb5b9c47b3833ed7d88521ba30a43f domain=t.ruhnama.net",
+        )
     }
 
     val transportNames: Set<String>
@@ -110,6 +123,7 @@ enum class Transport(val id: String) {
                 MEEK_AZURE -> setOf(IPtProxy.MeekLite)
                 OBFS4 -> setOf(IPtProxy.Obfs4)
                 WEBTUNNEL -> setOf(IPtProxy.Webtunnel)
+                DNSTT -> setOf(IPtProxy.Dnstt)
                 CUSTOM -> {
                     Prefs.bridgesList
                         .mapNotNull { Bridge(it).transport }
@@ -230,6 +244,12 @@ enum class Transport(val id: String) {
             WEBTUNNEL -> {
                 BuiltInBridges.getInstance(context)?.webtunnel?.forEach {
                     result.add("Bridge ${it.raw}")
+                }
+            }
+
+            DNSTT -> {
+                DNSTT_BRIDGES.forEach {
+                    result.add("Bridge $it")
                 }
             }
 
