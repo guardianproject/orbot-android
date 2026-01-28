@@ -1,0 +1,25 @@
+Orbot, diğer uygulamaların interneti daha güvenli kullanmasını sağlayan ücretsiz bir VPN ve proxy uygulamasıdır. Orbot, internet trafiğinizi şifrelemek için Tor kullanır ve ardından dünyanın dört bir yanındaki bilgisayarlar arasında sektirerek gizler. Tor, kişisel özgürlük ve mahremiyeti, gizli iş faaliyetlerini ve ilişkilerini ve trafik analizi olarak bilinen devlet güvenliğini tehdit eden bir ağ gözetimi türüne karşı korunmanıza yardımcı olan özgür yazılım ve açık bir ağdır.
+
+Orbot, gerçekten özel bir internet bağlantısı oluşturan tek uygulamadır. New York Times'ın yazdığı gibi, "Tor'dan bir iletişim geldiğinde, nereden veya kimden geldiğini asla bilemezsiniz."
+
+Tor, 2012 Electronic Frontier Foundation (EFF) Öncü Ödülü'nü kazandı.
+
+★ YERİNE BAŞKASINI KABUL ETMEYİN: Orbot, Android'de internet kullanmanın en güvenli yoludur. Nokta. Orbot, şifreli trafiğinizi doğrudan bağlayan diğer VPN'ler ve proxy'ler gibi değil, dünyanın dört bir yanındaki bilgisayarlar arasında birkaç kez sektirerek iletir. Bu işlem biraz daha uzun sürer ancak mevcut en güçlü gizlilik ve kimlik koruması beklemeye değer.
+
+★ UYGULAMALAR İÇİN GİZLİLİK: Herhangi bir uygulama Orbot VPN özelliği aracılığıyla Tor üzerinden yönlendirilebilir
+
+★ HERKES İÇİN GİZLİLİK: Orbot, bağlantınızı izleyen birinin hangi uygulamaları kullandığınızı veya hangi web sitelerini ziyaret ettiğinizi bilmesini engeller. Ağ trafiğinizi izleyen herkesin görebileceği tek şey Tor kullandığınızdır.
+
+**_Geri Bildirimi Seviyoruz_**
+
+★ DAHA FAZLA BİLGİ EDİNİN: Orbot hakkında daha fazla bilgi edinin ve https://orbot.app adresinden katılın
+
+★ HAKKIMIZDA: Guardian Project, daha iyi bir yarın için güvenli mobil uygulamalar ve açık kaynak kod yapan bir geliştirici grubudur.
+
+★ AÇIK KAYNAK: Orbot özgür yazılımdır. Kaynak kodumuza göz atın veya daha iyi hale getirmek için topluluğa katılın: https://github.com/guardianproject/orbot
+
+★ BİZE MESAJ GÖNDERİN: En sevdiğiniz özelliği mi eksik bıraktık? Sinir bozucu bir hata mı buldunuz? Sizden haber almak isteriz! Bize e-posta gönderin: support@guardianproject.info
+
+**_Sorumluluk Reddi_**
+
+Guardian Project, güvenliğinizi ve anonimliğinizi korumak için tasarlanmış uygulamalar yapar. Kullandığımız protokoller, güvenlik teknolojisinde sanatın son durumu olarak yaygın şekilde kabul edilmektedir. En son tehditlere karşı koymak ve hataları ortadan kaldırmak için yazılımımızı sürekli yükseltmemize rağmen, hiçbir teknoloji %100 kusursuz değildir. Maksimum güvenlik ve anonimlik için kullanıcılar kendilerini güvende tutmak adına en iyi uygulamaları kullanmalıdır. Bu konulara iyi bir giriş rehberi https://securityinabox.org adresinde bulunabilir
