@@ -263,7 +263,7 @@
     <string name="setting_unlock_pass_description">نیازمند پین افزاره یا الگوی کشیدنی برای گشودن روبوت پیازی</string>
     <string name="setting_unlock_with_biometrics_title">استفاده از زیست‌سنجی (اختیاری)</string>
     <string name="setting_unlock_with_biometrics_description">قفل‌گشایی روبوت پیازی با اثرانگشت یا شناسهٔ صورت در صورت برپا بودن روی افزاره‌تان.</string>
-    <string name="loading">در حال بارگذاری…</string>
-    <string name="http_port">پورت HTTP</string>
-    <string name="socks_port">پورت SOCKS</string>
+    <string name="loading">بار کردن…</string>
+    <string name="http_port">درگاه وب</string>
+    <string name="socks_port">درگاه ساکس</string>
 </resources>
