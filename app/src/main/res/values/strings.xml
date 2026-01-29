@@ -294,4 +294,9 @@
     <string name="http_port">HTTP Port</string>
     <string name="socks_port">SOCKS Port</string>
     <string name="invalid_outbound_proxy_config">Invalid Outbound Proxy Configuration</string>
+
+    <string name="bridge_dnstt" translatable="false">DNS Tunnel</string>
+    <string name="my_country_optional">My Country (optional)</string>
+    <string name="limit_dns_tunnel_use">Limit DNS Tunnel Use</string>
+    <string name="dns_tunnel_usage_description">DNS tunnels prioritize access over speed and may feel slower. We recommend enabling them only for essential apps. Video streaming is not recommended.</string>
 </resources>

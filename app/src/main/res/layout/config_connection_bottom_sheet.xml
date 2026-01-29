@@ -60,11 +60,26 @@
                 style="@style/BottomSheetRadioHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:padding="12dp"
                 android:text="@string/not_sure"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/acCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/my_country_optional"
+                android:inputType="text"
+                android:textColorHint="@android:color/darker_gray"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@android:color/white"
+                android:padding="12dp"
+                android:completionThreshold="1"
+                android:popupBackground="#1C1425"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvNotSure" />
 
             <Button
                 android:id="@+id/btnAskTor"
@@ -77,7 +92,8 @@
                 android:text="@string/ask_tor"
                 android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/acCountry" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -404,6 +420,40 @@
                         android:id="@+id/tvMeekSubtitle"
                         style="@style/BottomSheetTextView"
                         android:text="@string/bridge_meek_azure_subtitle"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dnsttContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbDnstt"
+                    style="@style/BottomSheetRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/BottomSheetRadioHeader"
+                        android:text="@string/bridge_dnstt" />
+
+                    <TextView
+                        android:id="@+id/tvDnsttSubtitle"
+                        style="@style/BottomSheetTextView"
+                        android:text="@string/dns_tunnel_usage_description"
                         android:visibility="gone" />
                 </LinearLayout>
 

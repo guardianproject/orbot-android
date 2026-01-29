@@ -28,7 +28,7 @@ class CustomBridgeBottomSheet() :
         // https://regex101.com
         private val validBridgeRegex = Regex(
             """^"""
-                    + """((meek_lite|obfs4|webtunnel|snowflake)\s+)?""" // Optional bridge type: Currently supported PTs + vanilla bridges
+                    + """((meek_lite|obfs4|webtunnel|snowflake|dnstt)\s+)?""" // Optional bridge type: Currently supported PTs + vanilla bridges
                     + """((\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[\da-fA-F:]+])""" // Cheap IPv4 and IPv6 address test
                     + """(:\d{1,5})?)\s+""" // Optional port number, space after address
                     + """([\da-fA-F]{40})?""" // Optional bridge fingerprint
