@@ -3,10 +3,10 @@
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot başka uygulamaların interneti daha güvenli olarak kullanmasını sağlayan özgür bir vekil sunucu uygulamasıdır. Orbot, Tor kullanarak İnternet trafiğinizi şifreler ve dünya üzerindeki pek çok farklı bilgisayardan geçirerek gizler. Tor kişisel özgürlüğünüze ve bilgilerinize, gizli ticari işlemlerinize ve ilişkilerinize, devlet güvenliğine karşı tehdit oluşturan ve trafik analizi olarak bilinen ağ izlemelerine karşı koruma sağlayan bir özgür yazılım ve açık ağdır.</string>
     <string name="menu_settings">Orbot Ayarları</string>
-    <string name="menu_log">Kayıt</string>
+    <string name="menu_log">Kayıtlar</string>
     <string name="menu_about">Hakkında</string>
     <string name="menu_exit">Çıkış</string>
-    <string name="wizard_details_msg">Orbot; Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, LibEvent yapılarını kapsayan açık kaynaklı bir uygulamadır. Tor ağına bağlanmak için bir yerel HTTP vekil sunucu (sadece 8118 portunu kullanır) ve bir SOCKS vekil sunucu (9050) sağlar.</string>
+    <string name="wizard_details_msg">Orbot; Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel ve LibEvent içeren açık kaynaklı bir uygulamadır. Tor ağına bir VPN tüneli, yerel bir HTTP Connect proxy (yalnızca 8118 portunda HTTPS) ve bir SOCKS proxy (9050) sağlar.</string>
     <string name="pref_general_group">Genel</string>
     <string name="pref_start_boot_title">Orbot Açılışta Başlatılsın</string>
     <string name="pref_start_boot_summary">Android aygıtınızı açtığınızda Orbot otomatik olarak başlatılarak Tor ağına bağlanılır</string>
@@ -15,7 +15,7 @@
     <string name="pref_entrance_node">Giriş Düğümleri</string>
     <string name="pref_entrance_node_summary">İlk sıçrama noktası için parmak izleri, kısaltmalar, ülkeler ve adresler</string>
     <string name="pref_entrance_node_dialog">Giriş Düğümlerini Yazın</string>
-    <string name="pref_allow_background_starts_title">Arka planda başlatmaya izin ver</string>
+    <string name="pref_allow_background_starts_title">Arka Plan Başlatmalarına İzin Ver</string>
     <string name="pref_allow_background_starts_summary">Herhangi bir uygulamanın Orbot\'a , Tor ve ilgili hizmetleri başlatmasına izin verin</string>
     <string name="pref_proxy_title">Giden Ağ Sunucusu (İsteğe Bağlı)</string>
     <string name="pref_proxy_type_title">Giden Vekil Sunucu Türü</string>
@@ -69,7 +69,7 @@
     <string name="name">Ad</string>
     <string name="done">Tamam!</string>
     <string name="copy_address_to_clipboard">Adresi panoya kopyala</string>
-    <string name="backup_service">Hizmeti Yedekle <i>(Uyarı: Bu, Diğer Uygulamaların Hizmet Yapılandırmanıza Erişebilmesine Neden Olabilir)</i></string>
+    <string name="backup_service">Yedekleme Servisi (Uyarı: Bu, Servis Yapılandırmanızı Diğer Uygulamalara Açığa Çıkarabilir)</string>
     <string name="delete_service">Hizmeti Sil</string>
     <string name="backup_saved_at_external_storage">Yedek dış depolamaya kaydedildi</string>
     <string name="backup_restored">Yedek geri yüklendi</string>
@@ -131,12 +131,12 @@
     <string name="secure_your_connection_title">Bağlanmaya hazır</string>
     <string name="btn_choose_apps">Uygulamaları seç</string>
     <string name="btn_change_exit">Çıkışı değiştir</string>
-    <string name="btn_refresh">Yenile</string>
+    <string name="btn_refresh">Bağlantıyı Yenile</string>
     <string name="volunteer_mode_title">Başkalarının Tor\'a
 \nbağlanmasına yardımcı olun</string>
     <string name="volunteer_mode_alltime_label">Tüm Zamanlar Toplamı</string>
-    <string name="smart_connect">Akıllı Bağlan (öntanımlı)</string>
-    <string name="direct_connect">Tor\'a Doğrudan Bağlantı</string>
+    <string name="smart_connect">Akıllı Bağlantı</string>
+    <string name="direct_connect">Direkt Bağlantı</string>
     <string name="direct_connect_subtitle">Tor\'a bağlanmanın en iyi yolu. Tor engelli değilse kullanın.</string>
     <string name="snowflake_subtitle">Tor gönüllüleri aracılığıyla bağlanır. Bazı Tor engellemelerini aşar.</string>
     <string name="connect">Bağlan</string>
@@ -148,7 +148,7 @@
 \n• İnternetinizi yavaşlatmaz
 \n• Yalnızca wi-fi üzerinden çalışabilir
 \n• İstenildiği zaman kapatılabilir</string>
-    <string name="snowflake">Snowflake (Orijinal)</string>
+    <string name="snowflake">Snowflake</string>
     <string name="volunteer_status_title">Bugün sizin
 \nsayenizde daha iyi.</string>
     <string name="title_choose_apps">Uygulamaları Seç</string>
@@ -166,7 +166,7 @@
     <string name="asking">SORUYOR…</string>
     <string name="no_internet_title">İnternete bağlan</string>
     <string name="kindness_adjust_title">Ayarlar</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="no_internet_subtitle">Orbot\'u kullanmak için internet bağlantınızın olması gerekir.</string>
     <string name="kindness_config_detail">Aygıtınızın diğer Tor kullanıcıları için nasıl ve ne zaman bir Snowflake vekili olarak çalışabileceğini yapılandırın.</string>
     <string name="pref_isolate_port_summary">Her hedef bağlantı noktası için farklı bir devre kullanın</string>
@@ -193,4 +193,22 @@
     <string name="mebibyte_per_second">MiB/s</string>
     <string name="kibibyte_per_second">KiB/s</string>
     <string name="set_transport">Taşımayı Ayarla</string>
+    <string name="pref_isolate_keep_alive">İzole devreleri canlı tut</string>
+    <string name="pref_isolate_keep_alive_summary">SOCKS kimlik doğrulaması etkin en az bir akışa sahip izole devreleri canlı tut</string>
+    <string name="bridge_snowflake_sqs">Snowflake kullanarak diğer Tor kullanıcıları üzerinden bağlan (Yöntem 3 - SQS)</string>
+    <string name="kindness_mode_is_running">Paylaşım Modu Çalışıyor</string>
+    <string name="kindness_mode_active_message" formatted="true">Sansürü aşmak için %1$d kişiye yardımcı oldunuz</string>
+    <string name="kindness_mode_disabled">Paylaşım Modu Devre Dışı</string>
+    <string name="kindness_mode_starting">Başlıyor…</string>
+    <string name="kindness_mode_disabled_internet">Sansürü aşmak için insanlara yardımcı olmak üzere internete bağlanın</string>
+    <string name="kindness_mode_disabled_wifi">Sansürü aşmak için insanlara yardımcı olmak üzere Wi-Fi\'ye bağlanın</string>
+    <string name="kindness_mode_disabled_power">Sansürü aşmak için insanlara yardımcı olmak üzere cihazınızı prize takın</string>
+    <string name="snowflake_sqs">Snowflake SQS</string>
+    <string name="bridges_via_telegram">Telegram üzerinden Tor\'dan köprüler (obfs4)</string>
+    <string name="bridges_via_telegram_subtitle">Tor ciddi şekilde engellendiğinde bağlantınızı sürdürmenizi sağlar. Bu yöntemi kullanmak Tor Bot Telegram kanalını başlatacaktır. Köprü adreslerini almak için Başlat\'a dokunun veya sohbete \'%1$s\' yazın.</string>
+    <string name="bridges_via_email">E-posta üzerinden Tor\'dan köprüler (obfs4)</string>
+    <string name="bridges_via_email_subtitle">Trafiğinizi gizler. Bazı Tor engellemelerini aşar. Gmail veya Riseup hesabından gönderilen bir e-posta gerektirir.</string>
+    <string name="bridge_meek_azure_subtitle">Trafiğinizi gizler. Bazı Tor engellemelerini aşar. Çok yavaş olabilir.</string>
+    <string name="custom_bridges_subtitle">Güvendiğiniz ağlar ve kuruluşlar içinde herhangi birinin köprü barındırıp barındırmadığını öğrenmek için sorun. Yoksa bir arkadaşınız sizin için köprü alabilir.</string>
+    <string name="custom_bridges_description">Aldığınız köprü adreslerini aşağıya yapıştırın. Veya eklemek için QR kodunu tarayın. Arkadaşlarınız sizin için %1$s adresinden köprü alabilir.</string>
 </resources>
