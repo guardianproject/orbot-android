@@ -229,4 +229,5 @@
     <string name="setting_block_screenshot_title">Bildschirmfotos blockieren</string>
     <string name="setting_unlock_pass_title">Sperrbildschirm</string>
     <string name="status_loading_status">Netzwerkstatus wird geladen</string>
+    <string name="loading">Wird geladen …</string>
 </resources>
