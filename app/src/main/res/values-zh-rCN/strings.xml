@@ -268,4 +268,8 @@
     <string name="http_port">HTTP 端口</string>
     <string name="socks_port">SOCKS 端口</string>
     <string name="invalid_outbound_proxy_config">出站代理配置无效</string>
+    <string name="bridge_dnstt">DNS 隧道</string>
+    <string name="my_country_optional">我的国家/地区（可选）</string>
+    <string name="limit_dns_tunnel_use">限制 DNS 隧道使用</string>
+    <string name="dns_tunnel_usage_description">DNS 隧道优先考虑访问而非速度，可能会感觉较慢。我们建议仅对必要应用启用此功能。不推荐用于视频流媒体。</string>
 </resources>
