@@ -27,6 +27,7 @@ androidx-lifecycle = "2.10.0"
 screengrab = "2.1.1"
 upnp = "1.0.0"
 iptproxy = "5.1.1"
+quickie = "1.11.0"
 
 [libraries]
 android-material = { group = "com.google.android.material", name = "material", version.ref = "android-material" }
@@ -59,6 +60,7 @@ androidx-lifecycle-common = { group = "androidx.lifecycle", name = "lifecycle-co
 screengrab = { group = "tools.fastlane", name = "screengrab", version.ref = "screengrab" }
 upnp = { group = "com.netzarchitekten", name = "upnp", version.ref = "upnp" }
 iptproxy = { group = "com.netzarchitekten", name = "IPtProxy", version.ref = "iptproxy" }
+quickie = { group = "io.github.g00fy2.quickie", name = "quickie-bundled", version.ref = "quickie"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

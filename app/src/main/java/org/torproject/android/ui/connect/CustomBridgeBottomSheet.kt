@@ -1,6 +1,7 @@
 package org.torproject.android.ui.connect
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
@@ -9,8 +10,11 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
-import com.google.zxing.integration.android.IntentIntegrator
+import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import io.github.g00fy2.quickie.QRResult
+import io.github.g00fy2.quickie.ScanCustomCode
+import io.github.g00fy2.quickie.config.ScannerConfig
 import org.torproject.android.R
 import org.torproject.android.databinding.CustomBridgeBottomSheetBinding
 import org.torproject.android.service.OrbotConstants
@@ -45,39 +49,51 @@ class CustomBridgeBottomSheet() :
     }
 
     private lateinit var binding: CustomBridgeBottomSheetBinding
+    private lateinit var qrScanResultLauncher: ActivityResultLauncher<ScannerConfig>
 
-    private val qrScanResultLauncher =
-        registerForActivityResult(StartActivityForResult()) { result ->
-            val scanResult = IntentIntegrator.parseActivityResult(result.resultCode, result.data)
-
-            if (scanResult != null) {
-                val current =
-                    binding.etBridges.text?.split("\n")?.toMutableList() ?: mutableListOf()
-
-                var contents = scanResult.contents ?: ""
-
-                if (contents.isBlank()) {
-                    val raw = scanResult.rawBytes
-
-                    if (raw != null && raw.isNotEmpty()) {
-                        contents = String(raw)
-                    }
-                }
-
-                val bridges = try {
-                    MoatApi.json.decodeFromString(contents)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        qrScanResultLauncher = registerForActivityResult(ScanCustomCode()) { result ->
+            if (result is QRResult.QRSuccess) {
+                val text = result.content.rawBytes?.let { String(it) }.orEmpty()
+                var bridges = try {
+                    MoatApi.json.decodeFromString(text)
                 } catch (_: Throwable) {
                     emptyList<String>()
                 }
+                if (bridges.isNotEmpty()) {
+                    val current =
+                        binding.etBridges.text?.split("\n")?.toMutableList() ?: mutableListOf()
 
-                current.addAll(bridges)
+                    bridges = bridges.filter { !current.contains(it) }
+                    if (bridges.isEmpty()) {
+                        Toast.makeText(
+                            requireContext(),
+                            R.string.you_already_have_these_bridges,
+                            Toast.LENGTH_LONG
+                        ).show()
+                        return@registerForActivityResult
+                    }
 
-                binding.etBridges.setText(current.joinToString("\n"))
+                    current.addAll(bridges)
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.added_bridges_from_qr, bridges.size),
+                        Toast.LENGTH_LONG
+                    ).show()
+                    binding.etBridges.setText(current.joinToString("\n"))
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        R.string.invalid_bridge_qr_code,
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
             }
         }
+    }
 
     private var dialog: AlertDialog? = null
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -90,10 +106,9 @@ class CustomBridgeBottomSheet() :
             getString(R.string.custom_bridges_description, uri.build().toString())
 
         binding.btnScan.setOnClickListener {
-            val activity = this@CustomBridgeBottomSheet.activity ?: return@setOnClickListener
+            qrScanResultLauncher.launch(ScannerConfig.build {
 
-            val i = IntentIntegrator(activity)
-            dialog = i.initiateScan(IntentIntegrator.QR_CODE_TYPES, qrScanResultLauncher)
+            })
         }
 
         binding.tvCancel.setOnClickListener { dismiss() }

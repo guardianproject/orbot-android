@@ -240,6 +240,9 @@
     <string name="unlock_app_msg" formatted="true">Please unlock your device in order to use %s</string>
     <string name="run_smart_connect_">Run Smart Connect to find the best way</string>
     <string name="scan_qr_code">Scan QR Code</string>
+    <string name="added_bridges_from_qr">Adding %1$d bridges from the QR Code</string>
+    <string name="invalid_bridge_qr_code">Invalid Bridge QR Code</string>
+    <string name="you_already_have_these_bridges">You\'ve already added the bridges in this QR Code</string>
 
     <!-- strings from the old orbotservice module -->
     <string name="orbot_vpn">Orbot VPN</string>
