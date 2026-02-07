@@ -267,4 +267,8 @@
     <string name="http_port">HTTP துறைமுகம்</string>
     <string name="socks_port">சாக்ச் துறைமுகம்</string>
     <string name="invalid_outbound_proxy_config">தவறான வெளிச்செல்லும் பதிலாள் கட்டமைப்பு</string>
+    <string name="bridge_dnstt">டிஎன்எச் சுரங்கப்பாதை</string>
+    <string name="my_country_optional">எனது நாடு (விரும்பினால்)</string>
+    <string name="limit_dns_tunnel_use">டிஎன்எச் சுரங்கப்பாதை பயன்பாட்டை வரம்பிடவும்</string>
+    <string name="dns_tunnel_usage_description">டிஎன்எச் சுரங்கங்கள் வேகத்தைவிட அணுகலுக்கு முன்னுரிமை அளிக்கின்றன மற்றும் மெதுவாக உணரலாம். கட்டாய பயன்பாடுகளுக்கு மட்டுமே அவற்றை இயக்கப் பரிந்துரைக்கிறோம். காணொளி ஓடை பரிந்துரைக்கப்படவில்லை.</string>
 </resources>

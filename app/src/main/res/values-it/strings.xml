@@ -268,4 +268,5 @@
     <string name="loading">Caricamento…</string>
     <string name="http_port">Porta HTTP</string>
     <string name="socks_port">Porta SOCKS</string>
+    <string name="invalid_outbound_proxy_config">Configurazione proxy in uscita non valida</string>
 </resources>

@@ -263,7 +263,12 @@
     <string name="setting_unlock_pass_description">نیازمند پین افزاره یا الگوی کشیدنی برای گشودن روبوت پیازی</string>
     <string name="setting_unlock_with_biometrics_title">استفاده از زیست‌سنجی (اختیاری)</string>
     <string name="setting_unlock_with_biometrics_description">قفل‌گشایی روبوت پیازی با اثرانگشت یا شناسهٔ صورت در صورت برپا بودن روی افزاره‌تان.</string>
-    <string name="loading">در حال بارگذاری…</string>
-    <string name="http_port">پورت HTTP</string>
-    <string name="socks_port">پورت SOCKS</string>
+    <string name="loading">بار کردن…</string>
+    <string name="http_port">درگاه وب</string>
+    <string name="socks_port">درگاه ساکس</string>
+    <string name="bridge_dnstt">تونل ساناد</string>
+    <string name="my_country_optional">کشورم (اختیاری)</string>
+    <string name="invalid_outbound_proxy_config">پیکربندی پیشکار خروجی نامعتبر</string>
+    <string name="limit_dns_tunnel_use">محدویت استفادهٔ تونل ساناد</string>
+    <string name="dns_tunnel_usage_description">تونل‌های ساناد دسترسی را بر سرعت ترجیح داده و ممکن است کندتر باشند. توصیه می‌کنیم تنها برای کاره‌های ضروری به کارشان بیندازید. جریان ویدیویی توصیه نمی‌شود.</string>
 </resources>

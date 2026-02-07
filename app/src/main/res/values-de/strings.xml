@@ -229,4 +229,13 @@
     <string name="setting_block_screenshot_title">Bildschirmfotos blockieren</string>
     <string name="setting_unlock_pass_title">Sperrbildschirm</string>
     <string name="status_loading_status">Netzwerkstatus wird geladen</string>
+    <string name="loading">Wird geladen…</string>
+    <string name="bridge_snowflake_sqs">Mittels Snowflake über andere Tor-Nutzer verbinden (Methode 3 -SQS)</string>
+    <string name="kindness_mode_is_running">Freundlichkeitsmodus läuft</string>
+    <string name="kindness_mode_active_message" formatted="true">Du hast %1$d Menschen geholfen, Zensur zu umgehen</string>
+    <string name="kindness_mode_disabled">Freundlichkeitsmodus ist ausgeschaltet</string>
+    <string name="bridge_dnstt">DNS-Tunnel</string>
+    <string name="my_country_optional">Mein Land (optional)</string>
+    <string name="socks_port">SOCKS-Port</string>
+    <string name="http_port">HTTP-Port</string>
 </resources>

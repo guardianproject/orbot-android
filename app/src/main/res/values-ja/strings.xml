@@ -268,4 +268,9 @@
     <string name="loading">読み込み中…</string>
     <string name="socks_port">SOCKS ポート</string>
     <string name="http_port">HTTP ポート</string>
+    <string name="invalid_outbound_proxy_config">無効な発信プロキシ設定</string>
+    <string name="bridge_dnstt">DNS トンネル</string>
+    <string name="my_country_optional">自分の国 (オプション)</string>
+    <string name="limit_dns_tunnel_use">DNS トンネルの使用を制限する</string>
+    <string name="dns_tunnel_usage_description">DNS トンネルは速度よりもアクセスを優先するため、遅く感じることがあります。重要なアプリに対してのみ有効にすることをお勧めします。動画ストリーミングは推奨されません。</string>
 </resources>

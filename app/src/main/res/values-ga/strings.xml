@@ -266,4 +266,9 @@
     <string name="loading">Ag lódáil…</string>
     <string name="http_port">Port HTTP</string>
     <string name="socks_port">Port SOCKS</string>
+    <string name="invalid_outbound_proxy_config">Cumraíocht Seachfhreastalaí Amach Neamhbhailí</string>
+    <string name="bridge_dnstt">Tollán DNS</string>
+    <string name="my_country_optional">Mo Thír (roghnach)</string>
+    <string name="limit_dns_tunnel_use">Teorainn a chur le hÚsáid Tolláin DNS</string>
+    <string name="dns_tunnel_usage_description">Tugann tolláin DNS tús áite do rochtain thar luas agus d\'fhéadfadh go mbraithfí níos moille orthu. Molaimid iad a chumasú le haghaidh aipeanna riachtanacha amháin. Ní mholtar sruthú físe.</string>
 </resources>

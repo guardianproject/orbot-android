@@ -266,4 +266,9 @@
     <string name="loading">Зареждане…</string>
     <string name="http_port">Порт на HTTP</string>
     <string name="socks_port">Порт на SOCKS</string>
+    <string name="invalid_outbound_proxy_config">Неприемлива настройка на изходящ прокси сървър</string>
+    <string name="bridge_dnstt">Тунел за DNS</string>
+    <string name="my_country_optional">Моята държава (по желание)</string>
+    <string name="limit_dns_tunnel_use">Ограничаване използването на тунела за DNS</string>
+    <string name="dns_tunnel_usage_description">Тунелът за DNS е с акцент върху достъпа пред скоростта и може да изглежда бавен. Препоръчваме да го използвате за съществени приложения. Гледане на видео е непрепоръчително.</string>
 </resources>
