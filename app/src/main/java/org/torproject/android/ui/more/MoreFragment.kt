@@ -18,6 +18,7 @@ import org.torproject.android.R
 import org.torproject.android.util.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
+import org.torproject.android.service.vpn.VpnServicePrepareWrapper
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.ui.v3onionservice.OnionServiceActivity
 import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthActivity
@@ -106,10 +107,7 @@ class MoreFragment : Fragment() {
                 findNavController().navigate(R.id.more_to_settings)
             },
             OrbotMenuAction(R.string.system_vpn_settings, R.drawable.ic_vpn_key) {
-                activity?.startActivity(
-                    Intent("android.net.vpn.SETTINGS")
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                )
+                VpnServicePrepareWrapper.openVpnSystemSettings(this)
             },
             OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) { showLog() },
             OrbotMenuAction(R.string.v3_hosted_services, R.drawable.ic_menu_onion) {

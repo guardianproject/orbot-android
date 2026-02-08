@@ -9,6 +9,7 @@ import android.net.VpnService
 import android.os.Build
 import android.provider.Settings
 import androidx.annotation.DeprecatedSinceApi
+import androidx.fragment.app.Fragment
 import org.torproject.android.R
 import org.torproject.android.util.putNotSystem
 
@@ -114,4 +115,10 @@ object VpnServicePrepareWrapper {
             @Suppress("DEPRECATION") getInstalledPackages(flags)
         }
 
+    fun openVpnSystemSettings(fragment: Fragment) {
+        fragment.startActivity(
+            Intent("android.net.vpn.SETTINGS")
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        )
+    }
 }

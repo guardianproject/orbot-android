@@ -303,5 +303,6 @@
     <string name="unable_to_start_orbot_vpn_title">Unable to start Orbot VPN</string>
     <string name="unable_to_start_legacy_vpn_error_msg">There is a Custom VPN Profile set to be Always-on. Please disable it before starting Orbot.</string>
     <string name="unable_to_start_other_vpn_app_error_msg">The VPN app %1$s is set to be Always-on. Please disable it before starting Orbot.</string>
-    <string name="unable_to_start_unknown_reason_error_msg">VPN permission was denied or another app has \"Always-on VPN\" enabled</string>
+    <string name="unable_to_start_unknown_reason_error_msg">The VPN permission was denied or another app has \"Always-on VPN\" enabled. You can dismiss this and reconnect if you canceled the VPN Request by mistake. Technical users can use another VPN app and use Tor as a Socks Proxy by enabling Orbot\'s Power User Mode.</string>
+    <string name="open_vpn_settings">Open Android VPN Settings</string>
 </resources>

@@ -209,6 +209,7 @@ class ConnectFragment : Fragment(),
             val vpnPrepareState =
                 VpnServicePrepareWrapper.orbotVpnServicePreparedState(requireContext())
             when (vpnPrepareState) {
+
                 is VpnServicePrepareWrapper.Result.Prepared ->
                     startTorVpn()
 
@@ -225,8 +226,10 @@ class ConnectFragment : Fragment(),
     }
 
     fun displayVpnStartError(msg: String) {
-        // TODO to better UI
-        Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show()
+        VpnAlwaysOnDialogFragment.newInstance(msg).show(
+            requireActivity().supportFragmentManager,
+            VpnAlwaysOnDialogFragment.TAG
+        )
     }
 
     var lastState: String? = null
