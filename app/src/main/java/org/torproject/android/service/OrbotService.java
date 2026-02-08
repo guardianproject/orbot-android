@@ -632,10 +632,11 @@ public class OrbotService extends VpnService {
     // system calls this method when VPN disconnects (either by the user or another VPN app)
     @Override
     public void onRevoke() {
-        Prefs.putUseVpn(false);
-        mVpnManager.handleIntent(new Builder(), new Intent(ACTION_STOP));
         // tell UI, if it's open, to update immediately (don't wait for onResume() in Activity...)
-        sendBroadcast(new Intent(ACTION_STOP).setPackage(getPackageName()));
+        sendLocalStatusOffBroadcast();
+        mVpnManager.handleIntent(new Builder(), new Intent(ACTION_STOP));
+        Prefs.putUseVpn(false);
+        super.onRevoke(); // invokes stopSelf()
     }
 
     private void setExitNode(String newExits) {

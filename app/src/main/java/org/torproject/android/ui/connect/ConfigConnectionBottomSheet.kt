@@ -13,7 +13,6 @@ import android.widget.ArrayAdapter
 import android.widget.CompoundButton
 import android.widget.RadioButton
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
@@ -300,7 +299,7 @@ class ConfigConnectionBottomSheet :
             connectFrag.stopTorAndVpn()
             Thread.sleep(3000)
         }
-        connectFrag.startTorAndVpn()
+        connectFrag.attemptToStartTor()
     }
 
     private fun selectRadioButtonFromPreference() {

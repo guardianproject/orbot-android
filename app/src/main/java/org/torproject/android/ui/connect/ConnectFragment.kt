@@ -3,7 +3,6 @@ package org.torproject.android.ui.connect
 import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
-import android.net.VpnService
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,12 +25,12 @@ import kotlinx.coroutines.launch
 import net.freehaven.tor.control.TorControlCommands
 import org.torproject.android.OrbotActivity
 import org.torproject.android.R
-import org.torproject.android.util.putNotSystem
 import org.torproject.android.util.sendIntentToService
 import org.torproject.android.databinding.FragmentConnectBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.circumvention.Transport
+import org.torproject.android.service.vpn.VpnServicePrepareWrapper
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.jni.TorService
@@ -48,10 +47,19 @@ class ConnectFragment : Fragment(),
     private val lastStatus: String
         get() = (activity as? OrbotActivity)?.previousReceivedTorStatus ?: ""
 
-    private val startTorResultLauncher =
+    private val startTorVpnResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            // The user pressed OK, we can start Tor VPN
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
-                startTorAndVpn()
+                startTorVpn()
+            } else { /* this happens when:
+                - the user cancels the system VPN dialog
+                - the user is on Android S+ and has another VpnService based app
+                  set to be always-on.
+
+                  we are unable to differentiate these two things, so show a generic error msg
+                 */
+                displayVpnStartError(getString(R.string.unable_to_start_unknown_reason_error_msg))
             }
         }
 
@@ -102,7 +110,7 @@ class ConnectFragment : Fragment(),
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.events.collect { event ->
                 when (event) {
-                    is ConnectEvent.StartTorAndVpn -> startTorAndVpn()
+                    is ConnectEvent.StartTorAndVpn -> attemptToStartTor()
                     is ConnectEvent.RefreshMenuList -> refreshMenuList(requireContext())
                 }
             }
@@ -121,20 +129,20 @@ class ConnectFragment : Fragment(),
             if (value) {
                 // display msg if optional outbound proxy config is invalid
                 if (Prefs.outboundProxy.second != null) {
-
                     Toast.makeText(
                         activity,
                         getString(R.string.invalid_outbound_proxy_config),
                         Toast.LENGTH_LONG
                     ).show()
                 }
-                startTorAndVpn()
-            } else
+                attemptToStartTor()
+            } else {
                 stopTorAndVpn()
+            }
         }
         refreshMenuList(requireContext())
-
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -170,36 +178,61 @@ class ConnectFragment : Fragment(),
         }
     }
 
-    fun startTorAndVpn() {
-        val vpnIntent = VpnService.prepare(requireActivity())?.putNotSystem()
-        if (vpnIntent != null && !Prefs.isPowerUserMode) {
-            // prompt VPN permission dialog
-            startTorResultLauncher.launch(vpnIntent)
-        } else { // either the vpn permission hasn't been granted or we are in power user mode
-            Prefs.putUseVpn(!Prefs.isPowerUserMode)
-            if (Prefs.isPowerUserMode) {
-                // android 14 awkwardly needs this permission to be explicitly granted to use the
-                // FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED permission without grabbing a VPN Intent
-                val alarmManager =
-                    requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
-                    PowerUserForegroundPermDialog().createTransactionAndShow(requireActivity())
-                    return // user can try again after granting permission
-                } else {
-                    binding.ivStatus.setImageResource(R.drawable.orbieon)
-                }
+    fun attemptToStartTorPowerUserMode() {
+        // android 14 awkwardly needs this permission to be explicitly granted to use the
+        // FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED permission without grabbing a VPN Intent
+        val alarmManager =
+            requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
+            PowerUserForegroundPermDialog().createTransactionAndShow(requireActivity())
+            return // user can try again after granting permission
+        }
+        doLayoutStarting(requireContext())
+        setState(TorService.ACTION_START)
+    }
+
+    fun startTorVpn() {
+        doLayoutStarting(requireContext())
+        setState(TorService.ACTION_START)
+    }
+
+    fun attemptToStartTor() {
+        Prefs.putUseVpn(!Prefs.isPowerUserMode)
+        if (Prefs.isPowerUserMode) {
+            attemptToStartTorPowerUserMode()
+        } else {
+            val vpnPrepareState =
+                VpnServicePrepareWrapper.orbotVpnServicePreparedState(requireContext())
+
+            when (vpnPrepareState) {
+
+                is VpnServicePrepareWrapper.Result.Prepared ->
+                    startTorVpn()
+
+                is VpnServicePrepareWrapper.Result.CantPrepare ->
+                    displayVpnStartError(vpnPrepareState.errorMsg)
+
+                is VpnServicePrepareWrapper.Result.ShouldAttempt ->
+                    // prompt VPN permission dialog
+                    startTorVpnResultLauncher.launch(vpnPrepareState.prepareIntent)
+
             }
-            doLayoutStarting(requireContext())
-            setState(TorService.ACTION_START)
         }
         refreshMenuList(requireContext())
+    }
+
+    fun displayVpnStartError(msg: String) {
+        binding.switchConnect.isChecked = false
+        VpnAlwaysOnDialog.newInstance(msg).show(
+            requireActivity().supportFragmentManager,
+            VpnAlwaysOnDialog.TAG
+        )
     }
 
     var lastState: String? = null
 
     @Synchronized
     fun setState(newState: String) {
-
         if (lastState != newState) {
             requireContext().sendIntentToService(newState)
             lastState = newState
