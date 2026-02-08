@@ -26,7 +26,7 @@ class ConnectViewModel : ViewModel() {
 
     fun updateState(context: Context, status: String?) {
         val newState = when {
-            !NetworkUtils.isNetworkAvailable(context) -> ConnectUiState.NoInternet
+            !NetworkUtils.isNetworkAvailable(context, allowOtherVpnApps = true) -> ConnectUiState.NoInternet
             status == TorService.STATUS_STARTING -> ConnectUiState.Starting(null)
             status == TorService.STATUS_ON -> ConnectUiState.On
             status == TorService.STATUS_STOPPING -> ConnectUiState.Stopping

@@ -59,8 +59,6 @@ class ConnectFragment : Fragment(),
 
                   we are unable to differentiate these two things, so show a generic error msg
                  */
-                ignoreStartSwitchListener = true
-                binding.switchConnect.isChecked = false
                 displayVpnStartError(getString(R.string.unable_to_start_unknown_reason_error_msg))
             }
         }
@@ -128,10 +126,6 @@ class ConnectFragment : Fragment(),
             }, DEFAULT_THROTTLE_INTERVAL)
         }
         binding.switchConnect.setOnCheckedChangeListener { _, value ->
-            if (ignoreStartSwitchListener) {
-                ignoreStartSwitchListener = false
-                return@setOnCheckedChangeListener
-            }
             if (value) {
                 // display msg if optional outbound proxy config is invalid
                 if (Prefs.outboundProxy.second != null) {
@@ -141,13 +135,14 @@ class ConnectFragment : Fragment(),
                         Toast.LENGTH_LONG
                     ).show()
                 }
+                attemptToStartTor()
+            } else {
+                stopTorAndVpn()
             }
-            attemptToStartTor()
         }
         refreshMenuList(requireContext())
     }
 
-    private var ignoreStartSwitchListener = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -208,6 +203,7 @@ class ConnectFragment : Fragment(),
         } else {
             val vpnPrepareState =
                 VpnServicePrepareWrapper.orbotVpnServicePreparedState(requireContext())
+
             when (vpnPrepareState) {
 
                 is VpnServicePrepareWrapper.Result.Prepared ->
@@ -226,9 +222,10 @@ class ConnectFragment : Fragment(),
     }
 
     fun displayVpnStartError(msg: String) {
-        VpnAlwaysOnDialogFragment.newInstance(msg).show(
+        binding.switchConnect.isChecked = false
+        VpnAlwaysOnDialog.newInstance(msg).show(
             requireActivity().supportFragmentManager,
-            VpnAlwaysOnDialogFragment.TAG
+            VpnAlwaysOnDialog.TAG
         )
     }
 

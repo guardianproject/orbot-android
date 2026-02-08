@@ -7,10 +7,12 @@ import java.net.InetSocketAddress
 import java.net.Socket
 
 object NetworkUtils {
-    fun isNetworkAvailable(context: Context): Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    fun isNetworkAvailable(context: Context, allowOtherVpnApps: Boolean = false): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
         val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+        if (allowOtherVpnApps && capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN)) return true
         return when {
             capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
             capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
@@ -19,7 +21,7 @@ object NetworkUtils {
         }
     }
 
-    fun checkPortOrAuto(portString: String) : String {
+    fun checkPortOrAuto(portString: String): String {
         if (!portString.equals("auto", ignoreCase = true)) {
             var isPortUsed = true
             var port = portString.toInt()
