@@ -1,7 +1,31 @@
--dontobfuscate
-# https://stackoverflow.com/questions/9651703/using-proguard-with-android-without-obfuscation
--optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable
+# Project-specific ProGuard rules.
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
 
+# Base rules from original Orbot configuration should be placed here.
+# Ensure they are present.
+
+# Kotlin Serialization support
+-keepattributes *Annotation*, InnerClasses
+-dontnote kotlinx.serialization.AnnotationsKt
+-keepclassmembers class kotlinx.serialization.json.** {
+    *** Companion;
+}
+-keepclasseswithmembers class kotlinx.serialization.json.** {
+    kotlinx.serialization.KSerializer serializer(...);
+}
+
+# Updated package name for serializable classes
+-keep,includedescriptorclasses class org.zurvfouchsprojekt.android.**$$serializer { *; }
+-keepclassmembers class org.zurvfouchsprojekt.android.** {
+    *** Companion;
+}
+-keepclasseswithmembers class org.zurvfouchsprojekt.android.** {
+    kotlinx.serialization.KSerializer serializer(...);
+}
+-keep class org.zurvfouchsprojekt.android.data.models.** { *; }
+
+# Network library rules (if not already covered)
 -keepattributes Signature
 -keepattributes Annotation
 -keep class okhttp3.** { *; }
