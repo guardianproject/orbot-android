@@ -279,4 +279,12 @@
     <string name="my_country_optional">My Country (optional)</string>
     <string name="limit_dns_tunnel_use">Limit DNS Tunnel Use</string>
     <string name="dns_tunnel_usage_description">DNS tunnels prioritise access over speed and may feel slower. We recommend enabling them only for essential apps. Video streaming is not recommended.</string>
+    <string name="added_bridges_from_qr">Adding %1$d bridges from the QR Code</string>
+    <string name="invalid_bridge_qr_code">Invalid Bridge QR Code</string>
+    <string name="you_already_have_these_bridges">You\'ve already added the bridges in this QR Code</string>
+    <string name="unable_to_start_orbot_vpn_title">Unable to start Orbot VPN</string>
+    <string name="unable_to_start_legacy_vpn_error_msg">There is a Custom VPN Profile configured to be an \"Always-on\" VPN. Please disable it before starting Orbot.</string>
+    <string name="unable_to_start_other_vpn_app_error_msg">The app %1$s is configured to be an \"Always-on\" VPN. Please disable it before starting Orbot.</string>
+    <string name="unable_to_start_unknown_reason_error_msg">The VPN permission was denied or another VPN app has the \"Always-on VPN\" feature enabled. You can dismiss this and reconnect if you exited the previous VPN Request dialogue by mistake. Technical users can use another VPN app and use Tor as a SOCKS Proxy by enabling Orbot\'s Power User Mode.</string>
+    <string name="open_vpn_settings">Open Android VPN Settings</string>
 </resources>

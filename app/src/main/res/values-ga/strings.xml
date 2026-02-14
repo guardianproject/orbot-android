@@ -271,4 +271,12 @@
     <string name="my_country_optional">Mo Thír (roghnach)</string>
     <string name="limit_dns_tunnel_use">Teorainn a chur le hÚsáid Tolláin DNS</string>
     <string name="dns_tunnel_usage_description">Tugann tolláin DNS tús áite do rochtain thar luas agus d\'fhéadfadh go mbraithfí níos moille orthu. Molaimid iad a chumasú le haghaidh aipeanna riachtanacha amháin. Ní mholtar sruthú físe.</string>
+    <string name="added_bridges_from_qr">Ag cur %1$d droichead leis ón gcód QR</string>
+    <string name="invalid_bridge_qr_code">Cód QR Droichid Neamhbhailí</string>
+    <string name="you_already_have_these_bridges">Tá na droichid curtha leis agat sa Chód QR seo cheana féin</string>
+    <string name="unable_to_start_orbot_vpn_title">Ní féidir Orbot VPN a thosú</string>
+    <string name="unable_to_start_legacy_vpn_error_msg">Tá Próifíl VPN Saincheaptha cumraithe le bheith ina VPN \"I gcónaí ar siúl\". Díchumasaigh é sula dtosaíonn tú ar Orbot.</string>
+    <string name="unable_to_start_other_vpn_app_error_msg">Tá an aip %1$s cumraithe le bheith ina VPN \"i gcónaí ar siúl\". Díchumasaigh é le do thoil sula dtosaíonn tú ar Orbot.</string>
+    <string name="unable_to_start_unknown_reason_error_msg">Diúltaíodh an cead VPN nó tá an ghné \"VPN i gcónaí ar siúl\" cumasaithe ag aip VPN eile. Is féidir leat é seo a dhíbhe agus athcheangal má d’fhág tú an dialóg Iarratas VPN roimhe seo trí dhearmad. Is féidir le húsáideoirí teicniúla aip VPN eile a úsáid agus Tor a úsáid mar Socks Proxy trí Mhód Úsáideora Cumhachta Orbot a chumasú.</string>
+    <string name="open_vpn_settings">Oscail Socruithe VPN Android</string>
 </resources>

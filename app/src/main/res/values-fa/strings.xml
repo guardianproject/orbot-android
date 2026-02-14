@@ -271,4 +271,12 @@
     <string name="invalid_outbound_proxy_config">پیکربندی پیشکار خروجی نامعتبر</string>
     <string name="limit_dns_tunnel_use">محدویت استفادهٔ تونل ساناد</string>
     <string name="dns_tunnel_usage_description">تونل‌های ساناد دسترسی را بر سرعت ترجیح داده و ممکن است کندتر باشند. توصیه می‌کنیم تنها برای کاره‌های ضروری به کارشان بیندازید. جریان ویدیویی توصیه نمی‌شود.</string>
+    <string name="added_bridges_from_qr">افزودن %1$d پل از کد پاس</string>
+    <string name="invalid_bridge_qr_code">کد پاس پل نامعتبر</string>
+    <string name="you_already_have_these_bridges">پل‌های داخل این کد پاس را از پیش افزوده‌اید</string>
+    <string name="unable_to_start_orbot_vpn_title">ناتوان در آغاز وی‌پی‌ان روبوت پیازی</string>
+    <string name="unable_to_start_legacy_vpn_error_msg">نماگر وی‌پی‌انی سفارشی روی «همیشه روشن» تنظیم شده است. لطفاً پیش از آغاز کردن روبوت پیازی از کار بیندازیدش.</string>
+    <string name="unable_to_start_other_vpn_app_error_msg">کارهٔ %1$s روی وی‌پی‌ان «همیشه روشن» تنظیم شده است. لطفاً پیش از آغاز کردن روبوت پیازی از کار بیندازیدش.</string>
+    <string name="unable_to_start_unknown_reason_error_msg">اجازهٔ وی‌پی‌ان رد شد یا کارهٔ وی‌پی‌انی دیگر قابلیت «همیشه روشن» را به کار انداخته. اگر گفت‌وگوی درخواست وی‌پی‌ان پیشین را به اشتباه بستید این پیام را رد کرده و دوباره وصل شوید. کاربران فنی می‌توانند با به کار انداختن حالت کاربر قدرتمند روبوت پیازی از کارهٔ وی‌پی‌انی دیگر استفاده کرده و تور را به عنوان پیشکار ساکس استفاده کنند.</string>
+    <string name="open_vpn_settings">گشودن تنظیمات وی‌پی‌ان اندروید</string>
 </resources>

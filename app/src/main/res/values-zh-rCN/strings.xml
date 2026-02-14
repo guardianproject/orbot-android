@@ -275,4 +275,9 @@
     <string name="added_bridges_from_qr">从二维码添加 %1$d 个网桥</string>
     <string name="invalid_bridge_qr_code">网桥二维码无效</string>
     <string name="you_already_have_these_bridges">您已添加此二维码中的网桥</string>
+    <string name="unable_to_start_orbot_vpn_title">无法启动 Orbot VPN</string>
+    <string name="unable_to_start_legacy_vpn_error_msg">存在一个自定义 VPN 配置文件配置为“始终开启的 VPN”。请在启动 Orbot 之前将其禁用。</string>
+    <string name="unable_to_start_other_vpn_app_error_msg">应用 %1$s 配置为“始终开启的 VPN”。请在启动 Orbot 之前将其禁用。</string>
+    <string name="unable_to_start_unknown_reason_error_msg">VPN 权限被拒绝或其他 VPN 应用启用了“始终开启的 VPN”功能。如果您误退出了之前的 VPN 请求对话框，您可以忽略此操作并重新连接。技术用户可以使用其他 VPN 应用，并通过启用 Orbot 的高级用户模式将 Tor 作为 SOCKS 代理使用。</string>
+    <string name="open_vpn_settings">打开 Android VPN 设置</string>
 </resources>
