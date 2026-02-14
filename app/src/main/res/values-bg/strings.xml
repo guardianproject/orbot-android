@@ -274,4 +274,7 @@
     <string name="added_bridges_from_qr">Добавяне на %1$d моста от QR</string>
     <string name="invalid_bridge_qr_code">Повреден QR за мостове</string>
     <string name="you_already_have_these_bridges">Мостовете от този QR вече са добавени</string>
+    <string name="unable_to_start_orbot_vpn_title">ВЧМ на Orbot не може да бъде стартирана</string>
+    <string name="unable_to_start_legacy_vpn_error_msg">Потребителски профил на ВМЧ е настроен на винаги включена ВМЧ. Изключете го преди да стартирате Orbot.</string>
+    <string name="unable_to_start_other_vpn_app_error_msg">Приложението %1$s е настроено да бъде винаги включена ВМЧ. Изключете го преди да стартирате Orbot.</string>
 </resources>
