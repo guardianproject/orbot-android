@@ -266,7 +266,7 @@
     <string name="status_loading_status">نیٹ ورک اسٹیٹس لوڈ کر رہے ہیں</string>
     <string name="status_requesting_descriptors">نیٹ ورک سرور کی معلومات کی درخواست کر رہے ہیں</string>
     <string name="status_loading_descriptors">نیٹ ورک سرور کی معلومات لوڈ کر رہے ہیں</string>
-    <string name="loading">لوڈ ہو رہا ہے…</string>
+    <string name="loading">لوڈ ہو رہا ہے …</string>
     <string name="http_port">HTTP پورٹ</string>
     <string name="socks_port">ساکس پورٹ</string>
     <string name="invalid_outbound_proxy_config">غلط آؤٹ باؤنڈ پراکسی کنفیگریشن</string>
