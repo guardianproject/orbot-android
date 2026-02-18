@@ -20,14 +20,15 @@ fun getVersionName(): String {
 
 configure<ApplicationExtension> {
     namespace = "org.torproject.android"
-    compileSdk = 36
-
+//    compileSdk = 37
+    compileSdkPreview = "CinnamonBun"
     defaultConfig {
         applicationId = namespace
         versionCode = orbotBaseVersionCode
         versionName = getVersionName()
         minSdk = 24
-        targetSdk = 36
+//        targetSdk = 37
+        targetSdkPreview = "CinnamonBun"
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         flavorDimensions += "free"
