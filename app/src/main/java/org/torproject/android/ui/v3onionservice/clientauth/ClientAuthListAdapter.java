@@ -18,11 +18,51 @@ import org.torproject.android.R;
 import org.torproject.android.service.db.V3ClientAuthColumns;
 
 public class ClientAuthListAdapter extends CursorAdapter {
-    private final LayoutInflater mLayoutInflater;
 
-    ClientAuthListAdapter(Context context, Cursor cursor) {
+    private static final int TYPE_IMPORT = 0;
+    private static final int TYPE_ITEM = 1;
+
+    private final LayoutInflater mLayoutInflater;
+    private final Context mContext;
+    private final OnImportClickListener mImportClickListener;
+
+    interface OnImportClickListener {
+        void onImportClicked();
+    }
+
+    ClientAuthListAdapter(Context context, Cursor cursor, OnImportClickListener listener) {
         super(context, cursor, 0);
-        mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mContext = context;
+        mLayoutInflater = LayoutInflater.from(context);
+        mImportClickListener = listener;
+    }
+
+    @Override
+    public int getCount() {
+        int cursorCount = super.getCount();
+        return cursorCount + 1;
+    }
+
+    @Override
+    public Object getItem(int position) {
+        if (position == 0) return null;
+        return super.getItem(position - 1);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        if (position == 0) return -1;
+        return super.getItemId(position - 1);
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return 2;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position == 0 ? TYPE_IMPORT : TYPE_ITEM;
     }
 
     @Override
@@ -49,6 +89,36 @@ public class ClientAuthListAdapter extends CursorAdapter {
             resolver.update(ClientAuthContentProvider.CONTENT_URI, fields, where, null);
             Toast.makeText(context, R.string.please_restart_Orbot_to_enable_the_changes, Toast.LENGTH_LONG).show();
         });
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (getItemViewType(position) == TYPE_IMPORT) {
+            if (convertView == null) {
+                convertView = mLayoutInflater.inflate(
+                        R.layout.item_import_auth,
+                        parent,
+                        false
+                );
+            }
+
+            convertView.setOnClickListener(_ -> {
+                if (mImportClickListener != null) {
+                    mImportClickListener.onImportClicked();
+                }
+            });
+
+            return convertView;
+        }
+
+        Cursor cursor = (Cursor) super.getItem(position - 1);
+
+        if (convertView == null) {
+            convertView = newView(mContext, cursor, parent);
+        }
+
+        bindView(convertView, mContext, cursor);
+        return convertView;
     }
 }
 

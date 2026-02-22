@@ -9,8 +9,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.OpenableColumns;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -50,7 +48,7 @@ public class ClientAuthActivity extends BaseActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         mResolver = getContentResolver();
-        mAdapter = new ClientAuthListAdapter(this, mResolver.query(ClientAuthContentProvider.CONTENT_URI, ClientAuthContentProvider.PROJECTION, null, null, null));
+        mAdapter = new ClientAuthListAdapter(this, mResolver.query(ClientAuthContentProvider.CONTENT_URI, ClientAuthContentProvider.PROJECTION, null, null, null), this::launchImportPicker);
         mResolver.registerContentObserver(ClientAuthContentProvider.CONTENT_URI, true, new V3ClientAuthContentObserver(new Handler()));
 
         findViewById(R.id.fab).setOnClickListener(v ->
@@ -58,8 +56,15 @@ public class ClientAuthActivity extends BaseActivity {
 
         ListView auths = findViewById(R.id.auth_hash_list);
         auths.setAdapter(mAdapter);
-        auths.setOnItemClickListener((parent, view, position, id) -> {
+        auths.setOnItemClickListener((parent, _, position, _) -> {
+            if (position == 0) {
+                return;
+            }
+
             Cursor item = (Cursor) parent.getItemAtPosition(position);
+
+            if (item == null) return;
+
             Bundle args = new Bundle();
             args.putInt(BUNDLE_KEY_ID, item.getInt(item.getColumnIndex(V3ClientAuthColumns._ID)));
             args.putString(BUNDLE_KEY_DOMAIN, item.getString(item.getColumnIndex(V3ClientAuthColumns.DOMAIN)));
@@ -68,6 +73,10 @@ public class ClientAuthActivity extends BaseActivity {
         });
     }
 
+    private void launchImportPicker() {
+        Intent readFileIntent = DiskUtils.createReadFileIntent(CLIENT_AUTH_SAF_MIME_TYPE);
+        startActivityForResult(readFileIntent, REQUEST_CODE_READ_ZIP_BACKUP);
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -109,20 +118,8 @@ public class ClientAuthActivity extends BaseActivity {
     private static final int REQUEST_CODE_READ_ZIP_BACKUP = 12;
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_import_auth_priv) {
-            // unfortunately no good way to filter .auth_private files
-            Intent readFileIntent = DiskUtils.createReadFileIntent(CLIENT_AUTH_SAF_MIME_TYPE);
-            startActivityForResult(readFileIntent, REQUEST_CODE_READ_ZIP_BACKUP);
-        } else if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.v3_client_auth_menu, menu);
+    public boolean onSupportNavigateUp() {
+        getOnBackPressedDispatcher().onBackPressed();
         return true;
     }
 }
