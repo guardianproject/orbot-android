@@ -100,4 +100,19 @@
     <string name="couldn_t_start_tor_process_">Tor 프로세스 시작 불가능:  </string>
     <string name="unable_to_start_tor">Tor 시작 불가능</string>
     <string name="set_transport">전송 설정</string>
+    <string name="v3_client_auth_activity_title">클라이언트 인증</string>
+    <string name="custom_bridges">커스텀 브리지</string>
+    <string name="kindness_mode_starting">시작 중…</string>
+    <string name="snowflake">Snowflake</string>
+    <string name="kindness_adjust_title">설정</string>
+    <string name="app_icon_chooser_label_assistant">어시스턴트</string>
+    <string name="scan_qr_code">QR 코드 스캔하기</string>
+    <string name="connect_to_tor">Tor에 접속</string>
+    <string name="search_for_apps">앱 찾아보기</string>
+    <string name="title_safety">안전성</string>
+    <string name="setting_app_icon_title">앱 아이콘</string>
+    <string name="setting_block_screenshot_title">스크린샷 방지</string>
+    <string name="setting_unlock_pass_title">잠금 화면</string>
+    <string name="status_loading_status">네트워크 상태를 불러오고 있습니다</string>
+    <string name="loading">로딩…</string>
 </resources>
