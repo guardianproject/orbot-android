@@ -1,3 +1,3 @@
-- menghapus opsi bridge Meek \"Cloud\" karena tidak lagi didukung\
-- lebih banyak peningkatan pada dukungan layanan Onion V3\
+- menghapus opsi bridge Meek "Cloud" karena sudah tidak didukung lagi
+- peningkatan lebih lanjut pada dukungan layanan Onion V3
 - untuk #441, memperbaiki pencarian aplikasi untuk pemilihan VPN berbasis aplikasi

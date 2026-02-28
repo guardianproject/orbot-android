@@ -1,3 +1,3 @@
-- memperbarui ke tor 0.4.8.17\
-- berbagai peningkatan antarmuka pengguna\
-- dukungan terbaru untuk WebTunnel dan Proxy Snowflake
+- pembaruan ke tor 0.4.8.17
+- berbagai peningkatan antarmuka pengguna
+- dukungan terbaru untuk WebTunnel dan Snowflake Proxy
