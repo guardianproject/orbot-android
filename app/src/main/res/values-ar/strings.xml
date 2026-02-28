@@ -93,7 +93,7 @@
     <string name="v3_client_auth_activity_title">تفويض العميل</string>
     <string name="confirm">أكّد</string>
     <string name="trying_to_connect_title">جارِ الاتصال …</string>
-    <string name="btn_refresh">أعِد التحميل</string>
+    <string name="btn_refresh">أنعِش الاتصال</string>
     <string name="menu_more">المزيد</string>
     <string name="menu_new_identity">هوية جديدة</string>
     <string name="user_services">خدمات المستخدم</string>
@@ -102,7 +102,7 @@
     <string name="version">الإصدار:</string>
     <string name="connected_title">متصل</string>
     <string name="license">الرخصة:</string>
-    <string name="wizard_details_msg">Orbot هو تطبيق مفتوح المصدر يحتوي على تور و IPtProxy (Obfs4Proxy و Meek و Snowflake) و Go-Tun2Socks و LibEvent. يوفر نفق VPN ووسيط HTTP محلي (HTTPS فقط على المنفذ 8118) ووسيط SOCKS (9050) في شبكة تور.</string>
+    <string name="wizard_details_msg">Orbot هو تطبيق مفتوح المصدر يحتوي على تور و IPtProxy (Lyrebird و Meek و Snowflake) و hev-socks5-tunnel و LibEvent. يوفر نفق VPN ووسيط HTTP محلي (HTTPS فقط على المنفذ 8118) ووسيط SOCKS (9050) في شبكة تور.</string>
     <string name="strict_nodes_description">تعامل مع إعدادات استبعاد العُقد كشرط لبناء جميع المسار. قد يؤدي هذا إلى تعطيل الوظيفة إذا لم يكن بالإمكان إنشاء مسار باستخدام إعدادات استبعاد العُقد.</string>
     <string name="app_services">خدمات التطبيق</string>
     <string name="volunteer_mode">وضع اللطف</string>
@@ -161,8 +161,8 @@
 \n• لن يبطئ الإنترنت لديك
 \n• يمكن تشغيله عبر wifi فقط
 \n• يمكن إيقاف تشغيله في أي وقت</string>
-    <string name="smart_connect">الاتصال الذكي (افتراضي)</string>
-    <string name="direct_connect">اتصال مباشر بتور</string>
+    <string name="smart_connect">الاتصال الذكي</string>
+    <string name="direct_connect">اتصال مباشر</string>
     <string name="direct_connect_subtitle">أفضل طريقة للاتصال بتور. استخدم إذا لم يُحظر تور.</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_amp">ندفة الثلج (Snowflake) AMP</string>
@@ -204,7 +204,7 @@
     <string name="snowflake_sqs">Snowflake SQS</string>
     <string name="power_user_mode_permission">مطلوب إذن التنبيهات والتذكيرات لوضع المستخدم المتقدم</string>
     <string name="power_user_mode_permission_msg">الرجاء السماح لـ Orbot بضبط التنبيهات والتذكيرات لاستخدام وضع المستخدم المتقدم. لن يؤدي هذا فعليًا إلى ضبط أي تنبيهات على جهازك. هذه الصلاحية مطلوبة لجعل النظام يحافظ على تشغيل OrbotService عندما لا يتم استخدام Orbot كشبكة VPN على مستوى النظام.</string>
-    <string name="error_no_password_set">الرجاء تأمين جهازك من أجل استخدام استيثاق Orbot</string>
+    <string name="error_no_password_set">يجب عليك تعيين كلمة سر لجهاز الأندرويد الخاص بك لتتمكن من استخدام ميزة قفل الشاشة</string>
     <string name="unlock_app_msg" formatted="true">الرجاء فتح جهازك لاستخدام %s</string>
     <string name="invalid_bridge_format">تنسيق الجسر غير صالح</string>
     <string name="error_asking_tor_for_bridges">خطأ في طلب كيفية الاتصال بتور</string>
@@ -222,7 +222,7 @@
     <string name="run_smart_connect_">شغل الاتصال الذكي لإيجاد أفضل طريقة</string>
     <string name="enter_bridge_address">أدخل عنوان الجسر</string>
     <string name="scan_qr_code">امسح رمز QR</string>
-    <string name="camo_samsung_instructions">على جهاز Samsung Galaxy الخاص بك، لن تعمل إشعارات وضع التنكر إلا بفتح الإعدادات -&gt; الإشعارات -&gt; الإعدادات المتقدمة وتعطيل \"إظهار أيقونة التطبيق في الإشعارات\". انقر هنا لفتح إعدادات الإشعارات.</string>
+    <string name="camo_samsung_instructions">على جهاز Samsung Galaxy الخاص بك، لن تتغير أيقونات إشعارات Orbot إلا من خلال الانتقال إلى الضبط -&gt; الإشعارات -&gt; ضبط متقدم، ثم قم بتعطيل خيار \"إظهار أيقونة التطبيق في الإشعارات\". اضغط هنا لفتح ضبط الإشعارات.</string>
     <string name="status_starting_up">جاري تشغيل اوربوت…</string>
     <string name="status_activated">متصل بشبكة تور</string>
     <string name="status_disabled">تم إيقاف اوربوت</string>
@@ -240,4 +240,34 @@
     <string name="kindness_mode_disabled_internet">اتصل بالإنترنت لمساعدة الناس على تجاوز الرقابة</string>
     <string name="kindness_mode_disabled_wifi">اتصل بشبكة Wi-Fi لمساعدة الناس على تجاوز الرقابة</string>
     <string name="set_transport">تعيين النقل</string>
+    <string name="app_icon_dialog_title" formatted="true">بدّل إلى %1$s</string>
+    <string name="app_icon_dialog_msg" formatted="true">سيؤدي التبديل إلى %1$s إلى إعادة تشغيل التطبيق</string>
+    <string name="added_bridges_from_qr">إضافة %1$d من الجسور عبر رمز QR</string>
+    <string name="invalid_bridge_qr_code">رمز QR للجسر غير صالح</string>
+    <string name="you_already_have_these_bridges">لقد أضفت بالفعل الجسور في رمز QR هذا</string>
+    <string name="orbot_vpn">Orbot VPN</string>
+    <string name="open_orbot_to_connect_to_tor">افتح Orbot للاتصال بِتور</string>
+    <string name="connect_to_tor">اتصل بِتور</string>
+    <string name="orbot_config_invalid">تضبيط Orbot غير صالح</string>
+    <string name="kibibyte_per_second">ك.بايت/ث</string>
+    <string name="mebibyte_per_second">م.بايت/ث</string>
+    <string name="snowflake_proxy_client_connected_msg">ساعد وضع اللطف (Kindness Mode) الخاص بـ %1$s شخصًا ما على تجاوز الرقابة %2$s</string>
+    <string name="log_notice_unable_to_update_onions">تعذر رفع أسماء نطاقات أونيون (onion names)</string>
+    <string name="log_notice_updating_torrc">جارِ تحديث إعدادات torrc المخصّصة…</string>
+    <string name="note_snowflake_doesn_t_support_proxies">ملاحظة: لا يدعم Snowflake الخوادم الوكيلة. سيتم تجاهل إعدادات الوسيط عند استخدام جسور Snowflake.</string>
+    <string name="status_requesting_status">جارٍ طلب حالة الشبكة من تور</string>
+    <string name="status_loading_status">يحمل حالة الشبكة</string>
+    <string name="status_requesting_descriptors">يطلب معلومات خادم الشبكة</string>
+    <string name="status_loading_descriptors">يحمل معلومات خادم الشبكة</string>
+    <string name="loading">يحمل…</string>
+    <string name="http_port">منفذ HTTP</string>
+    <string name="socks_port">منفذ SOCKS</string>
+    <string name="invalid_outbound_proxy_config">تضبيط وكيل الصادر غير صالح</string>
+    <string name="bridge_dnstt">نفق DNS</string>
+    <string name="my_country_optional">بلدي (اختياري)</string>
+    <string name="limit_dns_tunnel_use">الحد من استخدام نفق DNS</string>
+    <string name="dns_tunnel_usage_description">تعطي أنفاق DNS الأولوية للوصول على حساب السرعة وقد تبدو بطيئة. نوصي بتفعيلها فقط للتطبيقات الضرورية. لا يُنصح باستخدامها لبث الفيديو.</string>
+    <string name="unable_to_start_orbot_vpn_title">تعذر بدء تشغيل Orbot VPN</string>
+    <string name="unable_to_start_legacy_vpn_error_msg"></string>
+    <string name="open_vpn_settings">افتح إعدادات VPN على أندرويد</string>
 </resources>

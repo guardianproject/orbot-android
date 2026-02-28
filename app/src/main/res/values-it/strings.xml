@@ -138,7 +138,7 @@
     <string name="btn_configure">Scegli come connetterti</string>
     <string name="btn_choose_apps">Scegli le app</string>
     <string name="app_suggested_subtitle">Orbot funziona meglio con le app di messaggistica e social.</string>
-    <string name="power_user_mode">Modalità utente avanzato</string>
+    <string name="power_user_mode">Modalità utente esperto</string>
     <string name="strict_nodes_description">Tratta l\'impostazione \"Nodi da escludere\" come requisito per creare tutti i circuiti. Può causare errori se nessun circuito è in grado di essere generato con la tua impostazione \"Nodi da escludere\".</string>
     <string name="option_only_on_wifi">Solo su Wifi</string>
     <string name="option_only_when_charging">Solo quando in carica</string>
@@ -268,4 +268,16 @@
     <string name="http_port">Porta HTTP</string>
     <string name="socks_port">Porta SOCKS</string>
     <string name="invalid_outbound_proxy_config">Configurazione proxy in uscita non valida</string>
+    <string name="added_bridges_from_qr">Aggiunta di %1$d bridge dal codice QR</string>
+    <string name="invalid_bridge_qr_code">Codice QR del bridge non valido</string>
+    <string name="you_already_have_these_bridges">Hai già aggiunto i bridge di questo codice QR</string>
+    <string name="bridge_dnstt">Tunnel DNS</string>
+    <string name="my_country_optional">La mia nazione (facoltativa)</string>
+    <string name="limit_dns_tunnel_use">Limita l\'uso del tunnel DNS</string>
+    <string name="dns_tunnel_usage_description">I tunnel DNS privilegiano l\'accesso rispetto alla velocità e possono sembrare più lenti. Si consiglia di attivarli solo per app essenziali. Lo streaming video non è consigliato.</string>
+    <string name="unable_to_start_orbot_vpn_title">Impossibile avviare Orbot VPN</string>
+    <string name="unable_to_start_legacy_vpn_error_msg">C\'è un profilo VPN personalizzato configurato come \"VPN sempre attiva\". Si prega di disattivarlo prima di avviare Orbot.</string>
+    <string name="unable_to_start_other_vpn_app_error_msg">L\'app %1$s è configurata per essere una \"VPN sempre attiva\". Si prega di disattivarla prima di avviare Orbot.</string>
+    <string name="unable_to_start_unknown_reason_error_msg">L\'autorizzazione VPN è stata negata o un\'altra app VPN ha attivato la funzione \"VPN sempre attiva\". Puoi tornare indietro e riconnetterti se sei uscito dalla precedente finestra di richiesta VPN per errore. Gli utenti tecnici possono usare un\'altra app VPN e usare Tor come proxy SOCKS attivando la modalità Utente esperto di Orbot.</string>
+    <string name="open_vpn_settings">Apri le impostazioni VPN di Android</string>
 </resources>
