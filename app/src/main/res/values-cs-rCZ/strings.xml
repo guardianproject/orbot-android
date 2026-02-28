@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot je bezplatný proxy server, který umožňuje bezpečnější použití internetu v ostatních apklikacích. Orbot používá Tor pro šifrování internetového provozu a skrývá se díky předávání provozu přes více počítačů po celém světě. Tor je bezplatný software a otevřená síť, která vám pomáhá chránit se před sledováním sítě, které ohrožuje osobní svobodu, bezpečnost, důvěrné obchodní aktivity a vztahy a před státním sledováním, označovaným jako anylýza provozu.</string>
-    <string name="menu_settings">Nastavení</string>
+    <string name="menu_settings">Nastavení Orbotu</string>
     <string name="menu_log">Log</string>
     <string name="menu_about">O aplikaci</string>
     <string name="menu_exit">Konec</string>
@@ -150,7 +150,7 @@
     <string name="btn_change_exit">Změna výstupu</string>
     <string name="snowflake">Sněhová vločka (v originále)</string>
     <string name="backup_port_exist">Chyba: Služba Onion již používá port %s</string>
-    <string name="backup_service">Zálohování služby <i>(Varování: může dojít ke zpřístupnění konfigurace služby jiným aplikacím)</i></string>
+    <string name="backup_service">Zálohování služby (Varování: může dojít ke zpřístupnění konfigurace služby jiným aplikacím)</string>
     <string name="service_type">Typ služby</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Povolení přístupu k síti Tor partnerům Wi-Fi, připojeným zařízením a všem ostatním, kteří se mohou připojit k vaší IP adrese</string>
     <string name="pref_connection_padding">Vycpávka připojení</string>
@@ -189,4 +189,6 @@
     <string name="couldn_t_start_tor_process_">Nelze spustit Tor proces:</string>
     <string name="unable_to_start_tor">Nelze spustit Tor:</string>
     <string name="set_transport">Nastavit transport</string>
+    <string name="system_vpn_settings">Nastavení VPN na Android</string>
+    <string name="pref_isolate_keep_alive">Udržovat izolované obvody aktivní</string>
 </resources>
