@@ -214,4 +214,10 @@
     <string name="app_icon_chooser_label_birdie">Birdie</string>
     <string name="pref_isolate_keep_alive">Mantenga vivos los circuitos aislados</string>
     <string name="pref_isolate_keep_alive_summary">Mantener activos los circuitos aislados que tengan al menos un flujo con autenticación SOCKS activa</string>
+    <string name="bridge_snowflake_sqs">Conéctate a través de otros usuarios de Tor usando Snowflake (Método 3-SQS)</string>
+    <string name="kindness_mode_is_running">El modo altruista está activado</string>
+    <string name="kindness_mode_active_message" formatted="true">Has ayudado a %1$d personas a eludir la censura</string>
+    <string name="kindness_mode_disabled">El modo altruista está desactivado</string>
+    <string name="kindness_mode_starting">Se está iniciando…</string>
+    <string name="kindness_mode_disabled_internet">Conéctate a Internet para ayudar a las personas a eludir la censura</string>
 </resources>
