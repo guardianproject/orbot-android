@@ -26,6 +26,7 @@ import net.freehaven.tor.control.TorControlConnection;
 
 import org.torproject.android.R;
 import org.torproject.android.service.circumvention.SmartConnect;
+import org.torproject.android.service.circumvention.Transport;
 import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.service.db.V3ClientAuthColumns;
 import org.torproject.android.service.tor.CustomTorResourceInstaller;
@@ -747,6 +748,10 @@ public class OrbotService extends VpnService {
                 case ACTION_STATUS -> {
                     // hack for https://github.com/guardianproject/tor-android/issues/73 remove when fixed
                     var newStatus = intent.getStringExtra(EXTRA_STATUS);
+                    if (STATUS_ON.equals(newStatus) && Prefs.getTransport() == Transport.NONE) {
+                        Prefs.setHasDirectConnected(true);
+                    }
+
                     if (STATUS_OFF.equals(mCurrentStatus) && STATUS_STOPPING.equals(newStatus))
                         break;
                     mCurrentStatus = newStatus;
