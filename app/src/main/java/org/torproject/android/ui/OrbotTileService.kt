@@ -1,6 +1,5 @@
 package org.torproject.android.ui
 
-import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
@@ -20,7 +19,7 @@ class OrbotTileService : TileService() {
             val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
             startActivityAndCollapse(pendingIntent)
         } else {
-            @SuppressLint("StartActivityAndCollapseDeprecated")
+            @Suppress("DEPRECATION")
             startActivityAndCollapse(intent)
         }
     }
