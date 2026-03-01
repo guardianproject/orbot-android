@@ -1,6 +1,6 @@
 package org.torproject.android.ui.kindness
 
-import IPtProxy.SnowflakeClientConnected
+import IPtProxy.SnowflakeClientEvents
 import IPtProxy.SnowflakeProxy
 import android.content.Context
 import android.os.Handler
@@ -64,7 +64,20 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
                 this?.stunServer = stunUrl
                 this?.relayUrl = fronts["snowflake-relay-url"]
                 this?.natProbeUrl = fronts["snowflake-nat-probe"]
-                this?.clientConnected = SnowflakeClientConnected { onConnected() }
+                this?.clientEvents = object : SnowflakeClientEvents {
+                    override fun connected() { onConnected() }
+                    override fun disconnected(country: String) {}
+                    override fun connectionFailed() {}
+                    override fun stats(
+                        connectionCount: Long,
+                        failedConnectionCount: Long,
+                        inboundBytes: Long,
+                        outboundBytes: Long,
+                        inboundUnit: String,
+                        outboundUnit: String,
+                        summaryInterval: Long
+                    ) {}
+                }
 
                 // Setting these to 0 is equivalent to not setting them at all.
                 this?.ephemeralMinPort = (mappedPorts.firstOrNull() ?: 0).toLong()
