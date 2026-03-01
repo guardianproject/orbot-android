@@ -9,9 +9,9 @@
     <ScrollView
         android:id="@+id/panel_kindness_activate"
         android:layout_width="match_parent"
-        tools:visibility="gone"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        tools:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,6 +38,7 @@
                 android:layout_marginBottom="4dp"
                 android:gravity="center"
                 android:text="@string/volunteer_mode_title"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
                 android:textColor="@android:color/white" />
 
@@ -50,6 +51,19 @@
                 android:paddingStart="32dp"
                 android:paddingEnd="32dp"
                 android:text="@string/volunteer_mode_subtitle_desc"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:textStyle="italic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:paddingStart="@dimen/button_horizontal_large_margin"
+                android:paddingEnd="@dimen/button_horizontal_large_margin"
+                android:text="@string/kindness_mode_disclaimer_bridge"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
                 android:textColor="@android:color/white" />
 
@@ -75,7 +89,7 @@
         android:layout_gravity="center"
         android:paddingBottom="20dp"
         android:visibility="gone"
-        tools:visibility="visible">
+        tools:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
