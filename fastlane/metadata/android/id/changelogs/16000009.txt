@@ -1,0 +1,8 @@
+- Pembaruan besar pada antarmuka pengguna!
+- Wizard baru untuk pengaturan dan konfigurasi bridge
+- Fitur VPN yang ditingkatkan
+- Perbaikan untuk crash konfigurasi layanan Onion/Tersembunyi
+
+dan masih banyak lagi...
+
+TERIMA KASIH KEPADA: pgerber, syphyr, Khsed4, BjarniRunar, Unpublished, igortoliveira, goapunk, SpotComms, AkshatAgrawal05, dixidroid, arrase dan lainnya atas masalah, commit, dan PR yang diberikan

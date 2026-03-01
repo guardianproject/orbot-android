@@ -1,17 +1,18 @@
-Orbot adalah aplikasi proxy gratis yang memberdayakan aplikasi lain untuk menggunakan internet dengan lebih aman. Orbot menggunakan Tor untuk mengenkripsi lalu lintas Internet Anda dan kemudian menyembunyikannya dengan memantul melalui serangkaian komputer di seluruh dunia. Tor adalah perangkat lunak gratis dan jaringan terbuka yang membantu Anda mempertahankan diri dari bentuk pengawasan jaringan yang mengancam kebebasan dan privasi pribadi, aktivitas dan hubungan bisnis rahasia, dan keamanan negara yang dikenal sebagai analisis lalu lintas.
+Orbot adalah aplikasi VPN dan proksi gratis yang memungkinkan aplikasi lain menggunakan internet dengan lebih aman. Orbot menggunakan Tor untuk mengenkripsi lalu lintas Internet Anda, kemudian menyembunyikannya dengan memantulkannya melalui serangkaian komputer di seluruh dunia. Tor adalah perangkat lunak gratis dan jaringan terbuka yang membantu Anda bertahan dari bentuk pengawasan jaringan yang mengancam kebebasan dan privasi pribadi, kegiatan dan hubungan bisnis yang bersifat rahasia, serta keamanan negara yang dikenal sebagai analisis lalu lintas.
 
-Orbot adalah satu-satunya aplikasi yang menciptakan koneksi internet yang benar-benar pribadi. Seperti yang ditulis oleh New York Times, "ketika komunikasi datang dari Tor, Anda tidak akan pernah tahu dari mana atau dari siapa asalnya."
+Orbot adalah satu-satunya aplikasi yang menciptakan koneksi internet yang benar-benar privat. Seperti yang ditulis oleh New York Times, "ketika sebuah komunikasi datang dari Tor, Anda tidak pernah bisa mengetahui dari mana atau dari siapa asalnya."
 
-Tor memenangkan Penghargaan Pionir Electronic Frontier Foundation (EFF) 2012.
+Tor memenangkan Penghargaan Pelopor Electronic Frontier Foundation (EFF) 2012.
 
-★ TIDAK MENERIMA PENGGANTI: Orbot adalah cara teraman untuk menggunakan Internet di Android. Titik. Orbot memantulkan lalu lintas terenkripsi Anda beberapa kali melalui komputer-komputer di seluruh dunia, alih-alih menghubungkan Anda secara langsung seperti VPN dan proxy. Proses ini membutuhkan waktu sedikit lebih lama, tetapi privasi terkuat dan perlindungan identitas yang tersedia sepadan dengan penantiannya.
-★ PRIVASI UNTUK APLIKASI: Aplikasi apa pun yang terinstal dapat menggunakan Tor melalui fitur VPN Orbot, atau jika memiliki fitur proxy, menggunakan pengaturan yang ditemukan di sini: https://goo.gl/2OA1y Gunakan Orbot dengan Twitter, atau coba pencarian web pribadi dengan DuckDuckGo: https://goo.gl/lgh1p
-★ PRIVASI UNTUK SEMUA ORANG: Orbot mencegah seseorang yang mengawasi koneksi Anda untuk mengetahui aplikasi apa yang Anda gunakan atau situs web yang Anda kunjungi. Yang bisa dilihat oleh siapa pun yang memantau lalu lintas jaringan Anda adalah bahwa Anda menggunakan Tor.
+★ JANGAN TERIMA PENGGANTI: Orbot adalah cara paling aman untuk menggunakan Internet di Android. Titik. Orbot memantulkan lalu lintas terenkripsi Anda beberapa kali melalui komputer di seluruh dunia, alih-alih menghubungkan Anda secara langsung seperti VPN dan proksi lainnya. Proses ini membutuhkan sedikit lebih lama, tetapi perlindungan privasi dan identitas terkuat yang tersedia sepadan dengan penantiannya.
+★ PRIVASI UNTUK APLIKASI: Aplikasi apa pun dapat diarahkan melalui Tor via fitur VPN Orbot
+★ PRIVASI UNTUK SEMUA ORANG: Orbot mencegah seseorang yang mengawasi koneksi Anda mengetahui aplikasi apa yang Anda gunakan atau situs web yang Anda kunjungi. Semua yang dapat dilihat oleh siapa pun yang memantau lalu lintas jaringan Anda adalah bahwa Anda menggunakan Tor.
 
-***Kami menyukai umpan balik***
-★ TENTANG KAMI: Guardian Project adalah sekelompok pengembang yang membuat aplikasi seluler yang aman dan kode sumber terbuka untuk hari esok yang lebih baik.
-★ OPEN-SUMBER: Orbot adalah perangkat lunak gratis. Lihatlah kode sumber kami, atau bergabunglah dengan komunitas untuk membuatnya lebih baik: https://github.com/guardianproject/orbot
-★ PESAN KAMI: Apakah kami kehilangan fitur favorit Anda? Menemukan bug yang mengganggu? Kami ingin sekali mendengar dari Anda! Kirimkan email kepada kami: support@guardianproject.info
+***Kami Menyukai Masukan***
+★ PELAJARI LEBIH LANJUT: Pelajari lebih lanjut tentang Orbot dan terlibat di https://orbot.app
+★ TENTANG KAMI: Guardian Project adalah sekelompok pengembang yang membuat aplikasi mobile aman dan kode sumber terbuka untuk masa depan yang lebih baik.
+★ SUMBER TERBUKA: Orbot adalah perangkat lunak gratis. Lihat kode sumber kami, atau bergabunglah dengan komunitas untuk membuatnya lebih baik: https://github.com/guardianproject/orbot
+★ HUBUNGI KAMI: Apakah kami melewatkan fitur favorit Anda? Menemukan bug yang mengganggu? Kami ingin mendengar dari Anda! Kirim email kepada kami: [support@guardianproject.info](mailto:support@guardianproject.info)
 
-***Disclaimer***
-Guardian Project membuat aplikasi yang dirancang untuk melindungi keamanan dan anonimitas Anda. Protokol yang kami gunakan secara luas dianggap sebagai yang terbaik dalam teknologi keamanan. Meskipun kami terus meningkatkan perangkat lunak kami untuk memerangi ancaman terbaru dan menghilangkan bug, tidak ada teknologi yang 100% sangat mudah. Untuk keamanan maksimum dan anonimitas, pengguna harus memanfaatkan praktik terbaik untuk menjaga diri mereka tetap aman.  Anda bisa menemukan panduan pengantar yang bagus untuk topik-topik ini di https://securityinabox.org
+***Penafian***
+Guardian Project membuat aplikasi yang dirancang untuk melindungi keamanan dan anonimitas Anda. Protokol yang kami gunakan secara luas dianggap sebagai yang terdepan dalam teknologi keamanan. Meskipun kami terus memperbarui perangkat lunak kami untuk memerangi ancaman terbaru dan menghilangkan bug, tidak ada teknologi yang 100% anti-gagal. Untuk keamanan dan anonimitas maksimal, pengguna harus memanfaatkan praktik terbaik agar tetap aman. Anda dapat menemukan panduan pengantar yang baik untuk topik-topik ini di [https://securityinabox.org](https://securityinabox.org)

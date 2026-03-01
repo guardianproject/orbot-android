@@ -1,2 +1,2 @@
-* perbaikan untuk dukungan Bridge\
+* perbaikan untuk dukungan Bridge
 * diperbarui ke tor 0.4.1.5

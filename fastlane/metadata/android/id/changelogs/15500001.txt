@@ -1,0 +1,9 @@
+***PERINGATAN: SEMUA FITUR ROOT TELAH DIHAPUS DARI VERSI BARU ORBOT INI.***
+Gunakan "Mode VPN Aplikasi" Orbot atau browser Orfox sebagai pengganti proksi transparan dengan root.
+
+* Pembaruan ke Tor 0.3.1.8
+* Menghapus dukungan untuk fungsi Root / Transproxy karena menjadi
+tidak andal dan tidak teruji
+* Dukungan yang DITINGKATKAN untuk proksi transparan VPN dan antarmuka pengguna pemilihan aplikasi "Apps" yang baru
+* Mengatasi masalah penyertaan info lisensi Obfs4proxy
+* Pembaruan ke dukungan Tor terbaru untuk lokasi bridge Meek
