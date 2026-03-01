@@ -13,8 +13,6 @@ class Languages private constructor(activity: Activity) {
     /**
      * Return an array of the names of all the supported languages, sorted to
      * match what is returned by [Languages.supportedLocales].
-     *
-     * @return
      */
     val allNames: Array<String>
         get() = nameMap.values.toTypedArray()
@@ -159,7 +157,6 @@ class Languages private constructor(activity: Activity) {
          * Settings is launched from.
          * @param resId the string resource ID to for the string "Use System Default",
          * e.g. `R.string.use_system_default`
-         * @return
          */
         fun setup(clazz: Class<*>?, resId: Int) {
             defaultLocale = Locale.getDefault()
@@ -175,7 +172,6 @@ class Languages private constructor(activity: Activity) {
          * Get the singleton to work with.
          *
          * @param activity the [Activity] this is working as part of
-         * @return
          */
         operator fun get(activity: Activity): Languages? {
             if (singleton == null) {
@@ -215,10 +211,13 @@ class Languages private constructor(activity: Activity) {
         val config = activity.resources.configuration
         // Resources() requires DisplayMetrics, but they are only needed for drawables
         val ignored = DisplayMetrics()
-        activity.windowManager.defaultDisplay.getMetrics(ignored)
         var resources: Resources
         val localeSet: MutableSet<Locale> = LinkedHashSet()
         for (locale in localesToTest) {
+
+            // https://stackoverflow.com/questions/56892805/how-is-the-resource-class-correctly-overwritten-to-implement-a-dynamic-translati
+            // currently Android offers no non-deprecated way to do this hot swapping locale switching
+            @Suppress("DEPRECATION")
             resources = Resources(assets, ignored, config)
             if (!TextUtils.equals(DEFAULT_STRING, resources.getString(resId))
                 || locale == Locale.ENGLISH
