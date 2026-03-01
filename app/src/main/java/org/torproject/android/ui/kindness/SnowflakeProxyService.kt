@@ -16,6 +16,7 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import org.torproject.android.R
+import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
 
@@ -41,8 +42,10 @@ class SnowflakeProxyService : Service() {
         val powerReceiverFilters = IntentFilter(Intent.ACTION_POWER_CONNECTED)
         powerReceiverFilters.addAction(Intent.ACTION_POWER_DISCONNECTED)
         registerReceiver(powerConnectionReceiver, powerReceiverFilters)
+
         initNetworkCallbacks()
         refreshNotification(getString(R.string.kindness_mode_starting))
+        attemptToStartSnowflakeProxy("service created")
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -92,36 +95,20 @@ class SnowflakeProxyService : Service() {
             getSystemService(ConnectivityManager::class.java) as ConnectivityManager
 
         networkCallbacks = object : ConnectivityManager.NetworkCallback() {
+            // we lost a network, but may still be online
             override fun onLost(network: Network) {
-                refreshNotification(getString(R.string.kindness_mode_disabled_internet))
-                stopSnowflakeProxy("lost network (limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
+                attemptToStartSnowflakeProxy("networkLost$network")
             }
 
+            // we got a new network connection, refresh things
             override fun onAvailable(network: Network) {
-                val capabilities = connectivityManager.getNetworkCapabilities(network)
-                val hasWifi = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true
-                val hasVpn = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_VPN) == true
-
-                if (Prefs.limitSnowflakeProxyingWifi() && !hasWifi) {
-                    refreshNotification(getString(R.string.kindness_mode_disabled_wifi))
-                    stopSnowflakeProxy("required wifi condition not met")
-                } else {
-                    if (NetworkUtils.isNetworkAvailable(this@SnowflakeProxyService) || hasVpn) {
-                        if (hasVpn && !Prefs.useVpn()) {
-                            stopSnowflakeProxy("has network, but non Orbot VPN is running")
-                            return
-                        }
-                        startSnowflakeProxy("got network (wifi=${hasWifi}, limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
-                    }
-                    else {
-                        refreshNotification(getString(R.string.kindness_mode_disabled_internet))
-                    }
-                }
+                attemptToStartSnowflakeProxy("networkConnected$network")
             }
         }
 
         connectivityManager.registerDefaultNetworkCallback(networkCallbacks)
     }
+
 
     private fun createNotificationChannel(): String {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
@@ -137,22 +124,36 @@ class SnowflakeProxyService : Service() {
     }
 
 
-    private fun startSnowflakeProxy(logReason: String? = null) {
-        Log.d(TAG, "Starting snowflake proxy - $logReason")
+    private fun attemptToStartSnowflakeProxy(logReason: String? = null) {
+        Log.d(TAG, "Attempting to start snowflake proxy: $logReason")
+
+        if (!isTorConstraintMet()) {
+            stopSnowflakeProxyIfRunning("tor is in use with a bridge")
+            return
+        }
+
+        if (!isPowerConstraintMet()) {
+            stopSnowflakeProxyIfRunning("power constraint isn't met")
+            return
+        }
+        if (!isNetworkConstraintMet()) {
+            stopSnowflakeProxyIfRunning("network constraint isn't met")
+            return
+        }
         snowflakeProxyWrapper.enableProxy()
     }
 
-    private fun stopSnowflakeProxy(logMessage: String? = null) {
+    private fun stopSnowflakeProxyIfRunning(logMessage: String? = null) {
         Log.d(TAG, "Stopping snowflake proxy - reason: $logMessage")
         snowflakeProxyWrapper.stopProxy()
     }
 
     fun powerConnectedCallback(isPowerConnected: Boolean) {
         if (!Prefs.limitSnowflakeProxyingCharging()) return
-        if (isPowerConnected) startSnowflakeProxy("power connected")
+        if (isPowerConnected) attemptToStartSnowflakeProxy("power connected")
         else {
             refreshNotification(getString(R.string.kindness_mode_disabled_power))
-            stopSnowflakeProxy("power disconnected")
+            stopSnowflakeProxyIfRunning("power disconnected")
         }
     }
 
@@ -161,7 +162,51 @@ class SnowflakeProxyService : Service() {
         unregisterReceiver(powerConnectionReceiver)
         val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
         connectivityManager.unregisterNetworkCallback(networkCallbacks)
-        stopSnowflakeProxy("in onDestroy()")
+        stopSnowflakeProxyIfRunning("in onDestroy()")
+    }
+
+
+    private fun isTorConstraintMet(): Boolean {
+        if (Prefs.useVpn()) {
+            // if Tor VPN is actively running, make sure no bridges are used
+            return Prefs.transport == Transport.NONE
+        }
+        return true
+    }
+
+    private fun isPowerConstraintMet(): Boolean {
+        return !Prefs.limitSnowflakeProxyingCharging() || PowerConnectionReceiver.getChargingStatusOnDemand(
+            this
+        )
+    }
+
+    private fun isNetworkConstraintMet(): Boolean {
+        val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+        val nw = connectivityManager.activeNetwork ?: return false
+        val capabilities = connectivityManager.getNetworkCapabilities(nw) ?: return false
+        val hasVpn = capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN)
+
+        // first see if device is online
+        if (!NetworkUtils.isNetworkAvailable(this, hasVpn)) {
+            refreshNotification(getString(R.string.kindness_mode_disabled_internet))
+            Log.d(TAG, "no internet")
+            return false
+        }
+
+        if (hasVpn && !Prefs.useVpn()) {
+            refreshNotification(getString(R.string.kindness_mode_disabled_internet))
+            Log.d(TAG, "abort another VPN app")
+            return false
+        }
+
+        val hasWifi = capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+        if (Prefs.limitSnowflakeProxyingCharging() && !hasWifi) {
+            refreshNotification(getString(R.string.kindness_mode_disabled_wifi))
+            Log.d(TAG, "wifi limiting on but no wifi")
+            return false
+        }
+
+        return true
     }
 
     companion object {
@@ -188,6 +233,5 @@ class SnowflakeProxyService : Service() {
                 getIntent(context).setAction(ACTION_STOP_SNOWFLAKE_SERVICE)
             )
         }
-
     }
 }

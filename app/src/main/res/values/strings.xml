@@ -306,5 +306,6 @@
     <string name="unable_to_start_legacy_vpn_error_msg">There is a Custom VPN Profile configured to be an \"Always-on\" VPN. Please disable it before starting Orbot.</string>
     <string name="unable_to_start_other_vpn_app_error_msg">The app %1$s is configured to be an \"Always-on\" VPN. Please disable it before starting Orbot.</string>
     <string name="unable_to_start_unknown_reason_error_msg">The VPN permission was denied or another VPN app has the \"Always-on VPN\" feature enabled. You can dismiss this and reconnect if you exited the previous VPN Request dialog by mistake. Technical users can use another VPN app and use Tor as a SOCKS Proxy by enabling Orbot\'s Power User Mode.</string>
+    <string name="kindness_mode_cant_run_with_bridge">Kindness Mode can\'t run if you use a Bridge to connect to Tor</string>
     <string name="open_vpn_settings">Open Android VPN Settings</string>
 </resources>
