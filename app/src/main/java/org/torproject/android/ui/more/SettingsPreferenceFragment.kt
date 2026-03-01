@@ -73,7 +73,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
                 false
             }
 
-        bindNumericaPrefs(numericalPortPrefs, 5)
+        bindNumericalPrefs(numericalPortPrefs, 5)
         bindPasswordPrefs(passwordPrefs)
         bindInputType(
             listOf("pref_proxy_host"),

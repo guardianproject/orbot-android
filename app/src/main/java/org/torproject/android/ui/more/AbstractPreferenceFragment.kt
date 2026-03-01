@@ -29,7 +29,7 @@ abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
     }
 
 
-    protected fun bindNumericaPrefs(prefs: List<String> = emptyList(), maxLength: Int? = null) =
+    protected fun bindNumericalPrefs(prefs: List<String> = emptyList(), maxLength: Int? = null) =
         bindInputType(prefs, InputType.TYPE_CLASS_NUMBER, maxLength)
 
     protected fun bindPasswordPrefs(prefs: List<String> = emptyList()) {
