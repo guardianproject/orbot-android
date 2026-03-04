@@ -22,7 +22,7 @@ configure<ApplicationExtension> {
     namespace = "org.torproject.android"
     compileSdk {
         version = release(36) {
-           minorApiLevel = 1
+            minorApiLevel = 1
         }
     }
 
@@ -89,7 +89,13 @@ configure<ApplicationExtension> {
             signingConfig = signingConfigs.getByName("release")
         }
         getByName("debug") {
-            isDebuggable = true
+            isDebuggable = false
+            isShrinkResources = true
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.txt"
+            )
             applicationIdSuffix = ".debug"
         }
     }
