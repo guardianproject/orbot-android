@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -168,14 +169,19 @@ class ConnectFragment : Fragment(),
         binding.ivShadow.clearAnimation()
     }
 
+
+    var count = 0
     private fun sendNewnymSignal() {
-        requireContext().sendIntentToService(TorControlCommands.SIGNAL_NEWNYM)
+        Log.wtf("bim", "in client: $count")
+        requireContext().sendIntentToService(OrbotConstants.CMD_SET_EXIT)
+        count += 1
+        /*
         binding.ivStatus.animate().alpha(0f).duration = 500
 
         lifecycleScope.launch(Dispatchers.Main) {
             delay(600)
             binding.ivStatus.animate().alpha(1f).duration = 500
-        }
+        } */
     }
 
     fun attemptToStartTorPowerUserMode() {
