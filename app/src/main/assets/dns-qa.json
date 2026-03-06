@@ -1,0 +1,9 @@
+{
+  "country": "Qatar",
+  "countryCode": "qa",
+  "description": "Public DNS servers for use in Qatar",
+  "lastUpdated": "2026-01-19",
+  "servers": [
+    {"name": "Doha - Ooredoo", "ip": "78.100.76.210"}
+  ]
+}

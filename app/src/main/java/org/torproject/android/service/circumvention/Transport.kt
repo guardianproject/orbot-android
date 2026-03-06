@@ -103,16 +103,6 @@ enum class Transport(val id: String) {
             "https://sqs.us-east-1.amazonaws.com/893902434899/snowflake-broker"
         private const val SQS_CREDENTIALS =
             "eyJhd3MtYWNjZXNzLWtleS1pZCI6IkFLSUE1QUlGNFdKSlhTN1lIRUczIiwiYXdzLXNlY3JldC1rZXkiOiI3U0RNc0pBNHM1RitXZWJ1L3pMOHZrMFFXV0lsa1c2Y1dOZlVsQ0tRIn0="
-
-        private val DNSTT_BRIDGES = listOf(
-            "dnstt 192.0.3.1:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D udp=2.176.225.123:53 pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
-            "dnstt 192.0.3.2:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D udp=185.129.168.241:53 pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
-            "dnstt 192.0.2.3:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D udp=188.121.110.163:53 pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
-            "dnstt 192.0.2.4:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D udp=195.114.8.10:53 pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
-            "dnstt 192.0.2.5:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D doh=https://dns.google/dns-query pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
-            "dnstt 192.0.2.6:80 A998F319ADB60EE344540EC4B21524CC484F96BE doh=https://dns.google/dns-query pubkey=241169008830694749fe96bb070c4855c5bb5b9c47b3833ed7d88521ba30a43f domain=t.ruhnama.net",
-            "dnstt 192.0.3.7:80 80EEFA4F4875ED2B7B5A86DF2D7588AD32E29F15 doh=https://dns.google/dns-query pubkey=a2fb71077eeaa54a02cda7a90be306af5d299ab21822a8b277d4eacbc9168631 domain=t2.bypasscensorship.org",
-        )
     }
 
     val transportNames: Set<String>
@@ -248,9 +238,12 @@ enum class Transport(val id: String) {
                     result.add("Bridge ${it.raw}")
                 }
 
-                DNSTT_BRIDGES.forEach {
-                    result.add("Bridge $it")
-                }
+                (BuiltInBridges.getInstance(context)
+                    ?.getUdpDnstt(context, Prefs.bridgeCountry)
+                    ?: BuiltInBridges.dnsttBridges)
+                    .forEach {
+                        result.add("Bridge ${it.raw}")
+                    }
             }
 
             CUSTOM -> {

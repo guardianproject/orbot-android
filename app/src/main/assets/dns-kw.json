@@ -1,0 +1,14 @@
+{
+  "country": "Kuwait",
+  "countryCode": "kw",
+  "description": "Public DNS servers for use in Kuwait",
+  "lastUpdated": "2026-01-19",
+  "servers": [
+    {"name": "Kuwait City - Kuwait Petroleum", "ip": "195.88.223.73"},
+    {"name": "Hawalli - QualityNet", "ip": "62.150.77.106"},
+    {"name": "Kuwait City - Kuwait Telecom", "ip": "62.150.232.120"},
+    {"name": "Kuwait City - Fast Communication", "ip": "83.96.104.7"},
+    {"name": "Kuwait City - QualityNet 2", "ip": "62.150.254.82"},
+    {"name": "Al Jabiriyah - KEMS", "ip": "168.187.161.250"}
+  ]
+}

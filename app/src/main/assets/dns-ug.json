@@ -1,0 +1,11 @@
+{
+  "country": "Uganda",
+  "countryCode": "ug",
+  "description": "Public DNS servers for use in Uganda",
+  "lastUpdated": "2026-01-19",
+  "servers": [
+    {"name": "Kampala - NITA Uganda", "ip": "154.72.202.86"},
+    {"name": "Kampala - Gilat Telecom", "ip": "81.199.137.188"},
+    {"name": "Kampala - Liquid Telecommunications", "ip": "41.222.4.146"}
+  ]
+}

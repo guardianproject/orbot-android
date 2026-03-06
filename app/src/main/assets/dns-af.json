@@ -1,0 +1,10 @@
+{
+  "country": "Afghanistan",
+  "countryCode": "af",
+  "description": "Public DNS servers for use in Afghanistan",
+  "lastUpdated": "2026-01-19",
+  "servers": [
+    {"name": "Kabul - Afghan Telecom 1", "ip": "180.94.94.195"},
+    {"name": "Kabul - Afghan Telecom 2", "ip": "180.94.94.194"}
+  ]
+}

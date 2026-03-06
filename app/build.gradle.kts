@@ -240,6 +240,18 @@ val updateBuiltinBridges by tasks.registering {
                         }
                     }
                 println("Successfully fetched builtin bridges.")
+
+                for (country in listOf("ae", "af", "bd", "cn", "co", "global", "id", "ir", "kw", "pk", "qa", "ru", "sy", "tr", "ug", "uz")) {
+                    URI("https://raw.githubusercontent.com/dnstt-xyz/dnstt_xyz_app/refs/heads/main/assets/dns/$country.json")
+                        .toURL()
+                        .openStream()
+                        .use { input ->
+                            assetsDir.file("dns-$country.json").asFile.outputStream().use { output ->
+                                input.copyTo(output)
+                            }
+                        }
+                    println("Successfully fetched dns-$country.json.")
+                }
             } catch (e: Exception) {
                 throw GradleException("ERROR: Could not fetch builtin bridges: ${e.message}", e)
             }

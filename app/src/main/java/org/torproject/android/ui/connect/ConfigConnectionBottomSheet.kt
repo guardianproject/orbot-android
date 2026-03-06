@@ -25,6 +25,7 @@ import org.torproject.android.R
 import org.torproject.android.databinding.ConfigConnectionBottomSheetBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.AutoConf
+import org.torproject.android.service.circumvention.BuiltInBridges
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
@@ -55,7 +56,6 @@ class ConfigConnectionBottomSheet :
 
     companion object {
         const val TAG = "ConfigConnectionBttmSheet"
-        private val COUNTRIES_WITH_DNSTT_ENABLED = listOf("IR")
     }
 
     override fun onCreateView(
@@ -82,7 +82,7 @@ class ConfigConnectionBottomSheet :
         binding.acCountry.onItemClickListener = this
 
         binding.dnsttContainer.visibility =
-            if (COUNTRIES_WITH_DNSTT_ENABLED.contains(selectedCountryCode)) View.VISIBLE else View.GONE
+            if (BuiltInBridges.dnsCountries.contains(selectedCountryCode?.lowercase())) View.VISIBLE else View.GONE
 
         radios = arrayListOf(
             binding.rbDirect,
@@ -270,8 +270,7 @@ class ConfigConnectionBottomSheet :
             selectedCountryCode = null
         }
 
-        // TODO: DNSTT is currently only shown for Iranian users.
-        if (COUNTRIES_WITH_DNSTT_ENABLED.contains(selectedCountryCode)) {
+        if (BuiltInBridges.dnsCountries.contains(selectedCountryCode?.lowercase())) {
             binding.dnsttContainer.visibility = View.VISIBLE
         } else {
             binding.dnsttContainer.visibility = View.GONE

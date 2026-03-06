@@ -32,6 +32,12 @@ class Bridge(var raw: String) {
         var utlsImitate: String? = null
         var ver: String? = null
 
+        // DNSTT
+        var udp: String? = null
+        var doh: String? = null
+        var dot: String? = null
+        var pubkey: String? = null
+        var domain: String? = null
 
         constructor(bridge: Bridge) : this(bridge.transport, bridge.ip ?: "", bridge.port ?: 0, bridge.fingerprint1) {
             if (ip.isEmpty() || port < 1)
@@ -52,6 +58,11 @@ class Bridge(var raw: String) {
             utls = bridge.utls
             utlsImitate = bridge.utlsImitate
             ver = bridge.ver
+            udp = bridge.udp
+            doh = bridge.doh
+            dot = bridge.dot
+            pubkey = bridge.pubkey
+            domain = bridge.domain
         }
 
         fun build(): Bridge {
@@ -67,47 +78,29 @@ class Bridge(var raw: String) {
                 if (it.isNotEmpty()) params.add(it)
             }
 
-            fingerprint2?.let {
-                if (it.isNotEmpty()) params.add("fingerprint=$it")
-            }
-
-            url?.let {
-                if (it.isNotEmpty()) params.add("url=$it")
-            }
-
-            front?.let {
-                if (it.isNotEmpty()) params.add("front=$it")
-            }
-
-            fronts.filter { it.isNotEmpty() }.let {
-                if (it.isNotEmpty()) params.add("fronts=${it.joinToString(",")}")
-            }
-
-            cert?.let {
-                if (it.isNotEmpty()) params.add("cert=$it")
-            }
-
-            iatMode?.let {
-                if (it.isNotEmpty()) params.add("iat-mode=$it")
-            }
-
-            ice?.let {
-                if (it.isNotEmpty()) params.add("ice=$it")
-            }
-
-            utls?.let {
-                if (it.isNotEmpty()) params.add("utls=$it")
-            }
-
-            utlsImitate?.let {
-                if (it.isNotEmpty()) params.add("utls-imitate=$it")
-            }
-
-            ver?.let {
-                if (it.isNotEmpty()) params.add("ver=$it")
-            }
+            append(fingerprint2, params, "fingerprint")
+            append(url, params, "url")
+            append(front, params, "front")
+            append(fronts.filter { it.isNotEmpty() }.joinToString(","), params, "fronts")
+            append(cert, params, "cert")
+            append(iatMode, params, "iat-mode")
+            append(ice, params, "ice")
+            append(utls, params, "utls")
+            append(utlsImitate, params, "utls-imitate")
+            append(ver, params, "ver")
+            append(udp, params, "udp")
+            append(doh, params, "doh")
+            append(dot, params, "dot")
+            append(pubkey, params, "pubkey")
+            append(domain, params, "domain")
 
             return Bridge(params.joinToString(" "))
+        }
+
+        private fun append(value: String?, list: MutableList<String>, name: String) {
+            value?.let {
+                if (it.isNotEmpty()) list.add("$name=$it")
+            }
         }
     }
 
@@ -159,45 +152,64 @@ class Bridge(var raw: String) {
         }
 
     val fingerprint2
-        get() = rawPieces.firstOrNull { it.startsWith("fingerprint=") }
-            ?.split("=")?.lastOrNull()
+        get() = getPiece("fingerprint")
 
     val url
-        get() = rawPieces.firstOrNull { it.startsWith("url=") }
-            ?.split("=")?.lastOrNull()
+        get() = getPiece("url")
 
     val front
-        get() = rawPieces.firstOrNull { it.startsWith("front=") }
-            ?.split("=")?.lastOrNull()
+        get() = getPiece("front")
 
     val fronts
-        get() = rawPieces.firstOrNull { it.startsWith("fronts=") }
-            ?.split("=")?.lastOrNull()?.split(",")?.filter { it.isNotEmpty() }
+        get() = getPiece("fronts")?.split(",")?.filter { it.isNotEmpty() }
 
     val cert
-        get() = rawPieces.firstOrNull { it.startsWith("cert=") }
-            ?.split("=")?.lastOrNull()
+        get() = getPiece("cert")
 
     val iatMode
-        get() = rawPieces.firstOrNull { it.startsWith("iat-mode=") }
-            ?.split("=")?.lastOrNull()
+        get() = getPiece("iat-mode")
 
     val ice
-        get() = rawPieces.firstOrNull { it.startsWith("ice=") }
-            ?.split("=")?.lastOrNull()
+        get() = getPiece("ice")
 
     val utls
-        get() = rawPieces.firstOrNull { it.startsWith("utls=") }
-            ?.split("=")?.lastOrNull()
+        get() = getPiece("utls")
 
     val utlsImitate
-        get() = rawPieces.firstOrNull { it.startsWith("utls-imitate=") }
-            ?.split("=")?.lastOrNull()
+        get() = getPiece("utls-imitate")
 
     val ver
-        get() = rawPieces.firstOrNull { it.startsWith("ver=") }
-            ?.split("=")?.lastOrNull()
+        get() = getPiece("ver")
 
+    val udp
+        get() = getPiece("udp")
+
+    val doh
+        get() = getPiece("dot")
+
+    val dot
+        get() = getPiece("dot")
+
+    val pubkey
+        get() = getPiece("pubkey")
+
+    val domain
+        get() = getPiece("domain")
+
+
+    fun buildUpon(): Builder? {
+        return try {
+            Builder(this)
+        }
+        catch (_: Throwable) {
+            null
+        }
+    }
+
+    private fun getPiece(name: String): String? {
+        return rawPieces.firstOrNull { it.startsWith("$name=") }
+            ?.split("=")?.lastOrNull()
+    }
 
     override fun toString(): String {
         return raw

@@ -1,0 +1,10 @@
+{
+  "country": "Syria",
+  "countryCode": "sy",
+  "description": "Public DNS servers for use in Syria",
+  "lastUpdated": "2026-01-19",
+  "servers": [
+    {"name": "Damascus - Syrian Telecom 1", "ip": "91.144.22.198"},
+    {"name": "Damascus - Syrian Telecom 2", "ip": "82.137.245.41"}
+  ]
+}
