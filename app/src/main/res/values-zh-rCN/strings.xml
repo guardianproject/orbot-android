@@ -70,7 +70,6 @@
     <string name="pref_http_dialog">HTTP 端口配置</string>
     <string name="vpn_default_world">全局（自动）</string>
     <string name="local_port">本地端口</string>
-    <string name="done">完成！</string>
     <string name="copy_address_to_clipboard">复制地址到剪贴板</string>
     <string name="backup_service">备份服务（警告：这可能会将您的服务配置暴露给其他应用）</string>
     <string name="delete_service">删除服务</string>

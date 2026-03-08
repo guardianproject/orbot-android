@@ -67,7 +67,6 @@
     <string name="local_port">本地端口</string>
     <string name="onion_port">洋蔥端口</string>
     <string name="name">名稱</string>
-    <string name="done">已完成!</string>
     <string name="copy_address_to_clipboard">複製地址到剪貼簿</string>
     <string name="backup_service">備份服務<i>（警告：這可能會將你的服務配置暴露給其他應用程式）</i></string>
     <string name="delete_service">刪除服務</string>

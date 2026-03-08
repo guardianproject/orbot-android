@@ -64,7 +64,6 @@
     <string name="local_port">Lokalt port</string>
     <string name="onion_port">Løk-port</string>
     <string name="name">Navn</string>
-    <string name="done">Ferdig!</string>
     <string name="copy_address_to_clipboard">Kopier adresse til utklippstavle</string>
     <string name="backup_service">Sikkerhetskopieringstjeneste <i>(Advarsel: Dette kan eksponere tjenesteoppsettet ditt til andre programmer)</i></string>
     <string name="delete_service">Slett tjeneste</string>

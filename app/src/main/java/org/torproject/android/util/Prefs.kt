@@ -32,9 +32,6 @@ object Prefs {
 
     private const val PREF_POWER_USER_MODE = "pref_power_user"
 
-
-    private const val PREF_HOST_ONION_SERVICES = "pref_host_onionservices"
-
     private const val PREF_SNOWFLAKES_SERVED_COUNT = "pref_snowflakes_served"
     private const val PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY = "pref_snowflakes_served_weekly"
 

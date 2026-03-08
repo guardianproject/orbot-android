@@ -52,7 +52,6 @@
     <string name="v3_backup_key">Clave de autorización del cliente de copia de seguridad</string>
     <string name="v3_backup_key_warning">Advertencia: esto podría exponer tu clave a otras aplicaciones</string>
     <string name="v3_import_auth_private">Import .auth_private</string>
-    <string name="done">Hecho!</string>
     <string name="local_port">Puerto Local</string>
     <string name="onion_port">Puerto Cebolla</string>
     <string name="backup_service">Servicio de copia de seguridad <i>(Advertencia: esto podría exponer la configuración de tu servicio a otras aplicaciones)</i></string>

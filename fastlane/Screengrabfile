@@ -12,11 +12,17 @@
 # default. every locale that we're maintaining screenshots of
 ALL_LOCALES_WE_TRACK = ['en-US', 'fr-FR', 'es-MX', 'de-DE', 'ar', 'he', 'tr', 'pt', 'ja-JP', 'hi', 'ru', 'ko-KR', 'bg', 'en_GB', 'id', 'ga', 'it-IT', 'uk', 'ca', 'ro', 'ta', 'pl', 'pt_PT', 'fr', 'es', 'sq', 'de', 'vi', 'pt_BR', 'cs', 'et', 'fi', 'el', 'sr', 'nb_NO', 'az', 'sv', 'sk', 'lv', 'es_CU', 'tk', 'sl', 'zh_Hans'].sort
 
+# locales featured on https://orbot.app
+WEBSITE_LOCALES = ['en-US', 'fr-FR', 'es', 'ar', 'bo', 'de-DE', 'pt', 'ru', 'zh_Hans'].sort
+
 # get screenshots for all locales, excluding the ones in this array
 # useful if some screenshots aren't coming out good for some locales, and others are.
 # just exclude the good locales and rerun fastlane screengrab
 BUT_SKIP_THESE_ONES = [] # dont skip any, default...
 # BUT_SKIP_THESE_ONES = ['en-US', 'fr-FR', 'hi', 'pt'] # skip some
+
+# generate screenshots for locales only on https://orbot.app
+# ALL_LOCALES_WE_TRACK = WEBSITE_LOCALES
 
 ALL_LOCALES_WE_TRACK -= BUT_SKIP_THESE_ONES
 

@@ -44,7 +44,6 @@
     <string name="exit_nodes">Nyja Daljesh</string>
     <string name="confirm">Ripohojeni</string>
     <string name="onion_port">Portë Onion</string>
-    <string name="done">U bë!</string>
     <string name="delete_service">Fshije Shërbimin</string>
     <string name="pref_isolate_dest">Izolo adresa vendmbërritje</string>
     <string name="secure_your_connection_title">Gati që të lidheni</string>

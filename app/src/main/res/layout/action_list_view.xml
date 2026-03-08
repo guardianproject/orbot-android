@@ -15,6 +15,7 @@
         android:layout_marginStart="8dp">
 
         <ImageView
+            android:importantForAccessibility="no"
             tools:visibility="visible"
             android:id="@+id/ivAction"
             android:layout_width="24dp"

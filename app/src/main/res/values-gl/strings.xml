@@ -67,7 +67,6 @@
     <string name="local_port">Porto local</string>
     <string name="onion_port">Porto Onion</string>
     <string name="name">Nome</string>
-    <string name="done">Feito!</string>
     <string name="copy_address_to_clipboard">Copiar enderezo ao portapapeis</string>
     <string name="backup_service">Servizo de copia de seguranza <i>(Aviso: isto podería expoñer a configuración do teu servizo a outras aplicacións)</i></string>
     <string name="delete_service">Eliminar servizo</string>

@@ -93,7 +93,6 @@
     <string name="local_port">Local Port</string>
     <string name="onion_port">Onion Port</string>
     <string name="name">Name</string>
-    <string name="done">Done!</string>
     <string name="copy_address_to_clipboard">Copy address to clipboard</string>
     <string name="backup_service">Backup Service (Warning: This Could Expose Your Service Configuration to Other Apps)</string>
     <string name="delete_service">Delete Service</string>

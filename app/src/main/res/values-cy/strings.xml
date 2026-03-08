@@ -140,7 +140,6 @@
     <string name="local_port">Porthladd Lleol</string>
     <string name="backup_restored">Copi wrth gefn wedi\'i adfer</string>
     <string name="v3_onion">Parth .onion</string>
-    <string name="done">Wedi\'i wneud!</string>
     <string name="v3_key_hash">x25519 Allwedd Breifat yn Sylfaen32</string>
     <string name="status_starting_up">Mae Orbot yn cychwyn…</string>
     <string name="status_activated">Wedi cysylltu â rhwydwaith Tor</string>

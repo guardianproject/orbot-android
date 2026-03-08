@@ -67,7 +67,6 @@
     <string name="local_port">Локална порта</string>
     <string name="onion_port">Onion порта</string>
     <string name="name">Име</string>
-    <string name="done">Завршено!</string>
     <string name="copy_address_to_clipboard">Копирај ја адресата за залепување</string>
     <string name="backup_service">Резервна копија</string>
     <string name="delete_service">Избриши услуга</string>

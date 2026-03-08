@@ -75,7 +75,6 @@
     <string name="local_port">Lokale poort</string>
     <string name="onion_port">Onion-poort</string>
     <string name="name">Naam</string>
-    <string name="done">Klaar!</string>
     <string name="copy_address_to_clipboard">Adres kopiëren naar klembord</string>
     <string name="backup_service">Back-upservice (waarschuwing: hierdoor kan uw serviceconfiguratie zichtbaar worden voor andere apps)</string>
     <string name="delete_service">Dienst verwijderen</string>

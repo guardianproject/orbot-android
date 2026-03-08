@@ -96,7 +96,7 @@ object VpnServicePrepareWrapper {
             } catch (_: SecurityException) {
                 return null
             }
-        return if (context.packageName == currentAlwaysOnPackageName) return null
+        return if (context.packageName == currentAlwaysOnPackageName) null
         else {
             context.packageManager
                 .getInstalledPackagesList(0)

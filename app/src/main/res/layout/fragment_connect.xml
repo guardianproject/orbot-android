@@ -101,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="2dp"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/btn_shape_round"
             android:backgroundTint="@color/orbot_btn_enabled_purple"
             android:paddingStart="@dimen/button_horizontal_med_margin"

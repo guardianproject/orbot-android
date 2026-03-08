@@ -1,4 +1,4 @@
-@file:Suppress("FunctionName", "FunctionName", "FunctionName")
+@file:Suppress("FunctionName", "FunctionName")
 
 package org.torproject.android.service
 

@@ -69,7 +69,7 @@ public class OnionServiceActionsDialogFragment extends DialogFragment {
         if (onion == null)
             Toast.makeText(context, R.string.please_restart_Orbot_to_enable_the_changes, Toast.LENGTH_LONG).show();
         else
-            StringUtils.copyToClipboard("onion", onion, getString(R.string.done), context);
+            StringUtils.copyToClipboard("onion", onion, context);
     }
 
     private void doBackup(Bundle arguments, Context context) {

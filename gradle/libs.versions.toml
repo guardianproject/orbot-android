@@ -1,5 +1,5 @@
 [versions]
-agp = "9.0.1"
+agp = "9.1.0"
 android-material = "1.13.0"
 android-volley = "1.2.1"
 androidx-activity = "1.12.4"
@@ -11,6 +11,7 @@ androidx-localbroadcast = "1.1.0"
 androidx-preference = "1.2.1"
 androidx-rules = "1.7.0"
 androidx-runner = "1.7.0"
+androidx-window = "1.5.1"
 androidx-work = "2.11.1"
 guardian-jtorctl = "0.4.5.7"
 junit-jupiter = "6.0.3"
@@ -26,7 +27,7 @@ androidx-biometric = "1.1.0"
 androidx-lifecycle = "2.10.0"
 screengrab = "2.1.1"
 upnp = "1.0.0"
-iptproxy = "5.1.1"
+iptproxy = "5.2.0"
 quickie = "1.11.0"
 
 [libraries]
@@ -45,6 +46,7 @@ androidx-orchestrator = { module = "androidx.test:orchestrator", version.ref = "
 androidx-preference = { module = "androidx.preference:preference", version.ref = "androidx-preference" }
 androidx-rules = { group = "androidx.test", name = "rules", version.ref = "androidx-rules" }
 androidx-runner = { group = "androidx.test", name = "runner", version.ref = "androidx-runner" }
+androidx-window = { group = "androidx.window", name = "window", version.ref = "androidx-window" }
 androidx-work-kotlin = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "androidx-work" }
 guardian-jtorctl = { group = "info.guardianproject", name = "jtorctl", version.ref = "guardian-jtorctl" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit-jupiter" }

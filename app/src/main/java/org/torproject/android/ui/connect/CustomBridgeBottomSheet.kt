@@ -23,7 +23,7 @@ import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
-class CustomBridgeBottomSheet() :
+class CustomBridgeBottomSheet :
     OrbotBottomSheetDialogFragment() {
 
     companion object {

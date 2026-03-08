@@ -4,6 +4,6 @@
 * Nuashonrú ar Tor 0.3.1.8
 * Baineadh tacaíocht do fheidhmeanna Fréimhe / Tras-shábhála toisc go raibh siad
 neamhiontaofa agus gan tástáil
-* Tacaíocht FHEABHSÚCHTA do sheachfhreastalaí trédhearcach VPN agus comhéadan úsáideora nua roghnúcháin aip "Apps"
-* Aghaidh a thabhairt ar an gceist maidir le faisnéis cheadúnais Obfs4proxy a chur san áireamh
+* Tacaíocht FEABHSAITHE do sheachfhreastalaí trédhearcach VPN
+* Seoladh ceadúnas Obfs4proxy
 * Nuashonrú ar shuíomhanna droichead Meek tacaíochta Tor is déanaí

@@ -137,7 +137,6 @@
     <string name="confirm_service_deletion">Potvrdenie odstránenia služby</string>
     <string name="service_type">Typ služby</string>
     <string name="pref_reduced_circuit_padding_summary">Používanie algoritmov vypĺňania s nižšou réžiou na zníženie spotreby údajov a batérie</string>
-    <string name="done">Hotovo!</string>
     <string name="secure_your_connection_title">Pripravené na pripojenie</string>
     <string name="btn_configure">Vyberte si spôsob pripojenia</string>
     <string name="connect">Pripojiť</string>

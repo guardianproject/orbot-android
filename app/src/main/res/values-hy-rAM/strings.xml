@@ -57,7 +57,6 @@
     <string name="pref_torrc_dialog">Հարմարեցված Torrc-ն</string>
     <string name="pref_torrc_title">Torrc հարմարեցված կարգավորում</string>
     <string name="onion_port">Onion մատույց</string>
-    <string name="done">Պատրա՜ստ է:</string>
     <string name="copy_address_to_clipboard">Պատճենել հասցեն սեղմատախտակի վրա</string>
     <string name="user_services">Օգտագործողի ծառայություններ</string>
     <string name="btn_configure">Որոշեք ինչպես միանալ</string>

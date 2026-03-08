@@ -26,7 +26,7 @@ abstract class RequestScheduleExactAlarmDialogFragment : DialogFragment() {
                 getPositiveButtonId()
             ) { _: DialogInterface?, _: Int ->
                 val intent = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM).apply {
-                    setData(Uri.fromParts("package", requireContext().packageName, null))
+                    data = Uri.fromParts("package", requireContext().packageName, null)
                 }
                 startActivity(intent)
                 dismiss()

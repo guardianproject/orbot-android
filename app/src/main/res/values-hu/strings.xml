@@ -67,7 +67,6 @@
     <string name="local_port">Helyi Port</string>
     <string name="onion_port">Onion Port</string>
     <string name="name">Név</string>
-    <string name="done">Kész!</string>
     <string name="copy_address_to_clipboard">Cím másolása vágólapra</string>
     <string name="backup_service">Mentő szolgáltatás</string>
     <string name="delete_service">Szolgáltatás Törlése</string>

@@ -130,7 +130,6 @@
     <string name="local_port">Yerli liman</string>
     <string name="backup_restored">Yedəkləmə bərpa edildi</string>
     <string name="v3_onion">.onion Domen</string>
-    <string name="done">Bitdi!</string>
     <string name="v3_key_hash">Base32-də x25519 Şəxsi Açar</string>
     <string name="btn_choose_apps">Proqramları seçin</string>
     <string name="snowflake_proxy_msg_title">Bağlantı bildirişini göstərin</string>

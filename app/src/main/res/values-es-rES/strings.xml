@@ -67,7 +67,6 @@
     <string name="local_port">Puerto local</string>
     <string name="onion_port">Puerto onion</string>
     <string name="name">Nombre</string>
-    <string name="done">¡Hecho!</string>
     <string name="copy_address_to_clipboard">Copiar dirección al portapapeles</string>
     <string name="backup_service">Servicio de copia de seguridad (Advertencia: esto podría exponer la configuración de su servicio a otras aplicaciones)</string>
     <string name="delete_service">Borrar servicio</string>
@@ -208,4 +207,17 @@
     <string name="status_requesting_descriptors">Solicitando información de servidores de la red</string>
     <string name="status_loading_descriptors">Cargando información de servidores de la red</string>
     <string name="system_vpn_settings">Preferencias de la VPN de Android</string>
+    <string name="app_icon_chooser_label_paint">Paint</string>
+    <string name="app_icon_chooser_label_tetras">Tetras</string>
+    <string name="app_icon_chooser_label_todo">To-Do</string>
+    <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
+    <string name="app_icon_chooser_label_birdie">Birdie</string>
+    <string name="pref_isolate_keep_alive">Mantenga vivos los circuitos aislados</string>
+    <string name="pref_isolate_keep_alive_summary">Mantener activos los circuitos aislados que tengan al menos un flujo con autenticación SOCKS activa</string>
+    <string name="bridge_snowflake_sqs">Conéctate a través de otros usuarios de Tor usando Snowflake (Método 3-SQS)</string>
+    <string name="kindness_mode_is_running">El modo altruista está activado</string>
+    <string name="kindness_mode_active_message" formatted="true">Has ayudado a %1$d personas a eludir la censura</string>
+    <string name="kindness_mode_disabled">El modo altruista está desactivado</string>
+    <string name="kindness_mode_starting">Se está iniciando…</string>
+    <string name="kindness_mode_disabled_internet">Conéctate a Internet para ayudar a las personas a eludir la censura</string>
 </resources>

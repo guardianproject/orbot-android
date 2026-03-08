@@ -87,7 +87,6 @@
     <string name="local_port">Port Áitiúil</string>
     <string name="onion_port">Port Oinniún</string>
     <string name="name">Ainm</string>
-    <string name="done">Déanta!</string>
     <string name="copy_address_to_clipboard">Cóipeáil an seoladh chuig an ghearrthaisce</string>
     <string name="backup_service">Seirbhís Cúltaca (Rabhadh: D’fhéadfadh sé seo do Chumraíocht Seirbhíse a Nochtadh d’Aipeanna Eile)</string>
     <string name="delete_service">Scrios Seirbhís</string>

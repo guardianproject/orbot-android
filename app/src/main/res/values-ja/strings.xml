@@ -67,7 +67,6 @@
     <string name="local_port">ローカルポート</string>
     <string name="onion_port">Onion ポート</string>
     <string name="name">名前</string>
-    <string name="done">完了しました！</string>
     <string name="copy_address_to_clipboard">クリップボードにアドレスをコピー</string>
     <string name="backup_service">サービスをバックアップ (警告: これは他のアプリにサービス設定を漏洩する可能性があります)</string>
     <string name="delete_service">サービスを削除</string>

@@ -67,7 +67,6 @@
     <string name="local_port">Yerel Bağlantı Noktası</string>
     <string name="onion_port">Onion Bağlantı Noktası</string>
     <string name="name">Ad</string>
-    <string name="done">Tamam!</string>
     <string name="copy_address_to_clipboard">Adresi panoya kopyala</string>
     <string name="backup_service">Yedekleme Servisi (Uyarı: Bu, Servis Yapılandırmanızı Diğer Uygulamalara Açığa Çıkarabilir)</string>
     <string name="delete_service">Hizmeti Sil</string>
@@ -269,4 +268,16 @@
     <string name="http_port">HTTP Port\'u</string>
     <string name="socks_port">SOCKS Port\'u</string>
     <string name="invalid_outbound_proxy_config">Geçersiz Giden Proxy Yapılandırması</string>
+    <string name="added_bridges_from_qr">QR kodundan %1$d tane köprü ekleniyor</string>
+    <string name="invalid_bridge_qr_code">Geçersiz köprü QR kodu</string>
+    <string name="you_already_have_these_bridges">Zaten bu QR kodundan köprü eklemişsin</string>
+    <string name="bridge_dnstt">DNS Tünel</string>
+    <string name="my_country_optional">Ülkem (Opsiyonel)</string>
+    <string name="limit_dns_tunnel_use">DNS Tünel kullanımını limitle</string>
+    <string name="dns_tunnel_usage_description">DNS tünelleri, hıza göre erişime öncelik verir ve daha yavaş hissedilebilir. Bunları yalnızca gerekli uygulamalar için etkinleştirmenizi öneririz. Video akışı önerilmez.</string>
+    <string name="unable_to_start_orbot_vpn_title">Orbot VPN başlatılamadı</string>
+    <string name="unable_to_start_legacy_vpn_error_msg">\"Her zaman açık\" VPN olarak yapılandırılmış bir Özel VPN Profili var. Orbot\'u başlatmadan önce bunu devre dışı bırakın.</string>
+    <string name="unable_to_start_other_vpn_app_error_msg">%1$s uygulaması \"Her zaman açık\" VPN olarak ayarlanmış. Orbot\'u başlatmadan önce lütfen devre dışı bırakın.</string>
+    <string name="unable_to_start_unknown_reason_error_msg">VPN izni reddedildi veya başka bir VPN uygulamasında \"Her zaman açık VPN\" özelliği etkinleştirildi. Önceki VPN İsteği iletişim kutusunu yanlışlıkla kapattıysanız, bunu kapatıp yeniden bağlanabilirsiniz. Teknik kullanıcılar başka bir VPN uygulaması kullanabilir ve Orbot\'un Güçlü Kullanıcı Modunu etkinleştirerek Tor\'u SOCKS Proxy olarak kullanabilir.</string>
+    <string name="open_vpn_settings">Android VPN Ayarlarını aç</string>
 </resources>

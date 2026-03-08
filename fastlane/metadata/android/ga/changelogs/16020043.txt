@@ -4,6 +4,6 @@
 - Ní bheidh freastalaí HTTP "Polipo" ann a thuilleadh, ach úsáid á baint as cumas nua-ionsuite Tor
 - rogha teanga feabhsaithe san aip
 
-CEAD NUA: Is chun faisnéis chúltaca leanúnach do sheirbhísí onion a stóráil atá rochtain ar "Stóráil Sheachtrach".
+CEAD NUA: Rochtain ar "Stóráil Sheachtrach"
 
 Nótaí scaoilte iomlána ag: https://github.com/n8fr8/orbot/releases/tag/16.0.2-RC-1

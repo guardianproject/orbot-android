@@ -86,8 +86,7 @@
   <string name="local_port">shawajapüle ´sülü shipia</string>
   <string name="onion_port">Oporto sünaije cewollaka</string>
   <string name="name"> Anüliee</string>
-  <string name="done"> ¡ Kettasü !</string>
-  <string name="copy_address_to_clipboard">Ashatunajatu shiyawase sünaimuin tü süpülajanakat karaloutat</string>
+    <string name="copy_address_to_clipboard">Ashatunajatu shiyawase sünaimuin tü süpülajanakat karaloutat</string>
   <string name="backup_service">Süpülajana tü süyakü sünainje seguridad &lt; i &gt; (eejajain: tü esü süpüla shiyatüin tü akumajiakat tü süpülajanakat sünain wanee naata aplicaciones) &lt; / i &gt;</string>
   <string name="delete_service">Ajütchajanüin süpülajat</string>
   <string name="backup_saved_at_external_storage">Süyaküa tü seguridad anajayekat  sülüje</string>

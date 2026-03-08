@@ -30,7 +30,6 @@
     <string name="pref_dnsport_title">Porta DNS Tor</string>
     <string name="save">Guardar</string>
     <string name="name">Nome</string>
-    <string name="done">Concluído!</string>
     <string name="disable">Desativar</string>
     <string name="enable">Ativar</string>
     <string name="wizard_details_msg">O Orbot é um software de código aberto que contem Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, LibEvent. Ele fornece um proxy local HTTP (8118) e um proxy SOCKS (9050) como acesso a rede Tor. Orbot também tem a habilidade, em aparelhos com acesso root, de enviar todo o trafego de Internet via rede Tor.</string>

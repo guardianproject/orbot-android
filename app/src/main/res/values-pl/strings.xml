@@ -63,7 +63,6 @@
     <string name="save">Zapisz</string>
     <string name="local_port">Lokalne porty</string>
     <string name="name">Nazwa</string>
-    <string name="done">Gotowe!</string>
     <string name="copy_address_to_clipboard">Skopiuj adres do schowka</string>
     <string name="please_restart_Orbot_to_enable_the_changes">Proszę zrestartować Orbot, aby zmiany mogły wejść w życie</string>
     <string name="disable">Wyłącz</string>

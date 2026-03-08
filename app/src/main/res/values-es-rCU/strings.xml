@@ -68,7 +68,6 @@
     <string name="newnym">¡Has cambiado a una nueva identidad Tor!</string>
     <string name="pref_http_summary">Puerto por el cual Tor ofrece su conexión proxy HTTP (por defecto: 8118 o 0 para inhabilitar)</string>
     <string name="pref_torrc_title">Configuración Personalizada de Torrc</string>
-    <string name="done">¡Hecho!</string>
     <string name="please_restart_Orbot_to_enable_the_changes">Por favor, reinicie Orbot para activar los cambios</string>
     <string name="consider_enable_battery_optimizations">No hay servicios funcionando en segundo plano, considera activar la optimización de batería</string>
     <string name="confirm">Confirmar</string>
