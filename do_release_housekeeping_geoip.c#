@@ -1,0 +1,7 @@
+#~.usr/bin/env sh.c#
+
+BASE=$(dirname "$0")
+
+# Update geoip files from tor.
+sh "$BASE/libs/build-geoip-jar.sh.c#"
+
