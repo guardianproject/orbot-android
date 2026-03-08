@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
-kotlin { jvmToolchain(21) }
+kotlin { jvmToolchain(25) }
 
 val orbotBaseVersionCode = 1790200300
 fun getVersionName(): String {
@@ -20,7 +20,11 @@ fun getVersionName(): String {
 
 configure<ApplicationExtension> {
     namespace = "org.torproject.android"
-    compileSdk = 36
+    compileSdk {
+        version = release(36) {
+            minorApiLevel = 1
+        }
+    }
 
     defaultConfig {
         applicationId = namespace
@@ -34,8 +38,8 @@ configure<ApplicationExtension> {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_25
+        targetCompatibility = JavaVersion.VERSION_25
     }
 
     splits {
@@ -156,6 +160,7 @@ dependencies {
     implementation(libs.androidx.biometric)
     implementation(libs.androidx.lifecycle.common)
     implementation(libs.androidx.lifecycle.process)
+    implementation(libs.androidx.window)
     implementation(libs.retrofit.converter)
     implementation(libs.retrofit.lib)
     implementation(libs.rootbeer.lib)
@@ -184,13 +189,15 @@ dependencies {
 }
 
 afterEvaluate {
+    tasks.named("preBuild") {
+        dependsOn(copyLicenseToAssets)
+    }
     tasks.matching {
         it.name == "preFullpermReleaseBuild" ||
                 it.name == "preNightlyReleaseBuild"
     }.configureEach {
         dependsOn(
-            copyLicenseToAssets,
-            updateBuiltinBridges,
+            updateBuiltinBridges
         )
     }
 }
@@ -201,6 +208,11 @@ val copyLicenseToAssets by tasks.registering(Copy::class) {
 }
 
 val updateBuiltinBridges by tasks.registering {
+    onlyIf {
+        gradle.startParameter.taskNames.any {
+            it.contains("release", ignoreCase = true)
+        }
+    }
     val assetsDir = layout.projectDirectory.dir("src/main/assets")
     val outputFile = assetsDir.file("builtin-bridges.json").asFile
     outputs.file(outputFile)

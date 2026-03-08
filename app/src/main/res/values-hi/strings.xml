@@ -75,7 +75,6 @@
     <string name="local_port">स्थानीय पोर्ट</string>
     <string name="onion_port">अनियन पोर्ट</string>
     <string name="name">नाम</string>
-    <string name="done">हो गया!</string>
     <string name="copy_address_to_clipboard">क्लिपबोर्ड पे पता कॉपी करें</string>
     <string name="backup_service">बैकअप सेवा <i>(खबरदार: ये आपका सेवा सेटिंग दूसरे ऐपों को लीक कर सकता है)</i></string>
     <string name="delete_service">सेवा मिटाएं</string>

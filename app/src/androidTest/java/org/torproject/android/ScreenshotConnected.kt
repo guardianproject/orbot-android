@@ -17,6 +17,8 @@ class ScreenshotConnected : BaseScreenshotTest() {
             val navHost = activity.supportFragmentManager.primaryNavigationFragment
             val connectFrag = navHost!!.childFragmentManager.fragments[0] as ConnectFragment
             connectFrag.doLayoutOn(connectFrag.requireContext())
+            connectFrag.binding.switchConnect.setOnCheckedChangeListener(null)
+            connectFrag.binding.switchConnect.isChecked = true
         }
     }
 

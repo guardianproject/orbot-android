@@ -1,4 +1,4 @@
-* dukungan untuk OnionServices v3\
-* peningkatan pada konfigurasi bridge\
-* memastikan mode VPN diperlakukan sebagai \"koneksi tanpa kuota\"\
-* mode eksperimental untuk mengaktifkan berjalan sebagai proxy Snowflake
+* dukungan untuk OnionServices v3
+* peningkatan pada konfigurasi bridge
+* memastikan mode VPN diperlakukan sebagai "koneksi tidak terukur"
+* mode eksperimental untuk mengaktifkan pengoperasian sebagai proksi Snowflake

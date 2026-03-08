@@ -132,7 +132,6 @@
     <string name="hidden_service_request">Aplikacija želi v omrežju Tor odpreti čebulni strežnik na vratih %1$s. To je varno, če aplikaciji zaupate.</string>
     <string name="backup_service">Storitev varnostnega kopiranja <i>(Opozorilo: to lahko razkrije konfiguracijo storitve drugim aplikacijam)</i></string>
     <string name="local_port">Lokalno pristanišče</string>
-    <string name="done">Končano!</string>
     <string name="backup_port_exist">Napaka: Storitev Onion že uporablja vrata %s</string>
     <string name="confirm_service_deletion">Potrditev izbrisa storitve</string>
     <string name="please_restart_Orbot_to_enable_the_changes">Ponovno zaženite Orbot, da omogočite spremembe</string>

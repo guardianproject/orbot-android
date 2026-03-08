@@ -67,7 +67,6 @@
     <string name="local_port">Port local</string>
     <string name="onion_port">Port Onion</string>
     <string name="name">Nom</string>
-    <string name="done">Fet!</string>
     <string name="copy_address_to_clipboard">Copia l\'adreça al porta-retalls</string>
     <string name="backup_service">Servei de còpia de seguretat (Atenció: Això podria exposar la configuració del servei a altres aplicacions)</string>
     <string name="delete_service">Suprimeix el servei</string>

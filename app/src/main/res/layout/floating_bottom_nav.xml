@@ -9,7 +9,6 @@
     android:maxWidth="360dp">
 
     <androidx.cardview.widget.CardView
-        app:layout_constraintWidth_max="360dp"
         android:layout_width="fill_parent"
         android:layout_height="72dp"
         android:clipChildren="false"
@@ -18,6 +17,8 @@
         app:cardElevation="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="360dp"
         app:strokeWidth="0dp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView

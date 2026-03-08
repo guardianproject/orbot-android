@@ -67,7 +67,6 @@
     <string name="local_port">Lokal port</string>
     <string name="onion_port">Onion port</string>
     <string name="name">Namn</string>
-    <string name="done">Klart!</string>
     <string name="copy_address_to_clipboard">Kopiera adress till urklipp</string>
     <string name="backup_service">Säkerhetskopieringstjänst <i>(Varning: Detta kan exponera din tjänstekonfiguration för andra appar)</i></string>
     <string name="delete_service">Ta bort tjänst</string>

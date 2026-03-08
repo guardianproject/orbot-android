@@ -99,7 +99,6 @@
     <string name="delete_service">Xoá bỏ dịch vụ</string>
     <string name="backup_service">Dịch vụ sao lưu backup <i>(Cảnh báo: Việc này có thể sẽ làm lộ thiết lập dịch vụ của bạn cho các app ứng dụng khác)</i></string>
     <string name="copy_address_to_clipboard">Sao chép địa chỉ vào khay nhớ tạm</string>
-    <string name="done">Hoàn tất!</string>
     <string name="onion_port">Cổng Onion</string>
     <string name="local_port">Cổng cục bộ</string>
     <string name="confirm">Xác nhận</string>

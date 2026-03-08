@@ -1,4 +1,4 @@
-* menambahkan dukungan bridge Snowflake\
-* memperbarui dukungan bridge Obfs4 dan Meek\
-* meningkatkan kecepatan fitur \"Minta bridge baru\"\
+* menambahkan dukungan bridge Snowflake
+* memperbarui dukungan bridge Obfs4 dan Meek
+* meningkatkan kecepatan fitur "Minta bridge baru"
 * Memperbarui Tor ke 0.4.4.6

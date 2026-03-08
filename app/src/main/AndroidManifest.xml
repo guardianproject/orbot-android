@@ -53,8 +53,7 @@
         android:supportsRtl="true"
         android:taskAffinity=""
         android:theme="@style/DefaultTheme"
-        android:usesCleartextTraffic="true"
-        tools:replace="android:allowBackup">
+        android:usesCleartextTraffic="true">
 
         <activity
             android:name="org.torproject.android.OrbotActivity"
@@ -134,8 +133,7 @@
         <service
             android:name="org.torproject.jni.TorService"
             android:process=":tor"
-            tools:node="merge"
-            tools:replace="android:process" />
+            tools:node="merge" />
 
         <service
             android:name=".ui.OrbotTileService"

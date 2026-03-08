@@ -106,7 +106,6 @@
     <string name="v3_import_auth_private">Importēt .auth_private</string>
     <string name="local_port">Vietējā osta</string>
     <string name="onion_port">Sīpolu osta</string>
-    <string name="done">Paveikts!</string>
     <string name="backup_restored">Atjaunots dublējums</string>
     <string name="backup_port_exist">Kļūda: Onion pakalpojums jau izmanto portu %s</string>
     <string name="restore_backup">Atjaunot dublējumu</string>

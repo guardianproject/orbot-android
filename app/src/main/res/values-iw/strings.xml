@@ -74,7 +74,6 @@
     <string name="local_port">פתחה מקומית</string>
     <string name="onion_port">פתחת בצל</string>
     <string name="name">שם</string>
-    <string name="done">בוצע!</string>
     <string name="delete_service">מחיקת שירות</string>
     <string name="backup_restored">גיבוי שוחזר</string>
     <string name="restore_backup">שחזור גיבוי</string>

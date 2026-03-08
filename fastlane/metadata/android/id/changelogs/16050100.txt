@@ -1,0 +1,4 @@
+- memperbarui Tor ke versi terbaru v0.3.4.9
+- perbaikan untuk stabilitas VPN
+- telah diuji pada Android 8 dan 9
+- terjemahan yang ditingkatkan dan diperbarui untuk banyak bahasa

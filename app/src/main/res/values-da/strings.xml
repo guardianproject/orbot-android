@@ -110,7 +110,6 @@
     <string name="v3_import_auth_private">Import af .auth_private</string>
     <string name="confirm">Bekræft</string>
     <string name="onion_port">Løg port</string>
-    <string name="done">Færdig!</string>
     <string name="copy_address_to_clipboard">Kopier adresse til udklipsholderen</string>
     <string name="backup_service">Sikkerhedskopitjeneste <i>(Advarsel: Dette kan eksponere din tjenestekonfiguration for andre apps)</i></string>
     <string name="delete_service">Slet tjeneste</string>

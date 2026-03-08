@@ -75,7 +75,6 @@
     <string name="local_port">Τοπική θύρα</string>
     <string name="onion_port">Θύρα Onion</string>
     <string name="name">Όνομα</string>
-    <string name="done">Έγινε!</string>
     <string name="copy_address_to_clipboard">Αντιγραφή διέυθυνσης στο πρόχειρο</string>
     <string name="backup_service">Υπηρεσία δημιουργίας αντιγράφων ασφαλείας <i>(Προειδοποίηση: Αυτό μπορεί να εκθέσει τη διαμόρφωση της υπηρεσίας σας σε άλλες εφαρμογές)</i></string>
     <string name="delete_service">Διαγραφή υπηρεσίας</string>

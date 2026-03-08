@@ -67,7 +67,6 @@
     <string name="local_port">Локальный порт</string>
     <string name="onion_port">Порт onion</string>
     <string name="name">Имя</string>
-    <string name="done">Готово!</string>
     <string name="copy_address_to_clipboard">Скопировать адрес в буфер обмена</string>
     <string name="backup_service">Резервное копирование службы (Внимание: это может раскрыть конфигурацию вашей службы другим приложениям)</string>
     <string name="delete_service">Удалить службу</string>

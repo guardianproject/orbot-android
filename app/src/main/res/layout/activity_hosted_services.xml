@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:importantForAccessibility="no"
         android:tint="@android:color/black"
         app:backgroundTint="@color/progress_bar_purple"
         app:fabSize="normal"

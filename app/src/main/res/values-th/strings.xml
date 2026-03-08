@@ -67,7 +67,6 @@
     <string name="local_port">พอร์ตในเครื่อง</string>
     <string name="onion_port">พอร์ต Onion</string>
     <string name="name">ชื่อเอกสาร</string>
-    <string name="done">เสร็จสิ้น!</string>
     <string name="copy_address_to_clipboard">คัดลอกที่อยู่ลงในคลิปบอร์ด</string>
     <string name="backup_service">บริการสำรองข้อมูล</string>
     <string name="delete_service">บริการลบ</string>

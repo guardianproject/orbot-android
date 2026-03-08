@@ -11,9 +11,9 @@ import android.text.style.StyleSpan
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
-import org.torproject.android.BuildConfig
 import org.torproject.android.R
 import org.torproject.android.util.DiskUtils
+import org.torproject.jni.BuildConfig.VERSION_NAME
 import org.torproject.jni.TorService
 import java.io.IOException
 
@@ -21,7 +21,7 @@ class AboutDialogFragment : DialogFragment() {
 
     companion object {
         const val TAG = "AboutDialogFragment"
-        const val VERSION = BuildConfig.VERSION_NAME
+        const val VERSION: String = VERSION_NAME
         private const val BUNDLE_KEY_TV_ABOUT_TEXT = "about_tv_txt"
     }
 

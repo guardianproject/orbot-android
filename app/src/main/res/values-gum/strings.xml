@@ -88,8 +88,7 @@
   <string name="local_port">Kempampamtik srɵl.</string>
   <string name="onion_port">Onion kepampamtik srɵl</string>
   <string name="name">Munchi</string>
-  <string name="done">Chap kɵn</string>
-  <string name="copy_address_to_clipboard">Chu wapik kuikwan nɵrɵ esekamik</string>
+    <string name="copy_address_to_clipboard">Chu wapik kuikwan nɵrɵ esekamik</string>
   <string name="backup_service">Backup Service &amp;lt;i&amp;gt(Eshkawa pasramik: ñi martrentikpe mantɵ tɵ marɵp amtruikwan yunɵmartraptik kɵtrɵ)&amp;lt;/i&amp;gt;</string>
   <string name="delete_service">Chikɵpik maramtelan ketramik</string>
   <string name="backup_saved_at_external_storage">Chinetɵ mariklan trupɵmɵntrai wampikttap esekamik</string>

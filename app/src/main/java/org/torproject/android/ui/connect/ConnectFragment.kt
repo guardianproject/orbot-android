@@ -40,7 +40,7 @@ private const val DEFAULT_THROTTLE_INTERVAL = 4000L
 class ConnectFragment : Fragment(),
     ExitNodeBottomSheet.ExitNodeSelectedCallback {
 
-    private lateinit var binding: FragmentConnectBinding
+    lateinit var binding: FragmentConnectBinding
 
     val viewModel: ConnectViewModel by activityViewModels()
 

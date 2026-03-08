@@ -75,7 +75,6 @@
     <string name="local_port">Lokaler Port</string>
     <string name="onion_port">Onion-Port</string>
     <string name="name">Name</string>
-    <string name="done">Fertig!</string>
     <string name="copy_address_to_clipboard">Adresse in die Zwischenablage kopieren</string>
     <string name="backup_service">Sicherungsdienst (Warnung: Dadurch könnte deine Dienstkonfiguration anderen Apps zugänglich gemacht werden)</string>
     <string name="delete_service">Dienst löschen</string>

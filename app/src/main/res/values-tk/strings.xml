@@ -30,7 +30,6 @@
     <string name="v3_delete_client_authorization">Müşderi Awtorizasiýa Açaryny Pozuň</string>
     <string name="v3_delete_client_authorization_confirm">Müşderi Awtorizasiýany Pozuň</string>
     <string name="name">Ady</string>
-    <string name="done">Boldy!</string>
     <string name="copy_address_to_clipboard">clipboard-da salgyny göçüriň</string>
     <string name="delete_service">Hyzmaty Pozuň</string>
     <string name="backup_saved_at_external_storage">Ätiýaçlyk nusgasy daşky ammarda saklanýar</string>

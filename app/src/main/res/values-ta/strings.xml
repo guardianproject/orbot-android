@@ -60,7 +60,6 @@
     <string name="v3_key_hash">X25519 BASE32 இல் தனியார் விசை</string>
     <string name="v3_onion">. ஒனியன் டொமைன்</string>
     <string name="v3_backup_key">காப்புப்பிரதி கிளையன்ட் அங்கீகார விசை</string>
-    <string name="done">முடிந்தது!</string>
     <string name="copy_address_to_clipboard">கிளிப்போர்டுக்கு முகவரியை நகலெடுக்கவும்</string>
     <string name="backup_service">காப்புப்பிரதி பணி (எச்சரிக்கை: இது உங்கள் பணி உள்ளமைவை மற்ற பயன்பாடுகளுக்கு வெளிப்படுத்தக்கூடும்)</string>
     <string name="delete_service">சேவையை நீக்கு</string>

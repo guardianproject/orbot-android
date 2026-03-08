@@ -55,7 +55,6 @@
     <string name="pref_torrc_dialog">Kohandatud Torrc</string>
     <string name="vpn_default_world">Ülemaailmne (Auto)</string>
     <string name="v3_hosted_services">Majutatud sibulateenused</string>
-    <string name="done">Tehtud!</string>
     <string name="backup_service">Varundusteenus <i>(hoiatus: see võib teie teenuse konfiguratsiooni teistele rakendustele paljastada)</i></string>
     <string name="pref_isolate_dest">Eraldada sihtkoha aadressid</string>
     <string name="pref_prefer_ipv6">Eelistab IPv6 ühendusi</string>

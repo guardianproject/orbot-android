@@ -75,7 +75,6 @@
     <string name="local_port">Лакальны порт</string>
     <string name="onion_port">Onion-порт</string>
     <string name="name">Імя</string>
-    <string name="done">Гатова!</string>
     <string name="copy_address_to_clipboard">Скапіяваць адрас у буфер памену</string>
     <string name="backup_service">Сэрвіс рэзервовага капіравання <i>(Папярэджанне: гэта можа прывесці да таго, што ваша канфігурацыя сэрвісу будзе раскрыта іншым праграмам)</i></string>
     <string name="delete_service">Выдаліць службу</string>

@@ -67,7 +67,6 @@
     <string name="local_port">Ataka lokala</string>
     <string name="onion_port">Onion ataka</string>
     <string name="name">Izena</string>
-    <string name="done">Egina!</string>
     <string name="copy_address_to_clipboard">Kopiatu helbidea arbelera</string>
     <string name="backup_service">Egin zerbitzuaren babeskopia</string>
     <string name="delete_service">Ezabatu zerbitzua</string>

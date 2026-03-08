@@ -5,13 +5,12 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.view.View
-import android.widget.Toast
 import androidx.core.text.TextUtilsCompat
 import java.util.Locale
 
 object StringUtils {
 
-    fun isLeftToRight(locale: Locale = Locale.getDefault()) : Boolean =
+    fun isLeftToRight(locale: Locale = Locale.getDefault()): Boolean =
         TextUtilsCompat.getLayoutDirectionFromLocale(locale) == View.LAYOUT_DIRECTION_LTR
 
     @JvmStatic
@@ -25,10 +24,9 @@ object StringUtils {
     }
 
     @JvmStatic
-    fun copyToClipboard(label: String, value: String, successMsg: String, context: Context) {
-        (context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?)?.let {
-            it.setPrimaryClip(ClipData.newPlainText(label, value))
-            Toast.makeText(context, successMsg, Toast.LENGTH_LONG).show()
-        }
+    fun copyToClipboard(label: String, value: String, context: Context) {
+        (context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?)?.setPrimaryClip(
+            ClipData.newPlainText(label, value)
+        )
     }
 }

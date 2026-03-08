@@ -98,7 +98,6 @@
     <string name="v3_import_auth_private">.auth_private امپورٹ کریں</string>
     <string name="local_port">مقامی پورٹ</string>
     <string name="onion_port">اونین پورٹ</string>
-    <string name="done">مکمل ہو گیا!</string>
     <string name="copy_address_to_clipboard">پتہ کلپ بورڈ پر کاپی کریں</string>
     <string name="backup_service">بیک اپ سروس (انتباہ: یہ آپ کی سروس کنفیگریشن کو دیگر ایپس پر ظاہر کر سکتا ہے)</string>
     <string name="delete_service">سروس حذف کریں</string>

@@ -67,7 +67,6 @@
     <string name="local_port">درگاه محلی</string>
     <string name="onion_port">درگاه Onion</string>
     <string name="name">نام</string>
-    <string name="done">انجام شد!</string>
     <string name="copy_address_to_clipboard">رونوشت نشانی‌ها در کلیپ‌بورد</string>
     <string name="backup_service">خدمت پشتیبان‌گیری (هشدار: این کار می‌تواند پیکربندی خدمتتان را برای دیگر برنامه‌ها افشا کند)</string>
     <string name="delete_service">حذف خدمت</string>

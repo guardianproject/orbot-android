@@ -62,7 +62,6 @@
     <string name="hidden_services">Onion-palvelut</string>
     <string name="save">Tallenna</string>
     <string name="name">Nimi</string>
-    <string name="done">Valmis!</string>
     <string name="please_restart_Orbot_to_enable_the_changes">Käynnistä Orbot uudelleen muutosten käyttöönottamiseksi.</string>
     <string name="disable">Poista käytöstä</string>
     <string name="enable">Ota käyttöön</string>

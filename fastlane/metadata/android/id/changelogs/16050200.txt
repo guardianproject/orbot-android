@@ -1,1 +1,1 @@
-Memperbaiki crash yang terkait dengan memulai layanan latar belakang
+Memperbaiki crash yang berkaitan dengan memulai layanan latar belakang

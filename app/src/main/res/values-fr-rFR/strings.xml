@@ -73,7 +73,6 @@
     <string name="hidden_services">Services onion</string>
     <string name="local_port">Port local</string>
     <string name="onion_port">Port onion</string>
-    <string name="done">Terminé</string>
     <string name="copy_address_to_clipboard">Copier l’adresse dans le presse-papiers</string>
     <string name="backup_service">Service de sauvegarde (avertissement : cela pourrait exposer la configuration de votre service à d’autres applis)</string>
     <string name="delete_service">Supprimer le service</string>

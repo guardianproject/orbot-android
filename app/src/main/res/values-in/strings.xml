@@ -60,7 +60,6 @@
     <string name="pref_torrc_summary">HANYA UNTUK AHLI: masukkan baris konfigurasi direct Torrc</string>
     <string name="pref_torrc_dialog">Torrc Custom</string>
     <string name="please_restart_Orbot_to_enable_the_changes">Silakan start ulang Orbot untuk mengaktifkan perubahan</string>
-    <string name="done">Beres!</string>
     <string name="name">Nama</string>
     <string name="pref_http_title">Tor HTTP</string>
     <string name="pref_http_summary">Port yang Tor menawarkan proxy HTTP-nya (standar: 8118 atau 0 untuk mematikan)</string>

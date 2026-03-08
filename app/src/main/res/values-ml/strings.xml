@@ -34,7 +34,6 @@
     <string name="menu_new_identity">പുതിയ ഡിജിറ്റൽ വ്യക്തിത്വം</string>
     <string name="menu_exit">പുറത്തേക്കുള്ള വഴി</string>
     <string name="confirm">സ്ഥിരീകരിക്കുക</string>
-    <string name="done">പൂര്‍ത്തിയായി!</string>
     <string name="enable">സജ്ജമാക്കുക</string>
     <string name="hidden_services">ഒണിയൻ സേവനങ്ങൾ</string>
     <string name="set_transport">ഗതാഗതം സജ്ജമാക്കുക</string>

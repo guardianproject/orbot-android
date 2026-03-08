@@ -1,0 +1,9 @@
+- Ukuran instalasi (APK) 30% lebih kecil, di bawah 10MB!
+ - diperbarui ke tor 0.3.3.5 (dukungan Onion Services v3 dan lainnya)
+ - banyak perbaikan untuk instalasi biner tor dan pluggable transport
+ - Tidak ada lagi server HTTP "Polipo", hanya menggunakan kemampuan bawaan baru Tor
+ - peningkatan pemilihan bahasa dalam aplikasi
+
+IZIN BARU: Akses ke "Penyimpanan Eksternal" adalah untuk menyimpan informasi cadangan layanan onion.
+
+Catatan rilis lengkap di: https://github.com/n8fr8/orbot/releases/tag/16.0.2-RC-1

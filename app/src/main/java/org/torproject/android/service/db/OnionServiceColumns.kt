@@ -67,7 +67,7 @@ object OnionServiceColumns : BaseColumns {
                     )
                 }
                 val v3DirPath: String =
-                    File(v3OnionBasePath.absolutePath, path).getCanonicalPath()
+                    File(v3OnionBasePath.absolutePath, path).canonicalPath
                 torrc.append("HiddenServiceDir ").append(v3DirPath).append("\n")
                     .append("HiddenServiceVersion 3\n")
                     .append("HiddenServicePort ").append(onionPort).append(" 127.0.0.1:")
@@ -95,7 +95,7 @@ object OnionServiceColumns : BaseColumns {
                 if (domain == null || TextUtils.isEmpty(domain)) {
                     val path = onionServices.getString(pathIndex)
                     val v3OnionDirPath: String =
-                        File(v3OnionBasePath.absolutePath, path).getCanonicalPath()
+                        File(v3OnionBasePath.absolutePath, path).canonicalPath
                     val hostname = File(v3OnionDirPath, "hostname")
                     if (hostname.exists()) {
                         val id = onionServices.getInt(idIndex)
