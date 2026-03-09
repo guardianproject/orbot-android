@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -126,24 +127,26 @@ class ConnectFragment : Fragment(),
                 binding.switchConnect.text = context?.getString(R.string.connect)
             }, DEFAULT_THROTTLE_INTERVAL)
         }
-        binding.switchConnect.setOnCheckedChangeListener { _, value ->
-            if (value) {
-                // display msg if optional outbound proxy config is invalid
-                if (Prefs.outboundProxy.second != null) {
-                    Toast.makeText(
-                        activity,
-                        getString(R.string.invalid_outbound_proxy_config),
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-                attemptToStartTor()
-            } else {
-                stopTorAndVpn()
-            }
-        }
+        binding.switchConnect.setOnCheckedChangeListener(onCheckedChanged)
         refreshMenuList(requireContext())
     }
 
+
+    private val onCheckedChanged: CompoundButton.OnCheckedChangeListener = { _, value ->
+        if (value) {
+            // display msg if optional outbound proxy config is invalid
+            if (Prefs.outboundProxy.second != null) {
+                Toast.makeText(
+                    activity,
+                    getString(R.string.invalid_outbound_proxy_config),
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+            attemptToStartTor()
+        } else {
+            stopTorAndVpn()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -320,6 +323,9 @@ class ConnectFragment : Fragment(),
     }
 
     fun doLayoutOff() {
+        binding.switchConnect.setOnCheckedChangeListener(null)
+        binding.switchConnect.isChecked = false
+        binding.switchConnect.setOnCheckedChangeListener(onCheckedChanged)
         binding.ivStatus.setImageResource(R.drawable.orbiesleeping)
         refreshMenuList(requireContext())
         stopAnimations()

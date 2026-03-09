@@ -680,8 +680,6 @@ public class OrbotService extends VpnService {
         }
 
         public void run() {
-            Log.wtf("bim", "received intent: ");
-
             var action = mIntent.getAction();
             if (TextUtils.isEmpty(action)) return;
             switch (action) {
@@ -726,19 +724,13 @@ public class OrbotService extends VpnService {
                     replyWithStatus(mIntent);
                 }
                 case CMD_SET_EXIT -> {
-                    Log.wtf("bim", "in service, count=" + count);
-                    if (count == 0) {
-                        TorService.fatal();
-                    }
-                    count++;
+                    TorService.fatal();
                 }
                 case ACTION_LOCAL_LOCALE_SET -> configLanguage();
                 default -> Log.w(TAG, "unhandled OrbotService Intent: " + action);
             }
         }
     }
-
-    static int count = 0;
 
     private class ActionBroadcastReceiver extends BroadcastReceiver {
         @Override

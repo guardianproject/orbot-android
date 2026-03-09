@@ -156,8 +156,10 @@ class OrbotActivity : BaseActivity() {
             addAction(OrbotConstants.LOCAL_ACTION_PORTS)
         }
 
-        ContextCompat.registerReceiver(this, orbotServiceBroadcastReceiver, filter,
-            ContextCompat.RECEIVER_NOT_EXPORTED)
+        ContextCompat.registerReceiver(
+            this, orbotServiceBroadcastReceiver, filter,
+            ContextCompat.RECEIVER_NOT_EXPORTED
+        )
 
         requestNotificationPermission()
 
@@ -176,9 +178,11 @@ class OrbotActivity : BaseActivity() {
                     R.id.connectFragment -> {
                         finish()
                     }
+
                     R.id.kindnessFragment, R.id.moreFragment -> {
                         bottomNavigationView.selectedItemId = R.id.connectFragment
                     }
+
                     else -> {
                         navController.popBackStack()
                     }
@@ -271,7 +275,14 @@ class OrbotActivity : BaseActivity() {
                     if (status != previousReceivedTorStatus) {
                         connectViewModel.updateState(this@OrbotActivity, status)
                         previousReceivedTorStatus = status
+                    } else if (status == "ABORTING") {
+                        Log.wtf("bim", "restarting tor...")
+                        connectViewModel.updateState(this@OrbotActivity, TorService.STATUS_OFF)
+                        previousReceivedTorStatus = TorService.STATUS_OFF
+                        sendIntentToService(TorService.ACTION_STOP)
+
                     }
+//                    sendIntentToService(TorService.ACT)
                 }
 
                 OrbotConstants.LOCAL_ACTION_LOG -> {
