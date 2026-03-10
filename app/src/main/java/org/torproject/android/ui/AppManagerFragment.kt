@@ -6,8 +6,6 @@ import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.CoroutineScope
@@ -45,7 +44,6 @@ import org.torproject.android.util.haveIBeenDetached
 import org.torproject.android.util.normalizie
 import org.torproject.android.util.sendIntentToService
 import java.util.Arrays
-import java.util.StringTokenizer
 
 class AppManagerFragment : Fragment(), View.OnClickListener {
 
@@ -93,27 +91,20 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
             .onEach { filterApps(it) }
             .launchIn(scope)
 
-        searchBar?.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                searchQuery.value = s?.toString().orEmpty()
-                if (s?.isEmpty() == true) {
-                    searchBarLayout?.endIconMode = TextInputLayout.END_ICON_CUSTOM
-                    searchBarLayout?.endIconDrawable = ResourcesCompat.getDrawable(
-                        resources,
-                        R.drawable.ic_search, null
-                    )
-                } else {
-                    searchBarLayout?.endIconMode = TextInputLayout.END_ICON_CLEAR_TEXT
-                    searchBarLayout?.endIconDrawable = ResourcesCompat.getDrawable(
-                        resources,
-                        R.drawable.ic_close, null
-                    )
-                }
-            }
+        searchBar?.doOnTextChanged { text, _, _, _ ->
+            val query = text?.toString().orEmpty()
+            searchQuery.value = query
 
-            override fun afterTextChanged(s: Editable?) {}
-        })
+            if (query.isEmpty()) {
+                searchBarLayout?.endIconMode = TextInputLayout.END_ICON_CUSTOM
+                searchBarLayout?.endIconDrawable =
+                    ResourcesCompat.getDrawable(resources, R.drawable.ic_search, null)
+            } else {
+                searchBarLayout?.endIconMode = TextInputLayout.END_ICON_CLEAR_TEXT
+                searchBarLayout?.endIconDrawable =
+                    ResourcesCompat.getDrawable(resources, R.drawable.ic_close, null)
+            }
+        }
 
         alSuggested = OrbotConstants.VPN_SUGGESTED_APPS
 
@@ -308,21 +299,10 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                         entry.box?.setOnClickListener(this@AppManagerFragment)
                     }
 
-                    cv?.onFocusChangeListener =
-                        View.OnFocusChangeListener { v: View, hasFocus: Boolean ->
-                            if (hasFocus) v.setBackgroundColor(
-                                ContextCompat.getColor(
-                                    context, R.color.dark_purple
-                                )
-                            ) else {
-                                v.setBackgroundColor(
-                                    ContextCompat.getColor(
-                                        context,
-                                        android.R.color.transparent
-                                    )
-                                )
-                            }
-                        }
+                    cv?.setOnFocusChangeListener { v, hasFocus ->
+                        val color = if (hasFocus) R.color.dark_purple else android.R.color.transparent
+                        v.setBackgroundColor(ContextCompat.getColor(requireContext(), color))
+                    }
 
                     return cv ?: View(context)
                 }
@@ -407,7 +387,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
         private fun includeAppInUi(applicationInfo: ApplicationInfo): Boolean {
             return applicationInfo.enabled &&
                     applicationInfo.packageName != BuildConfig.APPLICATION_ID &&
-                    !OrbotConstants.BYPASS_VPN_PACKAGES.contains(applicationInfo.packageName)
+                    applicationInfo.packageName !in OrbotConstants.BYPASS_VPN_PACKAGES
         }
 
         fun getApps(
@@ -416,16 +396,12 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
             filterRemove: List<String>?,
             retainedCheckedPackages: Set<String>
         ): ArrayList<TorifiedApp> {
+            val tordApps = Prefs.torifiedApps
+                .split("|")
+                .filter { it.isNotBlank() }
+                .sorted()
+                .toTypedArray()
             val pMgr = context.packageManager
-            val tordAppString = Prefs.torifiedApps
-            val tordApps: Array<String?>
-            val st = StringTokenizer(tordAppString, "|")
-            tordApps = arrayOfNulls(st.countTokens())
-            var tordIdx = 0
-            while (st.hasMoreTokens()) {
-                tordApps[tordIdx++] = st.nextToken()
-            }
-            Arrays.sort(tordApps)
             val lAppInfo = pMgr.getInstalledApplications(0)
             val itAppInfo: Iterator<ApplicationInfo> = lAppInfo.iterator()
             val apps = ArrayList<TorifiedApp>()
