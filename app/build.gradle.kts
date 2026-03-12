@@ -11,11 +11,11 @@ plugins {
 kotlin { jvmToolchain(25) }
 
 val orbotBaseVersionCode = 1792200100
-fun getVersionName(): String {
+fun getVersionName(): Provider<String> {
     // Gets the version name from the latest Git tag
     return providers.exec {
         commandLine("git", "describe", "--tags", "--always")
-    }.standardOutput.asText.get().trim()
+    }.standardOutput.asText.map { it.trim() }
 }
 
 configure<ApplicationExtension> {
@@ -29,7 +29,7 @@ configure<ApplicationExtension> {
     defaultConfig {
         applicationId = namespace
         versionCode = orbotBaseVersionCode
-        versionName = getVersionName()
+        versionName = getVersionName().get()
         minSdk = 24
         targetSdk = 36
         multiDexEnabled = true
@@ -199,11 +199,9 @@ afterEvaluate {
     }
     tasks.matching {
         it.name == "preFullpermReleaseBuild" ||
-                it.name == "preNightlyReleaseBuild"
+        it.name == "preNightlyReleaseBuild"
     }.configureEach {
-        dependsOn(
-            updateBuiltinBridges
-        )
+        dependsOn(updateBuiltinBridges)
     }
 }
 
@@ -296,35 +294,30 @@ val updateBuiltinBridges by tasks.registering {
 tasks.matching {
     it.name.startsWith("assemble")
 }.configureEach {
-    finalizedBy("renameApkFiles")
+    finalizedBy(renameApkFiles)
 }
 
-tasks.register("getVersionFromGit") {
-    doLast {
-        val gitVersion = providers.exec {
-            commandLine("git", "describe", "--tags", "--always")
-        }.standardOutput.asText.get().trim()
-        project.ext.set("gitVersion", gitVersion)
-    }
-}
+val renameApkFiles by tasks.registering {
+    val requestedTasks: List<String> = gradle.startParameter.taskNames
+    val versionProvider = getVersionName()
+    val buildDirProvider = layout.buildDirectory
 
-tasks.register("renameApkFiles") {
-    dependsOn("getVersionFromGit")
     doLast {
-        val versionName = project.ext.get("gitVersion")
-        val variantName = project.gradle.startParameter.taskNames
+        val versionName = versionProvider.get()
+        val variantName = requestedTasks
             .find { it.contains("assemble") }
             ?.substringAfter("assemble")
             ?.replaceFirstChar { it.lowercase() }
             ?: "debug"
 
         listOf("nightly", "fullperm").forEach { flavor ->
-            fileTree(layout.buildDirectory.dir("outputs/apk/$flavor/$variantName")).matching {
-                include("*.apk")
-            }.forEach { file ->
-                val newName = file.name.replace("app-", "Orbot-${versionName}-")
-                file.renameTo(File(file.parentFile, newName))
-            }
+            buildDirProvider.dir("outputs/apk/$flavor/$variantName").get().asFile
+                .walkTopDown()
+                .filter { it.extension == "apk" }
+                .forEach { file ->
+                    val newName = file.name.replace("app-", "Orbot-${versionName}-")
+                    file.renameTo(File(file.parentFile, newName))
+                }
         }
     }
 }
