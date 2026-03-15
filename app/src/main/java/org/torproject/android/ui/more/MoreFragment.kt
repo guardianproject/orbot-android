@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.torproject.android.OrbotActivity
 import org.torproject.android.R
+import org.torproject.android.databinding.FragmentMoreBinding
 import org.torproject.android.util.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
@@ -28,6 +30,8 @@ import org.torproject.jni.TorService
 class MoreFragment : Fragment() {
     private var httpPort = -1
     private var socksPort = -1
+    private var _binding: FragmentMoreBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var tvPortAndVersionInfo: TextView
 
@@ -87,7 +91,6 @@ class MoreFragment : Fragment() {
         val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
         (context as AppCompatActivity).setSupportActionBar(toolbar)
         toolbar?.title = requireContext().getString(R.string.app_name)
-        view.findViewById<TextView>(R.id.tvExit)?.setOnClickListener { doExit() }
 
         tvPortAndVersionInfo = view.findViewById(R.id.tvPortAndVersionInfo)
 
@@ -129,6 +132,40 @@ class MoreFragment : Fragment() {
         rvMore.layoutManager = GridLayoutManager(requireContext(), spanCount)
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentMoreBinding.bind(view)
+
+        setupExitButton()
+    }
+
+    private fun setupExitButton() {
+        binding.btnExit.apply {
+            setOnClickListener {
+                // Pressed state animation
+                animate()
+                    .scaleX(0.95f)
+                    .scaleY(0.95f)
+                    .alpha(0.8f)
+                    .setDuration(100)
+                    .withEndAction {
+                        // Release animation
+                        animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .alpha(1f)
+                            .setDuration(100)
+                            .withEndAction { doExit() }
+                    }
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun getTorVersion(): String {

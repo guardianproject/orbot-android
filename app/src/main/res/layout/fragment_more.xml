@@ -28,18 +28,7 @@
                 android:layout_height="?attr/actionBarSize"
                 android:baselineAligned="false">
 
-                <TextView
-                    android:id="@+id/tvExit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center|end"
-                    android:paddingStart="0dp"
-                    android:paddingEnd="16dp"
-                    android:text="@string/menu_exit"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold" />
             </androidx.appcompat.widget.Toolbar>
-
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -51,6 +40,17 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             tools:listitem="@layout/item_more_action" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_exit"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"
+            android:background="@drawable/btn_shape_round"
+            android:backgroundTint="@color/orbot_btn_enabled_purple"
+            android:text="@string/menu_exit"
+            android:textStyle="bold" />
 
         <FrameLayout
             android:layout_width="match_parent"
