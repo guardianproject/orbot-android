@@ -315,4 +315,12 @@
     <string name="kindness_mode_cant_run_in_your_country">Using Kindness Mode to help other people connect to Tor is currently disabled for your country because of censorship.</string>
     <string name="kindness_mode_disclaimer_bridge">Don\'t Use Kindness Mode if you are in a region where you are censored or if you need to use a bridge to connect to Tor.</string>
 
+    <string name="battery_optimization_title">Disable Battery Optimizations</string>
+    <string name="battery_optimization_pref_msg">Setting for some users that suspect their device is prematurely killing Orbot while it runs in the background.</string>
+    <string name="battery_optimization_dialog_msg">Certain Android devices may kill Orbot while it\'s running in the background. For the vast majority of users, it\'s sufficient to set Orbot to function as an \"Always-on\" VPN in the system settings. However, if you feel it\'s necessary, you can still proceed to prevent your device from performing battery optimizations on Orbot. On the next screen select Orbot → Allow background usage → Unrestricted. Note that for most devices, disabling battery optimizations will drain your device\'s battery faster than normal… </string>
+    <string name="battery_optimizations_dialog_btn_disable">Open Battery Optimization Settings</string>
+    <string name="battery_optimizations_dialog_msg_power_user">You must disable battery optimizations in order to run Orbot in Power User Mode…</string>
+    <string name="battery_optimizations_are_disabled">Battery Optimizations are currently disabled for Orbot…</string>
+    <string name="battery_optimizations_are_enabled">Battery Optimizations are currently not disabled for Orbot (default for most users)…</string>
+
 </resources>
