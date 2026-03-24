@@ -16,15 +16,16 @@ class BatteryOptimizationsSettingDialog : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
-
-        val msg = getString(R.string.battery_optimization_dialog_msg) + "\n\n" +
-                if (context?.areBatteryOptimizationsDisabled() == true) getString(R.string.battery_optimizations_are_disabled) else getString(
-                    R.string.battery_optimizations_are_enabled
-                )
+        val msgBody =
+            getString(R.string.battery_optimization_dialog_msg) + "\n\n" + getString(R.string.battery_optimization_dialog_msg_instructions) + "\n\n" + getString(
+                R.string.battery_optimization_dialog_msg_disclaimer
+            ) + "\n\n" + if (context?.areBatteryOptimizationsDisabled() == true) getString(R.string.battery_optimizations_are_disabled) else getString(
+                R.string.battery_optimizations_are_enabled
+            )
 
         return AlertDialog.Builder(requireContext())
             .setTitle(R.string.battery_optimization_title)
-            .setMessage(msg)
+            .setMessage(msgBody)
             .setNeutralButton(android.R.string.cancel, null)
             .setPositiveButton(R.string.battery_optimizations_dialog_btn_disable) { _, _ ->
                 context?.startActivity(context?.openBatteryOptimizationAppListScreen())

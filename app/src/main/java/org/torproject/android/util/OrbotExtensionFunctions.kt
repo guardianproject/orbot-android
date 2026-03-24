@@ -1,5 +1,6 @@
 package org.torproject.android.util
 
+import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
@@ -15,6 +16,7 @@ import androidx.fragment.app.Fragment
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import java.text.Normalizer
+import androidx.core.net.toUri
 
 /**
  * Extension function for `Intent` to add a flag that marks the intent as originating
@@ -67,10 +69,18 @@ fun Context.openBatteryOptimizationAppListScreen(): Intent {
     }
 }
 
+// requires android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+@SuppressLint("BatteryLife")
+fun Context.disableBatteryOptimizationAggressive() : Intent {
+    return Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
+        flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        data = "package:${packageName}".toUri()
+    }
+}
+
 fun Context.areBatteryOptimizationsDisabled(): Boolean {
     val powerManager = getSystemService(Context.POWER_SERVICE) as? PowerManager
-    powerManager?.isIgnoringBatteryOptimizations(packageName) ?: false
-
+    return powerManager?.isIgnoringBatteryOptimizations(packageName) ?: false
 }
 
 /**

@@ -33,6 +33,7 @@ import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.vpn.VpnServicePrepareWrapper
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
+import org.torproject.android.util.areBatteryOptimizationsDisabled
 import org.torproject.jni.TorService
 
 private const val DEFAULT_THROTTLE_INTERVAL = 4000L
@@ -178,17 +179,25 @@ class ConnectFragment : Fragment(),
         }
     }
 
-    fun attemptToStartTorPowerUserMode() {
+    fun attemptToStartTorPowerUserMode(): Boolean {
+        if (!requireContext().areBatteryOptimizationsDisabled()) {
+            PowerUserBatteryOptimizations().show(
+                requireActivity().supportFragmentManager,
+                "PowerUserBatteryOptimizations"
+            )
+            return false
+        }
         // android 14 awkwardly needs this permission to be explicitly granted to use the
         // FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED permission without grabbing a VPN Intent
         val alarmManager =
             requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
             PowerUserForegroundPermDialog().createTransactionAndShow(requireActivity())
-            return // user can try again after granting permission
+            return false// user can try again after granting permission
         }
         doLayoutStarting(requireContext())
         setState(TorService.ACTION_START)
+        return true
     }
 
     fun startTorVpn() {
@@ -199,7 +208,10 @@ class ConnectFragment : Fragment(),
     fun attemptToStartTor() {
         Prefs.putUseVpn(!Prefs.isPowerUserMode)
         if (Prefs.isPowerUserMode) {
-            attemptToStartTorPowerUserMode()
+            // if the user hasn't met all the conditions of power user mode
+            if (!attemptToStartTorPowerUserMode()) {
+                binding.switchConnect.isChecked = false
+            }
         } else {
             val vpnPrepareState =
                 VpnServicePrepareWrapper.orbotVpnServicePreparedState(requireContext())
