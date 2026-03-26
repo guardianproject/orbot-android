@@ -280,4 +280,10 @@
     <string name="unable_to_start_other_vpn_app_error_msg">L\'app %1$s è configurata per essere una \"VPN sempre attiva\". Si prega di disattivarla prima di avviare Orbot.</string>
     <string name="unable_to_start_unknown_reason_error_msg">L\'autorizzazione VPN è stata negata o un\'altra app VPN ha attivato la funzione \"VPN sempre attiva\". Puoi tornare indietro e riconnetterti se sei uscito dalla precedente finestra di richiesta VPN per errore. Gli utenti tecnici possono usare un\'altra app VPN e usare Tor come proxy SOCKS attivando la modalità Utente esperto di Orbot.</string>
     <string name="open_vpn_settings">Apri le impostazioni VPN di Android</string>
+    <string name="country_clear">Rimuovi nazione</string>
+    <string name="kindness_mode_cant_start">Impossibile avviare la modalità altruismo</string>
+    <string name="kindness_never_had_a_direct_connection">Per usare la modalità altruismo, devi avere connesso direttamente Tor (senza usare alcun bridge) almeno una volta. Torna qui a connessione avvenuta per attivare la modalità altruismo. Dopo aver completato questa prova di connessione diretta, puoi usare liberamente la modalità altruismo se Tor è connesso o meno.</string>
+    <string name="kindness_mode_cant_run_with_bridge">La modalità altruismo non può funzionare mentre usi un bridge per connetterti a Tor.</string>
+    <string name="kindness_mode_cant_run_in_your_country">L\'uso della modalità altruismo, per aiutare altre persone a connettersi a Tor, è attualmente disattivato per la tua nazione a causa della censura.</string>
+    <string name="kindness_mode_disclaimer_bridge">Non usare la modalità altruismo se ti trovi in una regione in cui si viene censurati o se ti serve usare un bridge per connetterti a Tor.</string>
 </resources>
