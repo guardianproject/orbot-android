@@ -315,6 +315,8 @@
     <string name="kindness_mode_cant_run_in_your_country">Using Kindness Mode to help other people connect to Tor is currently disabled for your country because of censorship.</string>
     <string name="kindness_mode_disclaimer_bridge">Don\'t Use Kindness Mode if you are in a region where you are censored or if you need to use a bridge to connect to Tor.</string>
 
+    <string name="pref_hide_battery_opt_dialog_title">Hide Battery Optimization Exemption Dialog</string>
+    <string name="pref_hide_battery_opt_dialog_summary">Hide battery optimization exemption dialog when power user mode is enabled</string>
     <string name="battery_optimization_title">Disable Battery Optimizations</string>
     <string name="battery_optimization_pref_msg">Setting for some users that suspect their device is prematurely killing Orbot while it runs in the background.</string>
     <string name="battery_optimization_dialog_msg">Certain Android devices may kill Orbot as it runs in the background. For most users who want to make sure Orbot stays connected and running, it\'s sufficient to set Orbot to function as an \"Always-on\" VPN in the system settings. However, you may still proceed to prevent your device from performing any battery optimizations on Orbot if you feel it to be necessary.</string>

@@ -51,6 +51,13 @@
             app:iconSpaceReserved="false" />
 
         <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="hide_battery_opt_dialog"
+            android:summary="@string/pref_hide_battery_opt_dialog_summary"
+            android:title="@string/pref_hide_battery_opt_dialog_title"
+            app:iconSpaceReserved="false" />
+
+        <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_detect_root"
             android:summary="@string/pref_detect_root_summary"
