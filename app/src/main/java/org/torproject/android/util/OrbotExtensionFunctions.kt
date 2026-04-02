@@ -1,10 +1,13 @@
 package org.torproject.android.util
 
+import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
 import android.net.VpnService
 import android.os.Build
+import android.os.PowerManager
+import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.StringRes
@@ -13,6 +16,7 @@ import androidx.fragment.app.Fragment
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import java.text.Normalizer
+import androidx.core.net.toUri
 
 /**
  * Extension function for `Intent` to add a flag that marks the intent as originating
@@ -58,6 +62,27 @@ fun Context.canStartForegroundServices(): Boolean {
     return alarmManager?.canScheduleExactAlarms() ?: false
 }
 
+// gently take users to a screen, where if they dig, they may disable battery optimizations for Orbot
+fun Context.openBatteryOptimizationAppListScreen(): Intent {
+    return Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS).apply {
+        flags = Intent.FLAG_ACTIVITY_NEW_TASK
+    }
+}
+
+// requires android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+@SuppressLint("BatteryLife")
+fun Context.disableBatteryOptimizationAggressive(): Intent {
+    return Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
+        flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        data = "package:${packageName}".toUri()
+    }
+}
+
+fun Context.areBatteryOptimizationsDisabled(): Boolean {
+    val powerManager = getSystemService(Context.POWER_SERVICE) as? PowerManager
+    return powerManager?.isIgnoringBatteryOptimizations(packageName) ?: false
+}
+
 /**
  * Overloaded extension function for `Context` to send an Intent to a foreground service
  * using an action string. The action is applied to an Intent targeting the `OrbotService` class.
@@ -90,7 +115,7 @@ fun Context.showToast(@StringRes msgId: Int) =
     Toast.makeText(this, msgId, Toast.LENGTH_LONG).show()
 
 // remove accent marks and characters from a String, useful when searching
-fun String.normalizie() : String =
+fun String.normalizie(): String =
     Normalizer.normalize(this, Normalizer.Form.NFD)
         .replace("\\p{Mn}+".toRegex(), "")
 
@@ -102,7 +127,7 @@ fun String.normalizie() : String =
  * https://stackoverflow.com/questions/50213823/ongetlayoutinflater-cannot-be-executed-until-the-fragment-is-attached-to-the-f
  *
  */
-fun Fragment.haveIBeenDetached() : Boolean {
+fun Fragment.haveIBeenDetached(): Boolean {
     val retVal = activity == null || isDetached || isRemoving
     if (retVal)
         Log.d(javaClass.simpleName, "has been detached on (other) Thread, aborting...")

@@ -48,6 +48,8 @@ object Prefs {
 
     const val PREF_SECURE_WINDOW_FLAG: String = "pref_flag_secure"
 
+    private const val PREF_POWER_BATTERY_DIALOG_HIDE = "hide_battery_opt_dialog"
+
     private var cr: ContentResolver? = null
 
 
@@ -375,6 +377,11 @@ object Prefs {
     var torifiedApps: String
         get() = cr?.getPrefString(OrbotConstants.PREFS_KEY_TORIFIED, "") ?: ""
         set(value) = cr?.putPref(OrbotConstants.PREFS_KEY_TORIFIED, value) ?: Unit
+
+    var stopShowingPowerUserBatteryOptDialog: Boolean
+        get() = cr?.getPrefBoolean(PREF_POWER_BATTERY_DIALOG_HIDE, false) ?: false
+        set(value) = cr?.putPref(PREF_POWER_BATTERY_DIALOG_HIDE, value) ?: Unit
+
 
     @JvmStatic
     var torDnsPortResolved: Int

@@ -90,5 +90,14 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
                 it.parent?.removePreference(it)
             }
         }
+
+        findPreference<Preference>("pref_open_battery_opt")?.onPreferenceClickListener =
+            Preference.OnPreferenceClickListener {
+                BatteryOptimizationsSettingDialog().show(
+                    requireActivity().supportFragmentManager,
+                    BatteryOptimizationsSettingDialog.TAG
+                )
+                true
+            }
     }
 }

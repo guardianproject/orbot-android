@@ -52,7 +52,7 @@ class ConnectFragment : Fragment(),
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             // The user pressed OK, we can start Tor VPN
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
-                startTorVpn()
+                startTorConnection()
             } else { /* this happens when:
                 - the user cancels the system VPN dialog
                 - the user is on Android S+ and has another VpnService based app
@@ -146,7 +146,7 @@ class ConnectFragment : Fragment(),
         }
     }
 
-    private fun turnOffSConnectSwitchWithoutEvent() {
+    private fun turnOffConnectSwitchWithoutEvent() {
         binding.switchConnect.setOnCheckedChangeListener(null)
         binding.switchConnect.isChecked = false
         binding.switchConnect.setOnCheckedChangeListener(onCheckChanged)
@@ -187,21 +187,29 @@ class ConnectFragment : Fragment(),
         }
     }
 
-    fun attemptToStartTorPowerUserMode() {
+    fun attemptToStartTorPowerUserMode(): Boolean {
         // android 14 awkwardly needs this permission to be explicitly granted to use the
         // FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED permission without grabbing a VPN Intent
         val alarmManager =
             requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
             PowerUserForegroundPermDialog().createTransactionAndShow(requireActivity())
-            turnOffSConnectSwitchWithoutEvent()
-            return // user can try again after granting permission
+            turnOffConnectSwitchWithoutEvent()
+            return false // user can try again after granting permission
         }
-        doLayoutStarting(requireContext())
-        setState(TorService.ACTION_START)
+        if (PowerUserBatteryOptimizations.shouldShowDialog(requireActivity())) {
+            PowerUserBatteryOptimizations().show(
+                requireActivity().supportFragmentManager,
+                PowerUserBatteryOptimizations.TAG
+            )
+        }
+        startTorConnection()
+        return true
     }
 
-    fun startTorVpn() {
+
+    // starts Tor, plus often the VPNService. For power users it runs tor as a proxy
+    fun startTorConnection() {
         doLayoutStarting(requireContext())
         setState(TorService.ACTION_START)
     }
@@ -209,7 +217,10 @@ class ConnectFragment : Fragment(),
     fun attemptToStartTor() {
         Prefs.putUseVpn(!Prefs.isPowerUserMode)
         if (Prefs.isPowerUserMode) {
-            attemptToStartTorPowerUserMode()
+            // if the user hasn't met all the conditions of power user mode
+            if (!attemptToStartTorPowerUserMode()) {
+                binding.switchConnect.isChecked = false
+            }
         } else {
             val vpnPrepareState =
                 VpnServicePrepareWrapper.orbotVpnServicePreparedState(requireContext())
@@ -217,7 +228,7 @@ class ConnectFragment : Fragment(),
             when (vpnPrepareState) {
 
                 is VpnServicePrepareWrapper.Result.Prepared ->
-                    startTorVpn()
+                    startTorConnection()
 
                 is VpnServicePrepareWrapper.Result.CantPrepare ->
                     displayVpnStartError(vpnPrepareState.errorMsg)
@@ -232,7 +243,7 @@ class ConnectFragment : Fragment(),
     }
 
     fun displayVpnStartError(msg: String) {
-        binding.switchConnect.isChecked = false
+        turnOffConnectSwitchWithoutEvent()
         VpnAlwaysOnDialog.newInstance(msg).show(
             requireActivity().supportFragmentManager,
             VpnAlwaysOnDialog.TAG
