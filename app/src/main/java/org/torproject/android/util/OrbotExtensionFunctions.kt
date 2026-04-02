@@ -71,7 +71,7 @@ fun Context.openBatteryOptimizationAppListScreen(): Intent {
 
 // requires android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
 @SuppressLint("BatteryLife")
-fun Context.disableBatteryOptimizationAggressive() : Intent {
+fun Context.disableBatteryOptimizationAggressive(): Intent {
     return Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
         flags = Intent.FLAG_ACTIVITY_NEW_TASK
         data = "package:${packageName}".toUri()
