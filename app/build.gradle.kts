@@ -1,6 +1,5 @@
 import com.android.build.api.dsl.ApplicationExtension
 import java.io.FileInputStream
-import java.net.URI
 import java.util.Date
 import java.util.Properties
 
@@ -84,8 +83,7 @@ configure<ApplicationExtension> {
             isShrinkResources = false
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.txt"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.txt"
             )
             signingConfig = signingConfigs.getByName("release")
         }
@@ -132,18 +130,35 @@ configure<ApplicationExtension> {
 
 }
 
-// Increments versionCode by ABI type
+val updateBuiltinBridges = tasks.register<UpdateBridgeConfig>("updateBuiltinBridges") {
+    onlyIf { enabledForVariant.getOrElse(false) }
+
+    assetsDir.set(layout.projectDirectory.dir("src/main/assets"))
+
+    val dateStr: String = providers.exec {
+        commandLine("git", "log", "-n", "1", "--date=unix", assetsDir.get().asFile.path)
+    }.standardOutput.asText.get().trim().split("\n").filter { it.contains("Date:") }[0]
+    gitLogUnixTimestamp.set(dateStr.substring("Date:".length).trim().split(" ")[0])
+
+    gitStatusOutput.set(providers.exec {
+        commandLine("git", "status", "--porcelain")
+    }.standardOutput.asText.map { it.trim() }.orElse(""))
+
+}
+
 androidComponents {
     onVariants { variant ->
-        variant.outputs.forEach { output ->
-            if (output.versionCode.get() == orbotBaseVersionCode) {
-                val incrementMap =
-                    mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 4, "x86_64" to 5)
-                val increment =
-                    incrementMap[output.filters.find { it.filterType.name == "ABI" }?.identifier]
-                        ?: 0
-                output.versionCode = (orbotBaseVersionCode) + increment
+        base {
+            archivesName.set("Orbot-${android.defaultConfig.versionName}")
+        }
+        if (variant.buildType == "release") {
+            updateBuiltinBridges.configure {
+                enabledForVariant.set(true)
             }
+            variant.sources.assets?.addGeneratedSourceDirectory(
+                updateBuiltinBridges,
+                UpdateBridgeConfig::assetsDir
+            )
         }
     }
 }
@@ -169,13 +184,13 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.work.kotlin)
     implementation(libs.upnp)
+    implementation(libs.quickie)
 
     // IPtProxy (for Snowflake, obfs4, dnstt and all other pluggable transports)
     implementation(libs.iptproxy)
     // uncomment to use a local build of IPtProxy:
     // implementation(files("../../IPtProxy/IPtProxy.aar"))
 
-    implementation(libs.quickie)
 
     // Tor
     implementation(files("../libs/geoip.jar"))
@@ -198,141 +213,13 @@ afterEvaluate {
     tasks.named("preBuild") {
         dependsOn(copyLicenseToAssets)
     }
-    tasks.matching {
-        it.name == "preFullpermReleaseBuild" ||
-                it.name == "preNightlyReleaseBuild"
-    }.configureEach {
-        dependsOn(updateBuiltinBridges)
-    }
+    tasks.named { it == "mergeNightlyDebugAssets" || it == "mergeFullpermDebugAssets" }
+        .configureEach {
+            mustRunAfter(updateBuiltinBridges)
+        }
 }
 
 val copyLicenseToAssets by tasks.registering(Copy::class) {
     from(rootProject.file("LICENSE"))
     into(layout.projectDirectory.dir("src/main/assets"))
-}
-
-val updateBuiltinBridges by tasks.registering {
-    onlyIf {
-        gradle.startParameter.taskNames.any {
-            it.contains("release", ignoreCase = true)
-        }
-    }
-    val assetsDir = layout.projectDirectory.dir("src/main/assets")
-    val outputFile = assetsDir.file("builtin-bridges.json").asFile
-    outputs.file(outputFile)
-
-    doLast {
-        assetsDir.asFile.mkdirs()
-        val oneDay = 60 * 60 * 24
-        val log: String =
-            providers.exec {
-                commandLine("git", "log", "-n", "1", "--date=unix", "$outputFile")
-            }.standardOutput.asText.get().trim()
-        val dateStr = log.split("\n").filter { it.contains("Date:") }[0]
-        val dateAsSeconds = dateStr.substring("Date:".length).trim().split(" ")[0].toLong()
-        val stale = Date().time / 1000 - dateAsSeconds > oneDay
-        if (!outputFile.exists() || stale) {
-            val bridgeUri = "https://bridges.torproject.org/moat/circumvention/builtin"
-            println("builtin-bridges.json missing or older than 24h, checking $bridgeUri for bridges...")
-            try {
-                URI(bridgeUri)
-                    .toURL()
-                    .openStream()
-                    .use { input ->
-                        outputFile.outputStream().use { output ->
-                            input.copyTo(output)
-                        }
-                    }
-                println("Successfully fetched builtin bridges.")
-
-                for (country in listOf(
-                    "ae",
-                    "af",
-                    "bd",
-                    "cn",
-                    "co",
-                    "global",
-                    "id",
-                    "ir",
-                    "kw",
-                    "pk",
-                    "qa",
-                    "ru",
-                    "sy",
-                    "tr",
-                    "ug",
-                    "uz"
-                )) {
-                    URI("https://raw.githubusercontent.com/dnstt-xyz/dnstt_xyz_app/refs/heads/main/assets/dns/$country.json")
-                        .toURL()
-                        .openStream()
-                        .use { input ->
-                            assetsDir.file("dns-$country.json").asFile.outputStream()
-                                .use { output ->
-                                    input.copyTo(output)
-                                }
-                        }
-                    println("Successfully fetched dns-$country.json.")
-                }
-            } catch (e: Exception) {
-                throw GradleException("ERROR: Could not fetch builtin bridges: ${e.message}", e)
-            }
-        } else {
-            println("builtin-bridges.json is fresh, skipping download.")
-        }
-
-        val statusOutput = try {
-            providers.exec {
-                commandLine("git", "status", "--porcelain")
-            }.standardOutput.asText.get().trim()
-        } catch (_: Exception) {
-            ""
-        }
-
-        if (statusOutput.isNotEmpty()) {
-            throw GradleException(
-                """
-                ERROR: Your working tree contains ${statusOutput.split("\n").size} uncommitted changes:
-                
-                $statusOutput
-
-                Please commit all changes (including builtin-bridges.json if updated)
-                BEFORE running a release build.
-
-                    git add -A
-                    git commit -m "Commit changes"
-
-                Then re-run:
-                    ./gradlew assembleRelease
-                """.trimIndent()
-            )
-        }
-    }
-}
-
-tasks.matching {
-    it.name.startsWith("assemble")
-}.configureEach {
-    finalizedBy(renameApkFiles)
-}
-
-val renameApkFiles by tasks.registering {
-    doLast {
-        val versionName = getVersionName().get()
-        val variantName = gradle.startParameter.taskNames
-            .find { it.contains("assemble") }
-            ?.substringAfter("assemble")
-            ?.replaceFirstChar { it.lowercase() }
-            ?: "debug"
-
-        listOf("nightly", "fullperm").forEach { flavor ->
-            layout.buildDirectory.dir("outputs/apk/$flavor/$variantName").get().asFile
-                .walkTopDown()
-                .filter { it.extension == "apk" }
-                .forEach { file ->
-                    val newName = file.name.replace("app-", "Orbot-${versionName}-")
-                    file.renameTo(File(file.parentFile, newName))
-                }
-        }
-    }
 }
