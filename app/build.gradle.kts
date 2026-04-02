@@ -1,7 +1,8 @@
 import com.android.build.api.dsl.ApplicationExtension
 import java.io.FileInputStream
 import java.net.URI
-import java.util.*
+import java.util.Date
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.kotlin.serialization)
@@ -316,20 +317,16 @@ tasks.matching {
 }
 
 val renameApkFiles by tasks.registering {
-    val requestedTasks: List<String> = gradle.startParameter.taskNames
-    val versionProvider = getVersionName()
-    val buildDirProvider = layout.buildDirectory
-
     doLast {
-        val versionName = versionProvider.get()
-        val variantName = requestedTasks
+        val versionName = getVersionName().get()
+        val variantName = gradle.startParameter.taskNames
             .find { it.contains("assemble") }
             ?.substringAfter("assemble")
             ?.replaceFirstChar { it.lowercase() }
             ?: "debug"
 
         listOf("nightly", "fullperm").forEach { flavor ->
-            buildDirProvider.dir("outputs/apk/$flavor/$variantName").get().asFile
+            layout.buildDirectory.dir("outputs/apk/$flavor/$variantName").get().asFile
                 .walkTopDown()
                 .filter { it.extension == "apk" }
                 .forEach { file ->
