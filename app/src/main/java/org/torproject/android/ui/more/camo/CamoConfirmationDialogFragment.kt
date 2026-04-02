@@ -3,7 +3,6 @@ package org.torproject.android.ui.more.camo
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
-import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import org.torproject.android.BuildConfig
 import org.torproject.android.R
@@ -31,7 +30,12 @@ class CamoConfirmationDialogFragment : DialogFragment() {
                 Prefs.camoAppDisplayName = camoAppName
                 Prefs.camoAppAltIconIndex = altIconValue
                 val disabledNames = mapping.values.filter { s -> s != activePackageName }
-                AppIconNameChanger.changeAppIcon(requireActivity(), BuildConfig.APPLICATION_ID, activePackageName, disabledNames)
+                AppIconNameChanger.changeAppIcon(
+                    requireActivity(),
+                    BuildConfig.APPLICATION_ID,
+                    activePackageName,
+                    disabledNames
+                )
                 activity?.finishAffinity()
             }
             .create()
@@ -44,14 +48,14 @@ class CamoConfirmationDialogFragment : DialogFragment() {
         const val TAG = "CamoConfirmDialog"
         fun newInstance(
             drawableId: Int,
-            name: Int,
+            nameStringId: Int,
             altIconValue: Int
         ): CamoConfirmationDialogFragment = CamoConfirmationDialogFragment().apply {
-            arguments = bundleOf(
-                BUNDLE_KEY_IMAGE_ID to drawableId,
-                BUNDLE_KEY_NAME to name,
-                BUNDLE_KEY_ALT_ICON_VAL to altIconValue
-            )
+            arguments = Bundle().apply {
+                putInt(BUNDLE_KEY_IMAGE_ID, drawableId)
+                putInt(BUNDLE_KEY_NAME, nameStringId)
+                putInt(BUNDLE_KEY_ALT_ICON_VAL, altIconValue)
+            }
         }
     }
 }

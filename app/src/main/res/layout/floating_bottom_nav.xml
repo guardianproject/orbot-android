@@ -9,12 +9,14 @@
     android:maxWidth="360dp">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="fill_parent"
+        android:layout_width="0dp"
         android:layout_height="72dp"
+        android:layout_marginHorizontal="16dp"
+        android:clipToPadding="false"
         android:clipChildren="false"
         app:cardBackgroundColor="@android:color/black"
         app:cardCornerRadius="32dp"
-        app:cardElevation="12dp"
+        app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
