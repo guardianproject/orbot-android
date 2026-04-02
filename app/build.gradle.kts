@@ -85,7 +85,7 @@ configure<ApplicationExtension> {
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.txt"
             )
-//            signingConfig = signingConfigs.getByName("release")
+            signingConfig = signingConfigs.getByName("release")
         }
         getByName("debug") {
             isDebuggable = true
@@ -146,10 +146,8 @@ val updateBuiltinBridges = tasks.register<UpdateBridgeConfig>("updateBuiltinBrid
 
 }
 
-
 androidComponents {
     onVariants { variant ->
-// Rename APKs (Replaces removed archivesBaseName)
         base {
             archivesName.set("Orbot-${android.defaultConfig.versionName}")
         }
@@ -159,7 +157,7 @@ androidComponents {
             }
             variant.sources.assets?.addGeneratedSourceDirectory(
                 updateBuiltinBridges,
-                UpdateBridgeConfig::assetsDir // Points to the @get:OutputDirectory in your class
+                UpdateBridgeConfig::assetsDir
             )
         }
     }
