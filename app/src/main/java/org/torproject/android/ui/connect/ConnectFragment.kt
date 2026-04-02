@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -125,22 +126,30 @@ class ConnectFragment : Fragment(),
                 binding.switchConnect.text = context?.getString(R.string.connect)
             }, DEFAULT_THROTTLE_INTERVAL)
         }
-        binding.switchConnect.setOnCheckedChangeListener { _, value ->
-            if (value) {
-                // display msg if optional outbound proxy config is invalid
-                if (Prefs.outboundProxy.second != null) {
-                    Toast.makeText(
-                        activity,
-                        getString(R.string.invalid_outbound_proxy_config),
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-                attemptToStartTor()
-            } else {
-                stopTorAndVpn()
-            }
-        }
+        binding.switchConnect.setOnCheckedChangeListener(onCheckChanged)
         refreshMenuList(requireContext())
+    }
+
+    private val onCheckChanged: CompoundButton.OnCheckedChangeListener = { _, value ->
+        if (value) {
+            // display msg if optional outbound proxy config is invalid
+            if (Prefs.outboundProxy.second != null) {
+                Toast.makeText(
+                    activity,
+                    getString(R.string.invalid_outbound_proxy_config),
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+            attemptToStartTor()
+        } else {
+            stopTorAndVpn()
+        }
+    }
+
+    private fun turnOffSConnectSwitchWithoutEvent() {
+        binding.switchConnect.setOnCheckedChangeListener(null)
+        binding.switchConnect.isChecked = false
+        binding.switchConnect.setOnCheckedChangeListener(onCheckChanged)
     }
 
 
@@ -185,6 +194,7 @@ class ConnectFragment : Fragment(),
             requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
             PowerUserForegroundPermDialog().createTransactionAndShow(requireActivity())
+            turnOffSConnectSwitchWithoutEvent()
             return // user can try again after granting permission
         }
         doLayoutStarting(requireContext())
