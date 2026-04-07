@@ -83,7 +83,7 @@
     <string name="restore_backup">Restaurar Backup</string>
     <string name="confirm_service_deletion">Confirmar a remoção do serviço</string>
     <string name="service_type">Tipo do Serviço</string>
-    <string name="please_restart_Orbot_to_enable_the_changes">Por favor reinicie Orbot para habilitar as mundanças</string>
+    <string name="please_restart_Orbot_to_enable_the_changes">Por favor, reinicie o Orbot para habilitar as mudanças</string>
     <string name="disable">Desabilitar</string>
     <string name="enable">Ativar</string>
     <string name="full_device_vpn">VPN PARA TODO O DISPOSITIVO</string>
@@ -117,7 +117,7 @@
     <string name="v3_backup_name_hint">Nome do arquivo de backup…</string>
     <string name="v3_delete_client_authorization_confirm">Exclua a autorização do cliente</string>
     <string name="v3_delete_client_authorization">Exclua a chave de autorização do cliente</string>
-    <string name="v3_backup_key_warning">Aviso: Isso pode expor a sua chave a os outros aplicativos</string>
+    <string name="v3_backup_key_warning">Aviso: Isso pode expor a sua chave aos outros aplicativos</string>
     <string name="v3_backup_key">Chave de autorização do cliente de backup</string>
     <string name="v3_onion">Domínio .onion</string>
     <string name="v3_key_hash">Chave privada x25519 na Base 32</string>
@@ -132,7 +132,7 @@
     <string name="strict_nodes_description">Trate as configurações de exclusão dos nós como um requisito para a construção de todos os circuitos. Isso pode quebrar a funcionalidade caso nenhum circuito seja capaz de ser gerado com as configurações de exclusão dos nós.</string>
     <string name="secure_your_connection_title">Pronto para conectar</string>
     <string name="connected_title">Conectado</string>
-    <string name="secure_your_connection_subtitle">Oculte o aplicativos do monitoramento da rede e obtenha acesso quando eles estiverem bloqueados.</string>
+    <string name="secure_your_connection_subtitle">Oculte os aplicativos do monitoramento da rede e obtenha acesso quando eles estiverem bloqueados.</string>
     <string name="btn_configure">Escolha como se conectar</string>
     <string name="volunteer_mode">Modo Bondade</string>
     <string name="trying_to_connect_title">Conectando…</string>
@@ -143,7 +143,7 @@
 \n
 \n• Não drena a sua bateria
 \n• Não desacelera a sua internet
-\n• Só funciona via wi-fi
+\n• Só funciona via Wi-Fi
 \n• Pode ser desligado a qualquer momento</string>
     <string name="direct_connect">Conexão direta</string>
     <string name="snowflake">Snowflake</string>
@@ -156,7 +156,7 @@
     <string name="smart_connect">Conexão Inteligente</string>
     <string name="direct_connect_subtitle">A melhor maneira de se conectar ao Tor. Use caso o Tor não esteja bloqueado.</string>
     <string name="snowflake_subtitle">Conecta-se através de voluntários do Tor. Contorna alguns bloqueios do Tor.</string>
-    <string name="power_user_description">Para usuários familiarizados com Tor. Permite que você inicie o Orbot sem a configuração VPN e mostra as portas SOCKS e HTTP que estejam abertas</string>
+    <string name="power_user_description">Para usuários familiarizados com o Tor. Permite que você inicie o Orbot sem a configuração VPN e mostra as portas SOCKS e HTTP que estejam abertas</string>
     <string name="action_activate">Ativar</string>
     <string name="volunteer_status_title">Hoje o dia está melhor
 \ngraças a você.</string>
@@ -165,14 +165,14 @@
     <string name="apps_suggested_title">Sugestões de aplicativos</string>
     <string name="apps_other_apps">Outros aplicativos</string>
     <string name="power_user_mode">Modo de usuário avançado</string>
-    <string name="hide_apps">Oculte os aplicativos de monitoramento da rede e obtenha acesso quando eles estiverem bloqueados.</string>
+    <string name="hide_apps">Oculte os aplicativos do monitoramento da rede e obtenha acesso quando eles estiverem bloqueados.</string>
     <string name="log_copied">Registro log copiado</string>
     <string name="snowflake_amp">Snowflake AMP</string>
     <string name="not_sure">Não tem certeza?</string>
     <string name="kindness_config_detail">Configure como e quando o seu dispositivo pode atuar como um proxy Snowflake para outros usuários do Tor.</string>
     <string name="many_ways">Existem muitas maneiras de chegar ao Tor. Alguns podem funcionar melhor do que outros para você.</string>
     <string name="ask_tor">Pergunte ao Tor</string>
-    <string name="asking">PEDIDO…</string>
+    <string name="asking">PEDINDO…</string>
     <string name="no_internet_title">Conectar à internet</string>
     <string name="kindness_adjust_title">Configurações</string>
     <string name="no_internet_subtitle">Você precisa de uma conexão com a Internet para usar o Orbot.</string>
@@ -182,7 +182,7 @@
     <string name="pref_isolate_protocol_summary">Utilize um circuito diferente para cada protocolo de conexão</string>
     <string name="btn_copy_log">Copiar os registros</string>
     <string name="setting_debug">Depurar</string>
-    <string name="option_only_on_wifi">Apenas no WiFi</string>
+    <string name="option_only_on_wifi">Apenas no Wi-Fi</string>
     <string name="option_only_when_charging">Apenas ao carregar</string>
     <string name="menu_kindness">Bondade</string>
     <string name="setting_padding">Preenchimento</string>
@@ -190,8 +190,8 @@
     <string name="root_warning">O Orbot detectou que o seu dispositivo tem root, isso pode causar sérios problemas de segurança.</string>
     <string name="pref_detect_root_summary">Avisar durante a inicialização se as permissões root estão ativadas neste dispositivo</string>
     <string name="pref_detect_root_title">Detecção root</string>
-    <string name="status_starting_up">O Orbot está a iniciar…</string>
-    <string name="status_activated">Conetado à rede Tor</string>
+    <string name="status_starting_up">O Orbot está iniciando…</string>
+    <string name="status_activated">Conectado à rede Tor</string>
     <string name="status_disabled">O Orbot está desativado</string>
     <string name="couldn_t_start_tor_process_">Não foi possível iniciar o processo Tor: </string>
     <string name="unable_to_start_tor">Não é possível iniciar o Tor:</string>
@@ -230,7 +230,7 @@
     <string name="power_user_mode_permission">Alarmes e lembretes: Permissão necessária para o Modo de usuário avançado</string>
     <string name="power_user_mode_permission_msg">Por favor, permita que o Orbot defina alarmes e lembretes para usar o modo de usuário avançado. Isso não definirá nenhum alarme no seu dispositivo. Essa permissão é necessária para que o sistema mantenha o OrbotService em execução quando o Orbot não estiver sendo usado como VPN em todo o sistema.</string>
     <string name="request_notification_permission">Por favor, ative as notificações para o Orbot</string>
-    <string name="request_notification_permission_msg">Sem ativar as notificações, o Orbot não pode funcionar como uma VPN Tor nem usar o Modo Gentileza.\n\nQuando ativadas, exibimos apenas uma notificação quando o Orbot está em execução.</string>
+    <string name="request_notification_permission_msg">Sem ativar as notificações, o Orbot não pode funcionar como uma VPN Tor nem usar o Modo Bondade.\n\nQuando ativadas, exibimos apenas uma notificação quando o Orbot está em execução.</string>
     <string name="open_settings">Abra as configurações</string>
     <string name="error_no_password_set">Você precisa definir uma senha para o seu dispositivo Android para usar o recurso de tela de bloqueio</string>
     <string name="device_lock_unsupported">A autenticação Orbot não é compatível com o seu dispositivo</string>
@@ -255,7 +255,7 @@
     <string name="search_for_apps">Pesquisar por apps</string>
     <string name="apps_updated_msg">Apps atualizados</string>
     <string name="title_safety">Seguro</string>
-    <string name="setting_app_icon_title">ícone do app</string>
+    <string name="setting_app_icon_title">Ícone do app</string>
     <string name="setting_app_icon_description">Escolha como o Orbot aparecerá no seu dispositivo</string>
     <string name="setting_block_screenshot_title">Bloquear capturas de tela</string>
     <string name="setting_block_screenshot_description">Impede que qualquer pessoa tire capturas de tela deste aplicativo</string>
