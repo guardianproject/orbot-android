@@ -55,7 +55,7 @@ class ConfigConnectionBottomSheet :
     }
 
     companion object {
-        const val TAG = "ConfigConnectionBttmSheet"
+        const val TAG = "ConfigConnectionBottomSheet"
     }
 
     override fun onCreateView(
@@ -65,7 +65,11 @@ class ConfigConnectionBottomSheet :
 
         binding.tvCountryClear.setOnClickListener {
             Prefs.bridgeCountry = null
+            selectedCountryCode = null
+
             binding.acCountry.setText(null)
+
+            updateDnsttVisibility()
         }
 
         binding.acCountry.setAdapter(
@@ -260,7 +264,7 @@ class ConfigConnectionBottomSheet :
 
     override fun onFocusChange(view: View?, hasFocus: Boolean) {
         if (hasFocus) {
-            Log.wtf("bim", "RETURNING HREE")
+            Log.wtf(TAG, "onFocusChange() called with hasFocus == true")
             return
         }
 
@@ -279,15 +283,7 @@ class ConfigConnectionBottomSheet :
             selectedCountryCode = null
         }
 
-        if (BuiltInBridges.dnsCountries.contains(selectedCountryCode?.lowercase())) {
-            binding.dnsttContainer.visibility = View.VISIBLE
-        } else {
-            binding.dnsttContainer.visibility = View.GONE
-
-            if (binding.rbDnstt.isChecked) {
-                binding.rbDirect.isChecked = true
-            }
-        }
+        updateDnsttVisibility()
 
         Prefs.bridgeCountry = selectedCountryCode
     }
@@ -430,5 +426,17 @@ class ConfigConnectionBottomSheet :
             ?.hideSoftInputFromWindow(binding.acCountry.windowToken, 0)
 
         binding.acCountry.clearFocus()
+    }
+
+    private fun updateDnsttVisibility() {
+        if (BuiltInBridges.dnsCountries.contains(selectedCountryCode?.lowercase())) {
+            binding.dnsttContainer.visibility = View.VISIBLE
+        } else {
+            binding.dnsttContainer.visibility = View.GONE
+
+            if (binding.rbDnstt.isChecked) {
+                binding.rbDirect.isChecked = true
+            }
+        }
     }
 }
