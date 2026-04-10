@@ -148,6 +148,16 @@ val updateBuiltinBridges = tasks.register<UpdateBridgeConfig>("updateBuiltinBrid
 
 androidComponents {
     onVariants { variant ->
+        variant.outputs.forEach { output ->
+            if (output.versionCode.get() == orbotBaseVersionCode) {
+                val incrementMap =
+                    mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 4, "x86_64" to 5)
+                val increment =
+                    incrementMap[output.filters.find { it.filterType.name == "ABI" }?.identifier]
+                        ?: 0
+                output.versionCode = (orbotBaseVersionCode) + increment
+            }
+        }
         base {
             archivesName.set("Orbot-${android.defaultConfig.versionName}")
         }
