@@ -285,4 +285,15 @@
     <string name="kindness_mode_cant_run_with_bridge">当您使用网桥连接到 Tor 网络，善举模式无法运行。</string>
     <string name="kindness_mode_cant_run_in_your_country">由于您所在国家/地区的审查，目前无法使用善举模式帮助他人连接到 Tor 网络。</string>
     <string name="kindness_mode_disclaimer_bridge">如果您身处受审查的地区，或者您需要使用网桥连接到 Tor 网络，请勿使用善举模式。</string>
+    <string name="battery_optimization_title">禁用电池优化</string>
+    <string name="battery_optimization_pref_msg">针对怀疑设备在后台运行时过早终止 Orbot 的部分用户的设置。</string>
+    <string name="battery_optimization_dialog_msg">某些 Android 设备可能会在 Orbot 后台运行时将其终止。对于大多数希望确保 Orbot 保持连接并运行的用户，只需在系统设置中将 Orbot 设置为“始终开启的 VPN”即可。不过，如果您认为有必要，仍可继续操作以防止设备对 Orbot 执行任何电池优化。</string>
+    <string name="battery_optimization_dialog_msg_instructions">在下一个屏幕中，选择 Orbot → 允许后台使用 → 无限制。</string>
+    <string name="battery_optimization_dialog_msg_disclaimer">请注意，对于大多数设备，禁用电池优化会导致电池电量比平时更快耗尽…</string>
+    <string name="battery_optimizations_dialog_btn_disable">打开电池优化设置</string>
+    <string name="battery_optimizations_dialog_msg_power_user">某些 Android 设备在 Orbot 以高级用户模式作为后台服务运行时可能会将其终止。您随时可以在 Orbot 的设置中禁用或重新启用电池优化…</string>
+    <string name="battery_optimizations_are_disabled">目前已为 Orbot 禁用电池优化…</string>
+    <string name="battery_optimizations_are_enabled">目前已为 Orbot 启用电池优化。这是默认设置，对大多数用户来说是合理的…</string>
+    <string name="btn_connect_anyway">仍要连接</string>
+    <string name="btn_connect_anyway_stop_showing">连接并关闭此警告</string>
 </resources>
