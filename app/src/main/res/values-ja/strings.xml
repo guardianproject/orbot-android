@@ -280,4 +280,21 @@
     <string name="unable_to_start_other_vpn_app_error_msg">アプリ %1$s は「常時接続」VPN として設定されています。Orbot を起動する前に無効にしてください。</string>
     <string name="unable_to_start_unknown_reason_error_msg">VPN の権限が拒否されたか、別の VPN アプリで「常時接続 VPN」機能が有効になっています。誤って前の VPN リクエストダイアログを閉じた場合は、これを閉じて再接続できます。技術に詳しいユーザーは、別の VPN アプリを使用し、Orbot のパワーユーザーモードを有効にして Tor を SOCKS プロキシとして利用できます。</string>
     <string name="open_vpn_settings">Android の VPN 設定を開く</string>
+    <string name="country_clear">国を削除</string>
+    <string name="kindness_mode_cant_start">Kindness Mode を開始できません</string>
+    <string name="kindness_never_had_a_direct_connection">Kindness Mode を使用するには、少なくとも 1 回は (ブリッジを使用せずに) 直接 Tor に接続する必要があります。接続が完了したら、このページに戻って Kindness Mode を有効にしてください。この直接接続のテストが完了すれば、Tor に接続しているかどうかに関わらず Kindness Mode を利用できるようになります。</string>
+    <string name="kindness_mode_cant_run_with_bridge">ブリッジを使用して Tor に接続している間は、Kindness Mode を実行できません。</string>
+    <string name="kindness_mode_cant_run_in_your_country">他のユーザーが Tor へ接続できるよう支援する Kindness Mode は、現在お住まいの国の検閲により利用できません。</string>
+    <string name="kindness_mode_disclaimer_bridge">検閲が行われている地域にお住まいの場合や、Tor に接続するためにブリッジを使用する必要がある場合は、Kindness Mode を使用しないでください。</string>
+    <string name="battery_optimization_title">バッテリーの最適化を無効にする</string>
+    <string name="battery_optimization_pref_msg">バックグラウンドで実行中の Orbot をデバイスが強制終了していると思われる一部のユーザー向けの設定です。</string>
+    <string name="battery_optimization_dialog_msg">一部の Android デバイスでは、バックグラウンドで実行されている Orbot が強制終了される場合があります。Orbot を常に接続・動作させておきたいほとんどのユーザーにとっては、システム設定で Orbot を「常時接続」VPN として機能するように設定するだけで十分です。ただし、必要に応じて、デバイスが Orbot に対してバッテリー最適化を行わないようにすることもできます。</string>
+    <string name="battery_optimization_dialog_msg_instructions">次の画面で Orbot →「バックグラウンドでの使用を許可」→「制限なし」を選択してください。</string>
+    <string name="battery_optimization_dialog_msg_disclaimer">ほとんどのデバイスでは、バッテリー最適化機能を無効にすると、通常よりもバッテリーの消耗が早くなりますのでご注意ください。</string>
+    <string name="battery_optimizations_dialog_btn_disable">バッテリー最適化の設定を開く</string>
+    <string name="battery_optimizations_dialog_msg_power_user">一部の Android デバイスでは、Orbot がパワーユーザーモードでバックグラウンドサービスとして実行されている際に、アプリが強制終了される場合があります。バッテリー最適化は、Orbot の設定からいつでも無効化・再有効化することができます。</string>
+    <string name="battery_optimizations_are_disabled">Orbot のバッテリー最適化は現在無効になっています</string>
+    <string name="battery_optimizations_are_enabled">Orbot のバッテリー最適化は現在有効になっています。これはデフォルトの設定であり、ほとんどのユーザーにとって適切な設定です。</string>
+    <string name="btn_connect_anyway">とにかく接続する</string>
+    <string name="btn_connect_anyway_stop_showing">接続してこの警告をオフにする</string>
 </resources>
