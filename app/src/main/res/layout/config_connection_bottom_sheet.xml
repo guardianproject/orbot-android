@@ -86,7 +86,7 @@
                 android:id="@+id/tvCountryClear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
+                android:layout_marginEnd="16dp"
                 android:text="@string/country_clear"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
