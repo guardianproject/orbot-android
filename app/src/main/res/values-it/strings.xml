@@ -286,4 +286,15 @@
     <string name="kindness_mode_cant_run_with_bridge">La modalità altruismo non può funzionare mentre usi un bridge per connetterti a Tor.</string>
     <string name="kindness_mode_cant_run_in_your_country">L\'uso della modalità altruismo, per aiutare altre persone a connettersi a Tor, è attualmente disattivato per la tua nazione a causa della censura.</string>
     <string name="kindness_mode_disclaimer_bridge">Non usare la modalità altruismo se ti trovi in una regione in cui si viene censurati o se ti serve usare un bridge per connetterti a Tor.</string>
+    <string name="battery_optimization_title">Disattiva ottimizzazioni della batteria</string>
+    <string name="battery_optimization_pref_msg">Opzione per alcuni utenti che sospettano che il loro dispositivo chiuda prematuramente Orbot mentre è in secondo piano.</string>
+    <string name="battery_optimization_dialog_msg">Alcuni dispositivi Android potrebbero chiudere Orbot mentre è in secondo piano. Per la maggior parte degli utenti che vogliono assicurarsi che Orbot rimanga connesso e in esecuzione, è sufficiente impostare Orbot per funzionare come una VPN \"sempre attiva\" nelle impostazioni del sistema. Tuttavia, puoi procedere ad impedire al dispositivo di eseguire qualsiasi ottimizzazione della batteria su Orbot se necessario.</string>
+    <string name="battery_optimization_dialog_msg_instructions">Nella schermata successiva seleziona Orbot → Consenti l\'utilizzo in background → Senza limitazioni.</string>
+    <string name="battery_optimization_dialog_msg_disclaimer">Si noti che per la maggior parte dei dispositivi, disattivare le ottimizzazioni della batteria scaricherà la batteria più velocemente…</string>
+    <string name="battery_optimizations_dialog_btn_disable">Apri impostazioni di ottimizzazione della batteria</string>
+    <string name="battery_optimizations_dialog_msg_power_user">Alcuni dispositivi Android potrebbero chiudere Orbot quando funziona in secondo piano in Modalità utente esperto. Puoi sempre decidere di disattivare/riattivare le ottimizzazioni della batteria in un secondo momento dall\'interno delle impostazioni di Orbot…</string>
+    <string name="battery_optimizations_are_disabled">Le ottimizzazioni della batteria sono attualmente disattivate per Orbot…</string>
+    <string name="battery_optimizations_are_enabled">Le ottimizzazioni della batteria sono attualmente attive per Orbot. Ciò è predefinito ed è ragionevole per la maggior parte degli utenti…</string>
+    <string name="btn_connect_anyway">Connetti comunque</string>
+    <string name="btn_connect_anyway_stop_showing">Connetti e disattiva questo avviso</string>
 </resources>

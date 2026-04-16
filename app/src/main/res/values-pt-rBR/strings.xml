@@ -288,4 +288,26 @@
     <string name="added_bridges_from_qr">Adicionando pontes %1$d a partir do código QR</string>
     <string name="invalid_bridge_qr_code">Código QR da ponte inválido</string>
     <string name="you_already_have_these_bridges">Você já adicionou as pontes neste código QR</string>
+    <string name="country_clear">Remover país</string>
+    <string name="unable_to_start_orbot_vpn_title">Não foi possível iniciar o Orbot VPN</string>
+    <string name="unable_to_start_legacy_vpn_error_msg">Existe um perfil VPN personalizado configurado para permanecer \"sempre ativo\". Desative-o antes de iniciar o Orbot.</string>
+    <string name="unable_to_start_other_vpn_app_error_msg">O aplicativo %1$s está configurado para ser uma VPN \"sempre ativa\". Desative-o antes de iniciar o Orbot.</string>
+    <string name="unable_to_start_unknown_reason_error_msg">A permissão de VPN foi negada ou outro aplicativo de VPN tem o recurso \"VPN sempre ativa\" habilitado. Você pode ignorar esta mensagem e reconectar-se caso tenha fechado a caixa de diálogo de solicitação de VPN anterior por engano. Usuários com conhecimento técnico podem usar outro aplicativo de VPN e o Tor como proxy SOCKS ativando o Modo de Usuário Avançado do Orbot.</string>
+    <string name="open_vpn_settings">Abra as configurações de VPN do Android</string>
+    <string name="kindness_mode_cant_start">Não foi possível iniciar o Modo Bondade</string>
+    <string name="kindness_never_had_a_direct_connection">Para usar o Modo Gentileza, você precisa ter se conectado diretamente ao Tor (sem usar nenhuma ponte) pelo menos uma vez. Após se conectar, volte aqui para ativar o Modo Gentileza. Depois de concluir este teste de conexão direta, você poderá usar o Modo Gentileza, esteja conectado ao Tor ou não.</string>
+    <string name="kindness_mode_cant_run_with_bridge">O Modo Bondade não funciona enquanto você estiver usando uma ponte para se conectar ao Tor.</string>
+    <string name="kindness_mode_cant_run_in_your_country">O uso do Modo Bondade para ajudar outras pessoas a se conectarem ao Tor está desativado no momento em seu país devido à censura.</string>
+    <string name="kindness_mode_disclaimer_bridge">Não utilize o Modo Bondade se estiver numa região onde a sua internet é censurada ou se precisar de usar uma ponte para se conectar à rede Tor.</string>
+    <string name="battery_optimization_title">Desativar otimizações de bateria</string>
+    <string name="battery_optimization_pref_msg">Configuração para alguns usuários que suspeitam que seus dispositivos estejam encerrando o Orbot prematuramente enquanto ele é executado em segundo plano.</string>
+    <string name="battery_optimization_dialog_msg">Alguns dispositivos Android podem encerrar o Orbot enquanto ele estiver sendo executado em segundo plano. Para a maioria dos usuários que desejam garantir que o Orbot permaneça conectado e funcionando, basta configurá-lo para funcionar como uma VPN \"Sempre Ativa\" nas configurações do sistema. No entanto, você ainda pode impedir que seu dispositivo execute otimizações de bateria no Orbot, se achar necessário.</string>
+    <string name="battery_optimization_dialog_msg_instructions">Na tela seguinte, selecione Orbot → Permitir uso em segundo plano → Sem restrições.</string>
+    <string name="battery_optimization_dialog_msg_disclaimer">Observe que, na maioria dos dispositivos, desativar as otimizações de bateria fará com que a bateria do seu dispositivo descarregue mais rapidamente do que o normal…</string>
+    <string name="battery_optimizations_dialog_btn_disable">Abrir configurações de otimização de bateria</string>
+    <string name="battery_optimizations_dialog_msg_power_user">Alguns dispositivos Android podem encerrar o Orbot quando ele é executado em segundo plano no Modo de Usuário Avançado. Você sempre pode desativar/reativar as otimizações de bateria posteriormente nas configurações do Orbot…</string>
+    <string name="battery_optimizations_are_disabled">As otimizações de bateria estão atualmente desativadas para o Orbot…</string>
+    <string name="battery_optimizations_are_enabled">As otimizações de bateria estão ativas no Orbot. Essa é a configuração padrão e é adequada para a maioria dos usuários…</string>
+    <string name="btn_connect_anyway">Conecte-se mesmo assim</string>
+    <string name="btn_connect_anyway_stop_showing">Conecte e desative este aviso</string>
 </resources>
