@@ -292,4 +292,15 @@
     <string name="kindness_mode_cant_run_with_bridge">Kindness Mode can\'t run while you are using a bridge to connect to Tor.</string>
     <string name="kindness_mode_cant_run_in_your_country">Using Kindness Mode to help other people connect to Tor is currently disabled for your country because of censorship.</string>
     <string name="kindness_mode_disclaimer_bridge">Don\'t Use Kindness Mode if you are in a region where you are censored or if you need to use a bridge to connect to Tor.</string>
+    <string name="battery_optimization_title">Disable Battery Optimisations</string>
+    <string name="battery_optimization_pref_msg">Setting for some users that suspect their device is prematurely killing Orbot while it runs in the background.</string>
+    <string name="battery_optimization_dialog_msg">Certain Android devices may kill Orbot as it runs in the background. For most users who want to make sure Orbot stays connected and running, it\'s sufficient to set Orbot to function as an \"Always-on\" VPN in the system settings. However, you may still proceed to prevent your device from performing any battery optimisations on Orbot if you feel it to be necessary.</string>
+    <string name="battery_optimization_dialog_msg_instructions">On the next screen select Orbot → Allow background usage → Unrestricted.</string>
+    <string name="battery_optimization_dialog_msg_disclaimer">Note that for most devices, disabling battery optimisations will drain your device\'s battery faster than normal…</string>
+    <string name="battery_optimizations_dialog_btn_disable">Open Battery Optimisation Settings</string>
+    <string name="battery_optimizations_dialog_msg_power_user">Certain Android devices may terminate Orbot when it runs as a background service in Power User Mode. You can always decide to disable/re-enable battery optimisations at a later point from within Orbot\'s settings…</string>
+    <string name="battery_optimizations_are_disabled">Battery Optimisations are currently disabled for Orbot…</string>
+    <string name="battery_optimizations_are_enabled">Battery Optimisations are currently active for Orbot. This is the default and is reasonable for most users…</string>
+    <string name="btn_connect_anyway">Connect Anyway</string>
+    <string name="btn_connect_anyway_stop_showing">Connect and Turn Off This Warning</string>
 </resources>
