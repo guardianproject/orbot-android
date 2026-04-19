@@ -12,7 +12,8 @@
         android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"
+        tools:ignore="ForegroundServicesPolicy" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -44,8 +45,10 @@
     <application
         android:name=".OrbotApp"
         android:allowBackup="false"
+        android:fullBackupContent="false"
         android:allowClearUserData="true"
         android:configChanges="locale|orientation|screenSize"
+        android:dataExtractionRules="@xml/data_extraction_rules"
         android:description="@string/app_description"
         android:hasFragileUserData="false"
         android:icon="@mipmap/ic_launcher"
@@ -53,7 +56,8 @@
         android:supportsRtl="true"
         android:taskAffinity=""
         android:theme="@style/DefaultTheme"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="29">
 
         <activity
             android:name="org.torproject.android.OrbotActivity"
@@ -124,7 +128,8 @@
             android:foregroundServiceType="systemExempted"
             android:permission="android.permission.BIND_VPN_SERVICE"
             android:process=":tor"
-            android:stopWithTask="false">
+            android:stopWithTask="false"
+            tools:ignore="VpnServicePolicy">
             <intent-filter>
                 <action android:name="android.net.VpnService" />
             </intent-filter>
