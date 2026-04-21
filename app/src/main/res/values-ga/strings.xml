@@ -284,4 +284,15 @@
     <string name="kindness_mode_cant_run_with_bridge">Ní féidir Mód Cineáltais a rith agus tú ag úsáid droichead chun ceangal le Tor.</string>
     <string name="kindness_mode_cant_run_in_your_country">Tá úsáid Mód Cineáltais chun cabhrú le daoine eile ceangal le Tor díchumasaithe faoi láthair i do thír mar gheall ar chinsireacht.</string>
     <string name="kindness_mode_disclaimer_bridge">Ná húsáid Mód Cineáltais má tá tú i réigiún ina bhfuil cinsireacht ort nó má theastaíonn uait droichead a úsáid chun ceangal le Tor.</string>
+    <string name="battery_optimization_title">Díchumasaigh Optamaithe Ceallraí</string>
+    <string name="battery_optimization_pref_msg">Socrú do roinnt úsáideoirí a bhfuil amhras orthu go bhfuil a ngléas ag marú Orbot roimh am agus é ag rith sa chúlra.</string>
+    <string name="battery_optimization_dialog_msg">D’fhéadfadh gléasanna áirithe Android Orbot a mharú agus é ag rith sa chúlra. I gcás fhormhór na n-úsáideoirí ar mian leo a chinntiú go bhfanann Orbot ceangailte agus ag rith, is leor Orbot a shocrú chun feidhmiú mar VPN \"I gcónaí ar siúl\" i socruithe an chórais. Mar sin féin, féadfaidh tú fós cosc a chur ar do ghléas aon uasmhéaduithe ceallraí a dhéanamh ar Orbot má cheapann tú go bhfuil gá leis.</string>
+    <string name="battery_optimization_dialog_msg_instructions">Ar an gcéad scáileán eile roghnaigh Orbot → Ceadaigh úsáid sa chúlra → Gan srian.</string>
+    <string name="battery_optimization_dialog_msg_disclaimer">Tabhair faoi deara, i gcás fhormhór na ngléasanna, go ndéanfaidh díchumasú optamaithe ceallraí do ghléis a ídiú níos tapúla ná mar is gnách…</string>
+    <string name="battery_optimizations_dialog_btn_disable">Oscail Socruithe Optamaithe Ceallraí</string>
+    <string name="battery_optimizations_dialog_msg_power_user">D’fhéadfadh feistí Android áirithe deireadh a chur le Orbot nuair a ritheann sé mar sheirbhís chúlra i Mód Úsáideora Cumhachta. Is féidir leat cinneadh a dhéanamh i gcónaí uasmhéaduithe ceallraí a dhíchumasú/a athchumasú ag pointe níos déanaí ó shocruithe Orbot…</string>
+    <string name="battery_optimizations_are_disabled">Tá Optamaithe Ceallraí díchumasaithe faoi láthair do Orbot…</string>
+    <string name="battery_optimizations_are_enabled">Tá Optamaithe Ceallraí gníomhach faoi láthair do Orbot. Seo an réamhshocrú agus tá sé réasúnta do fhormhór na n-úsáideoirí…</string>
+    <string name="btn_connect_anyway">Ceangail Ar Aon Slí</string>
+    <string name="btn_connect_anyway_stop_showing">Ceangail agus Múch an Rabhadh seo</string>
 </resources>

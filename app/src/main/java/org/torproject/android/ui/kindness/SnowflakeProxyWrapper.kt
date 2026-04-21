@@ -88,6 +88,10 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
                     ) {
                         // Ignored.
                     }
+
+                    override fun natTypeUpdated(foo: String) {
+                        // TODO feature added in IPtProxt 5.4.1
+                    }
                 }
 
                 // Setting these to 0 is equivalent to not setting them at all.
@@ -96,6 +100,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
 
                 this?.start()
             }
+
         }
     }
 
