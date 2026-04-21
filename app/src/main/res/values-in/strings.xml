@@ -280,4 +280,21 @@
     <string name="unable_to_start_other_vpn_app_error_msg">Aplikasi %1$s dikonfigurasi sebagai VPN \"Always-on\". Harap nonaktifkan sebelum memulai Orbot.</string>
     <string name="unable_to_start_unknown_reason_error_msg">Izin VPN ditolak atau aplikasi VPN lain memiliki fitur \"Always-on VPN\" yang diaktifkan. Anda dapat mengabaikan ini dan menyambung kembali jika Anda keluar dari dialog VPN Request sebelumnya secara tidak sengaja. Pengguna teknis dapat menggunakan aplikasi VPN lain dan menggunakan Tor sebagai SOCKS Proxy dengan mengaktifkan Mode Pengguna Mahir Orbot.</string>
     <string name="open_vpn_settings">Buka Pengaturan VPN Android</string>
+    <string name="country_clear">Hapus Negara</string>
+    <string name="kindness_mode_cant_start">Tidak Dapat Memulai Mode Kebaikan</string>
+    <string name="kindness_never_had_a_direct_connection">Untuk menggunakan Mode Kebaikan, Anda perlu pernah terhubung langsung ke Tor (tanpa menggunakan jembatan apa pun) setidaknya sekali. Setelah terhubung, silakan kembali ke sini untuk mengaktifkan Mode Kebaikan. Setelah menyelesaikan uji koneksi langsung ini, Anda bebas menggunakan Mode Kebaikan baik saat terhubung ke Tor maupun tidak.</string>
+    <string name="kindness_mode_cant_run_with_bridge">Mode Kebaikan tidak dapat berjalan saat Anda menggunakan jembatan untuk terhubung ke Tor.</string>
+    <string name="kindness_mode_cant_run_in_your_country">Penggunaan Mode Kebaikan untuk membantu orang lain terhubung ke Tor saat ini dinonaktifkan untuk negara Anda karena penyensoran.</string>
+    <string name="kindness_mode_disclaimer_bridge">Jangan Gunakan Mode Kebaikan jika Anda berada di wilayah yang disensor atau jika Anda perlu menggunakan jembatan untuk terhubung ke Tor.</string>
+    <string name="battery_optimization_title">Nonaktifkan Optimasi Baterai</string>
+    <string name="battery_optimization_pref_msg">Pengaturan untuk beberapa pengguna yang menduga perangkat mereka menghentikan Orbot secara dini saat berjalan di latar belakang.</string>
+    <string name="battery_optimization_dialog_msg">Perangkat Android tertentu mungkin menghentikan Orbot saat berjalan di latar belakang. Bagi sebagian besar pengguna yang ingin memastikan Orbot tetap terhubung dan berjalan, sudah cukup dengan mengatur Orbot agar berfungsi sebagai VPN \"Selalu aktif\" di pengaturan sistem. Namun, Anda tetap dapat mencegah perangkat melakukan optimasi baterai pada Orbot jika dirasa perlu.</string>
+    <string name="battery_optimization_dialog_msg_instructions">Pada layar berikutnya pilih Orbot → Izinkan penggunaan latar belakang → Tidak terbatas.</string>
+    <string name="battery_optimization_dialog_msg_disclaimer">Perlu diketahui bahwa pada sebagian besar perangkat, menonaktifkan optimasi baterai akan menguras baterai perangkat Anda lebih cepat dari biasanya…</string>
+    <string name="battery_optimizations_dialog_btn_disable">Buka Pengaturan Optimasi Baterai</string>
+    <string name="battery_optimizations_dialog_msg_power_user">Perangkat Android tertentu mungkin menghentikan Orbot saat berjalan sebagai layanan latar belakang dalam Mode Pengguna Tingkat Lanjut. Anda selalu dapat menonaktifkan/mengaktifkan kembali optimasi baterai di lain waktu melalui pengaturan Orbot…</string>
+    <string name="battery_optimizations_are_disabled">Optimasi Baterai saat ini dinonaktifkan untuk Orbot…</string>
+    <string name="battery_optimizations_are_enabled">Optimasi Baterai saat ini aktif untuk Orbot. Ini adalah pengaturan bawaan dan wajar bagi sebagian besar pengguna…</string>
+    <string name="btn_connect_anyway">Tetap Hubungkan</string>
+    <string name="btn_connect_anyway_stop_showing">Hubungkan dan Matikan Peringatan Ini</string>
 </resources>
