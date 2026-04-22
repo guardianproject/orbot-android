@@ -129,15 +129,7 @@
     <string name="app_suggested_subtitle">Orbot fonctionne mieux avec les applications de messagerie et de médias sociaux.</string>
     <string name="apps_suggested_title">Applications suggérées</string>
     <string name="apps_other_apps">Autres applications</string>
-    <string name="volunteer_mode_title">Aidez les autres
-\nà se connecter à Tor</string>
     <string name="volunteer_mode_alltime_label">Grand total</string>
-    <string name="volunteer_mode_subtitle_desc">Le mode gentillesse permet à votre appareil d\'être un pont pour les autres. Il aide les gens à utiliser Tor dans les endroits où il est bloqué.
-\n
-\n- Il n\'épuise pas votre batterie
-\n- Il ne ralentit pas l\'accès à l\'internet
-\n- Il ne peut fonctionner qu\'en wifi
-\n- Il peut être désactivé à tout moment</string>
     <string name="smart_connect">Connexion intelligente</string>
     <string name="direct_connect">Connexion directe</string>
     <string name="direct_connect_subtitle">La meilleure façon de se connecter à Tor. À utiliser si Tor n’est pas bloqué.</string>

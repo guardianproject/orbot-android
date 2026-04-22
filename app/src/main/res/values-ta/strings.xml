@@ -100,8 +100,6 @@
     <string name="pref_circuit_padding">சுற்று திணிப்பு</string>
     <string name="pref_circuit_padding_summary">சில வகையான போக்குவரத்து பகுப்பாய்விற்கு எதிராக பாதுகாக்க சர்க்யூட் பேடிங்கை இயக்கவும்</string>
     <string name="pref_prefer_ipv6">IPv6 இணைப்புகளை விரும்புங்கள்</string>
-    <string name="volunteer_mode_title">மற்றவர்களுக்கு உதவுங்கள்\n TOR உடன் இணைக்கவும்</string>
-    <string name="volunteer_mode_subtitle_desc">கருணை பயன்முறை உங்கள் சாதனம் மற்றவர்களுக்கு ஒரு பாலமாக இருக்க அனுமதிக்கிறது. இது தடுக்கப்பட்ட இடங்களில் டோர் பயன்படுத்த மக்களுக்கு உதவுகிறது.\n\n • இது உங்கள் பேட்டரியை வடிகட்டாது\n • இது உங்கள் இணையத்தை மெதுவாக்காது\n • இது வைஃபை மீது மட்டுமே இயங்க முடியும்\n • இதை எப்போது வேண்டுமானாலும் அணைக்கலாம்</string>
     <string name="smart_connect">அறிவுள்ள கனெக்ட்</string>
     <string name="hide_apps">பிணைய கண்காணிப்பிலிருந்து பயன்பாடுகளை மறைத்து, அவை தடுக்கப்படும்போது அணுகலைப் பெறுங்கள்.</string>
     <string name="btn_copy_log">நகல் பதிவு</string>

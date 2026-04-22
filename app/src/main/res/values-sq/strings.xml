@@ -31,8 +31,6 @@
     <string name="app_services">Shërbime aplikacionesh</string>
     <string name="snowflake_proxy_msg_title">Shfaq Njoftim Lidhjeje</string>
     <string name="connected_title">I lidhur</string>
-    <string name="volunteer_mode_title">Ndihmoni të tjerët
-\ntë lidhen me Tor-in</string>
     <string name="volunteer_mode_weekly_label">Gjithsej Javore</string>
     <string name="volunteer_mode_alltime_label">Gjithsej Për Tërë Kohën</string>
     <string name="power_user_mode">Mënyra “Përdorues i Regjur”</string>
@@ -123,12 +121,6 @@
     <string name="pref_socks_summary">Portë te e cila Tor-i ofron ndërmjetësin e vet SOCKS (parazgjedhje: 9050, ose 0 për ta çaktivizuar)</string>
     <string name="pref_http_title">Tor HTTP</string>
     <string name="consider_enable_battery_optimizations">Pa shërbime të strehuara në funksionim, shihni mundësinë e aktivizimit të optimizimeve të baterisë</string>
-    <string name="volunteer_mode_subtitle_desc">Mënyra dashamirësi e lejon pajisjen tuaj të jetë një urë për të tjera. I ndihmon njerëzit të përdorin Tor-in në vende ku e bllokojnë.
-\n
-\n• S’do të thajë baterinë tuaj
-\n• S’do të ngadalësojë internetin tuaj
-\n• Mund të punojë vetëm me wifi
-\n• Mund të çaktivizohet kurdo</string>
     <string name="direct_connect_subtitle">Rruga më e mirë për t’u lidhur me Tor-in. Përdoreni nëse Tor-i s’është i bllokuar.</string>
     <string name="app_suggested_subtitle">Më mirë se me gjithçka tjetër, Orbot-i funksionon me aplikacione shkëmbimi mesazhesh dhe mediash shoqërore.</string>
     <string name="secure_your_connection_subtitle">Fshihini aplikacione mbikëqyrjes së rrjetit dhe përfitoni hyrje kur janë të bllokuar.</string>

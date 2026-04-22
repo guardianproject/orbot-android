@@ -136,10 +136,8 @@ punjulaa apps, jupula  anaijatuin  pu kachuerrase</string>
   <string name="btn_choose_apps">Apawua app</string>
   <string name="btn_change_exit">  Awuanajawua  ajui\'tia</string>
   <string name="btn_refresh">Jekets juchikuaaya </string>
-    <string name="volunteer_mode_title">pukalijaa  waneirrüa  junain apainjirrawua numa Tor</string>
   <string name="volunteer_mode_weekly_label">Jupushua  semanaka.</string>
   <string name="volunteer_mode_alltime_label">Jupushua  akalia\'a</string>
-  <string name="volunteer_mode_subtitle_desc">Tor akalijúsh erre\'e suttuin , nojots ajattuín tu bateriaka, kawuatirras tu internetka,pulatiruín juma WIFI, es jupüla puyokujain</string>
   <string name="smart_connect"> Atujashi Apainjirrrawua. (default)</string>
   <string name="direct_connect">Apainjirrawua numa Tor.</string>
   <string name="direct_connect_subtitle">Pansajeer   numa Tor,  paa´pa   maka numojulee. </string>

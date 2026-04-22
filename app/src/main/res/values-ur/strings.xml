@@ -144,10 +144,8 @@
     <string name="btn_configure">جڑنے کا طریقہ منتخب کریں</string>
     <string name="btn_choose_apps">ایپس منتخب کریں</string>
     <string name="btn_change_exit">ایگزٹ (exit) تبدیل کریں</string>
-    <string name="volunteer_mode_title">دوسروں کو ٹور سے منسلک ہونے میں\nمدد کریں</string>
     <string name="volunteer_mode_weekly_label">ہفتہ وار مجموعہ</string>
     <string name="volunteer_mode_alltime_label">کل مجموعہ</string>
-    <string name="volunteer_mode_subtitle_desc">کائنڈنس موڈ آپ کے آلے کو دوسروں کے لیے برج (bridge) بننے کی اجازت دیتا ہے۔ یہ ان جگہوں پر لوگوں کو ٹور استعمال کرنے میں مدد کرتا ہے جہاں اسے بلاک کیا گیا ہے۔\n\n• یہ آپ کی بیٹری کو ختم نہیں کرے گا\n• یہ آپ کے انٹرنیٹ کو سست نہیں کرے گا\n• یہ صرف وائی فائی پر چل سکتا ہے\n• اسے کسی بھی وقت بند کیا جا سکتا ہے</string>
     <string name="kindness_mode_is_running">کائنڈنس موڈ چل رہا ہے</string>
     <string name="kindness_mode_active_message" formatted="true">آپ نے %1$d لوگوں کی سنسرشپ کو روکنے میں مدد کی ہے</string>
     <string name="kindness_mode_disabled">مہربانی کا موڈ غیر فعال ہے</string>

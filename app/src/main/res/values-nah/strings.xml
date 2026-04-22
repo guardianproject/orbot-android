@@ -137,10 +137,8 @@ atl oquitlapatic</string>
     <string name="btn_choose_apps">Xicpepena tepoztlatlatquitl</string>
     <string name="btn_change_exit">Xipatla quizayan</string>
     <string name="btn_refresh">Papatia</string>
-    <string name="volunteer_mode_title">Quipalehui occequintin/ahmo quicentia Tor</string>
     <string name="volunteer_mode_weekly_label">Chicueilhuitl centamachihua</string>
     <string name="volunteer_mode_alltime_label">Nochi cahuitl centamachihua</string>
-    <string name="volunteer_mode_subtitle_desc">Cualyotl tequtitl quilhuiz motepoz cuauhpanco inic ocachi tlacatl yez. Quipalehui in tlacameh inic quichihua Tor ipan miecpan ocaltzacualo. /n/n- Ahmo tlami mobateria/n/n- Ahmo quimotlalo mointernet/n/n- Zan huel mochihua itechpa wifi/n/n- Quehma huel quicehui cequi cahuitl. </string>
     <string name="smart_connect">Maticentililoni (achtopa omochiuh)</string>
     <string name="direct_connect">Tencuiliztli huicpa Tor</string>
     <string name="direct_connect_subtitle">In cualli tequitl mocentilili ipan Tor. Xicchihua Tor ahmo quitzacuiltia.</string>

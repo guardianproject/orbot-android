@@ -94,8 +94,6 @@
     <string name="direct_connect">Izravna veza</string>
     <string name="direct_connect_subtitle">Najbolji način povezivanja s Torom. Koristi ga ako Tor nije blokiran.</string>
     <string name="smart_connect">Pametno povezivanje</string>
-    <string name="volunteer_mode_title">Pomogni drugima
-\nda se povežu na Tor</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Povezuje se preko Tor volontera. Zaobilazi neka blokiranja Tor-a.</string>
     <string name="volunteer_mode_weekly_label">Ukupno (tjedno)</string>

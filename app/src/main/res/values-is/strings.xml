@@ -133,10 +133,8 @@
     <string name="direct_connect">Bein tenging</string>
     <string name="snowflake">Snowflake</string>
     <string name="secure_your_connection_subtitle">Feldu forrit fyrir netvöktun og náðu aðgangi þegar lokað er á þau.</string>
-    <string name="volunteer_mode_title">Hjálpaðu öðrum \nað tengjast við Tor</string>
     <string name="volunteer_mode_weekly_label">Alls í vikunni</string>
     <string name="volunteer_mode_alltime_label">Samtals frá upphafi</string>
-    <string name="volunteer_mode_subtitle_desc">Vænleikahamur lætur tækið þitt verða að brú fyrir annað fólk. Það hjálpar því fólki til að nota Tori við aðstæður þar sem annars er lokað á það. \n \n• Það mun ekki eyða rafhlöðunni þinni um of \n• Það mun ekki hægja á internetinu \n• Það getur aðeins notað þráðlaust wi-fi net \n• Hægt er að slökkva á því hvenær sem er</string>
     <string name="direct_connect_subtitle">Besta leiðin til að tengjast við Tor. Notist ef ekki er lokað á Tor.</string>
     <string name="snowflake_subtitle">Tengist í gegnum Tor-sjálfboðaliða. Kemst framhjá sumum hindrunum gagnvart Tor.</string>
     <string name="connect">Tengjast</string>

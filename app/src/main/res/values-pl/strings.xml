@@ -112,14 +112,6 @@
     <string name="app_suggested_subtitle">Orbot działa najlepiej z komunikatorami i aplikacjami mediów społecznościowych.</string>
     <string name="power_user_mode">Tryb użytkownika zaawansowanego</string>
     <string name="snowflake_subtitle">Łączy się przez wolontariuszy Tor. Pozwala obejść niektóre blokady sieci Tor.</string>
-    <string name="volunteer_mode_title">Pomóż innym
-\npołączyć się z Tor</string>
-    <string name="volunteer_mode_subtitle_desc">Tryb życzliwości pozwala Twojemu urządzeniu być mostkiem dla innych. Pomaga ludziom używać sieci Tor w miejscach, gdzie jest zablokowana.
-\n
-\n- Nie powoduje wyczerpania baterii
-\n- Nie spowalnia działania internetu
-\n- Może działać tylko przez Wi-Fi
-\n- Może być wyłączony w każdej chwili</string>
     <string name="pref_reduced_connection_padding_summary">Zamyka połączenia przekaźnikowe wcześniej i wysyła mniej pakietów wypełniających, aby zmniejszyć zużycie danych i baterii</string>
     <string name="custom_bridges">Mostki niestandardowe</string>
     <string name="v3_key_hash">Klucz prywatny x25519 w Base32</string>

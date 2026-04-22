@@ -131,8 +131,6 @@
     <string name="btn_choose_apps">Uygulamaları seç</string>
     <string name="btn_change_exit">Çıkışı değiştir</string>
     <string name="btn_refresh">Bağlantıyı Yenile</string>
-    <string name="volunteer_mode_title">Başkalarının Tor\'a
-\nbağlanmasına yardımcı olun</string>
     <string name="volunteer_mode_alltime_label">Tüm Zamanlar Toplamı</string>
     <string name="smart_connect">Akıllı Bağlantı</string>
     <string name="direct_connect">Direkt Bağlantı</string>
@@ -141,7 +139,6 @@
     <string name="connect">Bağlan</string>
     <string name="next">Sonraki</string>
     <string name="volunteer_mode_weekly_label">Haftalık Toplam</string>
-    <string name="volunteer_mode_subtitle_desc">Paylaşım modu, aygıtınızın başkaları için bir köprü olmasını sağlar. İnsanların Tor\'u engellendiği yerlerde kullanmasına yardımcı olur.\n \n• Pilinizi boşaltmaz \n• İnternetinizi yavaşlatmaz\n• Yalnızca Wi-Fi üzerinden çalışabilir \n• İstenildiği zaman kapatılabilir</string>
     <string name="snowflake">Snowflake</string>
     <string name="volunteer_status_title">Bugün sizin
 \nsayenizde daha iyi.</string>
@@ -285,5 +282,4 @@
     <string name="kindness_never_had_a_direct_connection">Paylaşım Modunu kullanabilmek için, en az bir kez Tor ağına doğrudan (herhangi bir köprü kullanmadan) bağlanmanız gerekir. Bağlantı kurduktan sonra, lütfen buraya geri dönerek Paylaşım Modunu etkinleştirin. Bu doğrudan bağlantı testini tamamladıktan sonra, Tor ağına bağlı olsanız da olmasanız da Paylaşım Modunu dilediğiniz gibi kullanabilirsiniz.</string>
     <string name="kindness_mode_cant_run_with_bridge">Tor ağına bağlanmak için bir köprü kullanırken Paylaşım Modu çalıştırılamaz.</string>
     <string name="kindness_mode_cant_run_in_your_country">Sansür nedeniyle, ülkenizde diğer kişilerin Tor ağına bağlanmasına yardımcı olmak için kullanılan Paylaşım Modu şu anda devre dışıdır.</string>
-    <string name="kindness_mode_disclaimer_bridge">Sansür uygulanan bir bölgedeyseniz veya Tor ağına bağlanmak için bir köprü kullanmanız gerekiyorsa, Paylaşım Modunu kullanmayın.</string>
 </resources>

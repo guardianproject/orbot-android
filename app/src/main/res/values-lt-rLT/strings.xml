@@ -139,8 +139,6 @@
     <string name="bridge_snowflake_amp">Prisijungimas per kitus „Tor“ naudotojus naudojant „Snowflake“ (2 būdas)</string>
     <string name="snowflake_proxy_msg_title">Rodyti pranešimą apie ryšį</string>
     <string name="snowflake_proxy_msg_description">Rodyti pranešimą, kai padedate kam nors apeiti cenzūrą</string>
-    <string name="volunteer_mode_title">Padėkite kitiems
-\nprisijungti prie „Tor“</string>
     <string name="volunteer_mode_weekly_label">Iš viso per savaitę</string>
     <string name="volunteer_mode_alltime_label">Iš viso per visą laiką</string>
     <string name="power_user_mode">Patyrusio vartotojo režimas</string>
@@ -149,12 +147,6 @@
 \ndėka jūsų.</string>
     <string name="apps_other_apps">Kitos programėlės</string>
     <string name="power_user_description">Vartotojams, susipažinusiems su . Leidžia paleisti „Orbot“ be VPN nustatymo ir rodo atvirus SOCKS ir HTTP prievadus</string>
-    <string name="volunteer_mode_subtitle_desc">Gerumo režimas leidžia jūsų įrenginiui būti tiltu kitiems. Tai padeda žmonėms naudoti „Tor“ vietose, kur jis užblokuotas.
-\n
-\n• Tai neišsekins jūsų baterijos
-\n• Tai nesustabdys jūsų interneto
-\n• Jis gali veikti tik per WI-FI
-\n• Jį galima bet kada išjungti</string>
     <string name="smart_connect">Gudrusis ryšys (numatytasis)</string>
     <string name="snowflake">Snowflake (originalus)</string>
     <string name="snowflake_subtitle">Prisijungia per „Tor“ savanorius. Apeina tam tikrą „Tor“ blokavimą.</string>

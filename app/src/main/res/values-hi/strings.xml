@@ -134,12 +134,6 @@
     <string name="option_only_on_wifi">सिर्फ वाईफाई पे</string>
     <string name="option_only_when_charging">सिर्फ चार्ज करते वक्त</string>
     <string name="power_user_description">टॉर से वाकिफ लोगों के लिए। आपको वीपीएन सेटिंग के बिना ऑरबॉट शुरू करने देता है और खुले सॉक्स और एचटीटीपी पोर्ट दिखाता है</string>
-    <string name="volunteer_mode_subtitle_desc">मेहरबानी मोड आपके डिवाइस को दूसरे लोगों के लिए ब्रिज में बदल देता है। ये उन लोगों की मदद करता है जिनके इलाके में टॉर ब्लॉक किया गया है।
-\n
-\n• ये आपका बैट्री कम नहीं करेगा
-\n• ये आपका इंटरनेट रफ्तार कम नहीं करेगा
-\n• ये सिर्फ वाईफाई पे चलेगा
-\n• ये कभी भी बंद किया जा सकता है</string>
     <string name="no_internet_title">इंटरनेट से जुड़ें</string>
     <string name="kindness_adjust_title">चलते हुए अपनेआप बदलें…</string>
     <string name="kindness_config_detail">सेट करें कि आपका डिवाइस दूसरे टॉर यूज़रों के लिए कब स्नोफ्लेक्स प्रॉक्सी के तरह काम कर सकता है।</string>
@@ -149,8 +143,6 @@
     <string name="root_warning">ऑरबॉट को मालूम हुआ कि आपका डिवाइस रूट किया गया है, जिससे सुरक्षा लफड़े हो सकते है।</string>
     <string name="hide_apps">नेटवर्क निगरानी से ऐप छुपाएं और ब्लॉक होने पे एक्सेस दें।</string>
     <string name="log_copied">लॉग कॉपी किया गया</string>
-    <string name="volunteer_mode_title">टॉर से जुड़ने में
-\nदूसरों की मदद करें</string>
     <string name="volunteer_mode_alltime_label">सारे वक्त का कुल</string>
     <string name="smart_connect">समझदार कनेक्शन (डिफॉल्ट)</string>
     <string name="pref_isolate_port">मंज़िल पोर्ट अलग करें</string>

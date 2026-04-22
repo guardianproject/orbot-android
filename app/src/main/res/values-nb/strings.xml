@@ -133,12 +133,6 @@
     <string name="no_internet_subtitle">Du trenger en internettforbindelse for å bruke Orbot.</string>
     <string name="not_sure">Er du usikker\?</string>
     <string name="snowflake_subtitle">Kobler seg til via frivillige Tor-brukere. Omgår enkelte Tor-blokkeringer.</string>
-    <string name="volunteer_mode_subtitle_desc">Med vennlighetsmodus kan enheten din være en bro for andre. Den hjelper folk med å bruke Tor på steder der det er blokkert.
-\n
-\n- Den tapper ikke batteriet
-\n- Den gjør ikke Internett langsommere
-\n- Den kan bare kjøres over wifi
-\n- Kan slås av når som helst</string>
     <string name="ask_tor">Spør Tor</string>
     <string name="power_user_mode">Strømbrukermodus</string>
     <string name="btn_choose_apps">Velg apper</string>
@@ -173,8 +167,6 @@
     <string name="strict_nodes_description">Behandle Exclude Nodes-innstillingene som et krav for å bygge alle kretser. Dette kan ødelegge funksjonaliteten hvis ingen kretser kan genereres med innstillingene for ekskluderte noder.</string>
     <string name="app_suggested_subtitle">Orbot fungerer best med apper for meldinger og sosiale medier.</string>
     <string name="secure_your_connection_title">Klar til å koble til</string>
-    <string name="volunteer_mode_title">Hjelp andre
-\nkoble til Tor</string>
     <string name="direct_connect_subtitle">Den beste måten å koble til Tor på. Brukes hvis Tor ikke er blokkert.</string>
     <string name="volunteer_status_title">Dagen i dag er bedre
 \npå grunn av deg.</string>

@@ -133,16 +133,8 @@
     <string name="btn_choose_apps">Вибрати застосунки</string>
     <string name="snowflake">Сніжинка</string>
     <string name="direct_connect_subtitle">Кращий спосіб під\'єднання до Tor. Використовуйте, якщо Tor не заблокований.</string>
-    <string name="volunteer_mode_subtitle_desc">Режим доброти дозволяє вашому пристрою бути мостом для інших. Він допомагає людям користуватися Tor там, де він заблокований.
-\n
-\n- Він не розряджає ваш акумулятор
-\n- Не сповільнює ваш інтернет
-\n- Він може працювати тільки через Wi-Fi
-\n- Його можна вимкнути в будь-який час</string>
     <string name="volunteer_mode_weekly_label">Усього за тиждень</string>
     <string name="next">Далі</string>
-    <string name="volunteer_mode_title">Допомагайте іншим
-\nпід\'єднуватися до Tor</string>
     <string name="volunteer_mode_alltime_label">Усього за весь час</string>
     <string name="smart_connect">Розумне підключення</string>
     <string name="direct_connect">Пряме підключення</string>

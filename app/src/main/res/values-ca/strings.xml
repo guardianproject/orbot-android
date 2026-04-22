@@ -113,12 +113,6 @@
     <string name="pref_disable_ipv4_summary">Indica a les sortides que no connectin a adreces IPv4</string>
     <string name="not_sure">No n\'esteu segur?</string>
     <string name="snowflake_subtitle">Connecta mitjançant voluntaris del Tor. Evita algun blocatge del Tor.</string>
-    <string name="volunteer_mode_subtitle_desc">El mode altruista permet que el vostre dispositiu sigui un pont per als altres. Ajuda la gent a utilitzar el Tor en llocs on és blocat.
-\n
-\n• No esgotarà la bateria
-\n• No alentirà la connexió a internet
-\n• Només pot anar amb Wi-Fi
-\n• Es pot desconnectar en qualsevol moment</string>
     <string name="ask_tor">Pregunteu al Tor</string>
     <string name="pref_http_dialog">Configuració del port HTTP</string>
     <string name="power_user_mode">Mode d\'usuari avançat</string>
@@ -170,8 +164,6 @@
     <string name="strict_nodes_description">Tracta els paràmetres d\'exclusió de nodes com a requeriment per a construir tots els circuits. Podria trencar la funcionalitat si no es pot generar cap circuit amb aquests paràmetres.</string>
     <string name="app_suggested_subtitle">L\'Orbot funciona millor amb aplicacions de missatgeria i xarxes socials.</string>
     <string name="secure_your_connection_title">Preparat per a connectar</string>
-    <string name="volunteer_mode_title">Ajudeu els altres
-\na connectar-se al Tor</string>
     <string name="v3_delete_client_authorization_confirm">Suprimeix l\'autorització del client</string>
     <string name="pref_http_summary">Port al qual el Tor ofereix el seu servidor intermediari HTTP (per defecte: 8118, o 0 per a desactivar)</string>
     <string name="direct_connect_subtitle">La millor manera de connectar-se al Tor. Utilitzeu-la si el Tor no és blocat.</string>

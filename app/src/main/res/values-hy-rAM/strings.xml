@@ -40,8 +40,6 @@
     <string name="menu_log">Մատյան</string>
     <string name="setting_debug">Վրիպազերծում</string>
     <string name="reachable_ports">Մատչելի մատույցներ</string>
-    <string name="volunteer_mode_title">Օգնեք ուրիշներին
-\nմիանալ Tor-ին</string>
     <string name="pref_proxy_host_title">Արտագնա փոխանորդի հյուրընկալ</string>
     <string name="pref_proxy_port_summary">Փոխանորդ սերվերի մատույցը</string>
     <string name="pref_proxy_port_title">Արտագնա փոխանորդի մատույց</string>

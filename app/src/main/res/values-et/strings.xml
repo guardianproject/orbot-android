@@ -136,8 +136,6 @@
     <string name="apps_other_apps">Muud rakendused</string>
     <string name="asking">KÜSIME…</string>
     <string name="kindness_adjust_title">Seadistused</string>
-    <string name="volunteer_mode_title">Aita teisi
-\nTori ühenduse loomisel</string>
     <string name="volunteer_mode_alltime_label">Kordi läbi aegade</string>
     <string name="snowflake_subtitle">Ühendab Tori vabatahtlike kaudu. Saab ümber mõnest Tor\'i blokeeringust.</string>
     <string name="direct_connect">Otsene ühendus Toriga</string>
@@ -162,12 +160,6 @@
     <string name="log_copied">Logi kopeeritud</string>
     <string name="smart_connect">Nutikas ühendus (vaikimisi)</string>
     <string name="direct_connect_subtitle">Parim viis Toriga ühendumiseks. Kasutage, kui Tor ei ole blokeeritud.</string>
-    <string name="volunteer_mode_subtitle_desc">Sõbralikkuse režiim võimaldab sinu seadmel olla teiste jaoks sillaks. See aitab inimestel kasutada Tori kohtades, kus see on blokeeritud.
-\n
-\n- See ei tühjenda sinu seadme akut
-\n- See ei aeglusta sinu internetiühendust
-\n- Seda saab kasutada ainult üle wifi
-\n- Seda saab igal ajal välja lülitada</string>
     <string name="ask_tor">Küsi Torilt</string>
     <string name="snowflake">Lumehelbeke (originaal)</string>
     <string name="snowflake_amp">Lumehelbeke (AMP)</string>

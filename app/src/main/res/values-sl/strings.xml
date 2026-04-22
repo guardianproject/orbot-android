@@ -159,14 +159,6 @@
     <string name="option_only_on_wifi">Samo na Wi-Fi-ju</string>
     <string name="pref_isolate_port_summary">Uporabite drugo vezje za vsaka ciljna vrata</string>
     <string name="pref_isolate_protocol_summary">Uporabite drugo vezje za vsak povezovalni protokol</string>
-    <string name="volunteer_mode_title">Pomagajte se drugim
-\npovezati na Tor</string>
-    <string name="volunteer_mode_subtitle_desc">Način prijaznosti omogoča, da je vaša naprava most za druge. Ljudem pomaga uporabljati Tor na mestih, kjer je blokiran.
-\n
-\n• Ne bo praznil vaše baterije
-\n• Ne bo upočasnil vašega interneta
-\n• Deluje lahko samo prek Wi-Fi-ja
-\n• Kadar koli ga je mogoče izklopiti</string>
     <string name="log_copied">Dnevnik kopiran</string>
     <string name="no_internet_title">Povežite se z internetom</string>
     <string name="kindness_config_detail">Konfigurirajte, kako in kdaj lahko vaša naprava deluje kot proksi snežinka za druge uporabnike Tora.</string>

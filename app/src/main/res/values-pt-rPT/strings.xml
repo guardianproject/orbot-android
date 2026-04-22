@@ -144,14 +144,6 @@
     <string name="title_choose_apps">Escolha as apps</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Conecta-se através de voluntários do Tor. Contorna alguns bloqueios do Tor.</string>
-    <string name="volunteer_mode_title">Ajude outros
-\na se conectar ao Tor</string>
-    <string name="volunteer_mode_subtitle_desc">O modo bondade permite que o seu aparelho seja uma ponte para os outros. Ajuda as pessoas a usar o Tor em lugares onde ele está bloqueado.
-\n
-\n• Não esgota a bateria
-\n• Não desacelera a sua Internet
-\n• Só funciona através de Wi-Fi
-\n• Pode ser desligado em qualquer momento</string>
     <string name="smart_connect">Conexão inteligente (padrão)</string>
     <string name="direct_connect">Conexão direta com o Tor</string>
     <string name="direct_connect_subtitle">A melhor maneira de se conectar ao Tor. Use caso o Tor não esteja bloqueado.</string>

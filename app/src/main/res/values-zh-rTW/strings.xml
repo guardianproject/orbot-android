@@ -152,8 +152,6 @@
     <string name="not_sure">不確定？</string>
     <string name="btn_configure">選擇連接方式</string>
     <string name="btn_choose_apps">選擇應用程式</string>
-    <string name="volunteer_mode_title">幫助其他人
-\n連接到 Tor</string>
     <string name="volunteer_mode_weekly_label">每週總計</string>
     <string name="direct_connect">直接連接到 Tor</string>
     <string name="direct_connect_subtitle">連接 Tor 的最佳方式。如果 Tor 未被阻止，請使用。</string>
@@ -177,12 +175,6 @@
     <string name="pref_detect_root_summary">如果此裝置上啟用了 root 權限，則啟動時發出警告</string>
     <string name="pref_detect_root_title">Root 檢測</string>
     <string name="kindness_adjust_title">設定</string>
-    <string name="volunteer_mode_subtitle_desc">善良模式讓您的設備成為他人的橋接器。這有助於人們在被封鎖的地方使用 Tor。
-\n
-\n• 它不會消耗您的電池
-\n• 它不會減慢您的網速
-\n• 它只能在 wifi 上運行
-\n• 它可以隨時關閉</string>
     <string name="status_starting_up">Orbot 正在啟動中…</string>
     <string name="status_activated">已連線至 Tor 網路</string>
     <string name="status_disabled">Orbot 已停用</string>

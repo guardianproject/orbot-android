@@ -159,17 +159,9 @@
     <string name="option_only_on_wifi">Iba v sieti Wifi</string>
     <string name="option_only_when_charging">Len pri nabíjaní</string>
     <string name="menu_kindness">Láskavosť</string>
-    <string name="volunteer_mode_title">Pomôžte ostatným
-\npripojiť sa k sieti Tor</string>
     <string name="pref_isolate_port">Izolácia cieľových portov</string>
     <string name="pref_isolate_protocol">Izolácia klientskych protokolov</string>
     <string name="pref_isolate_protocol_summary">Pre každý pripojovací protokol použite iný obvod</string>
-    <string name="volunteer_mode_subtitle_desc">Režim láskavosti umožňuje, aby sa vaše zariadenie stalo mostom pre ostatných. Pomáha ľuďom používať Tor na miestach, kde je blokovaný.
-\n
-\n- Nevybíja batériu
-\n- Nespomalí váš internet
-\n- Môže bežať len cez wifi
-\n- Dá sa kedykoľvek vypnúť</string>
     <string name="smart_connect">Smart Connect (predvolené)</string>
     <string name="volunteer_status_title">Dnes je lepšie
 \nvďaka tebe.</string>

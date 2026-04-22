@@ -129,8 +129,6 @@
     <string name="pref_general_group">Umumy</string>
     <string name="exit_nodes">Çykalga Düwünleri</string>
     <string name="project_home">Taslamanyň Baş Sahypasy:</string>
-    <string name="volunteer_mode_title">Başgalaryna kömek ediň
-\nTor bilen birikdiriň</string>
     <string name="volunteer_mode_weekly_label">Hepdelik Jemi</string>
     <string name="pref_detect_root_title">Köki Kesgitlemek</string>
     <string name="snowflake">Snowflake (Hakyky)</string>
@@ -176,11 +174,5 @@
     <string name="kindness_config_detail">Enjamyňyzyň beýleki Tor ulanyjylary üçin nädip we haçan Snowflake proksi bolup biljekdigini sazlaň.</string>
     <string name="setting_padding">Ýassyklama</string>
     <string name="setting_debug">Düzediş</string>
-    <string name="volunteer_mode_subtitle_desc">Sypaýçylyk ülňi enjamyňyzy beýlekiler üçin köpri bolmaga mümkinçilik berýär. Adamlara Tor-uň petiklenen ýerlerinde ulanmagyna kömek edýär.
-\n
-\n• Batareýaňyzy çökertmez
-\n• Internetiňizi haýallatmaz
-\n• Diňe wifi arkaly işleýär
-\n• Islän wagtyňyz öçürlip bilner</string>
     <string name="set_transport">Ulagy sazla</string>
 </resources>

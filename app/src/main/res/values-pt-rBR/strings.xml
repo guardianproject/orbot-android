@@ -139,18 +139,10 @@
     <string name="btn_change_exit">Altere a saída</string>
     <string name="btn_choose_apps">Escolha os aplicativos</string>
     <string name="btn_refresh">Atualizar conexão</string>
-    <string name="volunteer_mode_subtitle_desc">O modo Bondade permite que o seu dispositivo seja uma ponte para os outros. Ajuda as pessoas a usar o Tor em lugares onde ele esteja bloqueado.
-\n
-\n• Não drena a sua bateria
-\n• Não desacelera a sua internet
-\n• Só funciona via Wi-Fi
-\n• Pode ser desligado a qualquer momento</string>
     <string name="direct_connect">Conexão direta</string>
     <string name="snowflake">Snowflake</string>
     <string name="connect">Conectar</string>
     <string name="next">Próximo</string>
-    <string name="volunteer_mode_title">Ajude outros
-\na se conectar ao Tor</string>
     <string name="volunteer_mode_weekly_label">Total semanal</string>
     <string name="volunteer_mode_alltime_label">Total de todos os períodos</string>
     <string name="smart_connect">Conexão Inteligente</string>
@@ -298,7 +290,6 @@
     <string name="kindness_never_had_a_direct_connection">Para usar o Modo Gentileza, você precisa ter se conectado diretamente ao Tor (sem usar nenhuma ponte) pelo menos uma vez. Após se conectar, volte aqui para ativar o Modo Gentileza. Depois de concluir este teste de conexão direta, você poderá usar o Modo Gentileza, esteja conectado ao Tor ou não.</string>
     <string name="kindness_mode_cant_run_with_bridge">O Modo Bondade não funciona enquanto você estiver usando uma ponte para se conectar ao Tor.</string>
     <string name="kindness_mode_cant_run_in_your_country">O uso do Modo Bondade para ajudar outras pessoas a se conectarem ao Tor está desativado no momento em seu país devido à censura.</string>
-    <string name="kindness_mode_disclaimer_bridge">Não utilize o Modo Bondade se estiver numa região onde a sua internet é censurada ou se precisar de usar uma ponte para se conectar à rede Tor.</string>
     <string name="battery_optimization_title">Desativar otimizações de bateria</string>
     <string name="battery_optimization_pref_msg">Configuração para alguns usuários que suspeitam que seus dispositivos estejam encerrando o Orbot prematuramente enquanto ele é executado em segundo plano.</string>
     <string name="battery_optimization_dialog_msg">Alguns dispositivos Android podem encerrar o Orbot enquanto ele estiver sendo executado em segundo plano. Para a maioria dos usuários que desejam garantir que o Orbot permaneça conectado e funcionando, basta configurá-lo para funcionar como uma VPN \"Sempre Ativa\" nas configurações do sistema. No entanto, você ainda pode impedir que seu dispositivo execute otimizações de bateria no Orbot, se achar necessário.</string>

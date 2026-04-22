@@ -131,7 +131,6 @@
     <string name="connected_title">Свързани</string>
     <string name="btn_configure">Настройки на връзката</string>
     <string name="btn_refresh">Презареждане на връзката</string>
-    <string name="volunteer_mode_title">Помогнете на другите\nда се свържат с Тор</string>
     <string name="volunteer_mode_weekly_label">Общо седмично</string>
     <string name="volunteer_mode_alltime_label">Общо за цялото време</string>
     <string name="smart_connect">Интелигентна връзка</string>
@@ -139,7 +138,6 @@
     <string name="snowflake_subtitle">Връзката се осъществява през доброволци на Тор. Заобикаля някои забрани на Тор.</string>
     <string name="connect">Свързване</string>
     <string name="next">Напред</string>
-    <string name="volunteer_mode_subtitle_desc">Режимът на доброта дава възможност устройството ви да бъде използвано като мост. Така други потребители могат да ползват Тор, на места където е забранен.\n\n• не изразходва батерията\n• не забавя връзката с интернет\n• работи само през безжична мрежа\n• може да бъде спрян по всяко време</string>
     <string name="direct_connect">Директна връзка</string>
     <string name="direct_connect_subtitle">Най-добрия начин за свързване с Тор. Използвайте ако Тор не е забранен.</string>
     <string name="power_user_mode">Режим за опитни потребители</string>

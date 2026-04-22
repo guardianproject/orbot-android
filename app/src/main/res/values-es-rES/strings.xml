@@ -133,19 +133,8 @@
     <string name="secure_your_connection_subtitle">Oculta las aplicaciones de la supervisión de la red y obten acceso cuando estén bloqueadas.</string>
     <string name="direct_connect_subtitle">La mejor manera de conectarse a Tor. Usar si Tor no está bloqueado.</string>
     <string name="snowflake_subtitle">Se conecta a través de los voluntarios de Tor. Evita algunos bloqueos de Tor.</string>
-    <string name="volunteer_mode_title">Ayudar a otros
-\nconectarse a Tor</string>
     <string name="volunteer_mode_weekly_label">Total de la Semana</string>
     <string name="volunteer_mode_alltime_label">Total de Todo el Tiempo</string>
-    <string name="volunteer_mode_subtitle_desc">El modo Solidario permite que tu dispositivo sea un puente para otros. Ayuda a la gente a usar Tor en lugares donde está bloqueado.
-\n
-\n- No agotará tu batería
-\n
-\n- No ralentizará tu internet
-\n
-\n- Puede funcionar sólo a través de wifi
-\n
-\n- Se puede apagar en cualquier momento</string>
     <string name="smart_connect">Conexión inteligente (default)</string>
     <string name="direct_connect">Conexión directa a Tor</string>
     <string name="snowflake">Snowflake</string>
@@ -293,5 +282,4 @@
     <string name="kindness_never_had_a_direct_connection">Para usar el Modo Amabilidad, debes conectarte directamente a Tor (sin usar puentes) al menos una vez. Después de conectarte, regresa aquí para activar el Modo Amabilidad. Una vez completada esta prueba de conexión directa, podrás usar el Modo Amabilidad independientemente de si estás conectado a Tor o no.</string>
     <string name="kindness_mode_cant_run_with_bridge">El modo de amabilidad no puede ejecutarse mientras se utiliza un puente para conectarse a Tor.</string>
     <string name="kindness_mode_cant_run_in_your_country">Actualmente, la función \"Usar el Modo Amabilidad\" para ayudar a otras personas a conectarse a Tor está deshabilitada en tu país debido a la censura.</string>
-    <string name="kindness_mode_disclaimer_bridge">No utilices el Modo Amabilidad si te encuentras en una región donde está sujeto a censura o si necesitas utilizar un puente para conectarte a Tor.</string>
 </resources>

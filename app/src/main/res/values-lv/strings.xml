@@ -141,12 +141,6 @@
     <string name="no_internet_subtitle">Lai izmantotu Orbot, ir nepieciešams interneta savienojums.</string>
     <string name="not_sure">Neesat pārliecināts\?</string>
     <string name="snowflake_subtitle">Savieno ar Tor brīvprātīgo starpniecību. Apiet dažas Tor bloķēšanas iespējas.</string>
-    <string name="volunteer_mode_subtitle_desc">Labestības režīms ļauj jūsu ierīcei kļūt par tiltu citiem. Tas palīdz cilvēkiem izmantot Tor tur, kur tas ir bloķēts.
-\n
-\n- Tas neizlādē akumulatoru
-\n- Tas nepalēninās jūsu interneta darbību
-\n- To var darbināt tikai wifi tīklā
-\n- To var izslēgt jebkurā laikā</string>
     <string name="ask_tor">Jautājiet Toram</string>
     <string name="power_user_mode">Jaudas lietotāja režīms</string>
     <string name="smart_connect">Smart Connect (noklusējuma iestatījums)</string>
@@ -174,8 +168,6 @@
     <string name="kindness_config_detail">Konfigurējiet, kā un kad jūsu ierīce var darboties kā Snowflake starpniekserveris citiem Tor lietotājiem.</string>
     <string name="pref_isolate_protocol_summary">Katram savienojuma protokolam izmantojiet atšķirīgu ķēdi</string>
     <string name="app_suggested_subtitle">Orbot vislabāk darbojas ar ziņapmaiņas un sociālo mediju lietotnēm.</string>
-    <string name="volunteer_mode_title">Palīdzēt citiem
-\nizveidot savienojumu ar Tor</string>
     <string name="direct_connect_subtitle">Labākais veids, kā izveidot savienojumu ar Tor. Izmantojiet, ja Tor nav bloķēts.</string>
     <string name="volunteer_status_title">Šodien ir labāk
 \npateicoties tev.</string>

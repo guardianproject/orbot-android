@@ -1,45 +1,37 @@
 package org.torproject.android.ui.kindness
 
 import android.app.AlertDialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import org.torproject.android.R
+import org.torproject.android.databinding.FragmentKindnessBinding
 import org.torproject.android.service.circumvention.BuiltInBridges
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
+import java.net.URI
 import java.util.Locale
-import kotlin.collections.contains
+import androidx.core.net.toUri
 
 class KindnessFragment : Fragment() {
 
-    private lateinit var tvAllTimeTotal: TextView
-    private lateinit var tvWeeklyTotal: TextView
-    private lateinit var swVolunteerMode: SwitchCompat
-    private lateinit var btnActionActivate: Button
-    private lateinit var pnlActivate: View
-    private lateinit var pnlStatus: View
+    private lateinit var mBinding: FragmentKindnessBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_kindness, container, false)
-        tvAllTimeTotal = view.findViewById(R.id.tvAlltimeTotal)
-        tvWeeklyTotal = view.findViewById(R.id.tvWeeklyTotal)
-        swVolunteerMode = view.findViewById(R.id.swVolunteerMode)
-        btnActionActivate = view.findViewById(R.id.btnActionActivate)
-        pnlActivate = view.findViewById(R.id.panel_kindness_activate)
-        pnlStatus = view.findViewById(R.id.panel_kindness_status)
+    ): View {
+        mBinding = FragmentKindnessBinding.inflate(inflater)
+
         getErrorStringIfAny()?.let {
             Prefs.setBeSnowflakeProxy(false)
         }
-        swVolunteerMode.isChecked = Prefs.beSnowflakeProxy()
-        swVolunteerMode.setOnCheckedChangeListener { _, isChecked ->
+
+        mBinding.swVolunteerMode.isChecked = Prefs.beSnowflakeProxy()
+        mBinding.swVolunteerMode.setOnCheckedChangeListener { _, isChecked ->
             Prefs.setBeSnowflakeProxy(isChecked)
             showPanelStatus(isChecked)
             activity?.let {
@@ -51,23 +43,33 @@ class KindnessFragment : Fragment() {
             }
         }
 
-        view.findViewById<View>(R.id.ivGear).setOnClickListener {
+        mBinding.ivGear.setOnClickListener {
             KindnessConfigBottomSheet.openKindnessSettings(requireActivity())
         }
 
-        view.findViewById<View>(R.id.swVolunteerAdjust)
+        mBinding.swVolunteerAdjust
             .setOnClickListener { KindnessConfigBottomSheet.openKindnessSettings(requireActivity()) }
 
-        btnActionActivate.setOnClickListener {
+        mBinding.btnActionActivate.setOnClickListener {
             getErrorStringIfAny()?.let {
                 showDisabledDialog(it)
                 return@setOnClickListener
             }
-            swVolunteerMode.isChecked = true
+            mBinding.swVolunteerMode.isChecked = true
+        }
+
+        mBinding.btnActionLearnMore.setOnClickListener {
+            val i = Intent(Intent.ACTION_VIEW, "https://orbot.app/kindness".toUri())
+            val pm = context?.packageManager
+
+            if (pm != null && i.resolveActivity(pm) != null) {
+                startActivity(i)
+            }
         }
 
         showPanelStatus(Prefs.beSnowflakeProxy())
-        return view
+
+        return mBinding.root
     }
 
     private fun getErrorStringIfAny(): Int? {
@@ -93,25 +95,25 @@ class KindnessFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         // updates these values when user returns to screen after running snowflake proxy for some time
-        tvAllTimeTotal.text = "${Prefs.snowflakesServed}"
-        tvWeeklyTotal.text = "${Prefs.snowflakesServedWeekly}"
+        mBinding.tvAlltimeTotal.text = "${Prefs.snowflakesServed}"
+        mBinding.tvWeeklyTotal.text = "${Prefs.snowflakesServedWeekly}"
     }
 
     private fun showPanelStatus(isActivated: Boolean) {
         val duration = 250L
         if (isActivated) {
-            pnlActivate.animate().alpha(0f).setDuration(0).withEndAction {
-                pnlActivate.visibility = View.GONE
+            mBinding.panelKindnessActivate.animate().alpha(0f).setDuration(0).withEndAction {
+                mBinding.panelKindnessActivate.visibility = View.GONE
             }
 
-            pnlStatus.visibility = View.VISIBLE
-            pnlStatus.animate().alpha(1f).duration = duration
+            mBinding.panelKindnessStatus.visibility = View.VISIBLE
+            mBinding.panelKindnessStatus.animate().alpha(1f).duration = duration
         } else {
-            pnlActivate.visibility = View.VISIBLE
-            pnlActivate.animate().alpha(1f).duration = duration
+            mBinding.panelKindnessActivate.visibility = View.VISIBLE
+            mBinding.panelKindnessActivate.animate().alpha(1f).duration = duration
 
-            pnlStatus.animate().alpha(0f).setDuration(0).withEndAction {
-                pnlStatus.visibility = View.GONE
+            mBinding.panelKindnessStatus.animate().alpha(0f).setDuration(0).withEndAction {
+                mBinding.panelKindnessStatus.visibility = View.GONE
             }
         }
     }

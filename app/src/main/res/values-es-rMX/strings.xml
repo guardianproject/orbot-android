@@ -65,15 +65,6 @@
     <string name="pref_reduced_circuit_padding_summary">Usa algoritmos de relleno de gastos generales más bajos para reducir el uso de datos y batería</string>
     <string name="pref_disable_network_summary">Pon Tor a dormir cuando no haya Internet disponible</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Permite que las personas conectadas al mismo Wi-Fi, los dispositivos conectados y cualquier otra persona que pueda conectarse a tu IP acceda a Tor</string>
-    <string name="volunteer_mode_subtitle_desc">El modo Solidario permite que tu dispositivo sea un puente para los demás. Ayuda a las personas a usar Tor en lugares donde está bloqueado.
-\n
-\n• No agotará la batería
-\n
-\n• No ralentizará tu Internet
-\n
-\n• Puede funcionar solo cuando estas conectado a wifi
-\n
-\n• Lo puedes detener en cualquier momento</string>
     <string name="direct_connect_subtitle">La mejor manera de conectarse a Tor. Usar si Tor no está bloqueado.</string>
     <string name="app_suggested_subtitle">Orbot funciona mejor con aplicaciones de mensajería y redes sociales.</string>
     <string name="log_copied">Registro copiado</string>
@@ -149,8 +140,6 @@
     <string name="trying_to_connect_title">Conectando…</string>
     <string name="btn_choose_apps">Elegir aplicaciones</string>
     <string name="btn_refresh">Actualizar</string>
-    <string name="volunteer_mode_title">Ayuda a otres
-\na conectarse a Tor</string>
     <string name="volunteer_mode_weekly_label">Total Semanal</string>
     <string name="volunteer_mode_alltime_label">Total de todos los tiempos</string>
     <string name="smart_connect">Conexión inteligente (predeterminado)</string>

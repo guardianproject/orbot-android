@@ -132,8 +132,6 @@
     <string name="trying_to_connect_title">در حال وصل‌شدن…</string>
     <string name="strict_nodes_description">با تنظیمات گره‌های مستثنی به‌عنوان یک الزام برای ساخت همه مدارها برخورد کنید. درصورتی که با تنظیمات گره‌های مستثنی شما، هیچ مداری نتواند تولید شود، ممکن است عملکرد را از بین ببرد.</string>
     <string name="connect">وصل‌شدن</string>
-    <string name="volunteer_mode_title">کمک به دیگران در \nوصل‌شدن به Tor</string>
-    <string name="volunteer_mode_subtitle_desc">حالت مهربانی اجازه می‌دهد تا دستگاه‌تان یک پل برای دیگران باشد‌. این کار به کمک می‌کند تا افراد در مکان‌هایی که Tor مسدود شده از آن استفاده کنند. \n \n- باتریتان را تخلیه نخواهد کرد\n- اینترنتتان را کند نخواهد کرد \n- فقط می‌تواند روی Wi-Fi اجرا شود \n- می‌تواند هر زمانی خاموش شود</string>
     <string name="volunteer_mode_weekly_label">مجموع هفتگی</string>
     <string name="volunteer_mode_alltime_label">مجموع تمامی زمان‌ها</string>
     <string name="smart_connect">اتّصال هوشمند</string>
@@ -283,5 +281,4 @@
     <string name="kindness_never_had_a_direct_connection">برای استفاده از حالت مهربانی، شما باید به طور مستقیم به Tor (بدون استفاده از هر پل) حداقل یک بار متصل شوید. پس از اتصال، لطفا به اینجا برگردید تا حالت مهربانی را فعال کنید. پس از اتمام این تست اتصال مستقیم، شما آزاد هستید که از حالت مهربانی استفاده کنید یا به Tor متصل نیستید.</string>
     <string name="kindness_mode_cant_run_with_bridge">مهربانی حالت نمی تواند اجرا شود در حالی که شما از یک پل برای اتصال به Tor استفاده می کنید.</string>
     <string name="kindness_mode_cant_run_in_your_country">استفاده از Kindness حالت کمک به دیگران برای اتصال به Tor در حال حاضر به دلیل سانسور برای کشور شما معلول است.</string>
-    <string name="kindness_mode_disclaimer_bridge">از مهربانی استفاده نکنید حالت اگر شما در منطقه ای هستید که در آن سانسور شده اید یا اگر نیاز دارید از یک پل برای اتصال به Tor استفاده کنید.</string>
 </resources>

@@ -89,12 +89,6 @@
     <string name="pref_disable_ipv4_summary">Informuje exity, že jsou upřednostňovány adresy IPv6</string>
     <string name="not_sure">Nejste si jisti\?</string>
     <string name="snowflake_subtitle">Připojuje se prostřednictvím dobrovolníků Tor. Obchází některé blokace Toru.</string>
-    <string name="volunteer_mode_subtitle_desc">Režim laskavosti umožňuje, aby se vaše zařízení stalo mostem pro ostatní. Pomáhá lidem používat Tor v místech, kde je blokován.
-\n
-\n- Nevybíjí baterii
-\n- Nezpomalí váš internet
-\n- Může běžet pouze přes wifi
-\n- Lze ji kdykoli vypnout</string>
     <string name="ask_tor">Zeptejte se Toru</string>
     <string name="pref_http_dialog">Konfigurace portu HTTP</string>
     <string name="consider_disable_battery_optimizations">Spuštěné hostované služby, zvažte vypnutí optimalizací baterie</string>
@@ -167,8 +161,6 @@
     <string name="strict_nodes_description">Nastavení Vyloučit uzly považujte za požadavek pro sestavení všech obvodů. To může narušit funkčnost, pokud s nastavením Exclude Nodes nebude možné vygenerovat žádné obvody.</string>
     <string name="app_suggested_subtitle">Orbot nejlépe funguje s aplikacemi pro zasílání zpráv a sociální sítě.</string>
     <string name="secure_your_connection_title">Připraveno k připojení</string>
-    <string name="volunteer_mode_title">Pomáhat ostatním
-\npřipojit se k síti Tor</string>
     <string name="v3_delete_client_authorization_confirm">Odstranění autorizace klienta</string>
     <string name="pref_http_summary">Port, na kterém Tor nabízí svůj proxy server HTTP (výchozí: 8118 nebo 0 pro vypnutí)</string>
     <string name="pref_reduced_connection_padding_summary">Uzavírá relay spojení dříve a odesílá méně paketů s vycpávkami, aby se snížila spotřeba dat a baterie</string>

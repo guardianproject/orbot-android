@@ -131,8 +131,6 @@
     <string name="backup_port_exist">Fel: En Onion-tjänst använder redan port %s</string>
     <string name="secure_your_connection_title">Redo att ansluta</string>
     <string name="secure_your_connection_subtitle">Dölj appar från nätverksövervakning och få tillgång till dem när de är blockerade.</string>
-    <string name="volunteer_mode_title">Hjälpa andra
-\nansluta till Tor</string>
     <string name="volunteer_mode_weekly_label">Totalt per vecka</string>
     <string name="direct_connect">Direkt anslutning till Tor</string>
     <string name="snowflake_amp">Snöflinga (AMP)</string>
@@ -158,12 +156,6 @@
     <string name="snowflake_subtitle">Anslutningar genom Tor-volontärer. Tar sig runt vissa Tor-blockeringar.</string>
     <string name="log_copied">Logg kopierad</string>
     <string name="next">Nästa</string>
-    <string name="volunteer_mode_subtitle_desc">Med läget för vänlighet kan din enhet bli en bro för andra. Det hjälper människor att använda Tor på platser där det är blockerat.
-\n
-\n- Det tömmer inte batteriet.
-\n- Det kommer inte att sakta ner ditt internet.
-\n- Det kan endast köras via wifi.
-\n- Den kan stängas av när som helst</string>
     <string name="connect">Anslut</string>
     <string name="app_suggested_subtitle">Orbot fungerar bäst med appar för meddelanden och sociala medier.</string>
     <string name="apps_suggested_title">Föreslagna appar</string>

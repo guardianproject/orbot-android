@@ -110,8 +110,6 @@
     <string name="btn_configure">اختر كيفية الاتصال</string>
     <string name="btn_choose_apps">اختر التطبيقات</string>
     <string name="btn_change_exit">غيّر الخروج</string>
-    <string name="volunteer_mode_title">مساعدة الآخرين
-\nالاتصال بتور</string>
     <string name="no_internet_title">اتصل بالإنترنت</string>
     <string name="no_internet_subtitle">تحتاج إلى اتصال بالإنترنت لاستخدام Orbot.</string>
     <string name="kindness_adjust_title">إعدادات</string>
@@ -155,12 +153,6 @@
     <string name="pref_disable_ipv4_summary">يخبر المخارج بعدم الاتصال بعناوين IPv4</string>
     <string name="volunteer_mode_weekly_label">المجموع الأسبوعي</string>
     <string name="volunteer_mode_alltime_label">إجمالي الوقت</string>
-    <string name="volunteer_mode_subtitle_desc">يتيح وضع اللطف لجهازك أن يكون جسرًا للآخرين. يساعد الأشخاص على استخدام تور في الأماكن التي يتم حظره فيها.
-\n
-\n• لن تستنزف البطارية
-\n• لن يبطئ الإنترنت لديك
-\n• يمكن تشغيله عبر wifi فقط
-\n• يمكن إيقاف تشغيله في أي وقت</string>
     <string name="smart_connect">الاتصال الذكي</string>
     <string name="direct_connect">اتصال مباشر</string>
     <string name="direct_connect_subtitle">أفضل طريقة للاتصال بتور. استخدم إذا لم يُحظر تور.</string>
@@ -298,7 +290,6 @@
     <string name="kindness_never_had_a_direct_connection">لاستخدام \"وضع اللطف\"، يجب أن تكون قد اتصلت مباشرة بشبكة تور (بدون استخدام أي جسور) لمرة واحدة على الأقل. بعد الاتصال، يُرجى العودة إلى هنا لتفعيل \"وضع اللطف\". بمجرد إتمام اختبار الاتصال المباشر هذا، يمكنك استخدام \"وضع اللطف\" بحرية سواء كنت متصلاً بشبكة تور أم لا.</string>
     <string name="kindness_mode_cant_run_with_bridge">لا يمكن تشغيل \"وضع اللطف\" أثناء استخدام جسر للاتصال بشبكة تور.</string>
     <string name="kindness_mode_cant_run_in_your_country">استخدام \"وضع اللطف\" لمساعدة الآخرين على الاتصال بمتصفح تور معطل حاليًا في بلدك بسبب الرقابة.</string>
-    <string name="kindness_mode_disclaimer_bridge">لا تستخدم \"وضع اللطف\" إذا كنت في منطقة تخضع للرقابة أو إذا كنت بحاجة إلى استخدام جسر للاتصال بشبكة تور.</string>
     <string name="battery_optimization_title">عطّل تحسينات البطارية</string>
     <string name="battery_optimization_pref_msg">إعداد لبعض المستخدمين الذين يشكون في أن أجهزتهم تنهي عمل تطبيق Orbot قبل الأوان أثناء تشغيله في الخلفية.</string>
     <string name="battery_optimization_dialog_msg">قد تقوم بعض أجهزة أندرويد بإغلاق تطبيق Orbot أثناء تشغيله في الخلفية. بالنسبة لمعظم المستخدمين الذين يرغبون في التأكد من بقاء Orbot متصلاً وقيد التشغيل، يكفي ضبط Orbot ليعمل كـ \"VPN دائم التفعيل\" في إعدادات النظام. ومع ذلك، لا يزال بإمكانك المضي قدمًا لمنع جهازك من إجراء أي تحسينات للبطارية على Orbot إذا شعرت أن ذلك ضروريًا.</string>

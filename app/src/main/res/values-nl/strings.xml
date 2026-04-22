@@ -161,10 +161,8 @@
     <string name="btn_configure">Kies hoe u verbinding wilt maken</string>
     <string name="btn_choose_apps">Kies apps</string>
     <string name="btn_change_exit">Wijzig uitgang</string>
-    <string name="volunteer_mode_title">Help anderen\nverbinding te maken met Tor</string>
     <string name="volunteer_mode_weekly_label">Wekelijks totaal</string>
     <string name="volunteer_mode_alltime_label">Totaal aller tijden</string>
-    <string name="volunteer_mode_subtitle_desc">Met de vriendelijkheidsmodus kan je toestel een brug zijn voor anderen. Het helpt mensen om Tor te gebruiken op plaatsen waar het geblokkeerd is.\n\n• Het verbruikt geen batterij\n• Het vertraagt je internetverbinding niet\n• Het werkt alleen via wifi\n• Het kan op elk moment worden uitgeschakeld</string>
     <string name="kindness_mode_is_running">Vriendelijkheidsmodus is actief</string>
     <string name="kindness_mode_active_message" formatted="true">Je hebt %1$d mensen geholpen om censuur te omzeilen</string>
     <string name="kindness_mode_disabled">Vriendelijkheidsmodus is uitgeschakeld</string>

@@ -143,8 +143,6 @@
     <string name="pref_isolate_protocol_summary">Χρησιμοποιήστε διαφορετικό κύκλωμα για κάθε πρωτόκολλο σύνδεσης</string>
     <string name="pref_isolate_port_summary">Χρήση διαφορετικού κυκλώματος για κάθε θύρα προορισμού</string>
     <string name="pref_isolate_protocol">Απομόνωση πρωτοκόλλων πελάτη</string>
-    <string name="volunteer_mode_title">Βοηθήστε τους άλλους
-\nσυνδεθείτε στο Tor</string>
     <string name="volunteer_mode_weekly_label">Εβδομαδιαίο σύνολο</string>
     <string name="volunteer_mode_alltime_label">Όλος ο χρόνος Σύνολο</string>
     <string name="smart_connect">Smart Connect (προεπιλογή)</string>
@@ -167,12 +165,6 @@
     <string name="app_suggested_subtitle">Το Orbot λειτουργεί καλύτερα με εφαρμογές ανταλλαγής μηνυμάτων και μέσων κοινωνικής δικτύωσης.</string>
     <string name="apps_suggested_title">Προτεινόμενες εφαρμογές</string>
     <string name="snowflake_subtitle">Συνδέεται μέσω εθελοντών του Tor. Παρακάμπτει κάποιο μπλοκάρισμα του Tor.</string>
-    <string name="volunteer_mode_subtitle_desc">Η λειτουργία \"Ευγένεια\" επιτρέπει στη συσκευή σας να γίνει γέφυρα για τους άλλους. Βοηθάει τους ανθρώπους να χρησιμοποιούν το Tor σε μέρη όπου είναι μπλοκαρισμένο.
-\n
-\n- Δεν θα αδειάσει την μπαταρία σας
-\n- Δεν θα επιβραδύνει το διαδίκτυο σας
-\n- Μπορεί να λειτουργήσει μόνο μέσω wifi
-\n- Μπορεί να απενεργοποιηθεί ανά πάσα στιγμή</string>
     <string name="direct_connect">Άμεση σύνδεση στο Tor</string>
     <string name="snowflake_amp">Χιονονιφάδα (AMP)</string>
     <string name="power_user_description">Για χρήστες που είναι εξοικειωμένοι με το Tor. Σας επιτρέπει να ξεκινήσετε το Orbot χωρίς τη ρύθμιση VPN και εμφανίζει τις ανοιχτές θύρες SOCKS και HTTP</string>

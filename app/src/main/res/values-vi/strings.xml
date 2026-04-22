@@ -143,12 +143,6 @@
     <string name="not_sure">Không chắc chắn ư\?</string>
     <string name="many_ways">Có nhiều cách để truy cập được Tor. Một số có thể sẽ hoạt động cho bạn tốt hơn những cái khác.</string>
     <string name="bridge_snowflake_amp">Kết nối thông qua những người dùng Tor khác sử dụng Snowflake (Phương pháp 2 - AMP)</string>
-    <string name="volunteer_mode_subtitle_desc">Chế độ Thân thiện cho phép thiết bị của bạn trở thành một cầu Bridge cho những người khác. Nó giúp cho mọi người được sử dụng Tor tại những nơi mà nó bị chặn.
-\n
-\n• Nó sẽ không làm kiệt pin của bạn
-\n• Nó sẽ không làm chậm đi internet của bạn
-\n• Nó chỉ có thể chạy trên wifi
-\n• Nó có thể được tắt đi bất kỳ lúc nào</string>
     <string name="strict_nodes_description">Hãy đối xử với các cài đặt \"Loại bỏ Nút giao mạng\" (Exclude Nodes) như một điều kiện để xây dựng tất cả các mạch nối. Điều này có thể sẽ làm phá vỡ chức năng nếu như không có mạch nối nào được phát sinh ra (generated) với các cài đặt Loại bỏ Nút giao mạng.</string>
     <string name="power_user_description">Đối với những người dùng đã quen thuộc với Tor. Cho phép bạn khởi động Orbot mà không cần cài đặt VPN và hiển thị các cổng SOCKS và HTTP mở khả dụng</string>
     <string name="direct_connect_subtitle">Cách tốt nhất để kết nối tới Tor. Sử dụng nếu như Tor không bị chặn.</string>
@@ -165,8 +159,6 @@
     <string name="pref_isolate_port_summary">Sử dụng một mạch nối khác cho mỗi một cổng đích đến (destination port)</string>
     <string name="pref_isolate_protocol_summary">Sử dụng một mạch nối khác biệt cho mỗi một giao thức protocol kết nối</string>
     <string name="btn_change_exit">Thay đổi đầu ra exit</string>
-    <string name="volunteer_mode_title">Giúp đỡ những người khác
-\nkết nối tới Tor</string>
     <string name="volunteer_mode_weekly_label">Tổng cộng hằng tuần</string>
     <string name="volunteer_mode_alltime_label">Tổng cộng toàn bộ thời gian</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>

@@ -142,7 +142,6 @@
     <string name="strict_nodes_description">Tratta l\'impostazione \"Nodi da escludere\" come requisito per creare tutti i circuiti. Può causare errori se nessun circuito è in grado di essere generato con la tua impostazione \"Nodi da escludere\".</string>
     <string name="option_only_on_wifi">Solo su Wifi</string>
     <string name="option_only_when_charging">Solo quando in carica</string>
-    <string name="volunteer_mode_subtitle_desc">La modalità altruismo consente al tuo dispositivo di fare da ponte per gli altri. Aiuta le persone ad usare Tor in luoghi dove viene bloccato. \n \n• Non consumerà la tua batteria \n• Non rallenterà il tuo internet \n• Può funzionare solo su wifi \n• Può essere spenta in qualsiasi momento</string>
     <string name="smart_connect">Connessione intelligente</string>
     <string name="snowflake_subtitle">Si connette tramite volontari di Tor. Aggira qualche blocco di Tor.</string>
     <string name="volunteer_mode">Modalità altruismo</string>
@@ -153,8 +152,6 @@
     <string name="kindness_config_detail">Configura come e quando il dispositivo può agire da proxy Snowflake per altri utenti Tor.</string>
     <string name="log_copied">Log copiato</string>
     <string name="btn_change_exit">Cambia uscita</string>
-    <string name="volunteer_mode_title">Aiuta altri a
-\nconnettersi a Tor</string>
     <string name="volunteer_mode_alltime_label">Totale assoluto</string>
     <string name="direct_connect">Connessione diretta</string>
     <string name="direct_connect_subtitle">Il modo migliore per connettersi a Tor. Usalo se Tor non viene bloccato.</string>
@@ -285,7 +282,6 @@
     <string name="kindness_never_had_a_direct_connection">Per usare la modalità altruismo, devi avere connesso direttamente Tor (senza usare alcun bridge) almeno una volta. Torna qui a connessione avvenuta per attivare la modalità altruismo. Dopo aver completato questa prova di connessione diretta, puoi usare liberamente la modalità altruismo se Tor è connesso o meno.</string>
     <string name="kindness_mode_cant_run_with_bridge">La modalità altruismo non può funzionare mentre usi un bridge per connetterti a Tor.</string>
     <string name="kindness_mode_cant_run_in_your_country">L\'uso della modalità altruismo, per aiutare altre persone a connettersi a Tor, è attualmente disattivato per la tua nazione a causa della censura.</string>
-    <string name="kindness_mode_disclaimer_bridge">Non usare la modalità altruismo se ti trovi in una regione in cui si viene censurati o se ti serve usare un bridge per connetterti a Tor.</string>
     <string name="battery_optimization_title">Disattiva ottimizzazioni della batteria</string>
     <string name="battery_optimization_pref_msg">Opzione per alcuni utenti che sospettano che il loro dispositivo chiuda prematuramente Orbot mentre è in secondo piano.</string>
     <string name="battery_optimization_dialog_msg">Alcuni dispositivi Android potrebbero chiudere Orbot mentre è in secondo piano. Per la maggior parte degli utenti che vogliono assicurarsi che Orbot rimanga connesso e in esecuzione, è sufficiente impostare Orbot per funzionare come una VPN \"sempre attiva\" nelle impostazioni del sistema. Tuttavia, puoi procedere ad impedire al dispositivo di eseguire qualsiasi ottimizzazione della batteria su Orbot se necessario.</string>

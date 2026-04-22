@@ -131,8 +131,6 @@
     <string name="secure_your_connection_title">Готово к подключению</string>
     <string name="secure_your_connection_subtitle">Скрывайте приложения от отслеживания в сети и получайте доступ, когда он заблокирован.</string>
     <string name="strict_nodes_description">Рассматривать настройки исключённых узлов как требование для построения всех цепочек. Это может нарушить функциональность, если ни одна цепочка не сможет быть создана с вашими настройками.</string>
-    <string name="volunteer_mode_title">Помогите другим
-\nподключиться к Tor</string>
     <string name="volunteer_mode_weekly_label">Итого за неделю</string>
     <string name="volunteer_mode_alltime_label">Итого за всё время</string>
     <string name="snowflake">Snowflake</string>
@@ -140,12 +138,6 @@
     <string name="next">Далее</string>
     <string name="snowflake_subtitle">Подключение через добровольцев Tor. Обходит некоторые блокировки Tor.</string>
     <string name="direct_connect_subtitle">Лучший способ подключения к Tor. Используйте, если Tor не заблокирован.</string>
-    <string name="volunteer_mode_subtitle_desc">Режим доброты позволяет вашему устройству быть мостом для других. Это помогает людям использовать Tor в местах, где он заблокирован.
-\n
-\n• Он не расходует заряд батареи
-\n• Он не замедляет ваш интернет
-\n• Он может работать только через Wi-Fi
-\n• Его можно отключить в любое время</string>
     <string name="smart_connect">Умное Подключение</string>
     <string name="direct_connect">Прямое Подключение</string>
     <string name="power_user_mode">Режим опытного пользователя</string>

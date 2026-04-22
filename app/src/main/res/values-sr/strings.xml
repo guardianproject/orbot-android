@@ -105,15 +105,7 @@
     <string name="secure_your_connection_title">Спреман за повезивање</string>
     <string name="secure_your_connection_subtitle">Сакриј апликације од надзора мреже и добиј приступ када су блокиране.</string>
     <string name="btn_configure">Изабери како да се повежеш</string>
-    <string name="volunteer_mode_title">Помози другима
-\nда се повежу на Тор</string>
     <string name="volunteer_mode_alltime_label">Све време УКУПНО</string>
-    <string name="volunteer_mode_subtitle_desc">Режим доброте омогућава вашем уређају да буде мост за друге. Помаже људима да користе Тор у местима где је блокиран.
-\n
-\n• Неће испразнити вашу батерију
-\n• Неће успорити ваш интернет
-\n• Може радити само преко Wi-Fi
-\n• Може се искључити у било ком тренутку</string>
     <string name="snowflake">Snowflake (оригинал)</string>
     <string name="apps_suggested_title">Предложене апликације</string>
     <string name="not_sure">Нисте сигурни?</string>

@@ -141,7 +141,6 @@
     <string name="apps_suggested_title">Ehdotetut sovellukset</string>
     <string name="volunteer_mode_weekly_label">Viikottainen kokonaismäärä</string>
     <string name="volunteer_mode_alltime_label">Kaikkien aikojen kokonaismäärä</string>
-    <string name="volunteer_mode_title">Auta muita yhdistämään Tor-verkkoon</string>
     <string name="smart_connect">Älykäs yhdistäminen (oletus)</string>
     <string name="direct_connect">Suora Tor-yhteys</string>
     <string name="direct_connect_subtitle">Paras Tor-yhteyden muodostustapa. Käytä, jos Tor-verkkoa ei ole estetty.</string>
@@ -149,12 +148,6 @@
     <string name="snowflake_subtitle">Muodostaa Tor-yhteyden vapaaehtoisten välityksellä. Kiertää joitakin Tor-estoja.</string>
     <string name="connect">Yhdistä</string>
     <string name="next">Seuraava</string>
-    <string name="volunteer_mode_subtitle_desc">Ystävällisyystila tekee laitteestasi sillan muille. Se auttaa muita käyttämään Toria paikoissa, joissa se on estetty.
-\n
-\n• Se ei kuluta akkuasi
-\n• Se ei hidasta Internet-yhteyttäsi
-\n• Se voi toimia vain Wi-Fi-yhteydellä
-\n• Se voidaan poistaa käytöstä koska tahansa</string>
     <string name="hide_apps">Piilota sovelluksia verkkoseurannalta ja käytä estettyjä palveluita.</string>
     <string name="log_copied">Lokitiedot kopioitu</string>
     <string name="kindness_adjust_title">Asetukset</string>

@@ -91,9 +91,7 @@
     <string name="full_device_vpn">Full Device VPN</string>
     <string name="custom_bridges">Custom Bridges</string>
     <string name="snowflake_proxy_msg_title">Show Connection Notification</string>
-    <string name="volunteer_mode_title">Help others\nconnect to Tor</string>
     <string name="volunteer_mode_alltime_label">All Time Total</string>
-    <string name="volunteer_mode_subtitle_desc">Kindness mode allows your device to be a bridge for others. It helps people use Tor in places where it is blocked.\n\n• It will not drain your battery\n• It will not slow down your internet\n• It can run only over wifi\n• It can be turned off anytime</string>
     <string name="smart_connect">Smart Connect</string>
     <string name="direct_connect">Direct Connection</string>
     <string name="direct_connect_subtitle">The best way to connect to Tor. Use if Tor is not blocked.</string>
@@ -291,7 +289,6 @@
     <string name="kindness_never_had_a_direct_connection">In order to use Kindness Mode, you need to have connected directly to Tor (without using any bridges) at least once. After having connected, please come back here to activate Kindness Mode. After completing this direct connection test, you are free to use Kindness Mode whether or not you\'re connected to Tor.</string>
     <string name="kindness_mode_cant_run_with_bridge">Kindness Mode can\'t run while you are using a bridge to connect to Tor.</string>
     <string name="kindness_mode_cant_run_in_your_country">Using Kindness Mode to help other people connect to Tor is currently disabled for your country because of censorship.</string>
-    <string name="kindness_mode_disclaimer_bridge">Don\'t Use Kindness Mode if you are in a region where you are censored or if you need to use a bridge to connect to Tor.</string>
     <string name="battery_optimization_title">Disable Battery Optimisations</string>
     <string name="battery_optimization_pref_msg">Setting for some users that suspect their device is prematurely killing Orbot while it runs in the background.</string>
     <string name="battery_optimization_dialog_msg">Certain Android devices may kill Orbot as it runs in the background. For most users who want to make sure Orbot stays connected and running, it\'s sufficient to set Orbot to function as an \"Always-on\" VPN in the system settings. However, you may still proceed to prevent your device from performing any battery optimisations on Orbot if you feel it to be necessary.</string>

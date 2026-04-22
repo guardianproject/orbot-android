@@ -136,12 +136,6 @@
     <string name="not_sure">בספק\?</string>
     <string name="snowflake_subtitle">חיבור דרך מתנדבי Tor. מעקף חלק מחסימות Tor.</string>
     <string name="custom_bridges">גשרים מותאמים אישית</string>
-    <string name="volunteer_mode_subtitle_desc">מצב חסד מאפשר למכשיר שלך להיות גשר עבור אחרים. זה עוזר לאנשים להשתמש ב־Tor במקומות שבהם הוא חסום.
-\n
-\n• זה לא ירוקן את הסוללה שלך
-\n• זה לא יאט את האינטרנט שלך
-\n• זה יכול לפעול רק על wifi
-\n• ניתן לכבות אותו בכל עת</string>
     <string name="ask_tor">לשאול את Tor</string>
     <string name="consider_disable_battery_optimizations">שירותים מתארחים פועלים, כדאי להשבית את מיטוב הסוללה</string>
     <string name="power_user_mode">מצב משתמש פיכח</string>
@@ -181,8 +175,6 @@
     <string name="strict_nodes_description">התייחסות להגדרות החרגה של צמתים כדרישה לבניית כל המעגלים. זה עלול לשבור את הפעילות אם לא ניתן ליצור מעגלים עם הגדרות החרגת הצמתים שנקבעו.</string>
     <string name="app_suggested_subtitle">Orbot עובד הכי טוב עם יישומוני הודעות ומדיה חברתית.</string>
     <string name="secure_your_connection_title">מוכן להתחבר</string>
-    <string name="volunteer_mode_title">סיוע לאחרים
-\nלהתחבר ל־Tor</string>
     <string name="v3_delete_client_authorization_confirm">מחיקת הרשאת הלקוח</string>
     <string name="direct_connect_subtitle">הדרך הטובה ביותר להתחבר ל־Tor. אפשר להשתמש אם Tor לא חסום.</string>
     <string name="volunteer_status_title">היום טוב יותר
