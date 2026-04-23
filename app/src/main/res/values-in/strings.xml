@@ -104,7 +104,7 @@
     <string name="btn_configure">Pilih Cara Menghubungkan</string>
     <string name="trying_to_connect_title">Menghubungkan…</string>
     <string name="btn_change_exit">Pilih nodus keluar</string>
-    <string name="btn_refresh">Muat ulang</string>
+    <string name="btn_refresh">Segarkan Koneksi</string>
     <string name="pref_connection_padding">Lapisan koneksi</string>
     <string name="pref_reduced_connection_padding_summary">Menutup koneksi penyampaian lebih cepat dan mengirim lebih sedikit paket lapisan untuk mengurangi penggunaan data dan baterai</string>
     <string name="pref_circuit_padding">Lapisan sirkuit</string>
