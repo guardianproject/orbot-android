@@ -38,8 +38,7 @@ import org.torproject.jni.TorService
 
 private const val DEFAULT_THROTTLE_INTERVAL = 4000L
 
-class ConnectFragment : Fragment(),
-    ExitNodeBottomSheet.ExitNodeSelectedCallback {
+class ConnectFragment : Fragment() {
 
     lateinit var binding: FragmentConnectBinding
 
@@ -66,6 +65,15 @@ class ConnectFragment : Fragment(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        requireActivity().supportFragmentManager.setFragmentResultListener(
+            ExitNodeBottomSheet.REQUEST_KEY_EXIT_NODE_SELECTED,
+            viewLifecycleOwner
+        ) { _, bundle ->
+            onExitNodeSelected(
+                bundle.getString(ExitNodeBottomSheet.BUNDLE_KEY_COUNTRY_CODE).orEmpty()
+            )
+        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -377,7 +385,7 @@ class ConnectFragment : Fragment(),
             .show(requireActivity().supportFragmentManager, ConfigConnectionBottomSheet.TAG)
     }
 
-    override fun onExitNodeSelected(countryCode: String) {
+    private fun onExitNodeSelected(countryCode: String) {
 
         //tor format expects "{" for country code
         Prefs.exitNodes = "{$countryCode}"

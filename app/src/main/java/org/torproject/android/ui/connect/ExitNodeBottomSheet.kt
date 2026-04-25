@@ -6,26 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.navigation.fragment.NavHostFragment
-
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 import org.torproject.android.R
 import org.torproject.android.localization.Languages
-import org.torproject.android.util.StringUtils
-import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
-
+import org.torproject.android.util.Prefs
+import org.torproject.android.util.StringUtils
 import java.text.Collator
 import java.util.Locale
 import java.util.TreeMap
 
 class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
-
-    interface ExitNodeSelectedCallback {
-        fun onExitNodeSelected(countryCode: String)
-    }
 
     private val sortedCountries = TreeMap<String, Locale>(Collator.getInstance())
     private lateinit var rvList: RecyclerView
@@ -94,10 +86,13 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
                 val prev = selectedCode
                 selectedCode = code
                 notifyItemChanged(list.indexOfFirst { it.first == prev })
-                val navHostFragment = requireActivity().supportFragmentManager.fragments[0] as NavHostFragment
-                val connectFrag = navHostFragment.childFragmentManager.fragments.last() as ConnectFragment
                 notifyItemChanged(position)
-                connectFrag.onExitNodeSelected(code)
+                parentFragmentManager.setFragmentResult(
+                    REQUEST_KEY_EXIT_NODE_SELECTED,
+                    Bundle().apply {
+                        putString(BUNDLE_KEY_COUNTRY_CODE, code)
+                    }
+                )
                 dismiss()
             }
         }
@@ -106,6 +101,9 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
     }
 
     companion object {
+        const val REQUEST_KEY_EXIT_NODE_SELECTED = "request_key_exit_node_selected"
+        const val BUNDLE_KEY_COUNTRY_CODE = "bundle_key_country_code"
+
         private val COUNTRY_CODES = arrayOf(
             "DE",
             "AT",
