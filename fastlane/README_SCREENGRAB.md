@@ -6,7 +6,7 @@ First make sure that you have a valid version of `ruby` installed in your `$PATH
 ruby --version
 ```
 
-The propgram <a href="https://rbenv.org/">`rbenv`</a> is very useful for getting multiple versions of `ruby` to coexist on your Mac/Linux machine. 
+The program <a href="https://rbenv.org/">`rbenv`</a> is very useful for getting multiple versions of `ruby` to coexist on your Mac/Linux machine. 
 
 ```bash
 brew install rbenv #get rbenv on mac
@@ -35,7 +35,7 @@ Now you're good to go. If for whatever reason in the future we need a differnt v
 
 Ensure that you have a  Google Pixel emulator that's running Android 33 or higher. This can be configured in Android Studio's device manager. Install Signal on this device in order to correctly capture the "suggested apps" feature on the "Choose Apps" screen. On the emulated pixel, you can go to Signal's APK page in a browser https://signal.org/android/apk/ to obtain the app. You just have to install Signal, you don't need to open it/setup an account/etc.
 
-Make sure that the Android `adb`  programis also added to your PATH. You can get it with `brew install adb` `apt install adb`, etc.
+Make sure that the Android `adb`  program is also added to your PATH. You can get it with `brew install adb` `apt install adb`, etc.
 
 Screenshot configuration (which tests to run, which locales to use, etc) is defined in `fastlane/Screengrabfile`:
 
@@ -69,10 +69,10 @@ If fastlane can't find an Orbot APK, comment out the line `app_apk_path` to have
 
 ## `fastlane screengrab` Tips:
 
-- You can safely ignore fastlane's warnings about `java.lang.SecurityException: Package org.torproject.android.debug has not requested permission android.permission.WRITE_EXTERNAL_STORAGE`... fastlane used to require this permission to APKs in order to funciton - but we don't use it in Orbot, anc in 2025 Android 33+ completely ignores `WRITE_EXTENRAL_STORAGE` and doesn't compile it into apps - this warning is a bug/legacy code on fastlane's end.
-- If your emualtor is performing too slow (ie UI elments are not loading in time before the call to `Screengrab.Screenshot`), you can tweak the problematic tests in `app/src/androidTest/`. If you don't want to properly use the testing framework to wait for a certain UI state to be reached, a quick and dirty fix is to add/increase a call to `Thread.sleep` before calling the screenshot function. 
-- New tests can be created by clicking through the app using Android Studio's Espresso Test Recorder. Once your your correctly clicks through to what you want to screenshot, call `Screengrab.screenshot("screenshot name")` . The `@Before` annotation can be used to have a method run before the test, you can configure Orbot's `SharedPreference`s and other variables here to configure the app state for your screenshot.
-- Un/comment lines in `fastlane/Screengrabfile` to obtain screenshots in a specific language / to only obtain screnshots for certain tests
+- You can safely ignore fastlane's warnings about `java.lang.SecurityException: Package org.torproject.android.debug has not requested permission android.permission.WRITE_EXTERNAL_STORAGE`... fastlane used to require this permission to APKs in order to function - but we don't use it in Orbot, anc in 2025 Android 33+ completely ignores `WRITE_EXTENRAL_STORAGE` and doesn't compile it into apps - this warning is a bug/legacy code on fastlane's end.
+- If your emulator is performing too slow (ie UI elements are not loading in time before the call to `Screengrab.Screenshot`), you can tweak the problematic tests in `app/src/androidTest/`. If you don't want to properly use the testing framework to wait for a certain UI state to be reached, a quick and dirty fix is to add/increase a call to `Thread.sleep` before calling the screenshot function. 
+- New tests can be created by clicking through the app using Android Studio's Espresso Test Recorder. Once you've correctly clicked through to what you want to screenshot, call `Screengrab.screenshot("screenshot name")` . The `@Before` annotation can be used to have a method run before the test, you can configure Orbot's `SharedPreference`s and other variables here to configure the app state for your screenshot.
+- Un/comment lines in `fastlane/Screengrabfile` to obtain screenshots in a specific language / to only obtain screenshots for certain tests
 - If `fastlane` completes without error, it'll generate an HTML file of the last set of screenshots it captured `fastlane/metadata/android/screenshots.html`. This file isn't tracked in git, but is helpful for quickly verifying if the new screenshots are good or if you need to rerun fastlane/change your test. 
-- If you're redoing an **existing** screenshot, you **NEED** to make sure `clear_previous_screenshots(true)` is set to `true`. You can call `locales` with an array of the languages you want screenshots for, and `use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CONNECTED_SCREEN, KINDNESS_SCREEN, MORE_SCREEN, SETTINGS, CHOOSE_APPS])` with an array of the screenshots you're retaking. `git add` and commit the re-generated screenshots, and then use `git reset --hard` to undelete the other screenshots you weren't retaking.. We do this because fastlane won't overwrite an existing screenshot - so we need to clear all screenshots in order to redo already existing ones...
+- If you're redoing an **existing** screenshot, you **NEED** to make sure `clear_previous_screenshots(true)` is set to `true`. You can call `locales` with an array of the languages you want screenshots for, and `use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CONNECTED_SCREEN, KINDNESS_SCREEN, MORE_SCREEN, SETTINGS, CHOOSE_APPS])` with an array of the screenshots you're retaking. `git add` and commit the re-generated screenshots, and then use `git reset --hard` to undelete the other screenshots you weren't retaking. We do this because fastlane won't overwrite an existing screenshot - so we need to clear all screenshots in order to redo already existing ones...
 - You can see what percent of the original English strings have been translated into each locale at https://hosted.weblate.org/projects/guardianproject/orbot/ when a locale has been sufficiently translated, add it to the `ALL_LOCALES_WE_TRACK`  array in the `Screengrabfile` and rerun `fastlane screengrab` to get the new screenshots. Since there's no old screenshot to clear, we can continue to pass `false` into `clear_previous_screenshots(false)`.

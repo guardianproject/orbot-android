@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage", "UnstableApiUsage", "UnstableApiUsage", "UnstableApiUsage")
+
 import org.gradle.api.initialization.resolve.RepositoriesMode
 
 pluginManagement {

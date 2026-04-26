@@ -63,7 +63,7 @@ interface MoatApi {
                 // Ignored. If anything goes wrong with reading the certificate,
                 // creating the keystore or the trust manager, we just try to use
                 // Android's default keystore and hope for the best. (Which is really ok
-                // on later Android SDKs.
+                // on later Android SDKs)
             }
 
             val clientBuilder = OkHttpClient.Builder().proxy(proxy)

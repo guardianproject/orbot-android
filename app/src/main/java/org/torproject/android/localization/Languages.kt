@@ -154,7 +154,7 @@ class Languages private constructor(activity: Activity) {
          *
          * @param clazz the [Class] of the default `Activity`,
          * usually the main `Activity` from where the
-         * Settings is launched from.
+         * Settings are launched from.
          * @param resId the string resource ID to for the string "Use System Default",
          * e.g. `R.string.use_system_default`
          */

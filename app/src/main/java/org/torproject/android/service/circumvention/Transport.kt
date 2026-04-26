@@ -28,7 +28,7 @@ enum class Transport(val id: String) {
     SNOWFLAKE_AMP("snowflake_amp"),
 
     /**
-     * Use AMP brokers and start Snowflake with SQS rendezvous. Currently no way to
+     * Use AMP brokers and start Snowflake with SQS rendezvous. Currently, there's no way to
      * set SQS setting in app, if you force it, a runtime exception is thrown in
      * {@link org.torproject.android.service.circumvention.SnowflakeClient#startWithSqsRendezvous(Controller)}
      */

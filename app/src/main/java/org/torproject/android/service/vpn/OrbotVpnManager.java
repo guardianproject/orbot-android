@@ -240,7 +240,7 @@ public class OrbotVpnManager implements Handler.Callback {
             // disallow orbot itself...
             builder.addDisallowedApplication(mService.getPackageName());
 
-            // disallow tor apps to avoid tor over tor, Orbot doesnt need to concern itself with them
+            // disallow tor apps to avoid tor over tor, Orbot doesn't need to concern itself with them
             for (String packageName : BYPASS_VPN_PACKAGES)
                 builder.addDisallowedApplication(packageName);
         }
