@@ -125,132 +125,121 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ivHeader" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/rowVolunteerMode"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="4dp"
-                android:background="@color/panel_widget_background"
-                android:padding="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvTitleOn">
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="@color/panel_widget_background">
 
-                <ImageView
-                    android:id="@+id/ivHeartOn"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@null"
-                    android:src="@drawable/ic_heart"
-                    app:layout_constraintBottom_toBottomOf="@id/swVolunteerHeader"
-                    app:layout_constraintEnd_toStartOf="@id/swVolunteerHeader"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/swVolunteerHeader" />
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
 
-                <TextView
-                    android:id="@+id/swVolunteerHeader"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:text="@string/volunteer_mode"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toEndOf="@id/ivHeartOn"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_heart"
+                        android:contentDescription="@null" />
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swVolunteerMode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="2dp"
-                    android:textSize="18sp"
-                    android:checked="true"
-                    app:layout_constraintBottom_toBottomOf="@id/swVolunteerHeader"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/swVolunteerHeader"
-                    app:showText="false" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/volunteer_mode"
+                        android:textSize="18sp"
+                        android:layout_marginStart="12dp" />
 
-                <ImageView
-                    android:id="@+id/ivGear"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@null"
-                    android:src="@drawable/ic_settings_gear"
-                    app:layout_constraintBottom_toBottomOf="@id/swVolunteerAdjust"
-                    app:layout_constraintStart_toStartOf="@id/ivHeartOn"
-                    app:layout_constraintTop_toTopOf="@id/swVolunteerAdjust" />
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swVolunteerMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                <TextView
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="@color/panel_widget_background">
+
+                <LinearLayout
                     android:id="@+id/swVolunteerAdjust"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/kindness_adjust_title"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/ivGear"
-                    app:layout_constraintTop_toBottomOf="@id/swVolunteerHeader" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/volunteer_display_weekly"
+                    <ImageView
+                        android:id="@+id/ivGear"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_settings_gear"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kindness_adjust_title"
+                        android:textSize="18sp"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="4dp"
-                android:background="@color/panel_widget_background"
-                android:orientation="horizontal"
-                android:padding="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rowVolunteerMode">
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="@color/panel_widget_background">
 
-                <TextView
-                    android:id="@+id/tvWeeklyTotalHeader"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/volunteer_mode_weekly_label"
-                    android:textAllCaps="true"
-                    android:textColor="@color/progress_bar_purple"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-                <TextView
-                    android:id="@+id/tvWeeklyTotal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="@id/tvWeeklyTotalHeader"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/tvWeeklyTotalHeader"
-                    tools:text="#" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/volunteer_mode_weekly_label"
+                        android:textAllCaps="true"
+                        android:textColor="@color/progress_bar_purple"
+                        android:textSize="16sp" />
 
+                    <TextView
+                        android:id="@+id/tvWeeklyTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
 
-                <TextView
-                    android:id="@+id/tvAlltimeTotalHeader"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp"
-                    android:text="@string/volunteer_mode_alltime_label"
-                    android:textAllCaps="true"
-                    android:textColor="@color/progress_bar_purple"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvWeeklyTotalHeader" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/volunteer_mode_alltime_label"
+                        android:textAllCaps="true"
+                        android:textColor="@color/progress_bar_purple"
+                        android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/tvAlltimeTotal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="@id/tvAlltimeTotalHeader"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/tvAlltimeTotalHeader"
-                    tools:text="#" />
+                    <TextView
+                        android:id="@+id/tvAlltimeTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
