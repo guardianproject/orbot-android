@@ -13,7 +13,7 @@
 ALL_LOCALES_WE_TRACK = ['en-US', 'fr-FR', 'es-MX', 'de-DE', 'ar', 'he', 'tr', 'pt', 'ja-JP', 'hi', 'ru', 'ko-KR', 'bg', 'en_GB', 'id', 'ga', 'it-IT', 'uk', 'ca', 'ro', 'ta', 'pl', 'pt_PT', 'fr', 'es', 'sq', 'de', 'vi', 'pt_BR', 'cs', 'et', 'fi', 'el', 'sr', 'nb_NO', 'az', 'sv', 'sk', 'lv', 'es_CU', 'tk', 'sl', 'zh_Hans'].sort
 
 # locales featured on https://orbot.app
-WEBSITE_LOCALES = ['en-US', 'fr-FR', 'es', 'ar', 'bo', 'de-DE', 'pt', 'ru', 'zh_Hans'].sort
+WEBSITE_LOCALES = ['en-US', 'fr-FR', 'es', 'ja', 'ar', 'bo', 'de-DE', 'pt', 'ru', 'zh_Hans'].sort
 
 # get screenshots for all locales, excluding the ones in this array
 # useful if some screenshots aren't coming out good for some locales, and others are.
