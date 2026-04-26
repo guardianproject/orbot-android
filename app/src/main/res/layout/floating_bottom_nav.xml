@@ -15,7 +15,7 @@
         android:clipToPadding="false"
         android:clipChildren="false"
         app:cardBackgroundColor="@android:color/black"
-        app:cardCornerRadius="32dp"
+        app:cardCornerRadius="36dp"
         app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -59,7 +59,7 @@
             android:layout_marginStart="6dp"
             app:layout_constraintStart_toEndOf="@id/itemcheck"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/ic_heart" />
+            tools:src="@drawable/ic_heart_outline" />
 
         <TextView
             android:id="@+id/itemtext"
