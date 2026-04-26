@@ -175,7 +175,6 @@ androidComponents {
 
 dependencies {
     implementation(libs.android.material)
-    implementation(libs.android.volley)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.localbroadcast)
@@ -209,7 +208,6 @@ dependencies {
     // uncomment to use a local build of tor-android:
     // api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))
 
-    testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso)
     androidTestImplementation(libs.androidx.rules)
