@@ -217,6 +217,15 @@
     <string name="setting_padding">Padding</string>
     <string name="setting_debug">Debug</string>
 
+    <string name="testing_title_testing">Testing Quality…</string>
+    <string name="testing_explanation_testing">Before you become a Snowflake Proxy, we need to see if you can run an effective proxy. Please wait while we check.</string>
+    <string name="testing_title_approved">%s Approved</string>
+    <string name="testing_explanation_approved">You are a great candidate for becoming a Snowflake Proxy on the Tor network.</string>
+    <string name="testing_continue">Continue</string>
+    <string name="testing_title_declined">%s Not Approved</string>
+    <string name="testing_explanation_declined">You cannot be a useful Snowflake Proxy at this time. If you keep seeing this message, try again on a different network.</string>
+    <string name="testing_explanation_declined2">Do not use Kindness Mode, if the Internet in your country is heavily censored.</string>
+
     <string name="root_warning">Orbot has detected your device is rooted, which can cause security issues.</string>
     <string name="pref_detect_root_summary">Warn on startup if root permissions are enabled on this device</string>
     <string name="pref_detect_root_title">Root Detection</string>

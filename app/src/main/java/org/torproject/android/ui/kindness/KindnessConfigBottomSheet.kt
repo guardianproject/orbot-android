@@ -25,7 +25,7 @@ class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment() {
             Prefs.setBeSnowflakeProxyLimitWifi(mBinding.swKindnessConfigWifi.isChecked)
             Prefs.setBeSnowflakeProxyLimitCharging(mBinding.swKindnessConfigCharging.isChecked)
 
-            setFragmentResult(BUNDLE_KEY_CONFIG_CHANGED, Bundle())
+            setFragmentResult(KEY_CONFIG_CHANGED, Bundle())
             dismiss()
         }
 
@@ -38,9 +38,9 @@ class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment() {
     override fun getHeightRatio(): Float = 1/2f
 
     companion object {
-        const val BUNDLE_KEY_CONFIG_CHANGED = "kindness_config_changed"
+        const val KEY_CONFIG_CHANGED = "kindness_config_changed"
 
-        fun openKindnessSettings(fragmentManager: FragmentManager) {
+        fun show(fragmentManager: FragmentManager) {
             KindnessConfigBottomSheet().show(
                 fragmentManager,
                 "KindnessConfig"

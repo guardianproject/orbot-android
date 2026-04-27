@@ -67,7 +67,7 @@ class KindnessFragment : Fragment() {
         }
 
         mBinding.rowUsageLimits.setOnClickListener {
-            KindnessConfigBottomSheet.openKindnessSettings(parentFragmentManager)
+            KindnessConfigBottomSheet.show(parentFragmentManager)
         }
 
         mBinding.tvProxyQualityStatus.text = getString(R.string.kindness_proxy_quality_unknown)
@@ -83,7 +83,8 @@ class KindnessFragment : Fragment() {
                 showDisabledDialog(it)
                 return@setOnClickListener
             }
-            mBinding.swVolunteerMode.isChecked = true
+
+            TestingDialogFragment.show(parentFragmentManager)
         }
 
         mBinding.btnActionLearnMore.setOnClickListener {
@@ -95,13 +96,24 @@ class KindnessFragment : Fragment() {
             }
         }
 
+        // TODO: If test was successful in the last 24 hours, immediately show panelKindnessStatus,
+        //  but in `off` state!
         showPanelStatus(Prefs.beSnowflakeProxy())
 
         parentFragmentManager.setFragmentResultListener(
-            KindnessConfigBottomSheet.BUNDLE_KEY_CONFIG_CHANGED,
-            viewLifecycleOwner) {_, _ ->
+            KindnessConfigBottomSheet.KEY_CONFIG_CHANGED,
+             viewLifecycleOwner) { _, _ ->
                 updateUsageLimitsUi()
             }
+
+        parentFragmentManager.setFragmentResultListener(
+            TestingDialogFragment.KEY_RESULT,
+            viewLifecycleOwner) { _, bundle ->
+
+            if (bundle.getBoolean(TestingDialogFragment.KEY_RESULT)) {
+                mBinding.swVolunteerMode.isChecked = true
+            }
+        }
 
         return mBinding.root
     }
