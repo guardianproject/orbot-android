@@ -1,1 +1,1 @@
-Orbot：Android 版本的 Tor
+Orbot：适用于 Android 的 Tor
