@@ -41,17 +41,17 @@ object VpnServicePrepareWrapper {
      * Activity Result, we can know if Orbot VPN is truly startable, or at the
      * least display a more generic error.
      *
-     * Invoking VpnService.prepare() can result in 3 out comes:
+     * Invoking VpnService.prepare() can result in 3 outcomes:
      * 1. IllegalStateException - There is a legacy VPN profile marked as always on
      * 2. Intent
      *     - A: Can-prepare - Create Vpn profile or Always-on-VPN is not detected in case of Android 11+
      *     - B: Always-on-VPN - Another Vpn Profile is marked as always on (Only available up to Android
-     *       11 or where testOnly is set, e.g builds from Android Studio)
+     *       11 or where testOnly is set, e.g. builds from Android Studio)
      * 3. null - The app has the VPN permission
      *
      * In case 1 and 2b, you don't know if you have a VPN profile or not.
      *
-     * In the case of a Legacy VPN is set to "Always-on, or
+     * In the case of a Legacy VPN is set to "Always-on", or
      * if on androids before API S we can give them a detailed message
      * about why we can't start the VPN. If The call to prepare
      * returns null, that means we are good to go. If it returns an Intent,

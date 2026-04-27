@@ -28,7 +28,7 @@ class BatteryOptimizationsSettingDialog : DialogFragment() {
             .setMessage(msgBody)
             .setNeutralButton(android.R.string.cancel, null)
             .setPositiveButton(R.string.battery_optimizations_dialog_btn_disable) { _, _ ->
-                context?.startActivity(context?.openBatteryOptimizationAppListScreen())
+                context?.startActivity(openBatteryOptimizationAppListScreen())
             }
             .setNegativeButton(R.string.open_vpn_settings) { _, _ ->
                 VpnServicePrepareWrapper.openVpnSystemSettings(this)

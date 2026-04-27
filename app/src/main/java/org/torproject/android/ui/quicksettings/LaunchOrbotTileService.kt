@@ -15,6 +15,6 @@ class LaunchOrbotTileService : TileService() {
 
         val pendingIntent =
             PendingIntentActivityWrapper(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT, false)
-        TileServiceCompat.startActivityAndCollapse(this, pendingIntent);
+        TileServiceCompat.startActivityAndCollapse(this, pendingIntent)
     }
 }

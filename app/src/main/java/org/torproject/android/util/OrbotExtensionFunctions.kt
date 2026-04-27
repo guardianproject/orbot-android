@@ -63,7 +63,7 @@ fun Context.canStartForegroundServices(): Boolean {
 }
 
 // gently take users to a screen, where if they dig, they may disable battery optimizations for Orbot
-fun Context.openBatteryOptimizationAppListScreen(): Intent {
+fun openBatteryOptimizationAppListScreen(): Intent {
     return Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS).apply {
         flags = Intent.FLAG_ACTIVITY_NEW_TASK
     }

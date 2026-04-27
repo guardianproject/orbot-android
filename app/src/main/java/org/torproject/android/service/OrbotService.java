@@ -707,7 +707,7 @@ public class OrbotService extends VpnService {
                 }
                 case ACTION_STOP -> {
                     var userIsQuittingOrbot = mIntent.getBooleanExtra(ACTION_STOP_FOREGROUND_TASK, false);
-                    // When user cancels connecting, make sure, the SmartConnect timer is also cancelled.
+                    // When user cancels connecting, make sure, the SmartConnect timer is also canceled.
                     SmartConnect.cancel();
                     if (mVpnManager != null) mVpnManager.handleIntent(new Builder(), mIntent);
                     stopTorAsync(!userIsQuittingOrbot);

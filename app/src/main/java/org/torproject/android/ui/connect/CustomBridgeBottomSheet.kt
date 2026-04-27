@@ -36,7 +36,7 @@ class CustomBridgeBottomSheet :
                     + """((\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[\da-fA-F:]+])""" // Cheap IPv4 and IPv6 address test
                     + """(:\d{1,5})?)\s+""" // Optional port number, space after address
                     + """([\da-fA-F]{40})?""" // Optional bridge fingerprint
-                    + """[ \t\f\w\-/+:=.,]*$""" // Optional bridge arguments (different per bridge type, subject to change)
+                    + """[ \t\f\w\-/+:=.,\[\]]*$""" // Optional bridge arguments (different per bridge type, subject to change)
         )
 
         fun isValidBridge(input: String): Boolean {

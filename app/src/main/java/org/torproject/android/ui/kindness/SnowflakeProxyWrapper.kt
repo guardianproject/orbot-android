@@ -89,8 +89,8 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
                         // Ignored.
                     }
 
-                    override fun natTypeUpdated(natType: String) {
-                        service.updateNatType(natType)
+                    override fun natTypeUpdated(natType: String?) {
+                        // TODO feature added in IPtProxy 5.4.1
                     }
                 }
 

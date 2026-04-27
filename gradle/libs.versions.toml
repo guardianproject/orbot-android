@@ -1,7 +1,6 @@
 [versions]
-agp = "9.1.1"
+agp = "9.2.0"
 android-material = "1.13.0"
-android-volley = "1.2.1"
 androidx-activity = "1.13.0"
 androidx-appcompat = "1.7.1"
 androidx-core = "1.18.0"
@@ -14,13 +13,12 @@ androidx-runner = "1.7.0"
 androidx-window = "1.5.1"
 androidx-work = "2.11.2"
 guardian-jtorctl = "0.4.5.7"
-junit-jupiter = "6.0.3"
-navigation-fragment-ktx = "2.9.7"
+navigation-fragment-ktx = "2.9.8"
 orchestrator = "1.6.1"
 retrofit = "3.0.0"
 rootbeer = "0.1.2"
 tor-android = "0.4.9.6"
-kotlin = "2.3.20"
+kotlin = "2.3.21"
 coroutines = "1.10.2"
 serialization = "1.11.0"
 androidx-biometric = "1.1.0"
@@ -32,7 +30,6 @@ quickie = "1.11.0"
 
 [libraries]
 android-material = { group = "com.google.android.material", name = "material", version.ref = "android-material" }
-android-volley = { group = "com.android.volley", name = "volley", version.ref = "android-volley" }
 androidx-activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "androidx-activity" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
@@ -49,7 +46,6 @@ androidx-runner = { group = "androidx.test", name = "runner", version.ref = "and
 androidx-window = { group = "androidx.window", name = "window", version.ref = "androidx-window" }
 androidx-work-kotlin = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "androidx-work" }
 guardian-jtorctl = { group = "info.guardianproject", name = "jtorctl", version.ref = "guardian-jtorctl" }
-junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit-jupiter" }
 retrofit-lib = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization", version.ref = "retrofit" }
 rootbeer-lib = { module = "com.scottyab:rootbeer-lib", version.ref = "rootbeer" }
