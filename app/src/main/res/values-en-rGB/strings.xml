@@ -208,7 +208,7 @@
     <string name="error_asking_tor_for_bridges">Error asking Tor how to connect</string>
     <string name="enter_bridge_address">Enter bridge address</string>
     <string name="built_in_bridges_obfs4">Built-in Bridges (obfs4)</string>
-    <string name="built_in_bridges_obfs4_subtitle">Clocks your traffic. Gets around some Tor blocking. Good if you\'re on public WiFi, but in a country where Tor isn\'t blocked.</string>
+    <string name="built_in_bridges_obfs4_subtitle">Cloaks your traffic. Gets around some Tor blocking. Good if you\'re on public Wi-Fi, but in a country where Tor isn\'t blocked.</string>
     <string name="unlock_app_msg" formatted="true">Please unlock your device in order to use %s</string>
     <string name="run_smart_connect_">Run Smart Connect to find the best way</string>
     <string name="scan_qr_code">Scan QR Code</string>

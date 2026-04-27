@@ -222,7 +222,7 @@
     <string name="error_asking_tor_for_bridges">Gabim në pyetjen e Tor-it se si të lidhet</string>
     <string name="enter_bridge_address">Jepni adresë ure</string>
     <string name="built_in_bridges_obfs4">Ura të Brendshme (obfs4)</string>
-    <string name="built_in_bridges_obfs4_subtitle">Fsheh trafikun tuaj. Anashkalon ca bllokim të Tor-it. I dobishëm nëse gjendeni në WiFi publik, por në një vend ku Tor-i nuk bllokohet.</string>
+    <string name="built_in_bridges_obfs4_subtitle">Fsheh trafikun tuaj. Anashkalon ca bllokim të Tor-it. I dobishëm nëse gjendeni në Wi-Fi publik, por në një vend ku Tor-i nuk bllokohet.</string>
     <string name="unlock_app_msg" formatted="true">Që të mund të përdorni %s, ju lutemi, shkyçni pajisjen tuaj</string>
     <string name="run_smart_connect_">Që të gjeni rrugën më të mirë, xhironi Smart Connect</string>
     <string name="scan_qr_code">Skanoni Kodin QR</string>
