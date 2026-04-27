@@ -182,7 +182,7 @@
     <string name="status_activated">Tor ağına bağlandı</string>
     <string name="status_disabled">Orbot devre dışı bırakıldı</string>
     <string name="status_shutting_down">Tor hizmeti kapatılıyor</string>
-    <string name="couldn_t_start_tor_process_">Tor işlemi başlatılamadı</string>
+    <string name="couldn_t_start_tor_process_">Tor işlemi başlatılamadı:</string>
     <string name="unable_to_start_tor">Tor başlatılamadı:</string>
     <string name="mebibyte_per_second">MiB/s</string>
     <string name="kibibyte_per_second">KiB/s</string>
@@ -286,4 +286,15 @@
     <string name="kindness_mode_cant_run_with_bridge">Tor ağına bağlanmak için bir köprü kullanırken Paylaşım Modu çalıştırılamaz.</string>
     <string name="kindness_mode_cant_run_in_your_country">Sansür nedeniyle, ülkenizde diğer kişilerin Tor ağına bağlanmasına yardımcı olmak için kullanılan Paylaşım Modu şu anda devre dışıdır.</string>
     <string name="kindness_mode_disclaimer_bridge">Sansür uygulanan bir bölgedeyseniz veya Tor ağına bağlanmak için bir köprü kullanmanız gerekiyorsa, Paylaşım Modunu kullanmayın.</string>
+    <string name="battery_optimization_title">Pil İyileştirmelerini Devre Dışı Bırak</string>
+    <string name="battery_optimization_pref_msg">Aygıtlarının Orbot uygulamasını arka planda çalışırken erken bir şekilde kapattığından şüphelenen kullanıcılar için ayar.</string>
+    <string name="battery_optimization_dialog_msg">Bazı Android aygıtlar, Orbot arka planda çalışırken uygulamayı kapatabilir. Orbot\'un bağlantısının kesilmemesini ve çalışmaya devam etmesini isteyen çoğu kullanıcı için, sistem ayarlarından Orbot\'u \"Her Zaman Açık\" VPN olarak ayarlamak yeterlidir. Bununla birlikte, gerekli görürseniz, aygıtınızın Orbot üzerinde herhangi bir pil iyileştirmesi yapmasını engellemek için gerekli adımları atabilirsiniz.</string>
+    <string name="battery_optimization_dialog_msg_instructions">Bir sonraki ekranda Orbot\'u seçin → Arka planda çalışmasına izin ver → Sınırsız.</string>
+    <string name="battery_optimization_dialog_msg_disclaimer">Çoğu aygıtta, pil iyileştirmelerini devre dışı bırakmanın aygıtınızın pilini normalden daha hızlı bitireceğini unutmayın…</string>
+    <string name="battery_optimizations_dialog_btn_disable">Pil İyileştirme Ayarlarını Aç</string>
+    <string name="battery_optimizations_dialog_msg_power_user">Bazı Android aygıtlar, Orbot “Gelişmiş Kullanıcı Modu”nda arka plan hizmeti olarak çalıştığı sırada uygulamayı sonlandırabilir. Orbot ayarlarından istediğiniz zaman pil iyileştirmelerini devre dışı bırakabilir veya yeniden etkinleştirebilirsiniz…</string>
+    <string name="battery_optimizations_are_disabled">Orbot için pil iyileştirmeleri şu anda devre dışı…</string>
+    <string name="battery_optimizations_are_enabled">Orbot için Pil İyileştirmeleri şu anda etkin. Bu öntanımlı ayardır ve çoğu kullanıcı için uygundur…</string>
+    <string name="btn_connect_anyway">Yine de Bağlan</string>
+    <string name="btn_connect_anyway_stop_showing">Bağlan ve Bu Uyarıyı Kapat</string>
 </resources>
