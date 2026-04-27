@@ -208,7 +208,7 @@
     <string name="error_asking_tor_for_bridges">Błąd podczas pytania o połączenie z siecią Tor</string>
     <string name="enter_bridge_address">Wpisz adres mostka</string>
     <string name="built_in_bridges_obfs4">Wbudowane mostki (obfs4)</string>
-    <string name="built_in_bridges_obfs4_subtitle">Maskuje ruch. Omija niektóre blokady sieci Tor. Przydatne, jeśli korzystasz z publicznej sieci Wi-Fi, ale w kraju, gdzie sieć Tor nie jest blokowana.</string>
+    <string name="built_in_bridges_obfs4_subtitle">Maskuje ruch. Omija niektóre blokady sieci Tor. Przydatne, jeśli korzystasz z publicznej sieci Wi-Fi, ale w kraju, gdzie sieć Tor nie jest blokowana.</string>
     <string name="unlock_app_msg" formatted="true">Odblokuj urządzenie, aby móc korzystać z %s</string>
     <string name="run_smart_connect_">Uruchom inteligentne połączenie, aby znaleźć najlepszy sposób</string>
     <string name="app_icon_chooser_label_assistant">Asystent</string>
