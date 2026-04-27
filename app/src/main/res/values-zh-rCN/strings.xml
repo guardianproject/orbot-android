@@ -132,8 +132,6 @@
     <string name="btn_change_exit">更改出口</string>
     <string name="btn_refresh">刷新连接</string>
     <string name="connect">连接</string>
-    <string name="volunteer_mode_weekly_label">一周总计</string>
-    <string name="volunteer_mode_alltime_label">所有时间总计</string>
     <string name="snowflake">Snowflake</string>
     <string name="smart_connect">智能连接</string>
     <string name="direct_connect">直接连接</string>
@@ -147,7 +145,6 @@
     <string name="apps_suggested_title">建议应用</string>
     <string name="apps_other_apps">其他应用</string>
     <string name="action_activate">激活</string>
-    <string name="volunteer_status_title">因为有你，\n今天会更好。</string>
     <string name="no_internet_title">连接到互联网</string>
     <string name="menu_more">更多</string>
     <string name="setting_padding">填充</string>
@@ -167,7 +164,6 @@
     <string name="many_ways">有很多方式可以连接到 Tor，有些方式可能对您更有效。</string>
     <string name="asking">正在询问…</string>
     <string name="no_internet_subtitle">使用 Orbot 需要连接到互联网。</string>
-    <string name="kindness_adjust_title">设置</string>
     <string name="option_only_on_wifi">仅使用 Wi-Fi 时</string>
     <string name="option_only_when_charging">仅在充电时</string>
     <string name="root_warning">Orbot 检测到您的设备已取得 Root 权限，这可能会导致安全问题。</string>

@@ -143,8 +143,6 @@
     <string name="pref_isolate_protocol_summary">Χρησιμοποιήστε διαφορετικό κύκλωμα για κάθε πρωτόκολλο σύνδεσης</string>
     <string name="pref_isolate_port_summary">Χρήση διαφορετικού κυκλώματος για κάθε θύρα προορισμού</string>
     <string name="pref_isolate_protocol">Απομόνωση πρωτοκόλλων πελάτη</string>
-    <string name="volunteer_mode_weekly_label">Εβδομαδιαίο σύνολο</string>
-    <string name="volunteer_mode_alltime_label">Όλος ο χρόνος Σύνολο</string>
     <string name="smart_connect">Smart Connect (προεπιλογή)</string>
     <string name="connect">Συνδέστε το</string>
     <string name="next">Επόμενο</string>
@@ -159,8 +157,6 @@
     <string name="no_internet_subtitle">Χρειάζεστε σύνδεση στο διαδίκτυο για να χρησιμοποιήσετε το Orbot.</string>
     <string name="action_activate">Ενεργοποίηση</string>
     <string name="power_user_mode">Λειτουργία Power User</string>
-    <string name="volunteer_status_title">Σήμερα είναι καλύτερα
-\nεξαιτίας σου.</string>
     <string name="apps_other_apps">Άλλες εφαρμογές</string>
     <string name="app_suggested_subtitle">Το Orbot λειτουργεί καλύτερα με εφαρμογές ανταλλαγής μηνυμάτων και μέσων κοινωνικής δικτύωσης.</string>
     <string name="apps_suggested_title">Προτεινόμενες εφαρμογές</string>
@@ -168,7 +164,6 @@
     <string name="direct_connect">Άμεση σύνδεση στο Tor</string>
     <string name="snowflake_amp">Χιονονιφάδα (AMP)</string>
     <string name="power_user_description">Για χρήστες που είναι εξοικειωμένοι με το Tor. Σας επιτρέπει να ξεκινήσετε το Orbot χωρίς τη ρύθμιση VPN και εμφανίζει τις ανοιχτές θύρες SOCKS και HTTP</string>
-    <string name="kindness_adjust_title">Ρυθμίσεις</string>
     <string name="kindness_config_detail">Ρυθμίστε πώς και πότε η συσκευή σας μπορεί να ενεργεί ως διακομιστής μεσολάβησης Snowflake για άλλους χρήστες Tor.</string>
     <string name="direct_connect_subtitle">Ο καλύτερος τρόπος για να συνδεθείτε στο Tor. Χρησιμοποιήστε το αν το Tor δεν είναι μπλοκαρισμένο.</string>
     <string name="snowflake">Χιονονιφάδα (πρωτότυπο)</string>

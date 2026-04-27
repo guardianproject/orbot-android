@@ -119,10 +119,7 @@
     <string name="connected_title">जुड़े हुए</string>
     <string name="trying_to_connect_title">जुड़ रहे…</string>
     <string name="btn_refresh">रीफ्रेश करें</string>
-    <string name="volunteer_mode_weekly_label">हफ्ते का कुल</string>
     <string name="power_user_mode">सुपरयूज़र मोड</string>
-    <string name="volunteer_status_title">आज का दिन बेहतर है
-\nआपके वजह से।</string>
     <string name="not_sure">सवाल हैं\?</string>
     <string name="many_ways">टॉर तक पहुंचने के कई तरीके है। आपके लिए कुछ तरीके दूसरों से बेहतर हो सकते है।</string>
     <string name="ask_tor">टॉर से पूछें</string>
@@ -135,7 +132,6 @@
     <string name="option_only_when_charging">सिर्फ चार्ज करते वक्त</string>
     <string name="power_user_description">टॉर से वाकिफ लोगों के लिए। आपको वीपीएन सेटिंग के बिना ऑरबॉट शुरू करने देता है और खुले सॉक्स और एचटीटीपी पोर्ट दिखाता है</string>
     <string name="no_internet_title">इंटरनेट से जुड़ें</string>
-    <string name="kindness_adjust_title">चलते हुए अपनेआप बदलें…</string>
     <string name="kindness_config_detail">सेट करें कि आपका डिवाइस दूसरे टॉर यूज़रों के लिए कब स्नोफ्लेक्स प्रॉक्सी के तरह काम कर सकता है।</string>
     <string name="asking">पूछ रहे है।</string>
     <string name="btn_copy_log">लॉग कॉपी करें</string>
@@ -143,7 +139,6 @@
     <string name="root_warning">ऑरबॉट को मालूम हुआ कि आपका डिवाइस रूट किया गया है, जिससे सुरक्षा लफड़े हो सकते है।</string>
     <string name="hide_apps">नेटवर्क निगरानी से ऐप छुपाएं और ब्लॉक होने पे एक्सेस दें।</string>
     <string name="log_copied">लॉग कॉपी किया गया</string>
-    <string name="volunteer_mode_alltime_label">सारे वक्त का कुल</string>
     <string name="smart_connect">समझदार कनेक्शन (डिफॉल्ट)</string>
     <string name="pref_isolate_port">मंज़िल पोर्ट अलग करें</string>
     <string name="pref_isolate_protocol">क्लाइंट प्रोटोकॉल अलग करें</string>

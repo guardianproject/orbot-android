@@ -134,8 +134,6 @@
     <string name="btn_choose_apps">Appetx mtxhitxh</string>
     <string name="btn_change_exit">Kase’jnxi\'s myu’pthe’j </string>
     <string name="btn_refresh">Miikphuusẽe</string>
-    <string name="volunteer_mode_weekly_label">Ki\'su jxuka</string>
-    <string name="volunteer_mode_alltime_label">Een jxuka</string>
     <string name="smart_connect">Jii açhwa’(mtxhitxh)</string>
     <string name="direct_connect">Torte dxi\'j açhwa’</string>
     <string name="direct_connect_subtitle">Torte u’kwa’ jxthaakwe ewsa. miikseelpi’j napa Tor yujume ũstecxãa</string>
@@ -146,7 +144,6 @@
     <string name="power_user_mode">Meh kseelpi’jya jiisa</string>
     <string name="power_user_description">Tora’s kseelpi’jya jiya’jsatxi’. Nvxitu’k VPN phewu’jmee Orbota’s pu’txkan ki kaavxa’jak SOCKS vxite HTTP vxitx phadenxi ũssatx </string>
     <string name="action_activate">Miijxkaah</string>
-    <string name="volunteer_status_title">Ãcxha’ jxthaakwe ewa’/idx pa’ka</string>
     <string name="title_choose_apps">Teeçx App mtxhitxh</string>
     <string name="app_suggested_subtitle">ORBOTa’ jxthaakwe ewa’ vxite App çaam wessu</string>
     <string name="apps_suggested_title">Vxite App thegwa’</string>

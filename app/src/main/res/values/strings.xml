@@ -151,8 +151,8 @@
     <string name="btn_refresh">Refresh Connection</string>
     <string name="globe" translatable="false">🌎</string>
     <string name="volunteer_mode_title">Kindness Mode: Help others connect to Tor</string>
-    <string name="volunteer_mode_weekly_label">Weekly Total</string>
-    <string name="volunteer_mode_alltime_label">All Time Total</string>
+    <string name="volunteer_mode_weekly_label">This Week</string>
+    <string name="volunteer_mode_alltime_label">Total</string>
     <string name="volunteer_mode_subtitle_desc">Kindness Mode turns your device into a Snowflake Proxy on the Tor network — a bridge to help others connect.</string>
     <string name="kindness_mode_is_running">Kindness Mode is Running</string>
     <string name="kindness_mode_active_message" formatted="true">You\'ve helped %1$d people circumvent censorship</string>
@@ -183,7 +183,8 @@
     <string name="power_user_description">For users familiar with Tor. Allows you to start Orbot without the VPN setting and shows open SOCKS and HTTP ports</string>
     <string name="action_activate">Activate</string>
     <string name="action_learn_more">Learn More</string>
-    <string name="volunteer_status_title">Today is better\nbecause of you.</string>
+    <string name="Enabled">Enabled</string>
+    <string name="Disabled">Disabled</string>
     <string name="title_choose_apps">Choose Apps</string>
     <string name="app_suggested_subtitle">Orbot works best with messaging and social media apps.</string>
     <string name="apps_suggested_title">Suggested Apps</string>
@@ -197,7 +198,17 @@
     <string name="asking">ASKING…</string>
     <string name="no_internet_title">Connect to internet</string>
     <string name="no_internet_subtitle">You need an internet connection to use Orbot.</string>
-    <string name="kindness_adjust_title">Settings</string>
+    <string name="kindness_usage_limit">Usage Limits</string>
+    <string name="kindness_usage_limits_status_on">on</string>
+    <string name="kindness_usage_limits_status_off">off</string>
+    <string name="kindness_proxy_quality">Proxy Quality</string>
+    <string name="kindness_proxy_quality_unknown">unknown</string>
+    <string name="kindness_proxy_quality_restricted">restricted</string>
+    <string name="kindness_proxy_quality_unrestricted">unrestricted</string>
+    <string name="kindness_quality_upgrade_title">Upgrade your Snowflake Proxy</string>
+    <string name="kindness_quality_upgrade_line1">Your proxy can be more powerful when kindness mode is running on Wi-Fi.</string>
+    <string name="kindness_quality_upgrade_line2">To upgrade, enable UPnP on your Wi-Fi router for this device.</string>
+    <string name="kindness_your_impact">Your Impact in Numbers</string>
     <string name="kindness_config_detail">Configure how and when your device can act as a Snowflake proxy for other Tor users.</string>
     <string name="menu_kindness">Kindness</string>
     <string name="menu_more">More</string>

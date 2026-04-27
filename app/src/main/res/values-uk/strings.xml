@@ -133,17 +133,13 @@
     <string name="btn_choose_apps">Вибрати застосунки</string>
     <string name="snowflake">Сніжинка</string>
     <string name="direct_connect_subtitle">Кращий спосіб під\'єднання до Tor. Використовуйте, якщо Tor не заблокований.</string>
-    <string name="volunteer_mode_weekly_label">Усього за тиждень</string>
     <string name="next">Далі</string>
-    <string name="volunteer_mode_alltime_label">Усього за весь час</string>
     <string name="smart_connect">Розумне підключення</string>
     <string name="direct_connect">Пряме підключення</string>
     <string name="snowflake_subtitle">З\'єднання через волонтерів Tor. Обходить деякі блокування Tor.</string>
     <string name="connect">Під\'єднати</string>
     <string name="power_user_mode">Режим досвідченого користувача</string>
     <string name="action_activate">Активувати</string>
-    <string name="volunteer_status_title">Сьогодення краще
-\nзавдяки вам.</string>
     <string name="app_suggested_subtitle">Orbot найкраще працює з застосунками для обміну повідомленнями та соціальними мережами.</string>
     <string name="apps_suggested_title">Рекомендовані застосунки</string>
     <string name="title_choose_apps">Вибрати застосунки</string>
@@ -158,7 +154,6 @@
     <string name="ask_tor">Запитайте Tor</string>
     <string name="asking">ЗАПИТУЄМО…</string>
     <string name="no_internet_subtitle">Щоб використовувати Orbot, вам потрібне підключення до Інтернету.</string>
-    <string name="kindness_adjust_title">Налаштування</string>
     <string name="kindness_config_detail">Налаштуйте, як і коли ваш пристрій може діяти як проксі-сервер Snowflake для інших користувачів Tor.</string>
     <string name="pref_isolate_port">Ізолювати порти призначення</string>
     <string name="pref_isolate_port_summary">Використовувати різні схеми для кожного порту призначення</string>

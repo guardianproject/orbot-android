@@ -70,7 +70,6 @@
     <string name="pref_disable_network_summary">Rhowch Tor i gysgu pan nad oes rhyngrwyd ar gael</string>
     <string name="reachable_ports">Porthladdoedd cyraeddadwy</string>
     <string name="reachable_addresses">Cyfeiriadau Cyrraeddadwy</string>
-    <string name="kindness_adjust_title">Gosodiadau</string>
     <string name="pref_circuit_padding">Padin cylched</string>
     <string name="pref_dnsport_summary">Porthladd y mae Tor yn cynnig ei DNS arno (rhagosodedig: 9053 neu 0 i\'w analluogi)</string>
     <string name="pref_isolate_dest_summary">Defnyddiwch gylched wahanol ar gyfer pob cyfeiriad cyrchfan</string>

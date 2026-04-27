@@ -123,7 +123,6 @@
     <string name="bridge_snowflake_amp">Conectarse a través doutros usuarios de Tor utilizando Snowflake (Método 2 - AMP)</string>
     <string name="btn_choose_apps">Escolle aplicacións</string>
     <string name="snowflake">Snowflake (Orixinal)</string>
-    <string name="volunteer_mode_alltime_label">Total de todo o tempo</string>
     <string name="smart_connect">Conexión intelixente (default)</string>
     <string name="volunteer_mode">Modo bondade</string>
     <string name="pref_isolate_port_summary">Utilizar un circuito diferente para cada porto de destino</string>
@@ -149,8 +148,6 @@
     <string name="no_internet_subtitle">Precísase conexión a Internet para utilizar Orbot.</string>
     <string name="pref_circuit_padding_summary">Activar o recheo do circuito para defenderse contra algunhas formas de análise de tráfico</string>
     <string name="direct_connect">Conexión directa con Tor</string>
-    <string name="volunteer_mode_weekly_label">Total semanal</string>
-    <string name="kindness_adjust_title">Configuración</string>
     <string name="status_starting_up">Orbot está a se iniciar…</string>
     <string name="status_activated">Conectado á rede Tor</string>
     <string name="status_disabled">Orbot está desactivado</string>

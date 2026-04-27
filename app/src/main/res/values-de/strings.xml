@@ -136,12 +136,8 @@
     <string name="apps_suggested_title">Vorgeschlagene Apps</string>
     <string name="power_user_description">Für Benutzer, die mit Tor vertraut sind. Ermöglicht den Start von Orbot ohne die VPN-Einstellung und zeigt offene SOCKS- und HTTP-Ports an</string>
     <string name="title_choose_apps">Apps auswählen</string>
-    <string name="volunteer_status_title">Heute ist es besser
-\nwegen dir.</string>
     <string name="app_suggested_subtitle">Orbot funktioniert am besten mit Messaging- und Social-Media-Apps.</string>
     <string name="apps_other_apps">Andere Apps</string>
-    <string name="volunteer_mode_weekly_label">Wöchentlich Insgesamt</string>
-    <string name="volunteer_mode_alltime_label">Gesamtzeit gesamt</string>
     <string name="smart_connect">Smart Connect</string>
     <string name="direct_connect">Direkte Verbindung</string>
     <string name="direct_connect_subtitle">Der beste Weg, sich mit Tor zu verbinden. Benutze ihn, wenn Tor nicht blockiert wird.</string>
@@ -170,7 +166,6 @@
     <string name="ask_tor">Tor fragen</string>
     <string name="option_only_when_charging">Nur beim Laden</string>
     <string name="pref_isolate_port_summary">Für jeden Zielport eine andere Leitung verwenden</string>
-    <string name="kindness_adjust_title">Einstellungen</string>
     <string name="log_copied">Log kopiert</string>
     <string name="btn_copy_log">Log kopieren</string>
     <string name="option_only_on_wifi">Nur über WLAN</string>

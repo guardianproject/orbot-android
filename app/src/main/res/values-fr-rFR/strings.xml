@@ -123,13 +123,10 @@
     <string name="snowflake_proxy_msg_description">Afficher un message lorsque vous aidez quelqu\'un à contourner la censure</string>
     <string name="power_user_mode">Mode utilisateur avancé</string>
     <string name="action_activate">Activer</string>
-    <string name="volunteer_status_title">Aujourd’hui, c’est meilleur
-\ngrâce à toi.</string>
     <string name="title_choose_apps">Choisir les applications</string>
     <string name="app_suggested_subtitle">Orbot fonctionne mieux avec les applications de messagerie et de médias sociaux.</string>
     <string name="apps_suggested_title">Applications suggérées</string>
     <string name="apps_other_apps">Autres applications</string>
-    <string name="volunteer_mode_alltime_label">Grand total</string>
     <string name="smart_connect">Connexion intelligente</string>
     <string name="direct_connect">Connexion directe</string>
     <string name="direct_connect_subtitle">La meilleure façon de se connecter à Tor. À utiliser si Tor n’est pas bloqué.</string>
@@ -147,10 +144,8 @@
     <string name="pref_isolate_port">Isoler les ports de destination</string>
     <string name="pref_isolate_protocol">Isoler les protocoles des clients</string>
     <string name="btn_configure">Configurer</string>
-    <string name="volunteer_mode_weekly_label">Total hebdomadaire</string>
     <string name="ask_tor">Demander à Tor</string>
     <string name="no_internet_subtitle">Vous avez besoin d\'une connexion internet pour utiliser Orbot.</string>
-    <string name="kindness_adjust_title">Paramètres</string>
     <string name="asking">DEMANDER…</string>
     <string name="setting_padding">Rembourrage</string>
     <string name="setting_debug">Débogage</string>

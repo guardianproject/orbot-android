@@ -92,8 +92,6 @@
     <string name="bridge_snowflake_amp">“Snowflake” (2-nji usul - AMP) ulanyp, beýleki Tor ulanyjylarynyň üsti bilen birikdiriň</string>
     <string name="power_user_mode">Giňişleýin Ulanyjy Tertibi</string>
     <string name="action_activate">Işjeňleşdiriň</string>
-    <string name="volunteer_status_title">Bu gün has gowy
-\nsen sebäpli.</string>
     <string name="app_suggested_subtitle">Orbot habarlaşma we sosial media programmalary bilen iň oňat işleýär.</string>
     <string name="apps_suggested_title">Maslahat berilýän programmalar</string>
     <string name="apps_other_apps">Basga programmalar</string>
@@ -111,7 +109,6 @@
     <string name="many_ways">Tora barmagyň köp ýoly bar. Käbirleri beýlekilerden has gowy işlemegi mümkin.</string>
     <string name="option_only_when_charging">Diňe zarýad berlende</string>
     <string name="pref_isolate_port_summary">Her niýetlenen port üçin dürli aýlanşyk ulanyň</string>
-    <string name="kindness_adjust_title">Sazlamalar</string>
     <string name="hide_apps">Programmalary tor gözegçiliginden gizläň we petiklenende giriň.</string>
     <string name="version">Wersiýa:</string>
     <string name="pref_http_dialog">HTTP Port Konfigurasiýasy</string>
@@ -120,7 +117,6 @@
     <string name="pref_isolate_dest">Barjak salgylaryňyzy izolirläň</string>
     <string name="pref_isolate_port">Niýetlenen portlary izolirläň</string>
     <string name="pref_isolate_protocol">Müşderi teswirnamalaryny izolirläň</string>
-    <string name="volunteer_mode_alltime_label">Ähli wagt Jemi</string>
     <string name="smart_connect">Akylly birikme (bellenilen)</string>
     <string name="direct_connect">Tor-a Göni Birikme</string>
     <string name="direct_connect_subtitle">Tor bilen birikmegiň iň gowy usuly. Tor petiklenmedik bolsa ulanyň.</string>
@@ -129,7 +125,6 @@
     <string name="pref_general_group">Umumy</string>
     <string name="exit_nodes">Çykalga Düwünleri</string>
     <string name="project_home">Taslamanyň Baş Sahypasy:</string>
-    <string name="volunteer_mode_weekly_label">Hepdelik Jemi</string>
     <string name="pref_detect_root_title">Köki Kesgitlemek</string>
     <string name="snowflake">Snowflake (Hakyky)</string>
     <string name="pref_detect_root_summary">Bu enjam kökli bolsa, başlangyçda duýduryş beriň</string>

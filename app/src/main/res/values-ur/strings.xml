@@ -144,8 +144,6 @@
     <string name="btn_configure">جڑنے کا طریقہ منتخب کریں</string>
     <string name="btn_choose_apps">ایپس منتخب کریں</string>
     <string name="btn_change_exit">ایگزٹ (exit) تبدیل کریں</string>
-    <string name="volunteer_mode_weekly_label">ہفتہ وار مجموعہ</string>
-    <string name="volunteer_mode_alltime_label">کل مجموعہ</string>
     <string name="kindness_mode_is_running">کائنڈنس موڈ چل رہا ہے</string>
     <string name="kindness_mode_active_message" formatted="true">آپ نے %1$d لوگوں کی سنسرشپ کو روکنے میں مدد کی ہے</string>
     <string name="kindness_mode_disabled">مہربانی کا موڈ غیر فعال ہے</string>
@@ -170,7 +168,6 @@
     <string name="power_user_mode">پاور یوزر موڈ</string>
     <string name="power_user_description">ٹور سے واقف صارفین کے لیے۔ آپ کو وی پی این ترتیب کے بغیر اوربوٹ شروع کرنے کی اجازت دیتا ہے اور کھلے SOCKS اور HTTP پورٹس دکھاتا ہے</string>
     <string name="action_activate">چالو کریں</string>
-    <string name="volunteer_status_title">آج کا دن\nآپ کی وجہ سے بہتر ہے۔</string>
     <string name="title_choose_apps">ایپس منتخب کریں</string>
     <string name="app_suggested_subtitle">اوربوٹ پیغام رسانی اور سوشل میڈیا ایپس کے ساتھ بہترین کام کرتا ہے۔</string>
     <string name="apps_suggested_title">تجویز کردہ ایپس</string>
@@ -184,7 +181,6 @@
     <string name="asking">پوچھ رہا ہے…</string>
     <string name="no_internet_title">انٹرنیٹ سے جڑیں</string>
     <string name="no_internet_subtitle">اوربوٹ استعمال کرنے کے لیے آپ کو انٹرنیٹ کنکشن کی ضرورت ہے۔</string>
-    <string name="kindness_adjust_title">ترتیبات</string>
     <string name="kindness_config_detail">ترتیب دیں کہ آپ کا آلہ کس طرح اور کب دوسرے Tor صارفین کے لیے Snowflake پراکسی کے طور پر کام کر سکتا ہے۔</string>
     <string name="menu_kindness">مہربانی</string>
     <string name="option_only_on_wifi">صرف وائی فائی پر</string>

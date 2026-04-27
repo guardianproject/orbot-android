@@ -131,7 +131,6 @@
     <string name="pref_reduced_circuit_padding_summary">להשתמש באלגוריתמים עם תקורת ריפוד נמוכה כדי לחסוך בתעבורת נתונים ובניצולת סוללה</string>
     <string name="pref_circuit_padding_summary">אפשר להפעיל ריפוד מעגל כדי להגן מפני מגוון צורות של ניתוח תעבורה</string>
     <string name="pref_reduced_circuit_padding">ריפוד מעגל מופחת</string>
-    <string name="volunteer_mode_alltime_label">סיכום לכל הזמן</string>
     <string name="no_internet_subtitle">צריך חיבור לאינטרנט כדי להשתמש ב־Orbot.</string>
     <string name="not_sure">בספק\?</string>
     <string name="snowflake_subtitle">חיבור דרך מתנדבי Tor. מעקף חלק מחסימות Tor.</string>
@@ -147,8 +146,6 @@
     <string name="hide_apps">הסתרת יישומונים מניטור רשת וקבלת גישה כשהן חסומות.</string>
     <string name="snowflake_proxy_msg_title">הצגת הודעת חיבור</string>
     <string name="secure_your_connection_subtitle">הסתרת יישומונים מניטור רשת וקבלת גישה כשהן חסומות.</string>
-    <string name="volunteer_mode_weekly_label">סיכום שבועי</string>
-    <string name="kindness_adjust_title">הגדרות</string>
     <string name="apps_suggested_title">יישומונים מוצעים</string>
     <string name="log_copied">יומן הועתק</string>
     <string name="btn_copy_log">העתקת יומן</string>
@@ -177,8 +174,6 @@
     <string name="secure_your_connection_title">מוכן להתחבר</string>
     <string name="v3_delete_client_authorization_confirm">מחיקת הרשאת הלקוח</string>
     <string name="direct_connect_subtitle">הדרך הטובה ביותר להתחבר ל־Tor. אפשר להשתמש אם Tor לא חסום.</string>
-    <string name="volunteer_status_title">היום טוב יותר
-\nבזכותך.</string>
     <string name="many_ways">ישנן דרכים רבות להגיע ל־Tor. חלקן עשויות לעבוד טוב יותר מאחרות עבורך.</string>
     <string name="pref_detect_root_summary">להזהיר בהתחלה אם המכשיר הזה פרוץ (root) וההרשאות האלה פעילות</string>
     <string name="pref_detect_root_title">זיהוי פריצה (root)</string>

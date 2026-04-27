@@ -101,129 +101,204 @@
         android:visibility="gone"
         tools:visibility="gone">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:maxWidth="600dp"
-            android:orientation="vertical"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp">
-
-            <ImageView
-                android:id="@+id/ivHeader"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:layout_marginTop="20dp"
-                android:contentDescription="@null"
-                android:src="@drawable/kindness"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
 
             <TextView
                 android:id="@+id/tvTitleOn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginBottom="4dp"
-                android:gravity="center_horizontal"
-                android:text="@string/volunteer_status_title"
+                android:text="@string/volunteer_mode"
                 android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
                 android:textColor="@android:color/white"
                 android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivHeader" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/rowVolunteerMode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginTop="16dp"
                 android:background="@color/panel_widget_background"
-                android:padding="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitleOn">
 
                 <ImageView
-                    android:id="@+id/ivHeartOn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/ivHeader"
+                    android:layout_width="41dp"
+                    android:layout_height="41dp"
+                    android:layout_margin="16dp"
                     android:contentDescription="@null"
-                    android:src="@drawable/ic_heart"
-                    app:layout_constraintBottom_toBottomOf="@id/swVolunteerHeader"
-                    app:layout_constraintEnd_toStartOf="@id/swVolunteerHeader"
+                    android:src="@drawable/ic_snowflake"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/swVolunteerHeader" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
                 <TextView
                     android:id="@+id/swVolunteerHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:text="@string/volunteer_mode"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/Enabled"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toEndOf="@id/ivHeartOn"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toEndOf="@id/ivHeader"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swVolunteerMode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="2dp"
+                    android:layout_marginEnd="16dp"
                     android:textSize="18sp"
                     android:checked="true"
-                    app:layout_constraintBottom_toBottomOf="@id/swVolunteerHeader"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/swVolunteerHeader"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:showText="false" />
 
-                <ImageView
-                    android:id="@+id/ivGear"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@null"
-                    android:src="@drawable/ic_settings_gear"
-                    app:layout_constraintBottom_toBottomOf="@id/swVolunteerAdjust"
-                    app:layout_constraintStart_toStartOf="@id/ivHeartOn"
-                    app:layout_constraintTop_toTopOf="@id/swVolunteerAdjust" />
-
-                <TextView
-                    android:id="@+id/swVolunteerAdjust"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/kindness_adjust_title"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/ivGear"
-                    app:layout_constraintTop_toBottomOf="@id/swVolunteerHeader" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/volunteer_display_weekly"
+                android:id="@+id/rowUsageLimits"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginTop="16dp"
                 android:background="@color/panel_widget_background"
-                android:orientation="horizontal"
-                android:padding="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rowVolunteerMode">
+                app:layout_constraintTop_toBottomOf="@id/rowVolunteerMode">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="@string/kindness_usage_limit"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvUsageLimitsStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/chevron1" />
+
+                <TextView
+                    android:id="@+id/chevron1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="\u276f"
+                    android:layout_margin="16dp"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="HardcodedText" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rowProxyQuality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/panel_widget_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rowUsageLimits">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="@string/kindness_proxy_quality"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/redDot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:textSize="18sp"
+                    android:text="•"
+                    android:textColor="@android:color/holo_red_light"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tvProxyQualityStatus"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/tvProxyQualityStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/chevron2" />
+
+                <TextView
+                    android:id="@+id/chevron2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="\u276f"
+                    android:layout_margin="16dp"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="HardcodedText" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvSubheader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/kindness_your_impact"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                app:layout_constraintTop_toBottomOf="@id/rowProxyQuality" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/volunteer_display_weekly"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/panel_widget_background"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                app:layout_constraintEnd_toStartOf="@id/gap"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSubheader"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.46">
 
                 <TextView
                     android:id="@+id/tvWeeklyTotalHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/volunteer_mode_weekly_label"
-                    android:textAllCaps="true"
-                    android:textColor="@color/progress_bar_purple"
-                    android:textSize="18sp"
+                    android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -231,36 +306,62 @@
                     android:id="@+id/tvWeeklyTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="@id/tvWeeklyTotalHeader"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/tvWeeklyTotalHeader"
+                    android:textColor="@color/progress_bar_purple"
+                    android:textSize="40sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvWeeklyTotalHeader"
                     tools:text="#" />
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/gap"
+                android:layout_width="16dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintTop_toBottomOf="@id/tvSubheader"
+                app:layout_constraintStart_toEndOf="@id/volunteer_display_weekly"
+                app:layout_constraintEnd_toStartOf="@id/volunteer_display_total" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/volunteer_display_total"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/panel_widget_background"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toEndOf="@id/gap"
+                app:layout_constraintTop_toBottomOf="@id/tvSubheader"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.46">
 
                 <TextView
                     android:id="@+id/tvAlltimeTotalHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp"
                     android:text="@string/volunteer_mode_alltime_label"
-                    android:textAllCaps="true"
-                    android:textColor="@color/progress_bar_purple"
-                    android:textSize="18sp"
+                    android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvWeeklyTotalHeader" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tvAlltimeTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="@id/tvAlltimeTotalHeader"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/tvAlltimeTotalHeader"
+                    android:textColor="@color/progress_bar_purple"
+                    android:textSize="40sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAlltimeTotalHeader"
                     tools:text="#" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
+
 </LinearLayout>

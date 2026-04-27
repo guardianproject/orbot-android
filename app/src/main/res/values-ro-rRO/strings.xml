@@ -127,7 +127,6 @@
     <string name="v3_delete_client_authorization_confirm">Ștergeți autorizația clientului</string>
     <string name="v3_backup_name_hint">Nume fișier de rezervă…</string>
     <string name="v3_import_auth_private">Importați .auth_private</string>
-    <string name="volunteer_mode_weekly_label">Total săptămânal</string>
     <string name="wizard_details_msg">Orbot este o aplicație cu sursă deschisă care conține Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel și LibEvent. Acesta oferă un tunel VPN, un proxy HTTP local (8118) și un proxy SOCKS (9050) în rețeaua Tor.</string>
     <string name="version">Versiunea:</string>
     <string name="license">Licență:</string>
@@ -139,7 +138,6 @@
     <string name="pref_isolate_protocol">Izolați protocoalele clienților</string>
     <string name="v3_hosted_services">Servicii găzduite de Onion</string>
     <string name="btn_refresh">Actualizează</string>
-    <string name="volunteer_mode_alltime_label">Tot timpul total</string>
     <string name="pref_http_title">Tor HTTP</string>
     <string name="pref_http_dialog">Configurarea portului HTTP</string>
     <string name="local_port">Port local</string>
@@ -148,7 +146,6 @@
     <string name="pref_isolate_dest">Izolați adresele de destinație</string>
     <string name="pref_reduced_connection_padding">Tamponare redusă a conexiunii</string>
     <string name="smart_connect">Conectare inteligentă (implicită)</string>
-    <string name="kindness_adjust_title">Setări</string>
     <string name="snowflake_subtitle">Se conectează prin intermediul voluntarilor Tor. Ocolește unele blocaje Tor.</string>
     <string name="secure_your_connection_title">Gata de conectare</string>
     <string name="snowflake">Snowflake</string>
@@ -170,8 +167,6 @@
     <string name="menu_more">Mai mult</string>
     <string name="secure_your_connection_subtitle">Ascundeți aplicațiile de la monitorizarea rețelei și obțineți acces atunci când sunt blocate.</string>
     <string name="connected_title">Conectată</string>
-    <string name="volunteer_status_title">Astăzi este mai bine
-\ndatorită vouă.</string>
     <string name="next">Următorul</string>
     <string name="snowflake_proxy_msg_description">Afișați un mesaj atunci când ajutați pe cineva să ocolească cenzura</string>
     <string name="setting_padding">Căptușeală</string>

@@ -129,7 +129,6 @@
     <string name="setting_debug">Feilsøking</string>
     <string name="menu_more">Mer</string>
     <string name="trying_to_connect_title">Kobler til…</string>
-    <string name="volunteer_mode_alltime_label">Total gjennom tidene</string>
     <string name="no_internet_subtitle">Du trenger en internettforbindelse for å bruke Orbot.</string>
     <string name="not_sure">Er du usikker\?</string>
     <string name="snowflake_subtitle">Kobler seg til via frivillige Tor-brukere. Omgår enkelte Tor-blokkeringer.</string>
@@ -143,8 +142,6 @@
     <string name="pref_isolate_port_summary">Bruk en annen krets for hver destinasjonsport</string>
     <string name="pref_isolate_protocol">Isolere klientprotokoller</string>
     <string name="secure_your_connection_subtitle">Skjul apper fra nettverksovervåking og få tilgang når de er blokkert.</string>
-    <string name="volunteer_mode_weekly_label">Ukentlig Totalt</string>
-    <string name="kindness_adjust_title">Juster når den går…</string>
     <string name="apps_suggested_title">Foreslåtte apper</string>
     <string name="log_copied">Logg Kopiert</string>
     <string name="btn_copy_log">Kopieringslogg</string>
@@ -168,8 +165,6 @@
     <string name="app_suggested_subtitle">Orbot fungerer best med apper for meldinger og sosiale medier.</string>
     <string name="secure_your_connection_title">Klar til å koble til</string>
     <string name="direct_connect_subtitle">Den beste måten å koble til Tor på. Brukes hvis Tor ikke er blokkert.</string>
-    <string name="volunteer_status_title">Dagen i dag er bedre
-\npå grunn av deg.</string>
     <string name="many_ways">Det finnes mange måter å nå Tor på. Noen fungerer kanskje bedre enn andre for deg.</string>
     <string name="v3_key_hash">x25519 Privat nøkkel i Base32</string>
     <string name="status_starting_up">Orbot starter…</string>

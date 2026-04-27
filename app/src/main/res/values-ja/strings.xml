@@ -133,8 +133,6 @@
     <string name="strict_nodes_description">除外ノード設定を、すべての回線構築における必須要件として扱います。除外ノード設定により回線が構築できない場合、正常に動作しなくなる可能性があります。</string>
     <string name="next">次へ</string>
     <string name="smart_connect">スマート接続</string>
-    <string name="volunteer_mode_weekly_label">週間合計</string>
-    <string name="volunteer_mode_alltime_label">全期間累計</string>
     <string name="direct_connect">直接接続</string>
     <string name="direct_connect_subtitle">Tor に接続する最良の手段です。Tor がブロックされてないときに使用します。</string>
     <string name="snowflake">Snowflake</string>
@@ -157,12 +155,9 @@
     <string name="no_internet_subtitle">Orbot を使用するには、インターネット接続が必要です。</string>
     <string name="snowflake_amp">Snowflake AMP</string>
     <string name="log_copied">ログをコピーしました</string>
-    <string name="volunteer_status_title">今日の方がいい。
-\nあなたのおかげで。</string>
     <string name="not_sure">ご質問がありますか？</string>
     <string name="ask_tor">Tor に聞く</string>
     <string name="asking">質問…</string>
-    <string name="kindness_adjust_title">設定</string>
     <string name="kindness_config_detail">あなたのデバイスが他の Tor ユーザーの Snowflake プロキシとして機能する方法やタイミングを構成します。</string>
     <string name="btn_copy_log">ログをコピー</string>
     <string name="setting_padding">パディング</string>

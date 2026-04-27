@@ -131,8 +131,6 @@
     <string name="connected_title">Свързани</string>
     <string name="btn_configure">Настройки на връзката</string>
     <string name="btn_refresh">Презареждане на връзката</string>
-    <string name="volunteer_mode_weekly_label">Общо седмично</string>
-    <string name="volunteer_mode_alltime_label">Общо за цялото време</string>
     <string name="smart_connect">Интелигентна връзка</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Връзката се осъществява през доброволци на Тор. Заобикаля някои забрани на Тор.</string>
@@ -143,7 +141,6 @@
     <string name="power_user_mode">Режим за опитни потребители</string>
     <string name="power_user_description">За потребители, запознати с Тор. Дава възможност Орбот да бъде пуснат без настройки на ВЧМ, показва отворените портове на SOCKS и HTTP</string>
     <string name="action_activate">Включване</string>
-    <string name="volunteer_status_title">Денят е по-добър\nзаради вас</string>
     <string name="app_suggested_subtitle">Orbot работи най-добре с приложения за съобщения и социални медии.</string>
     <string name="apps_suggested_title">Препоръчани приложения</string>
     <string name="apps_other_apps">Други приложения</string>
@@ -153,7 +150,6 @@
     <string name="snowflake_amp">Snowflake AMP</string>
     <string name="asking">ЗАПИТВАНЕ…</string>
     <string name="no_internet_title">Свързване с интернет</string>
-    <string name="kindness_adjust_title">Настройки</string>
     <string name="no_internet_subtitle">За да използвате Orbot е необходим достъп до интернет.</string>
     <string name="not_sure">Не сте сигурни?</string>
     <string name="ask_tor">Попитайте Тор</string>

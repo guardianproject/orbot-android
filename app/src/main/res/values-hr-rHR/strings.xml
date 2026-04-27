@@ -87,16 +87,13 @@
     <string name="license">Licenca:</string>
     <string name="confirm">Potvrdi</string>
     <string name="custom_bridges">Prilagođeni mostovi</string>
-    <string name="kindness_adjust_title">Postavke</string>
     <string name="v3_client_auth_activity_title">Autorizacija klijenta</string>
     <string name="snowflake_amp">Snowflake AMP</string>
-    <string name="volunteer_mode_alltime_label">Ukupno (svo vrijeme)</string>
     <string name="direct_connect">Izravna veza</string>
     <string name="direct_connect_subtitle">Najbolji način povezivanja s Torom. Koristi ga ako Tor nije blokiran.</string>
     <string name="smart_connect">Pametno povezivanje</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Povezuje se preko Tor volontera. Zaobilazi neka blokiranja Tor-a.</string>
-    <string name="volunteer_mode_weekly_label">Ukupno (tjedno)</string>
     <string name="setting_padding">Unutarnji odmak</string>
     <string name="status_starting_up">Orbot se pokreće…</string>
     <string name="status_activated">Spojen na Tor mrežu</string>

@@ -137,7 +137,6 @@
     <string name="menu_more">Vairāk</string>
     <string name="connect">Veidot savienojumu</string>
     <string name="next">Nākamais</string>
-    <string name="volunteer_mode_alltime_label">Visu laiku Kopā</string>
     <string name="no_internet_subtitle">Lai izmantotu Orbot, ir nepieciešams interneta savienojums.</string>
     <string name="not_sure">Neesat pārliecināts\?</string>
     <string name="snowflake_subtitle">Savieno ar Tor brīvprātīgo starpniecību. Apiet dažas Tor bloķēšanas iespējas.</string>
@@ -150,8 +149,6 @@
     <string name="pref_isolate_port_summary">Katrai galamērķa ostai izmantojiet atšķirīgu ķēdi</string>
     <string name="no_internet_title">Savienojums ar internetu</string>
     <string name="pref_isolate_protocol">Izolēt klienta protokolus</string>
-    <string name="volunteer_mode_weekly_label">Nedēļas kopsumma</string>
-    <string name="kindness_adjust_title">Noregulējiet, kad tas darbojas…</string>
     <string name="apps_suggested_title">Ieteicamās lietotnes</string>
     <string name="log_copied">Nokopēts žurnāls</string>
     <string name="btn_copy_log">Kopēt žurnālu</string>
@@ -169,8 +166,6 @@
     <string name="pref_isolate_protocol_summary">Katram savienojuma protokolam izmantojiet atšķirīgu ķēdi</string>
     <string name="app_suggested_subtitle">Orbot vislabāk darbojas ar ziņapmaiņas un sociālo mediju lietotnēm.</string>
     <string name="direct_connect_subtitle">Labākais veids, kā izveidot savienojumu ar Tor. Izmantojiet, ja Tor nav bloķēts.</string>
-    <string name="volunteer_status_title">Šodien ir labāk
-\npateicoties tev.</string>
     <string name="many_ways">Ir vairāki veidi, kā sasniegt Tor. Daži no tiem jums var darboties labāk nekā citi.</string>
     <string name="status_starting_up">Orbot startē…</string>
     <string name="status_activated">Izveidots savienojums ar tīklu Tor</string>

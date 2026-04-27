@@ -22,7 +22,7 @@
         style="@style/BottomSheetHeader"
         android:layout_marginTop="4dp"
         android:paddingBottom="10dp"
-        android:text="@string/kindness_adjust_title"
+        android:text="@string/kindness_usage_limit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

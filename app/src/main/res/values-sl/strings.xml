@@ -165,17 +165,12 @@
     <string name="root_warning">Orbot je zaznal, da je vaša naprava korenirana, kar lahko povzroči varnostne težave.</string>
     <string name="direct_connect">Neposredna povezava s Torom</string>
     <string name="hide_apps">Skrijte aplikacije pred nadzorom omrežja in pridobite dostop, ko so blokirane.</string>
-    <string name="volunteer_status_title">Danes je bolje
-\nzaradi tebe.</string>
     <string name="app_suggested_subtitle">Orbot najbolje deluje z aplikacijami za sporočanje in družbena omrežja.</string>
     <string name="apps_suggested_title">Predlagane aplikacije</string>
     <string name="apps_other_apps">Ostale aplikacije</string>
     <string name="btn_copy_log">Kopiraj dnevnik</string>
     <string name="many_ways">Tor lahko dosežete na več načinov. Nekateri morda za vas delujejo bolje kot drugi.</string>
-    <string name="kindness_adjust_title">Prilagodite, ko teče …</string>
     <string name="snowflake">Snežinka (originalno)</string>
-    <string name="volunteer_mode_weekly_label">Skupaj tedensko</string>
-    <string name="volunteer_mode_alltime_label">Skupaj vseh časov</string>
     <string name="smart_connect">Pametno poveži (privzeto)</string>
     <string name="direct_connect_subtitle">Najboljši način povezave s Torom. Uporabite če Tor ni blokiran.</string>
     <string name="snowflake_amp">Snežinka (AMP)</string>

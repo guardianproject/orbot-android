@@ -136,8 +136,6 @@ punjulaa apps, jupula  anaijatuin  pu kachuerrase</string>
   <string name="btn_choose_apps">Apawua app</string>
   <string name="btn_change_exit">  Awuanajawua  ajui\'tia</string>
   <string name="btn_refresh">Jekets juchikuaaya </string>
-  <string name="volunteer_mode_weekly_label">Jupushua  semanaka.</string>
-  <string name="volunteer_mode_alltime_label">Jupushua  akalia\'a</string>
   <string name="smart_connect"> Atujashi Apainjirrrawua. (default)</string>
   <string name="direct_connect">Apainjirrawua numa Tor.</string>
   <string name="direct_connect_subtitle">Pansajeer   numa Tor,  paa´pa   maka numojulee. </string>
@@ -148,7 +146,6 @@ punjulaa apps, jupula  anaijatuin  pu kachuerrase</string>
   <string name="power_user_mode">Kawatirras.</string>
   <string name="power_user_description">Pirrajule Tor es jupula  painjüin  jumuywaya\'a, pirreer  SOCKS and HTTP  errulaín</string>
   <string name="action_activate">Painjamata.</string>
-  <string name="volunteer_status_title">Joluu anashatas wamuin ka pukalijaín waya</string>
   <string name="title_choose_apps">Apawúa  aplikación</string>
   <string name="app_suggested_subtitle">Orbot anas jukaipa juma alwuatawüa je eerrajilawua  wapushua \'ya</string>
   <string name="apps_suggested_title">Ain\'nes juka tu aplicación ka</string>

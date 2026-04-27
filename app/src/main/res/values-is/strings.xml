@@ -133,8 +133,6 @@
     <string name="direct_connect">Bein tenging</string>
     <string name="snowflake">Snowflake</string>
     <string name="secure_your_connection_subtitle">Feldu forrit fyrir netvöktun og náðu aðgangi þegar lokað er á þau.</string>
-    <string name="volunteer_mode_weekly_label">Alls í vikunni</string>
-    <string name="volunteer_mode_alltime_label">Samtals frá upphafi</string>
     <string name="direct_connect_subtitle">Besta leiðin til að tengjast við Tor. Notist ef ekki er lokað á Tor.</string>
     <string name="snowflake_subtitle">Tengist í gegnum Tor-sjálfboðaliða. Kemst framhjá sumum hindrunum gagnvart Tor.</string>
     <string name="connect">Tengjast</string>
@@ -142,7 +140,6 @@
     <string name="strict_nodes_description">Meðhöndla útilokaða punkta sem forsendu við byggingu allra rása. Þetta gæti skemmt fyrir virkni ef ekki er hægt að byggja upp neinar rásir út frá stillingum útilokaðra punkta.</string>
     <string name="action_activate">Virkja</string>
     <string name="title_choose_apps">Veldu forrit</string>
-    <string name="volunteer_status_title">Dagurinn í dag er betri \nþökk sé þér.</string>
     <string name="apps_suggested_title">Tillögur að forritum</string>
     <string name="apps_other_apps">Önnur forrit</string>
     <string name="power_user_mode">Hamur fyrir vana notendur</string>
@@ -156,7 +153,6 @@
     <string name="many_ways">Það eru margar aðferðir við að ná sambandi við Tor. Sumar gætu virkað betur fyrir þig en aðrar.</string>
     <string name="no_internet_title">Tengjast við internetið</string>
     <string name="no_internet_subtitle">Þú þarft internettengingu til að nota Orbot.</string>
-    <string name="kindness_adjust_title">Stillingar</string>
     <string name="pref_isolate_port_summary">Nota mismunandi rás fyrir hverja markgátt</string>
     <string name="hide_apps">Feldu forrit fyrir netvöktun og náðu aðgangi þegar lokað er á þau.</string>
     <string name="not_sure">Ekki viss?</string>

@@ -137,9 +137,7 @@
   <string name="btn_choose_apps">Chi netɵ maram purukuntrapelan lawa pɵnsramik</string>
   <string name="btn_change_exit">Wam wepipikwan yunɵmaramik</string>
   <string name="btn_refresh">Srɵ tamara pasrɵp</string>
-  <string name="volunteer_mode_weekly_label">Truneyu ketriku purayeikwan eshkapik</string>
-  <string name="volunteer_mode_alltime_label">Ketriku utɵmerayu purayeiklan eshkapik</string>
-  <string name="smart_connect">Smart Connect (trentө trek pasrөntrai tamarik)</string>
+    <string name="smart_connect">Smart Connect (trentө trek pasrөntrai tamarik)</string>
   <string name="direct_connect">Kan meitɵ Torsrɵ kɵlichipik</string>
   <string name="direct_connect_subtitle">ɵyamei Toryu kelitsamikpe katɵ kuchi tap kɵn. Tor kuetsik pasrɵmupene kepintrun</string>
   <string name="snowflake">Copo de nieve teik</string>
@@ -149,7 +147,6 @@
   <string name="power_user_mode">Power Usermei pasran</string>
   <string name="power_user_description">Torwan ashipelai. Orbotwan pelpasrtrappe  VPN palɵmentrun incha wam srɵl kuri pentrapelan SOCKSpa  HTTPpa kenamartrun </string>
   <string name="action_activate">Pilɵkɵp</string>
-  <string name="volunteer_status_title">Mɵi kualɵm ñi kutri ikpe katɵkuchi tapik kɵn</string>
   <string name="title_choose_apps">Maram purukupele tamara pɵnsreilan lawa kemɵr</string>
   <string name="app_suggested_subtitle">Orbotpe tap pasrappe, pɵra ɵramikpa, wam pekuchipelɵpa tap pasrapik kɵn </string>
   <string name="apps_suggested_title">Katɵkan eshkeilɵ kɵn Maram purukupelɵ tamara pɵnsreiklɵ</string>

@@ -110,7 +110,6 @@
     <string name="custom_bridges">Maynichat chakanaka</string>
     <string name="license">Lisinsya:</string>
     <string name="connected_title">Waythapita</string>
-    <string name="volunteer_mode_weekly_label">Simanan taqpacha</string>
     <string name="asking">Jiskt\'askiwa…</string>
     <string name="ask_tor">Tor ukar jiskt\'am</string>
     <string name="v3_onion">.onion chiqa</string>
@@ -119,7 +118,6 @@
     <string name="v3_client_auth_activity_title">Apnaqirir iyawsaña</string>
     <string name="pref_isolate_port">Puriñ waythapiwjanak sapachaña</string>
     <string name="pref_isolate_protocol">Apnaqirinakan prutukulunakap sapachaña</string>
-    <string name="kindness_adjust_title">Jak\'ankiri</string>
     <string name="setting_debug">Q\'umachaña</string>
     <string name="menu_kindness">Yanapt\'asiña</string>
     <string name="option_only_when_charging">Karjaski ukjaki</string>
@@ -140,9 +138,6 @@
     <string name="smart_connect">Ch\'ikhi waythapïwi (utt\'ayata)</string>
     <string name="direct_connect_subtitle">Akjamat Tor ukar kusa waythapisispa. Tor ukax jan jark\'antatäkchi uka apnaqaña.</string>
     <string name="snowflake_subtitle">Tor ukan inak irnaqirinakaptuqiw waythapisi. Yaqhippachax janiw Tor ukar jark\'antaykiti.</string>
-    <string name="volunteer_mode_alltime_label">Taqpach pachat taqpacha</string>
-    <string name="volunteer_status_title">Jichhürux kusawa
-\njumïpana.</string>
     <string name="not_sure">Pächastati\?</string>
     <string name="no_internet_title">Internetar waythapiyaña</string>
     <string name="many_ways">Tor ukarux kunaymantuqit waythapiyasispa. Yaqhipanakax yaqhanakat sipan kusa jumatak irnaqi.</string>

@@ -132,8 +132,6 @@
     <string name="trying_to_connect_title">در حال وصل‌شدن…</string>
     <string name="strict_nodes_description">با تنظیمات گره‌های مستثنی به‌عنوان یک الزام برای ساخت همه مدارها برخورد کنید. درصورتی که با تنظیمات گره‌های مستثنی شما، هیچ مداری نتواند تولید شود، ممکن است عملکرد را از بین ببرد.</string>
     <string name="connect">وصل‌شدن</string>
-    <string name="volunteer_mode_weekly_label">مجموع هفتگی</string>
-    <string name="volunteer_mode_alltime_label">مجموع تمامی زمان‌ها</string>
     <string name="smart_connect">اتّصال هوشمند</string>
     <string name="direct_connect">اتّصال مستقیم</string>
     <string name="next">بعدی</string>
@@ -142,7 +140,6 @@
     <string name="direct_connect_subtitle">بهترین روش اتصال به Tor. درصورت مسدودنبودن Tor از آن استفاده کنید.</string>
     <string name="power_user_mode">حالت کاربری حرفه‌ای</string>
     <string name="action_activate">فعال‌سازی</string>
-    <string name="volunteer_status_title">به لطف شما امروز \nروز بهتری است.</string>
     <string name="title_choose_apps">انتخاب برنامه‌ها</string>
     <string name="apps_other_apps">دیگر برنامه‌ها</string>
     <string name="power_user_description">برای کاربران آشنا با Tor. اجازه می‌دهد تا Orbot را بدون تنظیمات VPN شروع کند و درگاه‌های باز HTTP و SOCKS را نشان می‌دهد</string>
@@ -160,7 +157,6 @@
     <string name="asking">درحال پرسیدن…</string>
     <string name="no_internet_title">به اینترنت وصل شوید</string>
     <string name="no_internet_subtitle">برای استفاده از Orbot نیاز به اتصال اینترنتی دارید.</string>
-    <string name="kindness_adjust_title">تنظیمات</string>
     <string name="kindness_config_detail">اینکه چگونه و چه زمانی دستگاه شما می‌تواند به‌عنوان یک پراکسی Snowflake برای سایر کاربران Tor عمل کند را پیکربندی کنید.</string>
     <string name="log_copied">گزارش‌ها رونوشت شدند</string>
     <string name="btn_copy_log">رونوشت گزارش‌ها</string>

@@ -73,8 +73,6 @@
     <string name="power_user_mode">Mode Pengguna Berdaya</string>
     <string name="power_user_description">Untuk pengguna yang familier dengan Tor. Memungkinkan Anda untuk memulai Orbot tanpa pengaturan VPN dan menampilkan porta SOCKS dan HTTP yang terbuka</string>
     <string name="action_activate">Aktifkan</string>
-    <string name="volunteer_status_title">Hari ini lebih baik
-\nkarena tindakan Anda.</string>
     <string name="title_choose_apps">Pilih Aplikasi</string>
     <string name="app_suggested_subtitle">Orbot bekerja baik dengan aplikasi perpesanan dan media sosial.</string>
     <string name="apps_suggested_title">Aplikasi yang Disarankan</string>
@@ -88,8 +86,6 @@
     <string name="bridge_snowflake_amp">Hubungkan melalui pengguna Tor lain menggunakan Snowflake (Metode 2 - AMP)</string>
     <string name="snowflake_proxy_msg_title">Tampilkan Notifikasi Koneksi</string>
     <string name="snowflake_proxy_msg_description">Tampilkan pesan ketika Anda membantu seseorang melewati sensor</string>
-    <string name="volunteer_mode_weekly_label">Jumlah Setiap Minggu</string>
-    <string name="volunteer_mode_alltime_label">Jumlah Sepanjang Waktu</string>
     <string name="smart_connect">Smart Connect</string>
     <string name="direct_connect">Koneksi Langsung</string>
     <string name="direct_connect_subtitle">Cara yang terbaik untuk menghubungkan ke Tor. Gunakan jika Tor tidak diblokir.</string>
@@ -157,7 +153,6 @@
     <string name="many_ways">Ada lebih banyak cara untuk mencapai Tor. Beberapa dapat bekerja dengan baik daripada yang lain untuk Anda.</string>
     <string name="no_internet_title">Hubungkan ke internet</string>
     <string name="no_internet_subtitle">Anda membutuhkan koneksi internet untuk menggunakan Orbot.</string>
-    <string name="kindness_adjust_title">Pengaturan</string>
     <string name="kindness_config_detail">Atur bagaimana dan kapan perangkat Anda dapat menjadi sebagai proksi Snowflake untuk pengguna Tor lain.</string>
     <string name="asking">MENANYAKAN…</string>
     <string name="pref_isolate_port_summary">Gunakan sirkuit yang berbeda untuk setiap porta tujuan</string>

@@ -82,7 +82,6 @@
     <string name="menu_kindness">상냥함</string>
     <string name="btn_refresh">연결 새로고침</string>
     <string name="system_vpn_settings">Android VPN 설정</string>
-    <string name="volunteer_status_title">오늘이 더 따뜻해졌어요\n당신 덕분에요.</string>
     <string name="secure_your_connection_title">접속 준비</string>
     <string name="wizard_details_msg">Orbot은 Tor, IPtProxy(Lyrebird, Meek, Snowflake), hev-socks5-tunnel 및 LibEvent를 포함하는 오픈 소스 애플리케이션입니다. VPN 터널, 로컬 HTTP Connect 프록시(포트 8118에서만 HTTPS) 및 Tor 네트워크에 대한 SOCKS 프록시(9050)를 제공합니다.</string>
     <string name="hidden_service_request">앱이 Tor 네트워크의 포트 %1$s에서 Onion 서버를 열려고 합니다. 앱을 신뢰하는 경우 안전합니다.</string>
@@ -104,7 +103,6 @@
     <string name="custom_bridges">커스텀 브리지</string>
     <string name="kindness_mode_starting">시작 중…</string>
     <string name="snowflake">Snowflake</string>
-    <string name="kindness_adjust_title">설정</string>
     <string name="app_icon_chooser_label_assistant">어시스턴트</string>
     <string name="scan_qr_code">QR 코드 스캔</string>
     <string name="connect_to_tor">Tor에 접속</string>

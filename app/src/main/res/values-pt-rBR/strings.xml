@@ -143,15 +143,11 @@
     <string name="snowflake">Snowflake</string>
     <string name="connect">Conectar</string>
     <string name="next">Próximo</string>
-    <string name="volunteer_mode_weekly_label">Total semanal</string>
-    <string name="volunteer_mode_alltime_label">Total de todos os períodos</string>
     <string name="smart_connect">Conexão Inteligente</string>
     <string name="direct_connect_subtitle">A melhor maneira de se conectar ao Tor. Use caso o Tor não esteja bloqueado.</string>
     <string name="snowflake_subtitle">Conecta-se através de voluntários do Tor. Contorna alguns bloqueios do Tor.</string>
     <string name="power_user_description">Para usuários familiarizados com o Tor. Permite que você inicie o Orbot sem a configuração VPN e mostra as portas SOCKS e HTTP que estejam abertas</string>
     <string name="action_activate">Ativar</string>
-    <string name="volunteer_status_title">Hoje o dia está melhor
-\ngraças a você.</string>
     <string name="title_choose_apps">Escolha os aplicativos</string>
     <string name="app_suggested_subtitle">O Orbot funciona melhor com aplicativos de mensagens e mídias sociais.</string>
     <string name="apps_suggested_title">Sugestões de aplicativos</string>
@@ -166,7 +162,6 @@
     <string name="ask_tor">Pergunte ao Tor</string>
     <string name="asking">PEDINDO…</string>
     <string name="no_internet_title">Conectar à internet</string>
-    <string name="kindness_adjust_title">Configurações</string>
     <string name="no_internet_subtitle">Você precisa de uma conexão com a Internet para usar o Orbot.</string>
     <string name="pref_isolate_protocol">Isole os protocolos do cliente</string>
     <string name="pref_isolate_port_summary">Utilize um circuito diferente para cada porta de destino</string>

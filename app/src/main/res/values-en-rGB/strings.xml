@@ -32,7 +32,6 @@
     <string name="power_user_mode">Power User Mode</string>
     <string name="power_user_description">For users familiar with Tor. Allows you to start Orbot without the VPN setting and shows open SOCKS and HTTP ports</string>
     <string name="action_activate">Activate</string>
-    <string name="volunteer_status_title">Today is better\nbecause of you.</string>
     <string name="title_choose_apps">Choose Apps</string>
     <string name="app_suggested_subtitle">Orbot works best with messaging and social media apps.</string>
     <string name="apps_suggested_title">Suggested Apps</string>
@@ -87,11 +86,9 @@
     <string name="backup_service">Backup Service (Warning: This Could Expose Your Service Configuration to Other Apps)</string>
     <string name="pref_connection_padding_summary">Always enables connection padding to defend against some forms of traffic analysis. Default: auto</string>
     <string name="pref_prefer_ipv6">Prefer IPv6 connections</string>
-    <string name="volunteer_mode_weekly_label">Weekly Total</string>
     <string name="full_device_vpn">Full Device VPN</string>
     <string name="custom_bridges">Custom Bridges</string>
     <string name="snowflake_proxy_msg_title">Show Connection Notification</string>
-    <string name="volunteer_mode_alltime_label">All Time Total</string>
     <string name="smart_connect">Smart Connect</string>
     <string name="direct_connect">Direct Connection</string>
     <string name="direct_connect_subtitle">The best way to connect to Tor. Use if Tor is not blocked.</string>
@@ -166,7 +163,6 @@
     <string name="many_ways">There are many ways to reach Tor. Some may work better than others for you.</string>
     <string name="asking">ASKING…</string>
     <string name="no_internet_subtitle">You need an Internet connection to use Orbot.</string>
-    <string name="kindness_adjust_title">Settings</string>
     <string name="kindness_config_detail">Configure how and when your device can act as a Snowflake proxy for other Tor users.</string>
     <string name="hide_apps">Hide apps from network monitoring and get access when they are blocked.</string>
     <string name="pref_isolate_protocol">Isolate client protocols</string>

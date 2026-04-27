@@ -40,14 +40,11 @@
     <string name="power_user_mode">பவர் பயனர் பயன்முறை</string>
     <string name="power_user_description">டோர் நன்கு அறிந்த பயனர்களுக்கு. VPN அமைப்பு இல்லாமல் ஆர்போட் தொடங்க உங்களை அனுமதிக்கிறது மற்றும் திறந்த சாக்ச் மற்றும் HTTP போர்ட்களைக் காட்டுகிறது</string>
     <string name="asking">கேட்கிறது…</string>
-    <string name="kindness_adjust_title">அமைப்புகள்</string>
     <string name="app_suggested_subtitle">செய்தி மற்றும் சமூக ஊடக பயன்பாடுகளுடன் ஆர்போட் சிறப்பாக செயல்படுகிறது.</string>
     <string name="setting_padding">திணிப்பு</string>
     <string name="confirm_service_deletion">பணி நீக்குதலை உறுதிப்படுத்தவும்</string>
     <string name="custom_bridges">தனிப்பயன் பாலங்கள்</string>
     <string name="pref_start_boot_title">துவக்கத்தில் சுற்றுப்பாதையைத் தொடங்கவும்</string>
-    <string name="volunteer_mode_weekly_label">வாராந்திர மொத்தம்</string>
-    <string name="volunteer_mode_alltime_label">எல்லா நேரமும் மொத்தம்</string>
     <string name="enter_exit_nodes">வெளியேறும் முனைகளை உள்ளிடவும்</string>
     <string name="project_home">திட்ட வீடு:</string>
     <string name="exclude_nodes">முனைகளை விலக்கு</string>
@@ -162,7 +159,6 @@
     <string name="volunteer_mode">கருணை முறை</string>
     <string name="btn_choose_apps">பயன்பாடுகளைத் தேர்வுசெய்க</string>
     <string name="btn_change_exit">வெளியேறவும்</string>
-    <string name="volunteer_status_title">இன்று சிறந்தது\n நீங்கள் காரணமாக.</string>
     <string name="apps_suggested_title">பரிந்துரைக்கப்பட்ட பயன்பாடுகள்</string>
     <string name="apps_other_apps">பிற பயன்பாடுகள்</string>
     <string name="log_copied">பதிவு நகலெடுக்கப்பட்டது</string>

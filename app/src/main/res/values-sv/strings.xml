@@ -131,20 +131,15 @@
     <string name="backup_port_exist">Fel: En Onion-tjänst använder redan port %s</string>
     <string name="secure_your_connection_title">Redo att ansluta</string>
     <string name="secure_your_connection_subtitle">Dölj appar från nätverksövervakning och få tillgång till dem när de är blockerade.</string>
-    <string name="volunteer_mode_weekly_label">Totalt per vecka</string>
     <string name="direct_connect">Direkt anslutning till Tor</string>
     <string name="snowflake_amp">Snöflinga (AMP)</string>
     <string name="power_user_mode">Power User Mode (strömförsörjningsläge)</string>
     <string name="power_user_description">För användare som är bekanta med Tor. Gör det möjligt att starta Orbot utan VPN-inställning och visar öppna SOCKS- och HTTP-portar</string>
     <string name="action_activate">Aktivera</string>
-    <string name="volunteer_status_title">Idag är bättre
-\ntack vare dig.</string>
     <string name="title_choose_apps">Välj appar</string>
     <string name="asking">FRÅGAR…</string>
     <string name="no_internet_title">Anslut till internet</string>
     <string name="no_internet_subtitle">Du behöver en internetuppkoppling för att använda Orbot.</string>
-    <string name="kindness_adjust_title">Inställningar</string>
-    <string name="volunteer_mode_alltime_label">Alltid Totalt</string>
     <string name="smart_connect">Smart Connect (standard)</string>
     <string name="snowflake">Snowflake (original)</string>
     <string name="direct_connect_subtitle">Det bästa sättet att ansluta till Tor. Använd om Tor inte är blockerad.</string>

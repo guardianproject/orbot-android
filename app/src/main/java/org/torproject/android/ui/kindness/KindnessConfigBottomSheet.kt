@@ -6,7 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.widget.SwitchCompat
-import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.setFragmentResult
 import org.torproject.android.R
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
@@ -28,6 +29,7 @@ class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment() {
         btnAction.setOnClickListener {
             Prefs.setBeSnowflakeProxyLimitWifi(configWifi.isChecked)
             Prefs.setBeSnowflakeProxyLimitCharging(configCharging.isChecked)
+            setFragmentResult(BUNDLE_KEY_CONFIG_CHANGED, Bundle())
             dismiss()
         }
 
@@ -37,12 +39,13 @@ class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment() {
     }
 
     companion object {
-        fun openKindnessSettings(fragmentActivity: FragmentActivity) {
+        const val BUNDLE_KEY_CONFIG_CHANGED = "kindness_config_changed"
+
+        fun openKindnessSettings(fragmentManager: FragmentManager) {
             KindnessConfigBottomSheet().show(
-                fragmentActivity.supportFragmentManager,
+                fragmentManager,
                 "KindnessConfig"
             )
         }
     }
-
 }

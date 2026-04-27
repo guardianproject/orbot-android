@@ -90,7 +90,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
                     }
 
                     override fun natTypeUpdated(natType: String) {
-                        // TODO: feature added in IPtProxy 5.4.1
+                        service.updateNatType(natType)
                     }
                 }
 
@@ -107,10 +107,13 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
     @Synchronized
     fun stopProxy() {
         if (proxy == null) return
+
         proxy?.stop()
         proxy = null
 
         releaseMappedPorts()
+
+        service.updateNatType(IPtProxy.IPtProxy.NATUnknown)
     }
 
     fun isProxyRunning(): Boolean = proxy != null

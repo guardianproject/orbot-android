@@ -140,8 +140,6 @@
     <string name="trying_to_connect_title">Conectando…</string>
     <string name="btn_choose_apps">Elegir aplicaciones</string>
     <string name="btn_refresh">Actualizar</string>
-    <string name="volunteer_mode_weekly_label">Total Semanal</string>
-    <string name="volunteer_mode_alltime_label">Total de todos los tiempos</string>
     <string name="smart_connect">Conexión inteligente (predeterminado)</string>
     <string name="direct_connect">Conexión directa a Tor</string>
     <string name="snowflake">Snowflake (Original)</string>
@@ -152,8 +150,6 @@
     <string name="power_user_mode">Modo de usuarie avanzado</string>
     <string name="power_user_description">Para usuaries familiarizados con Tor. Te permite iniciar Orbot sin la configuración de VPN y muestra SOCKS abiertos y puertos HTTP</string>
     <string name="action_activate">Activar</string>
-    <string name="volunteer_status_title">Hoy es mejor
-\ngracias a ti.</string>
     <string name="title_choose_apps">Elije aplicaciones</string>
     <string name="apps_suggested_title">Aplicaciones sugeridas</string>
     <string name="hide_apps">Oculta las aplicaciones de la supervisión de la red y obten acceso cuando estén bloqueadas.</string>
@@ -163,7 +159,6 @@
     <string name="many_ways">Hay muchas formas de conectarse a Tor. Algunas pueden funcionar mejor que otros para ti.</string>
     <string name="asking">PREGUNTANDO…</string>
     <string name="no_internet_subtitle">Necesitas una conexión a Internet para usar Orbot.</string>
-    <string name="kindness_adjust_title">Ajustar cuando se ejecuta…</string>
     <string name="kindness_config_detail">Configura cómo y cuándo tu dispositivo puede actuar como un proxy Snowflake para otros usuarios de Tor.</string>
     <string name="menu_more">Mas</string>
     <string name="option_only_when_charging">Solo cuando estes cargando tu telefono</string>

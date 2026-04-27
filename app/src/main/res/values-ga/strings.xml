@@ -139,8 +139,6 @@
     <string name="btn_choose_apps">Roghnaigh aipeanna</string>
     <string name="btn_change_exit">Athraigh an bealach amach</string>
     <string name="btn_refresh">Athnuachan an Nasc</string>
-    <string name="volunteer_mode_weekly_label">Iomlán Seachtainiúil</string>
-    <string name="volunteer_mode_alltime_label">Iomlán na nAmaí</string>
     <string name="kindness_mode_is_running">Tá Mód Cineáltais ag Rith</string>
     <string name="kindness_mode_active_message" formatted="true">Tá tú tar éis cabhrú le %1$d duine an chinsireacht a sheachaint</string>
     <string name="kindness_mode_disabled">Tá Mód Cineáltais Díghníomhachtaithe</string>
@@ -167,7 +165,6 @@
     <string name="power_user_mode">Mód Úsáideora Cumhachta</string>
     <string name="power_user_description">D’úsáideoirí atá eolach ar Tor. Ligeann sé duit Orbot a thosú gan an socrú VPN agus taispeánann sé calafoirt SOCKS agus HTTP atá oscailte</string>
     <string name="action_activate">Gníomhachtaigh</string>
-    <string name="volunteer_status_title">Tá an lá inniu \nníos fearr mar gheall ort.</string>
     <string name="title_choose_apps">Roghnaigh Aipeanna</string>
     <string name="app_suggested_subtitle">Oibríonn Orbot is fearr le haipeanna teachtaireachtaí agus meán sóisialta.</string>
     <string name="apps_suggested_title">Aipeanna Molta</string>
@@ -181,7 +178,6 @@
     <string name="asking">AG CEIST…</string>
     <string name="no_internet_title">Ceangail leis an idirlíon</string>
     <string name="no_internet_subtitle">Teastaíonn nasc idirlín uait chun Orbot a úsáid.</string>
-    <string name="kindness_adjust_title">Socruithe</string>
     <string name="kindness_config_detail">Cumraigh conas agus cathain is féidir le do ghléas gníomhú mar seachfhreastalaí Snowflake d\'úsáideoirí Tor eile.</string>
     <string name="menu_kindness">Cineáltas</string>
     <string name="menu_more">Tuilleadh</string>

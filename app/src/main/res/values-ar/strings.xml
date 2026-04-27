@@ -112,7 +112,6 @@
     <string name="btn_change_exit">غيّر الخروج</string>
     <string name="no_internet_title">اتصل بالإنترنت</string>
     <string name="no_internet_subtitle">تحتاج إلى اتصال بالإنترنت لاستخدام Orbot.</string>
-    <string name="kindness_adjust_title">إعدادات</string>
     <string name="pref_http_dialog">ضبط منفذ HTTP</string>
     <string name="apps_suggested_title">تطبيقات المقترحة</string>
     <string name="apps_other_apps">تطبيقات أخرى</string>
@@ -151,8 +150,6 @@
     <string name="pref_isolate_port_summary">استخدم مسار مختلف لكل منفذ وجهة</string>
     <string name="pref_disable_ipv4">تعطيل اتصالات IPv4</string>
     <string name="pref_disable_ipv4_summary">يخبر المخارج بعدم الاتصال بعناوين IPv4</string>
-    <string name="volunteer_mode_weekly_label">المجموع الأسبوعي</string>
-    <string name="volunteer_mode_alltime_label">إجمالي الوقت</string>
     <string name="smart_connect">الاتصال الذكي</string>
     <string name="direct_connect">اتصال مباشر</string>
     <string name="direct_connect_subtitle">أفضل طريقة للاتصال بتور. استخدم إذا لم يُحظر تور.</string>
@@ -162,8 +159,6 @@
     <string name="kindness_config_detail">اضبط كيف ومتى يمكن لجهازك العمل كوسيط Snowflake لمستخدمي تور الآخرين.</string>
     <string name="power_user_mode">وضع المستخدم المتقدم</string>
     <string name="power_user_description">للمستخدمين المطلعين على تور. يسمح لك ببدء تشغيل Orbot بدون إعداد VPN ويعرض منافذ SOCKS و HTTP المفتوحة</string>
-    <string name="volunteer_status_title">اليوم أفضل
-\nبسببك.</string>
     <string name="option_only_on_wifi">فقط على شبكة Wifi</string>
     <string name="not_sure">غير متأكد؟</string>
     <string name="ask_tor">اسأل تور</string>

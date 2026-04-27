@@ -137,8 +137,6 @@ atl oquitlapatic</string>
     <string name="btn_choose_apps">Xicpepena tepoztlatlatquitl</string>
     <string name="btn_change_exit">Xipatla quizayan</string>
     <string name="btn_refresh">Papatia</string>
-    <string name="volunteer_mode_weekly_label">Chicueilhuitl centamachihua</string>
-    <string name="volunteer_mode_alltime_label">Nochi cahuitl centamachihua</string>
     <string name="smart_connect">Maticentililoni (achtopa omochiuh)</string>
     <string name="direct_connect">Tencuiliztli huicpa Tor</string>
     <string name="direct_connect_subtitle">In cualli tequitl mocentilili ipan Tor. Xicchihua Tor ahmo quitzacuiltia.</string>
@@ -149,7 +147,6 @@ atl oquitlapatic</string>
     <string name="power_user_mode">Tlamatini yuhcayotl</string>
     <string name="power_user_description">Inic tlapouhqui tlein quimati Tor. Huel quilhui tlein pehuaz Orbort yehce ahmo mochihua in quipatlaz VPN ihuan quimachti in acaltecoyan SOCKS ihuan otlapouhqueh HTTP</string>
     <string name="action_activate">Xicyeltiz</string>
-    <string name="volunteer_status_title">Axcan cenca cualli ipampa tehuatzin. Nimitztlazohcamati miec</string>
     <string name="title_choose_apps">Xipepena tepoztlatlatquitl</string>
     <string name="app_suggested_subtitle">Orbot  tequipano cenca cualli ica amatlacuilotepoztlatlatquitl ihuan tlacanamimatlatl</string>
     <string name="apps_suggested_title">Yolitectia tepoztlatlatquitl</string>

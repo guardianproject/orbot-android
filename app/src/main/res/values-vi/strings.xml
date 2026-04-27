@@ -134,8 +134,6 @@
     <string name="secure_your_connection_subtitle">Ẩn giấu các app ứng dụng khỏi việc bị theo dõi mạng và lấy lại khả năng truy cập khi chúng bị chặn.</string>
     <string name="btn_configure">Lựa chọn làm cách nào để kết nối</string>
     <string name="btn_choose_apps">Lựa chọn app ứng dụng</string>
-    <string name="volunteer_status_title">Ngày hôm nay tốt đẹp hơn
-\nlà do bạn.</string>
     <string name="option_only_on_wifi">Chỉ trên Wifi</string>
     <string name="option_only_when_charging">Chỉ khi đang sạc</string>
     <string name="hide_apps">Ẩn giấu các app ứng dụng khỏi việc bị theo dõi mạng và lấy lại khả năng truy cập khi chúng bị chặn.</string>
@@ -159,8 +157,6 @@
     <string name="pref_isolate_port_summary">Sử dụng một mạch nối khác cho mỗi một cổng đích đến (destination port)</string>
     <string name="pref_isolate_protocol_summary">Sử dụng một mạch nối khác biệt cho mỗi một giao thức protocol kết nối</string>
     <string name="btn_change_exit">Thay đổi đầu ra exit</string>
-    <string name="volunteer_mode_weekly_label">Tổng cộng hằng tuần</string>
-    <string name="volunteer_mode_alltime_label">Tổng cộng toàn bộ thời gian</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="power_user_mode">Chế độ người dùng nâng cao Power User</string>
     <string name="app_suggested_subtitle">Orbot hoạt động tốt nhất với các app ứng dụng nhắn tin và mạng xã hội.</string>
@@ -172,7 +168,6 @@
     <string name="asking">ĐANG HỎI…</string>
     <string name="no_internet_title">Kết nối tới Internet</string>
     <string name="no_internet_subtitle">Bạn cần một kết nối internet để sử dụng Orbot.</string>
-    <string name="kindness_adjust_title">Cài đặt</string>
     <string name="setting_padding">Định khoảng cách Padding</string>
     <string name="pref_detect_root_summary">Cảnh báo khi khởi chạy rằng, liệu quyền hạn root đã được bật kích hoạt trên thiết bị này chưa</string>
     <string name="pref_detect_root_title">Phát hiện Root</string>
