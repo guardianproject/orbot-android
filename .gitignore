@@ -13,7 +13,7 @@ keystore.properties
 # Windows thumbnail db
 Thumbs.db
 
-# OSX files
+# macOS files
 .DS_Store
 
 # Android Studio
@@ -29,19 +29,15 @@ obj/
 .cxx
 .externalNativeBuild
 
-# Orbot libs
-libs/jtorctl.jar
-
 # Fastlane
 /fastlane/report.xml
 /fastlane/README.md
 
-# License
+# License (copied to app from project ROOT)
 app/src/main/assets/LICENSE
 
 # Local Kotlin config
 .kotlin/
-
 
 # gradle daemon JVM toolchain file, generate/update it by running 
 # ./gradlew updateDaemonJvm
