@@ -52,5 +52,4 @@ quickie = { group = "io.github.g00fy2.quickie", name = "quickie-bundled", versio
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
