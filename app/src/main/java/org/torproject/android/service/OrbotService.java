@@ -195,7 +195,7 @@ public class OrbotService extends VpnService {
         showToolbarNotification(getString(R.string.unable_to_start_tor) + ": " + message, ERROR_NOTIFY_ID, R.drawable.ic_stat_notifyerr);
     }
 
-    // if someone stops during startup, we may have to wait for the conn port to be setup, so we can properly shutdown tor
+    // if someone stops during startup, we may have to wait for the conn port to be setup to properly stop tor
     private void stopTor() {
 
         if (conn != null) {
@@ -428,7 +428,6 @@ public class OrbotService extends VpnService {
         torServiceConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                //moved torService to a local variable, since we only need it once
                 TorService torService = ((TorService.LocalBinder) iBinder).getService();
 
                 while ((conn = torService.getTorControlConnection()) == null) {
