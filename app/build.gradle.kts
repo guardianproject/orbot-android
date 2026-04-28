@@ -174,20 +174,14 @@ androidComponents {
 }
 
 dependencies {
-    implementation(libs.android.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.localbroadcast)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.preference)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.biometric)
-    implementation(libs.androidx.lifecycle.common)
     implementation(libs.androidx.lifecycle.process)
     implementation(libs.androidx.window)
     implementation(libs.retrofit.converter)
-    implementation(libs.retrofit.lib)
     implementation(libs.rootbeer.lib)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.serialization.json)
