@@ -3,6 +3,7 @@ agp = "9.2.0"
 androidx-appcompat = "1.7.1"
 androidx-espresso = "3.7.0"
 androidx-junit = "1.3.0"
+androidx-localbroadcast = "1.1.0"
 androidx-preference = "1.2.1"
 androidx-rules = "1.7.0"
 androidx-runner = "1.7.0"
@@ -29,6 +30,7 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 androidx-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-espresso" }
 androidx-espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "androidx-espresso" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-junit" }
+androidx-localbroadcast = { group = "androidx.localbroadcastmanager", name = "localbroadcastmanager", version.ref = "androidx-localbroadcast" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation-fragment-ktx" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation-fragment-ktx" }
 androidx-orchestrator = { module = "androidx.test:orchestrator", version.ref = "orchestrator" }
