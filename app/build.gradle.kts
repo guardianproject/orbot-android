@@ -187,17 +187,17 @@ dependencies {
     implementation(libs.quickie)
 
     // IPtProxy (for Snowflake, obfs4, dnstt and all other pluggable transports)
-    implementation(libs.iptproxy)
+//    implementation(libs.iptproxy)
     // uncomment to use a local build of IPtProxy:
-    // implementation(files("../../IPtProxy/IPtProxy.aar"))
+     implementation(files("../../iptproxy/IPtProxy.aar"))
 
 
     // Tor
     implementation(files("../libs/geoip.jar"))
     api(libs.guardian.jtorctl)
-    api(libs.tor.android)
+//    api(libs.tor.android)
     // uncomment to use a local build of tor-android:
-    // api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))
+     api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso)
