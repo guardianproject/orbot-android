@@ -271,4 +271,15 @@
     <string name="status_requesting_descriptors">Po kërkohet informacion shërbyesi rrjeti</string>
     <string name="status_loading_descriptors">Po ngarkohet informacion shërbyesi rrjeti</string>
     <string name="set_transport">Caktoni Transport</string>
+    <string name="loading">Po ngarkohet…</string>
+    <string name="added_bridges_from_qr">Shtim urash %1$d nga Kod QR</string>
+    <string name="invalid_bridge_qr_code">Kod QR i Pavlefshëm Ure</string>
+    <string name="you_already_have_these_bridges">I keni shtuar tashmë urat nga ky Kod QR</string>
+    <string name="http_port">Portë HTTP</string>
+    <string name="socks_port">Portë SOCKS</string>
+    <string name="invalid_outbound_proxy_config">Formësim i pavlefshëm Ndërmjetësi Në Dalje</string>
+    <string name="bridge_dnstt">Tunel DNS</string>
+    <string name="my_country_optional">Vendi Im (opsionale)</string>
+    <string name="country_clear">Hiqe Vendin</string>
+    <string name="limit_dns_tunnel_use">Kufizo Përdorim Tuneli DNS</string>
 </resources>
