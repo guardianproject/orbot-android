@@ -20,18 +20,14 @@ fun getVersionName(): Provider<String> {
 
 configure<ApplicationExtension> {
     namespace = "org.torproject.android"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 37
 
     defaultConfig {
         applicationId = namespace
         versionCode = orbotBaseVersionCode
         versionName = getVersionName().get()
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 37
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         flavorDimensions += "free"
