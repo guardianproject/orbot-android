@@ -105,15 +105,6 @@
     <string name="secure_your_connection_title">Спреман за повезивање</string>
     <string name="secure_your_connection_subtitle">Сакриј апликације од надзора мреже и добиј приступ када су блокиране.</string>
     <string name="btn_configure">Изабери како да се повежеш</string>
-    <string name="volunteer_mode_title">Помози другима
-\nда се повежу на Тор</string>
-    <string name="volunteer_mode_alltime_label">Све време УКУПНО</string>
-    <string name="volunteer_mode_subtitle_desc">Режим доброте омогућава вашем уређају да буде мост за друге. Помаже људима да користе Тор у местима где је блокиран.
-\n
-\n• Неће испразнити вашу батерију
-\n• Неће успорити ваш интернет
-\n• Може радити само преко Wi-Fi
-\n• Може се искључити у било ком тренутку</string>
     <string name="snowflake">Snowflake (оригинал)</string>
     <string name="apps_suggested_title">Предложене апликације</string>
     <string name="not_sure">Нисте сигурни?</string>
@@ -131,7 +122,6 @@
     <string name="pref_reduced_circuit_padding_summary">Користи алгоритме пуњења са мањим оптерећењем како би се смањила употреба података и батерије</string>
     <string name="volunteer_mode">Режим доброте</string>
     <string name="smart_connect">Паметно повезивање (подразумевано)</string>
-    <string name="kindness_adjust_title">Подешавања</string>
     <string name="v3_client_auth_activity_title">Клијентска ауторизација</string>
     <string name="backup_port_exist">Грешка: Onion услуга већ користи порт %s</string>
     <string name="bridge_snowflake_amp">Повежи се преко других Тор корисника користећи Snowflake (Метод 2 - AMP)</string>
@@ -141,7 +131,6 @@
     <string name="pref_disable_ipv4_summary">Обавештава излазе да се не повезују на IPv4 адресе</string>
     <string name="full_device_vpn">VPN за цео уређај</string>
     <string name="snowflake_proxy_msg_description">Прикажи поруку када помогнеш некоме да заобиђе цензуру</string>
-    <string name="volunteer_mode_weekly_label">Недељни УКУПНО</string>
     <string name="direct_connect">Директна веза са Тором</string>
     <string name="direct_connect_subtitle">Најбољи начин за повезивање на Тор. Користи ако Тор није блокиран.</string>
     <string name="strict_nodes_description">Третирај подешавања за искључивање чворова као захтев за изградњу свих кола. Ово може прекинути функционалност ако није могуће генерисати кола са вашим подешавањима за искључивање чворова.</string>
@@ -153,8 +142,6 @@
     <string name="v3_delete_client_authorization">Обриши кључ за клијентску ауторизацију</string>
     <string name="snowflake_subtitle">Повезује се преко Тор волонтера. Заобилази неке блокаде Тора.</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
-    <string name="volunteer_status_title">Данас је бољи
-\nзбог вас.</string>
     <string name="app_suggested_subtitle">Orbot најбоље ради са апликацијама за размену порука и друштвене мреже.</string>
     <string name="apps_other_apps">Остале апликације</string>
     <string name="hide_apps">Сакријте апликације од надзора мреже и добијте приступ када су блокиране.</string>

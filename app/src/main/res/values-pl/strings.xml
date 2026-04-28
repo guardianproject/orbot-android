@@ -100,9 +100,6 @@
     <string name="connected_title">Połączony</string>
     <string name="trying_to_connect_title">Łączenie…</string>
     <string name="secure_your_connection_subtitle">Ukryj aplikacje przed monitorowaniem sieci i uzyskaj dostęp, gdy zostaną zablokowane.</string>
-    <string name="volunteer_mode_alltime_label">Łącznie</string>
-    <string name="volunteer_status_title">Dziś jest lepsze
-\ndzięki tobie.</string>
     <string name="title_choose_apps">Wybierz aplikacje</string>
     <string name="action_activate">Aktywuj</string>
     <string name="power_user_description">Dla użytkowników zaznajomionych z Tor. Pozwala na uruchomienie Orbota bez ustawienia VPN i pokazuje otwarte porty SOCKS i HTTP</string>
@@ -112,20 +109,11 @@
     <string name="app_suggested_subtitle">Orbot działa najlepiej z komunikatorami i aplikacjami mediów społecznościowych.</string>
     <string name="power_user_mode">Tryb użytkownika zaawansowanego</string>
     <string name="snowflake_subtitle">Łączy się przez wolontariuszy Tor. Pozwala obejść niektóre blokady sieci Tor.</string>
-    <string name="volunteer_mode_title">Pomóż innym
-\npołączyć się z Tor</string>
-    <string name="volunteer_mode_subtitle_desc">Tryb życzliwości pozwala Twojemu urządzeniu być mostkiem dla innych. Pomaga ludziom używać sieci Tor w miejscach, gdzie jest zablokowana.
-\n
-\n- Nie powoduje wyczerpania baterii
-\n- Nie spowalnia działania internetu
-\n- Może działać tylko przez Wi-Fi
-\n- Może być wyłączony w każdej chwili</string>
     <string name="pref_reduced_connection_padding_summary">Zamyka połączenia przekaźnikowe wcześniej i wysyła mniej pakietów wypełniających, aby zmniejszyć zużycie danych i baterii</string>
     <string name="custom_bridges">Mostki niestandardowe</string>
     <string name="v3_key_hash">Klucz prywatny x25519 w Base32</string>
     <string name="v3_backup_name_hint">Nazwa pliku kopii zapasowej…</string>
     <string name="v3_delete_client_authorization_confirm">Usuń autoryzację klienta</string>
-    <string name="volunteer_mode_weekly_label">Tygodniowo</string>
     <string name="snowflake_proxy_msg_description">Pokaż wiadomość, gdy pomagasz komuś obejść cenzurę</string>
     <string name="connect">Połącz</string>
     <string name="next">Następny</string>
@@ -163,7 +151,6 @@
     <string name="snowflake_amp">Snowflake AMP</string>
     <string name="not_sure">Nie wiesz\?</string>
     <string name="no_internet_subtitle">Do korzystania z Orbota potrzebne jest połączenie z internetem.</string>
-    <string name="kindness_adjust_title">Ustawienia</string>
     <string name="many_ways">Istnieje wiele sposobów na dotarcie do Tor. Niektóre z nich mogą działać lepiej niż inne dla Ciebie.</string>
     <string name="asking">PYTANIE…</string>
     <string name="pref_isolate_port_summary">Użyj innego obwodu dla każdego portu docelowego</string>

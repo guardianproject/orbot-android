@@ -159,20 +159,10 @@
     <string name="option_only_on_wifi">Iba v sieti Wifi</string>
     <string name="option_only_when_charging">Len pri nabíjaní</string>
     <string name="menu_kindness">Láskavosť</string>
-    <string name="volunteer_mode_title">Pomôžte ostatným
-\npripojiť sa k sieti Tor</string>
     <string name="pref_isolate_port">Izolácia cieľových portov</string>
     <string name="pref_isolate_protocol">Izolácia klientskych protokolov</string>
     <string name="pref_isolate_protocol_summary">Pre každý pripojovací protokol použite iný obvod</string>
-    <string name="volunteer_mode_subtitle_desc">Režim láskavosti umožňuje, aby sa vaše zariadenie stalo mostom pre ostatných. Pomáha ľuďom používať Tor na miestach, kde je blokovaný.
-\n
-\n- Nevybíja batériu
-\n- Nespomalí váš internet
-\n- Môže bežať len cez wifi
-\n- Dá sa kedykoľvek vypnúť</string>
     <string name="smart_connect">Smart Connect (predvolené)</string>
-    <string name="volunteer_status_title">Dnes je lepšie
-\nvďaka tebe.</string>
     <string name="app_suggested_subtitle">Orbot funguje najlepšie s aplikáciami na zasielanie správ a sociálnymi médiami.</string>
     <string name="apps_other_apps">Ostatné aplikácie</string>
     <string name="ask_tor">Spýtajte sa Tora</string>
@@ -180,13 +170,10 @@
     <string name="kindness_config_detail">Konfigurácia toho, ako a kedy môže vaše zariadenie fungovať ako proxy server Snowflake pre iných používateľov Tor.</string>
     <string name="btn_copy_log">Kopírovanie denníka</string>
     <string name="many_ways">Existuje mnoho spôsobov, ako dosiahnuť Tor. Niektoré z nich vám môžu vyhovovať viac ako iné.</string>
-    <string name="kindness_adjust_title">Nastavenie</string>
     <string name="snowflake_subtitle">Spája sa prostredníctvom dobrovoľníkov Tor. Obchádza niektoré blokovania Tor.</string>
     <string name="hide_apps">Skryte aplikácie pred monitorovaním siete a získajte k nim prístup, keď sú blokované.</string>
     <string name="log_copied">Záznam skopírovaný</string>
     <string name="root_warning">Orbot zistil, že vaše zariadenie je rootnuté, čo môže spôsobiť bezpečnostné problémy.</string>
-    <string name="volunteer_mode_weekly_label">Týždenný súčet</string>
-    <string name="volunteer_mode_alltime_label">Celkovo za celý čas</string>
     <string name="direct_connect">Priame pripojenie k sieti Tor</string>
     <string name="pref_detect_root_summary">Varovať pri spustení, ak sú na tomto zariadení zapnuté oprávnenia root</string>
     <string name="pref_detect_root_title">Rozpoznanie root</string>

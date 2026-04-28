@@ -142,16 +142,6 @@
     <string name="btn_change_exit">Cambiar nodo de salida</string>
     <string name="btn_refresh">Refrescar</string>
     <string name="snowflake_proxy_msg_description">Mostrar un mensaje cuando estés ayudando a alguien a evitar la censura</string>
-    <string name="volunteer_mode_title">Ayudar a otros
-\nconectarse a Tor</string>
-    <string name="volunteer_mode_weekly_label">Total semanal</string>
-    <string name="volunteer_mode_alltime_label">Suma total acumulada</string>
-    <string name="volunteer_mode_subtitle_desc">El modo bondad permite que tu dispositivo sea un puente para otros y así ayudar otras personas a usar Tor donde está bloqueado.
-\n
-\n• No consumirá batería de tu dispositivo
-\n• No ralentizará tu conexión a Internet
-\n• Solo funciona cuando estás conectado a una red Wi-Fi
-\n• Puedes desactivarlo en cualquier momento</string>
     <string name="smart_connect">Conexión inteligente (por defecto)</string>
     <string name="direct_connect_subtitle">La mejor manera de conectarse a Tor. Usar si Tor no está bloqueado.</string>
     <string name="snowflake">Snowflake (Original)</string>
@@ -161,8 +151,6 @@
     <string name="next">Siguiente</string>
     <string name="power_user_mode">Modo usuario avanzado</string>
     <string name="power_user_description">Para usuarios que conocen Tor. Permite iniciar Orbot sin el ajuste VPN y muestra puertos abiertos SOCKS y HTTP</string>
-    <string name="volunteer_status_title">Hoy es mejor
-\ngracias a ti.</string>
     <string name="title_choose_apps">Elegir aplicaciones</string>
     <string name="app_suggested_subtitle">Orbot funciona mejor con aplicaciones de mensajería y redes sociales.</string>
     <string name="apps_suggested_title">Aplicaciones sugeridas</string>
@@ -174,7 +162,6 @@
     <string name="asking">PIDIENDO…</string>
     <string name="no_internet_title">Conectar a internet</string>
     <string name="no_internet_subtitle">Necesitas una conexión a internet para usar Orbot.</string>
-    <string name="kindness_adjust_title">Ajustes</string>
     <string name="kindness_config_detail">Configurar cómo y cuándo tu dispositivo puede actuar como un Proxy Snowflake para otros usuarios de Tor.</string>
     <string name="setting_debug">Depurar</string>
     <string name="root_warning">Orbot ha detectado que tu dispositivo está roteado, lo cual puede causar problemas de seguridad.</string>

@@ -139,19 +139,9 @@
     <string name="snowflake_proxy_msg_title">Mostrar notificação de ligação</string>
     <string name="strict_nodes_description">Tratar as definições de Excluir Nós como um requisito para a construção de todos os circuitos. Isto pode quebrar a funcionalidade se nenhum circuito for capaz de ser gerado com as suas definições de Excluir Nós.</string>
     <string name="version">Versão:</string>
-    <string name="volunteer_mode_weekly_label">Total semanal</string>
-    <string name="volunteer_mode_alltime_label">Total de todos os períodos</string>
     <string name="title_choose_apps">Escolha as apps</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Conecta-se através de voluntários do Tor. Contorna alguns bloqueios do Tor.</string>
-    <string name="volunteer_mode_title">Ajude outros
-\na se conectar ao Tor</string>
-    <string name="volunteer_mode_subtitle_desc">O modo bondade permite que o seu aparelho seja uma ponte para os outros. Ajuda as pessoas a usar o Tor em lugares onde ele está bloqueado.
-\n
-\n• Não esgota a bateria
-\n• Não desacelera a sua Internet
-\n• Só funciona através de Wi-Fi
-\n• Pode ser desligado em qualquer momento</string>
     <string name="smart_connect">Conexão inteligente (padrão)</string>
     <string name="direct_connect">Conexão direta com o Tor</string>
     <string name="direct_connect_subtitle">A melhor maneira de se conectar ao Tor. Use caso o Tor não esteja bloqueado.</string>
@@ -160,8 +150,6 @@
     <string name="power_user_mode">Modo de utilizador avançado</string>
     <string name="power_user_description">Para utilizadores familiarizados com Tor. Permite que inicie o Orbot sem a configuração VPN e mostra as portas SOCKS e HTTP que estejam abertas</string>
     <string name="action_activate">Ativar</string>
-    <string name="volunteer_status_title">Hoje está melhor
-\npela sua causa.</string>
     <string name="app_suggested_subtitle">O Orbot funciona melhor com apps de mensagens e mídias sociais.</string>
     <string name="apps_suggested_title">Sugestões de apps</string>
     <string name="apps_other_apps">Outras apps</string>
@@ -172,7 +160,6 @@
     <string name="hide_apps">Oculte as aplicações da monitorização da rede e obtenha acesso quando elas estiverem bloqueadas.</string>
     <string name="pref_isolate_protocol">Isolar os protocolos do cliente</string>
     <string name="no_internet_title">Ligar à Internet</string>
-    <string name="kindness_adjust_title">Configurações</string>
     <string name="option_only_on_wifi">Apenas ligado à Wi-Fi</string>
     <string name="option_only_when_charging">Só durante o carregamento</string>
     <string name="pref_isolate_port">Isolar as portas de destino</string>

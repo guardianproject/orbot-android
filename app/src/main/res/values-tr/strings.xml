@@ -131,20 +131,13 @@
     <string name="btn_choose_apps">Uygulamaları seç</string>
     <string name="btn_change_exit">Çıkışı değiştir</string>
     <string name="btn_refresh">Bağlantıyı Yenile</string>
-    <string name="volunteer_mode_title">Başkalarının Tor\'a
-\nbağlanmasına yardımcı olun</string>
-    <string name="volunteer_mode_alltime_label">Tüm Zamanlar Toplamı</string>
     <string name="smart_connect">Akıllı Bağlantı</string>
     <string name="direct_connect">Direkt Bağlantı</string>
     <string name="direct_connect_subtitle">Tor\'a bağlanmanın en iyi yolu. Tor engelli değilse kullanın.</string>
     <string name="snowflake_subtitle">Tor gönüllüleri aracılığıyla bağlanır. Bazı Tor engellemelerini aşar.</string>
     <string name="connect">Bağlan</string>
     <string name="next">Sonraki</string>
-    <string name="volunteer_mode_weekly_label">Haftalık Toplam</string>
-    <string name="volunteer_mode_subtitle_desc">Paylaşım modu, aygıtınızın başkaları için bir köprü olmasını sağlar. İnsanların Tor\'u engellendiği yerlerde kullanmasına yardımcı olur.\n \n• Pilinizi boşaltmaz \n• İnternetinizi yavaşlatmaz\n• Yalnızca Wi-Fi üzerinden çalışabilir \n• İstenildiği zaman kapatılabilir</string>
     <string name="snowflake">Snowflake</string>
-    <string name="volunteer_status_title">Bugün sizin
-\nsayenizde daha iyi.</string>
     <string name="title_choose_apps">Uygulamaları Seç</string>
     <string name="apps_suggested_title">Önerilen Uygulamalar</string>
     <string name="power_user_mode">Uzman Kullanıcı Modu</string>
@@ -159,7 +152,6 @@
     <string name="many_ways">Tor\'a erişmenin birçok yolu vardır. Bazıları sizin için diğerlerinden daha iyi çalışabilir.</string>
     <string name="asking">SORUYOR…</string>
     <string name="no_internet_title">İnternete bağlan</string>
-    <string name="kindness_adjust_title">Ayarlar</string>
     <string name="snowflake_amp">Snowflake AMP</string>
     <string name="no_internet_subtitle">Orbot\'u kullanmak için internet bağlantınızın olması gerekir.</string>
     <string name="kindness_config_detail">Aygıtınızın diğer Tor kullanıcıları için nasıl ve ne zaman bir Snowflake vekili olarak çalışabileceğini yapılandırın.</string>

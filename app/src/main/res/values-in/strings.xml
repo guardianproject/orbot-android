@@ -73,8 +73,6 @@
     <string name="power_user_mode">Mode Pengguna Berdaya</string>
     <string name="power_user_description">Untuk pengguna yang familier dengan Tor. Memungkinkan Anda untuk memulai Orbot tanpa pengaturan VPN dan menampilkan porta SOCKS dan HTTP yang terbuka</string>
     <string name="action_activate">Aktifkan</string>
-    <string name="volunteer_status_title">Hari ini lebih baik
-\nkarena tindakan Anda.</string>
     <string name="title_choose_apps">Pilih Aplikasi</string>
     <string name="app_suggested_subtitle">Orbot bekerja baik dengan aplikasi perpesanan dan media sosial.</string>
     <string name="apps_suggested_title">Aplikasi yang Disarankan</string>
@@ -88,10 +86,6 @@
     <string name="bridge_snowflake_amp">Hubungkan melalui pengguna Tor lain menggunakan Snowflake (Metode 2 - AMP)</string>
     <string name="snowflake_proxy_msg_title">Tampilkan Notifikasi Koneksi</string>
     <string name="snowflake_proxy_msg_description">Tampilkan pesan ketika Anda membantu seseorang melewati sensor</string>
-    <string name="volunteer_mode_title">Bantu orang lain
-\nmenghubung ke Tor</string>
-    <string name="volunteer_mode_weekly_label">Jumlah Setiap Minggu</string>
-    <string name="volunteer_mode_alltime_label">Jumlah Sepanjang Waktu</string>
     <string name="smart_connect">Smart Connect</string>
     <string name="direct_connect">Koneksi Langsung</string>
     <string name="direct_connect_subtitle">Cara yang terbaik untuk menghubungkan ke Tor. Gunakan jika Tor tidak diblokir.</string>
@@ -124,7 +118,6 @@
     <string name="pref_disable_ipv4">Nonaktifkan koneksi IPv4</string>
     <string name="volunteer_mode">Mode Kebaikan</string>
     <string name="btn_choose_apps">Pilih aplikasi</string>
-    <string name="volunteer_mode_subtitle_desc">Mode Kebaikan memungkinkan perangkat Anda menjadi jembatan bagi orang lain. Fitur ini membantu orang menggunakan Tor di tempat-tempat di mana Tor diblokir.\n\n• Tidak akan menguras baterai Anda\n• Tidak akan memperlambat koneksi internet Anda\n• Hanya dapat dijalankan melalui Wi-Fi\n• Dapat dimatikan kapan saja</string>
     <string name="confirm">Konfirmasi</string>
     <string name="v3_backup_key_warning">Peringatan: Ini dapat membocorkan kunci Anda ke aplikasi lain</string>
     <string name="delete_service">Hapus Layanan</string>
@@ -160,7 +153,6 @@
     <string name="many_ways">Ada lebih banyak cara untuk mencapai Tor. Beberapa dapat bekerja dengan baik daripada yang lain untuk Anda.</string>
     <string name="no_internet_title">Hubungkan ke internet</string>
     <string name="no_internet_subtitle">Anda membutuhkan koneksi internet untuk menggunakan Orbot.</string>
-    <string name="kindness_adjust_title">Pengaturan</string>
     <string name="kindness_config_detail">Atur bagaimana dan kapan perangkat Anda dapat menjadi sebagai proksi Snowflake untuk pengguna Tor lain.</string>
     <string name="asking">MENANYAKAN…</string>
     <string name="pref_isolate_port_summary">Gunakan sirkuit yang berbeda untuk setiap porta tujuan</string>
@@ -285,7 +277,6 @@
     <string name="kindness_never_had_a_direct_connection">Untuk menggunakan Mode Kebaikan, Anda perlu pernah terhubung langsung ke Tor (tanpa menggunakan jembatan apa pun) setidaknya sekali. Setelah terhubung, silakan kembali ke sini untuk mengaktifkan Mode Kebaikan. Setelah menyelesaikan uji koneksi langsung ini, Anda bebas menggunakan Mode Kebaikan baik saat terhubung ke Tor maupun tidak.</string>
     <string name="kindness_mode_cant_run_with_bridge">Mode Kebaikan tidak dapat berjalan saat Anda menggunakan jembatan untuk terhubung ke Tor.</string>
     <string name="kindness_mode_cant_run_in_your_country">Penggunaan Mode Kebaikan untuk membantu orang lain terhubung ke Tor saat ini dinonaktifkan untuk negara Anda karena penyensoran.</string>
-    <string name="kindness_mode_disclaimer_bridge">Jangan Gunakan Mode Kebaikan jika Anda berada di wilayah yang disensor atau jika Anda perlu menggunakan jembatan untuk terhubung ke Tor.</string>
     <string name="battery_optimization_title">Nonaktifkan Optimasi Baterai</string>
     <string name="battery_optimization_pref_msg">Pengaturan untuk beberapa pengguna yang menduga perangkat mereka menghentikan Orbot secara dini saat berjalan di latar belakang.</string>
     <string name="battery_optimization_dialog_msg">Perangkat Android tertentu mungkin menghentikan Orbot saat berjalan di latar belakang. Bagi sebagian besar pengguna yang ingin memastikan Orbot tetap terhubung dan berjalan, sudah cukup dengan mengatur Orbot agar berfungsi sebagai VPN \"Selalu aktif\" di pengaturan sistem. Namun, Anda tetap dapat mencegah perangkat melakukan optimasi baterai pada Orbot jika dirasa perlu.</string>

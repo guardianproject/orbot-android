@@ -81,7 +81,6 @@
     <string name="custom_bridges">Vlastní mosty</string>
     <string name="trying_to_connect_title">Připojování…</string>
     <string name="btn_refresh">Obnovit</string>
-    <string name="volunteer_mode_alltime_label">Celkově za celou dobu</string>
     <string name="pref_circuit_padding">Vycpávky obvodů</string>
     <string name="no_internet_subtitle">K používání služby Orbot potřebujete připojení k internetu.</string>
     <string name="pref_isolate_dest_summary">Pro každou cílovou adresu použijte jiný okruh</string>
@@ -89,12 +88,6 @@
     <string name="pref_disable_ipv4_summary">Informuje exity, že jsou upřednostňovány adresy IPv6</string>
     <string name="not_sure">Nejste si jisti\?</string>
     <string name="snowflake_subtitle">Připojuje se prostřednictvím dobrovolníků Tor. Obchází některé blokace Toru.</string>
-    <string name="volunteer_mode_subtitle_desc">Režim laskavosti umožňuje, aby se vaše zařízení stalo mostem pro ostatní. Pomáhá lidem používat Tor v místech, kde je blokován.
-\n
-\n- Nevybíjí baterii
-\n- Nezpomalí váš internet
-\n- Může běžet pouze přes wifi
-\n- Lze ji kdykoli vypnout</string>
     <string name="ask_tor">Zeptejte se Toru</string>
     <string name="pref_http_dialog">Konfigurace portu HTTP</string>
     <string name="consider_disable_battery_optimizations">Spuštěné hostované služby, zvažte vypnutí optimalizací baterie</string>
@@ -117,8 +110,6 @@
     <string name="pref_isolate_dest">Izolovat cílové adresy</string>
     <string name="pref_isolate_protocol">Izolovat klientské protokoly</string>
     <string name="secure_your_connection_subtitle">Skrýt aplikace před sledováním sítě a získat k nim přístup, když jsou blokovány.</string>
-    <string name="volunteer_mode_weekly_label">Týdenní součet</string>
-    <string name="kindness_adjust_title">Nastavení</string>
     <string name="apps_suggested_title">Navrhované aplikace</string>
     <string name="pref_circuit_padding_summary">Umožňuje vyplňování obvodů pro obranu proti některým formám analýzy provozu</string>
     <string name="full_device_vpn">Úplné zařízení VPN</string>
@@ -167,14 +158,10 @@
     <string name="strict_nodes_description">Nastavení Vyloučit uzly považujte za požadavek pro sestavení všech obvodů. To může narušit funkčnost, pokud s nastavením Exclude Nodes nebude možné vygenerovat žádné obvody.</string>
     <string name="app_suggested_subtitle">Orbot nejlépe funguje s aplikacemi pro zasílání zpráv a sociální sítě.</string>
     <string name="secure_your_connection_title">Připraveno k připojení</string>
-    <string name="volunteer_mode_title">Pomáhat ostatním
-\npřipojit se k síti Tor</string>
     <string name="v3_delete_client_authorization_confirm">Odstranění autorizace klienta</string>
     <string name="pref_http_summary">Port, na kterém Tor nabízí svůj proxy server HTTP (výchozí: 8118 nebo 0 pro vypnutí)</string>
     <string name="pref_reduced_connection_padding_summary">Uzavírá relay spojení dříve a odesílá méně paketů s vycpávkami, aby se snížila spotřeba dat a baterie</string>
     <string name="direct_connect_subtitle">Nejlepší způsob připojení k síti Tor. Použijte, pokud Tor není blokován.</string>
-    <string name="volunteer_status_title">Dnešek je lepší
-\ndíky tobě.</string>
     <string name="many_ways">Existuje mnoho způsobů, jak dosáhnout sítě Tor. Některé z nich vám mohou vyhovovat lépe než jiné.</string>
     <string name="local_port">Místní přístav</string>
     <string name="backup_restored">Obnovení zálohy</string>

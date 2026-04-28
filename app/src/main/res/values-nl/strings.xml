@@ -161,10 +161,6 @@
     <string name="btn_configure">Kies hoe u verbinding wilt maken</string>
     <string name="btn_choose_apps">Kies apps</string>
     <string name="btn_change_exit">Wijzig uitgang</string>
-    <string name="volunteer_mode_title">Help anderen\nverbinding te maken met Tor</string>
-    <string name="volunteer_mode_weekly_label">Wekelijks totaal</string>
-    <string name="volunteer_mode_alltime_label">Totaal aller tijden</string>
-    <string name="volunteer_mode_subtitle_desc">Met de vriendelijkheidsmodus kan je toestel een brug zijn voor anderen. Het helpt mensen om Tor te gebruiken op plaatsen waar het geblokkeerd is.\n\n• Het verbruikt geen batterij\n• Het vertraagt je internetverbinding niet\n• Het werkt alleen via wifi\n• Het kan op elk moment worden uitgeschakeld</string>
     <string name="kindness_mode_is_running">Vriendelijkheidsmodus is actief</string>
     <string name="kindness_mode_active_message" formatted="true">Je hebt %1$d mensen geholpen om censuur te omzeilen</string>
     <string name="kindness_mode_disabled">Vriendelijkheidsmodus is uitgeschakeld</string>
@@ -188,7 +184,6 @@
     <string name="custom_bridges_description">Plak hieronder de brug-adressen die je hebt ontvangen. Of scan de QR-code om ze toe te voegen. Vrienden kunnen bruggen voor je krijgen op %1$s.</string>
     <string name="power_user_mode">Power User-modus</string>
     <string name="power_user_description">Voor gebruikers die bekend zijn met Tor. Hiermee kunt u Orbot starten zonder de VPN-instelling en worden open SOCKS- en HTTP-poorten weergegeven</string>
-    <string name="volunteer_status_title">Vandaag is beter\ndankzij jou.</string>
     <string name="app_suggested_subtitle">Orbot werkt het beste met berichten- en sociale media-apps.</string>
     <string name="apps_suggested_title">Aanbevolen apps</string>
     <string name="apps_other_apps">Andere apps</string>
@@ -201,7 +196,6 @@
     <string name="asking">VRAGEN…</string>
     <string name="no_internet_title">Verbinding maken met internet</string>
     <string name="no_internet_subtitle">Je hebt een internetverbinding nodig om Orbot te kunnen gebruiken.</string>
-    <string name="kindness_adjust_title">Instellingen</string>
     <string name="kindness_config_detail">Configureer hoe en wanneer uw apparaat als Snowflake-proxy voor andere Tor-gebruikers kan fungeren.</string>
     <string name="menu_kindness">Vriendelijkheid</string>
     <string name="option_only_on_wifi">Alleen via wifi</string>

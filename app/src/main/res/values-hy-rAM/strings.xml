@@ -34,14 +34,10 @@
     <string name="connect">Միանալ</string>
     <string name="secure_your_connection_title">Պատրաստ է միացման</string>
     <string name="smart_connect">Խելացի միացում (լռելայն)</string>
-    <string name="volunteer_status_title">Այսօր ավելի լավ է
-\nՁեր շնորհիվ:</string>
     <string name="not_sure">Վստահ չե՞ք</string>
     <string name="menu_log">Մատյան</string>
     <string name="setting_debug">Վրիպազերծում</string>
     <string name="reachable_ports">Մատչելի մատույցներ</string>
-    <string name="volunteer_mode_title">Օգնեք ուրիշներին
-\nմիանալ Tor-ին</string>
     <string name="pref_proxy_host_title">Արտագնա փոխանորդի հյուրընկալ</string>
     <string name="pref_proxy_port_summary">Փոխանորդ սերվերի մատույցը</string>
     <string name="pref_proxy_port_title">Արտագնա փոխանորդի մատույց</string>
@@ -81,7 +77,6 @@
     <string name="delete_service">Ջնջել ծառայությունը</string>
     <string name="log_copied">Մատյանը պատճենվեց</string>
     <string name="ask_tor">Հարցրեք Tor-ին</string>
-    <string name="kindness_adjust_title">Կարգավորումներ</string>
     <string name="reachable_addresses">Մատչելի հասցեներ</string>
     <string name="enter_ports">Մուտքագրեք մատույցները</string>
     <string name="project_home">Նախագծի տնէջ.</string>

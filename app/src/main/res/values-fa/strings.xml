@@ -132,10 +132,6 @@
     <string name="trying_to_connect_title">در حال وصل‌شدن…</string>
     <string name="strict_nodes_description">با تنظیمات گره‌های مستثنی به‌عنوان یک الزام برای ساخت همه مدارها برخورد کنید. درصورتی که با تنظیمات گره‌های مستثنی شما، هیچ مداری نتواند تولید شود، ممکن است عملکرد را از بین ببرد.</string>
     <string name="connect">وصل‌شدن</string>
-    <string name="volunteer_mode_title">کمک به دیگران در \nوصل‌شدن به Tor</string>
-    <string name="volunteer_mode_subtitle_desc">حالت مهربانی اجازه می‌دهد تا دستگاه‌تان یک پل برای دیگران باشد‌. این کار به کمک می‌کند تا افراد در مکان‌هایی که Tor مسدود شده از آن استفاده کنند. \n \n- باتریتان را تخلیه نخواهد کرد\n- اینترنتتان را کند نخواهد کرد \n- فقط می‌تواند روی Wi-Fi اجرا شود \n- می‌تواند هر زمانی خاموش شود</string>
-    <string name="volunteer_mode_weekly_label">مجموع هفتگی</string>
-    <string name="volunteer_mode_alltime_label">مجموع تمامی زمان‌ها</string>
     <string name="smart_connect">اتّصال هوشمند</string>
     <string name="direct_connect">اتّصال مستقیم</string>
     <string name="next">بعدی</string>
@@ -144,7 +140,6 @@
     <string name="direct_connect_subtitle">بهترین روش اتصال به Tor. درصورت مسدودنبودن Tor از آن استفاده کنید.</string>
     <string name="power_user_mode">حالت کاربری حرفه‌ای</string>
     <string name="action_activate">فعال‌سازی</string>
-    <string name="volunteer_status_title">به لطف شما امروز \nروز بهتری است.</string>
     <string name="title_choose_apps">انتخاب برنامه‌ها</string>
     <string name="apps_other_apps">دیگر برنامه‌ها</string>
     <string name="power_user_description">برای کاربران آشنا با Tor. اجازه می‌دهد تا Orbot را بدون تنظیمات VPN شروع کند و درگاه‌های باز HTTP و SOCKS را نشان می‌دهد</string>
@@ -162,7 +157,6 @@
     <string name="asking">درحال پرسیدن…</string>
     <string name="no_internet_title">به اینترنت وصل شوید</string>
     <string name="no_internet_subtitle">برای استفاده از Orbot نیاز به اتصال اینترنتی دارید.</string>
-    <string name="kindness_adjust_title">تنظیمات</string>
     <string name="kindness_config_detail">اینکه چگونه و چه زمانی دستگاه شما می‌تواند به‌عنوان یک پراکسی Snowflake برای سایر کاربران Tor عمل کند را پیکربندی کنید.</string>
     <string name="log_copied">گزارش‌ها رونوشت شدند</string>
     <string name="btn_copy_log">رونوشت گزارش‌ها</string>
@@ -283,5 +277,4 @@
     <string name="kindness_never_had_a_direct_connection">برای استفاده از حالت مهربانی، شما باید به طور مستقیم به Tor (بدون استفاده از هر پل) حداقل یک بار متصل شوید. پس از اتصال، لطفا به اینجا برگردید تا حالت مهربانی را فعال کنید. پس از اتمام این تست اتصال مستقیم، شما آزاد هستید که از حالت مهربانی استفاده کنید یا به Tor متصل نیستید.</string>
     <string name="kindness_mode_cant_run_with_bridge">مهربانی حالت نمی تواند اجرا شود در حالی که شما از یک پل برای اتصال به Tor استفاده می کنید.</string>
     <string name="kindness_mode_cant_run_in_your_country">استفاده از Kindness حالت کمک به دیگران برای اتصال به Tor در حال حاضر به دلیل سانسور برای کشور شما معلول است.</string>
-    <string name="kindness_mode_disclaimer_bridge">از مهربانی استفاده نکنید حالت اگر شما در منطقه ای هستید که در آن سانسور شده اید یا اگر نیاز دارید از یک پل برای اتصال به Tor استفاده کنید.</string>
 </resources>

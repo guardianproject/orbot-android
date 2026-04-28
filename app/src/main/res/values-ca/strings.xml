@@ -106,19 +106,12 @@
     <string name="version">Versió:</string>
     <string name="license">Llicència:</string>
     <string name="custom_bridges">Ponts personalitzats</string>
-    <string name="volunteer_mode_alltime_label">Total global</string>
     <string name="pref_circuit_padding">Farciment del circuit</string>
     <string name="no_internet_subtitle">Us cal una connexió a internet per a utilitzar l\'Orbot.</string>
     <string name="v3_hosted_services">Serveis Onion hostatjats</string>
     <string name="pref_disable_ipv4_summary">Indica a les sortides que no connectin a adreces IPv4</string>
     <string name="not_sure">No n\'esteu segur?</string>
     <string name="snowflake_subtitle">Connecta mitjançant voluntaris del Tor. Evita algun blocatge del Tor.</string>
-    <string name="volunteer_mode_subtitle_desc">El mode altruista permet que el vostre dispositiu sigui un pont per als altres. Ajuda la gent a utilitzar el Tor en llocs on és blocat.
-\n
-\n• No esgotarà la bateria
-\n• No alentirà la connexió a internet
-\n• Només pot anar amb Wi-Fi
-\n• Es pot desconnectar en qualsevol moment</string>
     <string name="ask_tor">Pregunteu al Tor</string>
     <string name="pref_http_dialog">Configuració del port HTTP</string>
     <string name="power_user_mode">Mode d\'usuari avançat</string>
@@ -133,8 +126,6 @@
     <string name="snowflake_proxy_msg_title">Mostra la notificació de connexió</string>
     <string name="pref_isolate_protocol">Aïlla els protocols de client</string>
     <string name="secure_your_connection_subtitle">Oculteu les aplicacions al rastreig de la xarxa i obteniu-ne accés quan són blocades.</string>
-    <string name="volunteer_mode_weekly_label">Total setmanal</string>
-    <string name="kindness_adjust_title">Paràmetres</string>
     <string name="apps_suggested_title">Aplicacions suggerides</string>
     <string name="pref_circuit_padding_summary">Activa el farciment del circuit per a defensar-se d\'algunes formes d\'anàlisis de trànsit</string>
     <string name="log_copied">S\'ha copiat el registre</string>
@@ -170,13 +161,9 @@
     <string name="strict_nodes_description">Tracta els paràmetres d\'exclusió de nodes com a requeriment per a construir tots els circuits. Podria trencar la funcionalitat si no es pot generar cap circuit amb aquests paràmetres.</string>
     <string name="app_suggested_subtitle">L\'Orbot funciona millor amb aplicacions de missatgeria i xarxes socials.</string>
     <string name="secure_your_connection_title">Preparat per a connectar</string>
-    <string name="volunteer_mode_title">Ajudeu els altres
-\na connectar-se al Tor</string>
     <string name="v3_delete_client_authorization_confirm">Suprimeix l\'autorització del client</string>
     <string name="pref_http_summary">Port al qual el Tor ofereix el seu servidor intermediari HTTP (per defecte: 8118, o 0 per a desactivar)</string>
     <string name="direct_connect_subtitle">La millor manera de connectar-se al Tor. Utilitzeu-la si el Tor no és blocat.</string>
-    <string name="volunteer_status_title">L\'avui és millor
-\ngràcies a vós.</string>
     <string name="many_ways">Hi ha moltes maneres d\'arribar al Tor. Algunes podrien funcionar millor que altres.</string>
     <string name="v3_onion">Domini .onion</string>
     <string name="v3_key_hash">Clau privada x25519 en Base32</string>

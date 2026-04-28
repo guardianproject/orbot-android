@@ -131,26 +131,14 @@
     <string name="secure_your_connection_title">Готово к подключению</string>
     <string name="secure_your_connection_subtitle">Скрывайте приложения от отслеживания в сети и получайте доступ, когда он заблокирован.</string>
     <string name="strict_nodes_description">Рассматривать настройки исключённых узлов как требование для построения всех цепочек. Это может нарушить функциональность, если ни одна цепочка не сможет быть создана с вашими настройками.</string>
-    <string name="volunteer_mode_title">Помогите другим
-\nподключиться к Tor</string>
-    <string name="volunteer_mode_weekly_label">Итого за неделю</string>
-    <string name="volunteer_mode_alltime_label">Итого за всё время</string>
     <string name="snowflake">Snowflake</string>
     <string name="connect">Подключить</string>
     <string name="next">Далее</string>
     <string name="snowflake_subtitle">Подключение через добровольцев Tor. Обходит некоторые блокировки Tor.</string>
     <string name="direct_connect_subtitle">Лучший способ подключения к Tor. Используйте, если Tor не заблокирован.</string>
-    <string name="volunteer_mode_subtitle_desc">Режим доброты позволяет вашему устройству быть мостом для других. Это помогает людям использовать Tor в местах, где он заблокирован.
-\n
-\n• Он не расходует заряд батареи
-\n• Он не замедляет ваш интернет
-\n• Он может работать только через Wi-Fi
-\n• Его можно отключить в любое время</string>
     <string name="smart_connect">Умное Подключение</string>
     <string name="direct_connect">Прямое Подключение</string>
     <string name="power_user_mode">Режим опытного пользователя</string>
-    <string name="volunteer_status_title">Мир стал лучше
-\nблагодаря вам.</string>
     <string name="title_choose_apps">Выбор приложений</string>
     <string name="apps_suggested_title">Рекомендуемые приложения</string>
     <string name="power_user_description">Для пользователей, знакомых с Tor. Позволяет запустить Orbot без настроек VPN и показывает открытые SOCKS и HTTP порты</string>
@@ -166,7 +154,6 @@
     <string name="asking">ЗАПРОС…</string>
     <string name="no_internet_title">Подключиться к интернету</string>
     <string name="no_internet_subtitle">Для использования Orbot необходимо подключение к интернету.</string>
-    <string name="kindness_adjust_title">Настройки</string>
     <string name="kindness_config_detail">Настройте, как и когда ваше устройство может использоваться в качестве прокси-сервера Snowflake для других пользователей Tor.</string>
     <string name="pref_isolate_protocol">Изолировать протоколы клиентов</string>
     <string name="pref_isolate_port_summary">Использовать разные цепочки подключения для каждого порта назначения</string>

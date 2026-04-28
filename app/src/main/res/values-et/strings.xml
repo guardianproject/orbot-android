@@ -135,10 +135,6 @@
     <string name="title_choose_apps">Vali rakendused</string>
     <string name="apps_other_apps">Muud rakendused</string>
     <string name="asking">KÜSIME…</string>
-    <string name="kindness_adjust_title">Seadistused</string>
-    <string name="volunteer_mode_title">Aita teisi
-\nTori ühenduse loomisel</string>
-    <string name="volunteer_mode_alltime_label">Kordi läbi aegade</string>
     <string name="snowflake_subtitle">Ühendab Tori vabatahtlike kaudu. Saab ümber mõnest Tor\'i blokeeringust.</string>
     <string name="direct_connect">Otsene ühendus Toriga</string>
     <string name="connect">Ühendage</string>
@@ -148,13 +144,10 @@
     <string name="pref_isolate_port_summary">Kasutage iga sihtkoha jaoks erinevat vooluahelat</string>
     <string name="pref_isolate_protocol_summary">Kasutage iga ühendusprotokolli jaoks erinevat vooluahelat</string>
     <string name="pref_isolate_protocol">Isoleerida kliendiprotokollid</string>
-    <string name="volunteer_mode_weekly_label">Kordi nädalas</string>
     <string name="hide_apps">Peida rakendused võrgu jälgimise eest ja saada juurdepääs, kui need on blokeeritud.</string>
     <string name="action_activate">Aktiveeri</string>
     <string name="many_ways">Torini jõudmiseks on mitmeid viise. Mõni neist võib teie jaoks toimida paremini kui teised.</string>
     <string name="power_user_description">Toriga tuttavatele kasutajatele. Võimaldab käivitada Orbot ilma VPN-seadistusteta ja näitab avatud SOCKS- ja HTTP-porti</string>
-    <string name="volunteer_status_title">Täna on parem
-\ntänu sinule.</string>
     <string name="app_suggested_subtitle">Orbot töötab kõige paremini koos sõnumite ja sotsiaalmeedia rakendustega.</string>
     <string name="no_internet_title">Ühendage internetiga</string>
     <string name="no_internet_subtitle">Orbot\'i kasutamiseks on vaja internetiühendust.</string>
@@ -162,12 +155,6 @@
     <string name="log_copied">Logi kopeeritud</string>
     <string name="smart_connect">Nutikas ühendus (vaikimisi)</string>
     <string name="direct_connect_subtitle">Parim viis Toriga ühendumiseks. Kasutage, kui Tor ei ole blokeeritud.</string>
-    <string name="volunteer_mode_subtitle_desc">Sõbralikkuse režiim võimaldab sinu seadmel olla teiste jaoks sillaks. See aitab inimestel kasutada Tori kohtades, kus see on blokeeritud.
-\n
-\n- See ei tühjenda sinu seadme akut
-\n- See ei aeglusta sinu internetiühendust
-\n- Seda saab kasutada ainult üle wifi
-\n- Seda saab igal ajal välja lülitada</string>
     <string name="ask_tor">Küsi Torilt</string>
     <string name="snowflake">Lumehelbeke (originaal)</string>
     <string name="snowflake_amp">Lumehelbeke (AMP)</string>

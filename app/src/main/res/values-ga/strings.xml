@@ -139,10 +139,6 @@
     <string name="btn_choose_apps">Roghnaigh aipeanna</string>
     <string name="btn_change_exit">Athraigh an bealach amach</string>
     <string name="btn_refresh">Athnuachan an Nasc</string>
-    <string name="volunteer_mode_title">Cabhraigh le daoine eile\nceangal le Tor</string>
-    <string name="volunteer_mode_weekly_label">Iomlán Seachtainiúil</string>
-    <string name="volunteer_mode_alltime_label">Iomlán na nAmaí</string>
-    <string name="volunteer_mode_subtitle_desc">Ligeann modh cineálta do ghléas a bheith ina dhroichead do dhaoine eile. Cuidíonn sé le daoine Tor a úsáid in áiteanna ina bhfuil sé blocáilte.\n\n• Ní dhraenálfaidh sé do cheallraí\n• Ní mhoilleoidh sé d’idirlíon\n• Ní féidir leis rith ach thar wifi\n• Is féidir é a mhúchadh am ar bith</string>
     <string name="kindness_mode_is_running">Tá Mód Cineáltais ag Rith</string>
     <string name="kindness_mode_active_message" formatted="true">Tá tú tar éis cabhrú le %1$d duine an chinsireacht a sheachaint</string>
     <string name="kindness_mode_disabled">Tá Mód Cineáltais Díghníomhachtaithe</string>
@@ -169,7 +165,6 @@
     <string name="power_user_mode">Mód Úsáideora Cumhachta</string>
     <string name="power_user_description">D’úsáideoirí atá eolach ar Tor. Ligeann sé duit Orbot a thosú gan an socrú VPN agus taispeánann sé calafoirt SOCKS agus HTTP atá oscailte</string>
     <string name="action_activate">Gníomhachtaigh</string>
-    <string name="volunteer_status_title">Tá an lá inniu \nníos fearr mar gheall ort.</string>
     <string name="title_choose_apps">Roghnaigh Aipeanna</string>
     <string name="app_suggested_subtitle">Oibríonn Orbot is fearr le haipeanna teachtaireachtaí agus meán sóisialta.</string>
     <string name="apps_suggested_title">Aipeanna Molta</string>
@@ -183,7 +178,6 @@
     <string name="asking">AG CEIST…</string>
     <string name="no_internet_title">Ceangail leis an idirlíon</string>
     <string name="no_internet_subtitle">Teastaíonn nasc idirlín uait chun Orbot a úsáid.</string>
-    <string name="kindness_adjust_title">Socruithe</string>
     <string name="kindness_config_detail">Cumraigh conas agus cathain is féidir le do ghléas gníomhú mar seachfhreastalaí Snowflake d\'úsáideoirí Tor eile.</string>
     <string name="menu_kindness">Cineáltas</string>
     <string name="menu_more">Tuilleadh</string>
@@ -283,7 +277,6 @@
     <string name="kindness_never_had_a_direct_connection">Chun Mód Cineáltais a úsáid, ní mór duit a bheith ceangailte go díreach le Tor (gan aon droichid a úsáid) uair amháin ar a laghad. Tar éis duit ceangal a dhéanamh, tar ar ais anseo le Mód Cineáltais a ghníomhachtú. Tar éis duit an tástáil nasc díreach seo a chríochnú, is féidir leat Mód Cineáltais a úsáid cibé an bhfuil tú ceangailte le Tor nó nach bhfuil.</string>
     <string name="kindness_mode_cant_run_with_bridge">Ní féidir Mód Cineáltais a rith agus tú ag úsáid droichead chun ceangal le Tor.</string>
     <string name="kindness_mode_cant_run_in_your_country">Tá úsáid Mód Cineáltais chun cabhrú le daoine eile ceangal le Tor díchumasaithe faoi láthair i do thír mar gheall ar chinsireacht.</string>
-    <string name="kindness_mode_disclaimer_bridge">Ná húsáid Mód Cineáltais má tá tú i réigiún ina bhfuil cinsireacht ort nó má theastaíonn uait droichead a úsáid chun ceangal le Tor.</string>
     <string name="battery_optimization_title">Díchumasaigh Optamaithe Ceallraí</string>
     <string name="battery_optimization_pref_msg">Socrú do roinnt úsáideoirí a bhfuil amhras orthu go bhfuil a ngléas ag marú Orbot roimh am agus é ag rith sa chúlra.</string>
     <string name="battery_optimization_dialog_msg">D’fhéadfadh gléasanna áirithe Android Orbot a mharú agus é ag rith sa chúlra. I gcás fhormhór na n-úsáideoirí ar mian leo a chinntiú go bhfanann Orbot ceangailte agus ag rith, is leor Orbot a shocrú chun feidhmiú mar VPN \"I gcónaí ar siúl\" i socruithe an chórais. Mar sin féin, féadfaidh tú fós cosc a chur ar do ghléas aon uasmhéaduithe ceallraí a dhéanamh ar Orbot má cheapann tú go bhfuil gá leis.</string>

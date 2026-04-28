@@ -10,16 +10,25 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
+import android.os.Binder
 import android.os.Build
 import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import org.torproject.android.R
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
 
 class SnowflakeProxyService : Service() {
+
+    inner class LocalBinder : Binder() {
+        fun getService(): SnowflakeProxyService = this@SnowflakeProxyService
+    }
+    private val binder = LocalBinder()
 
     private lateinit var snowflakeProxyWrapper: SnowflakeProxyWrapper
     private lateinit var powerConnectionReceiver: PowerConnectionReceiver
@@ -27,9 +36,12 @@ class SnowflakeProxyService : Service() {
 
     private lateinit var networkCallbacks: ConnectivityManager.NetworkCallback
 
-    override fun onBind(intent: Intent?): IBinder? {
+    private val _natType = MutableStateFlow(IPtProxy.IPtProxy.NATUnknown)
+    val natType: StateFlow<String> = _natType.asStateFlow()
+
+    override fun onBind(intent: Intent?): IBinder {
         Log.d(TAG, "onBind: $intent")
-        return null
+        return binder
     }
 
     override fun onCreate() {
@@ -51,6 +63,10 @@ class SnowflakeProxyService : Service() {
             stopSelf()
         }
         return START_STICKY
+    }
+
+    fun updateNatType(type: String) {
+        _natType.value = type
     }
 
     fun refreshNotification(contentText: String? = null) {
@@ -170,7 +186,7 @@ class SnowflakeProxyService : Service() {
         private const val CHANNEL_ID = "snowflake"
         private const val ACTION_STOP_SNOWFLAKE_SERVICE = "ACTION_STOP_SNOWFLAKE_SERVICE"
 
-        private fun getIntent(context: Context) = Intent(context, SnowflakeProxyService::class.java)
+        fun getIntent(context: Context) = Intent(context, SnowflakeProxyService::class.java)
 
         // start this service, but not necessarily snowflake proxy from the app UI
         fun startSnowflakeProxyForegroundService(context: Context) {

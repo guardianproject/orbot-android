@@ -152,21 +152,15 @@
     <string name="not_sure">不確定？</string>
     <string name="btn_configure">選擇連接方式</string>
     <string name="btn_choose_apps">選擇應用程式</string>
-    <string name="volunteer_mode_title">幫助其他人
-\n連接到 Tor</string>
-    <string name="volunteer_mode_weekly_label">每週總計</string>
     <string name="direct_connect">直接連接到 Tor</string>
     <string name="direct_connect_subtitle">連接 Tor 的最佳方式。如果 Tor 未被阻止，請使用。</string>
     <string name="power_user_description">給熟悉 Tor 的使用者。允許你在沒有 VPN 設定的情況下啟動 Orbot 並顯示開放的 SOCKS 和 HTTP 連接埠</string>
     <string name="apps_suggested_title">推薦的應用程式</string>
     <string name="option_only_on_wifi">僅在 Wi-Fi 上</string>
     <string name="log_copied">記錄已複製</string>
-    <string name="volunteer_mode_alltime_label">所有時間總計</string>
     <string name="snowflake_amp">Snowflake（AMP）</string>
     <string name="snowflake_subtitle">透過 Tor 志願者進行連接。繞過一些 Tor 封鎖。</string>
     <string name="power_user_mode">進階使用者模式</string>
-    <string name="volunteer_status_title">今天更好了
-\n因為有你。</string>
     <string name="app_suggested_subtitle">Orbot 最適合與訊息和社交媒體應用程式搭配使用。</string>
     <string name="apps_other_apps">其他應用程式</string>
     <string name="many_ways">有很多方法可以連接到 Tor。有些可能比其他的更適合你。</string>
@@ -176,13 +170,6 @@
     <string name="no_internet_title">連接到網絡</string>
     <string name="pref_detect_root_summary">如果此裝置上啟用了 root 權限，則啟動時發出警告</string>
     <string name="pref_detect_root_title">Root 檢測</string>
-    <string name="kindness_adjust_title">設定</string>
-    <string name="volunteer_mode_subtitle_desc">善良模式讓您的設備成為他人的橋接器。這有助於人們在被封鎖的地方使用 Tor。
-\n
-\n• 它不會消耗您的電池
-\n• 它不會減慢您的網速
-\n• 它只能在 wifi 上運行
-\n• 它可以隨時關閉</string>
     <string name="status_starting_up">Orbot 正在啟動中…</string>
     <string name="status_activated">已連線至 Tor 網路</string>
     <string name="status_disabled">Orbot 已停用</string>

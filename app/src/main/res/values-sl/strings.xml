@@ -159,31 +159,18 @@
     <string name="option_only_on_wifi">Samo na Wi-Fi-ju</string>
     <string name="pref_isolate_port_summary">Uporabite drugo vezje za vsaka ciljna vrata</string>
     <string name="pref_isolate_protocol_summary">Uporabite drugo vezje za vsak povezovalni protokol</string>
-    <string name="volunteer_mode_title">Pomagajte se drugim
-\npovezati na Tor</string>
-    <string name="volunteer_mode_subtitle_desc">Način prijaznosti omogoča, da je vaša naprava most za druge. Ljudem pomaga uporabljati Tor na mestih, kjer je blokiran.
-\n
-\n• Ne bo praznil vaše baterije
-\n• Ne bo upočasnil vašega interneta
-\n• Deluje lahko samo prek Wi-Fi-ja
-\n• Kadar koli ga je mogoče izklopiti</string>
     <string name="log_copied">Dnevnik kopiran</string>
     <string name="no_internet_title">Povežite se z internetom</string>
     <string name="kindness_config_detail">Konfigurirajte, kako in kdaj lahko vaša naprava deluje kot proksi snežinka za druge uporabnike Tora.</string>
     <string name="root_warning">Orbot je zaznal, da je vaša naprava korenirana, kar lahko povzroči varnostne težave.</string>
     <string name="direct_connect">Neposredna povezava s Torom</string>
     <string name="hide_apps">Skrijte aplikacije pred nadzorom omrežja in pridobite dostop, ko so blokirane.</string>
-    <string name="volunteer_status_title">Danes je bolje
-\nzaradi tebe.</string>
     <string name="app_suggested_subtitle">Orbot najbolje deluje z aplikacijami za sporočanje in družbena omrežja.</string>
     <string name="apps_suggested_title">Predlagane aplikacije</string>
     <string name="apps_other_apps">Ostale aplikacije</string>
     <string name="btn_copy_log">Kopiraj dnevnik</string>
     <string name="many_ways">Tor lahko dosežete na več načinov. Nekateri morda za vas delujejo bolje kot drugi.</string>
-    <string name="kindness_adjust_title">Prilagodite, ko teče …</string>
     <string name="snowflake">Snežinka (originalno)</string>
-    <string name="volunteer_mode_weekly_label">Skupaj tedensko</string>
-    <string name="volunteer_mode_alltime_label">Skupaj vseh časov</string>
     <string name="smart_connect">Pametno poveži (privzeto)</string>
     <string name="direct_connect_subtitle">Najboljši način povezave s Torom. Uporabite če Tor ni blokiran.</string>
     <string name="snowflake_amp">Snežinka (AMP)</string>

@@ -29,19 +29,13 @@
     <string name="no_internet_title">Connecter te a internet</string>
     <string name="title_choose_apps">Seliger le applicationes</string>
     <string name="app_name">Orbot</string>
-    <string name="volunteer_mode_alltime_label">Total de tote le tempore</string>
     <string name="no_internet_subtitle">Tu besonia un connexion de Internet pro usar Orbot.</string>
     <string name="power_user_mode">Modo de usator avantiate</string>
-    <string name="volunteer_mode_weekly_label">Total del septimana</string>
     <string name="option_only_on_wifi">Solmente in Wi-Fi</string>
     <string name="direct_connect">Connexion directe a Tor</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="app_suggested_subtitle">Orbot functiona melior con applicationes de messageria e retes social.</string>
-    <string name="volunteer_mode_title">Adjuta a alteres
-\nin connecter se a Tor</string>
     <string name="direct_connect_subtitle">Le melior maniera de connecter se a Tor. Usa lo si Tor non es blocate.</string>
-    <string name="volunteer_status_title">Hodie es melior
-\ngratias a te.</string>
     <string name="copy_address_to_clipboard">Copiar adresse al area de transferentia</string>
     <string name="version">Version:</string>
     <string name="delete_service">Deler le servicio</string>
@@ -49,7 +43,6 @@
     <string name="license">Licentia:</string>
     <string name="service_type">Typo de servicio</string>
     <string name="hidden_services">Servicios onion</string>
-    <string name="kindness_adjust_title">Parametros</string>
     <string name="custom_bridges">Pontes personalisate</string>
     <string name="secure_your_connection_title">Preste pro connecter</string>
     <string name="snowflake_proxy_msg_title">Monstrar notification de connexion</string>

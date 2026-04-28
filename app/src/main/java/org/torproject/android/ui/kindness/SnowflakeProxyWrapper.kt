@@ -107,10 +107,13 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
     @Synchronized
     fun stopProxy() {
         if (proxy == null) return
+
         proxy?.stop()
         proxy = null
 
         releaseMappedPorts()
+
+        service.updateNatType(IPtProxy.IPtProxy.NATUnknown)
     }
 
     fun isProxyRunning(): Boolean = proxy != null

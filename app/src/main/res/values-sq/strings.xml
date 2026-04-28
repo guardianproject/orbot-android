@@ -24,17 +24,11 @@
     <string name="pref_disable_network_summary">Vëre në gjumë Tor-in, kur s’ka internet</string>
     <string name="pref_transport_dialog">Formësim Porte</string>
     <string name="pref_torrc_dialog">Torrc vetjake</string>
-    <string name="volunteer_status_title">Për hir tuajin sot
-\nështë më mirë.</string>
     <string name="title_choose_apps">Zgjidhni Aplikacione</string>
     <string name="user_services">Shërbime përdoruesi</string>
     <string name="app_services">Shërbime aplikacionesh</string>
     <string name="snowflake_proxy_msg_title">Shfaq Njoftim Lidhjeje</string>
     <string name="connected_title">I lidhur</string>
-    <string name="volunteer_mode_title">Ndihmoni të tjerët
-\ntë lidhen me Tor-in</string>
-    <string name="volunteer_mode_weekly_label">Gjithsej Javore</string>
-    <string name="volunteer_mode_alltime_label">Gjithsej Për Tërë Kohën</string>
     <string name="power_user_mode">Mënyra “Përdorues i Regjur”</string>
     <string name="power_user_description">Për përdorues të familjarizuar me Tor-in. Ju lejon ta nisni Orbot-in pa rregullimin VPN dhe shfaqë porta SOCKS dhe HTTP të hapura</string>
     <string name="action_activate">Aktivizoje</string>
@@ -123,12 +117,6 @@
     <string name="pref_socks_summary">Portë te e cila Tor-i ofron ndërmjetësin e vet SOCKS (parazgjedhje: 9050, ose 0 për ta çaktivizuar)</string>
     <string name="pref_http_title">Tor HTTP</string>
     <string name="consider_enable_battery_optimizations">Pa shërbime të strehuara në funksionim, shihni mundësinë e aktivizimit të optimizimeve të baterisë</string>
-    <string name="volunteer_mode_subtitle_desc">Mënyra dashamirësi e lejon pajisjen tuaj të jetë një urë për të tjera. I ndihmon njerëzit të përdorin Tor-in në vende ku e bllokojnë.
-\n
-\n• S’do të thajë baterinë tuaj
-\n• S’do të ngadalësojë internetin tuaj
-\n• Mund të punojë vetëm me wifi
-\n• Mund të çaktivizohet kurdo</string>
     <string name="direct_connect_subtitle">Rruga më e mirë për t’u lidhur me Tor-in. Përdoreni nëse Tor-i s’është i bllokuar.</string>
     <string name="app_suggested_subtitle">Më mirë se me gjithçka tjetër, Orbot-i funksionon me aplikacione shkëmbimi mesazhesh dhe mediash shoqërore.</string>
     <string name="secure_your_connection_subtitle">Fshihini aplikacione mbikëqyrjes së rrjetit dhe përfitoni hyrje kur janë të bllokuar.</string>
@@ -166,7 +154,6 @@
     <string name="pref_isolate_port_summary">Përdorni një qark të ndryshëm për çdo portë vendmbërritje</string>
     <string name="no_internet_title">Lidhu në internet</string>
     <string name="pref_isolate_protocol">Izolo protokolle klienti</string>
-    <string name="kindness_adjust_title">Rregullime</string>
     <string name="full_device_vpn">VPN Për Krejt Pajisjen</string>
     <string name="log_copied">Regjistri u Kopjua</string>
     <string name="btn_copy_log">Kopjo Regjistrin</string>

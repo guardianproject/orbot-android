@@ -150,10 +150,10 @@
     <string name="btn_change_exit">Change exit</string>
     <string name="btn_refresh">Refresh Connection</string>
     <string name="globe" translatable="false">🌎</string>
-    <string name="volunteer_mode_title">Help others\nconnect to Tor</string>
-    <string name="volunteer_mode_weekly_label">Weekly Total</string>
-    <string name="volunteer_mode_alltime_label">All Time Total</string>
-    <string name="volunteer_mode_subtitle_desc">Kindness mode allows your device to be a bridge for others. It helps people use Tor in places where it is blocked.\n\n• It will not drain your battery\n• It will not slow down your internet\n• It can run only over wifi\n• It can be turned off anytime</string>
+    <string name="volunteer_mode_title">Kindness Mode: Help others connect to Tor</string>
+    <string name="volunteer_mode_weekly_label">This Week</string>
+    <string name="volunteer_mode_alltime_label">Total</string>
+    <string name="volunteer_mode_subtitle_desc">Kindness Mode turns your device into a Snowflake Proxy on the Tor network — a bridge to help others connect.</string>
     <string name="kindness_mode_is_running">Kindness Mode is Running</string>
     <string name="kindness_mode_active_message" formatted="true">You\'ve helped %1$d people circumvent censorship</string>
     <string name="kindness_mode_disabled">Kindness Mode is Deactivated</string>
@@ -182,7 +182,9 @@
     <string name="power_user_mode">Power User Mode</string>
     <string name="power_user_description">For users familiar with Tor. Allows you to start Orbot without the VPN setting and shows open SOCKS and HTTP ports</string>
     <string name="action_activate">Activate</string>
-    <string name="volunteer_status_title">Today is better\nbecause of you.</string>
+    <string name="action_learn_more">Learn More</string>
+    <string name="Enabled">Enabled</string>
+    <string name="Disabled">Disabled</string>
     <string name="title_choose_apps">Choose Apps</string>
     <string name="app_suggested_subtitle">Orbot works best with messaging and social media apps.</string>
     <string name="apps_suggested_title">Suggested Apps</string>
@@ -196,7 +198,17 @@
     <string name="asking">ASKING…</string>
     <string name="no_internet_title">Connect to internet</string>
     <string name="no_internet_subtitle">You need an internet connection to use Orbot.</string>
-    <string name="kindness_adjust_title">Settings</string>
+    <string name="kindness_usage_limit">Usage Limits</string>
+    <string name="kindness_usage_limits_status_on">on</string>
+    <string name="kindness_usage_limits_status_off">off</string>
+    <string name="kindness_proxy_quality">Proxy Quality</string>
+    <string name="kindness_proxy_quality_unknown">unknown</string>
+    <string name="kindness_proxy_quality_restricted">restricted</string>
+    <string name="kindness_proxy_quality_unrestricted">unrestricted</string>
+    <string name="kindness_quality_upgrade_title">Upgrade your Snowflake Proxy</string>
+    <string name="kindness_quality_upgrade_line1">Your proxy can be more powerful when kindness mode is running on Wi-Fi.</string>
+    <string name="kindness_quality_upgrade_line2">To upgrade, enable UPnP on your Wi-Fi router for this device.</string>
+    <string name="kindness_your_impact">Your Impact in Numbers</string>
     <string name="kindness_config_detail">Configure how and when your device can act as a Snowflake proxy for other Tor users.</string>
     <string name="menu_kindness">Kindness</string>
     <string name="menu_more">More</string>
@@ -204,6 +216,15 @@
     <string name="option_only_when_charging">Only when charging</string>
     <string name="setting_padding">Padding</string>
     <string name="setting_debug">Debug</string>
+
+    <string name="testing_title_testing">Testing Quality…</string>
+    <string name="testing_explanation_testing">Before you become a Snowflake Proxy, we need to see if you can run an effective proxy. Please wait while we check.</string>
+    <string name="testing_title_approved">%s Approved</string>
+    <string name="testing_explanation_approved">You are a great candidate for becoming a Snowflake Proxy on the Tor network.</string>
+    <string name="testing_continue">Continue</string>
+    <string name="testing_title_declined">%s Not Approved</string>
+    <string name="testing_explanation_declined">You cannot be a useful Snowflake Proxy at this time. If you keep seeing this message, try again on a different network.</string>
+    <string name="testing_explanation_declined2">Do not use Kindness Mode, if the Internet in your country is heavily censored.</string>
 
     <string name="root_warning">Orbot has detected your device is rooted, which can cause security issues.</string>
     <string name="pref_detect_root_summary">Warn on startup if root permissions are enabled on this device</string>
@@ -313,7 +334,7 @@
     <string name="kindness_never_had_a_direct_connection">In order to use Kindness Mode, you need to have connected directly to Tor (without using any bridges) at least once. After having connected, please come back here to activate Kindness Mode. After completing this direct connection test, you are free to use Kindness Mode whether or not you\'re connected to Tor.</string>
     <string name="kindness_mode_cant_run_with_bridge">Kindness Mode can\'t run while you are using a bridge to connect to Tor.</string>
     <string name="kindness_mode_cant_run_in_your_country">Using Kindness Mode to help other people connect to Tor is currently disabled for your country because of censorship.</string>
-    <string name="kindness_mode_disclaimer_bridge">Don\'t Use Kindness Mode if you are in a region where you are censored or if you need to use a bridge to connect to Tor.</string>
+    <string name="kindness_mode_disclaimer_bridge">Activate if the internet in your country is not heavily censored.</string>
 
     <string name="battery_optimization_title">Disable Battery Optimizations</string>
     <string name="battery_optimization_pref_msg">Setting for some users that suspect their device is prematurely killing Orbot while it runs in the background.</string>
