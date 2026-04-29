@@ -212,7 +212,7 @@
     <string name="error_asking_tor_for_bridges">Earráid ag fiafraí de Tor conas ceangal</string>
     <string name="enter_bridge_address">Cuir isteach seoladh an droichid</string>
     <string name="built_in_bridges_obfs4">Droichid Tógtha Isteach (obfs4)</string>
-    <string name="built_in_bridges_obfs4_subtitle">Cuireann sé bac ar thrácht. Seachnaíonn sé roinnt bac Tor. Go maith má tá tú ar WiFi poiblí, ach i dtír nach bhfuil bac ar Tor.</string>
+    <string name="built_in_bridges_obfs4_subtitle">Cuireann sé bac ar thrácht. Seachnaíonn sé roinnt bac Tor. Go maith má tá tú ar Wi-Fi poiblí, ach i dtír nach bhfuil bac ar Tor.</string>
     <string name="unlock_app_msg" formatted="true">Díghlasáil do ghléas le do thoil chun %s a úsáid</string>
     <string name="run_smart_connect_">Rith Smart Connect chun an bealach is fearr a aimsiú</string>
     <string name="scan_qr_code">Scanáil Cód QR</string>

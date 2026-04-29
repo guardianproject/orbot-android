@@ -223,7 +223,7 @@
     <string name="open_settings">Apri le impostazioni</string>
     <string name="enter_bridge_address">Inserisci l\'indirizzo del bridge</string>
     <string name="built_in_bridges_obfs4">Bridge integrati (obfs4)</string>
-    <string name="built_in_bridges_obfs4_subtitle">Camuffa il tuo traffico. Aggira qualche blocco di Tor. Buono se sei su WiFi pubblico, ma in una nazione dove Tor non viene bloccato.</string>
+    <string name="built_in_bridges_obfs4_subtitle">Camuffa il tuo traffico. Aggira qualche blocco di Tor. Buono se sei su Wi-Fi pubblico, ma in una nazione dove Tor non viene bloccato.</string>
     <string name="run_smart_connect_">Esegui \"Connessione intelligente\" per trovare il metodo migliore</string>
     <string name="scan_qr_code">Scansiona codice QR</string>
     <string name="orbot_vpn">Orbot VPN</string>
