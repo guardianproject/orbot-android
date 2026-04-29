@@ -326,4 +326,7 @@
     <string name="battery_optimizations_are_enabled">Battery Optimizations are currently active for Orbot. This is the default and is reasonable for most users…</string>
     <string name="btn_connect_anyway">Connect Anyway</string>
     <string name="btn_connect_anyway_stop_showing">Connect and Turn Off This Warning</string>
+
+    <string name="request_access_local_network_permission">Please allow Orbot to </string>
+    <string name="request_notification_pefrmission_msg">Without turning on notifications Orbot can\'t act as a Tor VPN or use Kindness Mode.\n\nWhen enabled, we only show a single notification when Orbot is running.</string>
 </resources>

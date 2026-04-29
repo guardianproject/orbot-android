@@ -85,7 +85,6 @@ configure<ApplicationExtension> {
         }
         getByName("debug") {
             isDebuggable = true
-            applicationIdSuffix = ".debug"
         }
     }
 

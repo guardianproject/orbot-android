@@ -1,22 +1,35 @@
 package org.torproject.android.ui.kindness
 
+import android.Manifest.permission.ACCESS_LOCAL_NETWORK
+import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.SwitchCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import org.torproject.android.R
 import org.torproject.android.service.circumvention.BuiltInBridges
 import org.torproject.android.service.circumvention.Transport
+import org.torproject.android.ui.connect.RequestPostNotificationPermission
 import org.torproject.android.util.Prefs
 import java.util.Locale
 import kotlin.collections.contains
 
 class KindnessFragment : Fragment() {
+
+    companion object {
+        const val TAG = "KindnessFragment"
+    }
 
     private lateinit var tvAllTimeTotal: TextView
     private lateinit var tvWeeklyTotal: TextView
@@ -59,6 +72,11 @@ class KindnessFragment : Fragment() {
             .setOnClickListener { KindnessConfigBottomSheet.openKindnessSettings(requireActivity()) }
 
         btnActionActivate.setOnClickListener {
+            if (!accessLocalNetworkGranted()) {
+                @SuppressLint("NewApi") // already checking for API level in previous function
+                requestPermissionLauncher.launch(ACCESS_LOCAL_NETWORK)
+                return@setOnClickListener
+            }
             getErrorStringIfAny()?.let {
                 showDisabledDialog(it)
                 return@setOnClickListener
@@ -68,6 +86,49 @@ class KindnessFragment : Fragment() {
 
         showPanelStatus(Prefs.beSnowflakeProxy())
         return view
+    }
+
+    private fun accessLocalNetworkGranted(): Boolean {
+        if (Build.VERSION.SDK_INT < 37) return true
+        val permCheck = ContextCompat.checkSelfPermission(
+            requireContext(),
+            ACCESS_LOCAL_NETWORK
+        )
+        when (permCheck) {
+            PackageManager.PERMISSION_GRANTED -> {
+                Log.d(
+                    TAG,
+                    "Granted Permission $ACCESS_LOCAL_NETWORK"
+                )
+                return true
+            }
+
+            else -> {
+                Log.d(
+                    TAG,
+                    "Try Prompting For $ACCESS_LOCAL_NETWORK"
+                )
+                return false
+            }
+        }
+
+    }
+
+    // Register the permissions callback, which handles the user's response to the
+    // system permissions dialog.
+    @RequiresApi(Build.VERSION_CODES.CINNAMON_BUN)
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            Log.d(TAG, "User just granted $ACCESS_LOCAL_NETWORK")
+        } else {
+            Log.d(TAG, "$ACCESS_LOCAL_NETWORK denied")
+            RequestPostNotificationPermission().show(
+                requireActivity().supportFragmentManager,
+                "RequestNotificationDialog"
+            )
+        }
     }
 
     private fun getErrorStringIfAny(): Int? {
