@@ -1,33 +1,22 @@
-import com.android.build.api.dsl.ApplicationExtension
-import java.io.FileInputStream
-import java.util.Date
-import java.util.Properties
+import com.android.build.api.dsl.LibraryExtension
 
 plugins {
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
 }
 
 kotlin { jvmToolchain(25) }
 
-val orbotBaseVersionCode = 1794200100
-fun getVersionName(): Provider<String> {
-    // Gets the version name from the latest Git tag
-    return providers.exec {
-        commandLine("git", "describe", "--tags", "--always")
-    }.standardOutput.asText.map { it.trim() }
-}
-
-configure<ApplicationExtension> {
+configure<LibraryExtension> {
     namespace = "org.torproject.android"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = namespace
-        versionCode = orbotBaseVersionCode
-        versionName = getVersionName().get()
+        // applicationId = namespace  // not applicable for library modules
+        // versionCode  // not applicable for library modules
+        // versionName  // not applicable for library modules
         minSdk = 24
         targetSdk = 36
         multiDexEnabled = true
@@ -40,37 +29,12 @@ configure<ApplicationExtension> {
         targetCompatibility = JavaVersion.VERSION_25
     }
 
-    splits {
-        abi {
-            isEnable = true
-            reset()
-            include("x86", "armeabi-v7a", "x86_64", "arm64-v8a")
-            isUniversalApk = true
-        }
-    }
-
     buildFeatures {
         buildConfig = true
         viewBinding = true
     }
 
     testOptions { execution = "ANDROIDX_TEST_ORCHESTRATOR" }
-
-    signingConfigs {
-        create("release") {
-            val keystorePropertiesFile = rootProject.file("keystore.properties")
-            val keystoreProperties = Properties()
-            if (keystorePropertiesFile.canRead()) {
-                keystoreProperties.load(FileInputStream(keystorePropertiesFile))
-            }
-            if (!keystoreProperties.stringPropertyNames().isEmpty()) {
-                keyAlias = keystoreProperties["keyAlias"] as String
-                keyPassword = keystoreProperties["keyPassword"] as String
-                storeFile = file(keystoreProperties["storeFile"] as String)
-                storePassword = keystoreProperties["storePassword"] as String
-            }
-        }
-    }
 
     buildTypes {
         getByName("release") {
@@ -79,11 +43,11 @@ configure<ApplicationExtension> {
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.txt"
             )
-            signingConfig = signingConfigs.getByName("release")
+            // signingConfig removed — library modules don't sign APKs
         }
         getByName("debug") {
             isDebuggable = true
-            applicationIdSuffix = ".debug"
+            // applicationIdSuffix removed — not applicable for library modules
         }
     }
 
@@ -100,9 +64,8 @@ configure<ApplicationExtension> {
         }
         create("nightly") {
             dimension = "free"
-            // overwrites defaults from defaultConfig
-            applicationId = "org.torproject.android.nightly"
-            versionCode = (Date().time / 1000).toInt()
+            // applicationId removed — not applicable for library modules
+            // versionCode removed — not applicable for library modules
         }
     }
 
@@ -128,6 +91,10 @@ configure<ApplicationExtension> {
 
 }
 
+/*
+ * UpdateBridgeConfig block commented out — not needed when embedding orbot as a library.
+ * UpdateBridgeConfig is defined in buildSrc/ but djibVPN's build does not include that buildSrc.
+ *
 val updateBuiltinBridges = tasks.register<UpdateBridgeConfig>("updateBuiltinBridges") {
     onlyIf { enabledForVariant.getOrElse(false) }
 
@@ -170,6 +137,7 @@ androidComponents {
         }
     }
 }
+*/
 
 dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
@@ -214,10 +182,12 @@ afterEvaluate {
     tasks.named("preBuild") {
         dependsOn(copyLicenseToAssets)
     }
+    /*
     tasks.named { it == "mergeNightlyDebugAssets" || it == "mergeFullpermDebugAssets" }
         .configureEach {
             mustRunAfter(updateBuiltinBridges)
         }
+    */
 }
 
 val copyLicenseToAssets by tasks.registering(Copy::class) {
