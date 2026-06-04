@@ -109,7 +109,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
     private fun onConnected() {
         Prefs.addSnowflakeServed()
         service.refreshNotification()
-        if (!Prefs.showSnowflakeProxyToast()) return
+        if (!Prefs.showSnowflakeProxyToast) return
         val message: String = String.format(
             service.getString(R.string.snowflake_proxy_client_connected_msg),
             ONION_EMOJI,

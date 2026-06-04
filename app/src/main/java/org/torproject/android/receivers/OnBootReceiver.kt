@@ -22,7 +22,7 @@ class OnBootReceiver : BroadcastReceiver() {
             if (SystemClock.uptimeMillis() > TEN_MINUTES_MS)
                 return
 
-            if (Prefs.startOnBoot() && !sReceivedBoot) {
+            if (Prefs.startOnBoot && !sReceivedBoot) {
                 startService(context)
                 sReceivedBoot = true
             }

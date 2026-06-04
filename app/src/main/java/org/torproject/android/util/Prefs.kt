@@ -122,17 +122,17 @@ object Prefs {
         get() = cr?.getPrefString(PREF_DEFAULT_LOCALE) ?: Locale.getDefault().language
         set(value) = cr?.putPref(PREF_DEFAULT_LOCALE, value) ?: Unit
 
-    fun detectRoot(): Boolean {
-        return cr?.getPrefBoolean(PREF_DETECT_ROOT, true) ?: true
-    }
+    var detectRoot: Boolean
+        get() = cr?.getPrefBoolean(PREF_DETECT_ROOT, true) ?: true
+        set(value) = cr?.putPref(PREF_DETECT_ROOT, value) ?: Unit
 
     var beSnowflakeProxy: Boolean
         get() = cr?.getPrefBoolean(PREF_BE_A_SNOWFLAKE) ?: false
         set(value) = cr?.putPref(PREF_BE_A_SNOWFLAKE, value) ?: Unit
 
-    fun showSnowflakeProxyToast(): Boolean {
-        return cr?.getPrefBoolean(PREF_SHOW_SNOWFLAKE_MSG) ?: false
-    }
+    var showSnowflakeProxyToast: Boolean
+        get() = cr?.getPrefBoolean(PREF_SHOW_SNOWFLAKE_MSG) ?: false
+        set(value) = cr?.putPref(PREF_SHOW_SNOWFLAKE_MSG, value) ?: Unit
 
     fun setBeSnowflakeProxyLimitWifi(beSnowflakeProxy: Boolean) {
         cr?.putPref(PREF_BE_A_SNOWFLAKE_LIMIT_WIFI, beSnowflakeProxy)
@@ -151,17 +151,17 @@ object Prefs {
     }
 
     @JvmStatic
-    fun useDebugLogging(): Boolean {
-        return cr?.getPrefBoolean(PREF_ENABLE_LOGGING) ?: false
-    }
+    var useDebugLogging: Boolean
+        get() = cr?.getPrefBoolean(PREF_ENABLE_LOGGING) ?: false
+        set(value) = cr?.putPref(PREF_ENABLE_LOGGING, value) ?: Unit
 
-    fun allowBackgroundStarts(): Boolean {
-        return cr?.getPrefBoolean(PREF_ALLOW_BACKGROUND_STARTS, true) ?: true
-    }
+    var allowBackgroundStarts: Boolean
+        get() = cr?.getPrefBoolean(PREF_ALLOW_BACKGROUND_STARTS, true) ?: true
+        set(value) = cr?.putPref(PREF_ALLOW_BACKGROUND_STARTS, value) ?: Unit
 
-    fun openProxyOnAllInterfaces(): Boolean {
-        return cr?.getPrefBoolean(PREF_OPEN_PROXY_ON_ALL_INTERFACES) ?: false
-    }
+    var openProxyOnAllInterfaces: Boolean
+        get() = cr?.getPrefBoolean(PREF_OPEN_PROXY_ON_ALL_INTERFACES) ?: false
+        set(value) = cr?.putPref(PREF_OPEN_PROXY_ON_ALL_INTERFACES, value) ?: Unit
 
     @JvmStatic
     fun useVpn(): Boolean {
@@ -187,9 +187,9 @@ object Prefs {
             )
         }
 
-    fun startOnBoot(): Boolean {
-        return cr?.getPrefBoolean(PREF_START_ON_BOOT, true) ?: true
-    }
+    var startOnBoot: Boolean
+        get() = cr?.getPrefBoolean(PREF_START_ON_BOOT, true) ?: true
+        set(value) = cr?.putPref(PREF_START_ON_BOOT, value) ?: Unit
 
     @JvmStatic
     var exitNodes: String?
@@ -306,8 +306,9 @@ object Prefs {
             }
         }
 
-    val isPowerUserMode: Boolean
+    var isPowerUserMode: Boolean
         get() = cr?.getPrefBoolean(PREF_POWER_USER_MODE) ?: false
+        set(value) = cr?.putPref(PREF_POWER_USER_MODE, value) ?: Unit
 
     var isSecureWindow: Boolean
         get() = cr?.getPrefBoolean(PREF_SECURE_WINDOW_FLAG) ?: false
@@ -345,71 +346,93 @@ object Prefs {
         set(index) = cr?.putPref(PREF_CAMO_APP_ALT_ICON_INDEX, index ?: -1) ?: Unit
 
 
-    val requireDeviceAuthentication: Boolean
+    var requireDeviceAuthentication: Boolean
         get() = cr?.getPrefBoolean(PREF_REQUIRE_PASSWORD) ?: false
+        set(value) = cr?.putPref(PREF_REQUIRE_PASSWORD, value) ?: Unit
 
-    val disallowBiometricAuthentication: Boolean
+    var disallowBiometricAuthentication: Boolean
         get() = cr?.getPrefBoolean(PREF_DISALLOW_BIOMETRIC_AUTH) ?: false
+        set(value) = cr?.putPref(PREF_DISALLOW_BIOMETRIC_AUTH, value) ?: Unit
 
-    val proxySocksPort: String?
+    var proxySocksPort: String?
         get() = cr?.getPrefString(OrbotConstants.PREF_SOCKS)
+        set(value) = cr?.putPref(OrbotConstants.PREF_SOCKS, value) ?: Unit
 
-    val proxyHttpPort: String?
+    var proxyHttpPort: String?
         get() = cr?.getPrefString(OrbotConstants.PREF_HTTP)
+        set(value) = cr?.putPref(OrbotConstants.PREF_HTTP, value) ?: Unit
 
-    val connectionPadding: Boolean
+    var connectionPadding: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_CONNECTION_PADDING) ?: false
+        set(value) = cr?.putPref(OrbotConstants.PREF_CONNECTION_PADDING, value) ?: Unit
 
-    val reducedConnectionPadding: Boolean
+    var reducedConnectionPadding: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_REDUCED_CONNECTION_PADDING, true) ?: true
+        set(value) = cr?.putPref(OrbotConstants.PREF_REDUCED_CONNECTION_PADDING, value) ?: Unit
 
-    val circuitPadding: Boolean
+    var circuitPadding: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_CIRCUIT_PADDING, true) ?: true
+        set(value) = cr?.putPref(OrbotConstants.PREF_CIRCUIT_PADDING, value) ?: Unit
 
-    val reducedCircuitPadding: Boolean
+    var reducedCircuitPadding: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_REDUCED_CIRCUIT_PADDING, true) ?: true
+        set(value) = cr?.putPref(OrbotConstants.PREF_REDUCED_CIRCUIT_PADDING, value) ?: Unit
 
-    val torTransPort: String?
+    var torTransPort: String?
         get() = cr?.getPrefString(OrbotConstants.PREF_TRANSPORT)
+        set(value) = cr?.putPref(OrbotConstants.PREF_TRANSPORT, value) ?: Unit
 
-    val torDnsPort: String?
+    var torDnsPort: String?
         get() = cr?.getPrefString(OrbotConstants.PREF_DNSPORT)
+        set(value) = cr?.putPref(OrbotConstants.PREF_DNSPORT, value) ?: Unit
 
-    val entryNodes: String?
+    var entryNodes: String?
         get() = cr?.getPrefString("pref_entrance_nodes")
+        set(value) = cr?.putPref("pref_entrance_nodes", value) ?: Unit
 
-    val excludeNodes: String?
+    var excludeNodes: String?
         get() = cr?.getPrefString("pref_exclude_nodes")
+        set(value) = cr?.putPref("pref_exclude_nodes", value) ?: Unit
 
-    val strictNodes: Boolean
+    var strictNodes: Boolean
         get() = cr?.getPrefBoolean("pref_strict_nodes") ?: false
+        set(value) = cr?.putPref("pref_strict_nodes", value) ?: Unit
 
-    val reachableAddresses: Boolean
+    var reachableAddresses: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_REACHABLE_ADDRESSES) ?: false
+        set(value) = cr?.putPref(OrbotConstants.PREF_REACHABLE_ADDRESSES, value) ?: Unit
 
-    val reachableAddressesPorts: String?
+    var reachableAddressesPorts: String?
         get() = cr?.getPrefString(OrbotConstants.PREF_REACHABLE_ADDRESSES_PORTS)
+        set(value) = cr?.putPref(OrbotConstants.PREF_REACHABLE_ADDRESSES_PORTS, value) ?: Unit
 
-    val customTorRc: String?
+    var customTorRc: String?
         get() = cr?.getPrefString("pref_custom_torrc")
+        set(value) = cr?.putPref("pref_custom_torrc", value) ?: Unit
 
-    val isolateDest: Boolean
+    var isolateDest: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_ISOLATE_DEST) ?: false
+        set(value) = cr?.putPref(OrbotConstants.PREF_ISOLATE_DEST, value) ?: Unit
 
-    val isolatePort: Boolean
+    var isolatePort: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_ISOLATE_PORT) ?: false
+        set(value) = cr?.putPref(OrbotConstants.PREF_ISOLATE_PORT, value) ?: Unit
 
-    val isolateProtocol: Boolean
+    var isolateProtocol: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_ISOLATE_PROTOCOL) ?: false
+        set(value) = cr?.putPref(OrbotConstants.PREF_ISOLATE_PROTOCOL, value) ?: Unit
 
-    val isolateKeepAlive: Boolean
+    var isolateKeepAlive: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_ISOLATE_KEEP_ALIVE) ?: false
+        set(value) = cr?.putPref(OrbotConstants.PREF_ISOLATE_KEEP_ALIVE, value) ?: Unit
 
-    val preferIpv6: Boolean
+    var preferIpv6: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_PREFER_IPV6, true) ?: true
+        set(value) = cr?.putPref(OrbotConstants.PREF_PREFER_IPV6, value) ?: Unit
 
-    val disableIpv4: Boolean
+    var disableIpv4: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_DISABLE_IPV4) ?: false
+        set(value) = cr?.putPref(OrbotConstants.PREF_DISABLE_IPV4, value) ?: Unit
 
     var torifiedApps: String
         get() = cr?.getPrefString(OrbotConstants.PREFS_KEY_TORIFIED, "") ?: ""

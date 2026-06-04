@@ -7,7 +7,6 @@
         <item name="android:windowBackground">@color/new_background</item>
         <item name="android:windowIsFloating">false</item>
         <item name="colorPrimaryDark">@color/new_background</item>
-        <item name="preferenceTheme">@style/PrefsTheme</item>
     </style>
 
     <style name="OrbotDialogTheme" parent="Theme.Material3.Light.Dialog.Alert">
@@ -18,4 +17,3 @@
         <item name="android:layout_gravity">left</item>
     </style>
 </resources>
-

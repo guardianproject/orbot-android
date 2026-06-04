@@ -20,7 +20,7 @@ class StartTorReceiver : BroadcastReceiver() {
             val action = intent.action
             if (TextUtils.equals(action, ACTION_START)) {
                 val packageName = intent.getStringExtra(EXTRA_PACKAGE_NAME)
-                if (Prefs.allowBackgroundStarts()) {
+                if (Prefs.allowBackgroundStarts) {
                     val startTorIntent = Intent(context, OrbotService::class.java)
                         .setAction(action)
                         .putExtra(OrbotConstants.EXTRA_NOT_SYSTEM, true)

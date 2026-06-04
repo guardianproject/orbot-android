@@ -5,11 +5,6 @@
 
     <style name="DefaultTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="PrefsTheme" parent="PreferenceThemeOverlay.v14.Material">
-        <item name="android:layout">@layout/fragment_settings</item>
-    </style>
-    
-
     <style name="BottomSheetTextView" parent="android:Widget.TextView">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:layout_width">wrap_content</item>

@@ -24,7 +24,7 @@ object TorConfig {
         val isolate = getIsolation()
         val ipv6Pref = getIpv6()
 
-        if (Prefs.openProxyOnAllInterfaces()) {
+        if (Prefs.openProxyOnAllInterfaces) {
             conf.add("SOCKSPort 0.0.0.0:$socksPortPref $ipv6Pref $isolate")
             conf.add("SocksPolicy accept *:*")
         } else {
@@ -60,7 +60,7 @@ object TorConfig {
         conf.add("DormantCanceledByStartup 1")
         conf.add("DisableNetwork 0")
 
-        if (Prefs.useDebugLogging()) {
+        if (Prefs.useDebugLogging) {
             conf.add("Log debug syslog")
             conf.add("SafeLogging 0")
         }
