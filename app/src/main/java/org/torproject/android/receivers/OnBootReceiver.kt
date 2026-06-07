@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.os.SystemClock
+import android.util.Log
 import org.torproject.android.service.OrbotService
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.putNotSystem
@@ -19,8 +19,10 @@ class OnBootReceiver : BroadcastReceiver() {
                 return
 
             // deploying code in Android Studio falsely triggers boot event
-            if (SystemClock.uptimeMillis() > TEN_MINUTES_MS)
+            if (Build.HARDWARE == "goldfish") {
+                Log.w("OnBootReceiver", "Android emulator detected")
                 return
+            }
 
             if (Prefs.startOnBoot() && !sReceivedBoot) {
                 startService(context)
@@ -48,6 +50,5 @@ class OnBootReceiver : BroadcastReceiver() {
 
     companion object {
         private var sReceivedBoot = false
-        private const val TEN_MINUTES_MS = 60 * 10 * 1000
     }
 }
