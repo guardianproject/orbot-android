@@ -1,0 +1,14 @@
+should go:
+en_GB
+
+busted:
+br
+bo
+co
+en_GB
+la
+lo - we dont have this in project 
+pt
+pt_PT
+sw
+
