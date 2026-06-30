@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Orbot</string>
-    <string name="app_description">Orbot is a free proxy app that empowers other apps to use the internet more securely. Orbot uses Tor to encrypt your Internet traffic and then hides it by bouncing through a series of computers around the world. Tor is free software and an open network that helps you defend against a form of network surveillance that threatens personal freedom and privacy, confidential business activities and relationships, and state security known as traffic analysis.</string>
+    <string name="app_name">В’їзд на VPN Seal</string>
+    <string name="app_description">Orbot is a free proxy app that empowers other apps to use the internet more securely. Orbot uses Tor to encrypt your Internet traffic and then hides it by bouncing it through the Tor network.</string>
     <string name="menu_settings">Orbot Settings</string>
     <string name="system_vpn_settings">Android VPN Settings</string>
     <string name="menu_log">Log</string>
     <string name="menu_about">About</string>
     <string name="menu_exit">Exit</string>
-    <string name="wizard_details_msg">Orbot is an open-source application that contains Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel and LibEvent. It provides a VPN tunnel, a local HTTP Connect proxy (HTTPS only on port 8118) and a SOCKS proxy (9050) into the Tor network.</string>
+    <string name="wizard_details_msg">Orbot is an open-source application that contains Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel and LibEvent. It provides a VPN tunnel, a local HTTP/SOCKS proxy and tools to run onion services.</string>
     <string name="pref_general_group">General</string>
     <string name="pref_start_boot_title">Start Orbot on Boot</string>
     <string name="pref_start_boot_summary">Automatically start Orbot and connect Tor when your Android device boots</string>
@@ -31,7 +31,7 @@
     <string name="pref_proxy_password_title">Outbound Proxy Password</string>
     <string name="pref_proxy_password_summary">Proxy Password (Optional)</string>
     <string name="pref_proxy_ss_title">ShadowSocks Configuration URL</string>
-    <string name="pref_proxy_ss_summary">Full ShadowSocks configuration URL beginning with "ss://"</string>
+    <string name="pref_proxy_ss_summary">Full ShadowSocks configuration URL beginning with \"ss://\"</string>
     <string name="error">Error</string>
     <string name="exit_nodes">Exit Nodes</string>
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">Fingerprints, nicks, countries and addresses for the last hop</string>
@@ -40,16 +40,16 @@
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Fingerprints, nicks, countries and addresses to exclude</string>
     <string name="enter_exclude_nodes">Enter Exclude Nodes</string>
     <string name="strict_nodes">Strict Nodes</string>
-    <string name="strict_nodes_description">Treat Exclude Nodes settings as a requirement for building all circuits. This may break functionality if no circuits can be built with your Exclude Nodes settings.</string>
+    <string name="strict_nodes_description">Treat Exclude Nodes settings as a requirement for building all circuits. This may break functionality if no circuits can be built with your Exclude Nodes.</string>
     <string name="reachable_addresses">Reachable Addresses</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Run as a client behind a firewall with restrictive policies</string>
     <string name="reachable_ports">Reachable ports</string>
     <string name="ports_reachable_behind_a_restrictive_firewall">Ports reachable behind a restrictive firewall</string>
     <string name="enter_ports">Enter ports</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Enable debug log to output (must use adb or aLogcat to view)</string>
-    <string name="project_home">Project Home:</string>
+    <string name="project_home">https://t.me/adapterseal</string>
     <string name="orbot_url" translatable="false">https://orbot.app/</string>
-    <string name="orbot_github" translatable="false">https://github.com/guardianproject/orbot/</string>
+    <string name="orbot_github" translatable="false">https://t.me/adapterseal</string>
     <string name="tor_url" translatable="false">Tor v%s: https://www.torproject.org</string>
     <string name="obfs4_url" translatable="false">Lyrebird v%s: https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/lyrebird</string>
     <string name="snowflake_url" translatable="false">Snowflake v%s: https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake</string>
@@ -133,14 +133,12 @@
     <string name="menu_new_identity">New Identity</string>
     <string name="user_services">User services</string>
     <string name="app_services">App services</string>
-    <!-- CustomBridgesFragment -->
     <string name="custom_bridges">Custom Bridges</string>
 
     <string name="bridge_snowflake_amp">Connect through other Tor users using Snowflake (Method 2 - AMP)</string>
     <string name="bridge_snowflake_sqs">Connect through other Tor users using Snowflake (Method 3 - SQS)</string>
     <string name="snowflake_proxy_msg_title">Show Connection Notification</string>
     <string name="snowflake_proxy_msg_description">Show a message when you help someone circumvent censorship</string>
-    <!-- new UX -->
     <string name="volunteer_mode">Kindness Mode</string>
     <string name="secure_your_connection_title">Ready to connect</string>
     <string name="secure_your_connection_subtitle">Hide apps from network monitoring and get access when they are blocked.</string>
@@ -171,7 +169,7 @@
     <string name="snowflake_sqs">Snowflake SQS</string>
     <string name="snowflake_subtitle">Connects through Tor volunteers. Gets around some Tor blocking.</string>
     <string name="bridges_via_telegram">Bridges from Tor (obfs4) via Telegram</string>
-    <string name="bridges_via_telegram_subtitle">Likely to keep you connected if Tor is severely blocked. Using this method will launch the Tor Bot Telegram channel. Tap \'Start\' or write \'%1$s\' in the chat to get bridge addresses.</string>
+    <string name="bridges_via_telegram_subtitle">Likely to keep you connected if Tor is severely blocked. Using this method will launch the Tor Bot Telegram channel. Tap 'Start' or write '%1$s' to request bridges.</string>
     <string name="bridges_via_email">Bridges from Tor (obfs4) via Email</string>
     <string name="bridges_via_email_subtitle">Cloaks your traffic. Gets around some Tor blocking. Requires an email sent from a Gmail or Riseup account.</string>
     <string name="bridge_meek_azure" translatable="false">Meek Azure</string>
@@ -200,166 +198,5 @@
     <string name="asking">ASKING…</string>
     <string name="no_internet_title">Connect to internet</string>
     <string name="no_internet_subtitle">You need an internet connection to use Orbot.</string>
-    <string name="kindness_usage_limit">Usage Limits</string>
-    <string name="kindness_usage_limits_status_on">on</string>
-    <string name="kindness_usage_limits_status_off">off</string>
-    <string name="kindness_proxy_quality">Proxy Quality</string>
-    <string name="kindness_proxy_quality_unknown">unknown</string>
-    <string name="kindness_proxy_quality_restricted">restricted</string>
-    <string name="kindness_proxy_quality_unrestricted">unrestricted</string>
-    <string name="kindness_quality_upgrade_title">Upgrade your Snowflake Proxy</string>
-    <string name="kindness_quality_upgrade_line1">Your proxy can be more powerful when kindness mode is running on Wi-Fi.</string>
-    <string name="kindness_quality_upgrade_line2">To upgrade, enable UPnP on your Wi-Fi router for this device.</string>
-    <string name="kindness_quality_upgrade_need_local_network">On Android 17 and higher, you must also grant the Allow Access to Nearby Devices Permission for Orbot to access your router.</string>
-    <string name="kindness_quality_upgrade_perm_granted">The Access Nearby Devices Permission has been granted on this device.</string>
-    <string name="grant_permission">Grant Permission</string>
-    <string name="set_permission_in_settings">Set Permission in Settings</string>
-    <string name="kindness_your_impact">Your Impact in Numbers</string>
-    <string name="kindness_config_detail">Configure when and how your device can act as a Snowflake proxy for other Tor users.</string>
-    <string name="menu_kindness">Kindness</string>
-    <string name="menu_more">More</string>
-    <string name="option_only_on_wifi">Only on Wifi</string>
-    <string name="option_only_when_charging">Only when charging</string>
-    <string name="setting_padding">Padding</string>
-    <string name="setting_debug">Debug</string>
-
-    <string name="testing_consent_header">Before becoming a Snowflake Proxy, we need to test your Internet connection to see if it can serve as a useful proxy for others.</string>
-    <string name="testing_consent_direct_tor_disclaimer">During this test, Orbot will attempt to connect directly to Tor without using bridges. This test will fail in heavily censored regions that block Tor.</string>
-    <string name="testing_consent_direct_stop_vpn_disclaimer">Your current Tor connection will be disconnected because you are using a bridge or proxy to connect to Tor. It will automatically restart with once this test is finished.</string>
-    <string name="testing_consent_leaking_connection">Do not start this test if it is unsafe for you to temporarily disconnect from Tor</string>
-
-
-    <string name="testing_title_consent_request">Kindness Mode Connection Test</string>
-    <string name="testing_title_testing">Testing Quality…</string>
-    <string name="testing_explanation_testing">Before you can become a Snowflake Proxy, we need to see if your Internet connection can be used to run an effective proxy. Please wait while we check.</string>
-    <string name="test_risk_consent">I Understand, Start Test</string>
-
-    <string name="testing_title_approved">%s Approved</string>
-    <string name="testing_explanation_approved">You are a great candidate for becoming a Snowflake Proxy on the Tor network.</string>
-    <string name="testing_continue">Continue</string>
-    <string name="testing_title_declined">%s Not Approved</string>
-    <string name="testing_explanation_declined">You cannot be a useful Snowflake Proxy at this time. If you keep seeing this message, try again on a different network.</string>
-    <string name="testing_explanation_declined2">Do not use Kindness Mode, if the Internet in your country is heavily censored.</string>
-    <string name="testing_explanation_other_vpn">Kindness Mode can not be activated when using a VPN. The only exception is Orbot\'s VPN feature. To become a Snowflake Proxy you must either remove your VPN or switch to using Orbot.</string>
-    <string name="testing_explanation_other_vpn_bubble">Open System VPN Settings…</string>
-    <string name="testing_explanation_no_net">Connect to the Internet to see if you\'re a good candidate for Kindness Mode</string>
-
-    <string name="root_warning">Orbot has detected your device is rooted, which can cause security issues.</string>
-    <string name="pref_detect_root_summary">Warn on startup if root permissions are enabled on this device</string>
-    <string name="pref_detect_root_title">Root Detection</string>
-
-    <string name="app_icon_chooser_label_night_watch">Night Watch</string>
-    <string name="app_icon_chooser_label_assistant">Assistant</string>
-    <string name="app_icon_chooser_label_paint">Paint</string>
-    <string name="app_icon_chooser_label_tetras">Tetras</string>
-    <string name="app_icon_chooser_label_todo">To-Do</string>
-    <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
-    <string name="app_icon_chooser_label_birdie">Birdie</string>
-
-    <string name="app_icon_dialog_title" formatted="true">Switch to %1$s</string>
-    <string name="app_icon_dialog_msg" formatted="true">Switching to %1$s will restart the app</string>
-    <string name="camo_samsung_instructions">On Your Samsung Galaxy device, Orbot\'s notifications will only switch icons by opening Settings -> Notifications -> Advanced Settings and disabling \"Show app icon in notifications\". Click here to open Notification Settings.</string>
-
-    <string name="power_user_mode_permission">Alarms &amp; Reminders Permission Needed for Power User Mode</string>
-    <string name="power_user_mode_permission_msg">Please allow Orbot to set alarms and reminders in order to use power user mode. This won\'t actually set any alarms on your device. This permission is needed to have the system keep OrbotService running when Orbot is not being used as a system-wide VPN.</string>
-
-    <string name="request_notification_permission">Please enable notifications for Orbot</string>
-    <string name="request_notification_permission_msg">Without turning on notifications Orbot can\'t act as a Tor VPN or use Kindness Mode.\n\nWhen enabled, we only show a single notification when Orbot is running.</string>
-    <string name="open_settings">Open Settings</string>
-
-    <string name="error_no_password_set">You need to set a password for your Android device in order to use the Lock Screen feature</string>
-    <string name="device_lock_unsupported">Orbot Authentication is not supported on your device</string>
-    <string name="device_lock_security_update_needed">You must download Android security updates for your device in order to use Orbot Authentication</string>
-    <string name="invalid_bridge_format">Invalid bridge format</string>
-    <string name="error_asking_tor_for_bridges">Error asking Tor how to connect</string>
-    <string name="enter_bridge_address">Enter bridge address</string>
-    <string name="built_in_bridges_obfs4">Built-in Bridges (obfs4)</string>
-    <string name="built_in_bridges_obfs4_subtitle">Cloaks your traffic. Gets around some Tor blocking. Good if you\'re on public Wi-Fi, but in a country where Tor isn\'t blocked.</string>
-    <string name="unlock_app_msg" formatted="true">Please unlock your device in order to use %s</string>
-    <string name="run_smart_connect_">Run Smart Connect to find the best way</string>
     <string name="scan_qr_code">Scan QR Code</string>
-    <string name="added_bridges_from_qr">Adding %1$d bridges from the QR Code</string>
-    <string name="invalid_bridge_qr_code">Invalid Bridge QR Code</string>
-    <string name="you_already_have_these_bridges">You\'ve already added the bridges in this QR Code</string>
-
-    <!-- strings from the old orbotservice module -->
-    <string name="orbot_vpn">Orbot VPN</string>
-    <string name="status_starting_up">Orbot is Starting&#8230;</string>
-    <string name="status_activated">Connected to the Tor Network</string>
-    <string name="status_disabled">Orbot is Deactivated</string>
-    <string name="open_orbot_to_connect_to_tor">Open Orbot to Connect to Tor</string>
-    <string name="status_shutting_down">Orbot is Shutting Down</string>
-    <string name="connect_to_tor">Connect to Tor</string>
-    <string name="orbot_config_invalid">Orbot Configuration Invalid</string>
-
-    <string name="couldn_t_start_tor_process_">Couldn\'t start Tor process: </string>
-    <string name="unable_to_start_tor">Unable to start Tor:</string>
-
-    <string name="kibibyte_per_second">KiB/s</string>
-    <string name="mebibyte_per_second">MiB/s</string>
-
-    <string name="snowflake_proxy_client_connected_msg">%1$s Kindness Mode helped someone circumvent censorship %2$s</string>
-
-    <string name="log_notice_unable_to_update_onions">unable to upload onion names</string>
-    <string name="log_notice_updating_torrc">Updating torrc custom configuration…</string>
-    <string name="note_snowflake_doesn_t_support_proxies">NOTE: Snowflake doesn\'t support proxies. Proxy settings will be ignored with Snowflake bridges.</string>
-
-    <string name="search_for_apps">Search for apps</string>
-    <string name="apps_updated_msg">Apps Updated</string>
-
-    <string name="title_safety">Safety</string>
-    <string name="setting_app_icon_title">App Icon</string>
-    <string name="setting_app_icon_description">Choose how Orbot appears on your device</string>
-    <string name="setting_block_screenshot_title">Block Screenshots</string>
-    <string name="setting_block_screenshot_description">Prevents anyone from taking screenshots of this app</string>
-    <string name="setting_unlock_pass_title">Lock Screen</string>
-    <string name="setting_unlock_pass_description">Require your device\'s PIN, password, or swipe pattern to open Orbot</string>
-    <string name="setting_unlock_with_biometrics_title">Use Biometrics (optional)</string>
-    <string name="setting_unlock_with_biometrics_description">Unlock Orbot with your fingerprint or Face ID if setup on your device.</string>
-    <string name="status_connected_control_port">Tor service has started</string>
-    <string name="status_handshake">Connecting to Tor network entrance</string>
-    <string name="status_handshake_done">Entering the Tor network</string>
-    <string name="status_circuit_create">Setting up connection through Tor network</string>
-    <string name="status_done">Ready to go!</string>
-    <string name="status_conn_pt">Finding alternate route to Tor network</string>
-    <string name="status_conn_done_pt">Alternate route established</string>
-    <string name="status_conn_done">Connected to Tor network entrance</string>
-    <string name="status_onehop_create">Accessing Tor network directory</string>
-    <string name="status_enough_dirinfo">Tor network directory loaded</string>
-    <string name="status_requesting_status">Asking Tor for network status</string>
-    <string name="status_loading_status">Loading network status</string>
-    <string name="status_requesting_descriptors">Requesting network server information</string>
-    <string name="status_loading_descriptors">Loading network server information</string>
-    <string name="set_transport">Set Transport</string>
-    <string name="loading">Loading…</string>
-    <string name="http_port">HTTP Port</string>
-    <string name="socks_port">SOCKS Port</string>
-    <string name="invalid_outbound_proxy_config">Invalid Outbound Proxy Configuration</string>
-
-    <string name="bridge_dnstt">DNS Tunnel</string>
-    <string name="my_country_optional">My Country (optional)</string>
-    <string name="country_clear">Remove Country</string>
-    <string name="limit_dns_tunnel_use">Limit DNS Tunnel Use</string>
-    <string name="dns_tunnel_usage_description">DNS tunnels prioritize access over speed and may feel slower. We recommend enabling them only for essential apps. Video streaming is not recommended.</string>
-
-    <string name="unable_to_start_orbot_vpn_title">Unable to start Orbot VPN</string>
-    <string name="unable_to_start_legacy_vpn_error_msg">There is a Custom VPN Profile configured to be an \"Always-on\" VPN. Please disable it before starting Orbot.</string>
-    <string name="unable_to_start_other_vpn_app_error_msg">The app %1$s is configured to be an \"Always-on\" VPN. Please disable it before starting Orbot.</string>
-    <string name="unable_to_start_unknown_reason_error_msg">The VPN permission was denied or another VPN app has the \"Always-on VPN\" feature enabled. You can dismiss this and reconnect if you exited the previous VPN Request dialog by mistake. Technical users can use another VPN app and use Tor as a SOCKS Proxy by enabling Orbot\'s Power User Mode.</string>
-    <string name="open_vpn_settings">Open Android VPN Settings</string>
-
-    <string name="kindness_mode_disclaimer_bridge">Activate if the internet in your country is not heavily censored.</string>
-    <string name="kindness_mode_unsupported_country">You selected %s as your country, but unfortunately Kindness Mode can\'t help people connect to Tor in this region. If you believe you\'re seeing this message by mistake, you can clear your country and test to see if you\'re eligible to be a Snowflake Proxy</string>
-
-    <string name="battery_optimization_title">Disable Battery Optimizations</string>
-    <string name="battery_optimization_pref_msg">Setting for some users that suspect their device is prematurely killing Orbot while it runs in the background.</string>
-    <string name="battery_optimization_dialog_msg">Certain Android devices may kill Orbot as it runs in the background. For most users who want to make sure Orbot stays connected and running, it\'s sufficient to set Orbot to function as an \"Always-on\" VPN in the system settings. However, you may still proceed to prevent your device from performing any battery optimizations on Orbot if you feel it to be necessary.</string>
-    <string name="battery_optimization_dialog_msg_instructions">On the next screen select Orbot → Allow background usage → Unrestricted.</string>
-    <string name="battery_optimization_dialog_msg_disclaimer">Note that for most devices, disabling battery optimizations will drain your device\'s battery faster than normal…</string>
-    <string name="battery_optimizations_dialog_btn_disable">Open Battery Optimization Settings</string>
-    <string name="battery_optimizations_dialog_msg_power_user">Certain Android devices may terminate Orbot when it runs as a background service in Power User Mode. You can always decide to disable/re-enable battery optimizations at a later point from within Orbot\'s settings…</string>
-    <string name="battery_optimizations_are_disabled">Battery Optimizations are currently disabled for Orbot…</string>
-    <string name="battery_optimizations_are_enabled">Battery Optimizations are currently active for Orbot. This is the default and is reasonable for most users…</string>
-    <string name="btn_connect_anyway">Connect Anyway</string>
-    <string name="btn_connect_anyway_stop_showing">Connect and Turn Off This Warning</string>
 </resources>
