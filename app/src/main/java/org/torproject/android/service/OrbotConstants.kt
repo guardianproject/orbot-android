@@ -8,11 +8,6 @@ object OrbotConstants {
     const val PREF_REACHABLE_ADDRESSES = "pref_reachable_addresses"
     const val PREF_REACHABLE_ADDRESSES_PORTS = "pref_reachable_addresses_ports"
 
-    const val PREF_DNSPORT = "pref_dnsport"
-    const val PREF_HTTP = "pref_http"
-    const val PREF_SOCKS = "pref_socks"
-    const val PREF_TRANSPORT = "pref_transport"
-
     const val PREF_ISOLATE_DEST = "pref_isolate_dest"
     const val PREF_ISOLATE_PORT = "pref_isolate_port"
     const val PREF_ISOLATE_PROTOCOL = "pref_isolate_protocol"
@@ -33,12 +28,6 @@ object OrbotConstants {
     // geoip data file asset key
     const val GEOIP_ASSET_KEY = "geoip"
     const val GEOIP6_ASSET_KEY = "geoip6"
-
-    const val HTTP_PROXY_PORT_DEFAULT = "8118"
-    const val SOCKS_PROXY_PORT_DEFAULT = "9050"
-
-    const val TOR_DNS_PORT_DEFAULT = 9053
-    const val TOR_TRANSPROXY_PORT_DEFAULT = 9040
 
     // control port
     const val LOG_NOTICE_HEADER = "NOTICE: "

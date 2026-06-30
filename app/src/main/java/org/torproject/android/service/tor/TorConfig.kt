@@ -1,11 +1,9 @@
 package org.torproject.android.service.tor
 
 import android.content.ContextWrapper
-import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.db.OnionServiceColumns
 import org.torproject.android.service.db.V3ClientAuthColumns
-import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
 import java.io.File
 
@@ -18,8 +16,8 @@ object TorConfig {
             "AvoidDiskWrites 1"
         )
 
-        val socksPortPref = getPort(Prefs.proxySocksPort ?: OrbotConstants.SOCKS_PROXY_PORT_DEFAULT)
-        val httpPortPref = getPort(Prefs.proxyHttpPort ?: OrbotConstants.HTTP_PROXY_PORT_DEFAULT)
+        val socksPortPref = getTorrcPortString(Prefs.proxySocksPort)
+        val httpPortPref = getTorrcPortString(Prefs.proxyHttpPort)
 
         val isolate = getIsolation()
         val ipv6Pref = getIpv6()
@@ -49,11 +47,11 @@ object TorConfig {
             conf.add("ReducedCircuitPadding 1")
         }
 
-        val transPort = Prefs.torTransPort ?: OrbotConstants.TOR_TRANSPROXY_PORT_DEFAULT.toString()
-        val dnsPort = Prefs.torDnsPort ?: OrbotConstants.TOR_DNS_PORT_DEFAULT.toString()
+        val transPort = getTorrcPortString(Prefs.torTransPort)
+        val dnsPort = getTorrcPortString(Prefs.torDnsPort)
 
-        conf.add("TransPort ${NetworkUtils.checkPortOrAuto(transPort)} $isolate")
-        conf.add("DNSPort ${NetworkUtils.checkPortOrAuto(dnsPort)} $isolate")
+        conf.add("TransPort $transPort $isolate")
+        conf.add("DNSPort $dnsPort $isolate")
         conf.add("VirtualAddrNetwork 10.192.0.0/10")
         conf.add("AutomapHostsOnResolve 1")
         conf.add("DormantClientTimeout 10 minutes")
@@ -116,11 +114,16 @@ object TorConfig {
     }
 
 
-    private fun getPort(port: String): String {
-        var port = port
-        if (port.indexOf(':') != -1) port = port.split(":").toTypedArray()[1]
-
-        return NetworkUtils.checkPortOrAuto(port)
+    // Strings in torrc for ports can either be a number, or the word auto.
+    // if an empty string is returned, Orbot will fail parsing the torrc and exit gracefully.
+    private fun getTorrcPortString(portStr: String): String {
+        if (portStr.equals("auto", ignoreCase = true)) return portStr
+        var stringAfterColon = portStr
+        if (portStr.indexOf(':') != -1) stringAfterColon =
+            stringAfterColon.split(':').toTypedArray()[1]
+        return if (stringAfterColon.toIntOrNull() == null)
+            ""
+        else stringAfterColon
     }
 
     private fun getIsolation(): String {

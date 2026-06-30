@@ -33,6 +33,18 @@ object Prefs {
     const val PREF_LAST_SNOWFLAKE_NAT_TYPE = "pref_snowflake_last_nat"
     const val PREF_LAST_SNOWFLAKE_ACTIVE = "pref_is_snowflake_running"
 
+
+    private const val PREF_DNSPORT = "pref_dnsport"
+    private const val PREF_HTTP = "pref_http"
+    private const val PREF_SOCKS = "pref_socks"
+    private const val PREF_TRANSPORT = "pref_transport"
+
+    private const val HTTP_PROXY_PORT_DEFAULT = "8118"
+    private const val SOCKS_PROXY_PORT_DEFAULT = "9050"
+    private const val TOR_DNS_PORT_DEFAULT = "9053"
+    private const val TOR_TRANSPROXY_PORT_DEFAULT = "9040"
+
+
     private const val PREF_USE_SMART_CONNECT = "pref_use_smart_connect"
     private const val PREF_SMART_CONNECT_TIMEOUT = "pref_smart_connect_timeout"
 
@@ -355,11 +367,11 @@ object Prefs {
     val disallowBiometricAuthentication: Boolean
         get() = cr?.getPrefBoolean(PREF_DISALLOW_BIOMETRIC_AUTH) ?: false
 
-    val proxySocksPort: String?
-        get() = cr?.getPrefString(OrbotConstants.PREF_SOCKS)
+    val proxySocksPort: String
+        get() = cr?.getPrefString(PREF_SOCKS) ?: SOCKS_PROXY_PORT_DEFAULT
 
-    val proxyHttpPort: String?
-        get() = cr?.getPrefString(OrbotConstants.PREF_HTTP)
+    val proxyHttpPort: String
+        get() = cr?.getPrefString(PREF_HTTP) ?: HTTP_PROXY_PORT_DEFAULT
 
     val connectionPadding: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_CONNECTION_PADDING) ?: false
@@ -373,11 +385,11 @@ object Prefs {
     val reducedCircuitPadding: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_REDUCED_CIRCUIT_PADDING, true) ?: true
 
-    val torTransPort: String?
-        get() = cr?.getPrefString(OrbotConstants.PREF_TRANSPORT)
+    val torTransPort: String
+        get() = cr?.getPrefString(PREF_TRANSPORT) ?: TOR_TRANSPROXY_PORT_DEFAULT
 
-    val torDnsPort: String?
-        get() = cr?.getPrefString(OrbotConstants.PREF_DNSPORT)
+    val torDnsPort: String
+        get() = cr?.getPrefString(PREF_DNSPORT) ?: TOR_DNS_PORT_DEFAULT
 
     val entryNodes: String?
         get() = cr?.getPrefString("pref_entrance_nodes")
@@ -444,7 +456,7 @@ object Prefs {
         cr?.putPref(PREF_ORBOT_SERVICE_LOG, getOrbotServiceLog() + "\n" + logLine)
     }
 
-    fun getOrbotServiceLog() : String {
+    fun getOrbotServiceLog(): String {
         return cr?.getPrefString(PREF_ORBOT_SERVICE_LOG, "") ?: ""
     }
 }
