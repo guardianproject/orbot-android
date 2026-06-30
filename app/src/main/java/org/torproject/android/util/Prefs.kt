@@ -15,9 +15,15 @@ import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 object Prefs {
+
+    private const val HTTP_PROXY_PORT_DEFAULT = "8118"
+    private const val SOCKS_PROXY_PORT_DEFAULT = "9050"
+    private const val TOR_DNS_PORT_DEFAULT = "9053"
+    private const val TOR_TRANSPROXY_PORT_DEFAULT = "9040"
+
     private const val PREF_BRIDGES_LIST = "pref_bridges_list"
     private const val PREF_BRIDGE_COUNTRY = "pref_bridge_country"
-    private const val PREF_DEFAULT_LOCALE = "pref_default_locale"
+    const val PREF_DEFAULT_LOCALE = "pref_default_locale"
     private const val PREF_DETECT_ROOT = "pref_detect_root"
     private const val PREF_ENABLE_LOGGING = "pref_enable_logging"
     private const val PREF_START_ON_BOOT = "pref_start_boot"
@@ -32,54 +38,61 @@ object Prefs {
     private const val PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING = "pref_be_a_snowflake_limit_charing"
     const val PREF_LAST_SNOWFLAKE_NAT_TYPE = "pref_snowflake_last_nat"
     const val PREF_LAST_SNOWFLAKE_ACTIVE = "pref_is_snowflake_running"
-
-
     private const val PREF_DNSPORT = "pref_dnsport"
-    private const val PREF_HTTP = "pref_http"
-    private const val PREF_SOCKS = "pref_socks"
+    const val PREF_HTTP = "pref_http"
+    const val PREF_SOCKS = "pref_socks"
     private const val PREF_TRANSPORT = "pref_transport"
-
-    private const val HTTP_PROXY_PORT_DEFAULT = "8118"
-    private const val SOCKS_PROXY_PORT_DEFAULT = "9050"
-    private const val TOR_DNS_PORT_DEFAULT = "9053"
-    private const val TOR_TRANSPROXY_PORT_DEFAULT = "9040"
-
-
     private const val PREF_USE_SMART_CONNECT = "pref_use_smart_connect"
     private const val PREF_SMART_CONNECT_TIMEOUT = "pref_smart_connect_timeout"
-
     private const val PREF_POWER_USER_MODE = "pref_power_user"
-
     private const val PREF_SNOWFLAKES_SERVED_COUNT = "pref_snowflakes_served"
     private const val PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY = "pref_snowflakes_served_weekly"
-
     private const val PREF_CURRENT_VERSION = "pref_current_version"
-
     private const val PREF_CAMO_APP_PACKAGE = "pref_key_camo_app"
     private const val PREF_CAMO_APP_DISPLAY_NAME = "pref_key_camo_app_display_name"
     private const val PREF_CAMO_APP_ALT_ICON_INDEX = "pref_key_camo_alticon"
-    private const val PREF_REQUIRE_PASSWORD = "pref_require_password"
-    private const val PREF_DISALLOW_BIOMETRIC_AUTH = "pref_auth_no_biometrics"
-
+    const val PREF_REQUIRE_PASSWORD = "pref_require_password"
+    const val PREF_DISALLOW_BIOMETRIC_AUTH = "pref_auth_no_biometrics"
     private const val PREF_CONNECTION_PATHWAY = "pref_connection_pathway"
-
     const val PREF_SECURE_WINDOW_FLAG: String = "pref_flag_secure"
-
     private const val PREF_POWER_BATTERY_DIALOG_HIDE = "hide_battery_opt_dialog"
     const val PREF_ORBOT_SERVICE_LOG = "pref_orbotservice_log"
+    private const val PREF_CONNECTION_PADDING = "pref_connection_padding"
+    private const val PREF_REDUCED_CONNECTION_PADDING = "pref_reduced_connection_padding"
+    private const val PREF_CIRCUIT_PADDING = "pref_circuit_padding"
+    private const val PREF_REDUCED_CIRCUIT_PADDING = "pref_reduced_circuit_padding"
+    private const val PREF_PREFER_IPV6 = "pref_prefer_ipv6"
+    private const val PREF_DISABLE_IPV4 = "pref_disable_ipv4"
+    private const val PREF_ISOLATE_DEST = "pref_isolate_dest"
+    private const val PREF_ISOLATE_PORT = "pref_isolate_port"
+    private const val PREF_ISOLATE_PROTOCOL = "pref_isolate_protocol"
+    private const val PREF_ISOLATE_KEEP_ALIVE = "pref_isolate_keep_alive"
+    private const val PREF_REACHABLE_ADDRESSES = "pref_reachable_addresses"
+    private const val PREF_REACHABLE_ADDRESSES_PORTS = "pref_reachable_addresses_ports"
+    private const val PREFS_KEY_TORIFIED: String = "PrefTord"
+    const val PREF_CUSTOM_TORRC = "pref_custom_torrc"
+    private const val PREF_STRICT_NODES = "pref_strict_nodes"
+    private const val PREF_EXCLUDE_NODS = "pref_exclude_nodes"
+    private const val PREF_ENTRANCE_NODES = "pref_entrance_nodes"
+    private const val PREF_REINSTALL_GEOIP = "pref_geoip"
+    private const val PREFS_WEEKLY_WORKER = "prefsWeeklyWorker"
+    const val PREF_PROXY_HOST = "pref_proxy_host"
+    const val PREF_PROXY_TYPE = "pref_proxy_type"
+    const val PREF_PROXY_SHADOWSOCKS = "pref_proxy_ss"
+    const val PREF_PROXY_USERNAME = "pref_proxy_username"
+    const val PREF_PROXY_PASSWORD = "pref_proxy_password"
+    const val PREF_OUTBOUND_PROXY_PORT = "pref_proxy_port"
 
     private var cr: ContentResolver? = null
-
 
     var currentVersionForUpdate: Int
         get() = cr?.getPrefInt(PREF_CURRENT_VERSION) ?: 0
         set(version) = cr?.putPref(PREF_CURRENT_VERSION, version) ?: Unit
 
-    private const val PREF_REINSTALL_GEOIP = "pref_geoip"
 
     @JvmStatic
     var isGeoIpReinstallNeeded: Boolean
-        get() = cr?.getPrefBoolean(PREF_REINSTALL_GEOIP, true) ?: true
+        get() = cr?.getPrefBoolean(PREF_REINSTALL_GEOIP) ?: true
         set(value) = cr?.putPref(PREF_REINSTALL_GEOIP, value) ?: Unit
 
     @JvmStatic
@@ -98,8 +111,11 @@ object Prefs {
             )
 
         val myWork = myWorkBuilder.build()
-        WorkManager.getInstance(context)
-            .enqueueUniquePeriodicWork("prefsWeeklyWorker", ExistingPeriodicWorkPolicy.KEEP, myWork)
+        WorkManager.getInstance(context).enqueueUniquePeriodicWork(
+            PREFS_WEEKLY_WORKER,
+            ExistingPeriodicWorkPolicy.KEEP,
+            myWork
+        )
     }
 
     @JvmStatic
@@ -172,7 +188,7 @@ object Prefs {
     }
 
     fun allowBackgroundStarts(): Boolean {
-        return cr?.getPrefBoolean(PREF_ALLOW_BACKGROUND_STARTS, true) ?: true
+        return cr?.getPrefBoolean(PREF_ALLOW_BACKGROUND_STARTS) ?: true
     }
 
     fun openProxyOnAllInterfaces(): Boolean {
@@ -204,7 +220,7 @@ object Prefs {
         }
 
     fun startOnBoot(): Boolean {
-        return cr?.getPrefBoolean(PREF_START_ON_BOOT, true) ?: true
+        return cr?.getPrefBoolean(PREF_START_ON_BOOT) ?: true
     }
 
     @JvmStatic
@@ -258,11 +274,11 @@ object Prefs {
     // URI, if config present + valid, malformed URL string if config present + invalid
     val outboundProxy: Pair<URI?, String?>
         get() {
-            val scheme = cr?.getPrefString("pref_proxy_type")?.lowercase()?.trim()
+            val scheme = cr?.getPrefString(PREF_PROXY_TYPE)?.lowercase()?.trim()
             if (scheme.isNullOrEmpty()) return Pair(null, null)
 
             if (scheme == ShadowSocks.SCHEME) {
-                val config = cr?.getPrefString("pref_proxy_ss")?.trim()
+                val config = cr?.getPrefString(PREF_PROXY_SHADOWSOCKS)?.trim()
                 if (config.isNullOrEmpty()) return Pair(null, null)
 
                 return try {
@@ -272,20 +288,20 @@ object Prefs {
                 }
             }
 
-            val host = cr?.getPrefString("pref_proxy_host")?.trim()
+            val host = cr?.getPrefString(PREF_PROXY_HOST)?.trim()
             if (host.isNullOrEmpty()) return Pair(null, null)
 
             val url = StringBuilder(scheme)
             url.append("://")
 
             var needsAt = false
-            val username = cr?.getPrefString("pref_proxy_username")
+            val username = cr?.getPrefString("")
             if (!username.isNullOrEmpty()) {
                 url.append(username)
                 needsAt = true
             }
 
-            val password = cr?.getPrefString("pref_proxy_password")
+            val password = cr?.getPrefString(PREF_PROXY_PASSWORD)
             if (!password.isNullOrEmpty()) {
                 url.append(":")
                 url.append(password)
@@ -297,7 +313,7 @@ object Prefs {
             url.append(host)
 
             val port = try {
-                cr?.getPrefString("pref_proxy_port")?.trim()?.toInt() ?: 0
+                cr?.getPrefString(PREF_OUTBOUND_PROXY_PORT)?.trim()?.toInt() ?: 0
             } catch (_: Throwable) {
                 0
             }
@@ -374,16 +390,16 @@ object Prefs {
         get() = cr?.getPrefString(PREF_HTTP) ?: HTTP_PROXY_PORT_DEFAULT
 
     val connectionPadding: Boolean
-        get() = cr?.getPrefBoolean(OrbotConstants.PREF_CONNECTION_PADDING) ?: false
+        get() = cr?.getPrefBoolean(PREF_CONNECTION_PADDING) ?: false
 
     val reducedConnectionPadding: Boolean
-        get() = cr?.getPrefBoolean(OrbotConstants.PREF_REDUCED_CONNECTION_PADDING, true) ?: true
+        get() = cr?.getPrefBoolean(PREF_REDUCED_CONNECTION_PADDING) ?: true
 
     val circuitPadding: Boolean
-        get() = cr?.getPrefBoolean(OrbotConstants.PREF_CIRCUIT_PADDING, true) ?: true
+        get() = cr?.getPrefBoolean(PREF_CIRCUIT_PADDING) ?: true
 
     val reducedCircuitPadding: Boolean
-        get() = cr?.getPrefBoolean(OrbotConstants.PREF_REDUCED_CIRCUIT_PADDING, true) ?: true
+        get() = cr?.getPrefBoolean(PREF_REDUCED_CIRCUIT_PADDING) ?: true
 
     val torTransPort: String
         get() = cr?.getPrefString(PREF_TRANSPORT) ?: TOR_TRANSPROXY_PORT_DEFAULT
@@ -392,50 +408,51 @@ object Prefs {
         get() = cr?.getPrefString(PREF_DNSPORT) ?: TOR_DNS_PORT_DEFAULT
 
     val entryNodes: String?
-        get() = cr?.getPrefString("pref_entrance_nodes")
+        get() = cr?.getPrefString(PREF_ENTRANCE_NODES)
 
     val excludeNodes: String?
-        get() = cr?.getPrefString("pref_exclude_nodes")
+        get() = cr?.getPrefString(PREF_EXCLUDE_NODS)
 
     val strictNodes: Boolean
-        get() = cr?.getPrefBoolean("pref_strict_nodes") ?: false
+        get() = cr?.getPrefBoolean(PREF_STRICT_NODES) ?: false
 
     val reachableAddresses: Boolean
-        get() = cr?.getPrefBoolean(OrbotConstants.PREF_REACHABLE_ADDRESSES) ?: false
+        get() = cr?.getPrefBoolean(PREF_REACHABLE_ADDRESSES) ?: false
 
     val reachableAddressesPorts: String?
-        get() = cr?.getPrefString(OrbotConstants.PREF_REACHABLE_ADDRESSES_PORTS)
+        get() = cr?.getPrefString(PREF_REACHABLE_ADDRESSES_PORTS)
 
     val customTorRc: String?
-        get() = cr?.getPrefString("pref_custom_torrc")
+        get() = cr?.getPrefString(PREF_CUSTOM_TORRC)
 
     val isolateDest: Boolean
-        get() = cr?.getPrefBoolean(OrbotConstants.PREF_ISOLATE_DEST) ?: false
+        get() = cr?.getPrefBoolean(PREF_ISOLATE_DEST) ?: false
 
     val isolatePort: Boolean
-        get() = cr?.getPrefBoolean(OrbotConstants.PREF_ISOLATE_PORT) ?: false
+        get() = cr?.getPrefBoolean(PREF_ISOLATE_PORT) ?: false
 
     val isolateProtocol: Boolean
-        get() = cr?.getPrefBoolean(OrbotConstants.PREF_ISOLATE_PROTOCOL) ?: false
+        get() = cr?.getPrefBoolean(PREF_ISOLATE_PROTOCOL) ?: false
 
     val isolateKeepAlive: Boolean
-        get() = cr?.getPrefBoolean(OrbotConstants.PREF_ISOLATE_KEEP_ALIVE) ?: false
+        get() = cr?.getPrefBoolean(PREF_ISOLATE_KEEP_ALIVE) ?: false
 
     val preferIpv6: Boolean
-        get() = cr?.getPrefBoolean(OrbotConstants.PREF_PREFER_IPV6, true) ?: true
+        get() = cr?.getPrefBoolean(PREF_PREFER_IPV6) ?: true
 
     val disableIpv4: Boolean
-        get() = cr?.getPrefBoolean(OrbotConstants.PREF_DISABLE_IPV4) ?: false
+        get() = cr?.getPrefBoolean(PREF_DISABLE_IPV4) ?: false
 
     var torifiedApps: String
-        get() = cr?.getPrefString(OrbotConstants.PREFS_KEY_TORIFIED, "") ?: ""
-        set(value) = cr?.putPref(OrbotConstants.PREFS_KEY_TORIFIED, value) ?: Unit
+        get() = cr?.getPrefString(PREFS_KEY_TORIFIED) ?: ""
+        set(value) = cr?.putPref(PREFS_KEY_TORIFIED, value) ?: Unit
 
     var stopShowingPowerUserBatteryOptDialog: Boolean
-        get() = cr?.getPrefBoolean(PREF_POWER_BATTERY_DIALOG_HIDE, false) ?: false
+        get() = cr?.getPrefBoolean(PREF_POWER_BATTERY_DIALOG_HIDE) ?: false
         set(value) = cr?.putPref(PREF_POWER_BATTERY_DIALOG_HIDE, value) ?: Unit
 
 
+    //TODO
     @JvmStatic
     var torDnsPortResolved: Int
         get() = cr?.getPrefInt(OrbotConstants.PREFS_DNS_PORT) ?: 0
@@ -443,7 +460,7 @@ object Prefs {
 
     @JvmStatic
     fun isAppTorified(appId: String): Boolean {
-        return cr?.getPrefBoolean("$appId${OrbotConstants.APP_TOR_KEY}", true) ?: true
+        return cr?.getPrefBoolean("$appId${OrbotConstants.APP_TOR_KEY}") ?: true
     }
 
     @JvmStatic
@@ -453,10 +470,10 @@ object Prefs {
 
     @JvmStatic
     fun orbotServiceLogAppend(logLine: String) {
-        cr?.putPref(PREF_ORBOT_SERVICE_LOG, getOrbotServiceLog() + "\n" + logLine)
+        cr?.putPref(PREF_ORBOT_SERVICE_LOG, "${getOrbotServiceLog()}\n$logLine")
     }
 
     fun getOrbotServiceLog(): String {
-        return cr?.getPrefString(PREF_ORBOT_SERVICE_LOG, "") ?: ""
+        return cr?.getPrefString(PREF_ORBOT_SERVICE_LOG) ?: ""
     }
 }

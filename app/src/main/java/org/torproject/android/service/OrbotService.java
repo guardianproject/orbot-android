@@ -524,7 +524,7 @@ public class OrbotService extends VpnService {
                 confDns = st.nextToken().split(":")[1];
                 confDns = confDns.substring(0, confDns.length() - 1);
                 mPortDns = Integer.parseInt(confDns);
-
+// TODO
                 Prefs.setTorDnsPortResolved(mPortDns);
             }
 

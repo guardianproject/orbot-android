@@ -29,13 +29,13 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
 
     // If these EditTextPrefs exist, use a numerical keyboard
     val numericalPortPrefs = listOf(
-        "pref_socks", "pref_http", "pref_proxy_port"
+        Prefs.PREF_SOCKS,
+        Prefs.PREF_HTTP,
+        Prefs.PREF_OUTBOUND_PROXY_PORT
     )
 
     // render these EditTextPreferences, if they exist, as passwords
-    val passwordPrefs = listOf(
-        "pref_proxy_password"
-    )
+    val passwordPrefs = listOf(Prefs.PREF_PROXY_PASSWORD)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,7 +51,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
     override fun initPrefs() {
         super.initPrefs()
 
-        val prefLocale = findPreference<ListPreference>("pref_default_locale")
+        val prefLocale = findPreference<ListPreference>(Prefs.PREF_DEFAULT_LOCALE)
         val languages = Languages[requireActivity()]
         prefLocale?.entries = languages?.allNames
         prefLocale?.entryValues = languages?.supportedLocales
@@ -79,16 +79,16 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
         bindNumericalPrefs(numericalPortPrefs, 5)
         bindPasswordPrefs(passwordPrefs)
         bindInputType(
-            listOf("pref_proxy_host"),
+            listOf(Prefs.PREF_PROXY_HOST),
             InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_URI
         )
         bindInputType(
-            listOf("pref_custom_torrc"),
+            listOf(Prefs.PREF_CUSTOM_TORRC),
             InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
         )
 
         bindInputType(
-            listOf("pref_proxy_ss"),
+            listOf(Prefs.PREF_PROXY_SHADOWSOCKS),
             InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_URI
         )
 
@@ -108,7 +108,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
                 true
             }
 
-        val proxyType = findPreference<ListPreference>("pref_proxy_type")
+        val proxyType = findPreference<ListPreference>(Prefs.PREF_PROXY_TYPE)
         if (!ShadowSocks.isShadowSocksSupported()) {
             proxyType?.removeEntry(ShadowSocks.SCHEME)
 
@@ -126,15 +126,15 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
         val common = listOf(
-            "pref_proxy_host",
-            "pref_proxy_port",
-            "pref_proxy_username",
-            "pref_proxy_password"
+            Prefs.PREF_PROXY_HOST,
+            Prefs.PREF_OUTBOUND_PROXY_PORT,
+            Prefs.PREF_PROXY_USERNAME,
+            Prefs.PREF_PROXY_PASSWORD
         ).mapNotNull {
             findPreference<EditTextPreference>(it)
         }
 
-        val ssConfig = findPreference<EditTextPreference>("pref_proxy_ss")
+        val ssConfig = findPreference<EditTextPreference>(Prefs.PREF_PROXY_SHADOWSOCKS)
 
         when (newValue) {
             "" -> {

@@ -15,10 +15,10 @@ class SafetyPreferenceFragment : AbstractPreferenceFragment() {
 
     override fun initPrefs() {
         super.initPrefs()
-        val prefFlagSecure = findPreference<CheckBoxPreference>("pref_flag_secure")
+        val prefFlagSecure = findPreference<CheckBoxPreference>(Prefs.PREF_SECURE_WINDOW_FLAG)
 
-        val passwordCheckbox = findPreference<CheckBoxPreference>("pref_require_password")
-        val biometricCheckbox = findPreference<CheckBoxPreference>("pref_auth_no_biometrics")
+        val passwordCheckbox = findPreference<CheckBoxPreference>(Prefs.PREF_REQUIRE_PASSWORD)
+        val biometricCheckbox = findPreference<CheckBoxPreference>(Prefs.PREF_DISALLOW_BIOMETRIC_AUTH)
 
         prefFlagSecure?.onPreferenceChangeListener =
             OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
