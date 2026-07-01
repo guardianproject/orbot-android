@@ -304,9 +304,7 @@
     <string name="test_risk_consent">我已了解，开始测试</string>
     <string name="testing_explanation_approved">您非常适合成为 Tor 网络上的 Snowflake 代理。</string>
     <string name="testing_continue">继续</string>
-    <string name="testing_title_declined">%s 未批准</string>
     <string name="testing_explanation_declined">您目前无法成为有效的 Snowflake 代理。如果您持续看到此消息，请在其他网络上重试。</string>
-    <string name="testing_explanation_declined2">如果您所在国家/地区的互联网受到严格审查，请勿使用善举模式。</string>
     <string name="testing_explanation_other_vpn">使用 VPN 时无法激活善举模式。唯一的例外是 Orbot 的 VPN 功能。要成为 Snowflake 代理，您必须要么移除您的 VPN，要么切换为使用 Orbot。</string>
     <string name="testing_explanation_other_vpn_bubble">打开系统 VPN 设置…</string>
     <string name="testing_explanation_no_net">连接到互联网，查看您是否适合启用善举模式</string>

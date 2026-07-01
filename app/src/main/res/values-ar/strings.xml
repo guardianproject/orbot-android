@@ -302,8 +302,6 @@
     <string name="kindness_proxy_quality">جودة الوسيط</string>
     <string name="kindness_proxy_quality_unknown">مجهول</string>
     <string name="testing_continue">استمر</string>
-    <string name="testing_title_declined">%s غير معتمد</string>
-    <string name="testing_explanation_declined2">لا تستخدم «وضع اللطف» إذا كان الإنترنت في بلدك يخضع لرقابة صارمة.</string>
     <string name="testing_explanation_other_vpn">لا يمكن تفعيل «وضع اللطف» عند استخدام شبكة VPN. والاستثناء الوحيد هو ميزة VPN الخاصة بـ Orbot. لكي تصبح «وسيط Snowflake»، يجب عليك إما إيقاف تشغيل شبكة VPN أو التبديل إلى استخدام Orbot.</string>
     <string name="testing_explanation_other_vpn_bubble">افتح إعدادات VPN للنظام…</string>
     <string name="testing_explanation_no_net">اتصل بالإنترنت لترى ما إذا كنت مؤهلاً لاستخدام «وضع اللطف»</string>

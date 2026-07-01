@@ -304,9 +304,7 @@
     <string name="test_risk_consent">Tuigim, Tosaigh an Tástáil</string>
     <string name="testing_explanation_approved">Is iarrthóir iontach thú le bheith i do Seachfhreastalaí Snowflake ar líonra Tor.</string>
     <string name="testing_continue">Lean ar aghaidh</string>
-    <string name="testing_title_declined">%s Gan Ceadú</string>
     <string name="testing_explanation_declined">Ní féidir leat a bheith i do Seachfhreastalaí Snowflake úsáideach faoi láthair. Má leanann tú ag feiceáil an teachtaireacht seo, déan iarracht arís ar líonra difriúil.</string>
-    <string name="testing_explanation_declined2">Ná húsáid Mód Cineáltais má tá an tIdirlíon i do thír féin faoi chinsireacht throm.</string>
     <string name="testing_explanation_other_vpn">Ní féidir Mód Cineáltais a ghníomhachtú agus VPN in úsáid. Is é an t-aon eisceacht ná gné VPN Orbot. Chun bheith i do Seachfhreastalaí Snowflake ní mór duit do VPN a bhaint nó aistriú chuig Orbot a úsáid.</string>
     <string name="testing_explanation_other_vpn_bubble">Oscail Socruithe VPN an Chórais…</string>
     <string name="testing_explanation_no_net">Ceangail leis an Idirlíon le feiceáil an bhfuil tú oiriúnach do Mhód Cineáltais</string>

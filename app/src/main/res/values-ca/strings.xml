@@ -304,9 +304,7 @@
     <string name="test_risk_consent">Ho entenc, inicia el test</string>
     <string name="testing_explanation_approved">Sou un gran candidat per a esdevindre un servidor Snowflake en la xarxa Tor.</string>
     <string name="testing_continue">Continua</string>
-    <string name="testing_title_declined">%s no aprovat</string>
     <string name="testing_explanation_declined">No podeu ser un servidor Snowflake útil ara mateix. Si continueu veient aquest missatge, proveu de nou amb una altra xarxa.</string>
-    <string name="testing_explanation_declined2">No utilitzeu el mode altruista si l\'internet en el vostre país es troba fortament censurat.</string>
     <string name="testing_explanation_other_vpn">El Mode altruista no es pot activar si feu servir una VPN. L\'única excepció és la funció VPN de l\'Orbot. Per a esdevindre un servidor Snowflake cal que desactiveu la VNP o utilitzeu la de l\'Orbot.</string>
     <string name="testing_explanation_other_vpn_bubble">Obre la configuració del sistema de la VPN…</string>
     <string name="testing_explanation_no_net">Connecteu-vos a internet per a veure si sou un bon candidat per al mode altruista</string>

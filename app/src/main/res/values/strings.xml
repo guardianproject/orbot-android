@@ -227,9 +227,7 @@
 
     <string name="testing_explanation_approved">You are a great candidate for becoming a Snowflake Proxy on the Tor network.</string>
     <string name="testing_continue">Continue</string>
-    <string name="testing_title_declined">%s Not Approved</string>
     <string name="testing_explanation_declined">You cannot be a useful Snowflake Proxy at this time. If you keep seeing this message, try again on a different network.</string>
-    <string name="testing_explanation_declined2">Do not use Kindness Mode, if the Internet in your country is heavily censored.</string>
     <string name="testing_explanation_other_vpn">Kindness Mode can not be activated when using a VPN. The only exception is Orbot\'s VPN feature. To become a Snowflake Proxy you must either remove your VPN or switch to using Orbot.</string>
     <string name="testing_explanation_other_vpn_bubble">Open System VPN Settings…</string>
     <string name="testing_explanation_no_net">Connect to the Internet to see if you\'re a good candidate for Kindness Mode</string>
@@ -367,4 +365,5 @@
     <string name="please_wait_while_we_check_to_see_if_you_can_run_an_effective_proxy">Please wait while we check to see if you can run an effective proxy.</string>
     <string name="stop_test">Stop Test</string>
     <string name="approved">Approved</string>
+    <string name="not_approved">Not Approved</string>
 </resources>

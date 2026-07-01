@@ -303,9 +303,7 @@
     <string name="test_risk_consent">リスクを理解した上でテストを開始する</string>
     <string name="testing_explanation_approved">あなたは Tor ネットワーク上の Snowflake プロキシーになるのにふさわしい人物です。</string>
     <string name="testing_continue">続ける</string>
-    <string name="testing_title_declined">%s 失敗しました</string>
     <string name="testing_explanation_declined">現時点では Snowflake プロキシーになることはできません。このメッセージが繰り返し表示される場合は、別のネットワークでもう一度お試しください。</string>
-    <string name="testing_explanation_declined2">お住まいの国でインターネットが厳しく検閲されている場合は、Kindness Mode を使用しないでください。</string>
     <string name="testing_explanation_other_vpn">VPN を使用している場合は、Kindness Mode を有効にすることはできません (Orbot の VPN 機能を除く) 。Snowflake プロキシーになるには、VPN を無効にするか、代わりに Orbot を使用する必要があります。</string>
     <string name="testing_explanation_other_vpn_bubble">システムの VPN 設定を開く…</string>
     <string name="testing_explanation_no_net">インターネットに接続して Kindness Mode が問題なく機能するか確認する</string>

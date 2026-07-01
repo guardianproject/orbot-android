@@ -216,9 +216,7 @@
     <string name="test_risk_consent">Tôi Hiểu, Bắt đầu Kiểm tra</string>
     <string name="testing_explanation_approved">Bạn là ứng viên tốt để trở thành Snowflake Proxy cho mạng Tor.</string>
     <string name="testing_continue">Tiếp tục</string>
-    <string name="testing_title_declined">%s Không được chấp thuận</string>
     <string name="testing_explanation_declined">Bạn không thể là Snowflake Proxy hữu dụng lúc này. Nếu bạn liên tục thấy tin nhắn này, hãy thử lại trên mạng khác.</string>
-    <string name="testing_explanation_declined2">Đừng dùng Chế độ Thân thiện, nếu Internet ở quốc gia của bạn bị kiểm duyệt nặng.</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Birdie</string>
     <string name="app_icon_dialog_title" formatted="true">Chuyển đến %1$s</string>

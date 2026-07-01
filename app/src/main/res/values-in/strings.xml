@@ -304,9 +304,7 @@
     <string name="test_risk_consent">Saya Mengerti, Mulai Uji</string>
     <string name="testing_explanation_approved">Anda adalah kandidat yang sangat baik untuk menjadi Snowflake Proxy di jaringan Tor.</string>
     <string name="testing_continue">Lanjutkan</string>
-    <string name="testing_title_declined">%s Tidak Disetujui</string>
     <string name="testing_explanation_declined">Saat ini Anda belum dapat menjadi Snowflake Proxy yang berguna. Jika Anda terus melihat pesan ini, coba lagi di jaringan yang berbeda.</string>
-    <string name="testing_explanation_declined2">Jangan gunakan Mode Kebaikan jika Internet di negara Anda mengalami sensor ketat.</string>
     <string name="testing_explanation_other_vpn">Mode Kebaikan tidak dapat diaktifkan saat menggunakan VPN. Satu-satunya pengecualian adalah fitur VPN milik Orbot. Untuk menjadi Snowflake Proxy, Anda harus menonaktifkan VPN Anda atau beralih menggunakan Orbot.</string>
     <string name="testing_explanation_other_vpn_bubble">Buka Pengaturan VPN Sistem…</string>
     <string name="testing_explanation_no_net">Hubungkan ke Internet untuk melihat apakah Anda cocok menggunakan Mode Kebaikan</string>

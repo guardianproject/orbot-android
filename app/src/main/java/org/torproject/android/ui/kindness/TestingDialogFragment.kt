@@ -103,8 +103,7 @@ class TestingDialogFragment : DialogFragment() {
             dismiss()
         }
 
-        mBinding.tvTitleDeclined.text = getString(R.string.testing_title_declined, "\uD83D\uDEAB")
-        mBinding.btContinue.setOnClickListener {
+        mBinding.btnContinue3.setOnClickListener {
             setFragmentResult(KEY_RESULT, Bundle().apply { putBoolean(KEY_RESULT, true) })
             dismiss()
         }
@@ -167,7 +166,7 @@ class TestingDialogFragment : DialogFragment() {
         // immediately succeed if we've recently succeeded
         if (!Prefs.snowflakeNeedsQualityCheck) {
             Log.d(TAG, "recently passed quality check, proceeding")
-            mBinding.btContinue.callOnClick()
+            mBinding.btnContinue3.callOnClick()
             return
         }
 
@@ -175,7 +174,7 @@ class TestingDialogFragment : DialogFragment() {
         if (torConnectionState == ConnectUiState.On && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
             Log.d(TAG, "there's an active direct connection to tor, no need to test")
             Prefs.snowflakeNeedsQualityCheck = false
-            mBinding.btContinue.callOnClick()
+            mBinding.btnContinue3.callOnClick()
             return
         }
 
@@ -188,6 +187,7 @@ class TestingDialogFragment : DialogFragment() {
         mBinding.boxWarnings.visibility = View.GONE
         mBinding.boxTesting.visibility = View.GONE
         mBinding.boxApproved.visibility = View.GONE
+        mBinding.boxDeclined.visibility = View.GONE
     }
 
     private fun isOrbotOnOrStarting(): Boolean {
@@ -297,7 +297,12 @@ class TestingDialogFragment : DialogFragment() {
         errorExplanation?.let {
             mBinding.tvExplanationDeclined.text = errorExplanation
         }
-        bubbleMsg?.let {
+
+        if (bubbleMsg == null) {
+            mBinding.tvErrorBubbleMessage.visibility = View.INVISIBLE
+        }
+        else {
+            mBinding.tvErrorBubbleMessage.visibility = View.VISIBLE
             mBinding.tvErrorBubbleMessage.text = bubbleMsg
             mBinding.tvErrorBubbleMessage.setOnClickListener(bubbleAction)
         }
