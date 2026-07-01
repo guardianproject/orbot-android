@@ -139,7 +139,6 @@
     <string name="title_choose_apps">Uygulamaları Seç</string>
     <string name="apps_suggested_title">Önerilen Uygulamalar</string>
     <string name="power_user_mode">Uzman Kullanıcı Modu</string>
-    <string name="action_activate">Etkinleştir</string>
     <string name="app_suggested_subtitle">Orbot en iyi mesajlaşma ve sosyal medya uygulamalarıyla çalışır.</string>
     <string name="power_user_description">Tor\'a aşina olan kullanıcılar için. Orbot\'u VPN ayarı olmadan başlatmanıza izin verir ve açık SOCKS ve HTTP bağlantı noktalarını gösterir</string>
     <string name="apps_other_apps">Diğer Uygulamalar</string>
@@ -271,7 +270,6 @@
     <string name="unable_to_start_unknown_reason_error_msg">VPN izni reddedildi veya başka bir VPN uygulamasında \"Her zaman açık VPN\" özelliği etkinleştirildi. Önceki VPN İsteği iletişim kutusunu yanlışlıkla kapattıysanız, bunu kapatıp yeniden bağlanabilirsiniz. Teknik kullanıcılar başka bir VPN uygulaması kullanabilir ve Orbot\'un Güçlü Kullanıcı Modunu etkinleştirerek Tor\'u SOCKS Proxy olarak kullanabilir.</string>
     <string name="open_vpn_settings">Android VPN Ayarlarını aç</string>
     <string name="country_clear">Ülkeyi Kaldır</string>
-    <string name="kindness_mode_disclaimer_bridge">Sansür uygulanan bir bölgedeyseniz veya Tor ağına bağlanmak için bir köprü kullanmanız gerekiyorsa, Paylaşım Modunu kullanmayın.</string>
     <string name="battery_optimization_title">Pil İyileştirmelerini Devre Dışı Bırak</string>
     <string name="battery_optimization_pref_msg">Aygıtlarının Orbot uygulamasını arka planda çalışırken erken bir şekilde kapattığından şüphelenen kullanıcılar için ayar.</string>
     <string name="battery_optimization_dialog_msg">Bazı Android aygıtlar, Orbot arka planda çalışırken uygulamayı kapatabilir. Orbot\'un bağlantısının kesilmemesini ve çalışmaya devam etmesini isteyen çoğu kullanıcı için, sistem ayarlarından Orbot\'u \"Her Zaman Açık\" VPN olarak ayarlamak yeterlidir. Bununla birlikte, gerekli görürseniz, aygıtınızın Orbot üzerinde herhangi bir pil iyileştirmesi yapmasını engellemek için gerekli adımları atabilirsiniz.</string>

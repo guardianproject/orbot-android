@@ -122,7 +122,6 @@
     <string name="menu_kindness">Thân Thiện</string>
     <string name="connected_title">Đã kết nối</string>
     <string name="trying_to_connect_title">Đang kết nối…</string>
-    <string name="action_activate">Kích hoạt</string>
     <string name="title_choose_apps">Chọn app ứng dụng</string>
     <string name="setting_debug">Gỡ lỗi Bug</string>
     <string name="menu_more">Thêm</string>
@@ -184,7 +183,6 @@
     <string name="pref_proxy_ss_summary">URL cấu hình ShadowSocks Đầy đủ bắt đầu với ss://</string>
     <string name="pref_isolate_keep_alive">Giữ các mạch nối cô lập hoạt động</string>
     <string name="bridge_snowflake_sqs">Kết nối qua người dùng Tor khác qua Snowflake (Cách 3 - SQS)</string>
-    <string name="volunteer_mode_title">Chế độ thân thiện: Giúp người khác kết nối đến Tor</string>
     <string name="volunteer_mode_weekly_label">Tuần này</string>
     <string name="volunteer_mode_alltime_label">Tất cả</string>
     <string name="volunteer_mode_subtitle_desc">Chế độ Thân thiện biến thiết bị bạn thành Snowflake Proxy trên mạng Tor - một cầu nối giúp người khác kết nối.</string>
@@ -311,7 +309,6 @@
     <string name="unable_to_start_other_vpn_app_error_msg">"Ứng dụng  %1$s được cấu hình làm một VPN \"Luôn kết nối\". Vui lòng tắt nó trước khi khởi động Orbot."</string>
     <string name="unable_to_start_unknown_reason_error_msg">Quyền truy cập VPN đã bị từ chối hoặc một ứng dụng VPN khác đã bật tính năng “VPN luôn hoạt động”. Bạn có thể bỏ qua thông báo này và kết nối lại nếu vô tình đóng hộp thoại Yêu cầu VPN trước đó. Người dùng có kiến thức kỹ thuật có thể sử dụng một ứng dụng VPN khác và dùng Tor làm proxy SOCKS bằng cách bật Chế độ người dùng nâng cao của Orbot.</string>
     <string name="open_vpn_settings">Mở Cài đặt VPN Android</string>
-    <string name="kindness_mode_disclaimer_bridge">Kích hoạt nếu internet ở quốc gia của bạn không bị kiểm duyệt nặng.</string>
     <string name="kindness_mode_unsupported_country">Bạn đã chọn %s làm quốc gia của mình, nhưng rất tiếc, Chế độ Thân thiện không thể hỗ trợ người dùng kết nối với Tor tại khu vực này. Nếu bạn cho rằng mình đang thấy thông báo này do nhầm lẫn, bạn có thể xóa lựa chọn quốc gia và thử xem liệu mình có đủ điều kiện để trở thành Snowflake Proxy hay không</string>
     <string name="battery_optimization_title">Tắt tối ưu hóa pin</string>
     <string name="battery_optimization_pref_msg">Cài đặt cho vài người dùng nghi ngờ ứng dụng giết sớm tiến trình Orbot trong lúc nó chạy dưới nền.</string>

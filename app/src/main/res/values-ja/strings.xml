@@ -142,7 +142,6 @@
     <string name="title_choose_apps">アプリを選ぶ</string>
     <string name="apps_suggested_title">提案されたアプリ</string>
     <string name="app_suggested_subtitle">Orbot は、メッセージングアプリや SNS アプリとの相性が抜群です。</string>
-    <string name="action_activate">有効化</string>
     <string name="hide_apps">アプリをネットワーク監視から隠し、遮断されているときにはアクセスできるようにします。</string>
     <string name="pref_isolate_port">宛先ポートを分離</string>
     <string name="pref_isolate_port_summary">宛先ポートごとに別の回路を使用する</string>
@@ -285,7 +284,6 @@
     <string name="pref_proxy_no_proxy">プロキシーなし</string>
     <string name="pref_proxy_ss_title">ShadowSocks 構成 URL</string>
     <string name="pref_proxy_ss_summary">ss:// で始まる完全な ShadowSocks 構成 URL</string>
-    <string name="volunteer_mode_title">Kindness Mode: 他の人が Tor に接続できるよう支援しましょう</string>
     <string name="volunteer_mode_weekly_label">今週</string>
     <string name="volunteer_mode_alltime_label">合計</string>
     <string name="Disabled">無効</string>
@@ -319,7 +317,6 @@
     <string name="testing_explanation_other_vpn">VPN を使用している場合は、Kindness Mode を有効にすることはできません (Orbot の VPN 機能を除く) 。Snowflake プロキシーになるには、VPN を無効にするか、代わりに Orbot を使用する必要があります。</string>
     <string name="testing_explanation_other_vpn_bubble">システムの VPN 設定を開く…</string>
     <string name="testing_explanation_no_net">インターネットに接続して Kindness Mode が問題なく機能するか確認する</string>
-    <string name="kindness_mode_disclaimer_bridge">お住まいの国でインターネットが厳しく検閲されていない場合は有効にしてください。</string>
     <string name="kindness_mode_unsupported_country">お住まいの国として %s を選択されましたが、残念ながらこの地域では Kindness Mode は他のユーザーが Tor に接続するのを支援できません。誤ってこのメッセージが表示されていると思われる場合は、国設定をクリアして、Snowflake プロキシーが問題なく機能するかどうか確認するためのテストを行ってください</string>
     <string name="kindness_proxy_quality_unknown">不明</string>
 </resources>

@@ -70,7 +70,6 @@
     <string name="secure_your_connection_subtitle">Sembunyikan aplikasi dari pemantauran jaringan dan dapatkan akses ketika mereka diblokir..</string>
     <string name="power_user_mode">Mode Pengguna Berdaya</string>
     <string name="power_user_description">Untuk pengguna yang familier dengan Tor. Memungkinkan Anda untuk memulai Orbot tanpa pengaturan VPN dan menampilkan porta SOCKS dan HTTP yang terbuka</string>
-    <string name="action_activate">Aktifkan</string>
     <string name="title_choose_apps">Pilih Aplikasi</string>
     <string name="app_suggested_subtitle">Orbot bekerja baik dengan aplikasi perpesanan dan media sosial.</string>
     <string name="apps_suggested_title">Aplikasi yang Disarankan</string>
@@ -285,7 +284,6 @@
     <string name="pref_proxy_no_proxy">Tanpa Proxy</string>
     <string name="pref_proxy_ss_title">URL Konfigurasi ShadowSocks</string>
     <string name="pref_proxy_ss_summary">URL konfigurasi ShadowSocks lengkap yang diawali dengan ss://</string>
-    <string name="volunteer_mode_title">Mode Kebaikan: Bantu orang lain terhubung ke Tor</string>
     <string name="volunteer_mode_weekly_label">Minggu Ini</string>
     <string name="volunteer_mode_alltime_label">Total</string>
     <string name="volunteer_mode_subtitle_desc">Mode Kebaikan mengubah perangkat Anda menjadi Snowflake Proxy di jaringan Tor — sebuah jembatan untuk membantu orang lain terhubung.</string>
@@ -320,6 +318,5 @@
     <string name="testing_explanation_other_vpn">Mode Kebaikan tidak dapat diaktifkan saat menggunakan VPN. Satu-satunya pengecualian adalah fitur VPN milik Orbot. Untuk menjadi Snowflake Proxy, Anda harus menonaktifkan VPN Anda atau beralih menggunakan Orbot.</string>
     <string name="testing_explanation_other_vpn_bubble">Buka Pengaturan VPN Sistem…</string>
     <string name="testing_explanation_no_net">Hubungkan ke Internet untuk melihat apakah Anda cocok menggunakan Mode Kebaikan</string>
-    <string name="kindness_mode_disclaimer_bridge">Aktifkan jika Internet di negara Anda tidak mengalami sensor ketat.</string>
     <string name="kindness_mode_unsupported_country">Anda memilih %s sebagai negara Anda, tetapi sayangnya Mode Kebaikan tidak dapat membantu orang terhubung ke Tor di wilayah ini. Jika Anda yakin pesan ini muncul karena kekeliruan, Anda dapat menghapus negara Anda dan menguji apakah Anda memenuhi syarat untuk menjadi Snowflake Proxy</string>
 </resources>

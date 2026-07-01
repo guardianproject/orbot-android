@@ -138,7 +138,6 @@
     <string name="snowflake_proxy_msg_title">Rodyti pranešimą apie ryšį</string>
     <string name="snowflake_proxy_msg_description">Rodyti pranešimą, kai padedate kam nors apeiti cenzūrą</string>
     <string name="power_user_mode">Patyrusio vartotojo režimas</string>
-    <string name="action_activate">Aktyvuoti</string>
     <string name="apps_other_apps">Kitos programėlės</string>
     <string name="power_user_description">Vartotojams, susipažinusiems su . Leidžia paleisti „Orbot“ be VPN nustatymo ir rodo atvirus SOCKS ir HTTP prievadus</string>
     <string name="smart_connect">Gudrusis ryšys (numatytasis)</string>

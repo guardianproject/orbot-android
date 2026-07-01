@@ -123,7 +123,6 @@
     <string name="connected_title">Connesso</string>
     <string name="version">Versione:</string>
     <string name="title_choose_apps">Scegli le app</string>
-    <string name="action_activate">Attiva</string>
     <string name="pref_isolate_port">Isola le porte di destinazione</string>
     <string name="pref_isolate_port_summary">Usa un circuito diverso per ogni porta di destinazione</string>
     <string name="apps_other_apps">Altre app</string>

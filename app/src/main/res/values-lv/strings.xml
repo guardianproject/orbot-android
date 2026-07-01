@@ -129,7 +129,6 @@
     <string name="copy_address_to_clipboard">Kopēt adresi uz starpliktuvi</string>
     <string name="secure_your_connection_title">Gatavs savienošanai</string>
     <string name="trying_to_connect_title">Savienošana…</string>
-    <string name="action_activate">Atjaunot</string>
     <string name="title_choose_apps">Izvēlēties lietotnes</string>
     <string name="setting_debug">Atkļūdot</string>
     <string name="menu_more">Vairāk</string>

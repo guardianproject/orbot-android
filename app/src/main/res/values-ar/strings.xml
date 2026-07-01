@@ -85,7 +85,6 @@
     <string name="consider_disable_battery_optimizations">الخدمات المستضافة قيد التشغيل، ضع في اعتبارك تعطيل تحسينات البطارية</string>
     <string name="consider_enable_battery_optimizations">لا توجد خدمات مستضافة قيد التشغيل، ففكر في تفعيل تحسينات البطارية</string>
     <string name="full_device_vpn">كل الجهاز عبر VPN</string>
-    <string name="action_activate">نشّط</string>
     <string name="title_choose_apps">اختر تطبيقات</string>
     <string name="setting_debug">تنقيح</string>
     <string name="v3_client_auth_activity_title">تفويض العميل</string>
@@ -308,7 +307,6 @@
     <string name="testing_explanation_other_vpn">لا يمكن تفعيل «وضع اللطف» عند استخدام شبكة VPN. والاستثناء الوحيد هو ميزة VPN الخاصة بـ Orbot. لكي تصبح «وسيط Snowflake»، يجب عليك إما إيقاف تشغيل شبكة VPN أو التبديل إلى استخدام Orbot.</string>
     <string name="testing_explanation_other_vpn_bubble">افتح إعدادات VPN للنظام…</string>
     <string name="testing_explanation_no_net">اتصل بالإنترنت لترى ما إذا كنت مؤهلاً لاستخدام «وضع اللطف»</string>
-    <string name="kindness_mode_disclaimer_bridge">فعِّل هذا الخيار إذا لم يكن الإنترنت في بلدك خاضعًا لرقابة شديدة.</string>
     <string name="kindness_mode_unsupported_country">لقد حدّدت %s كبلدك، ولكن للأسف لا يمكن لـ «وضع اللطف» مساعدة المستخدمين في هذه المنطقة على الاتصال بشبكة تور. إذا كنت تعتقد أن هذه الرسالة ظهرت لك عن طريق الخطأ، فيمكنك مسح اختيار البلد وإجراء اختبار لمعرفة ما إذا كنت مؤهلاً لتكون وكيل «وسيط Snowflake»</string>
     <string name="kindness_usage_limits_status_off">معطّلة</string>
 </resources>

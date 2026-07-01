@@ -136,7 +136,6 @@
     <string name="connect">Tengjast</string>
     <string name="next">Næsta</string>
     <string name="strict_nodes_description">Meðhöndla útilokaða punkta sem forsendu við byggingu allra rása. Þetta gæti skemmt fyrir virkni ef ekki er hægt að byggja upp neinar rásir út frá stillingum útilokaðra punkta.</string>
-    <string name="action_activate">Virkja</string>
     <string name="title_choose_apps">Veldu forrit</string>
     <string name="apps_suggested_title">Tillögur að forritum</string>
     <string name="apps_other_apps">Önnur forrit</string>

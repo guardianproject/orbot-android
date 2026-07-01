@@ -137,7 +137,6 @@
     <string name="snowflake_subtitle">اتصال از طریق داوطلبان Tor. از برخی مسدودیت‌های Tor رد می‌شود.</string>
     <string name="direct_connect_subtitle">بهترین روش اتصال به Tor. درصورت مسدودنبودن Tor از آن استفاده کنید.</string>
     <string name="power_user_mode">حالت کاربری حرفه‌ای</string>
-    <string name="action_activate">فعال‌سازی</string>
     <string name="title_choose_apps">انتخاب برنامه‌ها</string>
     <string name="apps_other_apps">دیگر برنامه‌ها</string>
     <string name="power_user_description">برای کاربران آشنا با Tor. اجازه می‌دهد تا Orbot را بدون تنظیمات VPN شروع کند و درگاه‌های باز HTTP و SOCKS را نشان می‌دهد</string>
@@ -271,7 +270,6 @@
     <string name="unable_to_start_unknown_reason_error_msg">اجازهٔ وی‌پی‌ان رد شد یا کارهٔ وی‌پی‌انی دیگر قابلیت «همیشه روشن» را به کار انداخته. اگر گفت‌وگوی درخواست وی‌پی‌ان پیشین را به اشتباه بستید این پیام را رد کرده و دوباره وصل شوید. کاربران فنی می‌توانند با به کار انداختن حالت کاربر قدرتمند روبوت پیازی از کارهٔ وی‌پی‌انی دیگر استفاده کرده و تور را به عنوان پیشکار ساکس استفاده کنند.</string>
     <string name="open_vpn_settings">گشودن تنظیمات وی‌پی‌ان اندروید</string>
     <string name="country_clear">حذف کشور</string>
-    <string name="kindness_mode_disclaimer_bridge">از مهربانی استفاده نکنید حالت اگر شما در منطقه ای هستید که در آن سانسور شده اید یا اگر نیاز دارید از یک پل برای اتصال به Tor استفاده کنید.</string>
     <string name="pref_proxy_no_proxy">بدون پروکسی</string>
     <string name="pref_proxy_ss_title">آدرس پیکربندی ShadowSocks</string>
     <string name="pref_proxy_ss_summary">آدرس کامل پیکربندی ShadowSocks که با ss:// شروع می‌شود</string>

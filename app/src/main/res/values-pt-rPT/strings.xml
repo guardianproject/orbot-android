@@ -147,7 +147,6 @@
     <string name="next">Próximo</string>
     <string name="power_user_mode">Modo de utilizador avançado</string>
     <string name="power_user_description">Para utilizadores familiarizados com Tor. Permite que inicie o Orbot sem a configuração VPN e mostra as portas SOCKS e HTTP que estejam abertas</string>
-    <string name="action_activate">Ativar</string>
     <string name="app_suggested_subtitle">O Orbot funciona melhor com apps de mensagens e mídias sociais.</string>
     <string name="apps_suggested_title">Sugestões de apps</string>
     <string name="apps_other_apps">Outras apps</string>

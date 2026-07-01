@@ -61,7 +61,6 @@
     <string name="name">Nombre</string>
     <string name="disable">Deshabilitar</string>
     <string name="btn_refresh">Actualizar</string>
-    <string name="action_activate">Activar</string>
     <string name="title_choose_apps">Elegir aplicaciones</string>
     <string name="connect">Conectar</string>
     <string name="next">Siguiente</string>

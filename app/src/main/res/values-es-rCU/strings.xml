@@ -59,7 +59,6 @@
     <string name="option_only_on_wifi">Sólo por Wifi</string>
     <string name="option_only_when_charging">Sólo cuando está cargando</string>
     <string name="setting_padding">Relleno</string>
-    <string name="action_activate">Activar</string>
     <string name="apps_other_apps">Otras aplicaciones</string>
     <string name="pref_dnsport_title">Puerto DNS de Tor</string>
     <string name="pref_dnsport_summary">Puerto por el cual Tor ofrece su conexión DNS (por defecto: 9053 o 0 para inhabilitar)</string>

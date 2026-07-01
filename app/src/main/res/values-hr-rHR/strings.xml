@@ -71,7 +71,6 @@
     <string name="hidden_services">Onion usluge</string>
     <string name="enable">Omogući</string>
     <string name="btn_refresh">Osvježi vezu</string>
-    <string name="action_activate">Aktiviraj</string>
     <string name="setting_debug">Otkloni grešku</string>
     <string name="menu_new_identity">Novi identitet</string>
     <string name="connect">Poveži se</string>

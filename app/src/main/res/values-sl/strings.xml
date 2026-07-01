@@ -139,7 +139,6 @@
     <string name="pref_reduced_connection_padding_summary">Prej zapre relejne povezave in pošlje manj polnilnih paketov, da zmanjša porabo podatkov in baterije</string>
     <string name="next">Naprej</string>
     <string name="title_choose_apps">Izberi aplikacije</string>
-    <string name="action_activate">Vklopi</string>
     <string name="setting_debug">Razhroščevanje</string>
     <string name="menu_more">Več</string>
     <string name="connect">Poveži</string>

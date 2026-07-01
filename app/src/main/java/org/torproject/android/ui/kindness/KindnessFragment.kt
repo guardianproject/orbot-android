@@ -1,7 +1,6 @@
 package org.torproject.android.ui.kindness
 
 import IPtProxy.IPtProxy
-import android.app.AlertDialog
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.ColorStateList
@@ -54,12 +53,12 @@ class KindnessFragment : Fragment() {
             }
         }
 
-        mBinding.btnActionActivate.setOnClickListener {
+        mBinding.btnActionContinue.setOnClickListener {
             TestingDialogFragment.show(parentFragmentManager)
         }
 
         if (Regionalization.isKindnessModeDisabledForCountry()) {
-            mBinding.btnActionActivate.isEnabled = false
+            mBinding.btnActionContinue.isEnabled = false
 
             // set text explaining that kindness mode isn't available from the user's country
             mBinding.tvActivateInstructions.text =
@@ -70,7 +69,7 @@ class KindnessFragment : Fragment() {
 
             // set the activate button to be gray, making it not the primary button
             ViewCompat.setBackgroundTintList(
-                mBinding.btnActionActivate,
+                mBinding.btnActionContinue,
                 ColorStateList.valueOf(resources.getColor(R.color.orbot_btn_disable_grey, null))
             )
             ViewCompat.setBackgroundTintList(

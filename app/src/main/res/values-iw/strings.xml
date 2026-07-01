@@ -114,7 +114,6 @@
     <string name="app_services">שירותי יישומונים</string>
     <string name="menu_more">עוד</string>
     <string name="setting_debug">ניפוי שגיאות</string>
-    <string name="action_activate">הפעלה</string>
     <string name="version">גרסה:</string>
     <string name="pref_isolate_protocol_summary">להשתמש במעגל שונה לכל פרוטוקול חיבור</string>
     <string name="pref_isolate_port">בידוד פתחות יעד</string>

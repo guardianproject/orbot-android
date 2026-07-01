@@ -138,7 +138,6 @@
     <string name="direct_connect_subtitle">Най-добрия начин за свързване с Тор. Използвайте ако Тор не е забранен.</string>
     <string name="power_user_mode">Режим за опитни потребители</string>
     <string name="power_user_description">За потребители, запознати с Тор. Дава възможност Орбот да бъде пуснат без настройки на ВЧМ, показва отворените портове на SOCKS и HTTP</string>
-    <string name="action_activate">Включване</string>
     <string name="app_suggested_subtitle">Orbot работи най-добре с приложения за съобщения и социални медии.</string>
     <string name="apps_suggested_title">Препоръчани приложения</string>
     <string name="apps_other_apps">Други приложения</string>
@@ -273,7 +272,6 @@
     <string name="country_clear">Премахване на държавата</string>
     <string name="battery_optimization_title">Изключване оптимизиране на батерията</string>
     <string name="battery_optimization_pref_msg">Настройка за потребителите, които подозират, че устройството им преждевременно изключва Orbot, докато приложението работи във фонов режим.</string>
-    <string name="kindness_mode_disclaimer_bridge">Не използвайте Режим на доброта в райони с цензура или когато трябва да използвате мост за свързване с Tor.</string>
     <string name="battery_optimizations_dialog_btn_disable">Настройки за оптимизиране на батерията</string>
     <string name="btn_connect_anyway">Всързване въпреки това</string>
     <string name="pref_proxy_no_proxy">Без прокси</string>
