@@ -362,4 +362,10 @@
     <string name="battery_optimizations_are_enabled">Battery Optimizations are currently active for Orbot. This is the default and is reasonable for most users…</string>
     <string name="btn_connect_anyway">Connect Anyway</string>
     <string name="btn_connect_anyway_stop_showing">Connect and Turn Off This Warning</string>
+    <string name="activate_kindness_mode">Activate Kindness Mode</string>
+    <string name="running_kindness_mode_on_android">Running Kindness Mode on Android</string>
+    <string name="kindness_mode_runs_when_the_device_is_connected_to_wifi">Kindness mode runs when the device is connected to WiFi.</string>
+    <string name="you_can_change_the_settings_anytime">You can change the settings anytime.</string>
+    <string name="we_recommend_charging_the_device_when_running_kindness_mode">We recommend charging the device when running Kindness Mode.</string>
+    <string name="turn_off_kindness_mode_when_you_use_another_vpn_on_this_device">Turn off Kindness Mode when you use another VPN on this device.</string>
 </resources>

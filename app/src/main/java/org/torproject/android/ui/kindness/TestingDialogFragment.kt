@@ -66,6 +66,16 @@ class TestingDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         mBinding = FragmentTestingBinding.inflate(inflater, container, false)
+
+        mBinding.btnCancel1.setOnClickListener {
+            dismiss()
+        }
+
+        mBinding.btnContinue1.setOnClickListener {
+            mBinding.boxInstructions.visibility = View.GONE
+            mBinding.boxTesting.visibility = View.VISIBLE
+        }
+
         mBinding.tvTitleApproved.text = getString(R.string.testing_title_approved, "✅")
         mBinding.tvTitleDeclined.text = getString(R.string.testing_title_declined, "\uD83D\uDEAB")
         mBinding.btnAbortTest.setOnClickListener { dismiss() }
@@ -149,6 +159,9 @@ class TestingDialogFragment : DialogFragment() {
     }
 
     private fun showUserConsentUI() {
+        mBinding.boxInstructions.visibility = View.VISIBLE
+        mBinding.boxTesting.visibility = View.GONE
+
         with(mBinding.btnAbortTest) {
             visibility = View.VISIBLE
             setOnClickListener { dismiss() }

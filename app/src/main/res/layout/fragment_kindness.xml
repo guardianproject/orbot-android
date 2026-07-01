@@ -57,7 +57,7 @@
             <ImageView
                 android:src="@drawable/exclamationmark_triangle_fill"
                 android:layout_width="20dp"
-                android:layout_height="29dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="64dp"
                 android:importantForAccessibility="no"
