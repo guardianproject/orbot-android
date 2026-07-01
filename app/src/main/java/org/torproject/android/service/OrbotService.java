@@ -333,7 +333,7 @@ public class OrbotService extends VpnService {
 
         sendBroadcast(reply.setAction(LOCAL_ACTION_STATUS).setPackage(getPackageName()));
 
-        if (mPortSOCKS != -1 && mPortHTTP != -1)
+        if (mPortSOCKS != -1)
             sendCallbackPorts(mPortSOCKS, mPortHTTP, mPortDns, mPortTrans);
     }
 
@@ -706,7 +706,7 @@ public class OrbotService extends VpnService {
                             }
                         }
 
-                        if (mPortSOCKS != -1 && mPortHTTP != -1)
+                        if (mPortSOCKS != -1)
                             sendCallbackPorts(mPortSOCKS, mPortHTTP, mPortDns, mPortTrans);
                     }
                 }

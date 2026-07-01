@@ -355,11 +355,33 @@ object Prefs {
     val disallowBiometricAuthentication: Boolean
         get() = cr?.getPrefBoolean(PREF_DISALLOW_BIOMETRIC_AUTH) ?: false
 
-    val proxySocksPort: String?
-        get() = cr?.getPrefString(OrbotConstants.PREF_SOCKS)
 
-    val proxyHttpPort: String?
-        get() = cr?.getPrefString(OrbotConstants.PREF_HTTP)
+    fun getSOCKSPortForProfile(): String {
+        val useAutoSocks = cr?.getPrefBoolean("pref_use_auto_socks") ?: true
+        if (useAutoSocks) return "auto"
+        return cr?.getPrefString("pref_socksport_value") ?: "auto"
+    }
+
+    fun getHttpTunnelPortForProfile() : String? {
+        val useHttpProxy = cr?.getPrefBoolean("pref_httpport_enabled") ?: false
+        if (useHttpProxy)
+            return cr?.getPrefString("pref_httpport_value") ?: "auto"
+        return null
+    }
+
+    fun getDnsPortForProfile(): String? {
+        val useDnsPort = cr?.getPrefBoolean("pref_dnsport_enabled") ?: false
+        if (useDnsPort)
+            return cr?.getPrefString("pref_dnsport_value") ?: "auto"
+        return null
+    }
+
+    fun getTransProxyPortForProfile(): String? {
+        val useTransProxy = cr?.getPrefBoolean("pref_transparentport_enabled") ?: false
+        if (useTransProxy)
+            return cr?.getPrefString("pref_transparentport_value") ?: "auto"
+        return null
+    }
 
     val connectionPadding: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_CONNECTION_PADDING) ?: false
@@ -372,12 +394,6 @@ object Prefs {
 
     val reducedCircuitPadding: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_REDUCED_CIRCUIT_PADDING, true) ?: true
-
-    val torTransPort: String?
-        get() = cr?.getPrefString(OrbotConstants.PREF_TRANSPORT)
-
-    val torDnsPort: String?
-        get() = cr?.getPrefString(OrbotConstants.PREF_DNSPORT)
 
     val entryNodes: String?
         get() = cr?.getPrefString("pref_entrance_nodes")
@@ -444,7 +460,7 @@ object Prefs {
         cr?.putPref(PREF_ORBOT_SERVICE_LOG, getOrbotServiceLog() + "\n" + logLine)
     }
 
-    fun getOrbotServiceLog() : String {
+    fun getOrbotServiceLog(): String {
         return cr?.getPrefString(PREF_ORBOT_SERVICE_LOG, "") ?: ""
     }
 }

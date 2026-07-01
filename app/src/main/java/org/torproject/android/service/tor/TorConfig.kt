@@ -2,11 +2,9 @@ package org.torproject.android.service.tor
 
 import android.content.ContextWrapper
 import android.util.Log
-import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.db.OnionServiceColumns
 import org.torproject.android.service.db.V3ClientAuthColumns
-import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
 import java.io.File
 
@@ -19,8 +17,7 @@ object TorConfig {
             "AvoidDiskWrites 1"
         )
 
-        val socksPortPref = getPort(Prefs.proxySocksPort ?: OrbotConstants.SOCKS_PROXY_PORT_DEFAULT)
-        val httpPortPref = getPort(Prefs.proxyHttpPort ?: OrbotConstants.HTTP_PROXY_PORT_DEFAULT)
+        val socksPortPref = Prefs.getSOCKSPortForProfile()
 
         val isolate = getIsolation()
         val ipv6Pref = getIpv6()
@@ -29,12 +26,14 @@ object TorConfig {
             conf.add("SOCKSPort 0.0.0.0:$socksPortPref $ipv6Pref $isolate")
             conf.add("SocksPolicy accept *:*")
         } else {
-            conf.add("SOCKSPort auto $ipv6Pref $isolate")
+            conf.add("SOCKSPort $socksPortPref $ipv6Pref $isolate")
         }
 
         conf.add("SafeSocks 0")
         conf.add("TestSocks 0")
-        conf.add("HTTPTunnelPort 0 $isolate")
+        Prefs.getHttpTunnelPortForProfile()?.let {
+            conf.add("HTTPTunnelPort $it $isolate")
+        }
 
         if (Prefs.connectionPadding) {
             conf.add("ConnectionPadding 1")
@@ -50,11 +49,14 @@ object TorConfig {
             conf.add("ReducedCircuitPadding 1")
         }
 
-        val transPort = Prefs.torTransPort ?: OrbotConstants.TOR_TRANSPROXY_PORT_DEFAULT.toString()
-        val dnsPort = Prefs.torDnsPort ?: OrbotConstants.TOR_DNS_PORT_DEFAULT.toString()
+        Prefs.getTransProxyPortForProfile()?.let {
+            conf.add("TransPort $it $isolate")
+        }
 
-        conf.add("TransPort 0 $isolate")
-        conf.add("DNSPort 0 $isolate")
+        Prefs.getDnsPortForProfile()?.let {
+            conf.add("DNSPort $it $isolate")
+        }
+
         conf.add("VirtualAddrNetwork 10.192.0.0/10")
         conf.add("AutomapHostsOnResolve 1")
         conf.add("DormantClientTimeout 10 minutes")
@@ -114,14 +116,6 @@ object TorConfig {
         if (!custom.isNullOrEmpty()) conf.add(custom)
         Log.wtf("bim", conf.joinToString("\n"))
         return conf.joinToString("\n")
-    }
-
-
-    private fun getPort(port: String): String {
-        var port = port
-        if (port.indexOf(':') != -1) port = port.split(":").toTypedArray()[1]
-
-        return NetworkUtils.checkPortOrAuto(port)
     }
 
     private fun getIsolation(): String {
