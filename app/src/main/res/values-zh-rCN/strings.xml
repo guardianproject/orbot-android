@@ -302,7 +302,6 @@
     <string name="kindness_quality_upgrade_line2">要升级，请在您的 Wi-Fi 路由器上为此设备启用 UPnP。</string>
     <string name="kindness_your_impact">您的贡献数据</string>
     <string name="test_risk_consent">我已了解，开始测试</string>
-    <string name="testing_title_approved">%s 已批准</string>
     <string name="testing_explanation_approved">您非常适合成为 Tor 网络上的 Snowflake 代理。</string>
     <string name="testing_continue">继续</string>
     <string name="testing_title_declined">%s 未批准</string>

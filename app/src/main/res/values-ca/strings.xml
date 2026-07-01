@@ -302,7 +302,6 @@
     <string name="kindness_quality_upgrade_line2">Per a millorar-lo, activeu el UPnP per a aquest dispositiu en el vostre encaminador Wi-Fi.</string>
     <string name="kindness_your_impact">El vostre impacte en nombres</string>
     <string name="test_risk_consent">Ho entenc, inicia el test</string>
-    <string name="testing_title_approved">%s aprovat</string>
     <string name="testing_explanation_approved">Sou un gran candidat per a esdevindre un servidor Snowflake en la xarxa Tor.</string>
     <string name="testing_continue">Continua</string>
     <string name="testing_title_declined">%s no aprovat</string>

@@ -84,7 +84,7 @@
                 android:layout_marginTop="24dp"
                 android:background="@drawable/btn_shape_round"
                 android:backgroundTint="@color/orbot_btn_enabled_purple"
-                android:text="@string/action_continue"
+                android:text="@string/testing_continue"
                 android:textColor="@android:color/white" />
 
             <Button

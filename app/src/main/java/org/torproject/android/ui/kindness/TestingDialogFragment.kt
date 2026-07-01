@@ -103,7 +103,6 @@ class TestingDialogFragment : DialogFragment() {
             dismiss()
         }
 
-        mBinding.tvTitleApproved.text = getString(R.string.testing_title_approved, "✅")
         mBinding.tvTitleDeclined.text = getString(R.string.testing_title_declined, "\uD83D\uDEAB")
         mBinding.btContinue.setOnClickListener {
             setFragmentResult(KEY_RESULT, Bundle().apply { putBoolean(KEY_RESULT, true) })
@@ -188,6 +187,7 @@ class TestingDialogFragment : DialogFragment() {
         mBinding.boxInstructions.visibility = View.VISIBLE
         mBinding.boxWarnings.visibility = View.GONE
         mBinding.boxTesting.visibility = View.GONE
+        mBinding.boxApproved.visibility = View.GONE
     }
 
     private fun isOrbotOnOrStarting(): Boolean {

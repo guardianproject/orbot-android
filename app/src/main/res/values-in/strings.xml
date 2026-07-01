@@ -302,7 +302,6 @@
     <string name="kindness_quality_upgrade_line2">Untuk meningkatkannya, aktifkan UPnP pada router Wi-Fi untuk perangkat ini.</string>
     <string name="kindness_your_impact">Dampak Anda dalam Angka</string>
     <string name="test_risk_consent">Saya Mengerti, Mulai Uji</string>
-    <string name="testing_title_approved">%s Disetujui</string>
     <string name="testing_explanation_approved">Anda adalah kandidat yang sangat baik untuk menjadi Snowflake Proxy di jaringan Tor.</string>
     <string name="testing_continue">Lanjutkan</string>
     <string name="testing_title_declined">%s Tidak Disetujui</string>

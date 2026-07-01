@@ -182,7 +182,6 @@
     <string name="custom_bridges_description">Paste the bridge addresses you receive below. Or scan the QR code to add them. Friends can get bridges for you at %1$s.</string>
     <string name="power_user_mode">Power User Mode</string>
     <string name="power_user_description">For users familiar with Tor. Allows you to start Orbot without the VPN setting and shows open SOCKS and HTTP ports</string>
-    <string name="action_continue">Continue</string>
     <string name="action_learn_more">Learn More</string>
     <string name="Enabled">Enabled</string>
     <string name="Disabled">Disabled</string>
@@ -226,7 +225,6 @@
 
     <string name="test_risk_consent">I Understand, Start Test</string>
 
-    <string name="testing_title_approved">%s Approved</string>
     <string name="testing_explanation_approved">You are a great candidate for becoming a Snowflake Proxy on the Tor network.</string>
     <string name="testing_continue">Continue</string>
     <string name="testing_title_declined">%s Not Approved</string>
@@ -368,4 +366,5 @@
     <string name="testing_connection">Testing Connection</string>
     <string name="please_wait_while_we_check_to_see_if_you_can_run_an_effective_proxy">Please wait while we check to see if you can run an effective proxy.</string>
     <string name="stop_test">Stop Test</string>
+    <string name="approved">Approved</string>
 </resources>

@@ -302,7 +302,6 @@
     <string name="kindness_quality_upgrade_line2">Chun uasghrádú a dhéanamh, cumasaigh UPnP ar do ródaire Wi-Fi don ghléas seo.</string>
     <string name="kindness_your_impact">Do Thionchar i bhFigiúirí</string>
     <string name="test_risk_consent">Tuigim, Tosaigh an Tástáil</string>
-    <string name="testing_title_approved">%s Ceadaithe</string>
     <string name="testing_explanation_approved">Is iarrthóir iontach thú le bheith i do Seachfhreastalaí Snowflake ar líonra Tor.</string>
     <string name="testing_continue">Lean ar aghaidh</string>
     <string name="testing_title_declined">%s Gan Ceadú</string>

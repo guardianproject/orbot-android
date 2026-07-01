@@ -301,7 +301,6 @@
     <string name="kindness_quality_upgrade_line2">性能を向上させるには、このデバイスの Wi-Fi ルーターで UPnP を有効にしてください。</string>
     <string name="kindness_your_impact">あなたの貢献</string>
     <string name="test_risk_consent">リスクを理解した上でテストを開始する</string>
-    <string name="testing_title_approved">%s 問題ありません</string>
     <string name="testing_explanation_approved">あなたは Tor ネットワーク上の Snowflake プロキシーになるのにふさわしい人物です。</string>
     <string name="testing_continue">続ける</string>
     <string name="testing_title_declined">%s 失敗しました</string>
