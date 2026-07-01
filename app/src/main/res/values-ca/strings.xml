@@ -301,13 +301,6 @@
     <string name="kindness_quality_upgrade_line1">El servidor intermediari pot ser més potent si executeu el mode altruista amb Wi-Fi.</string>
     <string name="kindness_quality_upgrade_line2">Per a millorar-lo, activeu el UPnP per a aquest dispositiu en el vostre encaminador Wi-Fi.</string>
     <string name="kindness_your_impact">El vostre impacte en nombres</string>
-    <string name="testing_consent_header">Abans d\'esdevindre un servidor Snowflake, cal que comprovem la vostra connexió a internet per a veure si pot servir com a servidor útil per als altres.</string>
-    <string name="testing_consent_direct_tor_disclaimer">Durant les proves, l\'Orbot provarà de connectar-se directament al Tor sense fer servir cap pont. Aquest test fallarà en regions amb una forta censura que bloqui el Tor.</string>
-    <string name="testing_consent_direct_stop_vpn_disclaimer">La vostra connexió a Tor actual es desconnectarà perquè feu servir un pont o un servidor intermediar per a connectar-vos-hi. Es reiniciarà automàticament quan la prova finalitzi.</string>
-    <string name="testing_consent_leaking_connection">No inicieu la prova si desconnectar-vos temporalment del Tor us comporta una situació no segura</string>
-    <string name="testing_title_consent_request">Prova de connexió del mode altruista</string>
-    <string name="testing_title_testing">S\'està provant la qualitat…</string>
-    <string name="testing_explanation_testing">Abans que pugueu esdevindre un servidor Snowflake, cal que comprovem si la vostra connexió a internet es pot fer servir per a executar un servidor efectiu. Espereu mentre ho comprovem.</string>
     <string name="test_risk_consent">Ho entenc, inicia el test</string>
     <string name="testing_title_approved">%s aprovat</string>
     <string name="testing_explanation_approved">Sou un gran candidat per a esdevindre un servidor Snowflake en la xarxa Tor.</string>

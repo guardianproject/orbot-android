@@ -213,13 +213,6 @@
     <string name="kindness_quality_upgrade_line1">Proxy của bạn có thể mạnh hơn khi chế độ thân thiện được chạy trên Wi-Fi.</string>
     <string name="kindness_quality_upgrade_line2">Để nâng cấp, bật UPnP trên router Wi-Fi của bạn cho thiết bị này.</string>
     <string name="kindness_your_impact">Ảnh hưởng của bạn đến từ Số lượng</string>
-    <string name="testing_consent_header">Trước khi trở thành Snowflake Proxy, chúng tôi cần kiểm tra kết nối Internet của bạn xem nó có thể phục vụ như một proxy hữu ích cho người khác hay không.</string>
-    <string name="testing_consent_direct_tor_disclaimer">Trong khi thử nghiệm, Orbot sẽ cố gắng kết nối trực tiếp đến Tor mà không dùng cầu nối. Kiểm tra sẽ thất bại ở nơi kiểm duyệt nặng tới mức chặn Tor.</string>
-    <string name="testing_consent_direct_stop_vpn_disclaimer">Kết nối tới Tor hiện tại của bạn sẽ bị ngắt vù bạn đang dùng một cầu nối hoặc proxy để kết nối tới Tor. Nó sẽ tự động khởi động lại sau khi bài kiểm tra hoàn thành.</string>
-    <string name="testing_consent_leaking_connection">Đừng kiểm tra nếu nó là không an toàn cho bạn ngắt kết nối từ Tor tạm thời</string>
-    <string name="testing_title_consent_request">Kiểm tra Kết nối Chế độ Thân thiện</string>
-    <string name="testing_title_testing">Đang kiểm tra Chất lượng…</string>
-    <string name="testing_explanation_testing">Trước khi bạn có thể trở thành một Snowflake Proxy, chúng sẽ cần xem có thể dùng kết nối Internet của bạn để chạy proxy hiệu quả không. Vui lòng đợi trong lúc chúng tôi kiểm tra.</string>
     <string name="test_risk_consent">Tôi Hiểu, Bắt đầu Kiểm tra</string>
     <string name="testing_title_approved">%s Được chấp thuận</string>
     <string name="testing_explanation_approved">Bạn là ứng viên tốt để trở thành Snowflake Proxy cho mạng Tor.</string>

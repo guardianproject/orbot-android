@@ -301,13 +301,6 @@
     <string name="kindness_quality_upgrade_line1">当通过 Wi-Fi 运行善举模式时，您的代理功能会更强大。</string>
     <string name="kindness_quality_upgrade_line2">要升级，请在您的 Wi-Fi 路由器上为此设备启用 UPnP。</string>
     <string name="kindness_your_impact">您的贡献数据</string>
-    <string name="testing_consent_header">在成为 Snowflake 代理之前，我们需要测试您的互联网连接，以确认它能否为他人提供有效的代理服务。</string>
-    <string name="testing_consent_direct_tor_disclaimer">在此测试期间，Orbot 将尝试不使用网桥直接连接到 Tor。在屏蔽 Tor 的严格审查地区，此测试将会失败。</string>
-    <string name="testing_consent_direct_stop_vpn_disclaimer">由于您正在使用网桥或代理连接到 Tor，您当前的 Tor 连接将会断开。测试完成后，连接将自动重启。</string>
-    <string name="testing_consent_leaking_connection">如果暂时断开 Tor 连接对您不安全，请勿开始此测试</string>
-    <string name="testing_title_consent_request">善举模式连接测试</string>
-    <string name="testing_title_testing">正在测试质量…</string>
-    <string name="testing_explanation_testing">在您成为 Snowflake 代理之前，我们需要确认您的互联网连接是否能够用于运行有效的代理。请稍候，我们正在检查。</string>
     <string name="test_risk_consent">我已了解，开始测试</string>
     <string name="testing_title_approved">%s 已批准</string>
     <string name="testing_explanation_approved">您非常适合成为 Tor 网络上的 Snowflake 代理。</string>

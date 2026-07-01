@@ -99,9 +99,12 @@ class TestingDialogFragment : DialogFragment() {
             }
         }
 
+        mBinding.btnStopTest.setOnClickListener {
+            dismiss()
+        }
+
         mBinding.tvTitleApproved.text = getString(R.string.testing_title_approved, "✅")
         mBinding.tvTitleDeclined.text = getString(R.string.testing_title_declined, "\uD83D\uDEAB")
-        mBinding.btnAbortTest.setOnClickListener { dismiss() }
         mBinding.btContinue.setOnClickListener {
             setFragmentResult(KEY_RESULT, Bundle().apply { putBoolean(KEY_RESULT, true) })
             dismiss()
@@ -185,24 +188,6 @@ class TestingDialogFragment : DialogFragment() {
         mBinding.boxInstructions.visibility = View.VISIBLE
         mBinding.boxWarnings.visibility = View.GONE
         mBinding.boxTesting.visibility = View.GONE
-
-        with(mBinding.btnAbortTest) {
-            visibility = View.VISIBLE
-            setOnClickListener { dismiss() }
-        }
-        with(mBinding.btnStartTestWithConsent) {
-            visibility = View.VISIBLE
-            setOnClickListener {
-                showUserConsentUI()
-                doQualityTestRequiringConsent()
-            }
-        }
-
-        // if there's a tor connection over a bridge, explain we have to shut tor off
-        if (isOrbotOnOrStarting()) {
-            mBinding.tvTestingDisconnectVpnDisclaimer.visibility = View.VISIBLE
-            mBinding.tvDisclaimerConnectionLeak.visibility = View.VISIBLE
-        }
     }
 
     private fun isOrbotOnOrStarting(): Boolean {
@@ -211,24 +196,11 @@ class TestingDialogFragment : DialogFragment() {
     }
 
 
-    /* set UI for when the connecting directly to tor test is underway */
-    private fun showOngoingTestWithConsentUi() {
-        mBinding.progress.visibility = View.VISIBLE
-        mBinding.tvTestingConsentTorDisclaimer.visibility = View.GONE
-        mBinding.tvDisclaimerConnectionLeak.visibility = View.GONE
-        mBinding.tvTestingHeader.text = getString(R.string.testing_explanation_testing)
-        mBinding.btnAbortTest.visibility = View.GONE
-        mBinding.btnStartTestWithConsent.visibility = View.GONE
-        mBinding.tvTitleTesting.text = getString(R.string.testing_title_testing)
-        mBinding.tvTestingDisconnectVpnDisclaimer.visibility = View.GONE
-    }
-
     /** This part of the connection test requires the user's consent, since it involves attempting
      * a direct tor connection that censors can trivially detect, and possibly also temporarily
      * disabling Orbot VPN if there's an active connection with censorship circumvention tech.
      */
     private fun doQualityTestRequiringConsent() {
-        showOngoingTestWithConsentUi()
         lifecycleScope.launch {
             Log.d(TAG, "starting consent connection test ${currentTorState()}")
             val timestampStart = System.currentTimeMillis()

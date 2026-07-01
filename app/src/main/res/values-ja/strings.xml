@@ -300,13 +300,6 @@
     <string name="kindness_quality_upgrade_line1">Wi-Fi で Kindness Mode を有効にすると、プロキシーはより強力になります。</string>
     <string name="kindness_quality_upgrade_line2">性能を向上させるには、このデバイスの Wi-Fi ルーターで UPnP を有効にしてください。</string>
     <string name="kindness_your_impact">あなたの貢献</string>
-    <string name="testing_consent_header">Snowflake プロキシーを有効にする前に、あなたのインターネット接続がプロキシーとして問題なく機能するかどうかを確認する必要があります。</string>
-    <string name="testing_consent_direct_tor_disclaimer">このテストでは、Orbot はブリッジを使用せずに Tor に直接接続しようとします。Tor がブロックされている検閲の厳しい地域では、このテストは失敗します。</string>
-    <string name="testing_consent_direct_stop_vpn_disclaimer">ブリッジまたはプロキシーを使用して Tor に接続しているため、現在の Tor 接続は切断されます。このテストが終了すると、自動的に再接続されます。</string>
-    <string name="testing_consent_leaking_connection">Tor 接続を一時的であっても切断することが危険な場合は、このテストを開始しないでください</string>
-    <string name="testing_title_consent_request">Kindness Mode 接続テスト</string>
-    <string name="testing_title_testing">接続をテストしています…</string>
-    <string name="testing_explanation_testing">Snowflake プロキシーを有効にする前に、あなたのインターネット接続がプロキシーとして問題なく機能するかどうかを確認する必要があります。確認中ですのでしばらくお待ちください。</string>
     <string name="test_risk_consent">リスクを理解した上でテストを開始する</string>
     <string name="testing_title_approved">%s 問題ありません</string>
     <string name="testing_explanation_approved">あなたは Tor ネットワーク上の Snowflake プロキシーになるのにふさわしい人物です。</string>

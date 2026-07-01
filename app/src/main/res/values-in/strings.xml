@@ -301,13 +301,6 @@
     <string name="kindness_quality_upgrade_line1">Proxy Anda dapat menjadi lebih kuat saat mode kebaikan berjalan melalui Wi-Fi.</string>
     <string name="kindness_quality_upgrade_line2">Untuk meningkatkannya, aktifkan UPnP pada router Wi-Fi untuk perangkat ini.</string>
     <string name="kindness_your_impact">Dampak Anda dalam Angka</string>
-    <string name="testing_consent_header">Sebelum menjadi Snowflake Proxy, kami perlu menguji koneksi Internet Anda untuk melihat apakah koneksi tersebut dapat berfungsi sebagai proxy yang berguna bagi orang lain.</string>
-    <string name="testing_consent_direct_tor_disclaimer">Selama pengujian ini, Orbot akan mencoba terhubung langsung ke Tor tanpa menggunakan bridge. Pengujian ini akan gagal di wilayah dengan sensor ketat yang memblokir Tor.</string>
-    <string name="testing_consent_direct_stop_vpn_disclaimer">Koneksi Tor Anda saat ini akan terputus karena Anda menggunakan bridge atau proxy untuk terhubung ke Tor. Koneksi akan otomatis dimulai ulang setelah pengujian ini selesai.</string>
-    <string name="testing_consent_leaking_connection">Jangan mulai pengujian ini jika tidak aman bagi Anda untuk sementara terputus dari Tor</string>
-    <string name="testing_title_consent_request">Uji Koneksi Mode Kebaikan</string>
-    <string name="testing_title_testing">Menguji Kualitas…</string>
-    <string name="testing_explanation_testing">Sebelum Anda dapat menjadi Snowflake Proxy, kami perlu memeriksa apakah koneksi Internet Anda dapat digunakan untuk menjalankan proxy yang efektif. Harap tunggu sementara kami memeriksanya.</string>
     <string name="test_risk_consent">Saya Mengerti, Mulai Uji</string>
     <string name="testing_title_approved">%s Disetujui</string>
     <string name="testing_explanation_approved">Anda adalah kandidat yang sangat baik untuk menjadi Snowflake Proxy di jaringan Tor.</string>

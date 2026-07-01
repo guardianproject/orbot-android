@@ -58,6 +58,8 @@ class OrbotApp : Application() {
             // tell OrbotService it needs to reinstall geoip
             Prefs.isGeoIpReinstallNeeded = true
         }
+
+        Prefs.snowflakeNeedsQualityCheck = true
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

@@ -185,7 +185,6 @@
     <string name="setting_app_icon_title">Lietotnes ikona</string>
     <string name="country_clear">Noņemt valsti</string>
     <string name="kindness_proxy_quality">Starpniekservera kvalitāte</string>
-    <string name="testing_title_testing">Testē kvalitāti…</string>
     <string name="connect_to_tor">Pieslēgties Tor</string>
     <string name="status_loading_status">Ielādē tīkla statusu</string>
     <string name="my_country_optional">Mana valsts (pašu izvēle, neobligāti)</string>

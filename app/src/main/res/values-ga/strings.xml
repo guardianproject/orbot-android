@@ -301,13 +301,6 @@
     <string name="kindness_quality_upgrade_line1">Is féidir le do sheachfhreastalaí a bheith níos cumhachtaí nuair a bhíonn mód cineáltais ag rith ar Wi-Fi.</string>
     <string name="kindness_quality_upgrade_line2">Chun uasghrádú a dhéanamh, cumasaigh UPnP ar do ródaire Wi-Fi don ghléas seo.</string>
     <string name="kindness_your_impact">Do Thionchar i bhFigiúirí</string>
-    <string name="testing_consent_header">Sula n-éiríonn tú i do Sheachfhreastalaí Snowflake, ní mór dúinn do nasc Idirlín a thástáil le feiceáil an féidir leis a bheith ina sheachfhreastalaí úsáideach do dhaoine eile.</string>
-    <string name="testing_consent_direct_tor_disclaimer">Le linn na tástála seo, déanfaidh Orbot iarracht ceangal go díreach le Tor gan droichid a úsáid. Teipfidh ar an tástáil seo i réigiúin atá faoi cheansú trom a chuireann bac ar Tor.</string>
-    <string name="testing_consent_direct_stop_vpn_disclaimer">Déanfar do nasc Tor reatha a dhícheangal mar go bhfuil droichead nó seachfhreastalaí á úsáid agat chun ceangal le Tor. Atosóidh sé go huathoibríoch nuair a bheidh an tástáil seo críochnaithe.</string>
-    <string name="testing_consent_leaking_connection">Ná cuir tús leis an tástáil seo mura bhfuil sé sábháilte duit dícheangal go sealadach ó Tor</string>
-    <string name="testing_title_consent_request">Tástáil Ceangail Mód Cineáltais</string>
-    <string name="testing_title_testing">Tástáil Cáilíochta…</string>
-    <string name="testing_explanation_testing">Sula bhféadfaidh tú a bheith i do Sheachfhreastalaí Snowflake, ní mór dúinn a fheiceáil an féidir do nasc Idirlín a úsáid chun seachfhreastalaí éifeachtach a rith. Fan le do thoil agus muid ag seiceáil.</string>
     <string name="test_risk_consent">Tuigim, Tosaigh an Tástáil</string>
     <string name="testing_title_approved">%s Ceadaithe</string>
     <string name="testing_explanation_approved">Is iarrthóir iontach thú le bheith i do Seachfhreastalaí Snowflake ar líonra Tor.</string>
