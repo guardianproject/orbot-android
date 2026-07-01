@@ -4,6 +4,8 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.VpnService
+import android.os.Build
+import android.provider.Settings
 import android.util.Log
 import java.net.InetSocketAddress
 import java.net.Socket
@@ -52,6 +54,57 @@ object NetworkUtils {
         Log.d(logTag, "isOrbotRegisteredAsVpn: $isOrbotRegisteredAsVpn")
         return isOrbotRegisteredAsVpn
     }
+
+    /**
+     * Gets Private DNS setting configured by the user on Android 9+
+     *
+     * see:
+     * https://github.com/guardianproject/orbot-android/pull/1707
+     * https://android-developers.googleblog.com/2018/04/dns-over-tls-support-in-android-p.html
+     */
+    sealed class PrivateDns {
+
+        // user is on an older Android, or disabled private DNS on P+
+        data object Off : PrivateDns()
+
+        // user lets system choose to use DoH with servers it chooses when they're available
+        data object Opportunistic : PrivateDns()
+
+        //user specified and is using a specific host to resolve DNS queries that the system enforces
+        data class Strict(val hostname: String) : PrivateDns()
+
+        companion object {
+            private const val KEY_MODE = "private_dns_mode"
+            private const val KEY_HOSTNAME = "private_dns_specifier"
+
+            private const val MODE_OFF = "off"
+            private const val MODE_HOSTNAME = "hostname"
+            private const val MODE_AUTOMATIC = "automatic"
+            private const val MODE_OPPORTUNISTIC = "opportunistic"
+
+            const val HOSTNAME_UNKNOWN = ""
+
+            // private DNS is only available on Android P+
+            fun isPrivateDnsSupported(): Boolean = Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
+
+            fun getPrivateDnsConfiguration(context: Context): PrivateDns {
+                if (!isPrivateDnsSupported()) return Off
+                val dnsMode =
+                    Settings.Global.getString(context.contentResolver, KEY_MODE) ?: MODE_OFF
+               return when (dnsMode) {
+                    MODE_OFF -> Off
+                    MODE_AUTOMATIC, MODE_OPPORTUNISTIC -> Opportunistic
+                    MODE_HOSTNAME -> Strict(
+                        hostname = Settings.Global.getString(context.contentResolver, KEY_HOSTNAME)
+                            ?: HOSTNAME_UNKNOWN
+                    )
+
+                    else -> Off
+                }
+            }
+        }
+    }
+
 
     fun checkPortOrAuto(portString: String): String {
         if (!portString.equals("auto", ignoreCase = true)) {

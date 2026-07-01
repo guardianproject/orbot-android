@@ -83,16 +83,15 @@
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
             android:dividerHeight="1dp"
             android:drawSelectorOnTop="true"
             android:visibility="visible"
-            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvSubtitle"
             tools:visibility="visible" />
-
 
 
         <com.google.android.material.switchmaterial.SwitchMaterial
@@ -112,6 +111,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lvConnected" />
 
-
+        <TextView
+            android:id="@+id/tvPrivateDnsStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="2dp"
+            android:maxLines="2"
+            android:paddingBottom="@dimen/button_horizontal_small_margin"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switchConnect"
+            tools:text="Info About Private Dns Settings" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

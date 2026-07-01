@@ -3,6 +3,7 @@ package org.torproject.android.ui.connect
 import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import android.view.animation.AnimationUtils
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -34,6 +36,7 @@ import org.torproject.android.service.vpn.VpnServicePrepareWrapper
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.ui.more.LogBottomSheet
+import org.torproject.android.util.NetworkUtils
 import org.torproject.jni.TorService
 import kotlin.time.Duration.Companion.milliseconds
 
@@ -45,7 +48,6 @@ class ConnectFragment : Fragment(),
     lateinit var binding: FragmentConnectBinding
 
     val viewModel: ConnectViewModel by activityViewModels()
-
     private val startTorVpnResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             // The user pressed OK, we can start Tor VPN
@@ -155,6 +157,38 @@ class ConnectFragment : Fragment(),
     ): View {
         binding = FragmentConnectBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        updatePrivateDnsLabel()
+    }
+
+    // see https://github.com/guardianproject/orbot-android/pull/1707
+    private fun updatePrivateDnsLabel() {
+        val privateDns = NetworkUtils.PrivateDns.getPrivateDnsConfiguration(requireContext())
+        when (privateDns) {
+            is NetworkUtils.PrivateDns.Off, NetworkUtils.PrivateDns.Opportunistic -> {
+                binding.tvPrivateDnsStatus.visibility = View.GONE
+            }
+
+            is NetworkUtils.PrivateDns.Strict -> {
+                binding.tvPrivateDnsStatus.apply {
+                    paintFlags = paintFlags or Paint.UNDERLINE_TEXT_FLAG
+                    visibility = View.VISIBLE
+                    text = "${getString(R.string.private_dns_strict)}\n${privateDns.hostname}"
+                    setOnClickListener {
+                        AlertDialog.Builder(requireContext(), R.style.OrbotDialogTheme)
+                            .setTitle(R.string.private_dns)
+                            .setIcon(R.drawable.ic_stat_notifyerr)
+                            .setMessage(R.string.private_dns_explanation)
+                            .setPositiveButton(android.R.string.ok, null)
+                            .show()
+                    }
+                }
+            }
+        }
     }
 
     fun stopTorAndVpn() {
