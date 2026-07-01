@@ -368,4 +368,9 @@
     <string name="you_can_change_the_settings_anytime">You can change the settings anytime.</string>
     <string name="we_recommend_charging_the_device_when_running_kindness_mode">We recommend charging the device when running Kindness Mode.</string>
     <string name="turn_off_kindness_mode_when_you_use_another_vpn_on_this_device">Turn off Kindness Mode when you use another VPN on this device.</string>
+    <string name="test_connection">Test Connection</string>
+    <string name="orbot_will_test_your_connection_to_determine_if_you_can_be_a_snowflake_proxy_for_others">Orbot will test your connection to determine if you can be a Snowflake Proxy for others.</string>
+    <string name="the_test_will_try_to_connect_directly_to_the_tor_network">The test will try to connect directly to the Tor network.</string>
+    <string name="if_you_are_using_tor_bridges_they_will_temporarily_be_disconnected">If you are using Tor bridges, they will temporarily be disconnected.</string>
+    <string name="i_acknowledge_i_have_read_the_above">I acknowledge I have read the above.</string>
 </resources>

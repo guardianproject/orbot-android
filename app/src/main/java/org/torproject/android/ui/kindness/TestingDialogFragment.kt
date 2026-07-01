@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
@@ -73,7 +74,29 @@ class TestingDialogFragment : DialogFragment() {
 
         mBinding.btnContinue1.setOnClickListener {
             mBinding.boxInstructions.visibility = View.GONE
-            mBinding.boxTesting.visibility = View.VISIBLE
+            mBinding.boxWarnings.visibility = View.VISIBLE
+        }
+
+        mBinding.btnCancel2.setOnClickListener {
+            dismiss()
+        }
+
+        mBinding.swAcknowledge.setOnCheckedChangeListener { _, value ->
+            mBinding.btnContinue2.isEnabled = value
+
+            val context = context ?: return@setOnCheckedChangeListener
+
+            mBinding.btnContinue2.backgroundTintList = ContextCompat.getColorStateList(
+                context, if (value) R.color.orbot_btn_enabled_purple else R.color.orbot_btn_disable_grey)
+        }
+
+        mBinding.btnContinue2.setOnClickListener {
+            if (mBinding.btnContinue2.isEnabled) {
+                mBinding.boxWarnings.visibility = View.GONE
+                mBinding.boxTesting.visibility = View.VISIBLE
+
+                doQualityTestRequiringConsent()
+            }
         }
 
         mBinding.tvTitleApproved.text = getString(R.string.testing_title_approved, "✅")
@@ -155,11 +178,12 @@ class TestingDialogFragment : DialogFragment() {
         }
 
         // at this point, we need to obtain user consent to actually do the connection test...
-        showUserConsentUI()
+        showUserConsentUi()
     }
 
-    private fun showUserConsentUI() {
+    private fun showUserConsentUi() {
         mBinding.boxInstructions.visibility = View.VISIBLE
+        mBinding.boxWarnings.visibility = View.GONE
         mBinding.boxTesting.visibility = View.GONE
 
         with(mBinding.btnAbortTest) {
