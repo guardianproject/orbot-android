@@ -34,7 +34,7 @@ object TorConfig {
 
         conf.add("SafeSocks 0")
         conf.add("TestSocks 0")
-        conf.add("HTTPTunnelPort auto $isolate")
+        conf.add("HTTPTunnelPort 0 $isolate")
 
         if (Prefs.connectionPadding) {
             conf.add("ConnectionPadding 1")
@@ -53,8 +53,8 @@ object TorConfig {
         val transPort = Prefs.torTransPort ?: OrbotConstants.TOR_TRANSPROXY_PORT_DEFAULT.toString()
         val dnsPort = Prefs.torDnsPort ?: OrbotConstants.TOR_DNS_PORT_DEFAULT.toString()
 
-        conf.add("TransPort auto $isolate")
-        conf.add("DNSPort auto $isolate")
+        conf.add("TransPort 0 $isolate")
+        conf.add("DNSPort 0 $isolate")
         conf.add("VirtualAddrNetwork 10.192.0.0/10")
         conf.add("AutomapHostsOnResolve 1")
         conf.add("DormantClientTimeout 10 minutes")

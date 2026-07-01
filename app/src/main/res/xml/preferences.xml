@@ -291,37 +291,69 @@
         android:title="@string/setting_debug"
         app:iconSpaceReserved="false">
 
-        <EditTextPreference
-            android:defaultValue="9050"
-            android:dialogTitle="@string/pref_socks_dialog"
-            android:key="pref_socks"
-            android:summary="@string/pref_socks_summary"
-            android:title="@string/pref_socks_title"
-            app:iconSpaceReserved="false" />
-
-        <EditTextPreference
-            android:defaultValue="8118"
-            android:dialogTitle="@string/pref_http_dialog"
-            android:key="pref_http"
-            android:summary="@string/pref_http_summary"
-            android:title="@string/pref_http_title"
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_use_auto_socks"
+            android:summary="@string/pref_auto_socks_description"
+            android:title="@string/pref_auto_socks_title"
             app:iconSpaceReserved="false" />
 
         <EditTextPreference
             android:defaultValue="auto"
-            android:dialogTitle="@string/pref_transport_dialog"
-            android:key="pref_transport"
-            android:summary="@string/pref_transport_summary"
-            android:title="@string/pref_transport_title"
-            app:iconSpaceReserved="false" />
+            android:dialogMessage="@string/pref_auto_socks_description"
+            android:dialogTitle="@string/pref_socks_port_dialog"
+            android:key="pref_socksport_value"
+            android:summary="@string/pref_socks_port_description"
+            app:isPreferenceVisible="false" />
 
-        <EditTextPreference
-            android:defaultValue="auto"
-            android:dialogTitle="@string/pref_dnsport_dialog"
-            android:key="pref_dnsport"
-            android:summary="@string/pref_dnsport_summary"
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_dnsport_enabled"
+            android:summary="@string/pref_dns_enable"
             android:title="@string/pref_dnsport_title"
             app:iconSpaceReserved="false" />
+
+        <EditTextPreference
+            android:defaultValue="auto"
+            android:dialogMessage="@string/pref_dnsport_summary"
+            android:dialogTitle="@string/pref_dnsport_dialog"
+            android:key="pref_dnsport_value"
+            android:summary="@string/pref_dns_port_description"
+            app:iconSpaceReserved="false"
+            app:isPreferenceVisible="false" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_httpport_enabled"
+            android:summary="@string/pref_http_enable"
+            android:title="@string/pref_http_port_title"
+            app:iconSpaceReserved="false" />
+
+        <EditTextPreference
+            android:defaultValue="auto"
+            android:dialogMessage="@string/pref_http_enable"
+            android:dialogTitle="@string/pref_http_port_title"
+            android:key="pref_httpport_value"
+            android:summary="@string/pref_http_port_description"
+            app:iconSpaceReserved="false"
+            app:isPreferenceVisible="false" />
+
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_transparentport_enabled"
+            android:summary="@string/pref_trans_port_enable"
+            android:title="@string/pref_trans_port_title"
+            app:iconSpaceReserved="false" />
+
+        <EditTextPreference
+            android:defaultValue="auto"
+            android:dialogMessage="@string/pref_trans_port_enable"
+            android:dialogTitle="@string/pref_trans_port_title"
+            android:key="pref_transparentport_value"
+            android:summary="@string/pref_trans_port_description"
+            app:iconSpaceReserved="false"
+            app:isPreferenceVisible="false" />
 
         <EditTextPreference
             android:dialogTitle="@string/pref_torrc_dialog"
@@ -329,6 +361,7 @@
             android:summary="@string/pref_torrc_summary"
             android:title="@string/pref_torrc_title"
             app:iconSpaceReserved="false" />
+
 
         <CheckBoxPreference
             android:defaultValue="false"

@@ -362,4 +362,16 @@
     <string name="battery_optimizations_are_enabled">Battery Optimizations are currently active for Orbot. This is the default and is reasonable for most users…</string>
     <string name="btn_connect_anyway">Connect Anyway</string>
     <string name="btn_connect_anyway_stop_showing">Connect and Turn Off This Warning</string>
+    <string name="pref_http_port_title">Tor HTTP Tunnel Port</string>
+    <string name="pref_trans_port_title">Tor TransProxy Port</string>
+    <string name="pref_dns_enable">Open a DNS Port into Tor to listen to UDP DNS Requests</string>
+    <string name="pref_auto_socks_title">Automatically assign SOCKS Port</string>
+    <string name="pref_socks_port_dialog">Custom SOCKS Port</string>
+    <string name="pref_auto_socks_description">Allows Orbot to work seamlessly across multiple user profiles</string>
+    <string name="pref_http_enable">Opens an HTTP Proxy into Tor</string>
+    <string name="pref_trans_port_enable">Opens a port to listen to transparent proxy connections into Tor</string>
+    <string name="pref_http_port_description">Manually assign Tor\'s HTTP Tunnel Port, or use auto to ensure Orbot works across multiple Android user profiles</string>
+    <string name="pref_socks_port_description">Manually assign Tor\'s SOCKS Port, or use auto to ensure Orbot works across multiple Android user profiles</string>
+    <string name="pref_trans_port_description">Manually assign Tor\'s Transparent Proxy Port, or use auto to ensure Orbot works across multiple Android user profiles</string>
+    <string name="pref_dns_port_description">Manually assign Tor\'s DNS Port, or use auto to ensure Orbot works across multiple Android user profiles</string>
 </resources>

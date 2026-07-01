@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.os.LocaleListCompat
+import androidx.preference.CheckBoxPreference
 import androidx.preference.EditTextPreference
 import androidx.preference.ListPreference
 import androidx.preference.Preference
@@ -108,6 +109,17 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
                 true
             }
 
+        checkBoxPreferenceDisablesEditTextPreference(
+            "pref_use_auto_socks",
+            "pref_socksport_value",
+            showWhenChecked = false
+        )
+        checkBoxPreferenceDisablesEditTextPreference("pref_dnsport_enabled", "pref_dnsport_value")
+        checkBoxPreferenceDisablesEditTextPreference("pref_httpport_enabled", "pref_httpport_value")
+        checkBoxPreferenceDisablesEditTextPreference(
+            "pref_transparentport_enabled",
+            "pref_transparentport_value"
+        )
         val proxyType = findPreference<ListPreference>("pref_proxy_type")
         if (!ShadowSocks.isShadowSocksSupported()) {
             proxyType?.removeEntry(ShadowSocks.SCHEME)
@@ -119,8 +131,23 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
 
         if (proxyType != null) {
             proxyType.onPreferenceChangeListener = this
-
             onPreferenceChange(proxyType, proxyType.value)
+        }
+    }
+
+    private fun checkBoxPreferenceDisablesEditTextPreference(
+        cbp: String,
+        etp: String,
+        showWhenChecked: Boolean = true
+    ) {
+        findPreference<CheckBoxPreference>(cbp)?.apply {
+            val editTextPreference = findPreference<EditTextPreference>(etp)
+            editTextPreference?.isVisible = if (showWhenChecked) isChecked else !isChecked
+            onPreferenceChangeListener = { _, newValue ->
+                val newValueBool = newValue as Boolean
+                editTextPreference?.isVisible = if (showWhenChecked) newValueBool else !newValueBool
+                true
+            }
         }
     }
 
