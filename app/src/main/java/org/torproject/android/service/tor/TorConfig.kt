@@ -1,6 +1,7 @@
 package org.torproject.android.service.tor
 
 import android.content.ContextWrapper
+import android.util.Log
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.db.OnionServiceColumns
@@ -28,12 +29,12 @@ object TorConfig {
             conf.add("SOCKSPort 0.0.0.0:$socksPortPref $ipv6Pref $isolate")
             conf.add("SocksPolicy accept *:*")
         } else {
-            conf.add("SOCKSPort $socksPortPref $ipv6Pref $isolate")
+            conf.add("SOCKSPort auto $ipv6Pref $isolate")
         }
 
         conf.add("SafeSocks 0")
         conf.add("TestSocks 0")
-        conf.add("HTTPTunnelPort $httpPortPref $isolate")
+        conf.add("HTTPTunnelPort auto $isolate")
 
         if (Prefs.connectionPadding) {
             conf.add("ConnectionPadding 1")
@@ -52,8 +53,8 @@ object TorConfig {
         val transPort = Prefs.torTransPort ?: OrbotConstants.TOR_TRANSPROXY_PORT_DEFAULT.toString()
         val dnsPort = Prefs.torDnsPort ?: OrbotConstants.TOR_DNS_PORT_DEFAULT.toString()
 
-        conf.add("TransPort ${NetworkUtils.checkPortOrAuto(transPort)} $isolate")
-        conf.add("DNSPort ${NetworkUtils.checkPortOrAuto(dnsPort)} $isolate")
+        conf.add("TransPort auto $isolate")
+        conf.add("DNSPort auto $isolate")
         conf.add("VirtualAddrNetwork 10.192.0.0/10")
         conf.add("AutomapHostsOnResolve 1")
         conf.add("DormantClientTimeout 10 minutes")
@@ -111,7 +112,7 @@ object TorConfig {
 
         val custom = Prefs.customTorRc
         if (!custom.isNullOrEmpty()) conf.add(custom)
-
+        Log.wtf("bim", conf.joinToString("\n"))
         return conf.joinToString("\n")
     }
 
