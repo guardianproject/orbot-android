@@ -94,7 +94,6 @@
     <string name="pref_reduced_connection_padding">Juk\'aptayat waythapiñ ch\'amañchiri</string>
     <string name="pref_reduced_connection_padding_summary">Ch\'amachirimp llika katuqatamp  juk\'aqtayañataki, jank\'aki ch\'iqiyir waythapir jist\'antam ukatx juk\'amp juk\'a ch\'amachir wakichäwinak apayam</string>
     <string name="full_device_vpn">Taqpach wakichäwinakaw VPN ukamp apnaqatäni</string>
-    <string name="action_activate">Qhantayaña</string>
     <string name="version">Uñsta:</string>
     <string name="v3_import_auth_private">.auth_private apaniña</string>
     <string name="pref_http_title">Tor HTTP</string>

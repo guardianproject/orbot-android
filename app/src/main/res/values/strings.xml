@@ -151,7 +151,7 @@
     <string name="btn_change_exit">Change exit</string>
     <string name="btn_refresh">Refresh Connection</string>
     <string name="globe" translatable="false">🌎</string>
-    <string name="volunteer_mode_title">Kindness Mode: Help others connect to Tor</string>
+    <string name="volunteer_mode_title">Welcome to Kindness Mode</string>
     <string name="volunteer_mode_weekly_label">This Week</string>
     <string name="volunteer_mode_alltime_label">Total</string>
     <string name="volunteer_mode_subtitle_desc">Kindness Mode turns your device into a Snowflake Proxy on the Tor network — a bridge to help others connect.</string>
@@ -182,7 +182,6 @@
     <string name="custom_bridges_description">Paste the bridge addresses you receive below. Or scan the QR code to add them. Friends can get bridges for you at %1$s.</string>
     <string name="power_user_mode">Power User Mode</string>
     <string name="power_user_description">For users familiar with Tor. Allows you to start Orbot without the VPN setting and shows open SOCKS and HTTP ports</string>
-    <string name="action_activate">Activate</string>
     <string name="action_learn_more">Learn More</string>
     <string name="Enabled">Enabled</string>
     <string name="Disabled">Disabled</string>
@@ -223,23 +222,12 @@
     <string name="setting_padding">Padding</string>
     <string name="setting_debug">Debug</string>
 
-    <string name="testing_consent_header">Before becoming a Snowflake Proxy, we need to test your Internet connection to see if it can serve as a useful proxy for others.</string>
-    <string name="testing_consent_direct_tor_disclaimer">During this test, Orbot will attempt to connect directly to Tor without using bridges. This test will fail in heavily censored regions that block Tor.</string>
-    <string name="testing_consent_direct_stop_vpn_disclaimer">Your current Tor connection will be disconnected because you are using a bridge or proxy to connect to Tor. It will automatically restart with once this test is finished.</string>
-    <string name="testing_consent_leaking_connection">Do not start this test if it is unsafe for you to temporarily disconnect from Tor</string>
 
-
-    <string name="testing_title_consent_request">Kindness Mode Connection Test</string>
-    <string name="testing_title_testing">Testing Quality…</string>
-    <string name="testing_explanation_testing">Before you can become a Snowflake Proxy, we need to see if your Internet connection can be used to run an effective proxy. Please wait while we check.</string>
     <string name="test_risk_consent">I Understand, Start Test</string>
 
-    <string name="testing_title_approved">%s Approved</string>
     <string name="testing_explanation_approved">You are a great candidate for becoming a Snowflake Proxy on the Tor network.</string>
     <string name="testing_continue">Continue</string>
-    <string name="testing_title_declined">%s Not Approved</string>
     <string name="testing_explanation_declined">You cannot be a useful Snowflake Proxy at this time. If you keep seeing this message, try again on a different network.</string>
-    <string name="testing_explanation_declined2">Do not use Kindness Mode, if the Internet in your country is heavily censored.</string>
     <string name="testing_explanation_other_vpn">Kindness Mode can not be activated when using a VPN. The only exception is Orbot\'s VPN feature. To become a Snowflake Proxy you must either remove your VPN or switch to using Orbot.</string>
     <string name="testing_explanation_other_vpn_bubble">Open System VPN Settings…</string>
     <string name="testing_explanation_no_net">Connect to the Internet to see if you\'re a good candidate for Kindness Mode</string>
@@ -348,7 +336,7 @@
     <string name="unable_to_start_unknown_reason_error_msg">The VPN permission was denied or another VPN app has the \"Always-on VPN\" feature enabled. You can dismiss this and reconnect if you exited the previous VPN Request dialog by mistake. Technical users can use another VPN app and use Tor as a SOCKS Proxy by enabling Orbot\'s Power User Mode.</string>
     <string name="open_vpn_settings">Open Android VPN Settings</string>
 
-    <string name="kindness_mode_disclaimer_bridge">Activate if the internet in your country is not heavily censored.</string>
+    <string name="kindness_mode_disclaimer_bridge">Do not use Kindness Mode if you live in a highly censored country.</string>
     <string name="kindness_mode_unsupported_country">You selected %s as your country, but unfortunately Kindness Mode can\'t help people connect to Tor in this region. If you believe you\'re seeing this message by mistake, you can clear your country and test to see if you\'re eligible to be a Snowflake Proxy</string>
 
     <string name="battery_optimization_title">Disable Battery Optimizations</string>
@@ -362,4 +350,20 @@
     <string name="battery_optimizations_are_enabled">Battery Optimizations are currently active for Orbot. This is the default and is reasonable for most users…</string>
     <string name="btn_connect_anyway">Connect Anyway</string>
     <string name="btn_connect_anyway_stop_showing">Connect and Turn Off This Warning</string>
+    <string name="activate_kindness_mode">Activate Kindness Mode</string>
+    <string name="running_kindness_mode_on_android">Running Kindness Mode on Android</string>
+    <string name="kindness_mode_runs_when_the_device_is_connected_to_wifi">Kindness mode runs when the device is connected to WiFi.</string>
+    <string name="you_can_change_the_settings_anytime">You can change the settings anytime.</string>
+    <string name="we_recommend_charging_the_device_when_running_kindness_mode">We recommend charging the device when running Kindness Mode.</string>
+    <string name="turn_off_kindness_mode_when_you_use_another_vpn_on_this_device">Turn off Kindness Mode when you use another VPN on this device.</string>
+    <string name="test_connection">Test Connection</string>
+    <string name="orbot_will_test_your_connection_to_determine_if_you_can_be_a_snowflake_proxy_for_others">Orbot will test your connection to determine if you can be a Snowflake Proxy for others.</string>
+    <string name="the_test_will_try_to_connect_directly_to_the_tor_network">The test will try to connect directly to the Tor network.</string>
+    <string name="if_you_are_using_tor_bridges_they_will_temporarily_be_disconnected">If you are using Tor bridges, they will temporarily be disconnected.</string>
+    <string name="i_acknowledge_i_have_read_the_above">I acknowledge I have read the above.</string>
+    <string name="testing_connection">Testing Connection</string>
+    <string name="please_wait_while_we_check_to_see_if_you_can_run_an_effective_proxy">Please wait while we check to see if you can run an effective proxy.</string>
+    <string name="stop_test">Stop Test</string>
+    <string name="approved">Approved</string>
+    <string name="not_approved">Not Approved</string>
 </resources>

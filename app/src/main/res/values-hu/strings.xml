@@ -88,7 +88,6 @@
     <string name="confirm">OK</string>
     <string name="trying_to_connect_title">Csatlakozás…</string>
     <string name="menu_new_identity">Új személyazonosság</string>
-    <string name="action_activate">Aktiválás</string>
     <string name="no_internet_title">Csatlakozás az internethez</string>
     <string name="title_choose_apps">Alkalmazások kiválasztása</string>
     <string name="setting_debug">Hibakeresés</string>

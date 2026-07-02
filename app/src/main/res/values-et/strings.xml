@@ -143,7 +143,6 @@
     <string name="pref_isolate_protocol_summary">Kasutage iga ühendusprotokolli jaoks erinevat vooluahelat</string>
     <string name="pref_isolate_protocol">Isoleerida kliendiprotokollid</string>
     <string name="hide_apps">Peida rakendused võrgu jälgimise eest ja saada juurdepääs, kui need on blokeeritud.</string>
-    <string name="action_activate">Aktiveeri</string>
     <string name="many_ways">Torini jõudmiseks on mitmeid viise. Mõni neist võib teie jaoks toimida paremini kui teised.</string>
     <string name="power_user_description">Toriga tuttavatele kasutajatele. Võimaldab käivitada Orbot ilma VPN-seadistusteta ja näitab avatud SOCKS- ja HTTP-porti</string>
     <string name="app_suggested_subtitle">Orbot töötab kõige paremini koos sõnumite ja sotsiaalmeedia rakendustega.</string>

@@ -19,7 +19,6 @@
     <string name="version">பதிப்பு:</string>
     <string name="license">உரிமம்:</string>
     <string name="connect">இணைக்க</string>
-    <string name="action_activate">செயல்படுத்தவும்</string>
     <string name="title_choose_apps">செயலிகளைத் தேர்வுசெய்</string>
     <string name="menu_more">மேலும்</string>
     <string name="hidden_services">Onion சேவைகள்</string>
@@ -96,7 +95,6 @@
     <string name="pref_circuit_padding">சுற்று திணிப்பு</string>
     <string name="pref_circuit_padding_summary">சில வகையான போக்குவரத்து பகுப்பாய்விற்கு எதிராக பாதுகாக்க சர்க்யூட் பேடிங்கை இயக்கவும்</string>
     <string name="pref_prefer_ipv6">IPv6 இணைப்புகளை விரும்புங்கள்</string>
-    <string name="volunteer_mode_title">மற்றவர்களுக்கு உதவுங்கள்\n டோர் உடன் இணை</string>
     <string name="volunteer_mode_subtitle_desc">கருணை பயன்முறை உங்கள் சாதனம் மற்றவர்களுக்கு ஒரு பாலமாக இருக்க அனுமதிக்கிறது. இது தடுக்கப்பட்ட இடங்களில் டோர் பயன்படுத்த மக்களுக்கு உதவுகிறது.\n\n • இது உங்கள் பேட்டரியை வடிகட்டாது\n • இது உங்கள் இணையத்தை மெதுவாக்காது\n • இது வைஃபை மீது மட்டுமே இயங்க முடியும்\n • இதை எப்போது வேண்டுமானாலும் அணைக்கலாம்</string>
     <string name="smart_connect">அறிவுள்ள கனெக்ட்</string>
     <string name="hide_apps">பிணைய கண்காணிப்பிலிருந்து பயன்பாடுகளை மறைத்து, அவை தடுக்கப்படும்போது அணுகலைப் பெறுங்கள்.</string>
@@ -273,7 +271,6 @@
     <string name="unable_to_start_other_vpn_app_error_msg">%1$s ஆப்ச் \"எப்போதும் ஆன்\" VPN ஆக உள்ளமைக்கப்பட்டுள்ளது. ஆர்போட்டைத் தொடங்கும் முன் அதை முடக்கவும்.</string>
     <string name="unable_to_start_unknown_reason_error_msg">VPN இசைவு மறுக்கப்பட்டது அல்லது மற்றொரு VPN பயன்பாட்டில் \"Always-on VPN\" நற்பொருத்தம் இயக்கப்பட்டுள்ளது. முந்தைய VPN கோரிக்கை உரையாடலில் இருந்து தவறுதலாக வெளியேறினால், இதை நிராகரித்து மீண்டும் இணைக்கலாம். தொழில்நுட்ப பயனர்கள் மற்றொரு VPN பயன்பாட்டைப் பயன்படுத்தலாம் மற்றும் Orbot இன் ஆற்றல் பயனர் பயன்முறையை இயக்குவதன் மூலம் Tor ஐ SOCKS ப்ராக்சியாகப் பயன்படுத்தலாம்.</string>
     <string name="open_vpn_settings">Android VPN அமைப்புகளைத் திறக்கவும்</string>
-    <string name="kindness_mode_disclaimer_bridge">நீங்கள் தணிக்கை செய்யப்பட்ட பகுதியில் இருந்தால் அல்லது டோருடன் இணைக்க பாலத்தைப் பயன்படுத்த வேண்டியிருந்தால் கருணை பயன்முறையைப் பயன்படுத்த வேண்டாம்.</string>
     <string name="battery_optimization_title">பேட்டரி மேம்படுத்தல்களை முடக்கு</string>
     <string name="battery_optimization_pref_msg">சில பயனர்கள் தங்கள் சாதனம் பின்னணியில் இயங்கும் போது ஆர்போட்டை முன்கூட்டியே கொல்வதாக சந்தேகிக்கும் அமைப்பு.</string>
     <string name="battery_optimization_dialog_msg">ஆர்போட் பின்னணியில் இயங்கும்போது சில ஆண்ட்ராய்டு சாதனங்கள் அதைக் கொல்லக்கூடும். ஆர்போட் இணைக்கப்பட்டு இயங்குவதை உறுதிசெய்ய விரும்பும் பெரும்பாலான பயனர்களுக்கு, கணினி அமைப்புகளில் ஆர்போட்டை \"எப்போதும் ஆன்\" VPN ஆகச் செயல்பட வைப்பது போதுமானது. இருப்பினும், ஆர்போட்டில் பேட்டரி மேம்படுத்தல்களைச் செய்வதிலிருந்து உங்கள் சாதனத்தைத் தடுக்க நீங்கள் அதைத் தொடரலாம்.</string>

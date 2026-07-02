@@ -70,7 +70,6 @@
     <string name="secure_your_connection_subtitle">Sembunyikan aplikasi dari pemantauran jaringan dan dapatkan akses ketika mereka diblokir..</string>
     <string name="power_user_mode">Mode Pengguna Berdaya</string>
     <string name="power_user_description">Untuk pengguna yang familier dengan Tor. Memungkinkan Anda untuk memulai Orbot tanpa pengaturan VPN dan menampilkan porta SOCKS dan HTTP yang terbuka</string>
-    <string name="action_activate">Aktifkan</string>
     <string name="title_choose_apps">Pilih Aplikasi</string>
     <string name="app_suggested_subtitle">Orbot bekerja baik dengan aplikasi perpesanan dan media sosial.</string>
     <string name="apps_suggested_title">Aplikasi yang Disarankan</string>
@@ -285,7 +284,6 @@
     <string name="pref_proxy_no_proxy">Tanpa Proxy</string>
     <string name="pref_proxy_ss_title">URL Konfigurasi ShadowSocks</string>
     <string name="pref_proxy_ss_summary">URL konfigurasi ShadowSocks lengkap yang diawali dengan ss://</string>
-    <string name="volunteer_mode_title">Mode Kebaikan: Bantu orang lain terhubung ke Tor</string>
     <string name="volunteer_mode_weekly_label">Minggu Ini</string>
     <string name="volunteer_mode_alltime_label">Total</string>
     <string name="volunteer_mode_subtitle_desc">Mode Kebaikan mengubah perangkat Anda menjadi Snowflake Proxy di jaringan Tor — sebuah jembatan untuk membantu orang lain terhubung.</string>
@@ -303,23 +301,12 @@
     <string name="kindness_quality_upgrade_line1">Proxy Anda dapat menjadi lebih kuat saat mode kebaikan berjalan melalui Wi-Fi.</string>
     <string name="kindness_quality_upgrade_line2">Untuk meningkatkannya, aktifkan UPnP pada router Wi-Fi untuk perangkat ini.</string>
     <string name="kindness_your_impact">Dampak Anda dalam Angka</string>
-    <string name="testing_consent_header">Sebelum menjadi Snowflake Proxy, kami perlu menguji koneksi Internet Anda untuk melihat apakah koneksi tersebut dapat berfungsi sebagai proxy yang berguna bagi orang lain.</string>
-    <string name="testing_consent_direct_tor_disclaimer">Selama pengujian ini, Orbot akan mencoba terhubung langsung ke Tor tanpa menggunakan bridge. Pengujian ini akan gagal di wilayah dengan sensor ketat yang memblokir Tor.</string>
-    <string name="testing_consent_direct_stop_vpn_disclaimer">Koneksi Tor Anda saat ini akan terputus karena Anda menggunakan bridge atau proxy untuk terhubung ke Tor. Koneksi akan otomatis dimulai ulang setelah pengujian ini selesai.</string>
-    <string name="testing_consent_leaking_connection">Jangan mulai pengujian ini jika tidak aman bagi Anda untuk sementara terputus dari Tor</string>
-    <string name="testing_title_consent_request">Uji Koneksi Mode Kebaikan</string>
-    <string name="testing_title_testing">Menguji Kualitas…</string>
-    <string name="testing_explanation_testing">Sebelum Anda dapat menjadi Snowflake Proxy, kami perlu memeriksa apakah koneksi Internet Anda dapat digunakan untuk menjalankan proxy yang efektif. Harap tunggu sementara kami memeriksanya.</string>
     <string name="test_risk_consent">Saya Mengerti, Mulai Uji</string>
-    <string name="testing_title_approved">%s Disetujui</string>
     <string name="testing_explanation_approved">Anda adalah kandidat yang sangat baik untuk menjadi Snowflake Proxy di jaringan Tor.</string>
     <string name="testing_continue">Lanjutkan</string>
-    <string name="testing_title_declined">%s Tidak Disetujui</string>
     <string name="testing_explanation_declined">Saat ini Anda belum dapat menjadi Snowflake Proxy yang berguna. Jika Anda terus melihat pesan ini, coba lagi di jaringan yang berbeda.</string>
-    <string name="testing_explanation_declined2">Jangan gunakan Mode Kebaikan jika Internet di negara Anda mengalami sensor ketat.</string>
     <string name="testing_explanation_other_vpn">Mode Kebaikan tidak dapat diaktifkan saat menggunakan VPN. Satu-satunya pengecualian adalah fitur VPN milik Orbot. Untuk menjadi Snowflake Proxy, Anda harus menonaktifkan VPN Anda atau beralih menggunakan Orbot.</string>
     <string name="testing_explanation_other_vpn_bubble">Buka Pengaturan VPN Sistem…</string>
     <string name="testing_explanation_no_net">Hubungkan ke Internet untuk melihat apakah Anda cocok menggunakan Mode Kebaikan</string>
-    <string name="kindness_mode_disclaimer_bridge">Aktifkan jika Internet di negara Anda tidak mengalami sensor ketat.</string>
     <string name="kindness_mode_unsupported_country">Anda memilih %s sebagai negara Anda, tetapi sayangnya Mode Kebaikan tidak dapat membantu orang terhubung ke Tor di wilayah ini. Jika Anda yakin pesan ini muncul karena kekeliruan, Anda dapat menghapus negara Anda dan menguji apakah Anda memenuhi syarat untuk menjadi Snowflake Proxy</string>
 </resources>

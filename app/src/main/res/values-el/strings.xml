@@ -153,7 +153,6 @@
     <string name="asking">ΕΡΩΤΗΣΗ…</string>
     <string name="no_internet_title">Σύνδεση στο διαδίκτυο</string>
     <string name="no_internet_subtitle">Χρειάζεστε σύνδεση στο διαδίκτυο για να χρησιμοποιήσετε το Orbot.</string>
-    <string name="action_activate">Ενεργοποίηση</string>
     <string name="power_user_mode">Λειτουργία Power User</string>
     <string name="apps_other_apps">Άλλες εφαρμογές</string>
     <string name="app_suggested_subtitle">Το Orbot λειτουργεί καλύτερα με εφαρμογές ανταλλαγής μηνυμάτων και μέσων κοινωνικής δικτύωσης.</string>

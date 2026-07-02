@@ -63,7 +63,6 @@
     <string name="disable">Söndür</string>
     <string name="enable">İşə sal</string>
     <string name="version">Versiya:</string>
-    <string name="action_activate">Aktivləşdir</string>
     <string name="btn_refresh">Yenilə</string>
     <string name="trying_to_connect_title">Qoşulur…</string>
     <string name="setting_debug">Sazlama</string>

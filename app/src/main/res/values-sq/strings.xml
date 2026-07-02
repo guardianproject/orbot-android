@@ -30,7 +30,6 @@
     <string name="connected_title">I lidhur</string>
     <string name="power_user_mode">Mënyra “Përdorues i Regjur”</string>
     <string name="power_user_description">Për përdorues të familjarizuar me Tor-in. Ju lejon ta nisni Orbot-in pa rregullimin VPN dhe shfaqë porta SOCKS dhe HTTP të hapura</string>
-    <string name="action_activate">Aktivizoje</string>
     <string name="apps_suggested_title">Aplikacione të Këshilluar</string>
     <string name="apps_other_apps">Aplikacione të Tjera</string>
     <string name="pref_start_boot_title">Nise Orbot-in që gjatë Nisjes së Kompjuterit</string>
@@ -274,7 +273,6 @@
     <string name="unable_to_start_other_vpn_app_error_msg">Aplikacioni %1$s është formësuar të jetë një VPN “Përherë aktiv”. Ju lutemi, çaktivizojeni, para se të nisni Orbot-in.</string>
     <string name="unable_to_start_unknown_reason_error_msg">S’u dha leje për VPN, ose një tjetër aplikacion VPN ka të aktivizuar veçorinë “VPN përherë aktive”. Mund ta hidhni tej këtë sinjalizim dhe të rilidheni, nëse mbyllët gabimisht dialogun e mëparshëm Kërkesë për VPN. Përdoruesit e thelluar mund të përdorin një tjetër aplikacion VPN dhe të përdorin Tor-in si një Ndërmjetës SOCKS, duke aktivizuar Mënyrën “Përdorues i Thelluar” të Orbot-it.</string>
     <string name="open_vpn_settings">Hap Rregullime VPN-je Android</string>
-    <string name="kindness_mode_disclaimer_bridge">Aktivizojeni nëse interneti në vendin tuaj s’censurohet rëndë.</string>
     <string name="battery_optimization_title">Çaktivizo Optimizime Baterie</string>
     <string name="battery_optimization_pref_msg">Rregullim për disa përdorues që dyshojnë se pajisja e tyre po asgjëson para kohe Orbot-in teksa xhiron në prapaskenë.</string>
     <string name="battery_optimization_dialog_msg">Disa pajisje Android mund ta asgjësojnë Orbot-in teksa ky funksionon në prapaskenë. Për shumicën e përdoruesve që duan të sigurohen se Orbot-i mbetet i lidhur dhe funksional, mjafton të zgjidhet për Orbot-in të funksionojë si një VPN “Përherë hapur”, që nga rregullimet e sistemit. Por, mundet prapëseprapë ta pengoni pajisjen tuaj të kryejë çfarëdo optimizimi baterie në Orbot, nëse mendoni se është e nevojshme.</string>
@@ -289,7 +287,6 @@
     <string name="pref_proxy_no_proxy">Pa Ndërmjetës</string>
     <string name="pref_proxy_ss_title">URL Formësimi ShadowSocks-i</string>
     <string name="pref_proxy_ss_summary">URL e plotë formësimi ShadowSocks-i fillon me ss://</string>
-    <string name="volunteer_mode_title">Mënyrë Mirësie: Ndihmoni të tjerët të lidhen në Tor</string>
     <string name="volunteer_mode_weekly_label">Këtë Javë</string>
     <string name="volunteer_mode_alltime_label">Gjithsej</string>
 </resources>

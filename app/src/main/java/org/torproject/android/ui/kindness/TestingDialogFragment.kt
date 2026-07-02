@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
@@ -66,10 +67,43 @@ class TestingDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         mBinding = FragmentTestingBinding.inflate(inflater, container, false)
-        mBinding.tvTitleApproved.text = getString(R.string.testing_title_approved, "✅")
-        mBinding.tvTitleDeclined.text = getString(R.string.testing_title_declined, "\uD83D\uDEAB")
-        mBinding.btnAbortTest.setOnClickListener { dismiss() }
-        mBinding.btContinue.setOnClickListener {
+
+        mBinding.btnCancel1.setOnClickListener {
+            dismiss()
+        }
+
+        mBinding.btnContinue1.setOnClickListener {
+            mBinding.boxInstructions.visibility = View.GONE
+            mBinding.boxWarnings.visibility = View.VISIBLE
+        }
+
+        mBinding.btnCancel2.setOnClickListener {
+            dismiss()
+        }
+
+        mBinding.swAcknowledge.setOnCheckedChangeListener { _, value ->
+            mBinding.btnContinue2.isEnabled = value
+
+            val context = context ?: return@setOnCheckedChangeListener
+
+            mBinding.btnContinue2.backgroundTintList = ContextCompat.getColorStateList(
+                context, if (value) R.color.orbot_btn_enabled_purple else R.color.orbot_btn_disable_grey)
+        }
+
+        mBinding.btnContinue2.setOnClickListener {
+            if (mBinding.btnContinue2.isEnabled) {
+                mBinding.boxWarnings.visibility = View.GONE
+                mBinding.boxTesting.visibility = View.VISIBLE
+
+                doQualityTestRequiringConsent()
+            }
+        }
+
+        mBinding.btnStopTest.setOnClickListener {
+            dismiss()
+        }
+
+        mBinding.btnContinue3.setOnClickListener {
             setFragmentResult(KEY_RESULT, Bundle().apply { putBoolean(KEY_RESULT, true) })
             dismiss()
         }
@@ -132,7 +166,7 @@ class TestingDialogFragment : DialogFragment() {
         // immediately succeed if we've recently succeeded
         if (!Prefs.snowflakeNeedsQualityCheck) {
             Log.d(TAG, "recently passed quality check, proceeding")
-            mBinding.btContinue.callOnClick()
+            mBinding.btnContinue3.callOnClick()
             return
         }
 
@@ -140,32 +174,20 @@ class TestingDialogFragment : DialogFragment() {
         if (torConnectionState == ConnectUiState.On && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
             Log.d(TAG, "there's an active direct connection to tor, no need to test")
             Prefs.snowflakeNeedsQualityCheck = false
-            mBinding.btContinue.callOnClick()
+            mBinding.btnContinue3.callOnClick()
             return
         }
 
         // at this point, we need to obtain user consent to actually do the connection test...
-        showUserConsentUI()
+        showUserConsentUi()
     }
 
-    private fun showUserConsentUI() {
-        with(mBinding.btnAbortTest) {
-            visibility = View.VISIBLE
-            setOnClickListener { dismiss() }
-        }
-        with(mBinding.btnStartTestWithConsent) {
-            visibility = View.VISIBLE
-            setOnClickListener {
-                showUserConsentUI()
-                doQualityTestRequiringConsent()
-            }
-        }
-
-        // if there's a tor connection over a bridge, explain we have to shut tor off
-        if (isOrbotOnOrStarting()) {
-            mBinding.tvTestingDisconnectVpnDisclaimer.visibility = View.VISIBLE
-            mBinding.tvDisclaimerConnectionLeak.visibility = View.VISIBLE
-        }
+    private fun showUserConsentUi() {
+        mBinding.boxInstructions.visibility = View.VISIBLE
+        mBinding.boxWarnings.visibility = View.GONE
+        mBinding.boxTesting.visibility = View.GONE
+        mBinding.boxApproved.visibility = View.GONE
+        mBinding.boxDeclined.visibility = View.GONE
     }
 
     private fun isOrbotOnOrStarting(): Boolean {
@@ -174,24 +196,11 @@ class TestingDialogFragment : DialogFragment() {
     }
 
 
-    /* set UI for when the connecting directly to tor test is underway */
-    private fun showOngoingTestWithConsentUi() {
-        mBinding.progress.visibility = View.VISIBLE
-        mBinding.tvTestingConsentTorDisclaimer.visibility = View.GONE
-        mBinding.tvDisclaimerConnectionLeak.visibility = View.GONE
-        mBinding.tvTestingHeader.text = getString(R.string.testing_explanation_testing)
-        mBinding.btnAbortTest.visibility = View.GONE
-        mBinding.btnStartTestWithConsent.visibility = View.GONE
-        mBinding.tvTitleTesting.text = getString(R.string.testing_title_testing)
-        mBinding.tvTestingDisconnectVpnDisclaimer.visibility = View.GONE
-    }
-
     /** This part of the connection test requires the user's consent, since it involves attempting
      * a direct tor connection that censors can trivially detect, and possibly also temporarily
      * disabling Orbot VPN if there's an active connection with censorship circumvention tech.
      */
     private fun doQualityTestRequiringConsent() {
-        showOngoingTestWithConsentUi()
         lifecycleScope.launch {
             Log.d(TAG, "starting consent connection test ${currentTorState()}")
             val timestampStart = System.currentTimeMillis()
@@ -288,7 +297,12 @@ class TestingDialogFragment : DialogFragment() {
         errorExplanation?.let {
             mBinding.tvExplanationDeclined.text = errorExplanation
         }
-        bubbleMsg?.let {
+
+        if (bubbleMsg == null) {
+            mBinding.tvErrorBubbleMessage.visibility = View.INVISIBLE
+        }
+        else {
+            mBinding.tvErrorBubbleMessage.visibility = View.VISIBLE
             mBinding.tvErrorBubbleMessage.text = bubbleMsg
             mBinding.tvErrorBubbleMessage.setOnClickListener(bubbleAction)
         }

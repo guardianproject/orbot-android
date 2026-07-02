@@ -130,7 +130,6 @@
     <string name="pref_circuit_padding">Circuit-Padding</string>
     <string name="secure_your_connection_title">Bereit zum Verbinden</string>
     <string name="power_user_mode">Power-User-Modus</string>
-    <string name="action_activate">Aktivieren</string>
     <string name="apps_suggested_title">Vorgeschlagene Apps</string>
     <string name="power_user_description">Für Benutzer, die mit Tor vertraut sind. Ermöglicht den Start von Orbot ohne die VPN-Einstellung und zeigt offene SOCKS- und HTTP-Ports an</string>
     <string name="title_choose_apps">Apps auswählen</string>

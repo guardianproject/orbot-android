@@ -141,7 +141,6 @@
     <string name="apps_suggested_title">Рекомендуемые приложения</string>
     <string name="power_user_description">Для пользователей, знакомых с Tor. Позволяет запустить Orbot без настроек VPN и показывает открытые SOCKS и HTTP порты</string>
     <string name="apps_other_apps">Другие приложения</string>
-    <string name="action_activate">Активировать</string>
     <string name="app_suggested_subtitle">Orbot лучше всего работает с приложениями для обмена сообщениями и социальными сетями.</string>
     <string name="hide_apps">Скрывайте приложения от отслеживания в сети и получайте доступ при блокировке.</string>
     <string name="log_copied">Журнал скопирован</string>

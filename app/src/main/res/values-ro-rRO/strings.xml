@@ -149,7 +149,6 @@
     <string name="snowflake">Snowflake</string>
     <string name="log_copied">Jurnalul a fost copiat</string>
     <string name="power_user_description">Pentru utilizatorii familiarizați cu Tor. Vă permite să porniți Orbot fără setarea VPN și afișează porturile SOCKS și HTTP deschise</string>
-    <string name="action_activate">Activați</string>
     <string name="title_choose_apps">Selectează aplicații</string>
     <string name="apps_suggested_title">Aplicații sugerate</string>
     <string name="apps_other_apps">Alte aplicații</string>

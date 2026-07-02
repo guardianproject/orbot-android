@@ -140,7 +140,6 @@
     <string name="menu_more">Mere</string>
     <string name="title_choose_apps">Vælg Apps</string>
     <string name="no_internet_title">Forbind til internettet</string>
-    <string name="action_activate">Aktivér</string>
     <string name="setting_padding">Spaltefyld</string>
     <string name="setting_debug">Fejlfinding</string>
     <string name="connect">Forbinde</string>

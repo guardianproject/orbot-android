@@ -142,7 +142,6 @@
     <string name="title_choose_apps">アプリを選ぶ</string>
     <string name="apps_suggested_title">提案されたアプリ</string>
     <string name="app_suggested_subtitle">Orbot は、メッセージングアプリや SNS アプリとの相性が抜群です。</string>
-    <string name="action_activate">有効化</string>
     <string name="hide_apps">アプリをネットワーク監視から隠し、遮断されているときにはアクセスできるようにします。</string>
     <string name="pref_isolate_port">宛先ポートを分離</string>
     <string name="pref_isolate_port_summary">宛先ポートごとに別の回路を使用する</string>
@@ -285,7 +284,6 @@
     <string name="pref_proxy_no_proxy">プロキシーなし</string>
     <string name="pref_proxy_ss_title">ShadowSocks 構成 URL</string>
     <string name="pref_proxy_ss_summary">ss:// で始まる完全な ShadowSocks 構成 URL</string>
-    <string name="volunteer_mode_title">Kindness Mode: 他の人が Tor に接続できるよう支援しましょう</string>
     <string name="volunteer_mode_weekly_label">今週</string>
     <string name="volunteer_mode_alltime_label">合計</string>
     <string name="Disabled">無効</string>
@@ -302,24 +300,13 @@
     <string name="kindness_quality_upgrade_line1">Wi-Fi で Kindness Mode を有効にすると、プロキシーはより強力になります。</string>
     <string name="kindness_quality_upgrade_line2">性能を向上させるには、このデバイスの Wi-Fi ルーターで UPnP を有効にしてください。</string>
     <string name="kindness_your_impact">あなたの貢献</string>
-    <string name="testing_consent_header">Snowflake プロキシーを有効にする前に、あなたのインターネット接続がプロキシーとして問題なく機能するかどうかを確認する必要があります。</string>
-    <string name="testing_consent_direct_tor_disclaimer">このテストでは、Orbot はブリッジを使用せずに Tor に直接接続しようとします。Tor がブロックされている検閲の厳しい地域では、このテストは失敗します。</string>
-    <string name="testing_consent_direct_stop_vpn_disclaimer">ブリッジまたはプロキシーを使用して Tor に接続しているため、現在の Tor 接続は切断されます。このテストが終了すると、自動的に再接続されます。</string>
-    <string name="testing_consent_leaking_connection">Tor 接続を一時的であっても切断することが危険な場合は、このテストを開始しないでください</string>
-    <string name="testing_title_consent_request">Kindness Mode 接続テスト</string>
-    <string name="testing_title_testing">接続をテストしています…</string>
-    <string name="testing_explanation_testing">Snowflake プロキシーを有効にする前に、あなたのインターネット接続がプロキシーとして問題なく機能するかどうかを確認する必要があります。確認中ですのでしばらくお待ちください。</string>
     <string name="test_risk_consent">リスクを理解した上でテストを開始する</string>
-    <string name="testing_title_approved">%s 問題ありません</string>
     <string name="testing_explanation_approved">あなたは Tor ネットワーク上の Snowflake プロキシーになるのにふさわしい人物です。</string>
     <string name="testing_continue">続ける</string>
-    <string name="testing_title_declined">%s 失敗しました</string>
     <string name="testing_explanation_declined">現時点では Snowflake プロキシーになることはできません。このメッセージが繰り返し表示される場合は、別のネットワークでもう一度お試しください。</string>
-    <string name="testing_explanation_declined2">お住まいの国でインターネットが厳しく検閲されている場合は、Kindness Mode を使用しないでください。</string>
     <string name="testing_explanation_other_vpn">VPN を使用している場合は、Kindness Mode を有効にすることはできません (Orbot の VPN 機能を除く) 。Snowflake プロキシーになるには、VPN を無効にするか、代わりに Orbot を使用する必要があります。</string>
     <string name="testing_explanation_other_vpn_bubble">システムの VPN 設定を開く…</string>
     <string name="testing_explanation_no_net">インターネットに接続して Kindness Mode が問題なく機能するか確認する</string>
-    <string name="kindness_mode_disclaimer_bridge">お住まいの国でインターネットが厳しく検閲されていない場合は有効にしてください。</string>
     <string name="kindness_mode_unsupported_country">お住まいの国として %s を選択されましたが、残念ながらこの地域では Kindness Mode は他のユーザーが Tor に接続するのを支援できません。誤ってこのメッセージが表示されていると思われる場合は、国設定をクリアして、Snowflake プロキシーが問題なく機能するかどうか確認するためのテストを行ってください</string>
     <string name="kindness_proxy_quality_unknown">不明</string>
 </resources>

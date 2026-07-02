@@ -99,7 +99,6 @@
     <string name="trying_to_connect_title">Łączenie…</string>
     <string name="secure_your_connection_subtitle">Ukryj aplikacje przed monitorowaniem sieci i uzyskaj dostęp, gdy zostaną zablokowane.</string>
     <string name="title_choose_apps">Wybierz aplikacje</string>
-    <string name="action_activate">Aktywuj</string>
     <string name="power_user_description">Dla użytkowników zaznajomionych z Tor. Pozwala na uruchomienie Orbota bez ustawienia VPN i pokazuje otwarte porty SOCKS i HTTP</string>
     <string name="apps_suggested_title">Sugerowane aplikacje</string>
     <string name="apps_other_apps">Inne aplikacje</string>

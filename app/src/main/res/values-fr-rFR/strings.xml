@@ -120,7 +120,6 @@
     <string name="snowflake_proxy_msg_title">Afficher la notification de connexion</string>
     <string name="snowflake_proxy_msg_description">Afficher un message lorsque vous aidez quelqu\'un à contourner la censure</string>
     <string name="power_user_mode">Mode utilisateur avancé</string>
-    <string name="action_activate">Activer</string>
     <string name="title_choose_apps">Choisir les applications</string>
     <string name="app_suggested_subtitle">Orbot fonctionne mieux avec les applications de messagerie et de médias sociaux.</string>
     <string name="apps_suggested_title">Applications suggérées</string>

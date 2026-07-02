@@ -101,7 +101,6 @@
     <string name="trying_to_connect_title">กำลังเชื่อมต่อ…</string>
     <string name="btn_refresh">รีเฟรช</string>
     <string name="title_choose_apps">เลือกโปรแกรม</string>
-    <string name="action_activate">เปิดใช้งาน</string>
     <string name="setting_debug">ดีบั๊ก</string>
     <string name="menu_kindness">อ่อนโยน</string>
     <string name="menu_more">เพิ่มเติม</string>

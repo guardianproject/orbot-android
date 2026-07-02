@@ -165,7 +165,6 @@
     <string name="custom_bridges_description">نیچے آپ کو موصول ہونے والےبریج ایڈریس چسپاں کریں۔ یا انہیں شامل کرنے کے لیے QR کوڈ اسکین کریں۔ دوست %1$s پر آپ کے لیے بریج حاصل کر سکتے ہیں۔</string>
     <string name="power_user_mode">پاور یوزر موڈ</string>
     <string name="power_user_description">ٹور سے واقف صارفین کے لیے۔ آپ کو وی پی این ترتیب کے بغیر اوربوٹ شروع کرنے کی اجازت دیتا ہے اور کھلے SOCKS اور HTTP پورٹس دکھاتا ہے</string>
-    <string name="action_activate">چالو کریں</string>
     <string name="title_choose_apps">ایپس منتخب کریں</string>
     <string name="app_suggested_subtitle">اوربوٹ پیغام رسانی اور سوشل میڈیا ایپس کے ساتھ بہترین کام کرتا ہے۔</string>
     <string name="apps_suggested_title">تجویز کردہ ایپس</string>

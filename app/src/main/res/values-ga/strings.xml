@@ -162,7 +162,6 @@
     <string name="custom_bridges_description">Greamaigh na seoltaí droichid a fhaigheann tú thíos. Nó scan an cód QR chun iad a chur leis. Is féidir le cairde droichid a fháil duit ag %1$s.</string>
     <string name="power_user_mode">Mód Úsáideora Cumhachta</string>
     <string name="power_user_description">D’úsáideoirí atá eolach ar Tor. Ligeann sé duit Orbot a thosú gan an socrú VPN agus taispeánann sé calafoirt SOCKS agus HTTP atá oscailte</string>
-    <string name="action_activate">Gníomhachtaigh</string>
     <string name="title_choose_apps">Roghnaigh Aipeanna</string>
     <string name="app_suggested_subtitle">Oibríonn Orbot is fearr le haipeanna teachtaireachtaí agus meán sóisialta.</string>
     <string name="apps_suggested_title">Aipeanna Molta</string>
@@ -285,7 +284,6 @@
     <string name="pref_proxy_no_proxy">Gan Seachfhreastalaí</string>
     <string name="pref_proxy_ss_title">URL Cumraíochta ShadowSocks</string>
     <string name="pref_proxy_ss_summary">URL cumraíochta iomlán ShadowSocks ag tosú le ss://</string>
-    <string name="volunteer_mode_title">Mód Cineáltais: Cabhraigh le daoine eile ceangal le Tor</string>
     <string name="volunteer_mode_weekly_label">An tSeachtain seo</string>
     <string name="volunteer_mode_alltime_label">Iomlán</string>
     <string name="volunteer_mode_subtitle_desc">Déanann Mód Cineáltais Seachfhreastalaí Snowflake ar líonra Tor de do ghléas — droichead chun cabhrú le daoine eile ceangal a dhéanamh.</string>
@@ -303,23 +301,12 @@
     <string name="kindness_quality_upgrade_line1">Is féidir le do sheachfhreastalaí a bheith níos cumhachtaí nuair a bhíonn mód cineáltais ag rith ar Wi-Fi.</string>
     <string name="kindness_quality_upgrade_line2">Chun uasghrádú a dhéanamh, cumasaigh UPnP ar do ródaire Wi-Fi don ghléas seo.</string>
     <string name="kindness_your_impact">Do Thionchar i bhFigiúirí</string>
-    <string name="testing_consent_header">Sula n-éiríonn tú i do Sheachfhreastalaí Snowflake, ní mór dúinn do nasc Idirlín a thástáil le feiceáil an féidir leis a bheith ina sheachfhreastalaí úsáideach do dhaoine eile.</string>
-    <string name="testing_consent_direct_tor_disclaimer">Le linn na tástála seo, déanfaidh Orbot iarracht ceangal go díreach le Tor gan droichid a úsáid. Teipfidh ar an tástáil seo i réigiúin atá faoi cheansú trom a chuireann bac ar Tor.</string>
-    <string name="testing_consent_direct_stop_vpn_disclaimer">Déanfar do nasc Tor reatha a dhícheangal mar go bhfuil droichead nó seachfhreastalaí á úsáid agat chun ceangal le Tor. Atosóidh sé go huathoibríoch nuair a bheidh an tástáil seo críochnaithe.</string>
-    <string name="testing_consent_leaking_connection">Ná cuir tús leis an tástáil seo mura bhfuil sé sábháilte duit dícheangal go sealadach ó Tor</string>
-    <string name="testing_title_consent_request">Tástáil Ceangail Mód Cineáltais</string>
-    <string name="testing_title_testing">Tástáil Cáilíochta…</string>
-    <string name="testing_explanation_testing">Sula bhféadfaidh tú a bheith i do Sheachfhreastalaí Snowflake, ní mór dúinn a fheiceáil an féidir do nasc Idirlín a úsáid chun seachfhreastalaí éifeachtach a rith. Fan le do thoil agus muid ag seiceáil.</string>
     <string name="test_risk_consent">Tuigim, Tosaigh an Tástáil</string>
-    <string name="testing_title_approved">%s Ceadaithe</string>
     <string name="testing_explanation_approved">Is iarrthóir iontach thú le bheith i do Seachfhreastalaí Snowflake ar líonra Tor.</string>
     <string name="testing_continue">Lean ar aghaidh</string>
-    <string name="testing_title_declined">%s Gan Ceadú</string>
     <string name="testing_explanation_declined">Ní féidir leat a bheith i do Seachfhreastalaí Snowflake úsáideach faoi láthair. Má leanann tú ag feiceáil an teachtaireacht seo, déan iarracht arís ar líonra difriúil.</string>
-    <string name="testing_explanation_declined2">Ná húsáid Mód Cineáltais má tá an tIdirlíon i do thír féin faoi chinsireacht throm.</string>
     <string name="testing_explanation_other_vpn">Ní féidir Mód Cineáltais a ghníomhachtú agus VPN in úsáid. Is é an t-aon eisceacht ná gné VPN Orbot. Chun bheith i do Seachfhreastalaí Snowflake ní mór duit do VPN a bhaint nó aistriú chuig Orbot a úsáid.</string>
     <string name="testing_explanation_other_vpn_bubble">Oscail Socruithe VPN an Chórais…</string>
     <string name="testing_explanation_no_net">Ceangail leis an Idirlíon le feiceáil an bhfuil tú oiriúnach do Mhód Cineáltais</string>
-    <string name="kindness_mode_disclaimer_bridge">Gníomhachtaigh mura bhfuil an t-idirlíon i do thír féin faoi chinsireacht throm.</string>
     <string name="kindness_mode_unsupported_country">Roghnaigh tú %s mar do thír, ach ar an drochuair ní féidir le Mód Cineáltais cabhrú le daoine ceangal le Tor sa réigiún seo. Má chreideann tú go bhfuil an teachtaireacht seo á fheiceáil agat trí dhearmad, is féidir leat do thír a ghlanadh agus tástáil a dhéanamh le feiceáil an bhfuil tú incháilithe le bheith i do Sheachfhreastalaí Snowflake</string>
 </resources>

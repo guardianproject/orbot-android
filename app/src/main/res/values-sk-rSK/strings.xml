@@ -140,7 +140,6 @@
     <string name="connect">Pripojiť</string>
     <string name="title_choose_apps">Vybrať aplikácie</string>
     <string name="next">Ďalšie</string>
-    <string name="action_activate">Kedy aktivovať…</string>
     <string name="setting_debug">Ladenie</string>
     <string name="menu_more">Viac</string>
     <string name="pref_isolate_port_summary">Použitie iného okruhu pre každý cieľový port</string>

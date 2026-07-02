@@ -129,7 +129,6 @@
     <string name="copy_address_to_clipboard">Kopēt adresi uz starpliktuvi</string>
     <string name="secure_your_connection_title">Gatavs savienošanai</string>
     <string name="trying_to_connect_title">Savienošana…</string>
-    <string name="action_activate">Atjaunot</string>
     <string name="title_choose_apps">Izvēlēties lietotnes</string>
     <string name="setting_debug">Atkļūdot</string>
     <string name="menu_more">Vairāk</string>
@@ -186,7 +185,6 @@
     <string name="setting_app_icon_title">Lietotnes ikona</string>
     <string name="country_clear">Noņemt valsti</string>
     <string name="kindness_proxy_quality">Starpniekservera kvalitāte</string>
-    <string name="testing_title_testing">Testē kvalitāti…</string>
     <string name="connect_to_tor">Pieslēgties Tor</string>
     <string name="status_loading_status">Ielādē tīkla statusu</string>
     <string name="my_country_optional">Mana valsts (pašu izvēle, neobligāti)</string>

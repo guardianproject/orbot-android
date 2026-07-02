@@ -1,148 +1,418 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_modal_rounded"
-    android:padding="?dialogPreferredPadding">
+    android:padding="?dialogPreferredPadding"
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/boxTesting"
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible">
+        android:textAlignment="center"
+        android:text="@string/activate_kindness_mode"
+        style="@style/TextAppearance.Material3.TitleMedium" />
 
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:id="@+id/progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:indeterminate="true"
-            android:visibility="gone"
-            app:indicatorColor="@color/dark_purple"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:trackColor="@android:color/white" />
+    <LinearLayout
+        android:id="@+id/boxInstructions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        tools:visibility="gone">
 
         <TextView
-            android:id="@+id/tvTitleTesting"
-            style="@style/TextAppearance.AppCompat.Title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:paddingHorizontal="16dp"
-            android:text="@string/testing_title_consent_request"
-            android:textColor="@android:color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/progress" />
-
-
-        <TextView
-            android:id="@+id/tvTestingHeader"
-            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:paddingHorizontal="16dp"
-            android:text="@string/testing_consent_header"
-            android:textColor="@color/panel_background_main"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitleTesting" />
-
-        <TextView
-            android:id="@+id/tvTestingConsentTorDisclaimer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:justificationMode="inter_character"
-            android:paddingHorizontal="16dp"
-            android:text="@string/testing_consent_direct_tor_disclaimer"
-            android:textColor="@color/panel_background_main"
-            android:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTestingHeader"
-            tools:targetApi="26" />
-
-        <TextView
-            android:id="@+id/tvTestingDisconnectVpnDisclaimer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:justificationMode="inter_character"
-            android:paddingHorizontal="16dp"
-            android:text="@string/testing_consent_direct_stop_vpn_disclaimer"
-            android:textColor="@android:color/darker_gray"
-            android:textStyle="bold|italic"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTestingConsentTorDisclaimer"
-            tools:targetApi="26"
-            tools:visibility="visible" />
-
-
-        <TextView
-            android:id="@+id/tvDisclaimerConnectionLeak"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="16dp"
-            android:paddingHorizontal="16dp"
-            android:text="@string/testing_consent_leaking_connection"
+            android:layout_marginBottom="24dp"
             android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="bold|italic"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTestingDisconnectVpnDisclaimer"
-            tools:visibility="visible" />
+            android:text="@string/running_kindness_mode_on_android"
+            style="@style/TextAppearance.Material3.HeadlineLarge" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="24dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
+                    android:padding="10dp"
+                    android:src="@drawable/wifi"
+                    app:tint="@android:color/white" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kindness_mode_runs_when_the_device_is_connected_to_wifi"
+                style="@style/TextAppearance.Material3.BodyMedium" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="24dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
+                    android:padding="10dp"
+                    android:src="@drawable/slider_horizontal_2_square"
+                    app:tint="@android:color/white" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/you_can_change_the_settings_anytime"
+                style="@style/TextAppearance.Material3.BodyMedium" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="24dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
+                    android:padding="10dp"
+                    android:src="@drawable/bolt"
+                    app:tint="@android:color/white" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/we_recommend_charging_the_device_when_running_kindness_mode"
+                style="@style/TextAppearance.Material3.BodyMedium" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="24dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
+                    android:padding="10dp"
+                    android:src="@drawable/heart_slash"
+                    app:tint="@android:color/white" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/turn_off_kindness_mode_when_you_use_another_vpn_on_this_device"
+                style="@style/TextAppearance.Material3.BodyMedium" />
+
+        </LinearLayout>
 
         <Button
-            android:id="@+id/btnAbortTest"
+            android:id="@+id/btnCancel1"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="24dp"
             android:background="@drawable/btn_shape_round"
             android:backgroundTint="@color/orbot_btn_disable_grey"
             android:text="@android:string/cancel"
-            android:textColor="@android:color/white"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDisclaimerConnectionLeak"
-            tools:visibility="visible" />
-
+            android:textColor="@android:color/white" />
 
         <Button
-            android:id="@+id/btnStartTestWithConsent"
+            android:id="@+id/btnContinue1"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:background="@drawable/btn_shape_round"
             android:backgroundTint="@color/orbot_btn_enabled_purple"
-            android:text="@string/test_risk_consent"
-            android:textColor="@android:color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnAbortTest"
-            tools:visibility="visible" />
+            android:text="@string/testing_continue"
+            android:textColor="@android:color/white" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/boxWarnings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        tools:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:textAlignment="center"
+            android:text="@string/test_connection"
+            style="@style/TextAppearance.Material3.HeadlineLarge" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:paddingHorizontal="16dp"
+            android:text="@string/orbot_will_test_your_connection_to_determine_if_you_can_be_a_snowflake_proxy_for_others"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textColor="@android:color/darker_gray" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/iconDotArrow"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:cardCornerRadius="24dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
+                    android:padding="10dp"
+                    android:src="@drawable/point_topright_arrow_triangle_backward_to_point_bottomleft_scurvepath"
+                    app:tint="@android:color/white" />
+
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:src="@drawable/exclamationmark_triangle_fill"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:translationZ="2dp"
+                android:importantForAccessibility="no"
+                app:layout_constraintBottom_toBottomOf="@id/iconDotArrow"
+                app:layout_constraintEnd_toEndOf="@id/iconDotArrow"
+                app:tint="@android:color/holo_orange_light" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:text="@string/the_test_will_try_to_connect_directly_to_the_tor_network"
+                app:layout_constraintStart_toEndOf="@id/iconDotArrow"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                tools:ignore="RtlSymmetry" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/iconSlashCircle"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:cardCornerRadius="24dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
+                    android:padding="10dp"
+                    android:src="@drawable/slash_circle"
+                    app:tint="@android:color/white" />
+
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:src="@drawable/exclamationmark_triangle_fill"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:translationZ="2dp"
+                android:importantForAccessibility="no"
+                app:layout_constraintBottom_toBottomOf="@id/iconSlashCircle"
+                app:layout_constraintEnd_toEndOf="@id/iconSlashCircle"
+                app:tint="@android:color/holo_orange_light" />
+
+            <TextView
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:text="@string/if_you_are_using_tor_bridges_they_will_temporarily_be_disconnected"
+                app:layout_constraintStart_toEndOf="@id/iconSlashCircle"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="RtlSymmetry" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnCancel2"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/btn_shape_round"
+            android:backgroundTint="@color/orbot_btn_disable_grey"
+            android:text="@android:string/cancel"
+            android:textColor="@android:color/white" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp">
+
+            <LinearLayout
+                android:id="@+id/boxAcknowledge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/i_acknowledge_i_have_read_the_above" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swAcknowledge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnContinue2"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/btn_shape_round"
+                android:backgroundTint="@color/orbot_btn_disable_grey"
+                android:text="@string/test_connection"
+                android:textColor="@android:color/white"
+                android:enabled="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/boxAcknowledge" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/boxTesting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        tools:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:textAlignment="center"
+            android:text="@string/testing_connection"
+            style="@style/TextAppearance.Material3.HeadlineLarge" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:paddingHorizontal="16dp"
+            android:text="@string/please_wait_while_we_check_to_see_if_you_can_run_an_effective_proxy"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textColor="@android:color/darker_gray" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:indeterminate="true"
+            app:indicatorColor="@color/dark_purple"
+            app:trackColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnStopTest"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/btn_shape_round"
+            android:backgroundTint="@color/orbot_btn_disable_grey"
+            android:text="@string/stop_test"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/boxApproved"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        tools:visibility="gone">
+        android:layout_marginTop="32dp"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/tvCheckbox"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:text="✅"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvTitleApproved"
@@ -150,26 +420,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/testing_title_approved"
+            android:text="@string/approved"
             android:textColor="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCheckbox" />
 
         <TextView
-            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="16dp"
+            android:layout_marginVertical="24dp"
+            android:gravity="center"
             android:paddingHorizontal="16dp"
             android:text="@string/testing_explanation_approved"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
             android:textColor="@android:color/darker_gray"
-            app:layout_constraintBottom_toTopOf="@id/btContinue"
+            app:layout_constraintBottom_toTopOf="@id/btnContinue3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTitleApproved" />
 
         <Button
-            android:id="@+id/btContinue"
+            android:id="@+id/btnContinue3"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -186,14 +458,23 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/boxDeclined"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone">
+        android:layout_marginTop="32dp"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/tvForbidden"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:text="🚫"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvTitleDeclined"
@@ -201,19 +482,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/testing_title_declined"
+            android:text="@string/not_approved"
             android:textColor="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvForbidden" />
 
         <TextView
             android:id="@+id/tvExplanationDeclined"
-            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginVertical="24dp"
+            android:gravity="center"
             android:paddingHorizontal="16dp"
             android:text="@string/testing_explanation_declined"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
             android:textColor="@android:color/darker_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -227,8 +510,8 @@
             android:layout_margin="16dp"
             android:background="@drawable/bg_rounded_orange"
             android:padding="8dp"
-            android:text="@string/testing_explanation_declined2"
             android:textColor="@android:color/black"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@id/btnDeclinedBoxOk"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -251,4 +534,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</LinearLayout>
