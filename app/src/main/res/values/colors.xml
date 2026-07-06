@@ -5,6 +5,7 @@
         <color name="progress_bar_purple">#CB50FF</color>
         <color name="orbot_btn_enabled_purple">#7424CF</color>
         <color name="orbot_btn_disable_grey">#332B3B</color>
+        <color name="light_grey">#AAA9AA</color>
         <color name="menu_header">#A06DDF</color>
         <color name="new_background">#1C1425</color>
         <color name="text_purple">#A06DDF</color>

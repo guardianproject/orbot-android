@@ -11,7 +11,6 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import org.torproject.android.R
 import org.torproject.android.util.NetworkUtils
-import org.torproject.android.util.createWithCurves
 import org.torproject.android.util.openSystemSettings
 
 class UPnPDialogFragment : DialogFragment() {
@@ -22,14 +21,14 @@ class UPnPDialogFragment : DialogFragment() {
             getString(R.string.kindness_quality_upgrade_line1),
             getString(R.string.kindness_quality_upgrade_line2)
         )
-        val builder = AlertDialog.Builder(requireContext(), R.style.OrbotDialogTheme)
+        val builder = AlertDialog.Builder(requireContext())
             .setPositiveButton(android.R.string.ok, null)
             .setTitle(R.string.kindness_quality_upgrade_title)
             .setMessage(msg)
 
         val accessLocalNetworkNeeded =
             NetworkUtils.needsAccessLocalNetworkPermission(requireContext())
-                ?: return builder.createWithCurves()
+                ?: return builder.create()
         if (accessLocalNetworkNeeded) {
             msg += "\n\n${getString(R.string.kindness_quality_upgrade_need_local_network)}"
             val repeatedlyDenied = ActivityCompat.shouldShowRequestPermissionRationale(
@@ -51,7 +50,7 @@ class UPnPDialogFragment : DialogFragment() {
         }
         return builder
             .setMessage(msg)
-            .createWithCurves()
+            .create()
     }
 
     private val requestPermissionLauncher =

@@ -10,10 +10,14 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
 import org.torproject.android.R;
@@ -44,18 +48,26 @@ public class OnionServiceActionsDialogFragment extends DialogFragment {
                 .setNegativeButton(android.R.string.cancel, (dialog, _) -> dialog.dismiss())
                 .setTitle(R.string.hidden_services)
                 .create();
+        ad.setOnShowListener(_ -> {
+            ListView listView = ad.getListView();
+            int color = ContextCompat.getColor(requireContext(), android.R.color.white);
 
+            for (int i = 0; i < listView.getChildCount(); i++) {
+                View v = listView.getChildAt(i);
+                if (v instanceof TextView) {
+                    ((TextView) v).setTextColor(color);
+                }
+            }
+        });
         // done this way so we can startActivityForResult on backup without the dialog vanishing
         ad.getListView().setOnItemClickListener((_, _, position, _) -> {
             if (position == 0) {
                 assert arguments != null;
                 doCopy(arguments, getContext());
-            }
-            else if (position == 1) {
+            } else if (position == 1) {
                 assert arguments != null;
                 doBackup(arguments, getContext());
-            }
-            else if (position == 2) {
+            } else if (position == 2) {
                 new OnionServiceDeleteDialogFragment(arguments).show(getParentFragmentManager(), OnionServiceDeleteDialogFragment.class.getSimpleName());
             }
             if (position != 1) dismiss();

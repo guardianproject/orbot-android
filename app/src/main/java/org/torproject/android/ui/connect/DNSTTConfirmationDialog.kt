@@ -5,12 +5,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import org.torproject.android.R
-import org.torproject.android.util.createWithCurves
 
 class DNSTTConfirmationDialog : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        AlertDialog.Builder(requireActivity(), R.style.OrbotDialogTheme)
+        AlertDialog.Builder(requireActivity())
             .setTitle(R.string.limit_dns_tunnel_use)
             .setMessage(R.string.dns_tunnel_usage_description)
             .setIconAttribute(android.R.attr.alertDialogIcon)
@@ -22,7 +21,7 @@ class DNSTTConfirmationDialog : DialogFragment() {
                 ) as ConfigConnectionBottomSheet
                 parent.closeAndConnect()
             }
-            .createWithCurves()
+            .create()
 
     companion object {
         const val TAG = "DNSTTConfirmDialog"

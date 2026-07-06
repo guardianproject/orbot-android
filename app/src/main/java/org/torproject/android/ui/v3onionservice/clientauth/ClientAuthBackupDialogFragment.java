@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
 import org.torproject.android.R;
@@ -48,7 +49,7 @@ public class ClientAuthBackupDialogFragment extends DialogFragment {
                 .setPositiveButton(R.string.confirm, null)
                 .setNegativeButton(android.R.string.cancel, (dialog, _) -> dialog.dismiss())
                 .create();
-        ad.setOnShowListener(_ -> ad.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> doBackup()));
+        ad.setOnShowListener(_ -> ad.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(_ -> doBackup()));
         var container = new FrameLayout(ad.getContext());
         var params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         int margin = getResources().getDimensionPixelOffset(R.dimen.alert_dialog_margin);
@@ -57,22 +58,25 @@ public class ClientAuthBackupDialogFragment extends DialogFragment {
         etFilename = new NoPersonalizedLearningEditText(ad.getContext(), null);
         etFilename.setSingleLine(true);
         etFilename.setHint(R.string.v3_backup_name_hint);
+        etFilename.setHintTextColor(ContextCompat.getColor(requireContext(), R.color.light_grey));
         if (savedInstanceState != null)
             etFilename.setText(savedInstanceState.getString(BUNDLE_KEY_FILENAME, ""));
         fileNameTextWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                ad.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(!TextUtils.isEmpty(s.toString().trim()));
+                var isEnabled = !TextUtils.isEmpty(s.toString().trim());
+                ad.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(isEnabled);
+                ad.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(ContextCompat.getColor(requireContext(),
+                        isEnabled ? android.R.color.white : R.color.orbot_btn_disable_grey));
+
             }
         };
         etFilename.addTextChangedListener(fileNameTextWatcher);
@@ -94,7 +98,6 @@ public class ClientAuthBackupDialogFragment extends DialogFragment {
         super.onStart();
         fileNameTextWatcher.afterTextChanged(etFilename.getEditableText());
     }
-
 
 
     private void doBackup() {

@@ -13,7 +13,6 @@ import androidx.fragment.app.DialogFragment
 import org.torproject.android.R
 import org.torproject.android.databinding.LayoutAboutBinding
 import org.torproject.android.util.DiskUtils
-import org.torproject.android.util.createWithCurves
 import org.torproject.jni.BuildConfig.VERSION_NAME
 import org.torproject.jni.TorService
 import java.io.IOException
@@ -65,10 +64,10 @@ class AboutDialogFragment : DialogFragment() {
             }
         }
 
-        return AlertDialog.Builder(requireContext(), R.style.OrbotDialogTheme)
+        return AlertDialog.Builder(requireContext())
             .setTitle(getString(R.string.menu_about))
             .setView(binding.root)
-            .createWithCurves()
+            .create()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

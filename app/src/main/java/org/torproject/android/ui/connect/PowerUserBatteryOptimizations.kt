@@ -15,7 +15,7 @@ class PowerUserBatteryOptimizations : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
         AlertDialog.Builder(requireContext())
             .setTitle(R.string.battery_optimization_title)
-            .setMessage(R.string.battery_optimizations_dialog_msg_power_user)
+            .setMessage("${getString(R.string.battery_optimizations_dialog_msg_power_user)}\n\n")
             .setNegativeButton(R.string.btn_connect_anyway, null)
             .setNeutralButton(R.string.btn_connect_anyway_stop_showing) { _, _ ->
                 Prefs.stopShowingPowerUserBatteryOptDialog = true

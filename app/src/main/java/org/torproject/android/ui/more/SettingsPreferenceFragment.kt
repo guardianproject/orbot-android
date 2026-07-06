@@ -26,7 +26,6 @@ import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.tor.ShadowSocks
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
-import org.torproject.android.util.createWithCurves
 import org.torproject.android.util.openSystemSettings
 import org.torproject.android.util.removeEntry
 import org.torproject.android.util.sendIntentToService
@@ -75,28 +74,30 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
 
         val prefLocale = findPreference<ListPreference>("pref_default_locale")
         val languages = Languages[requireActivity()]
-        prefLocale?.entries = languages?.allNames
-        prefLocale?.entryValues = languages?.supportedLocales
-        prefLocale?.value = Prefs.defaultLocale
-        prefLocale?.onPreferenceChangeListener =
-            OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
-                val language = newValue as String
-                Prefs.defaultLocale = newValue
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    val split = language.split("_")
-                    val lang = split[0]
-                    var region = ""
-                    if (split.size > 1) region = split[1]
-                    val newLocale = Languages.buildLocaleForLanguage(lang, region)
-                    AppCompatDelegate.setApplicationLocales(LocaleListCompat.create(newLocale))
-                    toolbar?.title = requireContext().getString(rootTitleId())
-                } else {
-                    requireActivity().sendIntentToService(OrbotConstants.ACTION_LOCAL_LOCALE_SET)
-                    (requireActivity().application as OrbotApp).setLocale()
-                    requireActivity().finish()
+        prefLocale?.apply {
+            entries = languages?.allNames
+            entryValues = languages?.supportedLocales
+            value = Prefs.defaultLocale
+            onPreferenceChangeListener =
+                OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
+                    val language = newValue as String
+                    Prefs.defaultLocale = newValue
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        val split = language.split("_")
+                        val lang = split[0]
+                        var region = ""
+                        if (split.size > 1) region = split[1]
+                        val newLocale = Languages.buildLocaleForLanguage(lang, region)
+                        AppCompatDelegate.setApplicationLocales(LocaleListCompat.create(newLocale))
+                        toolbar?.title = requireContext().getString(rootTitleId())
+                    } else {
+                        requireActivity().sendIntentToService(OrbotConstants.ACTION_LOCAL_LOCALE_SET)
+                        (requireActivity().application as OrbotApp).setLocale()
+                        requireActivity().finish()
+                    }
+                    false
                 }
-                false
-            }
+        }
 
         bindNumericalPrefs(numericalPortPrefs, 5)
         bindPasswordPrefs(passwordPrefs)
@@ -173,7 +174,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
 
     @RequiresApi(Build.VERSION_CODES.CINNAMON_BUN)
     private fun requestLocalNetworkPermission() {
-        AlertDialog.Builder(requireContext(), R.style.OrbotDialogTheme)
+        AlertDialog.Builder(requireContext())
             .setTitle(R.string.pref_open_proxy_on_all_interfaces_title)
             .setMessage(R.string.open_proxy_needs_local_network_permission)
             .setPositiveButton(R.string.grant_permission) { _, _ ->
@@ -188,7 +189,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
                 }
             }
             .setNegativeButton(android.R.string.cancel, null)
-            .createWithCurves()
+            .create()
             .show()
     }
 
