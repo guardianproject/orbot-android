@@ -1,8 +1,8 @@
 package org.torproject.android.ui.more
 
-import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import org.torproject.android.R
 import org.torproject.android.service.vpn.VpnServicePrepareWrapper

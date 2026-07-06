@@ -1,8 +1,8 @@
 package org.torproject.android.ui.more.camo
 
-import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import org.torproject.android.BuildConfig
 import org.torproject.android.R
@@ -16,7 +16,7 @@ class CamoConfirmationDialogFragment : DialogFragment() {
         val camoAppName = getString(args.getInt(BUNDLE_KEY_NAME))
         val altIconValue = args.getInt(BUNDLE_KEY_ALT_ICON_VAL)
 
-        return AlertDialog.Builder(context)
+        return AlertDialog.Builder(requireContext(), R.style.OrbotDialogTheme)
             .setIcon(args.getInt(BUNDLE_KEY_IMAGE_ID))
             .setTitle(getString(R.string.app_icon_dialog_title, camoAppName))
             .setMessage(getString(R.string.app_icon_dialog_msg, camoAppName))

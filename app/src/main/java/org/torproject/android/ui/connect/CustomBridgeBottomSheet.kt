@@ -1,6 +1,5 @@
 package org.torproject.android.ui.connect
 
-import android.app.AlertDialog
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -24,8 +23,7 @@ import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
-class CustomBridgeBottomSheet :
-    OrbotBottomSheetDialogFragment() {
+class CustomBridgeBottomSheet : OrbotBottomSheetDialogFragment() {
 
     companion object {
         const val TAG = "CustomBridgeBottomSheet"
@@ -94,8 +92,6 @@ class CustomBridgeBottomSheet :
         }
     }
 
-    private var dialog: AlertDialog? = null
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -145,24 +141,20 @@ class CustomBridgeBottomSheet :
         return binding.root
     }
 
-    override fun onPause() {
-        dialog?.dismiss()
-
-        super.onPause()
-    }
-
     private fun updateUi() {
         val inputText = binding.etBridges.text.toString()
         val isValid = inputText.isNotEmpty() && isValidBridge(inputText)
 
         binding.btnAction.isEnabled = isValid
-        ViewCompat.setBackgroundTintList(binding.btnAction, ColorStateList.valueOf(
-            if (isValid) {
-                requireContext().getColor(R.color.orbot_btn_enabled_purple)
-            } else {
-                Color.DKGRAY
-            }
-        ))
+        ViewCompat.setBackgroundTintList(
+            binding.btnAction, ColorStateList.valueOf(
+                if (isValid) {
+                    requireContext().getColor(R.color.orbot_btn_enabled_purple)
+                } else {
+                    Color.DKGRAY
+                }
+            )
+        )
 
         if (!isValidBridge(inputText)) {
             binding.etBridges.error = requireContext().getString(R.string.invalid_bridge_format)

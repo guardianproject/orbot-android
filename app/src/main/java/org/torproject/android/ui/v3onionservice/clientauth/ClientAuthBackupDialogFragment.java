@@ -1,7 +1,6 @@
 package org.torproject.android.ui.v3onionservice.clientauth;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,6 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
 import org.torproject.android.R;
@@ -42,7 +42,7 @@ public class ClientAuthBackupDialogFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        var ad = new AlertDialog.Builder(getContext())
+        var ad = new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.v3_backup_key)
                 .setMessage(R.string.v3_backup_key_warning)
                 .setPositiveButton(R.string.confirm, null)

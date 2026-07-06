@@ -2,13 +2,13 @@
 package org.torproject.android.ui.more
 
 import android.Manifest
-import android.app.AlertDialog
 import android.os.Build
 import android.os.Bundle
 import android.text.InputType
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar

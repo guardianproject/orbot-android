@@ -1,7 +1,6 @@
 package org.torproject.android.ui.more
 
 import IPtProxy.IPtProxy
-import android.app.AlertDialog
 import android.app.Dialog
 import android.graphics.Typeface
 import android.os.Bundle
@@ -9,6 +8,7 @@ import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.StyleSpan
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import org.torproject.android.R
 import org.torproject.android.databinding.LayoutAboutBinding
@@ -65,7 +65,7 @@ class AboutDialogFragment : DialogFragment() {
             }
         }
 
-        return AlertDialog.Builder(context, R.style.OrbotDialogTheme)
+        return AlertDialog.Builder(requireContext(), R.style.OrbotDialogTheme)
             .setTitle(getString(R.string.menu_about))
             .setView(binding.root)
             .createWithCurves()
