@@ -10,7 +10,6 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.util.Prefs
-import java.text.Normalizer
 
 @Serializable
 class TorifiedApp : Comparable<TorifiedApp> {
@@ -101,12 +100,6 @@ class TorifiedApp : Comparable<TorifiedApp> {
 
             apps.sort()
             return apps
-        }
-
-        fun sortAppsForTorifiedAndAbc(apps: List<TorifiedApp>?) {
-            apps?.sortedWith(compareBy<TorifiedApp> { !it.isTorified }.thenBy {
-                Normalizer.normalize(it.name ?: "", Normalizer.Form.NFD)
-            })
         }
     }
 }
