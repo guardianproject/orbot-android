@@ -64,18 +64,14 @@
             android:visibility="gone"
             tools:visibility="visible" />
 
-        <GridView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/applistview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:layout_marginTop="64dp"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:layout_marginBottom="4dp"
-            android:gravity="center"
-            android:horizontalSpacing="5dp"
-            android:numColumns="1"
-            android:verticalSpacing="15dp" />
+            android:layout_marginBottom="4dp" />
 
     </FrameLayout>
 
