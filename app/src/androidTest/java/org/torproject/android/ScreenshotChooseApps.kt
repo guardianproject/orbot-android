@@ -4,11 +4,9 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withClassName
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withTagValue
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.`is`
 import org.junit.Before
 import org.junit.Rule
@@ -35,31 +33,10 @@ class ScreenshotChooseApps : BaseScreenshotTest() {
 
     @Test
     fun screenshotChooseApps() {
-        val bottomNavigationItemView = onView(
-            allOf(
-                withId(R.id.moreFragment),
-                childAtPosition(
-                    childAtPosition(
-                        withId(R.id.bottom_navigation),
-                        0
-                    ),
-                    2
-                ),
-                isDisplayed()
-            )
-        )
-        bottomNavigationItemView.perform(click())
-
-        val recyclerView = onView(
-            allOf(
-                withId(R.id.rvMoreActions),
-                childAtPosition(
-                    withClassName(`is`("android.widget.LinearLayout")),
-                    1
-                )
-            )
-        )
-        recyclerView.perform(actionOnItemAtPosition<ViewHolder>(0, click()))
+        onView(withTagValue(`is`(R.id.moreFragment)))
+            .perform(click())
+        onView(withId(R.id.rvMoreActions))
+            .perform(actionOnItemAtPosition<ViewHolder>(0, click()))
         Thread.sleep(1650) // wait a long time for apps to load on the "Choose Apps" screen
         // TODO properly wait for desired view to appear in a proper espresso/unit-testy way
         Screengrab.screenshot("C-Choose_Apps")
