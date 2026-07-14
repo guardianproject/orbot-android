@@ -5,7 +5,6 @@ import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.db.OnionServiceColumns
 import org.torproject.android.service.db.V3ClientAuthColumns
-import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
 import java.io.File
 
@@ -52,11 +51,11 @@ object TorConfig {
             conf.add("ReducedCircuitPadding 1")
         }
 
-        val transPort = Prefs.torTransPort ?: OrbotConstants.TOR_TRANSPROXY_PORT_DEFAULT.toString()
-        val dnsPort = Prefs.torDnsPort ?: OrbotConstants.TOR_DNS_PORT_DEFAULT.toString()
+        val transPort = getPort(Prefs.torTransPort ?: OrbotConstants.TOR_TRANSPROXY_PORT_DEFAULT.toString())
+        val dnsPort = getPort(Prefs.torDnsPort ?: OrbotConstants.TOR_DNS_PORT_DEFAULT.toString())
 
-        conf.add("TransPort ${NetworkUtils.checkPortOrAuto(transPort)} $isolate")
-        conf.add("DNSPort ${NetworkUtils.checkPortOrAuto(dnsPort)} $isolate")
+        conf.add("TransPort $transPort} $isolate")
+        conf.add("DNSPort $dnsPort $isolate")
         conf.add("VirtualAddrNetwork 10.192.0.0/10")
         conf.add("AutomapHostsOnResolve 1")
         conf.add("DormantClientTimeout 10 minutes")
@@ -120,9 +119,11 @@ object TorConfig {
 
     private fun getPort(port: String): String {
         var port = port
-        if (port.indexOf(':') != -1) port = port.split(":").toTypedArray()[1]
-
-        return NetworkUtils.checkPortOrAuto(port)
+        if (port.equals("auth", ignoreCase = true)) return port
+            if (port.indexOf(':') != -1)
+                port = port.split(":").toTypedArray()[1]
+        port.toIntOrNull()?.let { return "$it" }
+        return "0"
     }
 
     private fun getIsolation(): String {
