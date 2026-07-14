@@ -8,7 +8,6 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
 import org.torproject.android.Regionalization
-import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.tor.ShadowSocks
 import java.net.URI
@@ -67,6 +66,8 @@ object Prefs {
     const val PREF_SOCKS = "pref_socks"
     const val PREF_TRANSPORT = "pref_transport"
 
+    const val PREF_DNS_PORT_RESOLVED = "PREFS_DNS_PORT"
+
     const val PREF_ISOLATE_DEST = "pref_isolate_dest"
     const val PREF_ISOLATE_PORT = "pref_isolate_port"
     const val PREF_ISOLATE_PROTOCOL = "pref_isolate_protocol"
@@ -91,6 +92,9 @@ object Prefs {
 
     const val PREF_PERSISTENT_NOTIFICATIONS = "pref_persistent_notifications"
     const val PREF_KEY_CAMO_DIALOG = "pref_key_camo_dialog"
+    private const val DEFAULT_PORT_TORRC_AUTO = "auto"
+    private const val PREF_TORIFIED_APPS = "PrefTord"
+    private const val PREF_APP_KEY_TORIFIED = "_app_tor"
 
     private var cr: ContentResolver? = null
 
@@ -407,11 +411,11 @@ object Prefs {
     val disallowBiometricAuthentication: Boolean
         get() = cr?.getPrefBoolean(PREF_DISALLOW_BIOMETRIC_AUTH) ?: false
 
-    val proxySocksPort: String?
-        get() = cr?.getPrefString(PREF_SOCKS)
+    val proxySocksPort: String
+        get() = cr?.getPrefString(PREF_SOCKS) ?: DEFAULT_PORT_TORRC_AUTO
 
-    val proxyHttpPort: String?
-        get() = cr?.getPrefString(PREF_HTTP)
+    val proxyHttpPort: String
+        get() = cr?.getPrefString(PREF_HTTP) ?: DEFAULT_PORT_TORRC_AUTO
 
     val connectionPadding: Boolean
         get() = cr?.getPrefBoolean(PREF_CONNECTION_PADDING) ?: false
@@ -425,11 +429,11 @@ object Prefs {
     val reducedCircuitPadding: Boolean
         get() = cr?.getPrefBoolean(PREF_REDUCED_CIRCUIT_PADDING) ?: true
 
-    val torTransPort: String?
-        get() = cr?.getPrefString(PREF_TRANSPORT)
+    val torTransPort: String
+        get() = cr?.getPrefString(PREF_TRANSPORT) ?: DEFAULT_PORT_TORRC_AUTO
 
-    val torDnsPort: String?
-        get() = cr?.getPrefString(PREF_DNSPORT)
+    val torDnsPort: String
+        get() = cr?.getPrefString(PREF_DNSPORT) ?: DEFAULT_PORT_TORRC_AUTO
 
     val entryNodes: String?
         get() = cr?.getPrefString("pref_entrance_nodes")
@@ -446,8 +450,8 @@ object Prefs {
     val reachableAddressesPorts: String?
         get() = cr?.getPrefString(PREF_REACHABLE_ADDRESSES_PORTS)
 
-    val customTorRc: String?
-        get() = cr?.getPrefString(PREF_CUSTOM_TORRC)
+    val customTorRc: String
+        get() = cr?.getPrefString(PREF_CUSTOM_TORRC) ?: ""
 
     val isolateDest: Boolean
         get() = cr?.getPrefBoolean(PREF_ISOLATE_DEST) ?: false
@@ -468,8 +472,8 @@ object Prefs {
         get() = cr?.getPrefBoolean(PREF_DISABLE_IPV4) ?: false
 
     var torifiedApps: String
-        get() = cr?.getPrefString(OrbotConstants.PREFS_KEY_TORIFIED) ?: ""
-        set(value) = cr?.putPref(OrbotConstants.PREFS_KEY_TORIFIED, value) ?: Unit
+        get() = cr?.getPrefString(PREF_TORIFIED_APPS) ?: ""
+        set(value) = cr?.putPref(PREF_TORIFIED_APPS, value) ?: Unit
 
     var stopShowingPowerUserBatteryOptDialog: Boolean
         get() = cr?.getPrefBoolean(PREF_POWER_BATTERY_DIALOG_HIDE) ?: false
@@ -478,12 +482,12 @@ object Prefs {
 
     @JvmStatic
     var torDnsPortResolved: Int
-        get() = cr?.getPrefInt(OrbotConstants.PREFS_DNS_PORT) ?: 0
-        set(value) = cr?.putPref(OrbotConstants.PREFS_DNS_PORT, value) ?: Unit
+        get() = cr?.getPrefInt(PREF_DNS_PORT_RESOLVED) ?: 0
+        set(value) = cr?.putPref(PREF_DNS_PORT_RESOLVED, value) ?: Unit
 
     @JvmStatic
     fun isAppTorified(appId: String): Boolean {
-        return cr?.getPrefBoolean("$appId${OrbotConstants.APP_TOR_KEY}") ?: true
+        return cr?.getPrefBoolean("$appId$PREF_APP_KEY_TORIFIED") ?: true
     }
 
     @JvmStatic

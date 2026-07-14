@@ -1,7 +1,6 @@
 package org.torproject.android.service.tor
 
 import android.content.ContextWrapper
-import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.db.OnionServiceColumns
 import org.torproject.android.service.db.V3ClientAuthColumns
@@ -17,8 +16,8 @@ object TorConfig {
             "AvoidDiskWrites 1"
         )
 
-        val socksPortPref = getPort(Prefs.proxySocksPort ?: OrbotConstants.SOCKS_PROXY_PORT_DEFAULT)
-        val httpPortPref = getPort(Prefs.proxyHttpPort ?: OrbotConstants.HTTP_PROXY_PORT_DEFAULT)
+        val socksPortPref = getPort(Prefs.proxySocksPort)
+        val httpPortPref = getPort(Prefs.proxyHttpPort)
 
         val isolate = getIsolation()
         val ipv6Pref = getIpv6()
@@ -51,10 +50,10 @@ object TorConfig {
             conf.add("ReducedCircuitPadding 1")
         }
 
-        val transPort = getPort(Prefs.torTransPort ?: OrbotConstants.TOR_TRANSPROXY_PORT_DEFAULT.toString())
-        val dnsPort = getPort(Prefs.torDnsPort ?: OrbotConstants.TOR_DNS_PORT_DEFAULT.toString())
+        val transPort = getPort(Prefs.torTransPort)
+        val dnsPort = getPort(Prefs.torDnsPort)
 
-        conf.add("TransPort $transPort} $isolate")
+        conf.add("TransPort $transPort $isolate")
         conf.add("DNSPort $dnsPort $isolate")
         conf.add("VirtualAddrNetwork 10.192.0.0/10")
         conf.add("AutomapHostsOnResolve 1")
@@ -112,16 +111,18 @@ object TorConfig {
         conf.addAll(extraLines.split("\n"))
 
         val custom = Prefs.customTorRc
-        if (!custom.isNullOrEmpty()) conf.add(custom)
+        if (!custom.trim().isEmpty()) {
+            conf.add(custom)
+        }
         return conf.joinToString("\n")
     }
 
 
     private fun getPort(port: String): String {
         var port = port
-        if (port.equals("auth", ignoreCase = true)) return port
-            if (port.indexOf(':') != -1)
-                port = port.split(":").toTypedArray()[1]
+        if (port.equals("auto", ignoreCase = true)) return port
+        if (port.indexOf(':') != -1)
+            port = port.split(":").toTypedArray()[1]
         port.toIntOrNull()?.let { return "$it" }
         return "0"
     }

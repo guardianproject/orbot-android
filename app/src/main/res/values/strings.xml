@@ -7,7 +7,7 @@
     <string name="menu_log">Log</string>
     <string name="menu_about">About</string>
     <string name="menu_exit">Exit</string>
-    <string name="wizard_details_msg">Orbot is an open-source application that contains Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel and LibEvent. It provides a VPN tunnel, a local HTTP Connect proxy (HTTPS only on port 8118) and a SOCKS proxy (9050) into the Tor network.</string>
+    <string name="wizard_details_msg">Orbot is an open-source application that contains Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel and LibEvent. It provides a VPN tunnel, and also a local HTTP CONNECT proxy (HTTPS only) and a SOCKS proxy into the Tor network.</string>
     <string name="pref_general_group">General</string>
     <string name="pref_start_boot_title">Start Orbot on Boot</string>
     <string name="pref_start_boot_summary">Automatically start Orbot and connect Tor when your Android device boots</string>

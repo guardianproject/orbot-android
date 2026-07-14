@@ -3,9 +3,6 @@ package org.torproject.android.service
 import androidx.core.net.toUri
 
 object OrbotConstants {
-    const val TAG = "Orbot"
-
-    const val APP_TOR_KEY = "_app_tor"
 
     const val DIRECTORY_TOR_DATA = "tordata"
 
@@ -13,14 +10,7 @@ object OrbotConstants {
     const val GEOIP_ASSET_KEY = "geoip"
     const val GEOIP6_ASSET_KEY = "geoip6"
 
-    const val HTTP_PROXY_PORT_DEFAULT = "8118"
-    const val SOCKS_PROXY_PORT_DEFAULT = "9050"
 
-    const val TOR_DNS_PORT_DEFAULT = 9053
-    const val TOR_TRANSPROXY_PORT_DEFAULT = 9040
-
-    // control port
-    const val LOG_NOTICE_HEADER = "NOTICE: "
     const val LOG_NOTICE_BOOTSTRAPPED = "BOOTSTRAP PROGRESS="
 
 
@@ -87,10 +77,6 @@ object OrbotConstants {
 
     const val ONION_SERVICES_DIR = "v3_onion_services"
     const val V3_CLIENT_AUTH_DIR = "v3_client_auth"
-
-    const val PREFS_DNS_PORT: String = "PREFS_DNS_PORT"
-
-    const val PREFS_KEY_TORIFIED: String = "PrefTord"
 
     /**
      * Include packages here to make the VPNService ignore these apps. This is to

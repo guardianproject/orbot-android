@@ -357,6 +357,7 @@ public class OrbotService extends VpnService {
                         startTorService();
                         showTorServiceErrorMsg = true;
                     } catch (Exception e) {
+                        Log.wtf("bim", e.toString());
                         return e;
                     }
 
