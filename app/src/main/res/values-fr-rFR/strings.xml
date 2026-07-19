@@ -195,4 +195,8 @@
     <string name="setting_unlock_pass_title">Verrouiller l’écran</string>
     <string name="status_loading_status">Chargement de l’état du réseau</string>
     <string name="approved">Approuvé</string>
+    <string name="test_connection">Tester la connexion</string>
+    <string name="kindness_usage_limits_status_off">désactivé</string>
+    <string name="kindness_usage_limits_status_on">activé</string>
+    <string name="Paused">Interrompu</string>
 </resources>
