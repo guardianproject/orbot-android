@@ -181,4 +181,5 @@
     <string name="search_for_apps">חיפוש יישומונים</string>
     <string name="apps_updated_msg">יישומונים עודכנו</string>
     <string name="title_safety">בטיחות</string>
+    <string name="connect_to_tor">התחבר אל Tor</string>
 </resources>

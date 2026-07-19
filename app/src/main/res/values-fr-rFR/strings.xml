@@ -194,4 +194,5 @@
     <string name="setting_block_screenshot_title">Bloquer les captures d’écran</string>
     <string name="setting_unlock_pass_title">Verrouiller l’écran</string>
     <string name="status_loading_status">Chargement de l’état du réseau</string>
+    <string name="approved">Approuvé</string>
 </resources>
