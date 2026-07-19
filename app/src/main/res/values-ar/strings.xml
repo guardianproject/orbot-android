@@ -304,4 +304,11 @@
     <string name="testing_explanation_no_net">اتصل بالإنترنت لترى ما إذا كنت مؤهلاً لاستخدام «وضع اللطف»</string>
     <string name="kindness_mode_unsupported_country">لقد حدّدت %s كبلدك، ولكن للأسف لا يمكن لـ «وضع اللطف» مساعدة المستخدمين في هذه المنطقة على الاتصال بشبكة تور. إذا كنت تعتقد أن هذه الرسالة ظهرت لك عن طريق الخطأ، فيمكنك مسح اختيار البلد وإجراء اختبار لمعرفة ما إذا كنت مؤهلاً لتكون وكيل «وسيط Snowflake»</string>
     <string name="kindness_usage_limits_status_off">معطّلة</string>
+    <string name="private_dns">DNS خاص</string>
+    <string name="private_dns_strict">نظام DNS الخاص الصارم مُفعّل…</string>
+    <string name="private_dns_explanation">سيؤدي استخدام نظام DNS خاص صارم مع مُحلّل عناوين محدّد إلى تسرب حركة مروك والخدمات بصلية خارج شبكة VPN الخاصة بـ Orbot. يُرجى ضبط نظام DNS الخاص بك على «تلقائي».</string>
+    <string name="test_connection">اختبر الاتصال</string>
+    <string name="testing_connection">يختبر الاتصال</string>
+    <string name="stop_test">أوقِف الاختبار</string>
+    <string name="you_can_change_the_settings_anytime">يمكنك تغيير الإعدادات في أي وقت.</string>
 </resources>
