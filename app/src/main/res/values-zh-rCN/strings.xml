@@ -314,4 +314,22 @@
     <string name="private_dns">私人 DNS</string>
     <string name="private_dns_strict">严格私人 DNS 已启用…</string>
     <string name="private_dns_explanation">使用带有特定解析器的严格私人 DNS 会将您的流量和洋葱服务泄露到 Orbot 的 VPN 之外。请将您的私人 DNS 设置为自动。</string>
+    <string name="volunteer_mode_title">欢迎使用善举模式</string>
+    <string name="kindness_mode_disclaimer_bridge">如果您居住在审查严格的国家/地区，请勿使用善举模式。</string>
+    <string name="activate_kindness_mode">激活善举模式</string>
+    <string name="running_kindness_mode_on_android">在 Android 上运行善举模式</string>
+    <string name="kindness_mode_runs_when_the_device_is_connected_to_wifi">当设备连接到 Wi-Fi 时，善举模式会自动运行。</string>
+    <string name="you_can_change_the_settings_anytime">您可以随时更改设置。</string>
+    <string name="we_recommend_charging_the_device_when_running_kindness_mode">我们建议在运行善举模式时为设备充电。</string>
+    <string name="turn_off_kindness_mode_when_you_use_another_vpn_on_this_device">当您在此设备上使用其他 VPN 时，请关闭善举模式。</string>
+    <string name="test_connection">测试连接</string>
+    <string name="orbot_will_test_your_connection_to_determine_if_you_can_be_a_snowflake_proxy_for_others">Orbot 将测试您的连接，以确定您是否可以为他人充当 Snowflake 代理。</string>
+    <string name="the_test_will_try_to_connect_directly_to_the_tor_network">测试将尝试直接连接到 Tor 网络。</string>
+    <string name="if_you_are_using_tor_bridges_they_will_temporarily_be_disconnected">如果您正在使用 Tor 网桥，它们将被暂时断开连接。</string>
+    <string name="i_acknowledge_i_have_read_the_above">我确认已阅读上述内容。</string>
+    <string name="testing_connection">正在测试连接</string>
+    <string name="please_wait_while_we_check_to_see_if_you_can_run_an_effective_proxy">请稍候，我们将检查您是否能够运行有效的代理…</string>
+    <string name="stop_test">停止测试</string>
+    <string name="approved">已批准</string>
+    <string name="not_approved">未批准</string>
 </resources>

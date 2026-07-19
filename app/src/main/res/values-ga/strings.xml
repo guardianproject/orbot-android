@@ -314,4 +314,22 @@
     <string name="private_dns">DNS Príobháideach</string>
     <string name="private_dns_strict">Cumasaíodh DNS Príobháideach Dian…</string>
     <string name="private_dns_explanation">Má úsáideann tú DNS Príobháideach dian le réiteoir ar leith, sceithfidh tú do thrácht agus do sheirbhísí onion lasmuigh de VPN Orbot. Socraigh do DNS Príobháideach go hUathoibríoch le do thoil.</string>
+    <string name="volunteer_mode_title">Fáilte go Mód Cineáltais</string>
+    <string name="kindness_mode_disclaimer_bridge">Ná húsáid Mód Cineáltais má tá cónaí ort i dtír atá faoi cheansú an-ard.</string>
+    <string name="activate_kindness_mode">Gníomhachtaigh Mód Cineáltais</string>
+    <string name="running_kindness_mode_on_android">Ag rith Mód Cineáltais ar Android</string>
+    <string name="kindness_mode_runs_when_the_device_is_connected_to_wifi">Ritheann mód cineáltais nuair a bhíonn an gléas ceangailte le Wi-Fi.</string>
+    <string name="you_can_change_the_settings_anytime">Is féidir leat na socruithe a athrú am ar bith.</string>
+    <string name="we_recommend_charging_the_device_when_running_kindness_mode">Molaimid an gléas a mhuirearú agus Mód Cineáltais á rith agat.</string>
+    <string name="turn_off_kindness_mode_when_you_use_another_vpn_on_this_device">Múch Mód Cineáltais nuair a úsáideann tú VPN eile ar an ngléas seo.</string>
+    <string name="test_connection">Tástáil Ceangal</string>
+    <string name="orbot_will_test_your_connection_to_determine_if_you_can_be_a_snowflake_proxy_for_others">Déanfaidh Orbot tástáil ar do nasc chun a fháil amach an féidir leat a bheith i do Seachfhreastalaí Snowflake do dhaoine eile.</string>
+    <string name="the_test_will_try_to_connect_directly_to_the_tor_network">Déanfaidh an tástáil iarracht ceangal go díreach leis an líonra Tor.</string>
+    <string name="if_you_are_using_tor_bridges_they_will_temporarily_be_disconnected">Má tá droichid Tor in úsáid agat, beidh siad dícheangailte go sealadach.</string>
+    <string name="i_acknowledge_i_have_read_the_above">Aithním gur léigh mé an méid thuas.</string>
+    <string name="testing_connection">Tástáil Ceangail</string>
+    <string name="please_wait_while_we_check_to_see_if_you_can_run_an_effective_proxy">Fan go fóill agus muid ag seiceáil an féidir leat seachfhreastalaí éifeachtach a rith…</string>
+    <string name="stop_test">Stop an Tástáil</string>
+    <string name="approved">Ceadaithe</string>
+    <string name="not_approved">Gan Ceadú</string>
 </resources>
