@@ -1,0 +1,6 @@
+- actualització a Tor 0.4.9.11 i Snowflake 2.14.1
+- s'ha refet el Mode Altruista: comprovacions de la qualitat dels servidors intermediaris més clara, tipus NAT viu, i gestió més intel·ligent a les regions censurades
+- compatibilitat amb l'Android 17, incloent-hi gestió de permisos per a «obre servidor en totes les interfícies»
+- progrés de connexió més precís, que persisteix a través de les rotacions
+- correccions per a l'esborrament dels registres en rotacions, per a una fallada de la Play Store, i per a l'inici automàtic
+- actualització dels ponts integrats, geoip i moltes traduccions
