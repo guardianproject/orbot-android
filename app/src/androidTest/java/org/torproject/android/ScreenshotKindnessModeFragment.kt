@@ -2,11 +2,9 @@ package org.torproject.android
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withTagValue
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.`is`
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -34,21 +32,8 @@ class ScreenshotKindnessModeFragment : BaseScreenshotTest() {
 
     @Test
     fun openKindnessModeFragment() {
-        val label = getContext()?.getString(R.string.menu_kindness)
-        val bottomNavigationItemView = onView(
-            allOf(
-                withId(R.id.kindnessFragment), withContentDescription(label),
-                childAtPosition(
-                    childAtPosition(
-                        withId(R.id.bottom_navigation),
-                        0
-                    ),
-                    1
-                ),
-                isDisplayed()
-            )
-        )
-        bottomNavigationItemView.perform(click())
+        onView(withTagValue(`is`(R.id.kindnessFragment)))
+            .perform(click())
         Screengrab.screenshot("D-kindness_mode_screen")
     }
 
