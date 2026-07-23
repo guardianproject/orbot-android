@@ -322,7 +322,7 @@
     <string name="you_can_change_the_settings_anytime">Puoi cambiare le impostazioni in qualsiasi momento.</string>
     <string name="we_recommend_charging_the_device_when_running_kindness_mode">Consigliamo di caricare il dispositivo quando funziona la modalità altruismo.</string>
     <string name="turn_off_kindness_mode_when_you_use_another_vpn_on_this_device">Disattiva la modalità altruismo quando usi un\'altra VPN su questo dispositivo.</string>
-    <string name="test_connection">Prova la connessione</string>
+    <string name="test_connection">Prova connessione</string>
     <string name="orbot_will_test_your_connection_to_determine_if_you_can_be_a_snowflake_proxy_for_others">Orbot proverà la tua connessione per determinare se puoi essere un proxy Snowflake per gli altri.</string>
     <string name="the_test_will_try_to_connect_directly_to_the_tor_network">La prova tenterà la connessione diretta alla rete Tor.</string>
     <string name="if_you_are_using_tor_bridges_they_will_temporarily_be_disconnected">Se usi dei bridge di Tor, verranno temporaneamente disconnessi.</string>
