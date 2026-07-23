@@ -286,7 +286,7 @@
     <string name="action_learn_more">Scopri di più</string>
     <string name="Enabled">Attivato</string>
     <string name="kindness_proxy_quality_unknown">sconosciuta</string>
-    <string name="volunteer_mode_title">Modalità altruismo: aiuta altri a connettersi a Tor</string>
+    <string name="volunteer_mode_title">Benvenuti alla modalità altruismo</string>
     <string name="volunteer_mode_subtitle_desc">La modalità altruismo rende il tuo dispositivo un proxy Snowflake nella rete Tor: un ponte per aiutare altri a connettersi.</string>
     <string name="Disabled">Disattivato</string>
     <string name="Paused">In pausa</string>
@@ -310,10 +310,26 @@
     <string name="testing_explanation_other_vpn">La modalità altruismo non può essere attivata quando si usa una VPN. L\'unica eccezione è la funzione VPN di Orbot. Per diventare un proxy Snowflake devi rimuovere la VPN o usare Orbot.</string>
     <string name="testing_explanation_other_vpn_bubble">Apri impostazioni VPN di sistema…</string>
     <string name="testing_explanation_no_net">Connetti ad internet per vedere se sei un buon candidato per la modalità altruismo</string>
-    <string name="kindness_mode_disclaimer_bridge">Attivala se internet non viene pesantemente censurato nel tuo Paese.</string>
+    <string name="kindness_mode_disclaimer_bridge">Non usare la modalità altruismo se vivi in un Paese pesantemente censurato.</string>
     <string name="kindness_mode_unsupported_country">Hai selezionato %s come tuo Paese, ma purtroppo la modalità altruismo non può aiutare le persone a connettersi a Tor in questa regione. Se pensi di vedere questo messaggio per errore, puoi rimuovere il tuo Paese e provare a vedere se sei idoneo a essere un proxy Snowflake</string>
     <string name="open_proxy_needs_local_network_permission">Su Android 17 e successivi, Orbot ha bisogno dell\'autorizzazione \"Dispositivi nelle vicinanze\" per aprire il proxy su tutte le interfacce.</string>
     <string name="private_dns">DNS privato</string>
     <string name="private_dns_strict">DNS privato rigoroso attivato…</string>
     <string name="private_dns_explanation">Usare un DNS privato rigoroso con uno specifico risolutore, farà fuoriuscire il traffico e i servizi onion dalla VPN di Orbot. Imposta il DNS privato per essere automatico.</string>
+    <string name="activate_kindness_mode">Attivà la modalità altruismo</string>
+    <string name="running_kindness_mode_on_android">Esecuzione della modalità altruismo su Android</string>
+    <string name="kindness_mode_runs_when_the_device_is_connected_to_wifi">La modalità altruismo funziona quando il dispositivo è connesso al Wi-Fi.</string>
+    <string name="you_can_change_the_settings_anytime">Puoi cambiare le impostazioni in qualsiasi momento.</string>
+    <string name="we_recommend_charging_the_device_when_running_kindness_mode">Consigliamo di caricare il dispositivo quando funziona la modalità altruismo.</string>
+    <string name="turn_off_kindness_mode_when_you_use_another_vpn_on_this_device">Disattiva la modalità altruismo quando usi un\'altra VPN su questo dispositivo.</string>
+    <string name="test_connection">Prova la connessione</string>
+    <string name="orbot_will_test_your_connection_to_determine_if_you_can_be_a_snowflake_proxy_for_others">Orbot proverà la tua connessione per determinare se puoi essere un proxy Snowflake per gli altri.</string>
+    <string name="the_test_will_try_to_connect_directly_to_the_tor_network">La prova tenterà la connessione diretta alla rete Tor.</string>
+    <string name="if_you_are_using_tor_bridges_they_will_temporarily_be_disconnected">Se usi dei bridge di Tor, verranno temporaneamente disconnessi.</string>
+    <string name="i_acknowledge_i_have_read_the_above">Confermo di aver letto quanto sopra.</string>
+    <string name="testing_connection">Prova di connessione</string>
+    <string name="please_wait_while_we_check_to_see_if_you_can_run_an_effective_proxy">Attendi mentre controlliamo se puoi eseguire un proxy efficace…</string>
+    <string name="stop_test">Ferma la prova</string>
+    <string name="approved">Approvato</string>
+    <string name="not_approved">Non approvato</string>
 </resources>
