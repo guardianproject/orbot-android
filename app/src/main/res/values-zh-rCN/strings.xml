@@ -313,7 +313,7 @@
     <string name="open_proxy_needs_local_network_permission">在 Android 17 及更高版本中，Orbot 需要允许访问附近设备的权限才能在所有接口上打开代理。</string>
     <string name="private_dns">私人 DNS</string>
     <string name="private_dns_strict">严格私人 DNS 已启用…</string>
-    <string name="private_dns_explanation">使用带有特定解析器的严格私人 DNS 会将您的流量和洋葱服务泄露到 Orbot 的 VPN 之外。请将您的私人 DNS 设置为自动。</string>
+    <string name="private_dns_explanation">使用带有特定解析器的严格私人 DNS 将会泄露您在 Orbot 的 VPN 之外访问的网站和洋葱服务。请将您的私人 DNS 设置为自动。</string>
     <string name="volunteer_mode_title">欢迎使用善举模式</string>
     <string name="kindness_mode_disclaimer_bridge">如果您居住在审查严格的国家/地区，请勿使用善举模式。</string>
     <string name="activate_kindness_mode">激活善举模式</string>
