@@ -313,7 +313,7 @@
     <string name="open_proxy_needs_local_network_permission">Ar Android 17 agus níos airde, teastaíonn cead \"Ceadaigh Rochtain ar Ghléasanna In Aice Láimhe\" ó Orbot chun an seachfhreastalaí a oscailt ar gach comhéadan.</string>
     <string name="private_dns">DNS Príobháideach</string>
     <string name="private_dns_strict">Cumasaíodh DNS Príobháideach Dian…</string>
-    <string name="private_dns_explanation">Má úsáideann tú DNS Príobháideach dian le réiteoir ar leith, sceithfidh tú do thrácht agus do sheirbhísí onion lasmuigh de VPN Orbot. Socraigh do DNS Príobháideach go hUathoibríoch le do thoil.</string>
+    <string name="private_dns_explanation">Má úsáideann tú DNS Príobháideach Strict le réiteoir ar leith, sceithfidh sé cé na suíomhanna gréasáin agus na seirbhísí onion a dtugann tú cuairt orthu lasmuigh de VPN Orbot. Socraigh do DNS Príobháideach go hUathoibríoch le do thoil.</string>
     <string name="volunteer_mode_title">Fáilte go Mód Cineáltais</string>
     <string name="kindness_mode_disclaimer_bridge">Ná húsáid Mód Cineáltais má tá cónaí ort i dtír atá faoi cheansú an-ard.</string>
     <string name="activate_kindness_mode">Gníomhachtaigh Mód Cineáltais</string>
