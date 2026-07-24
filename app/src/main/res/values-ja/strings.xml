@@ -330,4 +330,6 @@
     <string name="stop_test">テストを停止</string>
     <string name="approved">問題ありません</string>
     <string name="not_approved">失敗しました</string>
+    <string name="Paused">一時停止</string>
+    <string name="test_connection">接続をテスト</string>
 </resources>
