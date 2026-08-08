@@ -111,12 +111,18 @@ class Bridge(var raw: String) {
         get() {
             val pieces = raw.split(" ").toMutableList()
 
-            // "Vanilla" bridges (conventional relays without obfuscation) don't have a transport.
-            // Add an empty one, so parsing works.
-            if (pieces.size < 3) {
-                pieces.add(0, "")
+            // "Vanilla" bridges (conventional relays without obfuscation) don't have a transport,
+            // so their first piece is already the address, not a transport name. Telling them
+            // apart by piece count alone breaks on a transport bridge line that is missing its
+            // (optional) fingerprint, e.g. "obfs4 192.0.2.5:443", which also only has 2 pieces.
+            // Check what the first piece actually looks like instead: transport names are plain
+            // words, while addresses always contain a dot (IPv4) or start with "[" (IPv6).
+            val firstLooksLikeAddress = pieces.firstOrNull()?.let {
+                it.contains(".") || it.startsWith("[")
+            } ?: false
 
-                return pieces
+            if (firstLooksLikeAddress) {
+                pieces.add(0, "")
             }
 
             return pieces
