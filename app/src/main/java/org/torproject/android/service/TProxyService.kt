@@ -5,9 +5,12 @@ package org.torproject.android.service
 @Suppress("LocalVariableName")
 object TProxyService {
     @JvmStatic
-    external fun TProxyStartService(config_path: String?, fd: Int)
+    external fun TProxyStartService(config_path: String?, fd: Int): Boolean
     @JvmStatic
-    external fun TProxyStopService()
+    external fun TProxyStopService(): Boolean
+    @JvmStatic
+    external fun TProxyIsRunning(): Boolean
+    @JvmStatic
     external fun TProxyGetStats(): LongArray?
 
     init {
