@@ -305,4 +305,14 @@
     <string name="testing_explanation_other_vpn_bubble">Obre la configuració del sistema de la VPN…</string>
     <string name="testing_explanation_no_net">Connecteu-vos a internet per a veure si sou un bon candidat per al mode altruista</string>
     <string name="kindness_mode_unsupported_country">Heu seleccionat %s com al vostre país, però malauradament el Mode altruista no pot ajudar ningú a connectar-se al Tor en aquesta regió. Si creieu que veieu aquest missatge per error, podeu esborrar el vostre país i provar de nou per a veure si sou elegible per a esdevindre un servidor intermediari Snowflake</string>
+    <string name="open_proxy_needs_local_network_permission">En Android 17 o superiors, l\'Orbot necessita tenir activat el permís per a accedir als dispositius propers, per a poder obrir el servidor intermediari en totes les interfícies.</string>
+    <string name="volunteer_mode_title">Us donem la benvinguda al Mode altruista</string>
+    <string name="Paused">En pausa</string>
+    <string name="kindness_quality_upgrade_need_local_network">En Android 17 o superiors, també cal que activeu el permís per a accedir als dispositius propers, perquè l\'Orbot pugui accedir al vostre encaminador.</string>
+    <string name="kindness_quality_upgrade_perm_granted">S\'ha activat el permís per a accedir als dispositius propers en aquest dispositiu.</string>
+    <string name="grant_permission">Concedeix el permís</string>
+    <string name="set_permission_in_settings">Defineix el permís a la configuració</string>
+    <string name="kindness_mode_disclaimer_bridge">No utilitzeu el Mode altruista si viviu en un país fortament censurat.</string>
+    <string name="private_dns">DNS privada</string>
+    <string name="private_dns_strict">DNS privada estricta activada…</string>
 </resources>
