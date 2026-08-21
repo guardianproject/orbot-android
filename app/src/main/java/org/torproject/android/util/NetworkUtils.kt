@@ -124,7 +124,7 @@ object NetworkUtils {
         return portString
     }
 
-    fun isPortOpen(ip: String?, port: Int, timeout: Int): Boolean {
+    private fun isPortOpen(ip: String?, port: Int, timeout: Int): Boolean {
         try {
             val socket = Socket()
             socket.connect(InetSocketAddress(ip, port), timeout)

@@ -25,9 +25,7 @@ import org.torproject.android.util.Prefs
 
 class SnowflakeProxyService : Service() {
 
-    inner class LocalBinder : Binder() {
-        fun getService(): SnowflakeProxyService = this@SnowflakeProxyService
-    }
+    class LocalBinder : Binder()
 
     private val binder = LocalBinder()
 
