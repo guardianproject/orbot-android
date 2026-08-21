@@ -8,31 +8,17 @@
     android:layout_marginBottom="16dp"
     android:maxWidth="360dp">
 
-    <androidx.cardview.widget.CardView
+    <org.torproject.android.ui.widget.PillNavbar
+        android:id="@+id/pill_navbar"
         android:layout_width="0dp"
         android:layout_height="72dp"
         android:layout_marginHorizontal="16dp"
         android:clipChildren="false"
         android:clipToPadding="false"
-        app:cardBackgroundColor="@android:color/black"
-        app:cardCornerRadius="36dp"
-        app:cardElevation="0dp"
+        android:background="@drawable/bg_pill_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_max="360dp"
-        app:strokeWidth="0dp">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="8dp"
-            android:background="@android:color/transparent"
-            app:itemIconTint="@color/bottom_nav_color"
-            app:itemTextColor="@color/bottom_nav_color"
-            app:labelVisibilityMode="selected"
-            app:menu="@menu/main_bottom_nav" />
-
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintWidth_max="360dp">
+    </org.torproject.android.ui.widget.PillNavbar>
 </androidx.constraintlayout.widget.ConstraintLayout>

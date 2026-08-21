@@ -3,12 +3,9 @@ package org.torproject.android
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.scrollTo
-import androidx.test.espresso.matcher.ViewMatchers.withClassName
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.anything
-import org.hamcrest.Matchers.`is`
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -34,20 +31,11 @@ class ScreenshotChooseHowToConnect : BaseScreenshotTest() {
 
     @Test
     fun screenshotChooseHowToConnect() {
-        val linearLayout = onData(anything())
-            .inAdapterView(
-                allOf(
-                    withId(R.id.lvConnected),
-                    childAtPosition(
-                        withClassName(`is`("androidx.constraintlayout.widget.ConstraintLayout")),
-                        5
-                    )
-                )
-            )
+        onData(anything())
+            .inAdapterView(withId(R.id.lvConnected))
             .atPosition(1)
-        linearLayout.perform(scrollTo(), click())
+            .perform(scrollTo(), click())
 
-        isVisible()
         Screengrab.screenshot("B-choose-how")
     }
 }

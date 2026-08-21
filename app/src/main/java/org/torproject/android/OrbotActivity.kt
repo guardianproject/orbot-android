@@ -14,16 +14,14 @@ import android.view.WindowInsetsController
 import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.annotation.IdRes
 import androidx.annotation.RequiresApi
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
-import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.ui.connect.ConnectUiState
@@ -32,6 +30,8 @@ import org.torproject.android.ui.connect.RequestPostNotificationPermission
 import org.torproject.android.ui.core.BaseActivity
 import org.torproject.android.ui.core.DeviceAuthenticationPrompt
 import org.torproject.android.ui.kindness.SnowflakeProxyService
+import org.torproject.android.ui.widget.PillNavbar
+import org.torproject.android.util.NavUtils
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.sendIntentToService
 import org.torproject.android.util.showToast
@@ -40,9 +40,7 @@ import org.torproject.jni.TorService
 class OrbotActivity : BaseActivity() {
 
     private lateinit var navController: NavController
-    private lateinit var bottomNavigationView: BottomNavigationView
-
-    private var lastNavMenuIndex = -1
+    private lateinit var bottomNav: PillNavbar
 
     var portSocks: Int = -1
     var portHttp: Int = -1
@@ -92,6 +90,20 @@ class OrbotActivity : BaseActivity() {
         }
     }
 
+    private fun navigateToTopLevel(@IdRes id: Int) {
+        val currentId = navController.currentDestination?.id ?: id
+
+        if (currentId == id) return
+
+        val navOptions = if (NavUtils.navIndex(id) > NavUtils.navIndex(currentId)) {
+            NavUtils.navOptionsLeftToRight
+        } else {
+            NavUtils.navOptionsRightToLeft
+        }
+
+        navController.navigate(id, null, navOptions)
+    }
+
     private fun createOrbot() {
         setContentView(R.layout.activity_orbot)
         rootLayout = findViewById(R.id.rootLayout)
@@ -102,54 +114,15 @@ class OrbotActivity : BaseActivity() {
         }
 
         navController = findNavController(R.id.nav_fragment)
-        bottomNavigationView = findViewById(R.id.bottom_navigation)
-        bottomNavigationView.setupWithNavController(navController)
+        bottomNav = findViewById(R.id.pill_navbar)
+        bottomNav.setMenu(R.menu.main_bottom_nav)
+        bottomNav.onItemSelected = ::navigateToTopLevel
 
-        val bottomNavigationContainer = findViewById<View>(R.id.bottomNavContainer)
+        val bottomNavContainer = findViewById<View>(R.id.bottomNavContainer)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.connectFragment || destination.id == R.id.moreFragment || destination.id == R.id.kindnessFragment) {
-                bottomNavigationContainer.visibility = View.VISIBLE
-            } else {
-                bottomNavigationContainer.visibility = View.GONE
-            }
-        }
-
-        val navOptionsLeftToRight = NavOptions.Builder()
-            .setEnterAnim(R.anim.slide_in_right)
-            .setExitAnim(R.anim.slide_out_left)
-            .setPopEnterAnim(R.anim.slide_in_right)
-            .setPopExitAnim(R.anim.slide_out_left)
-            .build()
-
-        val navOptionsRightToLeft = NavOptions.Builder()
-            .setEnterAnim(R.anim.slide_in_left)
-            .setExitAnim(R.anim.slide_out_right)
-            .setPopEnterAnim(R.anim.slide_in_left)
-            .setPopExitAnim(R.anim.slide_out_right)
-            .build()
-
-        bottomNavigationView.setOnItemSelectedListener { item ->
-            val navOptions = if ((navController.currentDestination?.id ?: 0) < item.itemId) {
-                navOptionsLeftToRight
-            } else {
-                navOptionsRightToLeft
-            }
-
-            if (lastNavMenuIndex != item.itemId) {
-                when (item.itemId) {
-                    R.id.connectFragment ->
-                        navController.navigate(R.id.connectFragment, null, navOptions)
-
-                    R.id.kindnessFragment ->
-                        navController.navigate(R.id.kindnessFragment, null, navOptions)
-
-                    R.id.moreFragment ->
-                        navController.navigate(R.id.moreFragment, null, navOptions)
-                }
-            }
-            lastNavMenuIndex = item.itemId
-            true
+            bottomNav.setSelectedItem(destination.id)
+            bottomNavContainer.visibility = if (destination.id in NavUtils.navOrder) View.VISIBLE else View.GONE
         }
 
         val filter = IntentFilter().apply {
@@ -177,7 +150,7 @@ class OrbotActivity : BaseActivity() {
                 when (it.destination.id) {
                     R.id.connectFragment -> finish()
                     R.id.kindnessFragment, R.id.moreFragment -> {
-                        bottomNavigationView.selectedItemId = R.id.connectFragment
+                        navigateToTopLevel(R.id.connectFragment)
                     }
 
                     else -> navController.popBackStack()
@@ -242,8 +215,6 @@ class OrbotActivity : BaseActivity() {
         if (Prefs.beSnowflakeProxy) {
             SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
         }
-
-        lastNavMenuIndex = bottomNavigationView.selectedItemId
     }
 
     override fun onDestroy() {
