@@ -27,6 +27,7 @@ iptproxy = "5.5.1"
 quickie = "1.12.0"
 version-catalog-update = "1.1.1"
 material = "1.14.0"
+junit = "4.13.2"
 
 
 [libraries]
@@ -57,6 +58,7 @@ upnp = { group = "com.netzarchitekten", name = "upnp", version.ref = "upnp" }
 iptproxy = { group = "com.netzarchitekten", name = "IPtProxy", version.ref = "iptproxy" }
 quickie = { group = "io.github.g00fy2.quickie", name = "quickie-bundled", version.ref = "quickie" }
 material3 = { module = "com.google.android.material:material", version.ref = "material" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
 
 
 [plugins]
