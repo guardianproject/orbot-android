@@ -28,7 +28,7 @@ object LocalizedLogsToDisplay {
         if (logline.isBlank() || context == null) return null
         systemLogsToDisplay.keys.forEach { key ->
             if (logline.contains(key)) {
-                return context.getString(systemLogsToDisplay[key]!!)
+                return context.getString(systemLogsToDisplay[key] ?: return@forEach)
             }
         }
         localizedLogsToDisplay.forEach {
