@@ -75,6 +75,16 @@ git submodule update --init --recursive
 git status 
 ```
 
+### Unit Tests 
+
+Orbot has unit tests for bridge parsing, please add new tests when introducing new features and tests to ensure old features work correctly are kindly welcomed.
+
+To run the test suite:
+
+```bash
+./gradlew :app:testFullpermDebugUnitTest
+```
+
 ### Viewing Logs 
 
 Recently `tor` was added to be its own Linux process on Android instead of having it run within the primary app process. That means that you will no longer see logs from `tor`, `OrbotService`, `OrbotVPNManager`, etc. within Android Studio. In order to see these logs you can use:
