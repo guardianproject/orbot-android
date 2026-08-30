@@ -34,7 +34,7 @@
     <string name="confirm">സ്ഥിരീകരിക്കുക</string>
     <string name="enable">സജ്ജമാക്കുക</string>
     <string name="hidden_services">ഒണിയൻ സേവനങ്ങൾ</string>
-    <string name="set_transport">ഗതാഗതം സജ്ജമാക്കുക</string>
+    <string name="set_transport"></string>
     <string name="btn_choose_apps">ആപ്പുകൾ തിരഞ്ഞെടുക്കുക</string>
     <string name="system_vpn_settings">ആൻഡ്രോയിഡ് VPN ക്രമീകരണങ്ങൾ</string>
 </resources>
