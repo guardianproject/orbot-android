@@ -8,6 +8,7 @@ import org.junit.Test
 class CustomBridgeBottomSheetTest {
 
     // U+00A0 NO-BREAK SPACE, the character HTML email substitutes for a regular space.
+    // see: https://github.com/guardianproject/orbot-android/issues/1695
     private val nbsp = "\u00A0"
 
     @Test

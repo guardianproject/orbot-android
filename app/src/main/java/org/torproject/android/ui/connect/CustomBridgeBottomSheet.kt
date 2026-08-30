@@ -42,6 +42,7 @@ class CustomBridgeBottomSheet : OrbotBottomSheetDialogFragment() {
         // non-breaking space or another Unicode space variant for a regular space when a bridge
         // line is copied out. \s in validBridgeRegex above only matches ASCII whitespace, and
         // Bridge.kt splits on a literal " ", so those bridges get rejected or parsed wrong.
+        // see: https://github.com/guardianproject/orbot-android/issues/1695
         private val unicodeSpaceRegex = Regex("\\p{Zs}")
 
         // One cleaning path for validation and saving: normalize any Unicode space to a regular
