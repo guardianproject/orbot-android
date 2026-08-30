@@ -36,7 +36,7 @@ object TorConfig {
 
         conf.add("SafeSocks 0")
         conf.add("TestSocks 0")
-        conf.add("HTTPTunnelPort $httpPortPref $isolate")
+        conf.add("HTTPTunnelPort $httpPortPref $ipv6Pref $isolate")
 
         if (Prefs.connectionPadding) {
             conf.add("ConnectionPadding 1")
