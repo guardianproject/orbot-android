@@ -146,7 +146,7 @@
     <string name="backup_port_exist">Error: Ja hi ha un servei Onion utilitzant el port %s</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Permet accedir al Tor als companys Wi-Fi, als dispositius connectats i a qualsevol que es pugui connectar a la vostra IP</string>
     <string name="snowflake_proxy_msg_description">Mostra un missatge quan ajudeu altra persona a circumval·lar la censura</string>
-    <string name="kindness_config_detail">Configureu com i quan el vostre dispositiu pot actuar com a un servidor Snowflake per a altres usuaris del Tor.</string>
+    <string name="kindness_config_detail">Configureu quan i com pot actuar el vostre dispositiu com a un servidor Snowflake per a altres usuaris del Tor.</string>
     <string name="v3_backup_key_warning">Atenció: Això podria exposar la clau a altres aplicacions</string>
     <string name="v3_delete_client_authorization">Suprimeix la clau d\'autorització del client</string>
     <string name="pref_isolate_protocol_summary">Utilitza un circuit diferent per a cada protocol de connexió</string>
@@ -315,4 +315,21 @@
     <string name="kindness_mode_disclaimer_bridge">No utilitzeu el Mode altruista si viviu en un país fortament censurat.</string>
     <string name="private_dns">DNS privada</string>
     <string name="private_dns_strict">DNS privada estricta activada…</string>
+    <string name="activate_kindness_mode">Activa el Mode altruista</string>
+    <string name="running_kindness_mode_on_android">Executar el Mode altruista en Android</string>
+    <string name="kindness_mode_runs_when_the_device_is_connected_to_wifi">El Mode altruista s\'executa quan el dispositiu es connecta a la Wi-Fi.</string>
+    <string name="you_can_change_the_settings_anytime">Podeu canviar la configuració en qualsevol moment.</string>
+    <string name="we_recommend_charging_the_device_when_running_kindness_mode">Recomanem carregar el dispositiu en utilitzar el Mode altruista.</string>
+    <string name="turn_off_kindness_mode_when_you_use_another_vpn_on_this_device">Desactiveu el Mode altruista quan utilitzeu una altra VPN en aquest dispositiu.</string>
+    <string name="test_connection">Prova la connexió</string>
+    <string name="orbot_will_test_your_connection_to_determine_if_you_can_be_a_snowflake_proxy_for_others">L\'Orbot comprovarà la connexió per a determinar si podeu ser un servidor Snowflake per als altres.</string>
+    <string name="the_test_will_try_to_connect_directly_to_the_tor_network">La prova intentarà connectar directament amb la xarxa Tor.</string>
+    <string name="if_you_are_using_tor_bridges_they_will_temporarily_be_disconnected">Si utilitzeu ponts Tor, es desactivaran temporalment.</string>
+    <string name="i_acknowledge_i_have_read_the_above">Confirme que ho he llegit tot.</string>
+    <string name="testing_connection">S\'està comprovant la connexió</string>
+    <string name="please_wait_while_we_check_to_see_if_you_can_run_an_effective_proxy">Espereu mentre comprovem si podeu executar un servidor efectiu…</string>
+    <string name="stop_test">Atura la prova</string>
+    <string name="approved">Aprovat</string>
+    <string name="not_approved">No aprovat</string>
+    <string name="private_dns_explanation">Utilitzar un DNS privat estricte amb un sistema de resolució específic revelarà quins llocs web i serveis onion visiteu fora de la VPN de l\'Orbot. Establiu el vostre DNS privat en Automàtic.</string>
 </resources>
