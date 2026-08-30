@@ -38,12 +38,23 @@ class CustomBridgeBottomSheet : OrbotBottomSheetDialogFragment() {
                     + """[ \t\f\w\-/+:=.,\[\]]*$""" // Optional bridge arguments (different per bridge type, subject to change)
         )
 
+        // HTML email (e.g. the Tor Project's bridge distribution templates) can substitute a
+        // non-breaking space or another Unicode space variant for a regular space when a bridge
+        // line is copied out. \s in validBridgeRegex above only matches ASCII whitespace, and
+        // Bridge.kt splits on a literal " ", so those bridges get rejected or parsed wrong.
+        private val unicodeSpaceRegex = Regex("\\p{Zs}")
+
+        // One cleaning path for validation and saving: normalize any Unicode space to a regular
+        // space, split into lines (which also handles \r\n from desktop pastes) and drop blanks,
+        // so exactly the lines that were validated are the lines that get stored.
+        fun cleanBridgeLines(input: String): List<String> {
+            return input.replace(unicodeSpaceRegex, " ").lines().filter { it.isNotBlank() }
+        }
+
         fun isValidBridge(input: String): Boolean {
-            return input.lines()
-                .filter { it.isNotEmpty() && it.isNotBlank() }
-                .all {
-                    it.matches(validBridgeRegex)
-                }
+            return cleanBridgeLines(input).all {
+                it.matches(validBridgeRegex)
+            }
         }
     }
 
@@ -113,7 +124,9 @@ class CustomBridgeBottomSheet : OrbotBottomSheetDialogFragment() {
         binding.btnAction.setOnClickListener {
             Prefs.transport = Transport.CUSTOM
             Prefs.smartConnect = false
-            Prefs.bridgesList = binding.etBridges.text?.split("\n") ?: emptyList()
+            Prefs.bridgesList = binding.etBridges.text?.let {
+                cleanBridgeLines(it.toString())
+            } ?: emptyList()
             dismiss()
             val parent = requireActivity().supportFragmentManager.findFragmentByTag(
                 ConfigConnectionBottomSheet.TAG
