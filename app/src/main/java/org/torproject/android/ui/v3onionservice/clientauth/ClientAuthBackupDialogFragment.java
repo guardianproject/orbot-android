@@ -1,9 +1,7 @@
 package org.torproject.android.ui.v3onionservice.clientauth;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,13 +11,14 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
 import org.torproject.android.R;
-import org.torproject.android.util.DiskUtils;
 import org.torproject.android.ui.core.NoPersonalizedLearningEditText;
 import org.torproject.android.ui.v3onionservice.V3BackupUtils;
 
@@ -31,6 +30,10 @@ public class ClientAuthBackupDialogFragment extends DialogFragment {
     private TextWatcher fileNameTextWatcher;
 
     private static final String BUNDLE_KEY_FILENAME = "filename";
+
+    private final ActivityResultLauncher<String> createDocumentLauncher = registerForActivityResult(
+        new ActivityResultContracts.CreateDocument(ClientAuthActivity.CLIENT_AUTH_SAF_MIME_TYPE), uri -> attemptToWriteBackup(uri)
+    );
 
     public ClientAuthBackupDialogFragment() {
     }
@@ -104,20 +107,11 @@ public class ClientAuthBackupDialogFragment extends DialogFragment {
         String filename = Objects.requireNonNull(etFilename.getText()).toString().trim();
         if (!filename.endsWith(ClientAuthActivity.CLIENT_AUTH_FILE_EXTENSION))
             filename += ClientAuthActivity.CLIENT_AUTH_FILE_EXTENSION;
-        Intent createFileIntent = DiskUtils.createWriteFileIntent(filename, ClientAuthActivity.CLIENT_AUTH_SAF_MIME_TYPE);
-        requireActivity().startActivityForResult(createFileIntent, REQUEST_CODE_WRITE_FILE);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CODE_WRITE_FILE && resultCode == Activity.RESULT_OK) {
-            if (data != null) {
-                attemptToWriteBackup(data.getData());
-            }
-        }
+        createDocumentLauncher.launch(filename);
     }
 
     private void attemptToWriteBackup(Uri outputFile) {
+        if (outputFile == null) return;
         assert getArguments() != null;
         var v3BackupUtils = new V3BackupUtils(getContext());
         var domain = getArguments().getString(ClientAuthActivity.BUNDLE_KEY_DOMAIN);
@@ -126,6 +120,4 @@ public class ClientAuthBackupDialogFragment extends DialogFragment {
         Toast.makeText(getContext(), backup != null ? R.string.backup_saved_at_external_storage : R.string.error, Toast.LENGTH_LONG).show();
         dismiss();
     }
-
-    private static final int REQUEST_CODE_WRITE_FILE = 432;
 }
