@@ -11,6 +11,7 @@ import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
+import android.net.NetworkRequest
 import android.os.Binder
 import android.os.Build
 import android.os.IBinder
@@ -72,9 +73,12 @@ class SnowflakeProxyService : Service() {
         return START_STICKY
     }
 
-    fun refreshNotification(contentText: String? = null) {
+    fun refreshNotification(
+        contentText: String? = null,
+        isRunning: Boolean = snowflakeProxyWrapper.isProxyRunning()
+    ) {
         val title =
-            if (snowflakeProxyWrapper.isProxyRunning()) getString(R.string.kindness_mode_is_running)
+            if (isRunning) getString(R.string.kindness_mode_is_running)
             else getString(R.string.kindness_mode_disabled)
 
         var icon = R.drawable.snowflake_on
@@ -111,7 +115,10 @@ class SnowflakeProxyService : Service() {
 
         networkCallbacks = object : ConnectivityManager.NetworkCallback() {
             override fun onLost(network: Network) {
-                refreshNotification(getString(R.string.kindness_mode_disabled_internet))
+                refreshNotification(
+                    getString(R.string.kindness_mode_disabled_internet),
+                    isRunning = false
+                )
                 stopSnowflakeProxy("lost network (limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
             }
 
@@ -119,9 +126,11 @@ class SnowflakeProxyService : Service() {
                 val capabilities = connectivityManager.getNetworkCapabilities(network)
                 val hasWifi = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true
                 val hasVpn = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_VPN) == true
-
                 if (Prefs.limitSnowflakeProxyingWifi() && !hasWifi) {
-                    refreshNotification(getString(R.string.kindness_mode_disabled_wifi))
+                    refreshNotification(
+                        getString(R.string.kindness_mode_disabled_wifi),
+                        isRunning = false
+                    )
                     stopSnowflakeProxy("required wifi condition not met")
                 } else {
                     if (NetworkUtils.isNetworkAvailable(this@SnowflakeProxyService) || hasVpn) {
@@ -130,15 +139,24 @@ class SnowflakeProxyService : Service() {
                             return
                         }
                         stopSnowflakeProxy("stopping on new network event to refresh NAT type")
-                        startSnowflakeProxy("got network (wifi=${hasWifi}, limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
+                        startSnowflakeProxy("got network (wifi=${hasWifi}, limit wifi=${Prefs.limitSnowflakeProxyingWifi()})")
                     } else {
-                        refreshNotification(getString(R.string.kindness_mode_disabled_internet))
+                        refreshNotification(
+                            getString(R.string.kindness_mode_disabled_internet),
+                            isRunning = false
+
+                        )
                     }
                 }
             }
         }
-
-        connectivityManager.registerDefaultNetworkCallback(networkCallbacks)
+        connectivityManager.registerNetworkCallback(
+            NetworkRequest.Builder()
+                .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+                .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+                .build(),
+            networkCallbacks
+        )
     }
 
     private fun createNotificationChannel(): String {
@@ -170,7 +188,7 @@ class SnowflakeProxyService : Service() {
         if (!Prefs.limitSnowflakeProxyingCharging()) return
         if (isPowerConnected) startSnowflakeProxy("power connected")
         else {
-            refreshNotification(getString(R.string.kindness_mode_disabled_power))
+            refreshNotification(getString(R.string.kindness_mode_disabled_power), isRunning = false)
             stopSnowflakeProxy("power disconnected")
         }
     }

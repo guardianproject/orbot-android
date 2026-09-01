@@ -182,8 +182,10 @@ object Prefs {
         cr?.putPref(PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING, beSnowflakeProxy)
     }
 
+    // https://github.com/guardianproject/orbot-android/issues/1798
+    // this *should* be true, we want snowflake to be Wi-Fi only
     fun limitSnowflakeProxyingWifi(): Boolean {
-        return cr?.getPrefBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_WIFI) ?: false
+        return cr?.getPrefBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_WIFI, true) ?: true
     }
 
     fun limitSnowflakeProxyingCharging(): Boolean {

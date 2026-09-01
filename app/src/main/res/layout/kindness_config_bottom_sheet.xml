@@ -56,7 +56,6 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginEnd="16dp"
-        android:checked="true"
         android:contentDescription="@string/option_only_on_wifi"
         android:textColor="@android:color/white"
         android:textSize="14sp"
