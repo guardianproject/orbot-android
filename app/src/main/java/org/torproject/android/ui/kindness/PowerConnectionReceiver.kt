@@ -7,7 +7,8 @@ import android.content.Intent
 class PowerConnectionReceiver(private val snowflakeProxyService: SnowflakeProxyService) :
     BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-
-        snowflakeProxyService.powerConnectedCallback(intent.action == Intent.ACTION_POWER_CONNECTED)
+        if (intent.action == Intent.ACTION_POWER_CONNECTED || intent.action == Intent.ACTION_POWER_DISCONNECTED) {
+            snowflakeProxyService.powerConnectedCallback(intent.action == Intent.ACTION_POWER_CONNECTED)
+        }
     }
 }
