@@ -11,13 +11,18 @@ import org.torproject.android.R
 import org.torproject.android.util.Prefs
 import org.torproject.jni.TorService
 
-object Notifications {
+object
+Notifications {
     @JvmStatic
     @RequiresApi(api = Build.VERSION_CODES.O)
-    fun createNotificationChannel(context: Context) {
+    fun createCamoflaugeableNotificationChannel(
+        context: Context,
+        channelId: String,
+        channelName: Int
+    ) {
         val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val appName = if (!Prefs.isCamoEnabled)
-            context.getString(R.string.app_name)
+            context.getString(channelName)
         else
             Prefs.camoAppDisplayName
         val channelDescription = if (!Prefs.isCamoEnabled)
@@ -26,16 +31,16 @@ object Notifications {
             Prefs.camoAppDisplayName
         manager.createNotificationChannel(
             NotificationChannel(
-                ORBOT_SERVICE_NOTIFICATION_CHANNEL,
+                channelId,
                 appName,
                 NotificationManager.IMPORTANCE_LOW
             ).apply {
-            description = channelDescription
-            enableLights(false)
-            enableVibration(false)
-            setShowBadge(false)
-            lockscreenVisibility = Notification.VISIBILITY_SECRET
-        })
+                description = channelDescription
+                enableLights(false)
+                enableVibration(false)
+                setShowBadge(false)
+                lockscreenVisibility = Notification.VISIBILITY_SECRET
+            })
     }
 
     @JvmStatic
@@ -50,7 +55,7 @@ object Notifications {
     }
 
     @JvmStatic
-    fun getNotificationTitleForStatus(context: Context, torStatus: String) : String {
+    fun getNotificationTitleForStatus(context: Context, torStatus: String): String {
         if (torStatus == TorService.STATUS_STARTING)
             return context.getString(R.string.status_starting_up)
         else if (torStatus == TorService.STATUS_ON)
@@ -59,7 +64,7 @@ object Notifications {
     }
 
     @JvmStatic
-    fun getVpnSessionName(context: Context) : String {
+    fun getVpnSessionName(context: Context): String {
         return if (Prefs.isCamoEnabled) {
             Prefs.camoAppDisplayName ?: ""
         } else context.getString(R.string.orbot_vpn)

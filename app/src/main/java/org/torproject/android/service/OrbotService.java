@@ -304,7 +304,7 @@ public class OrbotService extends VpnService {
                 ContextCompat.registerReceiver(this, mActionBroadcastReceiver, filter, ContextCompat.RECEIVER_NOT_EXPORTED);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                    Notifications.createNotificationChannel(this);
+                    Notifications.createCamoflaugeableNotificationChannel(this, Notifications.ORBOT_SERVICE_NOTIFICATION_CHANNEL, R.string.app_name);
 
                 var hasGeoip = new File(appBinHome, GEOIP_ASSET_KEY).exists();
                 var hasGeoip6 = new File(appBinHome, GEOIP6_ASSET_KEY).exists();

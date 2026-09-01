@@ -45,7 +45,7 @@ object Prefs {
 
     private const val PREF_CURRENT_VERSION = "pref_current_version"
 
-    private const val PREF_CAMO_APP_PACKAGE = "pref_key_camo_app"
+    const val PREF_CAMO_APP_PACKAGE = "pref_key_camo_app"
     private const val PREF_CAMO_APP_DISPLAY_NAME = "pref_key_camo_app_display_name"
     private const val PREF_CAMO_APP_ALT_ICON_INDEX = "pref_key_camo_alticon"
     const val PREF_REQUIRE_PASSWORD = "pref_require_password"

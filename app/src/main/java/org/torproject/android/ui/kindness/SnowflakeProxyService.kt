@@ -1,7 +1,5 @@
 package org.torproject.android.ui.kindness
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
@@ -21,6 +19,7 @@ import androidx.core.content.ContextCompat
 import androidx.preference.PreferenceManager
 import org.torproject.android.R
 import org.torproject.android.Regionalization
+import org.torproject.android.service.Notifications
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
 
@@ -50,8 +49,10 @@ class SnowflakeProxyService : Service() {
         powerConnectionReceiver = PowerConnectionReceiver(this)
         regionChangedObserver =
             SharedPreferences.OnSharedPreferenceChangeListener { sharedPreferences, key ->
-                if (key != Prefs.PREF_BRIDGE_COUNTRY) return@OnSharedPreferenceChangeListener
-                if (Regionalization.isKindnessModeDisabledForCountry(Prefs.bridgeCountry)) {
+                if (key != Prefs.PREF_BRIDGE_COUNTRY || key != Prefs.PREF_CAMO_APP_PACKAGE) return@OnSharedPreferenceChangeListener
+                if (key == Prefs.PREF_CAMO_APP_PACKAGE) {
+                    refreshNotification()
+                } else if (Regionalization.isKindnessModeDisabledForCountry(Prefs.bridgeCountry)) {
                     stopSelf()
                 }
             }
@@ -74,38 +75,34 @@ class SnowflakeProxyService : Service() {
     }
 
     fun refreshNotification(
-        contentText: String? = null,
-        isRunning: Boolean = snowflakeProxyWrapper.isProxyRunning()
+        contentText: String? = null, isRunning: Boolean = snowflakeProxyWrapper.isProxyRunning()
     ) {
-        val title =
-            if (isRunning) getString(R.string.kindness_mode_is_running)
-            else getString(R.string.kindness_mode_disabled)
+        val title = if (isRunning) getString(R.string.kindness_mode_is_running)
+        else getString(R.string.kindness_mode_disabled)
 
         var icon = R.drawable.snowflake_on
         if (!snowflakeProxyWrapper.isProxyRunning()) {
-            icon = if (contentText == getString(R.string.kindness_mode_starting))
-                R.drawable.snowflake_starting
-            else R.drawable.snowflake_off
+            icon =
+                if (contentText == getString(R.string.kindness_mode_starting)) R.drawable.snowflake_starting
+                else R.drawable.snowflake_off
         }
 
-        val activityIntent =
-            packageManager.getLaunchIntentForPackage(packageName)
+        val activityIntent = packageManager.getLaunchIntentForPackage(packageName)
         val pendingActivityIntent =
             PendingIntent.getActivity(this, 0, activityIntent, PendingIntent.FLAG_IMMUTABLE)
-        val notificationBuilder = NotificationCompat.Builder(this, notificationChannelId)
-            .setSmallIcon(icon)
-            .setPriority(NotificationCompat.PRIORITY_LOW)
-            .setCategory(NotificationCompat.CATEGORY_SERVICE)
-            .setContentTitle(title)
-            .setContentIntent(pendingActivityIntent)
-            .setContentText(
-                contentText ?: getString(
-                    R.string.kindness_mode_active_message,
-                    Prefs.snowflakesServed
+        val notificationBuilder =
+            NotificationCompat.Builder(this, notificationChannelId).setSmallIcon(icon)
+                .setPriority(NotificationCompat.PRIORITY_LOW)
+                .setCategory(NotificationCompat.CATEGORY_SERVICE).setContentTitle(title)
+                .setContentIntent(pendingActivityIntent).setContentText(
+                    contentText ?: getString(
+                        R.string.kindness_mode_active_message, Prefs.snowflakesServed
+                    )
                 )
-            )
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
-            notificationBuilder.setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) notificationBuilder.setForegroundServiceBehavior(
+            NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE
+        )
+        if (Prefs.isCamoEnabled) Notifications.configureCamoNotification(notificationBuilder)
         startForeground(NOTIFICATION_ID, notificationBuilder.build())
     }
 
@@ -116,8 +113,7 @@ class SnowflakeProxyService : Service() {
         networkCallbacks = object : ConnectivityManager.NetworkCallback() {
             override fun onLost(network: Network) {
                 refreshNotification(
-                    getString(R.string.kindness_mode_disabled_internet),
-                    isRunning = false
+                    getString(R.string.kindness_mode_disabled_internet), isRunning = false
                 )
                 stopSnowflakeProxy("lost network (limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
             }
@@ -128,8 +124,7 @@ class SnowflakeProxyService : Service() {
                 val hasVpn = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_VPN) == true
                 if (Prefs.limitSnowflakeProxyingWifi() && !hasWifi) {
                     refreshNotification(
-                        getString(R.string.kindness_mode_disabled_wifi),
-                        isRunning = false
+                        getString(R.string.kindness_mode_disabled_wifi), isRunning = false
                     )
                     stopSnowflakeProxy("required wifi condition not met")
                 } else {
@@ -142,8 +137,7 @@ class SnowflakeProxyService : Service() {
                         startSnowflakeProxy("got network (wifi=${hasWifi}, limit wifi=${Prefs.limitSnowflakeProxyingWifi()})")
                     } else {
                         refreshNotification(
-                            getString(R.string.kindness_mode_disabled_internet),
-                            isRunning = false
+                            getString(R.string.kindness_mode_disabled_internet), isRunning = false
 
                         )
                     }
@@ -151,24 +145,16 @@ class SnowflakeProxyService : Service() {
             }
         }
         connectivityManager.registerNetworkCallback(
-            NetworkRequest.Builder()
-                .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-                .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
-                .build(),
-            networkCallbacks
+            NetworkRequest.Builder().addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+                .addTransportType(NetworkCapabilities.TRANSPORT_WIFI).build(), networkCallbacks
         )
     }
 
     private fun createNotificationChannel(): String {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-            return ""
-        val channel = NotificationChannel(
-            CHANNEL_ID,
-            getString(R.string.volunteer_mode),
-            NotificationManager.IMPORTANCE_LOW
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return ""
+        val channel = Notifications.createCamoflaugeableNotificationChannel(
+            this, CHANNEL_ID, R.string.volunteer_mode
         )
-        val service = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        service.createNotificationChannel(channel)
         return CHANNEL_ID
     }
 
@@ -214,15 +200,13 @@ class SnowflakeProxyService : Service() {
         // start this service, but not necessarily snowflake proxy from the app UI
         fun startSnowflakeProxyForegroundService(context: Context) =
             ContextCompat.startForegroundService(
-                context,
-                getIntent(context)
+                context, getIntent(context)
             )
 
         // stop this service, and snowflake proxy if its running, from the app UI
         fun stopSnowflakeProxyForegroundService(context: Context) =
             ContextCompat.startForegroundService(
-                context,
-                getIntent(context).setAction(ACTION_STOP_SNOWFLAKE_SERVICE)
+                context, getIntent(context).setAction(ACTION_STOP_SNOWFLAKE_SERVICE)
             )
     }
 }
