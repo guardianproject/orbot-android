@@ -86,7 +86,7 @@ public class ClientAuthContentProvider extends ContentProvider {
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
         SQLiteDatabase db = mDatabase.getWritableDatabase();
         if (uriMatcher.match(uri) == V3AUTH_ID)
-            selection = "id_=" + uri.getLastPathSegment();
+            selection = "_id=" + uri.getLastPathSegment();
         int rows = db.update(ClientAuthDatabase.DATABASE_NAME, values, selection, null);
         Objects.requireNonNull(getContext()).getContentResolver().notifyChange(CONTENT_URI, null);
         return rows;
