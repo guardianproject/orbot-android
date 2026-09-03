@@ -1,9 +1,7 @@
 package org.torproject.android.ui.v3onionservice;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,18 +13,21 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
 import org.torproject.android.R;
-import org.torproject.android.util.DiskUtils;
 import org.torproject.android.util.StringUtils;
 
 public class OnionServiceActionsDialogFragment extends DialogFragment {
 
-    private static final int REQUEST_CODE_WRITE_FILE = 343;
+    private final ActivityResultLauncher<String> createBackupLauncher = registerForActivityResult(
+            new ActivityResultContracts.CreateDocument("application/zip"), this::attemptToWriteBackup
+    );
 
     OnionServiceActionsDialogFragment(Bundle arguments) {
         super();
@@ -89,17 +90,7 @@ public class OnionServiceActionsDialogFragment extends DialogFragment {
             Toast.makeText(context, R.string.please_restart_Orbot_to_enable_the_changes, Toast.LENGTH_LONG).show();
             return;
         }
-        var createFileIntent = DiskUtils.createWriteFileIntent(filename, "application/zip");
-        startActivityForResult(createFileIntent, REQUEST_CODE_WRITE_FILE);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CODE_WRITE_FILE && resultCode == Activity.RESULT_OK) {
-            if (data != null) {
-                attemptToWriteBackup(data.getData());
-            }
-        }
+        createBackupLauncher.launch(filename);
     }
 
     private void attemptToWriteBackup(Uri outputFile) {

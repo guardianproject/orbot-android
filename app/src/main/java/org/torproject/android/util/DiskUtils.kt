@@ -28,14 +28,6 @@ object DiskUtils {
     }
 
     @JvmStatic
-    fun createWriteFileIntent(filename: String, mimeType: String): Intent =
-        Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
-            addCategory(Intent.CATEGORY_OPENABLE)
-            type = mimeType
-            putExtra(Intent.EXTRA_TITLE, filename)
-        }
-
-    @JvmStatic
     fun createReadFileIntent(mimeType: String): Intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
         addCategory(Intent.CATEGORY_OPENABLE)
         type = mimeType
@@ -75,7 +67,7 @@ object DiskUtils {
 
     @JvmStatic
     @Throws(IOException::class)
-    fun flushTextToFile(file: File, text: String, append: Boolean)  {
+    fun flushTextToFile(file: File, text: String, append: Boolean) {
         val ps = PrintWriter(FileWriter(file, append))
         ps.print(text)
         ps.flush()
