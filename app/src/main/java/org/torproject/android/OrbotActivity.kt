@@ -165,8 +165,6 @@ class OrbotActivity : BaseActivity() {
 
         requestNotificationPermission()
 
-        Prefs.initWeeklyWorker(this)
-
         if (!rootDetectionShown && Prefs.detectRoot() && RootBeer(this).isRooted) {
             applicationContext.showToast(getString(R.string.root_warning))
             rootDetectionShown = true

@@ -189,7 +189,6 @@ dependencies {
     implementation(libs.rootbeer.lib)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.androidx.work.kotlin)
     implementation(libs.upnp)
     implementation(libs.quickie)
     implementation(libs.material3)
