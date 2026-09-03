@@ -177,7 +177,6 @@ class TestingDialogFragment : TransparentWindowDialogFragment() {
                 )
                 Log.d(TAG, "Tor is now... ${currentTorState()}")
                 if (currentTorState() != ConnectUiState.Off) {
-                    stoppedNormalTorConnection = false
                     Log.d(TAG, "Failed Connection test, OrbotService still isn't off")
                     showTestFailedUi()
                     return@launch
@@ -250,6 +249,10 @@ class TestingDialogFragment : TransparentWindowDialogFragment() {
         bubbleMsg: String? = null,
         bubbleAction: View.OnClickListener = {}
     ) {
+        if (stoppedNormalTorConnection) {
+            Log.d(TAG, "relaunching OrbotService...")
+            requireActivity().sendIntentToService(TorService.ACTION_START)
+        }
         Prefs.snowflakeNeedsQualityCheck = true
         mBinding.boxTesting.visibility = View.GONE
         mBinding.boxDeclined.visibility = View.VISIBLE
