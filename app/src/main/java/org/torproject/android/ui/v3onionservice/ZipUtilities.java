@@ -96,6 +96,11 @@ public class ZipUtilities {
             int count;
 
             outputDir.mkdirs();
+            if (!outputDir.isDirectory()) return false;
+
+            // Canonical path resolves "..", ".", and existing symlinks.
+            final String outputRoot = outputDir.getCanonicalPath() + File.separator;
+
 
             while ((ze = zis.getNextEntry()) != null) {
                 String filename = ze.getName();
@@ -113,12 +118,21 @@ public class ZipUtilities {
 
                 // Need to create directories if not exists, or it will generate an Exception...
                 if (ze.isDirectory()) {
-                    File fmd = new File(outputPath + "/" + filename);
+                    File fmd = new File(outputRoot + filename);
+                    if (!fmd.getCanonicalPath().startsWith(outputRoot)) {
+                        Log.wtf(TAG, "path traversal at " + fmd.getCanonicalPath());
+                        return false;
+                    }
                     fmd.mkdirs();
                     continue;
                 }
 
-                FileOutputStream fout = new FileOutputStream(outputPath + "/" + filename);
+                File outputFile = new File(outputRoot + filename);
+                if (!outputFile.getCanonicalPath().startsWith(outputRoot)) {
+                    Log.wtf(TAG, "path traversal at " + outputFile.getCanonicalPath());
+                    return false;
+                }
+                FileOutputStream fout = new FileOutputStream(outputFile);
 
                 while ((count = zis.read(buffer)) != -1) {
                     fout.write(buffer, 0, count);
