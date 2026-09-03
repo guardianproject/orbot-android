@@ -56,7 +56,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/DefaultTheme"
-        android:usesCleartextTraffic="true">
+        android:hasFragileUserData="false"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="29">
 
         <activity
             android:name="org.torproject.android.OrbotActivity"
