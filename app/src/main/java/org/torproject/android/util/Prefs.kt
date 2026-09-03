@@ -198,7 +198,7 @@ object Prefs {
     }
 
     fun allowBackgroundStarts(): Boolean {
-        return cr?.getPrefBoolean(PREF_ALLOW_BACKGROUND_STARTS) ?: true
+        return cr?.getPrefBoolean(PREF_ALLOW_BACKGROUND_STARTS, false) ?: false
     }
 
     fun openProxyOnAllInterfaces(context: Context): Boolean {
