@@ -46,6 +46,5 @@ open class BaseActivity : AppCompatActivity() {
             )
         else
             window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
-
     }
 }

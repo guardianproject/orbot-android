@@ -17,15 +17,13 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import org.torproject.android.R;
-import org.torproject.android.util.DiskUtils;
-import org.torproject.android.ui.core.BaseActivity;
 import org.torproject.android.service.db.V3ClientAuthColumns;
+import org.torproject.android.ui.core.BaseActivity;
 import org.torproject.android.ui.v3onionservice.V3BackupUtils;
+import org.torproject.android.util.DiskUtils;
 
-import java.util.List;
 import java.util.Objects;
 
 public class ClientAuthActivity extends BaseActivity {
@@ -34,8 +32,8 @@ public class ClientAuthActivity extends BaseActivity {
             BUNDLE_KEY_DOMAIN = "domain",
             BUNDLE_KEY_HASH = "key_hash_value";
 
-    private ContentResolver mResolver;
-    private ClientAuthListAdapter mAdapter;
+    ContentResolver mResolver;
+    ClientAuthListAdapter mAdapter;
 
     static final String CLIENT_AUTH_FILE_EXTENSION = ".auth_private",
             CLIENT_AUTH_SAF_MIME_TYPE = "*/*";
@@ -45,6 +43,7 @@ public class ClientAuthActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_v3auth);
+        // always prevent this screen from being screenshotted, regardless of the preference for screenshotting
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
         setSupportActionBar(findViewById(R.id.toolbar));
@@ -72,6 +71,7 @@ public class ClientAuthActivity extends BaseActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_READ_ZIP_BACKUP && resultCode == RESULT_OK) {
             Uri uri = data.getData();
             if (uri != null) {
@@ -88,10 +88,6 @@ public class ClientAuthActivity extends BaseActivity {
                 String authText = DiskUtils.readFileFromInputStream(getContentResolver(), uri);
                 new V3BackupUtils(this).restoreClientAuthBackup(authText);
             }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-            List<Fragment> frags = getSupportFragmentManager().getFragments();
-            for (Fragment f : frags) f.onActivityResult(requestCode, resultCode, data);
         }
     }
 
