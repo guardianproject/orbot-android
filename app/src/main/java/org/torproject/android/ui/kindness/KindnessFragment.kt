@@ -83,8 +83,11 @@ class KindnessFragment : Fragment() {
             viewLifecycleOwner
         ) { _, _ ->
             // restart snowflake proxy if a setting has changed
-            repeat(2) {
-                mBinding.swVolunteerMode.toggle()
+            // todo this logic should be further decoupled from UI
+            if (Prefs.beSnowflakeProxy) {
+                repeat(2) {
+                    mBinding.swVolunteerMode.toggle()
+                }
             }
             updateUsageLimitsUi()
         }
@@ -141,8 +144,7 @@ class KindnessFragment : Fragment() {
         SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
             if (key == Prefs.PREF_LAST_SNOWFLAKE_NAT_TYPE) {
                 updateNatTypeUi(Prefs.lastSnowflakeNatType)
-            }
-            else if (key == Prefs.PREF_LAST_SNOWFLAKE_ACTIVE) {
+            } else if (key == Prefs.PREF_LAST_SNOWFLAKE_ACTIVE) {
                 drawHeaderIcon()
             }
         }
