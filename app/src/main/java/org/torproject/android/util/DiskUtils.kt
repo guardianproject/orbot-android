@@ -2,7 +2,6 @@ package org.torproject.android.util
 
 import android.content.ContentResolver
 import android.content.Context
-import android.content.Intent
 import android.net.Uri
 import java.io.BufferedReader
 import java.io.File
@@ -25,12 +24,6 @@ object DiskUtils {
         }
         reader.close()
         return sb.toString()
-    }
-
-    @JvmStatic
-    fun createReadFileIntent(mimeType: String): Intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
-        addCategory(Intent.CATEGORY_OPENABLE)
-        type = mimeType
     }
 
     @JvmStatic

@@ -2,7 +2,6 @@ package org.torproject.android.ui.v3onionservice;
 
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
-import android.content.Intent;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -15,6 +14,8 @@ import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.RadioButton;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -24,19 +25,22 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.torproject.android.R;
 import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.ui.core.BaseActivity;
-import org.torproject.android.util.DiskUtils;
 
 public class OnionServiceActivity extends BaseActivity {
 
     static final String BUNDLE_KEY_ID = "id", BUNDLE_KEY_PORT = "port", BUNDLE_KEY_DOMAIN = "domain", BUNDLE_KEY_PATH = "path";
     private static final String BASE_WHERE_SELECTION_CLAUSE = OnionServiceColumns.CREATED_BY_USER + "=";
     private static final String BUNDLE_KEY_SHOW_USER_SERVICES = "show_user_key";
-    private static final int REQUEST_CODE_READ_ZIP_BACKUP = 347;
     RadioButton radioShowUserServices;
     private FloatingActionButton fab;
     private ContentResolver mContentResolver;
     private OnionV3ListAdapter mAdapter;
     private CoordinatorLayout mLayoutRoot;
+
+    private final ActivityResultLauncher<String[]> readBackupLauncher = registerForActivityResult(
+            new ActivityResultContracts.OpenDocument(),
+            uri -> new V3BackupUtils(this).restoreZipBackupV3(uri)
+    );
 
     @SuppressLint("Range")
     @Override
@@ -107,20 +111,11 @@ public class OnionServiceActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_restore_backup) {
-            Intent readFileIntent = DiskUtils.createReadFileIntent(ZipUtilities.ZIP_MIME_TYPE);
-            startActivityForResult(readFileIntent, REQUEST_CODE_READ_ZIP_BACKUP);
+            readBackupLauncher.launch(new String[]{ZipUtilities.ZIP_MIME_TYPE});
         } else if (item.getItemId() == android.R.id.home) {
             finish();
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int result, Intent data) {
-        super.onActivityResult(requestCode, result, data);
-        if (requestCode == REQUEST_CODE_READ_ZIP_BACKUP && result == RESULT_OK) {
-            new V3BackupUtils(this).restoreZipBackupV3(data.getData());
-        }
     }
 
     public void onRadioButtonClick(View view) {

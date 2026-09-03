@@ -156,6 +156,7 @@ public class V3BackupUtils {
     }
 
     public void restoreZipBackupV3(Uri zipUri) {
+        if (zipUri == null) return;
         Cursor returnCursor = mResolver.query(zipUri, null, null, null, null);
         assert returnCursor != null;
         int nameIndex = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);

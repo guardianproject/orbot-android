@@ -2,7 +2,6 @@ package org.torproject.android.ui.v3onionservice.clientauth;
 
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
-import android.content.Intent;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.net.Uri;
@@ -16,6 +15,8 @@ import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 
 import org.torproject.android.R;
@@ -31,6 +32,12 @@ public class ClientAuthActivity extends BaseActivity {
     public static final String BUNDLE_KEY_ID = "_id",
             BUNDLE_KEY_DOMAIN = "domain",
             BUNDLE_KEY_HASH = "key_hash_value";
+
+
+    private final ActivityResultLauncher<String[]> readBackupLauncher = registerForActivityResult(
+            new ActivityResultContracts.OpenDocument(),
+            this::attemptToReadBackup
+    );
 
     ContentResolver mResolver;
     ClientAuthListAdapter mAdapter;
@@ -53,12 +60,12 @@ public class ClientAuthActivity extends BaseActivity {
         mAdapter = new ClientAuthListAdapter(this, mResolver.query(ClientAuthContentProvider.CONTENT_URI, ClientAuthContentProvider.PROJECTION, null, null, null));
         mResolver.registerContentObserver(ClientAuthContentProvider.CONTENT_URI, true, new V3ClientAuthContentObserver(new Handler(Looper.getMainLooper())));
 
-        findViewById(R.id.fab).setOnClickListener(v ->
+        findViewById(R.id.fab).setOnClickListener(_ ->
                 new ClientAuthCreateDialogFragment().show(getSupportFragmentManager(), ClientAuthCreateDialogFragment.class.getSimpleName()));
 
         ListView auths = findViewById(R.id.auth_hash_list);
         auths.setAdapter(mAdapter);
-        auths.setOnItemClickListener((parent, view, position, id) -> {
+        auths.setOnItemClickListener((parent, _, position, _) -> {
             Cursor item = (Cursor) parent.getItemAtPosition(position);
             Bundle args = new Bundle();
             args.putInt(BUNDLE_KEY_ID, item.getInt(item.getColumnIndex(V3ClientAuthColumns._ID)));
@@ -68,27 +75,21 @@ public class ClientAuthActivity extends BaseActivity {
         });
     }
 
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_READ_ZIP_BACKUP && resultCode == RESULT_OK) {
-            Uri uri = data.getData();
-            if (uri != null) {
-                Cursor cursor = getContentResolver().query(uri, null, null, null, null);
-                assert cursor != null;
-                int nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
-                cursor.moveToFirst();
-                String filename = cursor.getString(nameIndex);
-                cursor.close();
-                if (!filename.endsWith(CLIENT_AUTH_FILE_EXTENSION)) {
-                    Toast.makeText(this, R.string.error, Toast.LENGTH_LONG).show();
-                    return;
-                }
-                String authText = DiskUtils.readFileFromInputStream(getContentResolver(), uri);
-                new V3BackupUtils(this).restoreClientAuthBackup(authText);
-            }
+    private void attemptToReadBackup(Uri uri) {
+        if (uri == null) return;
+        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+        assert cursor != null;
+        int nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+        cursor.moveToFirst();
+        String filename = cursor.getString(nameIndex);
+        cursor.close();
+        if (!filename.endsWith(CLIENT_AUTH_FILE_EXTENSION)) {
+            Toast.makeText(this, R.string.error, Toast.LENGTH_LONG).show();
+            return;
         }
+        String authText = DiskUtils.readFileFromInputStream(getContentResolver(), uri);
+        new V3BackupUtils(this).restoreClientAuthBackup(authText);
+
     }
 
     private class V3ClientAuthContentObserver extends ContentObserver {
@@ -103,14 +104,11 @@ public class ClientAuthActivity extends BaseActivity {
 
     }
 
-    private static final int REQUEST_CODE_READ_ZIP_BACKUP = 12;
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_import_auth_priv) {
             // unfortunately no good way to filter .auth_private files
-            Intent readFileIntent = DiskUtils.createReadFileIntent(CLIENT_AUTH_SAF_MIME_TYPE);
-            startActivityForResult(readFileIntent, REQUEST_CODE_READ_ZIP_BACKUP);
+            readBackupLauncher.launch(new String[]{CLIENT_AUTH_SAF_MIME_TYPE});
         } else if (item.getItemId() == android.R.id.home) {
             finish();
         }

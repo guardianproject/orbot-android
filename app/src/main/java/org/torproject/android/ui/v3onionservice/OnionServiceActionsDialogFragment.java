@@ -26,7 +26,7 @@ import org.torproject.android.util.StringUtils;
 public class OnionServiceActionsDialogFragment extends DialogFragment {
 
     private final ActivityResultLauncher<String> createBackupLauncher = registerForActivityResult(
-            new ActivityResultContracts.CreateDocument("application/zip"), this::attemptToWriteBackup
+            new ActivityResultContracts.CreateDocument(ZipUtilities.ZIP_MIME_TYPE), this::attemptToWriteBackup
     );
 
     OnionServiceActionsDialogFragment(Bundle arguments) {
