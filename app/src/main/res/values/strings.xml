@@ -185,6 +185,7 @@
     <string name="Enabled">Enabled</string>
     <string name="Disabled">Disabled</string>
     <string name="Paused">Paused</string>
+    <string name="apps_select_all">Select All</string>
     <string name="app_suggested_subtitle">Orbot works best with messaging and social media apps.</string>
     <string name="apps_suggested_title">Suggested Apps</string>
     <string name="apps_other_apps">Other Apps</string>
