@@ -4,9 +4,6 @@ import android.content.ContentResolver
 import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.PeriodicWorkRequest
-import androidx.work.WorkManager
 import org.torproject.android.Regionalization
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.Transport
@@ -14,7 +11,7 @@ import org.torproject.android.service.tor.ShadowSocks
 import java.net.URI
 import java.net.URISyntaxException
 import java.util.Locale
-import java.util.concurrent.TimeUnit
+import kotlin.time.Duration.Companion.milliseconds
 
 object Prefs {
     private const val PREF_BRIDGES_LIST = "pref_bridges_list"
@@ -42,6 +39,7 @@ object Prefs {
 
     private const val PREF_SNOWFLAKES_SERVED_COUNT = "pref_snowflakes_served"
     private const val PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY = "pref_snowflakes_served_weekly"
+    private const val PREF_SNOWFLAKES_SERVED_WEEK = "pref_snowflakes_served_week"
 
     private const val PREF_CURRENT_VERSION = "pref_current_version"
 
@@ -111,23 +109,6 @@ object Prefs {
         if (cr == null) {
             cr = context?.contentResolver
         }
-    }
-
-    fun initWeeklyWorker(context: Context) {
-        val myWorkBuilder =
-            PeriodicWorkRequest.Builder(
-                ResetSnowflakesServedWeeklyWorker::class.java,
-                7,
-                TimeUnit.DAYS
-            )
-
-        val myWork = myWorkBuilder.build()
-        WorkManager.getInstance(context)
-            .enqueueUniquePeriodicWork(
-                uniqueWorkName = "prefsWeeklyWorker",
-                ExistingPeriodicWorkPolicy.KEEP,
-                myWork
-            )
     }
 
     @JvmStatic
@@ -266,15 +247,23 @@ object Prefs {
         get() = cr?.getPrefInt(PREF_SNOWFLAKES_SERVED_COUNT) ?: 0
 
     val snowflakesServedWeekly: Int
-        get() = cr?.getPrefInt(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY) ?: 0
+        get() {
+            refreshWeeklyServedIfNeeded()
+            return cr?.getPrefInt(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY) ?: 0
+        }
 
     fun addSnowflakeServed() {
+        refreshWeeklyServedIfNeeded()
         cr?.putPref(PREF_SNOWFLAKES_SERVED_COUNT, snowflakesServed + 1)
         cr?.putPref(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY, snowflakesServedWeekly + 1)
     }
 
-    fun resetSnowflakesServedWeekly() {
-        cr?.putPref(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY, 0)
+    fun refreshWeeklyServedIfNeeded() {
+        val week = System.currentTimeMillis().milliseconds.inWholeDays.div(7).toInt()
+        if ((cr?.getPrefInt(PREF_SNOWFLAKES_SERVED_WEEK) ?: 0) != week) {
+            cr?.putPref(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY, 0)
+            cr?.putPref(PREF_SNOWFLAKES_SERVED_WEEK, week)
+        }
     }
 
     @JvmStatic
