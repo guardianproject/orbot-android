@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
+import androidx.core.view.WindowCompat;
 
 import org.torproject.android.R;
 import org.torproject.android.service.db.V3ClientAuthColumns;
@@ -49,6 +50,7 @@ public class ClientAuthActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView()).setAppearanceLightStatusBars(false);
         setContentView(R.layout.activity_v3auth);
         // always prevent this screen from being screenshotted, regardless of the preference for screenshotting
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
