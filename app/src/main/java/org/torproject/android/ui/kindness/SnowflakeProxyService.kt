@@ -144,10 +144,16 @@ class SnowflakeProxyService : Service() {
                 }
             }
         }
-        connectivityManager.registerNetworkCallback(
-            NetworkRequest.Builder().addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-                .addTransportType(NetworkCapabilities.TRANSPORT_WIFI).build(), networkCallbacks
-        )
+        // A Wi-Fi-filtered callback never fires on cellular, so it can only be used
+        // when proxying is limited to Wi-Fi.
+        if (Prefs.limitSnowflakeProxyingWifi()) {
+            connectivityManager.registerNetworkCallback(
+                NetworkRequest.Builder().addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+                    .addTransportType(NetworkCapabilities.TRANSPORT_WIFI).build(), networkCallbacks
+            )
+        } else {
+            connectivityManager.registerDefaultNetworkCallback(networkCallbacks)
+        }
     }
 
     private fun createNotificationChannel(): String {
