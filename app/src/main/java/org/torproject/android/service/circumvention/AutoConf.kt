@@ -156,8 +156,8 @@ object AutoConf {
      * - If there are Obfs4 built-in bridge lines given, we update the built-in list of Obfs4 bridges.
      * - If there are custom Obfs4 bridge lines given, we return these too, regardless of the actually selected transport,
      *      so the user can later try these out, too, if the selected transport doesn't work.
-     * - If there are Webtunnel built-in bridge lines given, we update the built-in list of Webtunnel bridges.
-     * - If there are custom Webtunnel bridge lines given, we return these too, regardless of the actually selected transport.
+     * - If there are Webtunnel bridge lines given, we update the built-in list of Webtunnel bridges.
+     *      (Their source is ignored, like for Snowflake, since Moat hands them out as "bridgedb".)
      * - If there are DNSTT built-in bridge lines given, we update the built-in list of DNSTT bridges.
      * - If there are custom DNSTT bridge lines given, we return these too, regardless of the actually selected transport.
      *
@@ -197,20 +197,16 @@ object AutoConf {
                     if (transport == null) transport = Transport.CUSTOM
                 }
             } else if (setting.bridge.type == IPtProxy.Webtunnel) {
-                if (setting.bridge.source == MoatApi.Bridge.SOURCE_BUILTIN) {
-                    val bridges = setting.bridge.bridges
+                val bridges = setting.bridge.bridges
 
-                    // If there are Webtunnel bridge line updates, update our built-in ones!
-                    if (!bridges.isNullOrEmpty()) {
-                        BuiltInBridges.getInstance(context)?.webtunnel = bridges.map { Bridge(it) }
-                    }
-
-                    if (transport == null) transport = Transport.WEBTUNNEL
-                } else if (!setting.bridge.bridges.isNullOrEmpty()) {
-                    customBridges.addAll(setting.bridge.bridges)
-
-                    if (transport == null) transport = Transport.CUSTOM
+                // If there are Webtunnel bridge line updates, update our built-in ones!
+                // Note: We ignore the source ("bridgedb" or "builtin") here on purpose, like for
+                // Snowflake, since Moat hands out webtunnel bridges via its bridgedb source.
+                if (!bridges.isNullOrEmpty()) {
+                    BuiltInBridges.getInstance(context)?.webtunnel = bridges.map { Bridge(it) }
                 }
+
+                if (transport == null) transport = Transport.WEBTUNNEL
             } else if (setting.bridge.type == IPtProxy.Dnstt) {
                 if (setting.bridge.source == MoatApi.Bridge.SOURCE_BUILTIN) {
                     val bridges = setting.bridge.bridges

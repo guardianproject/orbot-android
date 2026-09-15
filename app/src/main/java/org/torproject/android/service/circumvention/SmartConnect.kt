@@ -95,7 +95,7 @@ object SmartConnect {
                                 }
                                 catch(_: Exception) {}
                             }
-                            Transport.SNOWFLAKE, Transport.SNOWFLAKE_AMP,Transport.SNOWFLAKE_SQS -> {
+                            Transport.SNOWFLAKE, Transport.SNOWFLAKE_AMP,Transport.SNOWFLAKE_SQS, Transport.WEBTUNNEL -> {
                                 Prefs.transport.stop()
 
                                 Prefs.transport = if (Prefs.bridgesList.isNotEmpty()) {

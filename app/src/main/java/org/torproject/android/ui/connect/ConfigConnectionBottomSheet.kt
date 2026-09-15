@@ -100,6 +100,7 @@ class ConfigConnectionBottomSheet :
             binding.rbEmail,
             binding.rbMeek,
             binding.rbDnstt,
+            binding.rbWebtunnel,
             binding.rbCustom
         )
         radioSubtitleMap = mapOf<CompoundButton, View>(
@@ -113,6 +114,7 @@ class ConfigConnectionBottomSheet :
             binding.rbEmail to binding.tvEmailSubtitle,
             binding.rbMeek to binding.tvMeekSubtitle,
             binding.rbDnstt to binding.tvDnsttSubtitle,
+            binding.rbWebtunnel to binding.tvWebtunnelSubtitle,
             binding.rbCustom to binding.tvCustomSubtitle
         )
         allSubtitles = arrayListOf(
@@ -126,6 +128,7 @@ class ConfigConnectionBottomSheet :
             binding.tvEmailSubtitle,
             binding.tvMeekSubtitle,
             binding.tvDnsttSubtitle,
+            binding.tvWebtunnelSubtitle,
             binding.tvCustomSubtitle
         )
 
@@ -144,6 +147,7 @@ class ConfigConnectionBottomSheet :
         binding.emailContainer.setOnClickListener { binding.rbEmail.isChecked = true }
         binding.meekContainer.setOnClickListener { binding.rbMeek.isChecked = true }
         binding.dnsttContainer.setOnClickListener { binding.rbDnstt.isChecked = true }
+        binding.webtunnelContainer.setOnClickListener { binding.rbWebtunnel.isChecked = true }
         binding.customContainer.setOnClickListener { binding.rbCustom.isChecked = true }
         binding.tvCancel.setOnClickListener { dismiss() }
 
@@ -157,6 +161,7 @@ class ConfigConnectionBottomSheet :
         binding.rbEmail.setOnCheckedChangeListener(this)
         binding.rbMeek.setOnCheckedChangeListener(this)
         binding.rbDnstt.setOnCheckedChangeListener(this)
+        binding.rbWebtunnel.setOnCheckedChangeListener(this)
         binding.rbCustom.setOnCheckedChangeListener(this)
 
         binding.tvTelegramSubtitle.text = getString(R.string.bridges_via_telegram_subtitle, "start")
@@ -206,6 +211,10 @@ class ConfigConnectionBottomSheet :
                 }
             } else if (binding.rbMeek.isChecked) {
                 Prefs.transport = Transport.MEEK
+                Prefs.smartConnect = false
+                closeAndConnect()
+            } else if (binding.rbWebtunnel.isChecked) {
+                Prefs.transport = Transport.WEBTUNNEL
                 Prefs.smartConnect = false
                 closeAndConnect()
             } else if (binding.rbDnstt.isChecked) {
@@ -312,7 +321,7 @@ class ConfigConnectionBottomSheet :
             Transport.SNOWFLAKE -> binding.rbSnowflake.isChecked = true
             Transport.SNOWFLAKE_AMP -> binding.rbSnowflakeAmp.isChecked = true
             Transport.SNOWFLAKE_SQS -> binding.rbSnowflakeSqs.isChecked = true
-            Transport.WEBTUNNEL -> TODO() // This should currently not happen, there's no default Webtunnel bridges advertised, yet.
+            Transport.WEBTUNNEL -> binding.rbWebtunnel.isChecked = true
             Transport.DNSTT -> binding.rbDnstt.isChecked = true
             Transport.CUSTOM -> binding.rbCustom.isChecked = true
         }
@@ -375,7 +384,10 @@ class ConfigConnectionBottomSheet :
                             binding.rbSnowflakeSqs.isChecked = true
                         }
 
-                        Transport.WEBTUNNEL -> TODO() // This should currently not happen, there's no default Webtunnel bridges advertised, yet.
+                        Transport.WEBTUNNEL -> {
+                            binding.rbWebtunnel.isChecked = true
+                        }
+
                         Transport.DNSTT -> {
                             binding.rbDnstt.isChecked = true
                         }

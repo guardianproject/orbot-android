@@ -173,6 +173,8 @@
     <string name="bridges_via_email_subtitle">Cloaks your traffic. Gets around some Tor blocking. Requires an email sent from a Gmail or Riseup account.</string>
     <string name="bridge_meek_azure" translatable="false">Meek Azure</string>
     <string name="bridge_meek_azure_subtitle">Cloaks your traffic. Gets around some Tor blocking. May be very slow.</string>
+    <string name="bridge_webtunnel" translatable="false">WebTunnel</string>
+    <string name="bridge_webtunnel_subtitle">Tunnels your traffic through a web server. Gets around some Tor blocking. May be slow.</string>
     <string name="custom_bridges_subtitle">Ask within your trusted networks and organizations to see if anyone is hosting a bridge. If not, a friend can get bridges for you.</string>
     <string name="connect">Connect</string>
     <string name="next">Next</string>

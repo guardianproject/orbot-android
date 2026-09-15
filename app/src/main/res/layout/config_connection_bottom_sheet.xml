@@ -474,6 +474,40 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/webtunnelContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbWebtunnel"
+                    style="@style/BottomSheetRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/BottomSheetRadioHeader"
+                        android:text="@string/bridge_webtunnel" />
+
+                    <TextView
+                        android:id="@+id/tvWebtunnelSubtitle"
+                        style="@style/BottomSheetTextView"
+                        android:text="@string/bridge_webtunnel_subtitle"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/customContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

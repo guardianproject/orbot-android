@@ -294,7 +294,7 @@ class ConnectFragment : Fragment(),
                 Transport.SNOWFLAKE -> R.string.snowflake
                 Transport.SNOWFLAKE_AMP -> R.string.snowflake_amp
                 Transport.SNOWFLAKE_SQS -> R.string.snowflake_sqs
-                Transport.WEBTUNNEL -> TODO()
+                Transport.WEBTUNNEL -> R.string.bridge_webtunnel
                 Transport.DNSTT -> R.string.bridge_dnstt
                 Transport.CUSTOM -> R.string.custom_bridges
             }
