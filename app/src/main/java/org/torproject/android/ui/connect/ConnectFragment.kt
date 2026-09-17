@@ -36,6 +36,7 @@ import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 import org.torproject.android.util.sendIntentToService
 import org.torproject.jni.TorService
 import kotlin.time.Duration.Companion.milliseconds
@@ -287,7 +288,7 @@ class ConnectFragment : Fragment(),
     fun refreshMenuList(context: Context) {
 
         val connectStr =
-            if (Prefs.smartConnect) R.string.smart_connect else when (Prefs.transport) {
+            if (Settings.smartConnect) R.string.smart_connect else when (Settings.transport) {
                 Transport.NONE -> R.string.direct_connect
                 Transport.MEEK -> R.string.bridge_meek_azure
                 Transport.OBFS4 -> R.string.built_in_bridges_obfs4
@@ -342,8 +343,8 @@ class ConnectFragment : Fragment(),
 
     // this context param is because we call this method from a screenshot taking test script
     fun doLayoutOn(context: Context = requireContext()) {
-        if (Prefs.smartConnect) {
-            Prefs.smartConnect = false
+        if (Settings.smartConnect) {
+            Settings.smartConnect = false
             refreshMenuList(context)
         }
         binding.ivStatus.setImageResource(R.drawable.orbieon)

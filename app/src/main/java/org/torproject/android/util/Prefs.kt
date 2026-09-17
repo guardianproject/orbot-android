@@ -6,7 +6,6 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import org.torproject.android.Regionalization
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.tor.ShadowSocks
 import java.net.URI
 import java.net.URISyntaxException
@@ -14,7 +13,6 @@ import java.util.Locale
 import kotlin.time.Duration.Companion.milliseconds
 
 object Prefs {
-    private const val PREF_BRIDGES_LIST = "pref_bridges_list"
     const val PREF_BRIDGE_COUNTRY = "pref_bridge_country"
     const val PREF_DEFAULT_LOCALE = "pref_default_locale"
     private const val PREF_DETECT_ROOT = "pref_detect_root"
@@ -32,9 +30,6 @@ object Prefs {
     const val PREF_LAST_SNOWFLAKE_ACTIVE = "pref_is_snowflake_running"
     private const val PREF_SNOWFLAKE_UPNP_PORTS = "pref_snowflake_upnp_ports"
 
-    private const val PREF_USE_SMART_CONNECT = "pref_use_smart_connect"
-    private const val PREF_SMART_CONNECT_TIMEOUT = "pref_smart_connect_timeout"
-
     private const val PREF_POWER_USER_MODE = "pref_power_user"
 
     private const val PREF_SNOWFLAKES_SERVED_COUNT = "pref_snowflakes_served"
@@ -48,8 +43,6 @@ object Prefs {
     private const val PREF_CAMO_APP_ALT_ICON_INDEX = "pref_key_camo_alticon"
     const val PREF_REQUIRE_PASSWORD = "pref_require_password"
     const val PREF_DISALLOW_BIOMETRIC_AUTH = "pref_auth_no_biometrics"
-
-    private const val PREF_CONNECTION_PATHWAY = "pref_connection_pathway"
 
     const val PREF_SECURE_WINDOW_FLAG: String = "pref_flag_secure"
 
@@ -110,21 +103,6 @@ object Prefs {
             cr = context?.contentResolver
         }
     }
-
-    @JvmStatic
-    var bridgesList: List<String>
-        get() {
-            return cr?.getPrefString(PREF_BRIDGES_LIST)
-                ?.split("\n")
-                ?.filter { it.isNotBlank() }
-                ?.map { it.trim() }
-                ?: emptyList()
-        }
-        set(value) {
-            cr?.putPref(
-                PREF_BRIDGES_LIST,
-                value.filter { it.isNotBlank() }.joinToString("\n") { it.trim() })
-        }
 
     var bridgeCountry: String?
         get() = cr?.getPrefString(PREF_BRIDGE_COUNTRY)
@@ -268,26 +246,6 @@ object Prefs {
             cr?.putPref(PREF_SNOWFLAKES_SERVED_WEEK_TIMESTAMP, week)
         }
     }
-
-    @JvmStatic
-    var transport: Transport
-        /**
-         * @return How Orbot is configured to attempt to connect to Tor
-         */
-        get() = Transport.fromId(cr?.getPrefString(PREF_CONNECTION_PATHWAY) ?: Transport.NONE.id)
-        /**
-         * Set how Orbot should initialize a tor connection (direct, with a PT, etc)
-         */
-        set(value) = cr?.putPref(PREF_CONNECTION_PATHWAY, value.id) ?: Unit
-
-    var smartConnect: Boolean
-        get() = cr?.getPrefBoolean(PREF_USE_SMART_CONNECT) ?: false
-        set(value) = cr?.putPref(PREF_USE_SMART_CONNECT, value) ?: Unit
-
-
-    var smartConnectTimeout: Int
-        get() = cr?.getPrefInt(PREF_SMART_CONNECT_TIMEOUT) ?: 30
-        set(value) = cr?.putPref(PREF_SMART_CONNECT_TIMEOUT, value) ?: Unit
 
     // URI, if config present + valid, malformed URL string if config present + invalid
     val outboundProxy: Pair<URI?, String?>

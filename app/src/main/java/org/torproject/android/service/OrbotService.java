@@ -76,6 +76,7 @@ import org.torproject.android.service.tor.TorConfig;
 import org.torproject.android.service.vpn.OrbotVpnManager;
 import org.torproject.android.util.DiskUtils;
 import org.torproject.android.util.Prefs;
+import org.torproject.android.util.Settings;
 import org.torproject.jni.TorService;
 
 import java.io.File;
@@ -218,7 +219,7 @@ public class OrbotService extends VpnService implements TorControlCommands {
     protected void stopTorAsync(boolean showNotification) {
         Log.d(TAG, "stopTorAsync");
         if (showNotification) sendCallbackLogMessage(getString(R.string.status_shutting_down));
-        Prefs.getTransport().stop();
+        Settings.getTransport().stop();
         stopTor();
 
         //stop the foreground priority and make sure to remove the persistent notification
@@ -415,7 +416,7 @@ public class OrbotService extends VpnService implements TorControlCommands {
                     if (conn == null) return false;
                     try {
                         conn.resetConf(Arrays.asList("UseBridges", "ClientTransportPlugin", "Bridge"));
-                        conn.setConf(Prefs.getTransport().getTorConfig(this));
+                        conn.setConf(Settings.getTransport().getTorConfig(this));
                     } catch (IOException e) {
                         logNotice(e.getLocalizedMessage());
                         return false;
@@ -768,7 +769,7 @@ public class OrbotService extends VpnService implements TorControlCommands {
             if (TextUtils.isEmpty(action)) return;
             switch (action) {
                 case ACTION_START -> {
-                    var transport = Prefs.getTransport();
+                    var transport = Settings.getTransport();
                     transport.start(OrbotService.this);
                     startTor();
                     replyWithStatus(mIntent);

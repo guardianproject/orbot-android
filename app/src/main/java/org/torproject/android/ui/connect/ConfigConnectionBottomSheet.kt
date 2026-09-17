@@ -29,6 +29,7 @@ import org.torproject.android.service.circumvention.AutoConf
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
+import org.torproject.android.util.Settings
 import java.util.Locale
 import kotlin.time.Duration.Companion.seconds
 
@@ -166,64 +167,60 @@ class ConfigConnectionBottomSheet :
         updateDnsttVisibility()
 
         binding.btnAction.setOnClickListener {
-            if (binding.rbObfs4.isChecked) {
-                Prefs.transport = Transport.OBFS4
-                Prefs.smartConnect = false
-                closeAndConnect()
-            } else if (binding.rbDirect.isChecked) {
-                Prefs.transport = Transport.NONE
-                Prefs.smartConnect = false
-                closeAndConnect()
-            } else if (binding.rbSmart.isChecked) {
-                Prefs.transport = Transport.NONE
-                Prefs.smartConnect = true
-                closeAndConnect()
-            } else if (binding.rbSnowflake.isChecked) {
-                Prefs.transport = Transport.SNOWFLAKE
-                Prefs.smartConnect = false
-                closeAndConnect()
-            } else if (binding.rbSnowflakeAmp.isChecked) {
-                Prefs.transport = Transport.SNOWFLAKE_AMP
-                Prefs.smartConnect = false
-                closeAndConnect()
-            } else if (binding.rbSnowflakeSqs.isChecked) {
-                Prefs.transport = Transport.SNOWFLAKE_SQS
-                Prefs.smartConnect = false
-                closeAndConnect()
-            } else if (binding.rbTelegram.isChecked) {
-                val i = Intent(Intent.ACTION_VIEW, OrbotConstants.GET_BRIDES_TELEGRAM_BOT)
-                startActivity(i)
-            } else if (binding.rbEmail.isChecked) {
-                val i = Intent(Intent.ACTION_SENDTO)
-                i.data = "mailto:${OrbotConstants.GET_BRIDES_EMAIL_RECIPIENT}".toUri()
-                i.putExtra(Intent.EXTRA_SUBJECT, OrbotConstants.GET_BRIDES_EMAIL_SUBJECT_AND_BODY)
-                i.putExtra(Intent.EXTRA_TEXT, OrbotConstants.GET_BRIDES_EMAIL_SUBJECT_AND_BODY)
-
-                val pm = activity?.packageManager ?: return@setOnClickListener
-
-                if (i.resolveActivity(pm) != null) {
+            lifecycleScope.launch {
+                if (binding.rbObfs4.isChecked) {
+                    Settings.set(transport = Transport.OBFS4, smartConnect = false)
+                    closeAndConnect()
+                } else if (binding.rbDirect.isChecked) {
+                    Settings.set(transport = Transport.NONE, smartConnect = false)
+                    closeAndConnect()
+                } else if (binding.rbSmart.isChecked) {
+                    Settings.set(transport = Transport.NONE, smartConnect = true)
+                    closeAndConnect()
+                } else if (binding.rbSnowflake.isChecked) {
+                    Settings.set(transport = Transport.SNOWFLAKE, smartConnect = false)
+                    closeAndConnect()
+                } else if (binding.rbSnowflakeAmp.isChecked) {
+                    Settings.set(transport = Transport.SNOWFLAKE_AMP, smartConnect = false)
+                    closeAndConnect()
+                } else if (binding.rbSnowflakeSqs.isChecked) {
+                    Settings.set(transport = Transport.SNOWFLAKE_SQS, smartConnect = false)
+                    closeAndConnect()
+                } else if (binding.rbTelegram.isChecked) {
+                    val i = Intent(Intent.ACTION_VIEW, OrbotConstants.GET_BRIDES_TELEGRAM_BOT)
                     startActivity(i)
+                } else if (binding.rbEmail.isChecked) {
+                    val i = Intent(Intent.ACTION_SENDTO)
+                    i.data = "mailto:${OrbotConstants.GET_BRIDES_EMAIL_RECIPIENT}".toUri()
+                    i.putExtra(
+                        Intent.EXTRA_SUBJECT,
+                        OrbotConstants.GET_BRIDES_EMAIL_SUBJECT_AND_BODY
+                    )
+                    i.putExtra(Intent.EXTRA_TEXT, OrbotConstants.GET_BRIDES_EMAIL_SUBJECT_AND_BODY)
+
+                    val pm = activity?.packageManager ?: return@launch
+
+                    if (i.resolveActivity(pm) != null) {
+                        startActivity(i)
+                    }
+                } else if (binding.rbMeek.isChecked) {
+                    Settings.set(transport = Transport.MEEK, smartConnect = false)
+                    closeAndConnect()
+                } else if (binding.rbDnstt.isChecked) {
+                    Settings.set(transport = Transport.DNSTT, smartConnect = false)
+                    DNSTTConfirmationDialog().show(
+                        requireActivity().supportFragmentManager,
+                        DNSTTConfirmationDialog.TAG
+                    )
                 }
-            } else if (binding.rbMeek.isChecked) {
-                Prefs.transport = Transport.MEEK
-                Prefs.smartConnect = false
-                closeAndConnect()
-            } else if (binding.rbDnstt.isChecked) {
-                Prefs.transport = Transport.DNSTT
-                Prefs.smartConnect = false
-                DNSTTConfirmationDialog().show(
-                    requireActivity().supportFragmentManager,
-                    DNSTTConfirmationDialog.TAG
-                )
-            }
 
-            if (binding.rbTelegram.isChecked || binding.rbEmail.isChecked || binding.rbCustom.isChecked) {
-                CustomBridgeBottomSheet().show(
-                    requireActivity().supportFragmentManager,
-                    CustomBridgeBottomSheet.TAG
-                )
+                if (binding.rbTelegram.isChecked || binding.rbEmail.isChecked || binding.rbCustom.isChecked) {
+                    CustomBridgeBottomSheet().show(
+                        requireActivity().supportFragmentManager,
+                        CustomBridgeBottomSheet.TAG
+                    )
+                }
             }
-
         }
 
         return binding.root
@@ -305,7 +302,7 @@ class ConfigConnectionBottomSheet :
     }
 
     private fun selectRadioButtonFromPreference() {
-        when (Prefs.transport) {
+        when (Settings.transport) {
             Transport.NONE -> binding.rbDirect.isChecked = true
             Transport.MEEK -> binding.rbMeek.isChecked = true
             Transport.OBFS4 -> binding.rbObfs4.isChecked = true
@@ -343,12 +340,11 @@ class ConfigConnectionBottomSheet :
 
                     updateAskTorBt(conf.first.toString(), R.drawable.ic_green_check)
 
-                    Prefs.transport = conf.first
-                    Prefs.smartConnect = false
+                    Settings.set(transport = conf.first, smartConnect = false)
 
-                    val customBridges = Prefs.bridgesList.toMutableSet()
+                    val customBridges = Settings.bridgesList.toMutableSet()
                     customBridges.addAll(conf.second)
-                    Prefs.bridgesList = customBridges.toList()
+                    Settings.set(bridgesList = customBridges.toList())
 
                     when (conf.first) {
                         Transport.NONE -> {

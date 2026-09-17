@@ -6,10 +6,12 @@ import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
+import kotlinx.coroutines.runBlocking
 import org.torproject.android.localization.Languages
 import org.torproject.android.localization.LocaleHelper
 import org.torproject.android.service.circumvention.Transport.Companion.stateLocation
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 
 import java.util.Locale
 
@@ -18,6 +20,10 @@ class OrbotApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        runBlocking {
+            Settings.init(this@OrbotApp)
+        }
 
         // set state dir for IPtProxy
         try {

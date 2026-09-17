@@ -12,16 +12,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.core.view.ViewCompat
+import androidx.lifecycle.lifecycleScope
 import io.github.g00fy2.quickie.QRResult
 import io.github.g00fy2.quickie.ScanCustomCode
 import io.github.g00fy2.quickie.config.ScannerConfig
+import kotlinx.coroutines.launch
 import org.torproject.android.R
 import org.torproject.android.databinding.CustomBridgeBottomSheetBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.MoatApi
 import org.torproject.android.service.circumvention.Transport
-import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
+import org.torproject.android.util.Settings
 
 class CustomBridgeBottomSheet : OrbotBottomSheetDialogFragment() {
 
@@ -123,21 +125,25 @@ class CustomBridgeBottomSheet : OrbotBottomSheetDialogFragment() {
         binding.tvCancel.setOnClickListener { dismiss() }
 
         binding.btnAction.setOnClickListener {
-            Prefs.transport = Transport.CUSTOM
-            Prefs.smartConnect = false
-            Prefs.bridgesList = binding.etBridges.text?.let {
-                cleanBridgeLines(it.toString())
-            } ?: emptyList()
-            dismiss()
-            val parent = requireActivity().supportFragmentManager.findFragmentByTag(
-                ConfigConnectionBottomSheet.TAG
-            ) as ConfigConnectionBottomSheet
-            parent.closeAndConnect()
+            lifecycleScope.launch {
+                Settings.set(
+                    transport = Transport.CUSTOM,
+                    smartConnect = false,
+                    bridgesList = binding.etBridges.text?.let {
+                        cleanBridgeLines(it.toString())
+                    } ?: emptyList())
+
+                dismiss()
+                val parent = requireActivity().supportFragmentManager.findFragmentByTag(
+                    ConfigConnectionBottomSheet.TAG
+                ) as ConfigConnectionBottomSheet
+                parent.closeAndConnect()
+            }
         }
 
         configureMultilineEditTextScrollEvent(binding.etBridges)
 
-        val bridges = Prefs.bridgesList
+        val bridges = Settings.bridgesList
             .filter { it.matches(validBridgeRegex) }
             .joinToString("\n")
         binding.etBridges.setText(bridges)

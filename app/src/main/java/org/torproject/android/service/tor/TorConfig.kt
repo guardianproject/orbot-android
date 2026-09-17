@@ -7,6 +7,7 @@ import org.torproject.android.service.db.OnionServiceColumns
 import org.torproject.android.service.db.V3ClientAuthColumns
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 import java.io.File
 
 object TorConfig {
@@ -68,7 +69,7 @@ object TorConfig {
             conf.add("SafeLogging 0")
         }
 
-        val transport = Prefs.transport
+        val transport = Settings.transport
 
         conf.addAll(transport.getTorConfig(context))
 

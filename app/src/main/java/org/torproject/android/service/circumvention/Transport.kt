@@ -7,6 +7,7 @@ import android.content.Context
 import android.util.Log
 import org.torproject.android.service.tor.ShadowSocks
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 import java.net.URI
 
 enum class Transport(val id: String) {
@@ -113,7 +114,7 @@ enum class Transport(val id: String) {
                 WEBTUNNEL -> setOf(IPtProxy.Webtunnel)
                 DNSTT -> setOf(IPtProxy.Dnstt)
                 CUSTOM -> {
-                    Prefs.bridgesList
+                    Settings.bridgesList
                         .mapNotNull { Bridge(it).transport }
                         .filter { it.isNotBlank() }
                         .toSet()
@@ -252,7 +253,7 @@ enum class Transport(val id: String) {
             }
 
             CUSTOM -> {
-                Prefs.bridgesList.forEach {
+                Settings.bridgesList.forEach {
                     result.add("Bridge $it")
                 }
             }

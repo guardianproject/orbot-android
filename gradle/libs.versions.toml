@@ -3,6 +3,7 @@ agp = "9.4.0"
 androidx-appcompat = "1.8.0"
 androidx-biometric = "1.1.0"
 androidx-core = "1.19.0"
+androidx-datastore = "1.3.0-alpha11"
 androidx-espresso = "3.7.0"
 androidx-junit = "1.3.0"
 androidx-lifecycle = "2.11.0"
@@ -32,6 +33,8 @@ version-catalog-update = "1.1.1"
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
 androidx-biometric = { module = "androidx.biometric:biometric", version.ref = "androidx-biometric" }
 androidx-core = { module = "androidx.core:core", version.ref = "androidx-core" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
+androidx-datastore-tink = { module = "androidx.datastore:datastore-tink", version.ref = "androidx-datastore" }
 androidx-espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "androidx-espresso" }
 androidx-espresso-contrib = { module = "androidx.test.espresso:espresso-contrib", version.ref = "androidx-espresso" }
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-junit" }

@@ -26,6 +26,7 @@ import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.util.CoroutineUtils.waitUntilStateFlowEquals
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 import org.torproject.android.util.sendIntentToService
 import org.torproject.jni.TorService
 import kotlin.time.Duration.Companion.milliseconds
@@ -135,7 +136,7 @@ class TestingDialogFragment : TransparentWindowDialogFragment() {
         }
 
         // immediately succeed if you're already connecting directly to Tor
-        if (torConnectionState == ConnectUiState.On && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
+        if (torConnectionState == ConnectUiState.On && Settings.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
             Log.d(TAG, "there's an active direct connection to tor, no need to test")
             setPassedState()
             mBinding.btnContinue.callOnClick()
