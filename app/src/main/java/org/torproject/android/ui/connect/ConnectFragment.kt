@@ -134,7 +134,7 @@ class ConnectFragment : Fragment(),
     private val onCheckChanged: CompoundButton.OnCheckedChangeListener = { _, value ->
         if (value) {
             // display msg if optional outbound proxy config is invalid
-            if (Prefs.outboundProxy.second != null) {
+            if (Settings.outboundProxy.second != null) {
                 Toast.makeText(
                     activity,
                     getString(R.string.invalid_outbound_proxy_config),

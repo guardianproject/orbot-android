@@ -136,7 +136,7 @@ class TestingDialogFragment : TransparentWindowDialogFragment() {
         }
 
         // immediately succeed if you're already connecting directly to Tor
-        if (torConnectionState == ConnectUiState.On && Settings.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
+        if (torConnectionState == ConnectUiState.On && Settings.transport == Transport.NONE && Settings.outboundProxy.first == null) {
             Log.d(TAG, "there's an active direct connection to tor, no need to test")
             setPassedState()
             mBinding.btnContinue.callOnClick()

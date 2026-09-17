@@ -57,13 +57,6 @@ object Prefs {
     private const val PREF_PREFER_IPV6 = "pref_prefer_ipv6"
     private const val PREF_DISABLE_IPV4 = "pref_disable_ipv4"
 
-    const val PREF_PROXY_HOST = "pref_proxy_host"
-    const val PREF_SHADOW_SOCKS_PROXY = "pref_proxy_ss"
-    const val PREF_PROXY_TYPE = "pref_proxy_type"
-    const val PREF_PROXY_USERNAME = "pref_proxy_username"
-    const val PREF_PROXY_PASSWORD = "pref_proxy_password"
-    const val PREF_PROXY_PORT = "pref_proxy_port"
-
     const val PREF_CUSTOM_TORRC = "pref_custom_torrc"
 
     const val PREF_PERSISTENT_NOTIFICATIONS = "pref_persistent_notifications"
@@ -162,73 +155,6 @@ object Prefs {
     var snowflakeProxyRunning: Boolean
         get() = cr?.getPrefBoolean(PREF_LAST_SNOWFLAKE_ACTIVE) ?: false
         set(isRunning) = cr?.putPref(PREF_LAST_SNOWFLAKE_ACTIVE, isRunning) ?: Unit
-
-    // URI, if config present + valid, malformed URL string if config present + invalid
-    val outboundProxy: Pair<URI?, String?>
-        get() {
-            val scheme = cr?.getPrefString(PREF_PROXY_TYPE)?.lowercase()?.trim()
-            if (scheme.isNullOrEmpty()) return Pair(null, null)
-
-            if (scheme == ShadowSocks.SCHEME) {
-                val config = cr?.getPrefString(PREF_SHADOW_SOCKS_PROXY)?.trim()
-                if (config.isNullOrEmpty()) return Pair(null, null)
-
-                return try {
-                    Pair(URI(config), null)
-                } catch (_: URISyntaxException) {
-                    Pair(null, config)
-                }
-            }
-
-            val host = cr?.getPrefString(PREF_PROXY_HOST)?.trim()
-            if (host.isNullOrEmpty()) return Pair(null, null)
-
-            val url = StringBuilder(scheme)
-            url.append("://")
-
-            var needsAt = false
-            val username = cr?.getPrefString(PREF_PROXY_USERNAME)
-            if (!username.isNullOrEmpty()) {
-                url.append(username)
-                needsAt = true
-            }
-
-            val password = cr?.getPrefString(PREF_PROXY_PASSWORD)
-            if (!password.isNullOrEmpty()) {
-                url.append(":")
-                url.append(password)
-                needsAt = true
-            }
-
-            if (needsAt) url.append("@")
-
-            url.append(host)
-
-            val port = try {
-                cr?.getPrefString(PREF_PROXY_PORT)?.trim()?.toInt() ?: 0
-            } catch (_: Throwable) {
-                0
-            }
-
-            if (port in 1..<65536) {
-                url.append(":")
-                url.append(port)
-            }
-
-            url.append("/")
-
-            return try {
-                Pair(URI(url.toString()), null)
-            } catch (_: URISyntaxException) {
-                // can happen when you say put a space in the hostname
-                // https://github.com/guardianproject/orbot-android/issues/1563
-                // https://www.rfc-editor.org/rfc/inline-errata/rfc3986.html
-                Pair(
-                    null,
-                    url.toString()
-                )
-            }
-        }
 
     val isPowerUserMode: Boolean
         get() = cr?.getPrefBoolean(PREF_POWER_USER_MODE) ?: false

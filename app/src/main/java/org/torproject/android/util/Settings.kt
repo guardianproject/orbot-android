@@ -23,8 +23,11 @@ import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import org.torproject.android.service.circumvention.Transport
+import org.torproject.android.service.tor.ShadowSocks
 import java.io.InputStream
 import java.io.OutputStream
+import java.net.URI
+import java.net.URISyntaxException
 import kotlin.time.Duration.Companion.milliseconds
 
 /**
@@ -37,7 +40,15 @@ object Settings {
     private const val PREFERENCE_FILE = "settings_keyset_preference"
     private const val MASTER_KEY_URI = "android-keystore://_androidx_security_master_key_"
     private const val SETTINGS_FILE_NAME = "settings"
-    private const val CURRENT_MIGRATION_STEP = 3
+    private const val CURRENT_MIGRATION_STEP = 4
+
+    const val PREF_PROXY_TYPE = "pref_proxy_type"
+    const val PREF_PROXY_HOST = "pref_proxy_host"
+    const val PREF_PROXY_PORT = "pref_proxy_port"
+    const val PREF_PROXY_USERNAME = "pref_proxy_username"
+    const val PREF_PROXY_PASSWORD = "pref_proxy_password"
+    const val PREF_PROXY_SS = "pref_proxy_ss"
+
 
     private lateinit var dataStore: DataStore<SettingsStore>
 
@@ -77,6 +88,29 @@ object Settings {
         if (dataStore.data.first().migrated < CURRENT_MIGRATION_STEP) migrate(context)
     }
 
+    fun set(key: String, value: String) {
+        when (key) {
+            PREF_PROXY_TYPE -> proxyType = value
+            PREF_PROXY_HOST -> proxyHost = value
+            PREF_PROXY_PORT -> proxyPort = value
+            PREF_PROXY_USERNAME -> proxyUsername = value
+            PREF_PROXY_PASSWORD -> proxyPassword = value
+            PREF_PROXY_SS -> proxySs = value
+        }
+    }
+
+    fun get(key: String): String {
+        return when (key) {
+            PREF_PROXY_TYPE -> proxyType
+            PREF_PROXY_HOST -> proxyHost
+            PREF_PROXY_PORT -> proxyPort
+            PREF_PROXY_USERNAME -> proxyUsername
+            PREF_PROXY_PASSWORD -> proxyPassword
+            PREF_PROXY_SS -> proxySs
+            else -> ""
+        }
+    }
+
     suspend fun set(
         smartConnect: Boolean? = null,
         smartConnectTimeout: Int? = null,
@@ -91,6 +125,12 @@ object Settings {
         camoAppDisplayName: String? = null,
         camoAppAltIconIndex: Int? = null,
         stopShowingPowerUserBatteryOptDialog: Boolean? = null,
+        proxyType: String? = null,
+        proxyHost: String? = null,
+        proxyPort: String? = null,
+        proxyUsername: String? = null,
+        proxyPassword: String? = null,
+        proxySs: String? = null,
     ) {
         dataStore.updateData { it.copy(
             smartConnect = smartConnect ?: it.smartConnect,
@@ -106,6 +146,12 @@ object Settings {
             camoAppDisplayName = camoAppDisplayName ?: it.camoAppDisplayName,
             camoAppAltIconIndex = camoAppAltIconIndex ?: it.camoAppAltIconIndex,
             stopShowingPowerUserBatteryOptDialog = stopShowingPowerUserBatteryOptDialog ?: it.stopShowingPowerUserBatteryOptDialog,
+            proxyType = proxyType ?: it.proxyType,
+            proxyHost = proxyHost ?: it.proxyHost,
+            proxyPort = proxyPort ?: it.proxyPort,
+            proxyUsername = proxyUsername ?: it.proxyUsername,
+            proxyPassword = proxyPassword ?: it.proxyPassword,
+            proxySs = proxySs ?: it.proxySs,
         ) }
     }
 
@@ -239,6 +285,111 @@ object Settings {
             dataStore.updateData { it.copy(torDnsPortResolved = value) }
         }
 
+    var proxyType
+        get() = runBlocking { dataStore.data.first().proxyType }
+        set(value) = runBlocking {
+            dataStore.updateData { it.copy(proxyType = value) }
+        }
+
+    var proxyHost
+        get() = runBlocking { dataStore.data.first().proxyHost }
+        set(value) = runBlocking {
+            dataStore.updateData { it.copy(proxyHost = value) }
+        }
+
+    var proxyPort
+        get() = runBlocking { dataStore.data.first().proxyPort }
+        set(value) = runBlocking {
+            dataStore.updateData { it.copy(proxyPort = value) }
+        }
+
+    var proxyUsername
+        get() = runBlocking { dataStore.data.first().proxyUsername }
+        set(value) = runBlocking {
+            dataStore.updateData { it.copy(proxyUsername = value) }
+        }
+
+    var proxyPassword
+        get() = runBlocking { dataStore.data.first().proxyPassword }
+        set(value) = runBlocking {
+            dataStore.updateData { it.copy(proxyPassword = value) }
+        }
+
+    var proxySs
+        get() = runBlocking { dataStore.data.first().proxySs }
+        set(value) = runBlocking {
+            dataStore.updateData { it.copy(proxySs = value) }
+        }
+
+    /**
+     * If the URI is well-formed, the first item will be filled.
+     * If the URI is malformed, the second item will be filled with the original string.
+     */
+    val outboundProxy: Pair<URI?, String?>
+        get() = runBlocking {
+            val data = dataStore.data.first()
+
+            val scheme = data.proxyType.lowercase().trim()
+            if (scheme.isEmpty()) return@runBlocking Pair(null, null)
+
+            if (scheme == ShadowSocks.SCHEME) {
+                val config = data.proxySs.trim()
+                if (config.isEmpty()) return@runBlocking Pair(null, null)
+
+                try {
+                    Pair(URI(config), null)
+                } catch (_: URISyntaxException) {
+                    Pair(null, config)
+                }
+            }
+
+            val host = data.proxyHost.trim()
+            if (host.isEmpty()) return@runBlocking Pair(null, null)
+
+            val url = StringBuilder(scheme)
+            url.append("://")
+
+            var needsAt = false
+            val username = data.proxyUsername
+            if (username.isNotEmpty()) {
+                url.append(username)
+                needsAt = true
+            }
+
+            val password = data.proxyPassword
+            if (password.isNotEmpty()) {
+                url.append(":")
+                url.append(password)
+                needsAt = true
+            }
+
+            if (needsAt) url.append("@")
+
+            url.append(host)
+
+            val port = try {
+                data.proxyPort.trim().toInt()
+            } catch (_: Throwable) {
+                0
+            }
+
+            if (port in 1..<65536) {
+                url.append(":")
+                url.append(port)
+            }
+
+            url.append("/")
+
+            try {
+                Pair(URI(url.toString()), null)
+            } catch (_: URISyntaxException) {
+                // Can happen when you, say, put a space in the hostname:
+                // https://github.com/guardianproject/orbot-android/issues/1563
+                // https://www.rfc-editor.org/rfc/inline-errata/rfc3986.html
+                Pair(null, url.toString())
+            }
+        }
+
     private suspend fun migrate(context: Context) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
 
@@ -263,7 +414,13 @@ object Settings {
                 camoAppAltIconIndex = prefs.getInt("pref_key_camo_alticon", store.camoAppAltIconIndex),
                 stopShowingPowerUserBatteryOptDialog = prefs.getBoolean("hide_battery_opt_dialog", store.stopShowingPowerUserBatteryOptDialog),
                 torifiedApps = prefs.getString("PrefTord", null) ?: store.torifiedApps,
-                torDnsPortResolved = prefs.getInt("PREFS_DNS_PORT", 0)
+                torDnsPortResolved = prefs.getInt("PREFS_DNS_PORT", 0),
+                proxyType = prefs.getString(PREF_PROXY_TYPE, null) ?: store.proxyType,
+                proxyHost = prefs.getString(PREF_PROXY_HOST, null) ?: store.proxyHost,
+                proxyPort = prefs.getString(PREF_PROXY_PORT, null) ?: store.proxyPort,
+                proxyUsername = prefs.getString(PREF_PROXY_USERNAME, null) ?: store.proxyUsername,
+                proxyPassword = prefs.getString(PREF_PROXY_PASSWORD, null) ?: store.proxyPassword,
+                proxySs = prefs.getString(PREF_PROXY_SS, null) ?: store.proxySs,
             )
         }
 
@@ -286,6 +443,12 @@ object Settings {
             remove("hide_battery_opt_dialog")
             remove("PrefTord")
             remove("PREFS_DNS_PORT")
+            remove(PREF_PROXY_TYPE)
+            remove(PREF_PROXY_HOST)
+            remove(PREF_PROXY_PORT)
+            remove(PREF_PROXY_USERNAME)
+            remove(PREF_PROXY_PASSWORD)
+            remove(PREF_PROXY_SS)
         }
     }
 
@@ -310,6 +473,12 @@ object Settings {
         val stopShowingPowerUserBatteryOptDialog: Boolean = false,
         val torifiedApps: String = "",
         val torDnsPortResolved: Int = 0,
+        val proxyType: String = "",
+        val proxyHost: String = "",
+        val proxyPort: String = "",
+        val proxyUsername: String = "",
+        val proxyPassword: String = "",
+        val proxySs: String = "",
     )
 
     private object SettingsStoreSerializer: Serializer<SettingsStore> {

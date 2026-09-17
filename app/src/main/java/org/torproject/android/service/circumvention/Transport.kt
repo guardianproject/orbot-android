@@ -146,7 +146,7 @@ enum class Transport(val id: String) {
 
         when (this) {
             NONE -> {
-                val proxy = Prefs.outboundProxy.first
+                val proxy = Settings.outboundProxy.first
                 if (proxy != null) {
                     var hostPort = proxy.host
                     if (proxy.port in 1..<65536) hostPort += ":${proxy.port}"
@@ -313,7 +313,7 @@ enum class Transport(val id: String) {
             else -> Unit
         }
 
-        var proxy = Prefs.outboundProxy.first
+        var proxy = Settings.outboundProxy.first
 
         for (transport in transportNames) {
             when (transport) {

@@ -15,7 +15,6 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.os.LocaleListCompat
 import androidx.preference.CheckBoxPreference
-import androidx.preference.EditTextPreference
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.Preference.OnPreferenceChangeListener
@@ -24,8 +23,11 @@ import org.torproject.android.R
 import org.torproject.android.localization.Languages
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.tor.ShadowSocks
+import org.torproject.android.ui.settings.SecureEditTextPreference
+import org.torproject.android.ui.settings.SecureListPreference
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 import org.torproject.android.util.openSystemSettings
 import org.torproject.android.util.removeEntry
 import org.torproject.android.util.sendIntentToService
@@ -37,10 +39,10 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
 
     // If these EditTextPrefs exist, use a numerical keyboard
     private val numericalPortPrefs =
-        listOf(Prefs.PREF_SOCKS, Prefs.PREF_HTTP, Prefs.PREF_PROXY_PORT)
+        listOf(Prefs.PREF_SOCKS, Prefs.PREF_HTTP, Settings.PREF_PROXY_PORT)
 
     // render these EditTextPreferences, if they exist, as passwords
-    private val passwordPrefs = listOf(Prefs.PREF_PROXY_PASSWORD)
+    private val passwordPrefs = listOf(Settings.PREF_PROXY_PASSWORD)
 
     private val requestLocalNetworkPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
@@ -99,7 +101,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
         bindNumericalPrefs(numericalPortPrefs, 5)
         bindPasswordPrefs(passwordPrefs)
         bindInputType(
-            listOf(Prefs.PREF_PROXY_HOST),
+            listOf(Settings.PREF_PROXY_HOST),
             InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_URI
         )
         bindInputType(
@@ -108,7 +110,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
         )
 
         bindInputType(
-            listOf(Prefs.PREF_SHADOW_SOCKS_PROXY),
+            listOf(Settings.PREF_PROXY_SS),
             InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_URI
         )
 
@@ -133,7 +135,8 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
         }
 
 
-        val proxyType = findPreference<ListPreference>(Prefs.PREF_PROXY_TYPE)
+        val proxyType = findPreference<SecureListPreference>(Settings.PREF_PROXY_TYPE)
+        proxyType?.value = Settings.proxyType // For an unknown reason, the value is not loaded correctly on start, so we just do that manually.
         if (!ShadowSocks.isShadowSocksSupported()) {
             proxyType?.removeEntry(ShadowSocks.SCHEME)
 
@@ -192,15 +195,15 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
         val common = listOf(
-            Prefs.PREF_PROXY_HOST,
-            Prefs.PREF_PROXY_PORT,
-            Prefs.PREF_PROXY_USERNAME,
-            Prefs.PREF_PROXY_PASSWORD
+            Settings.PREF_PROXY_HOST,
+            Settings.PREF_PROXY_PORT,
+            Settings.PREF_PROXY_USERNAME,
+            Settings.PREF_PROXY_PASSWORD
         ).mapNotNull {
-            findPreference<EditTextPreference>(it)
+            findPreference<SecureEditTextPreference>(it)
         }
 
-        val ssConfig = findPreference<EditTextPreference>(Prefs.PREF_SHADOW_SOCKS_PROXY)
+        val ssConfig = findPreference<SecureEditTextPreference>(Settings.PREF_PROXY_SS)
 
         when (newValue) {
             "" -> {
