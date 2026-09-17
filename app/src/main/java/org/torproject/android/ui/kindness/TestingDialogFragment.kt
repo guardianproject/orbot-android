@@ -25,7 +25,6 @@ import org.torproject.android.ui.connect.ConnectUiState
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.util.CoroutineUtils.waitUntilStateFlowEquals
 import org.torproject.android.util.NetworkUtils
-import org.torproject.android.util.Prefs
 import org.torproject.android.util.Settings
 import org.torproject.android.util.sendIntentToService
 import org.torproject.jni.TorService

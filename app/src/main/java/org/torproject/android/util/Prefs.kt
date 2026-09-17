@@ -5,9 +5,6 @@ import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
 import org.torproject.android.Regionalization
-import org.torproject.android.service.tor.ShadowSocks
-import java.net.URI
-import java.net.URISyntaxException
 import java.util.Locale
 
 @Deprecated("Move to Settings object instead")
