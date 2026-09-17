@@ -240,7 +240,7 @@ class ConnectFragment : Fragment(),
     private fun startTorConnection() = setState(TorService.ACTION_START)
 
     fun attemptToStartTor() {
-        Prefs.putUseVpn(!Prefs.isPowerUserMode)
+        Settings.useVpn = !Prefs.isPowerUserMode
         if (Prefs.isPowerUserMode) {
             // if the user hasn't met all the conditions of power user mode
             if (!attemptToStartTorPowerUserMode()) {

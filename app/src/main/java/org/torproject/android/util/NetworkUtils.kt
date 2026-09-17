@@ -35,7 +35,7 @@ object NetworkUtils {
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
         val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
-        if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN) && !Prefs.useVpn()) {
+        if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN) && !org.torproject.android.util.Settings.useVpn) {
             Log.wtf(SnowflakeProxyService.TAG, "some other VPN is running!")
             return false
         }
@@ -74,7 +74,7 @@ object NetworkUtils {
      *      know for certain we have a non-Orbot VPN config on the system
      */
     fun isNonOrbotVpnActive(context: Context, logTag: String = TAG): Boolean {
-        if (Prefs.useVpn()) {
+        if (org.torproject.android.util.Settings.useVpn) {
             return false
         }
 

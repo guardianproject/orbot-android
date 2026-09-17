@@ -189,7 +189,7 @@ public class OrbotService extends VpnService implements TorControlCommands {
                 if (VpnService.prepare(this) == null) {
                     // Power-user mode doesn't matter here. If the system is starting the VPN, i.e.
                     // via always-on VPN, we need to start it regardless.
-                    Prefs.putUseVpn(true);
+                    Settings.setUseVpn(true);
                     mExecutor.execute(new IncomingIntentRouter(new Intent(ACTION_START)));
                 } else {
                     Log.wtf(TAG, "Could not start VPN from system because it is not prepared, which should be impossible!");
@@ -209,7 +209,7 @@ public class OrbotService extends VpnService implements TorControlCommands {
     public void onDestroy() {
         try {
             unregisterReceiver(mActionBroadcastReceiver);
-            Prefs.putUseVpn(false);
+            Settings.setUseVpn(false);
         } catch (IllegalArgumentException iae) {
             //not registered yet
         }
@@ -323,11 +323,11 @@ public class OrbotService extends VpnService implements TorControlCommands {
                 var hasGeoip6 = new File(appBinHome, GEOIP6_ASSET_KEY).exists();
 
                 // only write out geoip files if there's an app update, or they don't exist
-                if (!hasGeoip || !hasGeoip6 || Prefs.isGeoIpReinstallNeeded()) {
+                if (!hasGeoip || !hasGeoip6 || Settings.isGeoIpReinstallNeeded()) {
                     try {
                         Log.d(TAG, "Installing geoip files...");
                         new CustomTorResourceInstaller(this, appBinHome).installGeoIP();
-                        Prefs.setGeoIpReinstallNeeded(false);
+                        Settings.setGeoIpReinstallNeeded(false);
                     } catch (IOException io) { // user has < 10MB free space on disk...
                         Log.e(TAG, "Error installing geoip files", io);
                     }
@@ -688,7 +688,7 @@ public class OrbotService extends VpnService implements TorControlCommands {
 
         sendBroadcast(intent);
 
-        if (Prefs.useVpn() && mVpnManager != null) mVpnManager.handleIntent(new Builder(), intent);
+        if (Settings.getUseVpn() && mVpnManager != null) mVpnManager.handleIntent(new Builder(), intent);
     }
 
     void showBandwidthNotification(String message, boolean isActiveTransfer) {
@@ -713,7 +713,7 @@ public class OrbotService extends VpnService implements TorControlCommands {
         // tell UI, if it's open, to update immediately (don't wait for onResume() in Activity...)
         sendLocalStatusOffBroadcast();
         mVpnManager.handleIntent(new Builder(), new Intent(ACTION_STOP));
-        Prefs.putUseVpn(false);
+        Settings.setUseVpn(false);
         super.onRevoke(); // invokes stopSelf()
     }
 
@@ -773,7 +773,7 @@ public class OrbotService extends VpnService implements TorControlCommands {
                     transport.start(OrbotService.this);
                     startTor();
                     replyWithStatus(mIntent);
-                    if (Prefs.useVpn()) {
+                    if (Settings.getUseVpn()) {
                         if (mVpnManager != null && !mVpnManager.isStarted()) { // start VPN here
                             Intent vpnIntent = VpnService.prepare(OrbotService.this);
                             if (vpnIntent == null) { //then we can run the VPN

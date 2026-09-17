@@ -73,7 +73,7 @@ class TestingDialogFragment : TransparentWindowDialogFragment() {
         }
 
         mBinding.btnContinue.setOnClickListener {
-            Prefs.beSnowflakeProxy = true
+            Settings.beSnowflakeProxy = true
             dismiss()
         }
         mBinding.btnDeclinedBoxOk.setOnClickListener { dismiss() }
@@ -128,7 +128,7 @@ class TestingDialogFragment : TransparentWindowDialogFragment() {
         Log.d(TAG, "device has internet")
 
         // immediately succeed if we've recently succeeded
-        if (!Prefs.snowflakeNeedsQualityCheck) {
+        if (!Settings.snowflakeNeedsQualityCheck) {
             Log.d(TAG, "recently passed quality check, proceeding")
             setPassedState()
             mBinding.btnContinue.callOnClick()
@@ -147,8 +147,8 @@ class TestingDialogFragment : TransparentWindowDialogFragment() {
     }
 
     private fun setPassedState() {
-        Prefs.snowflakeNeedsQualityCheck = false
-        Prefs.beSnowflakeProxy = true
+        Settings.snowflakeNeedsQualityCheck = false
+        Settings.beSnowflakeProxy = true
         findNavController().navigate(R.id.kindnessFragment)
     }
 
@@ -193,7 +193,7 @@ class TestingDialogFragment : TransparentWindowDialogFragment() {
                     torStatusReceiver
                 )
             delay(timeRemaining.milliseconds)
-            if (Prefs.snowflakeNeedsQualityCheck) {
+            if (Settings.snowflakeNeedsQualityCheck) {
                 Log.d(TAG, "Couldn't directly connect in $CONNECTION_TEST_TIMEOUT_MS ms")
                 unbindServiceIfBound()
                 showTestFailedUi()
@@ -210,7 +210,7 @@ class TestingDialogFragment : TransparentWindowDialogFragment() {
             if (status == TorService.STATUS_ON) {
                 lifecycleScope.launch {
                     Log.d(TAG, "TEST PASSED")
-                    Prefs.snowflakeNeedsQualityCheck = false
+                    Settings.snowflakeNeedsQualityCheck = false
                     unbindServiceIfBound()
                     if (stoppedNormalTorConnection) {
                         delay(250.milliseconds)
@@ -254,7 +254,7 @@ class TestingDialogFragment : TransparentWindowDialogFragment() {
             Log.d(TAG, "relaunching OrbotService...")
             requireActivity().sendIntentToService(TorService.ACTION_START)
         }
-        Prefs.snowflakeNeedsQualityCheck = true
+        Settings.snowflakeNeedsQualityCheck = true
         mBinding.boxTesting.visibility = View.GONE
         mBinding.boxDeclined.visibility = View.VISIBLE
         errorExplanation?.let {

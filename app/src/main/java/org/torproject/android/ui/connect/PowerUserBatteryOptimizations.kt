@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import org.torproject.android.R
-import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 import org.torproject.android.util.areBatteryOptimizationsDisabled
 import org.torproject.android.util.disableBatteryOptimizationAggressive
 
@@ -18,7 +18,7 @@ class PowerUserBatteryOptimizations : DialogFragment() {
             .setMessage("${getString(R.string.battery_optimizations_dialog_msg_power_user)}\n\n")
             .setNegativeButton(R.string.btn_connect_anyway, null)
             .setNeutralButton(R.string.btn_connect_anyway_stop_showing) { _, _ ->
-                Prefs.stopShowingPowerUserBatteryOptDialog = true
+                Settings.stopShowingPowerUserBatteryOptDialog = true
             }
             .setPositiveButton(R.string.battery_optimization_title) { _, _ ->
                 dismiss()
@@ -29,7 +29,7 @@ class PowerUserBatteryOptimizations : DialogFragment() {
     companion object {
         const val TAG = "PowerUserBatteryDialog"
         fun shouldShowDialog(context: Context): Boolean {
-            if (Prefs.stopShowingPowerUserBatteryOptDialog) return false
+            if (Settings.stopShowingPowerUserBatteryOptDialog) return false
             return !context.areBatteryOptimizationsDisabled()
         }
     }

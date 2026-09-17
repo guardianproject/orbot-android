@@ -10,6 +10,7 @@ import android.os.Build
 import android.util.Log
 import org.torproject.android.Regionalization
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 import kotlin.time.Duration.Companion.minutes
 
 /**
@@ -24,8 +25,8 @@ class KindnessWatchdogJob : JobService() {
     // wakelock for the job will be released, and onStopJob(JobParameters) will not be invoked.
     // aka return false means that the job has completed its work
     override fun onStartJob(params: JobParameters?): Boolean {
-        Log.d(TAG, "onStartJob: Prefs.beSnowflakeProxy=${Prefs.beSnowflakeProxy}")
-        if (!Prefs.beSnowflakeProxy) {
+        Log.d(TAG, "onStartJob: Prefs.beSnowflakeProxy=${Settings.beSnowflakeProxy}")
+        if (!Settings.beSnowflakeProxy) {
             val scheduler =
                 applicationContext.getSystemService(JOB_SCHEDULER_SERVICE) as JobScheduler
             Log.d(TAG, "onStartJob: cancelling job since pref is false...")
@@ -34,10 +35,10 @@ class KindnessWatchdogJob : JobService() {
         }
         Log.d(
             TAG,
-            "wantsProxy=${Prefs.beSnowflakeProxy} serviceRunning=${SnowflakeProxyService.isRunning}"
+            "wantsProxy=${Settings.beSnowflakeProxy} serviceRunning=${SnowflakeProxyService.isRunning}"
         )
         if (shouldRestartKindnessMode(
-                wantsProxy = Prefs.beSnowflakeProxy,
+                wantsProxy = Settings.beSnowflakeProxy,
                 serviceRunning = SnowflakeProxyService.isRunning,
                 regionBlocked = Regionalization.isKindnessModeDisabledForCountry(Prefs.bridgeCountry)
             )

@@ -18,6 +18,7 @@ import org.torproject.android.R
 import org.torproject.android.Regionalization
 import org.torproject.android.databinding.FragmentKindnessBinding
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 
 class KindnessFragment : Fragment() {
 
@@ -28,7 +29,7 @@ class KindnessFragment : Fragment() {
     ): View {
         mBinding = FragmentKindnessBinding.inflate(inflater)
         mBinding.swVolunteerMode.setOnCheckedChangeListener { _, isChecked ->
-            Prefs.beSnowflakeProxy = isChecked
+            Settings.beSnowflakeProxy = isChecked
             refreshProxyService()
             drawHeaderIcon()
         }
@@ -76,13 +77,13 @@ class KindnessFragment : Fragment() {
             }
         }
 
-        showPanelStatus(!Prefs.snowflakeNeedsQualityCheck)
+        showPanelStatus(!Settings.snowflakeNeedsQualityCheck)
 
         parentFragmentManager.setFragmentResultListener(
             KindnessConfigBottomSheet.KEY_CONFIG_CHANGED,
             viewLifecycleOwner
         ) { _, _ ->
-            if (Prefs.beSnowflakeProxy) {
+            if (Settings.beSnowflakeProxy) {
                 refreshProxyService()
                 drawHeaderIcon()
             }
@@ -96,7 +97,7 @@ class KindnessFragment : Fragment() {
             mBinding.ivHeader.setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_IN)
             mBinding.ivHeader.alpha = 1f
         }
-        if (!Prefs.beSnowflakeProxy) {
+        if (!Settings.beSnowflakeProxy) {
             mBinding.swVolunteerHeader.text = getString(R.string.Disabled)
             grayIcon()
             return
@@ -114,21 +115,21 @@ class KindnessFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        if (!Prefs.snowflakeNeedsQualityCheck) {
-            mBinding.swVolunteerMode.isChecked = Prefs.beSnowflakeProxy
+        if (!Settings.snowflakeNeedsQualityCheck) {
+            mBinding.swVolunteerMode.isChecked = Settings.beSnowflakeProxy
             refreshProxyService()
             showPanelStatus(true)
         }
         // Updates these values when user returns to screen after running snowflake proxy for some time.
         updateUsageLimitsUi()
         updateNatTypeUi(Prefs.lastSnowflakeNatType)
-        mBinding.tvAlltimeTotal.text = "${Prefs.snowflakesServed}"
-        mBinding.tvWeeklyTotal.text = "${Prefs.snowflakesServedWeekly}"
+        mBinding.tvAlltimeTotal.text = "${Settings.snowflakesServed}"
+        mBinding.tvWeeklyTotal.text = "${Settings.snowflakesServedWeekly}"
         drawHeaderIcon()
     }
 
     private fun refreshProxyService() {
-        if (Prefs.beSnowflakeProxy) {
+        if (Settings.beSnowflakeProxy) {
             SnowflakeProxyService.startSnowflakeProxyForegroundService(requireContext())
         } else {
             SnowflakeProxyService.stopSnowflakeProxyForegroundService(requireContext())

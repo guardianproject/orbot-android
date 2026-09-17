@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import org.torproject.android.R
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 import org.torproject.jni.TorService
 
 object
@@ -24,11 +25,11 @@ Notifications {
         val appName = if (!Prefs.isCamoEnabled)
             context.getString(channelName)
         else
-            Prefs.camoAppDisplayName
+            Settings.camoAppDisplayName
         val channelDescription = if (!Prefs.isCamoEnabled)
             context.getString(R.string.app_description)
         else
-            Prefs.camoAppDisplayName
+            Settings.camoAppDisplayName
         manager.createNotificationChannel(
             NotificationChannel(
                 channelId,
@@ -46,7 +47,7 @@ Notifications {
     @JvmStatic
     fun configureCamoNotification(notifyBuilder: NotificationCompat.Builder) {
         notifyBuilder
-            .setContentTitle(Prefs.camoAppDisplayName)
+            .setContentTitle(Settings.camoAppDisplayName)
             .setContentText(null)
             .setSubText(null)
             .setSmallIcon(R.drawable.ic_generic_info)
@@ -66,7 +67,7 @@ Notifications {
     @JvmStatic
     fun getVpnSessionName(context: Context): String {
         return if (Prefs.isCamoEnabled) {
-            Prefs.camoAppDisplayName ?: ""
+            Settings.camoAppDisplayName
         } else context.getString(R.string.orbot_vpn)
     }
 

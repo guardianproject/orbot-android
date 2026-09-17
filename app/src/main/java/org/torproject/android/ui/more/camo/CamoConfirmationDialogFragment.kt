@@ -4,9 +4,12 @@ import android.app.Dialog
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import org.torproject.android.BuildConfig
 import org.torproject.android.R
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 
 class CamoConfirmationDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -27,8 +30,11 @@ class CamoConfirmationDialogFragment : DialogFragment() {
                 if (altIconValue != -1) key += altIconValue
                 val activePackageName = mapping[key]!!
                 Prefs.setCamoAppPackage(activePackageName)
-                Prefs.camoAppDisplayName = camoAppName
-                Prefs.camoAppAltIconIndex = altIconValue
+
+                lifecycleScope.launch {
+                    Settings.set(camoAppDisplayName = camoAppName, camoAppAltIconIndex = altIconValue)
+                }
+
                 val disabledNames = mapping.values.filter { s -> s != activePackageName }
                 AppIconNameChanger.changeAppIcon(
                     requireActivity(),
