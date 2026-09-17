@@ -37,7 +37,7 @@ object Settings {
     private const val PREFERENCE_FILE = "settings_keyset_preference"
     private const val MASTER_KEY_URI = "android-keystore://_androidx_security_master_key_"
     private const val SETTINGS_FILE_NAME = "settings"
-    private const val CURRENT_MIGRATION_STEP = 2
+    private const val CURRENT_MIGRATION_STEP = 3
 
     private lateinit var dataStore: DataStore<SettingsStore>
 
@@ -226,6 +226,19 @@ object Settings {
             dataStore.updateData { it.copy(stopShowingPowerUserBatteryOptDialog = value) }
         }
 
+    var torifiedApps
+        get() = runBlocking { dataStore.data.first().torifiedApps }
+        set(value) = runBlocking {
+            dataStore.updateData { it.copy(torifiedApps = value) }
+        }
+
+    @JvmStatic
+    var torDnsPortResolved
+        get() = runBlocking { dataStore.data.first().torDnsPortResolved }
+        set(value) = runBlocking {
+            dataStore.updateData { it.copy(torDnsPortResolved = value) }
+        }
+
     private suspend fun migrate(context: Context) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
 
@@ -249,6 +262,8 @@ object Settings {
                 camoAppDisplayName = prefs.getString("pref_key_camo_app_display_name", null) ?: store.camoAppDisplayName,
                 camoAppAltIconIndex = prefs.getInt("pref_key_camo_alticon", store.camoAppAltIconIndex),
                 stopShowingPowerUserBatteryOptDialog = prefs.getBoolean("hide_battery_opt_dialog", store.stopShowingPowerUserBatteryOptDialog),
+                torifiedApps = prefs.getString("PrefTord", null) ?: store.torifiedApps,
+                torDnsPortResolved = prefs.getInt("PREFS_DNS_PORT", 0)
             )
         }
 
@@ -269,6 +284,8 @@ object Settings {
             remove("pref_key_camo_app_display_name")
             remove("pref_key_camo_alticon")
             remove("hide_battery_opt_dialog")
+            remove("PrefTord")
+            remove("PREFS_DNS_PORT")
         }
     }
 
@@ -291,6 +308,8 @@ object Settings {
         val camoAppDisplayName: String = "Android",
         val camoAppAltIconIndex: Int = -1,
         val stopShowingPowerUserBatteryOptDialog: Boolean = false,
+        val torifiedApps: String = "",
+        val torDnsPortResolved: Int = 0,
     )
 
     private object SettingsStoreSerializer: Serializer<SettingsStore> {

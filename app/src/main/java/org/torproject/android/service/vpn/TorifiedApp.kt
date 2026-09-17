@@ -10,6 +10,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 import java.text.Normalizer
 
 @Serializable
@@ -51,7 +52,7 @@ class TorifiedApp : Comparable<TorifiedApp> {
         @SuppressLint("QueryPermissionsNeeded")
         @JvmStatic
         fun getApps(context: Context): ArrayList<TorifiedApp> {
-            val torifiedPackages = Prefs.torifiedApps
+            val torifiedPackages = Settings.torifiedApps
                 .split("|")
                 .filter { it.isNotBlank() }
                 .sorted()

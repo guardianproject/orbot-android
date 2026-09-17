@@ -39,7 +39,7 @@ import org.torproject.android.databinding.FragmentAppManagerBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.vpn.TorifiedApp
 import org.torproject.android.service.vpn.TorifiedAppWrapper
-import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 import org.torproject.android.util.haveIBeenDetached
 import org.torproject.android.util.normalize
 import org.torproject.android.util.sendIntentToService
@@ -338,7 +338,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                 response.putExtra(tApp.packageName, true)
             }
         }
-        val appStringOld = Prefs.torifiedApps
+        val appStringOld = Settings.torifiedApps
         val appStringNew = tordApps.toString()
 
         var shouldSave = false
@@ -353,7 +353,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
         }
         if (!shouldSave) return
 
-        Prefs.torifiedApps = tordApps.toString()
+        Settings.torifiedApps = tordApps.toString()
         appSelectionChanged = true
     }
 
@@ -403,7 +403,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
             retainedCheckedPackages: Set<String>
         ): ArrayList<TorifiedApp> {
             val pMgr = context.packageManager
-            val tordAppString = Prefs.torifiedApps
+            val tordAppString = Settings.torifiedApps
             val tordApps: Array<String?>
             val st = StringTokenizer(tordAppString, "|")
             tordApps = arrayOfNulls(st.countTokens())

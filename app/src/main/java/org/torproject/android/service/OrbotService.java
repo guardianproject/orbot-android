@@ -599,7 +599,7 @@ public class OrbotService extends VpnService implements TorControlCommands {
                 confDns = confDns.substring(0, confDns.length() - 1);
                 mPortDns = Integer.parseInt(confDns);
 
-                Prefs.setTorDnsPortResolved(mPortDns);
+                Settings.setTorDnsPortResolved(mPortDns);
             }
 
             var confTrans = conn.getInfo("net/listeners/trans");

@@ -5,12 +5,12 @@ import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
 import org.torproject.android.Regionalization
-import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.tor.ShadowSocks
 import java.net.URI
 import java.net.URISyntaxException
 import java.util.Locale
 
+@Deprecated("Move to Settings object instead")
 object Prefs {
     const val PREF_BRIDGE_COUNTRY = "pref_bridge_country"
     const val PREF_DEFAULT_LOCALE = "pref_default_locale"
@@ -325,15 +325,6 @@ object Prefs {
 
     val disableIpv4: Boolean
         get() = cr?.getPrefBoolean(PREF_DISABLE_IPV4) ?: false
-
-    var torifiedApps: String
-        get() = cr?.getPrefString(OrbotConstants.PREFS_KEY_TORIFIED) ?: ""
-        set(value) = cr?.putPref(OrbotConstants.PREFS_KEY_TORIFIED, value) ?: Unit
-
-    @JvmStatic
-    var torDnsPortResolved: Int
-        get() = cr?.getPrefInt(OrbotConstants.PREFS_DNS_PORT) ?: 0
-        set(value) = cr?.putPref(OrbotConstants.PREFS_DNS_PORT, value) ?: Unit
 
     @JvmStatic
     fun orbotServiceLogClear() {
