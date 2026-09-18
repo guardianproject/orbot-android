@@ -4,7 +4,7 @@ import android.content.Context
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 import java.util.Timer
 import java.util.TimerTask
 import kotlin.time.Duration.Companion.seconds
@@ -28,7 +28,7 @@ object SmartConnect {
     fun handle(context: Context, startTor: () -> Exception?, reconfigure: () -> Boolean, stopTor: (e: Exception?) -> Unit, completed: () -> Unit) {
         progress = 0
 
-        if (!Prefs.smartConnect) {
+        if (!Settings.smartConnect) {
             val exception = startTor()
             return if (exception != null) stopTor(exception) else completed()
         }
@@ -41,15 +41,15 @@ object SmartConnect {
             }
             catch (_: Throwable) {}
 
-            Prefs.transport = conf?.first ?: Transport.NONE
+            Settings.set(transport = conf?.first ?: Transport.NONE)
 
             conf?.second?.let {
                 if (it.isNotEmpty()) {
-                    Prefs.bridgesList = it
+                    Settings.set(bridgesList = it)
                 }
             }
 
-            Prefs.transport.start(context)
+            Settings.transport.start(context)
             val exception = startTor()
 
             if (exception != null) {
@@ -69,7 +69,7 @@ object SmartConnect {
                     // Since we seem to have a working connection now, disable smart connect.
                     if (progress >= 100) {
                         stopConnectionGuard()
-                        Prefs.smartConnect = false
+                        Settings.smartConnect = false
 
                         mainScope.launch {
                             completed()
@@ -85,20 +85,20 @@ object SmartConnect {
                     var connected = false
 
                     do {
-                        when (Prefs.transport) {
+                        when (Settings.transport) {
                             Transport.NONE -> {
-                                Prefs.transport = Transport.SNOWFLAKE
+                                Settings.transport = Transport.SNOWFLAKE
 
                                 try {
-                                    Prefs.transport.start(context)
+                                    Settings.transport.start(context)
                                     connected = true
                                 }
                                 catch(_: Exception) {}
                             }
                             Transport.SNOWFLAKE, Transport.SNOWFLAKE_AMP,Transport.SNOWFLAKE_SQS -> {
-                                Prefs.transport.stop()
+                                Settings.transport.stop()
 
-                                Prefs.transport = if (Prefs.bridgesList.isNotEmpty()) {
+                                Settings.transport = if (Settings.bridgesList.isNotEmpty()) {
                                     Transport.CUSTOM
                                 }
                                 else {
@@ -106,18 +106,18 @@ object SmartConnect {
                                 }
 
                                 try {
-                                    Prefs.transport.start(context)
+                                    Settings.transport.start(context)
                                     connected = true
                                 }
                                 catch(_: Exception) {}
                             }
                             Transport.CUSTOM -> {
-                                Prefs.transport.stop()
+                                Settings.transport.stop()
 
-                                Prefs.transport = Transport.OBFS4
+                                Settings.transport = Transport.OBFS4
 
                                 try {
-                                    Prefs.transport.start(context)
+                                    Settings.transport.start(context)
                                     connected = true
                                 }
                                 catch (_: Exception) {}
@@ -125,7 +125,7 @@ object SmartConnect {
                             else -> {
                                 stopConnectionGuard()
 
-                                Prefs.transport.stop()
+                                Settings.transport.stop()
 
                                 mainScope.launch {
                                     stopTor(Exception("Smart Connect failed"))
@@ -147,7 +147,7 @@ object SmartConnect {
 
     @JvmStatic
     fun updateProgress(progress: Int) {
-        if (!Prefs.smartConnect) return
+        if (!Settings.smartConnect) return
 
         if (progress > this.progress) {
             connectionAlive()
@@ -161,7 +161,7 @@ object SmartConnect {
     }
 
     private fun connectionAlive() {
-        connectionTimeout = TimeSource.Monotonic.markNow() + Prefs.smartConnectTimeout.seconds
+        connectionTimeout = TimeSource.Monotonic.markNow() + Settings.smartConnectTimeout.seconds
     }
 
     private fun stopConnectionGuard() {

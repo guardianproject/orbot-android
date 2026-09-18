@@ -70,10 +70,6 @@ object OrbotConstants {
     const val ONION_SERVICES_DIR = "v3_onion_services"
     const val V3_CLIENT_AUTH_DIR = "v3_client_auth"
 
-    const val PREFS_DNS_PORT: String = "PREFS_DNS_PORT"
-
-    const val PREFS_KEY_TORIFIED: String = "PrefTord"
-
     /**
      * Include packages here to make the VPNService ignore these apps. This is to
      * prevent tor over tor scenarios...

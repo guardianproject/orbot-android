@@ -5,55 +5,31 @@ import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
 import org.torproject.android.Regionalization
-import org.torproject.android.service.OrbotConstants
-import org.torproject.android.service.circumvention.Transport
-import org.torproject.android.service.tor.ShadowSocks
-import java.net.URI
-import java.net.URISyntaxException
 import java.util.Locale
-import kotlin.time.Duration.Companion.milliseconds
 
+@Deprecated("Move to Settings object instead")
 object Prefs {
-    private const val PREF_BRIDGES_LIST = "pref_bridges_list"
     const val PREF_BRIDGE_COUNTRY = "pref_bridge_country"
     const val PREF_DEFAULT_LOCALE = "pref_default_locale"
     private const val PREF_DETECT_ROOT = "pref_detect_root"
     private const val PREF_ENABLE_LOGGING = "pref_enable_logging"
     private const val PREF_START_ON_BOOT = "pref_start_boot"
     const val PREF_OPEN_PROXY_ON_ALL_INTERFACES = "pref_open_proxy_on_all_interfaces"
-    private const val PREF_USE_VPN = "pref_vpn"
-    private const val PREF_LAST_SNOWFLAKE_QUALITY_CHECK = "pref_last_snowflake_quality_check"
     private const val PREF_EXIT_NODES = "pref_exit_nodes"
-    private const val PREF_BE_A_SNOWFLAKE = "pref_be_a_snowflake"
     private const val PREF_SHOW_SNOWFLAKE_MSG = "pref_show_snowflake_proxy_msg"
     const val PREF_BE_A_SNOWFLAKE_LIMIT_WIFI = "pref_be_a_snowflake_limit_wifi"
     const val PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING = "pref_be_a_snowflake_limit_charing"
     const val PREF_LAST_SNOWFLAKE_NAT_TYPE = "pref_snowflake_last_nat"
     const val PREF_LAST_SNOWFLAKE_ACTIVE = "pref_is_snowflake_running"
-    private const val PREF_SNOWFLAKE_UPNP_PORTS = "pref_snowflake_upnp_ports"
-
-    private const val PREF_USE_SMART_CONNECT = "pref_use_smart_connect"
-    private const val PREF_SMART_CONNECT_TIMEOUT = "pref_smart_connect_timeout"
 
     private const val PREF_POWER_USER_MODE = "pref_power_user"
 
-    private const val PREF_SNOWFLAKES_SERVED_COUNT = "pref_snowflakes_served"
-    private const val PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY = "pref_snowflakes_served_weekly"
-    private const val PREF_SNOWFLAKES_SERVED_WEEK_TIMESTAMP = "pref_snowflakes_served_week"
-
-    private const val PREF_CURRENT_VERSION = "pref_current_version"
-
     const val PREF_CAMO_APP_PACKAGE = "pref_key_camo_app"
-    private const val PREF_CAMO_APP_DISPLAY_NAME = "pref_key_camo_app_display_name"
-    private const val PREF_CAMO_APP_ALT_ICON_INDEX = "pref_key_camo_alticon"
     const val PREF_REQUIRE_PASSWORD = "pref_require_password"
     const val PREF_DISALLOW_BIOMETRIC_AUTH = "pref_auth_no_biometrics"
 
-    private const val PREF_CONNECTION_PATHWAY = "pref_connection_pathway"
-
     const val PREF_SECURE_WINDOW_FLAG: String = "pref_flag_secure"
 
-    private const val PREF_POWER_BATTERY_DIALOG_HIDE = "hide_battery_opt_dialog"
     const val PREF_ORBOT_SERVICE_LOG = "pref_orbotservice_log"
 
 
@@ -78,31 +54,12 @@ object Prefs {
     private const val PREF_PREFER_IPV6 = "pref_prefer_ipv6"
     private const val PREF_DISABLE_IPV4 = "pref_disable_ipv4"
 
-    const val PREF_PROXY_HOST = "pref_proxy_host"
-    const val PREF_SHADOW_SOCKS_PROXY = "pref_proxy_ss"
-    const val PREF_PROXY_TYPE = "pref_proxy_type"
-    const val PREF_PROXY_USERNAME = "pref_proxy_username"
-    const val PREF_PROXY_PASSWORD = "pref_proxy_password"
-    const val PREF_PROXY_PORT = "pref_proxy_port"
-
     const val PREF_CUSTOM_TORRC = "pref_custom_torrc"
 
     const val PREF_PERSISTENT_NOTIFICATIONS = "pref_persistent_notifications"
     const val PREF_KEY_CAMO_DIALOG = "pref_key_camo_dialog"
 
     private var cr: ContentResolver? = null
-
-    var currentVersionForUpdate: Int
-        get() = cr?.getPrefInt(PREF_CURRENT_VERSION) ?: 0
-        set(version) = cr?.putPref(PREF_CURRENT_VERSION, version) ?: Unit
-
-
-    private const val PREF_REINSTALL_GEOIP = "pref_geoip"
-
-    @JvmStatic
-    var isGeoIpReinstallNeeded: Boolean
-        get() = cr?.getPrefBoolean(PREF_REINSTALL_GEOIP) ?: true
-        set(value) = cr?.putPref(PREF_REINSTALL_GEOIP, value) ?: Unit
 
     @JvmStatic
     fun setContext(context: Context?) {
@@ -111,29 +68,14 @@ object Prefs {
         }
     }
 
-    @JvmStatic
-    var bridgesList: List<String>
-        get() {
-            return cr?.getPrefString(PREF_BRIDGES_LIST)
-                ?.split("\n")
-                ?.filter { it.isNotBlank() }
-                ?.map { it.trim() }
-                ?: emptyList()
-        }
-        set(value) {
-            cr?.putPref(
-                PREF_BRIDGES_LIST,
-                value.filter { it.isNotBlank() }.joinToString("\n") { it.trim() })
-        }
-
     var bridgeCountry: String?
         get() = cr?.getPrefString(PREF_BRIDGE_COUNTRY)
         set(value) {
             cr?.let {
                 it.putPref(PREF_BRIDGE_COUNTRY, value)
                 if (Regionalization.isKindnessModeDisabledForCountry()) {
-                    beSnowflakeProxy = false
-                    snowflakeNeedsQualityCheck = true
+                    Settings.beSnowflakeProxy = false
+                    Settings.snowflakeNeedsQualityCheck = true
                 }
             }
         }
@@ -146,10 +88,6 @@ object Prefs {
     fun detectRoot(): Boolean {
         return cr?.getPrefBoolean(PREF_DETECT_ROOT, true) ?: true
     }
-
-    var beSnowflakeProxy: Boolean
-        get() = cr?.getPrefBoolean(PREF_BE_A_SNOWFLAKE) ?: false
-        set(value) = cr?.putPref(PREF_BE_A_SNOWFLAKE, value) ?: Unit
 
     fun showSnowflakeProxyToast(): Boolean {
         return cr?.getPrefBoolean(PREF_SHOW_SNOWFLAKE_MSG) ?: false
@@ -198,30 +136,6 @@ object Prefs {
         }
     }
 
-    @JvmStatic
-    fun useVpn(): Boolean {
-        return cr?.getPrefBoolean(PREF_USE_VPN) ?: false
-    }
-
-    @JvmStatic
-    fun putUseVpn(value: Boolean) {
-        cr?.putPref(PREF_USE_VPN, value)
-    }
-
-    var snowflakeNeedsQualityCheck: Boolean
-        get() {
-            val last = cr?.getPrefLong(PREF_LAST_SNOWFLAKE_QUALITY_CHECK) ?: 0
-
-            // A new quality check should be done every 24 hours.
-            return last <= System.currentTimeMillis() - 24 * 60 * 60 * 1000
-        }
-        set(value) {
-            cr?.putPref(
-                PREF_LAST_SNOWFLAKE_QUALITY_CHECK,
-                if (value) 0 else System.currentTimeMillis()
-            )
-        }
-
     fun startOnBoot(): Boolean {
         return cr?.getPrefBoolean(PREF_START_ON_BOOT, true) ?: true
     }
@@ -238,123 +152,6 @@ object Prefs {
     var snowflakeProxyRunning: Boolean
         get() = cr?.getPrefBoolean(PREF_LAST_SNOWFLAKE_ACTIVE) ?: false
         set(isRunning) = cr?.putPref(PREF_LAST_SNOWFLAKE_ACTIVE, isRunning) ?: Unit
-
-    // see https://github.com/guardianproject/orbot-android/issues/1795
-    var snowflakeUpnpPorts: String
-        get() = cr?.getPrefString(PREF_SNOWFLAKE_UPNP_PORTS) ?: ""
-        set(value) = cr?.putPref(PREF_SNOWFLAKE_UPNP_PORTS, value) ?: Unit
-
-    val snowflakesServed: Int
-        get() = cr?.getPrefInt(PREF_SNOWFLAKES_SERVED_COUNT) ?: 0
-
-    val snowflakesServedWeekly: Int
-        get() {
-            refreshWeeklyServedIfNeeded()
-            return cr?.getPrefInt(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY) ?: 0
-        }
-
-    fun addSnowflakeServed() {
-        refreshWeeklyServedIfNeeded()
-        cr?.putPref(PREF_SNOWFLAKES_SERVED_COUNT, snowflakesServed + 1)
-        cr?.putPref(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY, snowflakesServedWeekly + 1)
-    }
-
-    fun refreshWeeklyServedIfNeeded(clearAllWeeklyOverride: Boolean = false) {
-        val week = System.currentTimeMillis().milliseconds.inWholeDays.div(7).toInt()
-        if (clearAllWeeklyOverride || (cr?.getPrefInt(PREF_SNOWFLAKES_SERVED_WEEK_TIMESTAMP)
-                ?: 0) != week
-        ) {
-            cr?.putPref(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY, 0)
-            cr?.putPref(PREF_SNOWFLAKES_SERVED_WEEK_TIMESTAMP, week)
-        }
-    }
-
-    @JvmStatic
-    var transport: Transport
-        /**
-         * @return How Orbot is configured to attempt to connect to Tor
-         */
-        get() = Transport.fromId(cr?.getPrefString(PREF_CONNECTION_PATHWAY) ?: Transport.NONE.id)
-        /**
-         * Set how Orbot should initialize a tor connection (direct, with a PT, etc)
-         */
-        set(value) = cr?.putPref(PREF_CONNECTION_PATHWAY, value.id) ?: Unit
-
-    var smartConnect: Boolean
-        get() = cr?.getPrefBoolean(PREF_USE_SMART_CONNECT) ?: false
-        set(value) = cr?.putPref(PREF_USE_SMART_CONNECT, value) ?: Unit
-
-
-    var smartConnectTimeout: Int
-        get() = cr?.getPrefInt(PREF_SMART_CONNECT_TIMEOUT) ?: 30
-        set(value) = cr?.putPref(PREF_SMART_CONNECT_TIMEOUT, value) ?: Unit
-
-    // URI, if config present + valid, malformed URL string if config present + invalid
-    val outboundProxy: Pair<URI?, String?>
-        get() {
-            val scheme = cr?.getPrefString(PREF_PROXY_TYPE)?.lowercase()?.trim()
-            if (scheme.isNullOrEmpty()) return Pair(null, null)
-
-            if (scheme == ShadowSocks.SCHEME) {
-                val config = cr?.getPrefString(PREF_SHADOW_SOCKS_PROXY)?.trim()
-                if (config.isNullOrEmpty()) return Pair(null, null)
-
-                return try {
-                    Pair(URI(config), null)
-                } catch (_: URISyntaxException) {
-                    Pair(null, config)
-                }
-            }
-
-            val host = cr?.getPrefString(PREF_PROXY_HOST)?.trim()
-            if (host.isNullOrEmpty()) return Pair(null, null)
-
-            val url = StringBuilder(scheme)
-            url.append("://")
-
-            var needsAt = false
-            val username = cr?.getPrefString(PREF_PROXY_USERNAME)
-            if (!username.isNullOrEmpty()) {
-                url.append(username)
-                needsAt = true
-            }
-
-            val password = cr?.getPrefString(PREF_PROXY_PASSWORD)
-            if (!password.isNullOrEmpty()) {
-                url.append(":")
-                url.append(password)
-                needsAt = true
-            }
-
-            if (needsAt) url.append("@")
-
-            url.append(host)
-
-            val port = try {
-                cr?.getPrefString(PREF_PROXY_PORT)?.trim()?.toInt() ?: 0
-            } catch (_: Throwable) {
-                0
-            }
-
-            if (port in 1..<65536) {
-                url.append(":")
-                url.append(port)
-            }
-
-            url.append("/")
-
-            return try {
-                Pair(URI(url.toString()), null)
-            } catch (_: URISyntaxException) {
-                // can happen when you say put a space in the hostname
-                // https://github.com/guardianproject/orbot-android/issues/1563
-                // https://www.rfc-editor.org/rfc/inline-errata/rfc3986.html
-                Pair(
-                    null,
-                    url.toString()
-                )
-            }
-        }
 
     val isPowerUserMode: Boolean
         get() = cr?.getPrefBoolean(PREF_POWER_USER_MODE) ?: false
@@ -375,7 +172,7 @@ object Prefs {
     val isCamoEnabled: Boolean
         get() {
             val app = cr?.getPrefString(PREF_CAMO_APP_PACKAGE, DEFAULT_CAMO_DISABLED_ACTIVITY) ?: ""
-            if (camoAppAltIconIndex != -1) return false
+            if (Settings.camoAppAltIconIndex != -1) return false
             return app != DEFAULT_CAMO_DISABLED_ACTIVITY
         }
 
@@ -385,15 +182,6 @@ object Prefs {
     fun setCamoAppPackage(packageName: String?) {
         cr?.putPref(PREF_CAMO_APP_PACKAGE, packageName)
     }
-
-    var camoAppDisplayName: String?
-        get() = cr?.getPrefString(PREF_CAMO_APP_DISPLAY_NAME) ?: "Android"
-        set(name) = cr?.putPref(PREF_CAMO_APP_DISPLAY_NAME, name) ?: Unit
-
-    var camoAppAltIconIndex: Int?
-        get() = cr?.getPrefInt(PREF_CAMO_APP_ALT_ICON_INDEX, -1)
-        set(index) = cr?.putPref(PREF_CAMO_APP_ALT_ICON_INDEX, index ?: -1) ?: Unit
-
 
     val requireDeviceAuthentication: Boolean
         get() = cr?.getPrefBoolean(PREF_REQUIRE_PASSWORD) ?: false
@@ -460,20 +248,6 @@ object Prefs {
 
     val disableIpv4: Boolean
         get() = cr?.getPrefBoolean(PREF_DISABLE_IPV4) ?: false
-
-    var torifiedApps: String
-        get() = cr?.getPrefString(OrbotConstants.PREFS_KEY_TORIFIED) ?: ""
-        set(value) = cr?.putPref(OrbotConstants.PREFS_KEY_TORIFIED, value) ?: Unit
-
-    var stopShowingPowerUserBatteryOptDialog: Boolean
-        get() = cr?.getPrefBoolean(PREF_POWER_BATTERY_DIALOG_HIDE) ?: false
-        set(value) = cr?.putPref(PREF_POWER_BATTERY_DIALOG_HIDE, value) ?: Unit
-
-
-    @JvmStatic
-    var torDnsPortResolved: Int
-        get() = cr?.getPrefInt(OrbotConstants.PREFS_DNS_PORT) ?: 0
-        set(value) = cr?.putPref(OrbotConstants.PREFS_DNS_PORT, value) ?: Unit
 
     @JvmStatic
     fun orbotServiceLogClear() {

@@ -21,6 +21,7 @@ import org.torproject.android.Regionalization
 import org.torproject.android.service.Notifications
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 
 class SnowflakeProxyService : Service() {
 
@@ -101,7 +102,7 @@ class SnowflakeProxyService : Service() {
                 .setCategory(NotificationCompat.CATEGORY_SERVICE).setContentTitle(title)
                 .setContentIntent(pendingActivityIntent).setContentText(
                     contentText ?: getString(
-                        R.string.kindness_mode_active_message, Prefs.snowflakesServed
+                        R.string.kindness_mode_active_message, Settings.snowflakesServed
                     )
                 )
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) notificationBuilder.setForegroundServiceBehavior(

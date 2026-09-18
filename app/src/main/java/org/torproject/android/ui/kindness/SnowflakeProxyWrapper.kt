@@ -14,6 +14,7 @@ import org.torproject.android.R
 import org.torproject.android.service.circumvention.BuiltInBridges
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 import org.torproject.android.util.showToast
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -163,12 +164,15 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
         if (stale.isEmpty()) return
         CoroutineScope(Dispatchers.IO).launch {
             closePorts(stale)
-            Prefs.snowflakeUpnpPorts = ""
+            Settings.snowflakeUpnpPorts = ""
         }
     }
 
     internal fun onSnowflakeProxyConnectionEstablished() {
-        Prefs.addSnowflakeServed()
+        CoroutineScope(Dispatchers.IO).launch {
+            Settings.addSnowflakeServed()
+        }
+
         service.refreshNotification()
         if (Prefs.showSnowflakeProxyToast()) {
             Handler(service.mainLooper).post {
@@ -212,7 +216,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
     private fun releaseMappedPorts() {
         closePorts(mappedPorts)
         mappedPorts = mutableListOf()
-        Prefs.snowflakeUpnpPorts = ""
+        Settings.snowflakeUpnpPorts = ""
     }
 
     @Synchronized
@@ -269,11 +273,11 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
 
         fun encodeUPnPPortsToPrefs(ports: List<Int>): String {
             val strPorts = ports.joinToString(",")
-            Prefs.snowflakeUpnpPorts = strPorts
+            Settings.snowflakeUpnpPorts = strPorts
             return strPorts
         }
 
-        fun decodeUPnPPorts(value: String = Prefs.snowflakeUpnpPorts): List<Int> =
+        fun decodeUPnPPorts(value: String = Settings.snowflakeUpnpPorts): List<Int> =
             value.split(",").mapNotNull { it.trim().toIntOrNull() }.filter { it in 1..65535 }
     }
 }

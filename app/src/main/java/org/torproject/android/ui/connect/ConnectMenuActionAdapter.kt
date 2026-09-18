@@ -21,6 +21,7 @@ import org.torproject.android.R
 import org.torproject.android.Regionalization
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 import java.util.TreeMap
 
 class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction>) :
@@ -79,7 +80,7 @@ class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction
 
     private fun drawAppShortcuts(llBoxShortcuts: HorizontalScrollView): Boolean {
 
-        val tordAppString = Prefs.torifiedApps
+        val tordAppString = Settings.torifiedApps
         if (!TextUtils.isEmpty(tordAppString)) {
 
             val packageManager: PackageManager = context.packageManager

@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import org.torproject.android.R
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 
 object DeviceAuthenticationPrompt {
     /**
@@ -33,7 +34,7 @@ object DeviceAuthenticationPrompt {
         }
 
         val appName =
-            if (Prefs.isCamoEnabled) Prefs.camoAppDisplayName ?: "" else activity.getString(
+            if (Prefs.isCamoEnabled) Settings.camoAppDisplayName else activity.getString(
                 R.string.app_name
             )
 

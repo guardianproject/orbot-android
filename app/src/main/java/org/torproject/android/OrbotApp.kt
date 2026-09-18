@@ -6,10 +6,15 @@ import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import org.torproject.android.localization.Languages
 import org.torproject.android.localization.LocaleHelper
 import org.torproject.android.service.circumvention.Transport.Companion.stateLocation
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 
 import java.util.Locale
 
@@ -18,6 +23,10 @@ class OrbotApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        runBlocking {
+            Settings.init(this@OrbotApp)
+        }
 
         // set state dir for IPtProxy
         try {
@@ -52,12 +61,16 @@ class OrbotApp : Application() {
         setLocale()
 
         // this code only runs on first install and app updates
-        if (Prefs.currentVersionForUpdate < BuildConfig.VERSION_CODE) {
-            Prefs.currentVersionForUpdate = BuildConfig.VERSION_CODE
-            // don't do anything resource intensive here, instead set a flag to do the task later
+        if (Settings.currentVersionForUpdate < BuildConfig.VERSION_CODE) {
+            // Don't do anything resource intensive here, instead set a flag to do the task later.
 
-            // tell OrbotService it needs to reinstall geoip
-            Prefs.isGeoIpReinstallNeeded = true
+            CoroutineScope(Dispatchers.IO).launch {
+                Settings.set(
+                    currentVersionForUpdate = BuildConfig.VERSION_CODE,
+
+                    // Tell OrbotService it needs to reinstall geoip.
+                    isGeoIpReinstallNeeded = true)
+            }
         }
     }
 

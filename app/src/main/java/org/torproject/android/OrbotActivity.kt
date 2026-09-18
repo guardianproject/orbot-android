@@ -34,6 +34,7 @@ import org.torproject.android.ui.core.BaseActivity
 import org.torproject.android.ui.core.DeviceAuthenticationPrompt
 import org.torproject.android.ui.kindness.SnowflakeProxyService
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 import org.torproject.android.util.sendIntentToService
 import org.torproject.android.util.showToast
 import org.torproject.jni.TorService
@@ -238,7 +239,7 @@ class OrbotActivity : BaseActivity() {
         sendIntentToService(OrbotService.SIGNAL_ACTIVE)
 
 
-        if (Prefs.beSnowflakeProxy) {
+        if (Settings.beSnowflakeProxy) {
             SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
         }
 
