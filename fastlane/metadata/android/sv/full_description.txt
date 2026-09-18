@@ -1,0 +1,18 @@
+Orbot är en kostnadsfri VPN- och proxyapp som gör det möjligt för andra appar att använda internet säkrare. Orbot använder Tor för att kryptera internettrafiken och döljer den genom att skicka den via en serie datorer runt om i världen. Tor är fri programvara och ett öppet nätverk som hjälper dig att försvara dig mot en form av nätverksövervakning som hotar personlig frihet och integritet, konfidentiell affärsverksamhet och relationer samt statlig säkerhet, kallad trafikanalys.
+
+Orbot är den enda appen som skapar en verkligt privat internetanslutning. Som New York Times skriver: ”när en kommunikation kommer från Tor kan du aldrig veta varifrån eller från vem den kommer.”
+
+Tor fick Electronic Frontier Foundations (EFF) Pioneer Award 2012.
+
+★ ACCEPTERA INGA ERSÄTTARE: Orbot är det säkraste sättet att använda internet på Android. Punkt. Orbot skickar den krypterade trafiken flera gånger via datorer runt om i världen i stället för att ansluta direkt, som andra VPN-tjänster och proxyservrar gör. Processen tar lite längre tid, men det starkaste tillgängliga skyddet för integritet och identitet är värt väntan.
+★ INTEGRITET FÖR APPAR: Alla appar kan dirigeras över Tor via Orbots VPN-funktion.
+★ INTEGRITET FÖR ALLA: Orbot hindrar den som övervakar anslutningen från att veta vilka appar du använder eller webbplatser du besöker. Den som övervakar nätverkstrafiken kan bara se att du använder Tor.
+
+***Vi uppskattar återkoppling***
+★ LÄS MER: Läs mer om Orbot och engagera dig på https://orbot.app
+★ OM OSS: Guardian Project är en grupp utvecklare som skapar säkra mobilappar och programkod med öppen källkod för en bättre framtid.
+★ ÖPPEN KÄLLKOD: Orbot är fri programvara. Titta på källkoden eller gå med i gemenskapen och gör den bättre: https://github.com/guardianproject/orbot
+★ KONTAKTA OSS: Saknas din favoritfunktion? Har du hittat ett irriterande fel? Vi vill gärna höra från dig! Skicka e-post till support@guardianproject.info
+
+***Ansvarsfriskrivning***
+Guardian Project utvecklar appar som är utformade för att skydda din säkerhet och anonymitet. Protokollen vi använder anses allmänt höra till den främsta säkerhetstekniken. Vi uppdaterar ständigt programvaran för att hantera de senaste hoten och åtgärda fel, men ingen teknik är hundraprocentigt säker. För bästa möjliga säkerhet och anonymitet måste användare följa god praxis för att skydda sig själva. En bra introduktionsguide finns på https://securityinabox.org

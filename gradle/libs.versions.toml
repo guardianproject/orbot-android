@@ -1,5 +1,5 @@
 [versions]
-agp = "9.4.0"
+agp = "9.4.1"
 androidx-appcompat = "1.8.0"
 androidx-biometric = "1.1.0"
 androidx-core = "1.19.0"
@@ -25,7 +25,7 @@ retrofit = "3.0.0"
 rootbeer = "0.1.2"
 screengrab = "2.1.1"
 serialization = "1.11.0"
-tor-android = "0.4.9.11"
+tor-android = "0.4.9.12"
 upnp = "1.1.0"
 version-catalog-update = "1.1.1"
 
