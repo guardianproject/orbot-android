@@ -39,6 +39,11 @@ object Settings {
 
     private const val TAG = "Settings"
 
+    // using a constant because for most int prefs, the default value is 0, however 0 is actually meaningful
+    const val DEFAULT_CAMO_ALT_ICON_VALUE = -1
+    const val DEFAULT_CAMO_DISABLED_ACTIVITY: String = "org.torproject.android.OrbotActivity"
+
+
     private const val KEYSET_NAME = "settings_keyset"
     private const val PREFERENCE_FILE = "settings_keyset_preference"
     private const val MASTER_KEY_URI = "android-keystore://_androidx_security_master_key_"
@@ -51,7 +56,6 @@ object Settings {
     const val PREF_PROXY_USERNAME = "pref_proxy_username"
     const val PREF_PROXY_PASSWORD = "pref_proxy_password"
     const val PREF_PROXY_SS = "pref_proxy_ss"
-
 
     private lateinit var dataStore: DataStore<SettingsStore>
 
@@ -517,7 +521,7 @@ object Settings {
         val currentVersionForUpdate: Int = 0,
         val isGeoIpReinstallNeeded: Boolean = true,
         val camoAppDisplayName: String = "Android",
-        val camoAppAltIconIndex: Int = -1,
+        val camoAppAltIconIndex: Int = DEFAULT_CAMO_ALT_ICON_VALUE,
         val stopShowingPowerUserBatteryOptDialog: Boolean = false,
         val torifiedApps: String = "",
         val torDnsPortResolved: Int = 0,

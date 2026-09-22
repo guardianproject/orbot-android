@@ -15,12 +15,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import org.torproject.android.R
 import org.torproject.android.databinding.FragmentCamoBinding
-import org.torproject.android.util.getKey
-import org.torproject.android.util.Prefs
-import org.torproject.android.ui.more.MoreActionAdapter
 import org.torproject.android.ui.OrbotMenuAction
+import org.torproject.android.ui.more.MoreActionAdapter
+import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
+import org.torproject.android.util.getKey
 import java.lang.reflect.Field
-import kotlin.String
 
 class CamoFragment : Fragment() {
     private lateinit var binding: FragmentCamoBinding
@@ -95,10 +95,10 @@ class CamoFragment : Fragment() {
     private fun createAppMenuItem(
         @DrawableRes imageId: Int,
         @StringRes appName: Int,
-        altIconVal: Int = -1
+        altIconVal: Int = Settings.DEFAULT_CAMO_ALT_ICON_VALUE
     ): OrbotMenuAction {
         var altSuffix = ""
-        if (altIconVal != -1) altSuffix += altIconVal
+        if (altIconVal != Settings.DEFAULT_CAMO_ALT_ICON_VALUE) altSuffix += altIconVal
         val isSelected = selectedApp == (getString(appName) + altSuffix)
         val item = OrbotMenuAction(appName, imageId, removeTint = true) {
             if (!isSelected) {
@@ -126,7 +126,7 @@ class CamoFragment : Fragment() {
         private const val BASE = "org.torproject.android.main."
         private const val ORBOT_ALT = "${BASE}OrbotAlt"
         fun getCamoMapping(context: Context): Map<String?, String> = mapOf(
-            context.getString(R.string.app_name) to Prefs.DEFAULT_CAMO_DISABLED_ACTIVITY,
+            context.getString(R.string.app_name) to Settings.DEFAULT_CAMO_DISABLED_ACTIVITY,
             "${context.getString(R.string.app_name)}1" to "${ORBOT_ALT}1",
             "${context.getString(R.string.app_name)}2" to "${ORBOT_ALT}2",
             "${context.getString(R.string.app_name)}3" to "${ORBOT_ALT}3",

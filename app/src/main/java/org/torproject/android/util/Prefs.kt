@@ -160,7 +160,6 @@ object Prefs {
         get() = cr?.getPrefBoolean(PREF_SECURE_WINDOW_FLAG) ?: false
         set(isFlagSecure) = cr?.putPref(PREF_SECURE_WINDOW_FLAG, isFlagSecure) ?: Unit
 
-    const val DEFAULT_CAMO_DISABLED_ACTIVITY: String = "org.torproject.android.OrbotActivity"
 
     /**
      * Returns true if a non-Orbot icon is in use (ie Birdie, Paint, etc)
@@ -171,13 +170,20 @@ object Prefs {
     @JvmStatic
     val isCamoEnabled: Boolean
         get() {
-            val app = cr?.getPrefString(PREF_CAMO_APP_PACKAGE, DEFAULT_CAMO_DISABLED_ACTIVITY) ?: ""
+            val app =
+                cr?.getPrefString(
+                    PREF_CAMO_APP_PACKAGE,
+                    Settings.DEFAULT_CAMO_DISABLED_ACTIVITY
+                ) ?: ""
             if (Settings.camoAppAltIconIndex != -1) return false
-            return app != DEFAULT_CAMO_DISABLED_ACTIVITY
+            return app != Settings.DEFAULT_CAMO_DISABLED_ACTIVITY
         }
 
     val selectedCamoApp: String
-        get() = cr?.getPrefString(PREF_CAMO_APP_PACKAGE, DEFAULT_CAMO_DISABLED_ACTIVITY) ?: ""
+        get() = cr?.getPrefString(
+            PREF_CAMO_APP_PACKAGE,
+            Settings.DEFAULT_CAMO_DISABLED_ACTIVITY
+        ) ?: ""
 
     fun setCamoAppPackage(packageName: String?) {
         cr?.putPref(PREF_CAMO_APP_PACKAGE, packageName)

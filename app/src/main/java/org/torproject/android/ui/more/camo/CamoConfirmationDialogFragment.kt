@@ -27,7 +27,7 @@ class CamoConfirmationDialogFragment : DialogFragment() {
             }
             .setPositiveButton(android.R.string.ok) { _, _ ->
                 var key = camoAppName
-                if (altIconValue != -1) key += altIconValue
+                if (altIconValue != Settings.DEFAULT_CAMO_ALT_ICON_VALUE) key += altIconValue
                 val activePackageName = mapping[key]!!
                 Prefs.setCamoAppPackage(activePackageName)
 
