@@ -9,7 +9,6 @@ import android.database.Cursor
 import android.database.MatrixCursor
 import android.net.Uri
 import android.util.Log
-import androidx.core.database.getFloatOrNull
 import androidx.core.database.getIntOrNull
 import androidx.core.database.getLongOrNull
 import androidx.core.database.getStringOrNull
@@ -33,6 +32,12 @@ class PreferenceProvider : ContentProvider() {
         get() = context?.let { PreferenceManager.getDefaultSharedPreferences(it) }
 
     override fun onCreate(): Boolean {
+        val context = context
+
+        if (context != null) {
+            Settings.init(context)
+        }
+
         return true
     }
 
@@ -52,6 +57,19 @@ class PreferenceProvider : ContentProvider() {
         sortOrder: String?
     ): Cursor? {
         val key = uri.lastPathSegment ?: return null
+
+        val value = try {
+            Settings.get(key)
+        } catch (_: Throwable) {
+            null
+        }
+
+        if (value != null) {
+            return MatrixCursor(arrayOf(ROW_VALUE)).apply {
+                addRow(arrayOf(value))
+            }
+        }
+
         if (!(prefs?.contains(key) ?: false)) return null
 
         return MatrixCursor(arrayOf(ROW_VALUE)).apply {
@@ -68,6 +86,18 @@ class PreferenceProvider : ContentProvider() {
     ): Int {
         if (values == null) return 0
         val key = uri.lastPathSegment ?: return 0
+
+        try {
+            // Currently only string type is supported here.
+            Settings.set(key, values.getAsString(ROW_VALUE))
+
+            context?.contentResolver?.notifyChange(uri, null)
+
+            return 1
+        } catch (_: Throwable) {
+            // Not in `Settings` yet. Write to shared preferences instead.
+        }
+
         val editor = prefs?.edit() ?: return 0
 
         when (values.getAsString(ROW_TYPE)) {
@@ -93,6 +123,17 @@ class PreferenceProvider : ContentProvider() {
         selectionArgs: Array<out String?>?
     ): Int {
         val key = uri.lastPathSegment ?: return 0
+
+        try {
+            Settings.set(key, null)
+
+            context?.contentResolver?.notifyChange(uri, null)
+
+            return 1
+        } catch (_: Throwable) {
+            // Not in `Settings` yet. Write to shared preferences instead.
+        }
+
         if (!(prefs?.contains(key) ?: false)) return 0
         val editor = prefs?.edit() ?: return 0
 
