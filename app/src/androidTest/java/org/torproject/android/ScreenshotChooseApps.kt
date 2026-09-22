@@ -14,19 +14,23 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.Settings
 import tools.fastlane.screengrab.Screengrab
 
 class ScreenshotChooseApps : BaseScreenshotTest() {
 
     @Before
-    fun setupVpnAppsInSharedPrefs() {
+    suspend fun setupVpnAppsInSharedPrefs() {
         // "select" for the user Signal and Google Chrome
         // the test won't complain if Signal is missing, but having it installed shows the
         // suggested apps part of the AppManagerFragment (and we <3 Signal)
         // on your emulator, open Chrome and go to https://signal.org/android/apk and install it.
-        Prefs.setContext(getContext())
+        getContext()?.let {
+            Prefs.setContext(it)
+            Settings.init(it)
+        }
         Prefs.isSecureWindow = false
-        Prefs.torifiedApps = "org.thoughtcrime.securesms|com.android.chrome"
+        Settings.torifiedApps = "org.thoughtcrime.securesms|com.android.chrome"
     }
 
     @get:Rule
