@@ -69,14 +69,15 @@ object Settings {
             val serializer = AeadSerializer(
                 aead,
                 SettingsStoreSerializer,
-                SETTINGS_FILE_NAME.encodeToByteArray())
+                SETTINGS_FILE_NAME.encodeToByteArray()
+            )
 
             dataStore = DataStoreFactory.create(
                 serializer,
                 ReplaceFileCorruptionHandler { SettingsStoreSerializer.defaultValue },
                 produceFile = { settingsFile })
 
-        } catch(_: Throwable) {
+        } catch (_: Throwable) {
             // Ignored. If we really need to, we fall back to unencrypted.
 
             dataStore = DataStoreFactory.create(
@@ -132,27 +133,31 @@ object Settings {
         proxyPassword: String? = null,
         proxySs: String? = null,
     ) {
-        dataStore.updateData { it.copy(
-            smartConnect = smartConnect ?: it.smartConnect,
-            smartConnectTimeout = smartConnectTimeout ?: it.smartConnectTimeout,
-            transport = transport?.id ?: it.transport,
-            bridgesList = bridgesList ?: it.bridgesList,
-            useVpn = useVpn ?: it.useVpn,
-            lastSnowflakeQualityCheck = lastSnowflakeQualityCheck ?: it.lastSnowflakeQualityCheck,
-            beSnowflakeProxy = beSnowflakeProxy ?: it.beSnowflakeProxy,
-            snowflakeUpnpPorts = snowflakeUpnpPorts ?: it.snowflakeUpnpPorts,
-            currentVersionForUpdate = currentVersionForUpdate ?: it.currentVersionForUpdate,
-            isGeoIpReinstallNeeded = isGeoIpReinstallNeeded ?: it.isGeoIpReinstallNeeded,
-            camoAppDisplayName = camoAppDisplayName ?: it.camoAppDisplayName,
-            camoAppAltIconIndex = camoAppAltIconIndex ?: it.camoAppAltIconIndex,
-            stopShowingPowerUserBatteryOptDialog = stopShowingPowerUserBatteryOptDialog ?: it.stopShowingPowerUserBatteryOptDialog,
-            proxyType = proxyType ?: it.proxyType,
-            proxyHost = proxyHost ?: it.proxyHost,
-            proxyPort = proxyPort ?: it.proxyPort,
-            proxyUsername = proxyUsername ?: it.proxyUsername,
-            proxyPassword = proxyPassword ?: it.proxyPassword,
-            proxySs = proxySs ?: it.proxySs,
-        ) }
+        dataStore.updateData {
+            it.copy(
+                smartConnect = smartConnect ?: it.smartConnect,
+                smartConnectTimeout = smartConnectTimeout ?: it.smartConnectTimeout,
+                transport = transport?.id ?: it.transport,
+                bridgesList = bridgesList ?: it.bridgesList,
+                useVpn = useVpn ?: it.useVpn,
+                lastSnowflakeQualityCheck = lastSnowflakeQualityCheck
+                    ?: it.lastSnowflakeQualityCheck,
+                beSnowflakeProxy = beSnowflakeProxy ?: it.beSnowflakeProxy,
+                snowflakeUpnpPorts = snowflakeUpnpPorts ?: it.snowflakeUpnpPorts,
+                currentVersionForUpdate = currentVersionForUpdate ?: it.currentVersionForUpdate,
+                isGeoIpReinstallNeeded = isGeoIpReinstallNeeded ?: it.isGeoIpReinstallNeeded,
+                camoAppDisplayName = camoAppDisplayName ?: it.camoAppDisplayName,
+                camoAppAltIconIndex = camoAppAltIconIndex ?: it.camoAppAltIconIndex,
+                stopShowingPowerUserBatteryOptDialog = stopShowingPowerUserBatteryOptDialog
+                    ?: it.stopShowingPowerUserBatteryOptDialog,
+                proxyType = proxyType ?: it.proxyType,
+                proxyHost = proxyHost ?: it.proxyHost,
+                proxyPort = proxyPort ?: it.proxyPort,
+                proxyUsername = proxyUsername ?: it.proxyUsername,
+                proxyPassword = proxyPassword ?: it.proxyPassword,
+                proxySs = proxySs ?: it.proxySs,
+            )
+        }
     }
 
     var smartConnect
@@ -177,7 +182,9 @@ object Settings {
     var bridgesList
         get() = runBlocking { dataStore.data.first().bridgesList }
         set(value) = runBlocking {
-            dataStore.updateData { store -> store.copy(bridgesList = value.map { it.trim() }.filter { it.isNotBlank() }) }
+            dataStore.updateData { store ->
+                store.copy(bridgesList = value.map { it.trim() }.filter { it.isNotBlank() })
+            }
         }
 
     @JvmStatic
@@ -195,7 +202,9 @@ object Settings {
             last <= System.currentTimeMillis() - 24 * 60 * 60 * 1000
         }
         set(value) = runBlocking {
-            dataStore.updateData { it.copy(lastSnowflakeQualityCheck = if (value) 0 else System.currentTimeMillis()) }
+            dataStore.updateData {
+                it.copy(lastSnowflakeQualityCheck = if (value) 0 else System.currentTimeMillis())
+            }
         }
 
     var beSnowflakeProxy
@@ -224,20 +233,24 @@ object Settings {
     suspend fun addSnowflakeServed() {
         refreshWeeklyServedIfNeeded()
 
-        dataStore.updateData { it.copy(
-            snowflakesServed = it.snowflakesServed + 1,
-            snowflakesServedWeekly = it.snowflakesServedWeekly + 1,
-        ) }
+        dataStore.updateData {
+            it.copy(
+                snowflakesServed = it.snowflakesServed + 1,
+                snowflakesServedWeekly = it.snowflakesServedWeekly + 1,
+            )
+        }
     }
 
     private suspend fun refreshWeeklyServedIfNeeded(clearAllWeeklyOverride: Boolean = false) {
         val week = System.currentTimeMillis().milliseconds.inWholeDays.div(7)
 
         if (clearAllWeeklyOverride || dataStore.data.first().snowflakesServedWeekTimestamp != week) {
-            dataStore.updateData { it.copy(
-                snowflakesServedWeekly = 0,
-                snowflakesServedWeekTimestamp = week
-            ) }
+            dataStore.updateData {
+                it.copy(
+                    snowflakesServedWeekly = 0,
+                    snowflakesServedWeekTimestamp = week
+                )
+            }
         }
     }
 
@@ -397,22 +410,49 @@ object Settings {
             store.copy(
                 migrated = CURRENT_MIGRATION_STEP,
                 smartConnect = prefs.getBoolean("pref_use_smart_connect", store.smartConnect),
-                smartConnectTimeout = prefs.getInt("pref_smart_connect_timeout", store.smartConnectTimeout),
+                smartConnectTimeout = prefs.getInt(
+                    "pref_smart_connect_timeout",
+                    store.smartConnectTimeout
+                ),
                 transport = prefs.getString("pref_connection_pathway", null) ?: store.transport,
                 bridgesList = prefs.getString("pref_bridges_list", null)
-                    ?.split("\n")?.map { it.trim() }?.filter { it.isNotBlank() } ?: store.bridgesList,
+                    ?.split("\n")?.map { it.trim() }?.filter { it.isNotBlank() }
+                    ?: store.bridgesList,
                 useVpn = prefs.getBoolean("pref_vpn", store.useVpn),
-                lastSnowflakeQualityCheck = prefs.getLong("pref_last_snowflake_quality_check", store.lastSnowflakeQualityCheck),
+                lastSnowflakeQualityCheck = prefs.getLong(
+                    "pref_last_snowflake_quality_check",
+                    store.lastSnowflakeQualityCheck
+                ),
                 beSnowflakeProxy = prefs.getBoolean("pref_be_a_snowflake", store.beSnowflakeProxy),
-                snowflakeUpnpPorts = prefs.getString("pref_snowflake_upnp_ports", null) ?: store.snowflakeUpnpPorts,
+                snowflakeUpnpPorts = prefs.getString("pref_snowflake_upnp_ports", null)
+                    ?: store.snowflakeUpnpPorts,
                 snowflakesServed = prefs.getInt("pref_snowflakes_served", store.snowflakesServed),
-                snowflakesServedWeekly = prefs.getInt("pref_snowflakes_served_weekly", store.snowflakesServedWeekly),
-                snowflakesServedWeekTimestamp = prefs.getLong("pref_snowflakes_served_week", store.snowflakesServedWeekTimestamp),
-                currentVersionForUpdate = prefs.getInt("pref_current_version", store.currentVersionForUpdate),
-                isGeoIpReinstallNeeded = prefs.getBoolean("pref_geoip", store.isGeoIpReinstallNeeded),
-                camoAppDisplayName = prefs.getString("pref_key_camo_app_display_name", null) ?: store.camoAppDisplayName,
-                camoAppAltIconIndex = prefs.getInt("pref_key_camo_alticon", store.camoAppAltIconIndex),
-                stopShowingPowerUserBatteryOptDialog = prefs.getBoolean("hide_battery_opt_dialog", store.stopShowingPowerUserBatteryOptDialog),
+                snowflakesServedWeekly = prefs.getInt(
+                    "pref_snowflakes_served_weekly",
+                    store.snowflakesServedWeekly
+                ),
+                snowflakesServedWeekTimestamp = prefs.getLong(
+                    "pref_snowflakes_served_week",
+                    store.snowflakesServedWeekTimestamp
+                ),
+                currentVersionForUpdate = prefs.getInt(
+                    "pref_current_version",
+                    store.currentVersionForUpdate
+                ),
+                isGeoIpReinstallNeeded = prefs.getBoolean(
+                    "pref_geoip",
+                    store.isGeoIpReinstallNeeded
+                ),
+                camoAppDisplayName = prefs.getString("pref_key_camo_app_display_name", null)
+                    ?: store.camoAppDisplayName,
+                camoAppAltIconIndex = prefs.getInt(
+                    "pref_key_camo_alticon",
+                    store.camoAppAltIconIndex
+                ),
+                stopShowingPowerUserBatteryOptDialog = prefs.getBoolean(
+                    "hide_battery_opt_dialog",
+                    store.stopShowingPowerUserBatteryOptDialog
+                ),
                 torifiedApps = prefs.getString("PrefTord", null) ?: store.torifiedApps,
                 torDnsPortResolved = prefs.getInt("PREFS_DNS_PORT", 0),
                 proxyType = prefs.getString(PREF_PROXY_TYPE, null) ?: store.proxyType,
@@ -481,7 +521,7 @@ object Settings {
         val proxySs: String = "",
     )
 
-    private object SettingsStoreSerializer: Serializer<SettingsStore> {
+    private object SettingsStoreSerializer : Serializer<SettingsStore> {
 
         override val defaultValue = SettingsStore()
 
