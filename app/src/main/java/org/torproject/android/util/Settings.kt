@@ -59,7 +59,25 @@ object Settings {
 
     private lateinit var dataStore: DataStore<SettingsStore>
 
-    // called in OrbotApp's onCreate()
+    /**
+     * Initialize Settings.
+     *
+     * ATTENTION: **Do call this from [org.torproject.android.OrbotApp.onCreate] in a synchronous way**,
+     * so it is ready before any other access.
+     *
+     * ```Kotlin
+     *     runBlocking {
+     *         Settings.init(this@OrbotApp)
+     *     }
+     * ```
+     *
+     * This will initialize the Settings object so it can read and write to an encrypted data store.
+     *
+     * Depending on the value of [CURRENT_MIGRATION_STEP], there will be a migration from old-school
+     * shared preferences. See [migrate] for details.
+     *
+     * @param context - Application context. Reference will not be stored.
+     */
     suspend fun init(context: Context) {
         val settingsFile = context.preferencesDataStoreFile(SETTINGS_FILE_NAME)
 
@@ -415,6 +433,18 @@ object Settings {
             }
         }
 
+    /**
+     * Migrate data from old-school shared preferences.
+     *
+     * Tries to read all old preferences which are already migrated from [Prefs] to encrypted [Settings].
+     *
+     * When done, removes all old preferences from the shared preferences XML file.
+     *
+     * When you move more items from shared preferences to encrypted [Settings], increase [CURRENT_MIGRATION_STEP]
+     * by one, so another migration will be done on next launch.
+     *
+     * @param context - Application context. Reference will not be stored. Needed to fetch shared preferences.
+     */
     private suspend fun migrate(context: Context) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
 
