@@ -365,8 +365,8 @@ public class OrbotService extends VpnService implements TorControlCommands {
         return fileTorRcCustom;
     }
 
-    // Send Orbot's status in reply to an ACTION_START Intent
-    protected void replyWithStatus(@NonNull Intent startRequest) {
+    // Send Orbot's status (in reply to an ACTION_START/ACTION_STATUS/SIGNAL_ACTIVE/etc)
+    protected void replyWithStatus() {
         Intent reply = new Intent(ACTION_STATUS)
                 .putExtra(EXTRA_STATUS, mCurrentStatus)
                 .putExtra(EXTRA_SOCKS_PROXY, "socks://127.0.0.1:" + mPortSOCKS)
@@ -772,7 +772,7 @@ public class OrbotService extends VpnService implements TorControlCommands {
                     var transport = Settings.getTransport();
                     transport.start(OrbotService.this);
                     startTor();
-                    replyWithStatus(mIntent);
+                    replyWithStatus();
                     if (Settings.getUseVpn()) {
                         if (mVpnManager != null && !mVpnManager.isStarted()) { // start VPN here
                             Intent vpnIntent = VpnService.prepare(OrbotService.this);
@@ -800,14 +800,14 @@ public class OrbotService extends VpnService implements TorControlCommands {
                 case ACTION_STATUS -> {
                     if (mCurrentStatus.equals(STATUS_OFF))
                         showToolbarNotification(getString(R.string.open_orbot_to_connect_to_tor), NOTIFY_ID, R.drawable.ic_stat_tor);
-                    replyWithStatus(mIntent);
+                    replyWithStatus();
                 }
                 case SIGNAL_RELOAD -> requestTorRereadConfig();
                 case SIGNAL_NEWNYM -> newIdentity(false);
                 case LOCAL_ACTION_QUICK_SETTINGS_NEWNYM -> newIdentity(true);
                 case SIGNAL_ACTIVE -> {
                     sendSignalActive();
-                    replyWithStatus(mIntent);
+                    replyWithStatus();
                 }
                 case CMD_SET_EXIT -> setExitNode(mIntent.getStringExtra("exit"));
                 case ACTION_LOCAL_LOCALE_SET -> configLanguage();
