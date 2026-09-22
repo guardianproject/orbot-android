@@ -23,6 +23,9 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import org.torproject.android.util.Settings.CURRENT_MIGRATION_STEP
+import org.torproject.android.util.Settings.init
+import org.torproject.android.util.Settings.migrate
 import java.io.InputStream
 import java.io.OutputStream
 
@@ -80,7 +83,10 @@ object Settings {
                 produceFile = { settingsFile })
 
         } catch (t: Throwable) {
-            Log.e(Settings::class.simpleName, "Couldn't use AheadSerializer, failing back to unencrypted Settings: $t")
+            Log.e(
+                Settings::class.simpleName,
+                "Couldn't use AheadSerializer, failing back to unencrypted Settings: $t"
+            )
 
             dataStore = DataStoreFactory.create(
                 SettingsStoreSerializer,
@@ -173,8 +179,10 @@ object Settings {
                 proxyType = prefs.getString(Prefs.PREF_PROXY_TYPE, null) ?: store.proxyType,
                 proxyHost = prefs.getString(Prefs.PREF_PROXY_HOST, null) ?: store.proxyHost,
                 proxyPort = prefs.getString(Prefs.PREF_PROXY_PORT, null) ?: store.proxyPort,
-                proxyUsername = prefs.getString(Prefs.PREF_PROXY_USERNAME, null) ?: store.proxyUsername,
-                proxyPassword = prefs.getString(Prefs.PREF_PROXY_PASSWORD, null) ?: store.proxyPassword,
+                proxyUsername = prefs.getString(Prefs.PREF_PROXY_USERNAME, null)
+                    ?: store.proxyUsername,
+                proxyPassword = prefs.getString(Prefs.PREF_PROXY_PASSWORD, null)
+                    ?: store.proxyPassword,
                 proxySs = prefs.getString(Prefs.PREF_SHADOW_SOCKS_PROXY, null) ?: store.proxySs,
             )
         }
