@@ -231,7 +231,7 @@ class OrbotActivity : BaseActivity() {
         super.onResume()
 
         /**
-         * When OrbotService gets CMD_ACTIVE it:
+         * When OrbotService gets SIGNAL_ACTIVE it:
          * 1. Checks if the control port is open & tor is connected:
          *   1a. If true, sends tor the "ACTIVE" signal over the control port
          * 2. OrbotService replies back to OrbotActivity with its status, regardless of step 1
@@ -249,14 +249,6 @@ class OrbotActivity : BaseActivity() {
     override fun onDestroy() {
         super.onDestroy()
         unregisterReceiver(orbotServiceBroadcastReceiver)
-    }
-
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_CODE_VPN && resultCode == RESULT_OK) {
-            connectViewModel.triggerStartTorAndVpn()
-        }
     }
 
     private val orbotServiceBroadcastReceiver = object : BroadcastReceiver() {
@@ -343,7 +335,6 @@ class OrbotActivity : BaseActivity() {
         private const val TAG = "OrbotActivity"
         private const val BUNDLE_KEY_SOCKS = "socks"
         private const val BUNDLE_KEY_HTTP = "http"
-        const val REQUEST_CODE_VPN = 1234
 
         // Make sure this is only shown once per app-start, not on every device rotation.
         private var rootDetectionShown = false

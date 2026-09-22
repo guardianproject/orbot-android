@@ -3,13 +3,9 @@ package org.torproject.android.ui.connect
 import android.content.Context
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.receiveAsFlow
-import kotlinx.coroutines.launch
 
 import org.torproject.android.util.NetworkUtils
 import org.torproject.jni.TorService
@@ -22,9 +18,6 @@ class ConnectViewModel : ViewModel() {
     private val _subtitleState = MutableStateFlow("")
     val logState: StateFlow<String> = _logState
     val subtitleState: StateFlow<String> = _subtitleState
-
-    private val _eventChannel = Channel<ConnectEvent>(Channel.BUFFERED)
-    val events = _eventChannel.receiveAsFlow()
 
     fun updateState(context: Context, status: String?, progress: Int? = null) {
         val newState = when {
@@ -56,15 +49,4 @@ class ConnectViewModel : ViewModel() {
             _uiState.value = currentState.copy(bootstrapPercent = percent)
         }
     }
-
-    fun triggerStartTorAndVpn() {
-        viewModelScope.launch {
-            _eventChannel.send(ConnectEvent.StartTorAndVpn)
-        }
-    }
-}
-
-sealed class ConnectEvent {
-    object StartTorAndVpn : ConnectEvent()
-    object RefreshMenuList : ConnectEvent()
 }

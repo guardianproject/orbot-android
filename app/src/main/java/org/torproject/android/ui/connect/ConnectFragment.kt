@@ -109,14 +109,6 @@ class ConnectFragment : Fragment(),
             }
         }
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.events.collect { event ->
-                when (event) {
-                    is ConnectEvent.StartTorAndVpn -> attemptToStartTor()
-                    is ConnectEvent.RefreshMenuList -> refreshMenuList(requireContext())
-                }
-            }
-        }
         binding.switchConnect.setOnClickListener {
             it.isEnabled = false
             it.alpha = 0.38f
