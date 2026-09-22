@@ -7,7 +7,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.VpnService
 import android.os.Build
-import android.provider.Settings
+import android.provider.Settings.Global
 import android.util.Log
 import androidx.core.content.ContextCompat
 import org.torproject.android.ui.kindness.SnowflakeProxyService
@@ -35,7 +35,7 @@ object NetworkUtils {
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
         val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
-        if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN) && !org.torproject.android.util.Settings.useVpn) {
+        if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN) && !Settings.useVpn) {
             Log.wtf(SnowflakeProxyService.TAG, "some other VPN is running!")
             return false
         }
@@ -74,7 +74,7 @@ object NetworkUtils {
      *      know for certain we have a non-Orbot VPN config on the system
      */
     fun isNonOrbotVpnActive(context: Context, logTag: String = TAG): Boolean {
-        if (org.torproject.android.util.Settings.useVpn) {
+        if (Settings.useVpn) {
             return false
         }
 
@@ -128,12 +128,12 @@ object NetworkUtils {
             fun getPrivateDnsConfiguration(context: Context): PrivateDns {
                 if (!isPrivateDnsSupported()) return Off
                 val dnsMode =
-                    Settings.Global.getString(context.contentResolver, KEY_MODE) ?: MODE_OFF
+                    Global.getString(context.contentResolver, KEY_MODE) ?: MODE_OFF
                 return when (dnsMode) {
                     MODE_OFF -> Off
                     MODE_AUTOMATIC, MODE_OPPORTUNISTIC -> Opportunistic
                     MODE_HOSTNAME -> Strict(
-                        hostname = Settings.Global.getString(context.contentResolver, KEY_HOSTNAME)
+                        hostname = Global.getString(context.contentResolver, KEY_HOSTNAME)
                             ?: HOSTNAME_UNKNOWN
                     )
 
