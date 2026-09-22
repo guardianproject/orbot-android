@@ -32,7 +32,10 @@ class CamoConfirmationDialogFragment : DialogFragment() {
                 Prefs.setCamoAppPackage(activePackageName)
 
                 lifecycleScope.launch {
-                    Settings.set(camoAppDisplayName = camoAppName, camoAppAltIconIndex = altIconValue)
+                    Settings.set(
+                        camoAppDisplayName = camoAppName,
+                        camoAppAltIconIndex = altIconValue
+                    )
                 }
 
                 val disabledNames = mapping.values.filter { s -> s != activePackageName }

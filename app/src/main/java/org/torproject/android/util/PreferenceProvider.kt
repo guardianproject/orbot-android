@@ -9,9 +9,6 @@ import android.database.Cursor
 import android.database.MatrixCursor
 import android.net.Uri
 import android.util.Log
-import androidx.core.database.getFloatOrNull
-import androidx.core.database.getIntOrNull
-import androidx.core.database.getLongOrNull
 import androidx.core.database.getStringOrNull
 import androidx.core.net.toUri
 import androidx.preference.PreferenceManager
@@ -148,14 +145,6 @@ fun ContentResolver.getPrefBoolean(key: String, default: Boolean = false): Boole
     return v == "true"
 }
 
-fun ContentResolver.getPrefInt(key: String, default: Int? = null): Int? {
-    return getPref(key) { c, i -> c.getIntOrNull(i) } ?: default
-}
-
-fun ContentResolver.getPrefLong(key: String, default: Long? = null): Long? {
-    return getPref(key) { c, i -> c.getLongOrNull(i) } ?: default
-}
-
 private fun ContentResolver.putPref(key: String, values: ContentValues) {
     val result: Unit? = preferenceProviderCall(null) {
         update(
@@ -190,9 +179,3 @@ fun ContentResolver.putPref(key: String, value: Int) {
     })
 }
 
-fun ContentResolver.putPref(key: String, value: Long) {
-    putPref(key, ContentValues().apply {
-        put(PreferenceProvider.ROW_TYPE, Long::class.toString())
-        put(PreferenceProvider.ROW_VALUE, value)
-    })
-}

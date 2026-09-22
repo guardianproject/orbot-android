@@ -1,6 +1,7 @@
 package org.torproject.android.util
 
 import android.content.Context
+import android.util.Log
 import androidx.core.content.edit
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.DataStore
@@ -36,6 +37,8 @@ import kotlin.time.Duration.Companion.milliseconds
  */
 object Settings {
 
+    private const val TAG = "Settings"
+
     private const val KEYSET_NAME = "settings_keyset"
     private const val PREFERENCE_FILE = "settings_keyset_preference"
     private const val MASTER_KEY_URI = "android-keystore://_androidx_security_master_key_"
@@ -52,6 +55,7 @@ object Settings {
 
     private lateinit var dataStore: DataStore<SettingsStore>
 
+    // called in OrbotApp's onCreate()
     suspend fun init(context: Context) {
         val settingsFile = context.preferencesDataStoreFile(SETTINGS_FILE_NAME)
 
@@ -77,8 +81,8 @@ object Settings {
                 ReplaceFileCorruptionHandler { SettingsStoreSerializer.defaultValue },
                 produceFile = { settingsFile })
 
-        } catch (_: Throwable) {
-            // Ignored. If we really need to, we fall back to unencrypted.
+        } catch (t: Throwable) {
+            Log.e(TAG, "Couldn't use AheadSerializer, failing back to unencrypted Settings: $t")
 
             dataStore = DataStoreFactory.create(
                 SettingsStoreSerializer,
@@ -97,6 +101,7 @@ object Settings {
             PREF_PROXY_USERNAME -> proxyUsername = value
             PREF_PROXY_PASSWORD -> proxyPassword = value
             PREF_PROXY_SS -> proxySs = value
+            else -> Log.e(TAG, "Couldn't set proxy preference unknown key $key")
         }
     }
 
@@ -108,7 +113,10 @@ object Settings {
             PREF_PROXY_USERNAME -> proxyUsername
             PREF_PROXY_PASSWORD -> proxyPassword
             PREF_PROXY_SS -> proxySs
-            else -> ""
+            else -> {
+                Log.e(TAG, "Couldn't get proxy preference, unknown key $key")
+                ""
+            }
         }
     }
 
@@ -304,31 +312,31 @@ object Settings {
             dataStore.updateData { it.copy(proxyType = value) }
         }
 
-    var proxyHost
+    private var proxyHost
         get() = runBlocking { dataStore.data.first().proxyHost }
         set(value) = runBlocking {
             dataStore.updateData { it.copy(proxyHost = value) }
         }
 
-    var proxyPort
+    private var proxyPort
         get() = runBlocking { dataStore.data.first().proxyPort }
         set(value) = runBlocking {
             dataStore.updateData { it.copy(proxyPort = value) }
         }
 
-    var proxyUsername
+    private var proxyUsername
         get() = runBlocking { dataStore.data.first().proxyUsername }
         set(value) = runBlocking {
             dataStore.updateData { it.copy(proxyUsername = value) }
         }
 
-    var proxyPassword
+    private var proxyPassword
         get() = runBlocking { dataStore.data.first().proxyPassword }
         set(value) = runBlocking {
             dataStore.updateData { it.copy(proxyPassword = value) }
         }
 
-    var proxySs
+    private var proxySs
         get() = runBlocking { dataStore.data.first().proxySs }
         set(value) = runBlocking {
             dataStore.updateData { it.copy(proxySs = value) }

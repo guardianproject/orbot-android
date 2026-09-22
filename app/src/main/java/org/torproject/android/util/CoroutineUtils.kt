@@ -14,6 +14,7 @@ object CoroutineUtils {
      *
      * If printValueWithTag is supplied, every change of the value will be logged with that tag
      */
+    @Suppress("SameParameterValue") // currently for printValueWithTag
     suspend fun <T> waitUntilStateFlowEquals(
         flow: StateFlow<T>,
         targetValue: T,

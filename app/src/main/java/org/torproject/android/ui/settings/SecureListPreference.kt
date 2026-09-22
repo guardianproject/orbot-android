@@ -5,11 +5,11 @@ import android.util.AttributeSet
 import androidx.preference.ListPreference
 import org.torproject.android.util.Settings
 
-class SecureListPreference(context: Context, attrs: AttributeSet?) : ListPreference(context, attrs) {
+class SecureListPreference(context: Context, attrs: AttributeSet?) :
+    ListPreference(context, attrs) {
 
     override fun persistString(value: String?): Boolean {
         Settings.set(key, value ?: "")
-
         return true
     }
 
