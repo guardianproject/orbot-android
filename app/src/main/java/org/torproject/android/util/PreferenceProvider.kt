@@ -32,10 +32,8 @@ class PreferenceProvider : ContentProvider() {
         get() = context?.let { PreferenceManager.getDefaultSharedPreferences(it) }
 
     override fun onCreate(): Boolean {
-        val context = context
-
-        if (context != null) {
-            Settings.init(context)
+        context?.let {
+            Settings.init(it)
         }
 
         return true
