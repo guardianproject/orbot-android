@@ -183,7 +183,6 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.biometric)
     implementation(libs.androidx.lifecycle.process)
-    implementation(libs.androidx.localbroadcast)
     implementation(libs.androidx.window)
     implementation(libs.retrofit.converter)
     implementation(libs.rootbeer.lib)
