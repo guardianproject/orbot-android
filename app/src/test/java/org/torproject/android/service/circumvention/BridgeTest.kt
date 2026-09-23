@@ -1,8 +1,9 @@
 package org.torproject.android.service.circumvention
 
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNull
-import org.junit.Test
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
+import kotlin.test.assertNull
 
 class BridgeTest {
 
@@ -158,8 +159,10 @@ class BridgeTest {
         assertNull(bridge.port)
     }
 
-    @Test(expected = NumberFormatException::class)
+    @Test
     fun vanillaAddressWithoutPortThrowsOnPort() {
-        Bridge("192.0.2.5").port
+        assertFailsWith<NumberFormatException> {
+            Bridge("192.0.2.5").port
+        }
     }
 }

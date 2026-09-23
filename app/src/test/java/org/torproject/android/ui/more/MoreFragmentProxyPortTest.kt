@@ -1,7 +1,7 @@
 package org.torproject.android.ui.more
 
-import org.junit.Assert.assertEquals
-import org.junit.Test
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 // Related to issue https://github.com/guardianproject/orbot-android/issues/1134
 // Introduced in PR https://github.com/guardianproject/orbot-android/pull/1812

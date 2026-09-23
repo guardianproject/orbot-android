@@ -1,7 +1,8 @@
 package org.torproject.android.util
 
-import org.junit.Assert.assertEquals
-import org.junit.Test
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class PreferenceProviderTest {
     @Test
@@ -19,10 +20,12 @@ class PreferenceProviderTest {
         )
     }
 
-    @Test(expected = IllegalStateException::class)
+    @Test
     fun providerCallDoesNotHideUnrelatedRuntimeFailures() {
-        preferenceProviderCall(Unit) {
-            throw IllegalStateException("unrelated failure")
+        assertFailsWith<IllegalStateException> {
+            preferenceProviderCall(Unit) {
+                throw IllegalStateException("unrelated failure")
+            }
         }
     }
 }

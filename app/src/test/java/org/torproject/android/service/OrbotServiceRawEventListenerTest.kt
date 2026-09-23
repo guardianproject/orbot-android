@@ -2,9 +2,9 @@ package org.torproject.android.service
 
 import net.freehaven.tor.control.RawEventListener
 import net.freehaven.tor.control.TorControlConnection
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
-import org.junit.Test
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 import java.io.ByteArrayOutputStream
 import java.io.PipedInputStream
 import java.io.PipedOutputStream
