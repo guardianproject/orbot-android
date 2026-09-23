@@ -231,8 +231,7 @@
             android:summary="@string/note_snowflake_doesn_t_support_proxies"
             app:iconSpaceReserved="false" />
 
-        <ListPreference
-            android:defaultValue=""
+        <org.torproject.android.ui.settings.SecureListPreference
             android:dialogTitle="@string/pref_proxy_type_summary"
             android:entries="@array/proxy_types"
             android:entryValues="@array/proxy_type_values"
@@ -241,35 +240,35 @@
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
-        <EditTextPreference
+        <org.torproject.android.ui.settings.SecureEditTextPreference
             android:dialogTitle="@string/pref_proxy_host_summary"
             android:key="pref_proxy_host"
             android:title="@string/pref_proxy_host_title"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
-        <EditTextPreference
+        <org.torproject.android.ui.settings.SecureEditTextPreference
             android:dialogTitle="@string/pref_proxy_port_summary"
             android:key="pref_proxy_port"
             android:title="@string/pref_proxy_port_title"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
-        <EditTextPreference
+        <org.torproject.android.ui.settings.SecureEditTextPreference
             android:dialogTitle="@string/pref_proxy_username_summary"
             android:key="pref_proxy_username"
             android:title="@string/pref_proxy_username_title"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
-        <EditTextPreference
+        <org.torproject.android.ui.settings.SecureEditTextPreference
             android:dialogTitle="@string/pref_proxy_password_summary"
             android:key="pref_proxy_password"
             android:title="@string/pref_proxy_password_title"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
-        <EditTextPreference
+        <org.torproject.android.ui.settings.SecureEditTextPreference
             android:dialogTitle="@string/pref_proxy_ss_summary"
             android:key="pref_proxy_ss"
             android:title="@string/pref_proxy_ss_title"
