@@ -38,9 +38,9 @@
     <string name="strict_nodes_description">Déan socruithe Eisiamh Nóid a láimhseáil mar riachtanas chun gach ciorcad a thógáil. D’fhéadfadh sé seo feidhmiúlacht a chur as feidhm mura féidir aon chiorcaid a thógáil le do shocruithe Eisiamh Nóid.</string>
     <string name="reachable_addresses">Seoltaí Inrochtana</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Rith mar chliant taobh thiar de bhalla dóiteáin le beartais sriantacha</string>
-    <string name="reachable_ports">Poirt inrochtana</string>
+    <string name="reachable_ports">Poirt Inrochtana</string>
     <string name="ports_reachable_behind_a_restrictive_firewall">Calafoirt inrochtana taobh thiar de bhalla dóiteáin sriantach</string>
-    <string name="enter_ports">Iontráil poirt</string>
+    <string name="enter_ports">Iontráil Poirt</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Cumasaigh log dífhabhtaithe le haschur (ní mór adb nó aLogcat a úsáid le féachaint air)</string>
     <string name="project_home">Baile an Tionscadail:</string>
     <string name="third_party_software">Bogearraí Tríú Páirtí:</string>
