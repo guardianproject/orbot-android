@@ -1,0 +1,1 @@
+Corrige un plantage lié au démarrage d’un service en arrière-plan

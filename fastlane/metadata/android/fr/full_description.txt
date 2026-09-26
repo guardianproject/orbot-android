@@ -1,0 +1,18 @@
+Orbot est une appli VPN et mandataire gratuite qui permet aux autres applis d’utiliser Internet de façon plus sûre. Orbot utilise Tor pour chiffrer votre trafic Internet, puis le dissimule en le faisant rebondir sur une série d’ordinateurs dans le monde entier. Tor est un logiciel libre et un réseau ouvert qui vous aide à vous défendre contre une forme de surveillance du réseau, appelée analyse du trafic, qui menace les libertés individuelles et la vie privée, les activités et relations commerciales confidentielles et la sécurité des États.
+
+Orbot est la seule appli qui crée une connexion Internet vraiment privée. Comme l’écrit le New York Times, « quand une communication arrive de Tor, on ne peut jamais savoir d’où ni de qui elle vient ». 
+
+Tor a reçu le prix Pioneer 2012 de l’Electronic Frontier Foundation (EFF).
+
+★ N’ACCEPTEZ AUCUN SUBSTITUT : Orbot est la façon la plus sûre d’utiliser Internet sur Android. Point. Orbot fait rebondir votre trafic chiffré plusieurs fois sur des ordinateurs dans le monde entier, au lieu de vous connecter directement comme les autres VPN et mandataires. Ce processus prend un peu plus de temps, mais la meilleure protection de la vie privée et de l’identité qui existe vaut bien cette attente.
+★ VIE PRIVÉE POUR LES APPLIS : n’importe quelle appli peut être routée par Tor grâce à la fonction VPN d’Orbot
+★ VIE PRIVÉE POUR TOUS : Orbot empêche quiconque surveille votre connexion de savoir quelles applis vous utilisez ou quels sites web vous visitez. Tout ce que peut voir quelqu’un qui surveille votre trafic réseau, c’est que vous utilisez Tor.
+
+***Vos retours nous sont précieux***
+★ EN SAVOIR PLUS : découvrez Orbot et participez sur https://orbot.app
+★ QUI SOMMES-NOUS : Guardian Project est un groupe de développeurs qui créent des applis mobiles sécurisées et du code source ouvert pour un meilleur avenir.
+★ CODE SOURCE OUVERT : Orbot est un logiciel libre. Examinez notre code source ou rejoignez la communauté pour l’améliorer : https://github.com/guardianproject/orbot
+★ ÉCRIVEZ-NOUS : il manque votre fonction préférée ? Vous avez trouvé un bogue agaçant ? Nous serions ravis de vous lire ! Envoyez-nous un courriel : support@guardianproject.info
+
+***Avertissement***
+Guardian Project crée des applis conçues pour protéger votre sécurité et votre anonymat. Les protocoles que nous utilisons sont largement considérés comme l’état de l’art en matière de technologie de sécurité. Bien que nous mettions constamment nos logiciels à niveau pour contrer les dernières menaces et éliminer les bogues, aucune technologie n’est infaillible à 100 %. Pour une sécurité et un anonymat maximaux, les utilisateurs doivent appliquer les bonnes pratiques pour se protéger.  Vous trouverez un bon guide d’introduction à ces sujets sur https://securityinabox.org
