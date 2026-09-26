@@ -1,0 +1,8 @@
+- Mise à jour majeure de l’interface utilisateur !
+- Nouveaux assistants de configuration et de réglage des ponts
+- Fonctions VPN améliorées
+- Correctifs des plantages de configuration des services onion/cachés
+
+et bien plus encore…
+
+MERCI À : pgerber, syphyr, Khsed4, BjarniRunar, Unpublished, igortoliveira, goapunk, SpotComms, AkshatAgrawal05, dixidroid, arrase et les autres pour les rapports, les commits et les PR

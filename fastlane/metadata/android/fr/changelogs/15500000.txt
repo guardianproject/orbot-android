@@ -1,0 +1,10 @@
+***AVERTISSEMENT : TOUTES LES FONCTIONS ROOT SONT RETIRÉES DE CETTE VERSION D’ORBOT.***
+Utilisez le « mode VPN par appli » d’Orbot ou le navigateur Orfox à la place du mandataire transparent avec root.
+
+* Tor 0.3.1.8
+* Fonctions Root / Transproxy retirées, devenues
+peu fiables et non testées
+* Mandataire transparent VPN AMÉLIORÉ et nouvelle interface
+de sélection des applis
+* Informations de licence d’Obfs4proxy incluses
+* Emplacements des ponts Meek mis à jour
