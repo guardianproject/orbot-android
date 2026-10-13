@@ -41,7 +41,6 @@ class SnowflakeProxyService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        isRunning = true
         createNotificationChannel()
         snowflakeProxyWrapper = SnowflakeProxyWrapper(this)
         registerPowerReceiver()
@@ -201,7 +200,6 @@ class SnowflakeProxyService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
-        isRunning = false
         unregisterReceiver(powerConnectionReceiver)
         (getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager).apply {
             unregisterNetworkCallback(networkCallbacks)
@@ -223,12 +221,6 @@ class SnowflakeProxyService : Service() {
                     key != Prefs.PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING &&
                     key != Prefs.PREF_BE_A_SNOWFLAKE_LIMIT_WIFI
 
-
-        // Read by the watchdog to tell "off because the user said so" apart
-        // from "off because the system killed us" (#1799, #1783).
-        @Volatile
-        var isRunning = false
-            private set
 
         private fun getIntent(context: Context) =
             Intent(context, SnowflakeProxyService::class.java)

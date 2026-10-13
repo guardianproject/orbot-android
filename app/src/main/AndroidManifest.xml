@@ -113,14 +113,14 @@
             android:stopWithTask="false" />
 
         <service
+            android:name=".ui.kindness.SnowflakeProxyJobScheduler"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <service
             android:name=".ui.kindness.TestTorForSnowflakeProxyService"
             android:enabled="true"
             android:stopWithTask="true" />
-
-        <service
-            android:name=".ui.kindness.KindnessWatchdogJob"
-            android:exported="false"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <service
             android:name=".service.OrbotService"
