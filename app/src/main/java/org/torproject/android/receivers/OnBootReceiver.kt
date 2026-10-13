@@ -5,9 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.SystemClock
-import org.torproject.android.Regionalization
 import org.torproject.android.service.OrbotService
-import org.torproject.android.ui.kindness.SnowflakeProxyService
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.putNotSystem
 import org.torproject.jni.TorService.ACTION_START
@@ -27,13 +25,6 @@ class OnBootReceiver : BroadcastReceiver() {
             if (!sReceivedBoot) {
                 if (Prefs.startOnBoot()) {
                     startService(context)
-                }
-                // Kindness Mode is its own standing choice: when the user leaves it on
-                // they expect the proxy back after a reboot, independent of the
-                // VPN's start-on-boot setting (#1799, #1783). BOOT_COMPLETED is
-                // an exempted context for starting a foreground service.
-                if (Prefs.beSnowflakeProxy && !Regionalization.isKindnessModeDisabledForCountry()) {
-                    SnowflakeProxyService.startSnowflakeProxyForegroundService(context)
                 }
 
                 sReceivedBoot = true

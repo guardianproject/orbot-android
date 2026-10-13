@@ -9,6 +9,7 @@ import androidx.lifecycle.ProcessLifecycleOwner
 import org.torproject.android.localization.Languages
 import org.torproject.android.localization.LocaleHelper
 import org.torproject.android.service.circumvention.Transport.Companion.stateLocation
+import org.torproject.android.ui.kindness.SnowflakeProxyJobScheduler
 import org.torproject.android.util.Prefs
 
 import java.util.Locale
@@ -59,11 +60,14 @@ class OrbotApp : Application() {
             // tell OrbotService it needs to reinstall geoip
             Prefs.isGeoIpReinstallNeeded = true
         }
+
+        // this starts SnowflakeProxy on boot/or app start if necessary (the preference is set)
+        // the service wont do anything if the device is offline/not charging/not on wifi/other user config options
+        SnowflakeProxyJobScheduler.attemptToStartSnowflakeProxyJobScheduler(this)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-
         setLocale()
     }
 

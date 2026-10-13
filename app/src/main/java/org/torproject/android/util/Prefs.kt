@@ -8,6 +8,7 @@ import org.torproject.android.Regionalization
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.tor.ShadowSocks
+import org.torproject.android.ui.kindness.SnowflakeProxyJobScheduler
 import java.net.URI
 import java.net.URISyntaxException
 import java.util.Locale
@@ -89,7 +90,7 @@ object Prefs {
 
     const val PREF_PERSISTENT_NOTIFICATIONS = "pref_persistent_notifications"
     const val PREF_KEY_CAMO_DIALOG = "pref_key_camo_dialog"
-
+    private var applicationContext: Context? = null
     private var cr: ContentResolver? = null
 
     var currentVersionForUpdate: Int
@@ -107,6 +108,7 @@ object Prefs {
     @JvmStatic
     fun setContext(context: Context?) {
         if (cr == null) {
+            applicationContext = context
             cr = context?.contentResolver
         }
     }
@@ -149,7 +151,13 @@ object Prefs {
 
     var beSnowflakeProxy: Boolean
         get() = cr?.getPrefBoolean(PREF_BE_A_SNOWFLAKE) ?: false
-        set(value) = cr?.putPref(PREF_BE_A_SNOWFLAKE, value) ?: Unit
+        set(value) {
+            cr?.putPref(PREF_BE_A_SNOWFLAKE, value)
+            applicationContext?.let {
+                if (value) SnowflakeProxyJobScheduler.attemptToStartSnowflakeProxyJobScheduler(it)
+                else SnowflakeProxyJobScheduler.cancelSnowflakeProxyJobScheduler(it)
+            }
+        }
 
     fun showSnowflakeProxyToast(): Boolean {
         return cr?.getPrefBoolean(PREF_SHOW_SNOWFLAKE_MSG) ?: false

@@ -28,7 +28,6 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
 
     init {
         releaseStalePortsIfNecessary()
-        KindnessWatchdogJob.schedulePeriodicKindnessWatchDog(service)
     }
 
     private var proxy: SnowflakeProxy? = null

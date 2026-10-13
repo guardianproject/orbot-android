@@ -237,11 +237,6 @@ class OrbotActivity : BaseActivity() {
          */
         sendIntentToService(OrbotService.SIGNAL_ACTIVE)
 
-
-        if (Prefs.beSnowflakeProxy) {
-            SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
-        }
-
         lastNavMenuIndex = bottomNavigationView.selectedItemId
     }
 
