@@ -61,6 +61,8 @@ class OrbotApp : Application() {
             Prefs.isGeoIpReinstallNeeded = true
         }
 
+        // this starts SnowflakeProxy on boot/or app start if necessary (the preference is set)
+        // the service wont do anything if the device is offline/not charging/not on wifi/other user config options
         SnowflakeProxyJobScheduler.attemptToStartSnowflakeProxyJobScheduler(this)
     }
 
