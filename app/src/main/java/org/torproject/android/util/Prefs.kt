@@ -152,7 +152,6 @@ object Prefs {
     var beSnowflakeProxy: Boolean
         get() = cr?.getPrefBoolean(PREF_BE_A_SNOWFLAKE) ?: false
         set(value) {
-            android.util.Log.wtf("Snowflake", "new value $value")
             cr?.putPref(PREF_BE_A_SNOWFLAKE, value)
             applicationContext?.let {
                 if (value) SnowflakeProxyJobScheduler.attemptToStartSnowflakeProxyJobScheduler(it)
