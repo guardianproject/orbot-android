@@ -77,6 +77,7 @@ object Prefs {
 
     private const val PREF_PREFER_IPV6 = "pref_prefer_ipv6"
     private const val PREF_DISABLE_IPV4 = "pref_disable_ipv4"
+    private const val PREF_FULL_DEVICE_VPN = "pref_full_device_vpn"
 
     const val PREF_PROXY_HOST = "pref_proxy_host"
     const val PREF_SHADOW_SOCKS_PROXY = "pref_proxy_ss"
@@ -464,6 +465,11 @@ object Prefs {
     var torifiedApps: String
         get() = cr?.getPrefString(OrbotConstants.PREFS_KEY_TORIFIED) ?: ""
         set(value) = cr?.putPref(OrbotConstants.PREFS_KEY_TORIFIED, value) ?: Unit
+
+    @JvmStatic
+    var fullDeviceVpn: Boolean
+        get() = cr?.getPrefBoolean(PREF_FULL_DEVICE_VPN) ?: false
+        set(value) = cr?.putPref(PREF_FULL_DEVICE_VPN, value) ?: Unit
 
     var stopShowingPowerUserBatteryOptDialog: Boolean
         get() = cr?.getPrefBoolean(PREF_POWER_BATTERY_DIALOG_HIDE) ?: false
