@@ -26,6 +26,7 @@ import org.torproject.android.Regionalization
 import org.torproject.android.databinding.ConfigConnectionBottomSheetBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.AutoConf
+import org.torproject.android.service.circumvention.BuiltInBridges
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
@@ -97,6 +98,7 @@ class ConfigConnectionBottomSheet :
             binding.rbSnowflakeSqs,
             binding.rbTelegram,
             binding.rbObfs4,
+            binding.rbWebtunnel,
             binding.rbEmail,
             binding.rbMeek,
             binding.rbDnstt,
@@ -110,6 +112,7 @@ class ConfigConnectionBottomSheet :
             binding.rbSnowflakeSqs to binding.tvSnowflakeSqsSubtitle,
             binding.rbTelegram to binding.tvTelegramSubtitle,
             binding.rbObfs4 to binding.tvObfs4Subtitle,
+            binding.rbWebtunnel to binding.tvWebtunnelSubtitle,
             binding.rbEmail to binding.tvEmailSubtitle,
             binding.rbMeek to binding.tvMeekSubtitle,
             binding.rbDnstt to binding.tvDnsttSubtitle,
@@ -123,6 +126,7 @@ class ConfigConnectionBottomSheet :
             binding.tvSnowflakeSqsSubtitle,
             binding.tvTelegramSubtitle,
             binding.tvObfs4Subtitle,
+            binding.tvWebtunnelSubtitle,
             binding.tvEmailSubtitle,
             binding.tvMeekSubtitle,
             binding.tvDnsttSubtitle,
@@ -141,6 +145,7 @@ class ConfigConnectionBottomSheet :
         binding.snowflakeSqsContainer.setOnClickListener { binding.rbSnowflakeSqs.isChecked = true }
         binding.telegramContainer.setOnClickListener { binding.rbTelegram.isChecked = true }
         binding.obfs4Container.setOnClickListener { binding.rbObfs4.isChecked = true }
+        binding.webtunnelContainer.setOnClickListener { binding.rbWebtunnel.isChecked = true }
         binding.emailContainer.setOnClickListener { binding.rbEmail.isChecked = true }
         binding.meekContainer.setOnClickListener { binding.rbMeek.isChecked = true }
         binding.dnsttContainer.setOnClickListener { binding.rbDnstt.isChecked = true }
@@ -154,6 +159,7 @@ class ConfigConnectionBottomSheet :
         binding.rbSnowflakeSqs.setOnCheckedChangeListener(this)
         binding.rbTelegram.setOnCheckedChangeListener(this)
         binding.rbObfs4.setOnCheckedChangeListener(this)
+        binding.rbWebtunnel.setOnCheckedChangeListener(this)
         binding.rbEmail.setOnCheckedChangeListener(this)
         binding.rbMeek.setOnCheckedChangeListener(this)
         binding.rbDnstt.setOnCheckedChangeListener(this)
@@ -164,10 +170,15 @@ class ConfigConnectionBottomSheet :
         selectRadioButtonFromPreference()
 
         updateDnsttVisibility()
+        updateWebtunnelVisibility()
 
         binding.btnAction.setOnClickListener {
             if (binding.rbObfs4.isChecked) {
                 Prefs.transport = Transport.OBFS4
+                Prefs.smartConnect = false
+                closeAndConnect()
+            } else if (binding.rbWebtunnel.isChecked) {
+                Prefs.transport = Transport.WEBTUNNEL
                 Prefs.smartConnect = false
                 closeAndConnect()
             } else if (binding.rbDirect.isChecked) {
@@ -312,7 +323,7 @@ class ConfigConnectionBottomSheet :
             Transport.SNOWFLAKE -> binding.rbSnowflake.isChecked = true
             Transport.SNOWFLAKE_AMP -> binding.rbSnowflakeAmp.isChecked = true
             Transport.SNOWFLAKE_SQS -> binding.rbSnowflakeSqs.isChecked = true
-            Transport.WEBTUNNEL -> TODO() // This should currently not happen, there's no default Webtunnel bridges advertised, yet.
+            Transport.WEBTUNNEL -> binding.rbWebtunnel.isChecked = true
             Transport.DNSTT -> binding.rbDnstt.isChecked = true
             Transport.CUSTOM -> binding.rbCustom.isChecked = true
         }
@@ -375,7 +386,17 @@ class ConfigConnectionBottomSheet :
                             binding.rbSnowflakeSqs.isChecked = true
                         }
 
-                        Transport.WEBTUNNEL -> TODO() // This should currently not happen, there's no default Webtunnel bridges advertised, yet.
+                        Transport.WEBTUNNEL -> {
+                            updateWebtunnelVisibility()
+                            if (binding.webtunnelContainer.visibility == View.VISIBLE) {
+                                binding.rbWebtunnel.isChecked = true
+                            } else {
+                                // The server recommended WebTunnel but didn't send any usable
+                                // bridges with it, so don't leave a broken transport selected.
+                                Prefs.transport = Transport.NONE
+                                binding.rbDirect.isChecked = true
+                            }
+                        }
                         Transport.DNSTT -> {
                             binding.rbDnstt.isChecked = true
                         }
@@ -424,6 +445,20 @@ class ConfigConnectionBottomSheet :
             ?.hideSoftInputFromWindow(binding.acCountry.windowToken, 0)
 
         binding.acCountry.clearFocus()
+    }
+
+    /**
+     * Unlike the other built-in transports, WebTunnel doesn't ship bridges in assets. They only
+     * exist once fetched via Ask Tor (AutoConf), so only offer the option when there are some.
+     */
+    private fun updateWebtunnelVisibility() {
+        val bridgesAvailable = !BuiltInBridges.getInstance(context)?.webtunnel.isNullOrEmpty()
+
+        binding.webtunnelContainer.visibility = if (bridgesAvailable) View.VISIBLE else View.GONE
+
+        if (!bridgesAvailable && binding.rbWebtunnel.isChecked) {
+            binding.rbDirect.isChecked = true
+        }
     }
 
     private fun updateDnsttVisibility() {
