@@ -284,4 +284,7 @@
     <string name="pref_proxy_ss_summary">URL e plotë formësimi ShadowSocks-i fillon me ss://</string>
     <string name="volunteer_mode_weekly_label">Këtë Javë</string>
     <string name="volunteer_mode_alltime_label">Gjithsej</string>
+    <string name="action_learn_more">Mësoni Më Tepër</string>
+    <string name="Enabled">E aktivizuar</string>
+    <string name="Disabled">E çaktivizuar</string>
 </resources>
