@@ -37,6 +37,7 @@ import androidx.annotation.Nullable;
 import org.torproject.android.service.Notifications;
 import org.torproject.android.service.OrbotService;
 import org.torproject.android.service.TProxyService;
+import org.torproject.android.util.Prefs;
 import org.torproject.jni.TorService;
 
 import java.io.DataOutputStream;
@@ -209,14 +210,16 @@ public class OrbotVpnManager {
     }
 
     private void doAppBasedRouting(VpnService.Builder builder) throws NameNotFoundException {
-        var apps = TorifiedApp.getApps(mService);
         var individualAppsWereSelected = false;
         var isLockdownMode = isVpnLockdown(mService);
 
-        for (TorifiedApp app : apps) {
-            if (app.isTorified() && (!app.getPackageName().equals(mService.getPackageName()))) {
-                builder.addAllowedApplication(app.getPackageName());
-                individualAppsWereSelected = true;
+        if (!Prefs.fullDeviceVpn) {
+            var apps = TorifiedApp.getApps(mService);
+            for (TorifiedApp app : apps) {
+                if (app.isTorified() && (!app.getPackageName().equals(mService.getPackageName()))) {
+                    builder.addAllowedApplication(app.getPackageName());
+                    individualAppsWereSelected = true;
+                }
             }
         }
         Log.i(TAG, "App based routing is enabled?=" + individualAppsWereSelected + ", isLockdownMode=" + isLockdownMode);
