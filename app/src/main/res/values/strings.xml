@@ -318,6 +318,8 @@
     <string name="invalid_outbound_proxy_config">Invalid Outbound Proxy Configuration</string>
 
     <string name="bridge_dnstt">DNS Tunnel</string>
+    <string name="webtunnel">WebTunnel</string>
+    <string name="webtunnel_subtitle">Works like an ordinary web connection. WebTunnel bridges are obtained automatically via Ask Tor.</string>
     <string name="my_country_optional">My Country (optional)</string>
     <string name="country_clear">Remove Country</string>
     <string name="limit_dns_tunnel_use">Limit DNS Tunnel Use</string>
