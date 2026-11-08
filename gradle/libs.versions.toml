@@ -1,5 +1,5 @@
 [versions]
-agp = "9.4.1"
+agp = "9.5.1"
 androidx-appcompat = "1.8.0"
 androidx-biometric = "1.1.0"
 androidx-core = "1.19.1"
@@ -26,7 +26,7 @@ screengrab = "2.1.1"
 serialization = "1.12.0"
 tor-android = "0.4.9.14"
 upnp = "1.1.0"
-version-catalog-update = "1.1.1"
+version-catalog-update = "1.1.2"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
