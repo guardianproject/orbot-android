@@ -23,6 +23,33 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <RadioGroup
+        android:id="@+id/rgVpnMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbFullDevice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/full_device_vpn"
+            android:textColor="@android:color/white" />
+
+        <RadioButton
+            android:id="@+id/rbPerApp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/apps_tunneling"
+            android:textColor="@android:color/white" />
+    </RadioGroup>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

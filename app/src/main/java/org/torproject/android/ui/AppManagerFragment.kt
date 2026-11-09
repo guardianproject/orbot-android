@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.ListAdapter
+import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -59,6 +60,10 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
     private var retainedCheckedPackages: Set<String> = emptySet()
 
     private val scope = CoroutineScope(Dispatchers.Main + job)
+
+    private val vpnModeListener = RadioGroup.OnCheckedChangeListener { _, checkedId ->
+        onVpnModeSelected(checkedId == R.id.rbFullDevice)
+    }
 
     private lateinit var binding: FragmentAppManagerBinding
 
@@ -117,6 +122,8 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                         it.replaceFirstChar { c -> if (c.isLowerCase()) c.uppercase() else c.toString() }
                     }
         }
+
+        binding.rgVpnMode.setOnCheckedChangeListener(vpnModeListener)
         return binding.root
     }
 
@@ -155,6 +162,8 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
             binding.progressBar.visibility = View.GONE
 
             filterApps(searchQuery.value)
+
+            updateVpnModeUi(Prefs.fullDeviceVpn)
         }
     }
 
@@ -316,6 +325,25 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
 
     private var appSelectionChanged = false
 
+    private fun onVpnModeSelected(fullDevice: Boolean) {
+        if (Prefs.fullDeviceVpn != fullDevice) {
+            Prefs.fullDeviceVpn = fullDevice
+            appSelectionChanged = true
+        }
+        updateVpnModeUi(fullDevice)
+    }
+
+    private fun updateVpnModeUi(fullDevice: Boolean) {
+        binding.rgVpnMode.setOnCheckedChangeListener(null)
+        binding.rgVpnMode.check(if (fullDevice) R.id.rbFullDevice else R.id.rbPerApp)
+        binding.rgVpnMode.setOnCheckedChangeListener(vpnModeListener)
+        binding.applistview.isEnabled = !fullDevice
+        binding.applistview.alpha = if (fullDevice) DISABLED_ALPHA else ENABLED_ALPHA
+        binding.searchBar.isEnabled = !fullDevice
+        binding.searchBarLayout.isEnabled = !fullDevice
+        binding.searchBarLayout.alpha = if (fullDevice) DISABLED_ALPHA else ENABLED_ALPHA
+    }
+
     private fun saveAppSettings() {
         val allApps = allApps ?: return
         val suggestedApps = suggestedApps ?: return
@@ -368,6 +396,11 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
             val app = cbox.tag as TorifiedApp
             app.isTorified = !app.isTorified
             cbox.isChecked = app.isTorified
+            if (Prefs.fullDeviceVpn) {
+                Prefs.fullDeviceVpn = false
+                appSelectionChanged = true
+            }
+            updateVpnModeUi(Prefs.fullDeviceVpn)
         }
     }
 
@@ -384,6 +417,8 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
         private const val BUNDLE_KEY_SEARCH_QUERY = "search_query"
         private const val BUNDLE_KEY_APPS_CHANGED = "apps_changed"
         private const val BUNDLE_KEY_CHECKED_PACKAGES = "checked_packages"
+        private const val ENABLED_ALPHA = 1f
+        private const val DISABLED_ALPHA = 0.4f
 
         /**
          * @return true if the app is "enabled", not Orbot, and not in
