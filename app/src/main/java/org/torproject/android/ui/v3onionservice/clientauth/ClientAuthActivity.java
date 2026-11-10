@@ -26,6 +26,7 @@ import org.torproject.android.ui.core.BaseActivity;
 import org.torproject.android.ui.v3onionservice.V3BackupUtils;
 import org.torproject.android.util.DiskUtils;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class ClientAuthActivity extends BaseActivity {
@@ -89,8 +90,12 @@ public class ClientAuthActivity extends BaseActivity {
             Toast.makeText(this, R.string.error, Toast.LENGTH_LONG).show();
             return;
         }
-        String authText = DiskUtils.readFileFromInputStream(getContentResolver(), uri);
-        new V3BackupUtils(this).restoreClientAuthBackup(authText);
+        try {
+            String authText = DiskUtils.readFileFromInputStream(getContentResolver(), uri);
+            new V3BackupUtils(this).restoreClientAuthBackup(authText);
+        } catch (IOException e) {
+            Toast.makeText(this, R.string.error, Toast.LENGTH_LONG).show();
+        }
 
     }
 
