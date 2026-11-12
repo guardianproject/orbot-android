@@ -101,6 +101,16 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
             override fun afterTextChanged(s: Editable?) {}
         })
 
+        binding.selectAllCheck.setOnCheckedChangeListener { _, isChecked ->
+            for (item in filteredList) {
+                item.app?.isTorified = isChecked
+            }
+            (adapterAppsAll as? ArrayAdapter<*>)?.notifyDataSetChanged()
+        }
+        binding.selectAllLayout.setOnClickListener { _ ->
+            binding.selectAllCheck.isChecked = !binding.selectAllCheck.isChecked
+        }
+
         alSuggested = OrbotConstants.VPN_SUGGESTED_APPS
 
         with(binding.toolbar) {
