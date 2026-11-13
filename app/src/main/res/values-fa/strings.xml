@@ -36,7 +36,7 @@
     <string name="strict_nodes">گره‌های سخت‌گیرانه</string>
     <string name="reachable_addresses">نشانی‌های قابل دستیابی</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">اجرا به‌عنوان یک کلاینتِ پشت فایروال با سیاست‌های محدودکننده</string>
-    <string name="reachable_ports">درگاه‌های قابل دستیابی</string>
+    <string name="reachable_ports">درگاه‌های قابل دسترس</string>
     <string name="ports_reachable_behind_a_restrictive_firewall">درگاه‌های قابل دستیابی پشت یک فایروال محدودکننده</string>
     <string name="enter_ports">درگاه‌ها را وارد کنید</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">فعال‌سازی ثبت گزارش اشکال‌زدایی به خروجی (برای نمایش باید از adb یا aLogCat استفاده کنید)</string>

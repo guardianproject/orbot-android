@@ -1,0 +1,4 @@
+* OnionServices v3 desteği eklendi
+* köprü yapılandırmasında iyileştirmeler yapıldı
+* VPN kipinin "ölçülmemiş bağlantı" olarak ele alınması sağlandı
+* Snowflake vekil sunucu olarak çalışmayı sağlayan deneysel kip eklendi
