@@ -1,0 +1,4 @@
+* VPN kipinde önemli düzeltmeler yapıldı
+* Yeni öntanımlı köprüler eklendi
+* Tor 0.4.0.4 sürümüne güncellendi
+* 64 bit kipi ve Android Q desteği eklendi

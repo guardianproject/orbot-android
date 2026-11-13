@@ -1,0 +1,8 @@
+- Kullanıcı arayüzü ile ilgili önemli güncelleme!
+- Kurulum ve köprü yapılandırması için yeni yardımcılar
+- Geliştirilmiş VPN özellikleri
+- Onion/Gizli hizmet yapılandırma çökmeleri için düzeltmeler
+
+ve daha fazlası...
+
+TEŞEKKÜRLER: pgerber, syphyr, Khsed4, BjarniRunar, Unpublished, igortoliveira, goapunk, SpotComms, AkshatAgrawal05, dixidroid, arrase ve diğerlerine sorunlar, gönderimler ve itme istekleri için
