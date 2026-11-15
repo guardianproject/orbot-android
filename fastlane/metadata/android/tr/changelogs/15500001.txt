@@ -1,0 +1,10 @@
+***UYARI: BU YENİ ORBOT SÜRÜMÜNDEN TÜM ROOT ÖZELLİKLERİ KALDIRILDI.***
+Root ile şeffaf vekil sunucu yerine Orbot "Uygulamalar VPN kipi" özelliğini veya Orfox tarayıcısını kullanın.
+
+* Tor 0.3.1.8 sürümüne güncellendi
+* Güvenilmez ve denenmiş Root / Transproxy işlevleri 
+desteği kaldırıldı.
+* VPN şeffaf vekil sunucu ve yeni "Uygulamalar" uygulama seçim arayüzü 
+desteği GELİŞTİRİLDİ
+* Obfs4proxy lisans bilgisi katma sorunu çözüldü
+* Meek köprü konumlarını ile güncel Tor sürümüne güncellendi

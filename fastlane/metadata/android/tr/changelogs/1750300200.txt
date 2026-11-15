@@ -1,0 +1,3 @@
+- Tor 0.4.8.17 sürümüne güncellendi
+- Birçok kullanıcı arayüzü iyileştirmeleri yapıldı
+- WebTunnel ve Snowflake vekil sunucu için son destek eklendi
