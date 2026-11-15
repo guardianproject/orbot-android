@@ -43,7 +43,6 @@ configure<ApplicationExtension> {
         versionName = getVersionName().get()
         minSdk = 24
         targetSdk = 37
-        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         flavorDimensions += "free"
     }
@@ -73,7 +72,7 @@ configure<ApplicationExtension> {
             if (keystorePropertiesFile.canRead()) {
                 keystoreProperties.load(FileInputStream(keystorePropertiesFile))
             }
-            if (!keystoreProperties.stringPropertyNames().isEmpty()) {
+            if (keystoreProperties.stringPropertyNames().isNotEmpty()) {
                 keyAlias = keystoreProperties["keyAlias"] as String
                 keyPassword = keystoreProperties["keyPassword"] as String
                 storeFile = file(keystoreProperties["storeFile"] as String)
