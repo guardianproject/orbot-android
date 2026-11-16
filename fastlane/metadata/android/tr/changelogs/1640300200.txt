@@ -1,0 +1,4 @@
+* Snowflake köprüsü desteği eklendi
+* Obfs4 ve Meek köprü desteği güncellendi
+* "Yeni köprüler iste" özelliğinin hızı artırıldı
+* Tor 0.4.4.6 sürümüne güncellendi

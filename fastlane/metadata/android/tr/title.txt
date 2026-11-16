@@ -1,1 +1,1 @@
-Orbot: Android'in Tor'u
+Orbot: Android için Tor

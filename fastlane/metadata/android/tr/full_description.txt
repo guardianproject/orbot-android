@@ -1,25 +1,25 @@
-Orbot, diğer uygulamaların interneti daha güvenli kullanmasını sağlayan ücretsiz bir VPN ve proxy uygulamasıdır. Orbot, internet trafiğinizi şifrelemek için Tor kullanır ve ardından dünyanın dört bir yanındaki bilgisayarlar arasında sektirerek gizler. Tor, kişisel özgürlük ve mahremiyeti, gizli iş faaliyetlerini ve ilişkilerini ve trafik analizi olarak bilinen devlet güvenliğini tehdit eden bir ağ gözetimi türüne karşı korunmanıza yardımcı olan özgür yazılım ve açık bir ağdır.
+Orbot, diğer uygulamaların interneti daha güvenli kullanmasını sağlayan ücretsiz bir VPN ve vekil sunucu uygulamasıdır. Orbot, internet trafiğinizi şifrelemek için Tor kullanır ve ardından dünyanın dört bir yanındaki bilgisayarlar arasında aktararak gizler. Tor, kişisel özgürlük ve gizliliği, önemli iş etkinliklerini ve ilişkilerini ve trafik incelemesi olarak bilinen devlet güvenliğini tehdit eden bir ağ gözetimi türüne karşı korumanıza yardımcı olan özgür yazılım ve açık bir ağdır.
 
-Orbot, gerçekten özel bir internet bağlantısı oluşturan tek uygulamadır. New York Times'ın yazdığı gibi, "Tor'dan bir iletişim geldiğinde, nereden veya kimden geldiğini asla bilemezsiniz."
+Orbot, gerçekten gizliliği koruyan bir internet bağlantısı oluşturan tek uygulamadır. New York Times tarafından yazıldığı gibi, "Tor üzerinden bir iletişim geldiğinde, nereden veya kimden geldiğini asla bilemezsiniz."
 
-Tor, 2012 Electronic Frontier Foundation (EFF) Öncü Ödülü'nü kazandı.
+Tor, 2012 Electronic Frontier Foundation (EFF) Öncü Ödülü sahibi.
 
-★ YERİNE BAŞKASINI KABUL ETMEYİN: Orbot, Android'de internet kullanmanın en güvenli yoludur. Nokta. Orbot, şifreli trafiğinizi doğrudan bağlayan diğer VPN'ler ve proxy'ler gibi değil, dünyanın dört bir yanındaki bilgisayarlar arasında birkaç kez sektirerek iletir. Bu işlem biraz daha uzun sürer ancak mevcut en güçlü gizlilik ve kimlik koruması beklemeye değer.
+★ YERİNE BAŞKASINI KABUL ETMEYİN: Orbot, Android üzerinde internet kullanmanın en güvenli yoludur. Nokta. Orbot, şifrelenmiş trafiğinizi doğrudan bağlayan diğer VPN hizmetleri ve vekil sunucular gibi değil, dünyanın dört bir yanındaki bilgisayarlar arasında birkaç kez aktararak iletir. Bu işlem biraz daha uzun sürer ancak var olan en güçlü gizlilik ve kimlik koruması için beklemeye değer.
 
-★ UYGULAMALAR İÇİN GİZLİLİK: Herhangi bir uygulama Orbot VPN özelliği aracılığıyla Tor üzerinden yönlendirilebilir
+★ UYGULAMALAR İÇİN GİZLİLİK: Herhangi bir uygulamanın trafiği Orbot VPN ile Tor ağından yönlendirilebilir
 
-★ HERKES İÇİN GİZLİLİK: Orbot, bağlantınızı izleyen birinin hangi uygulamaları kullandığınızı veya hangi web sitelerini ziyaret ettiğinizi bilmesini engeller. Ağ trafiğinizi izleyen herkesin görebileceği tek şey Tor kullandığınızdır.
+★ HERKES İÇİN GİZLİLİK: Orbot, bağlantınızı izleyen birinin hangi uygulamaları kullandığınızı veya hangi siteleri ziyaret ettiğinizi bilmesini engeller. Ağ trafiğinizi izleyen herkesin görebileceği tek şey Tor kullandığınız olur.
 
-**_Geri Bildirimi Seviyoruz_**
+**_Geri Bildirimleri Seviyoruz_**
 
-★ DAHA FAZLA BİLGİ EDİNİN: Orbot hakkında daha fazla bilgi edinin ve https://orbot.app adresinden katılın
+★ AYRINTILI BİLGİ ALIN: Orbot ile ilgili ayrıntılı bilgi alın ve https://orbot.app adresinden katılın
 
-★ HAKKIMIZDA: Guardian Project, daha iyi bir yarın için güvenli mobil uygulamalar ve açık kaynak kod yapan bir geliştirici grubudur.
+★ HAKKIMIZDA: Guardian Project, daha iyi bir yarın için güvenli ve açık kaynak kodlu mobil uygulamalar yapan bir geliştirici grubudur.
 
-★ AÇIK KAYNAK: Orbot özgür yazılımdır. Kaynak kodumuza göz atın veya daha iyi hale getirmek için topluluğa katılın: https://github.com/guardianproject/orbot
+★ AÇIK KAYNAKLI: Orbot özgür bir yazılımdır. Kaynak kodumuza göz atın veya geliştirmek için topluluğa katılın: https://github.com/guardianproject/orbot
 
-★ BİZE MESAJ GÖNDERİN: En sevdiğiniz özelliği mi eksik bıraktık? Sinir bozucu bir hata mı buldunuz? Sizden haber almak isteriz! Bize e-posta gönderin: support@guardianproject.info
+★ BİZE YAZIN: Sevdiğiniz bir özellik mi eksik? Sinir bozucu bir hata mı buldunuz? Sizden haber almak isteriz! Bize e-posta gönderin: support@guardianproject.info
 
 **_Sorumluluk Reddi_**
 
-Guardian Project, güvenliğinizi ve anonimliğinizi korumak için tasarlanmış uygulamalar yapar. Kullandığımız protokoller, güvenlik teknolojisinde sanatın son durumu olarak yaygın şekilde kabul edilmektedir. En son tehditlere karşı koymak ve hataları ortadan kaldırmak için yazılımımızı sürekli yükseltmemize rağmen, hiçbir teknoloji %100 kusursuz değildir. Maksimum güvenlik ve anonimlik için kullanıcılar kendilerini güvende tutmak adına en iyi uygulamaları kullanmalıdır. Bu konulara iyi bir giriş rehberi https://securityinabox.org adresinde bulunabilir
+Guardian Project, güvenliğinizi ve anonimliğinizi korumak için tasarlanmış uygulamalar yapar. Kullandığımız iletişim kuralları, yaygın şekilde güvenlik teknolojisinde gelinen son nokta olarak kabul ediliyor. Güncel tehditlere karşı koymak ve hataları ortadan kaldırmak için yazılımımızı sürekli yükseltmemize rağmen, hiçbir teknoloji %100 kusursuz değildir. Olabilecek en iyi güvenliği ve anonimliği sağlamak için kullanıcılar kendilerini güvende tutabilecekleri en iyi uygulamaları kullanmalıdır. Bu konulara iyi bir giriş rehberi için https://securityinabox.org adresine bakabilirsiniz.

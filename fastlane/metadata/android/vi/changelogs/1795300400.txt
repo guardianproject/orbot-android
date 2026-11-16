@@ -1,0 +1,6 @@
+- Cập nhật lên Tor 0.4.9.11 và Snowflake 2.14.1
+- Cải tiến "Chế độ thân thiện" : kiểm tra proxy rõ hơn, hiện loại NAT thời gian thực và xử lý thông minh hơn tại khu vực bị kiểm duyệt
+- Hỗ trợ Android 17, gồm việc quản lý quyền cho phép "mở proxy trên mọi giao diện mạng"
+- Hiển thị tiến trình kết nối chuẩn hơn ngay cả khi xoay màn hình
+- Sửa lỗi xóa nhật ký khi xoay màn hình, gây treo ứng dụng trên Play Store và khởi chạy khi bật máy
+- Cập nhật cầu nối dựng sẵn, IP địa lý và bản dịch ngôn ngữ

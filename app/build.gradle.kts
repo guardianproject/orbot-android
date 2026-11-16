@@ -33,7 +33,7 @@ configure<ApplicationExtension> {
     namespace = "org.torproject.android"
     compileSdk {
         version = release(37) {
-            minorApiLevel = 1
+            minorApiLevel = 2
         }
     }
 
@@ -43,7 +43,6 @@ configure<ApplicationExtension> {
         versionName = getVersionName().get()
         minSdk = 24
         targetSdk = 37
-        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         flavorDimensions += "free"
     }
@@ -52,7 +51,9 @@ configure<ApplicationExtension> {
         abi {
             isEnable = true
             reset()
-            include("x86", "armeabi-v7a", "x86_64", "arm64-v8a")
+            // includes *every* ABI, x86 is only useful when *emulating* API 24 devices
+            // include("x86", "armeabi-v7a", "x86_64", "arm64-v8a")
+            include("arm64-v8a", "armeabi-v7a", "x86_64")
             isUniversalApk = true
         }
     }
@@ -71,7 +72,7 @@ configure<ApplicationExtension> {
             if (keystorePropertiesFile.canRead()) {
                 keystoreProperties.load(FileInputStream(keystorePropertiesFile))
             }
-            if (!keystoreProperties.stringPropertyNames().isEmpty()) {
+            if (keystoreProperties.stringPropertyNames().isNotEmpty()) {
                 keyAlias = keystoreProperties["keyAlias"] as String
                 keyPassword = keystoreProperties["keyPassword"] as String
                 storeFile = file(keystoreProperties["storeFile"] as String)
@@ -117,6 +118,9 @@ configure<ApplicationExtension> {
         jniLibs {
             // Needed for shadowsocks-rust client to be available to execute.
             useLegacyPackaging = true
+            // removes 3rd party 32bit intel abis, add back if needed, but you probably don't need them
+            // unless you are emulating an API 24 device on an Intel host
+            excludes += "lib/x86/**"
         }
     }
 

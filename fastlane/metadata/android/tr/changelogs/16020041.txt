@@ -1,0 +1,9 @@
+- %30 daha küçük kurulum paketi (APK) boyutu, 10 MB altında!
+- Tor 0.3.3.5 sürümüne güncellendi (Onion Services v3 desteği ve daha fazlası)
+- Tor, değiştirilebilir taşıyıcı binary kurulumu için düzeltmeler yapıldı
+- Artık "Polipo" HTTP sunucusu yok. Yalnızca Tor içindeki yeni özellik kullanıldı
+- Uygulamada dil seçimi geliştirildi
+
+YENİ İZİN: "Dış depolama" erişimi, onion hizmetlerinin kalıcı yedekleme bilgileri için.
+
+Tam sürüm notları: https://github.com/n8fr8/orbot/releases/tag/16.0.2-RC-1

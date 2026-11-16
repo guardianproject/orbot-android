@@ -1,0 +1,6 @@
+- Tor 0.4.9.11 ve Snowflake 2.14.1 sürümüne güncellendi
+- İyilik kipi yenilendi: Daha net vekil sunucu kalite denetimi, canlı NAT türü ve sansürlenen bölgelerde daha akıllı kullanım
+- "Tüm arayüzlerde açık vekil sunucu" için izin işleme ile Android 17 desteği eklendi
+- Dönüş sırasında bağlantının daha doğru ilerlemesi sağlandı
+- Dönüş sırasında günlüklerin temizlenmesi, Play Store çökmesi ve ön yükleme otomatik başlatma düzeltmeleri yapıldı
+- Hazır köprüler, geoip ve birçok çeviri güncellendi
