@@ -319,7 +319,7 @@
     <string name="kindness_mode_runs_when_the_device_is_connected_to_wifi">Xeyirxahlıq rejimi cihaz Wi-Fi-a qoşulduqda işləyir.</string>
     <string name="you_can_change_the_settings_anytime">Tənzimləmələri istənilən vaxt dəyişə bilərsiniz.</string>
     <string name="we_recommend_charging_the_device_when_running_kindness_mode">Xeyirxahlıq Rejimi işləyərkən cihazı enerji ilə doldurmağı tövsiyə edirik.</string>
-    <string name="turn_off_kindness_mode_when_you_use_another_vpn_on_this_device">Bu cihazda başqa VPN istifadə etdiyiniz zaman Xeyirxahlıq Rejimini qapatın.</string>
+    <string name="turn_off_kindness_mode_when_you_use_another_vpn_on_this_device">Bu cihazda başqa VPN istifadə etdiyiniz zaman Xeyirxahlıq Rejimini qapadın.</string>
     <string name="test_connection">Bağlantını Sına</string>
     <string name="orbot_will_test_your_connection_to_determine_if_you_can_be_a_snowflake_proxy_for_others">Orbot başqaları üçün Snowflake Proksisi olub-olmadığınızı müəyyən etmək üçün bağlantınızı sınayacaq.</string>
     <string name="the_test_will_try_to_connect_directly_to_the_tor_network">Test birbaşa Tor şəbəkəsinə qoşulmağa çalışacaq.</string>
