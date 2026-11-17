@@ -33,6 +33,7 @@ import org.torproject.android.service.OrbotService
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.vpn.VpnServicePrepareWrapper
 import org.torproject.android.ui.OrbotMenuAction
+import org.torproject.android.ui.more.DonateBottomSheet
 import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
@@ -120,6 +121,9 @@ class ConnectFragment : Fragment(),
         }
         binding.switchConnect.setOnCheckedChangeListener(onCheckChanged)
         refreshMenuList(requireContext())
+        binding.btnDonate.setOnClickListener {
+            DonateBottomSheet.show(parentFragmentManager)
+        }
     }
 
     private val onCheckChanged: CompoundButton.OnCheckedChangeListener = { _, value ->

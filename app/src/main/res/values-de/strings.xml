@@ -231,4 +231,9 @@
     <string name="Disabled">Deaktiviert</string>
     <string name="kindness_proxy_quality_unknown">unbekannt</string>
     <string name="kindness_proxy_quality_restricted">eingeschränkt</string>
+    <string name="donate_button_label">🧅 Spenden</string>
+    <string name="donate_title">Orbot und Tor: Von dir getragen</string>
+    <string name="donate_message">Anders als Big Tech verkauft Tor deine Daten nicht, um Geld zu verdienen. Stattdessen halten Spenderinnen und Spender Tor jedes Jahr stark. Werde Teil der Bewegung und spende noch heute!</string>
+    <string name="donate_now">Jetzt spenden 🧅</string>
+    <string name="donate_disclaimer">Orbot wird immer kostenlos bleiben. Für die Nutzung dieser App ist keine Spende erforderlich.</string>
 </resources>

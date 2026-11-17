@@ -159,4 +159,9 @@
     <string name="setting_padding">Acolchado</string>
     <string name="setting_debug">Depurar</string>
     <string name="set_transport">Configurar transporte</string>
+    <string name="donate_button_label">🧅 Donar</string>
+    <string name="donate_title">Orbot y Tor: Impulsados por ti</string>
+    <string name="donate_message">A diferencia de las grandes tecnológicas, Tor no vende tus datos para ganar dinero. En cambio, cada año las personas donantes mantienen a Tor fuerte. ¡Únete al movimiento con una donación hoy!</string>
+    <string name="donate_now">Donar ahora 🧅</string>
+    <string name="donate_disclaimer">Orbot siempre será gratuito. No se requiere ninguna donación para usar esta aplicación.</string>
 </resources>

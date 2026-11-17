@@ -362,4 +362,9 @@
     <string name="stop_test">Stop Test</string>
     <string name="approved">Approved</string>
     <string name="not_approved">Not Approved</string>
+    <string name="donate_button_label">🧅 Donate</string>
+    <string name="donate_title">Orbot and Tor: Powered by you</string>
+    <string name="donate_message">Unlike Big Tech, Tor doesn\'t sell your data to make money. Instead, donors every year keep Tor strong. Join the movement with a donation today!</string>
+    <string name="donate_now">Donate Now 🧅</string>
+    <string name="donate_disclaimer">Orbot will always be free to use. No donation is required to use this app.</string>
 </resources>
