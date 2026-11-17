@@ -21,7 +21,8 @@ kotlin {
     }
 }
 
-val orbotBaseVersionCode = 1799200100
+val orbotBaseVersionCode = 1799200200
+
 fun getVersionName(): Provider<String> {
     // Gets the version name from the latest Git tag
     return providers.exec {
