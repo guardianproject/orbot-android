@@ -198,22 +198,19 @@ dependencies {
     implementation(libs.upnp)
     implementation(libs.quickie)
     implementation(libs.material3)
+    implementation(files("../libs/geoip.jar"))
 
     // IPtProxy (for Snowflake, obfs4, dnstt and all other pluggable transports)
     implementation(libs.iptproxy)
     // uncomment to use a local build of IPtProxy:
     // implementation(files("../../IPtProxy/IPtProxy.aar"))
 
-
     // Tor
-    implementation(files("../libs/geoip.jar"))
-    api(libs.guardian.jtorctl)
     api(libs.tor.android)
     // uncomment to use a local build of tor-android:
     // api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))
 
     testImplementation(kotlin("test-junit"))
-
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso)
     androidTestImplementation(libs.androidx.rules)
