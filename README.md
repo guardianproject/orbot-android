@@ -52,7 +52,7 @@ git clone --recursive https://github.com/guardianproject/orbot-android
 # you should be good to go building Orbot
 cd orbot-android 
 # build a debug APK of orbot
-./gradlew assembleFullpermDebug
+./gradlew assembleFullpermFossDebug
 ```
 
 Or, if you already cloned the repo:
@@ -62,7 +62,7 @@ cd orbot-android
 git pull
 git submodule update --init --recursive
 # build a debug APK of orbot 
-./gradlew assembleFullpermDebug
+./gradlew assembleFullpermFossDebug
 ```
 
 If, sometime later, you pull new commits to Orbot an and see that there are changes to `app/src/main/jni/hev-socks5-tunnel` that means that the `hev-socks5-tunnel` version we use in Orbot has been updated. You will have to update to the new version of `hev-socks5-tunnel` by running:
@@ -75,6 +75,13 @@ git submodule update --init --recursive
 git status 
 ```
 
+### Build Flavors
+
+Orbot has two flavor dimensions. `fullperm` / `nightly` selects the app ID, and `play` / `foss` selects the store:
+
+- `foss`: no proprietary dependencies. Use this for F-Droid and other non-Play builds. The Orbot Tip Jar is hidden.
+- `play`: includes the Google Play Billing library for the Orbot Tip Jar (in-app tips). Use this for Google Play releases, e.g. `./gradlew assembleFullpermPlayRelease`.
+
 ### Unit Tests 
 
 Orbot has unit tests for bridge parsing, please add new tests when introducing new features and tests to ensure old features work correctly are kindly welcomed.
@@ -82,7 +89,7 @@ Orbot has unit tests for bridge parsing, please add new tests when introducing n
 To run the test suite:
 
 ```bash
-./gradlew :app:testFullpermDebugUnitTest
+./gradlew :app:testFullpermFossDebugUnitTest
 ```
 
 ### Viewing Logs 

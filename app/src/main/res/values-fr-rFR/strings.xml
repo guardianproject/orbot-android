@@ -330,9 +330,18 @@
     <string name="kindness_mode_active_message" formatted="true">Vous avez aidé %1$d personnes à contourner la censure</string>
     <string name="kindness_mode_unsupported_country">Vous avez sélectionné la/le %s comme pays ; malheureusement, le mode Gentilisse ne peut pas être utilisé dans cette région pour aider d\'autres personnes à se connecter à Tor. Si vous pensez recevoir ce message par erreur, vous pouvez supprimer les filtres de pays et vérifier votre éligibilité en tant que proxy Snowflake</string>
     <string name="private_dns_explanation">L\'utilisation du mode « Strict » pour le DNS privé avec un résolveur spécifique entraînera une fuite d\'informations concernant les sites web et les services Onion que vous visitez en dehors du VPN d\'Orbot. Veuillez configurer votre DNS privé en mode automatique.</string>
-    <string name="donate_button_label">🧅 Faire un don</string>
+    <string name="donate_button_label">🧅 Faire un don 💸</string>
     <string name="donate_title">Orbot et Tor : propulsés par vous</string>
     <string name="donate_message">Contrairement aux géants de la tech, Tor ne vend pas vos données pour gagner de l\'argent. Ce sont plutôt les donateurs qui, chaque année, font la force de Tor. Rejoignez le mouvement en faisant un don dès aujourd\'hui !</string>
-    <string name="donate_now">Faire un don maintenant 🧅</string>
+    <string name="donate_to_tor">Faire un don à Tor 🧅</string>
+    <string name="tip_jar_title">Pot à pourboires d\'Orbot 💸</string>
+    <string name="tip_jar_message">Un pourboire soutient l\'équipe qui développe et maintient Orbot.</string>
+    <string name="tip_onion_ring">Acheter des rondelles d\'oignon</string>
+    <string name="tip_onion_soup">Acheter une soupe à l\'oignon</string>
+    <string name="tip_onion_orchard">Acheter un verger d\'oignons</string>
+    <string name="tip_thank_you">Merci pour votre soutien ! 🧅</string>
+    <string name="tip_pending">Votre pourboire est en attente. Merci !</string>
+    <string name="tip_unavailable">Le pot à pourboires n\'est pas disponible pour le moment. Veuillez réessayer plus tard.</string>
+    <string name="tip_failed">Le pourboire n\'a pas pu être finalisé. Veuillez réessayer.</string>
     <string name="donate_disclaimer">Orbot sera toujours gratuit. Aucun don n\'est nécessaire pour utiliser cette application.</string>
 </resources>

@@ -1,2 +1,2 @@
 #!/bin/bash
-./gradlew testFullpermDebugUnitTest
+./gradlew testFullpermFossDebugUnitTest

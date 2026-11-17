@@ -21,7 +21,7 @@ kotlin {
     }
 }
 
-val orbotBaseVersionCode = 1798300100
+val orbotBaseVersionCode = 1799200100
 fun getVersionName(): Provider<String> {
     // Gets the version name from the latest Git tag
     return providers.exec {
@@ -44,7 +44,7 @@ configure<ApplicationExtension> {
         minSdk = 24
         targetSdk = 37
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        flavorDimensions += "free"
+        flavorDimensions += listOf("free", "store")
     }
 
     splits {
@@ -111,6 +111,14 @@ configure<ApplicationExtension> {
             dimension = "free"
             applicationId = "org.torproject.android.nightly"
             versionCode = (Date().time / 1000).toInt()
+        }
+        // Google Play builds: includes the proprietary Play Billing library for the Orbot Tip Jar
+        create("play") {
+            dimension = "store"
+        }
+        // F-Droid and other non-Play builds: no proprietary dependencies, Tip Jar is hidden
+        create("foss") {
+            dimension = "store"
         }
     }
 
@@ -199,6 +207,9 @@ dependencies {
     implementation(libs.quickie)
     implementation(libs.material3)
 
+    // Google Play Billing (Orbot Tip Jar), only in the "play" store flavor
+    "playImplementation"(libs.play.billing)
+
     // IPtProxy (for Snowflake, obfs4, dnstt and all other pluggable transports)
     implementation(libs.iptproxy)
     // uncomment to use a local build of IPtProxy:
@@ -227,7 +238,7 @@ afterEvaluate {
     tasks.named("preBuild") {
         dependsOn(copyLicenseToAssets)
     }
-    tasks.named { it == "mergeNightlyDebugAssets" || it == "mergeFullpermDebugAssets" }
+    tasks.named { it.matches(Regex("merge(Nightly|Fullperm)(Play|Foss)DebugAssets")) }
         .configureEach {
             mustRunAfter(updateBuiltinBridges)
         }

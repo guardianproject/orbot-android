@@ -362,9 +362,20 @@
     <string name="stop_test">Stop Test</string>
     <string name="approved">Approved</string>
     <string name="not_approved">Not Approved</string>
-    <string name="donate_button_label">🧅 Donate</string>
+    <string name="donate_button_label">🧅 Donate 💸</string>
     <string name="donate_title">Orbot and Tor: Powered by you</string>
     <string name="donate_message">Unlike Big Tech, Tor doesn\'t sell your data to make money. Instead, donors every year keep Tor strong. Join the movement with a donation today!</string>
-    <string name="donate_now">Donate Now 🧅</string>
+    <string name="donate_to_tor">Donate to Tor 🧅</string>
+    <string name="tip_jar_title">Orbot Tip Jar 💸</string>
+    <string name="tip_jar_message">Leave a tip to support the team that builds and maintains Orbot.</string>
+    <string name="tip_onion_ring">Buy Onion Ring</string>
+    <string name="tip_onion_soup">Buy Onion Soup</string>
+    <string name="tip_onion_orchard">Buy Onion Orchard</string>
+    <string name="tip_thank_you">Thank you for your support! 🧅</string>
+    <string name="tip_pending">Your tip is pending. Thank you!</string>
+    <string name="tip_unavailable">The Tip Jar is unavailable right now. Please try again later.</string>
+    <string name="tip_failed">Your tip could not be completed. Please try again.</string>
+    <!-- Tip Jar button: %1$s is the localized price from Google Play, %2$s is the tip name -->
+    <string name="tip_price_format">%1$s %2$s</string>
     <string name="donate_disclaimer">Orbot will always be free to use. No donation is required to use this app.</string>
 </resources>

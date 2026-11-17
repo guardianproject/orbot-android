@@ -45,20 +45,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDonateTitle" />
 
-    <Button
-        android:id="@+id/btnDonate"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/llDonateButtons"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
-        android:background="@drawable/btn_shape_round"
-        android:paddingHorizontal="@dimen/bottom_sheet_btn_padding"
-        android:text="@string/donate_now"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        app:backgroundTint="@color/orbot_btn_enabled_purple"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvDonateMessage" />
+        app:layout_constraintTop_toBottomOf="@id/tvDonateMessage">
+
+        <Button
+            android:id="@+id/btnDonate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_shape_round"
+            android:maxLines="2"
+            android:text="@string/donate_to_tor"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/orbot_btn_enabled_purple" />
+
+        <Button
+            android:id="@+id/btnTipJar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_shape_round"
+            android:maxLines="2"
+            android:text="@string/tip_jar_title"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/dark_purple" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvDonateDisclaimer"
@@ -75,6 +100,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnDonate" />
+        app:layout_constraintTop_toBottomOf="@id/llDonateButtons" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

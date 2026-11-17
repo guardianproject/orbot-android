@@ -287,9 +287,18 @@
     <string name="pref_proxy_no_proxy">Sem proxy</string>
     <string name="pref_proxy_ss_title">Configuração URL ShadowSocks</string>
     <string name="pref_proxy_ss_summary">URL completa de configuração do ShadowSocks começando com ss://</string>
-    <string name="donate_button_label">🧅 Doar</string>
+    <string name="donate_button_label">🧅 Doar 💸</string>
     <string name="donate_title">Orbot e Tor: Movidos por você</string>
     <string name="donate_message">Diferente das Big Techs, o Tor não vende seus dados para ganhar dinheiro. Em vez disso, doadores mantêm o Tor forte todos os anos. Junte-se ao movimento com uma doação hoje!</string>
-    <string name="donate_now">Doe agora 🧅</string>
+    <string name="donate_to_tor">Doe para o Tor 🧅</string>
+    <string name="tip_jar_title">Caixinha de gorjetas do Orbot 💸</string>
+    <string name="tip_jar_message">Sua gorjeta apoia a equipe que desenvolve e mantém o Orbot.</string>
+    <string name="tip_onion_ring">Comprar anéis de cebola</string>
+    <string name="tip_onion_soup">Comprar sopa de cebola</string>
+    <string name="tip_onion_orchard">Comprar um pomar de cebolas</string>
+    <string name="tip_thank_you">Obrigado pelo seu apoio! 🧅</string>
+    <string name="tip_pending">Sua gorjeta está pendente. Obrigado!</string>
+    <string name="tip_unavailable">A caixinha de gorjetas não está disponível agora. Tente novamente mais tarde.</string>
+    <string name="tip_failed">Não foi possível concluir a gorjeta. Tente novamente.</string>
     <string name="donate_disclaimer">O Orbot sempre será gratuito. Nenhuma doação é necessária para usar este aplicativo.</string>
 </resources>

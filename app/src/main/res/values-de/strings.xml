@@ -231,9 +231,18 @@
     <string name="Disabled">Deaktiviert</string>
     <string name="kindness_proxy_quality_unknown">unbekannt</string>
     <string name="kindness_proxy_quality_restricted">eingeschränkt</string>
-    <string name="donate_button_label">🧅 Spenden</string>
+    <string name="donate_button_label">🧅 Spenden 💸</string>
     <string name="donate_title">Orbot und Tor: Von dir getragen</string>
     <string name="donate_message">Anders als Big Tech verkauft Tor deine Daten nicht, um Geld zu verdienen. Stattdessen halten Spenderinnen und Spender Tor jedes Jahr stark. Werde Teil der Bewegung und spende noch heute!</string>
-    <string name="donate_now">Jetzt spenden 🧅</string>
+    <string name="donate_to_tor">An Tor spenden 🧅</string>
+    <string name="tip_jar_title">Orbot-Trinkgeldglas 💸</string>
+    <string name="tip_jar_message">Mit einem Trinkgeld unterstützt du das Team, das Orbot entwickelt und pflegt.</string>
+    <string name="tip_onion_ring">Zwiebelring kaufen</string>
+    <string name="tip_onion_soup">Zwiebelsuppe kaufen</string>
+    <string name="tip_onion_orchard">Zwiebelplantage kaufen</string>
+    <string name="tip_thank_you">Danke für deine Unterstützung! 🧅</string>
+    <string name="tip_pending">Dein Trinkgeld wird bearbeitet. Danke!</string>
+    <string name="tip_unavailable">Das Trinkgeldglas ist gerade nicht verfügbar. Bitte versuche es später erneut.</string>
+    <string name="tip_failed">Das Trinkgeld konnte nicht abgeschlossen werden. Bitte versuche es erneut.</string>
     <string name="donate_disclaimer">Orbot wird immer kostenlos bleiben. Für die Nutzung dieser App ist keine Spende erforderlich.</string>
 </resources>
