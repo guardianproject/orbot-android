@@ -240,7 +240,9 @@ public class OrbotService extends VpnService implements TorControlCommands {
     }
 
     private void stopTorOnError(String message) {
-        torStartRequested.set(false);
+        // release the TorService binding too: a leaked binding keeps a TorService alive after its
+        // tor thread exits, and every later bind then reconnects to that dead instance
+        stopTor();
         showToolbarNotification(getString(R.string.unable_to_start_tor) + ": " + message, ERROR_NOTIFY_ID, R.drawable.ic_stat_notifyerr);
     }
 
@@ -472,6 +474,18 @@ public class OrbotService extends VpnService implements TorControlCommands {
 
         sendCallbackLogMessage(getString(R.string.status_starting_up));
 
+        // never overwrite a live binding without releasing it, or the old one leaks
+        if (torServiceConnection != null && shouldUnbindTorService) {
+            Log.w(TAG, "releasing previous TorService binding before rebinding");
+            try {
+                unbindService(torServiceConnection);
+            } catch (IllegalArgumentException e) {
+                Log.e(TAG, e.toString());
+            }
+            shouldUnbindTorService = false;
+            conn = null;
+        }
+
         torServiceConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -496,6 +510,19 @@ public class OrbotService extends VpnService implements TorControlCommands {
                 mOrbotRawEventListener = new OrbotRawEventListener(OrbotService.this);
 
                 if (conn == null) return;
+
+                // a TorService left alive by a leaked binding hands back the control connection of
+                // a tor that already exited; drop it so the next start gets a fresh TorService
+                try {
+                    conn.getInfo("version");
+                } catch (IOException e) {
+                    Log.e(TAG, "stale TorService control connection: " + e);
+                    if (torServiceConnection == this) {
+                        mHandler.post(() -> stopTorOnError(e.getLocalizedMessage()));
+                    }
+                    return;
+                }
+
                 try {
                     initControlConnection();
                     if (conn == null)
