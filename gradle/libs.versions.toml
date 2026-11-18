@@ -25,7 +25,7 @@ retrofit = "3.0.0"
 rootbeer = "0.1.2"
 screengrab = "2.1.1"
 serialization = "1.13.0"
-tor-android = "0.4.9.17"
+tor-android = "0.4.9.17.1"
 upnp = "1.1.0"
 version-catalog-update = "1.1.2"
 
