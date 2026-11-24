@@ -11,6 +11,15 @@
         android:name="android.hardware.touchscreen"
         android:required="false" />
 
+    <!--
+        ACCESS_WIFI_STATE implies android.hardware.wifi is required, which
+        restricts installs on devices without WiFi (e.g. cellular-only, some
+        TVs/XR/desktop). WiFi is not essential, so mark it optional.
+    -->
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_LOCAL_NETWORK" />
     <uses-permission
