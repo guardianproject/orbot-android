@@ -42,7 +42,7 @@
     <string name="project_home">Layihənin Əsas Səhifəsi:</string>
     <string name="third_party_software">Üçüncü Tərəf Proqram Təminatı:</string>
     <string name="set_locale_title">Dil</string>
-    <string name="newnym">Yeni Tor şəxsiyyətinə keçdiniz!</string>
+    <string name="newnym">Yeni Tor kimliyinə keçdiniz!</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Tor-un SOCKS proksisini təklif etdiyi port (standart: 9050 və ya qapatmaq üçün 0)</string>
     <string name="pref_socks_dialog">SOCKS Port Konfiqurasiyası</string>
@@ -68,7 +68,7 @@
     <string name="connect">Qoşul</string>
     <string name="next">Növbəti</string>
     <string name="confirm">Təsdiqlə</string>
-    <string name="menu_new_identity">Yeni Şəxsiyyət</string>
+    <string name="menu_new_identity">Yeni Kimlik</string>
     <string name="connected_title">Qoşuldu</string>
     <string name="pref_circuit_padding">Dövrə doldurulması</string>
     <string name="pref_isolate_dest_summary">Hər bir təyinat ünvanı üçün fərqli dövrədən istifadə edin</string>
