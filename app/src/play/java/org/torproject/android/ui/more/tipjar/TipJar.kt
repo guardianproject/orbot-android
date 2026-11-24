@@ -7,7 +7,8 @@ import androidx.fragment.app.FragmentManager
  * The "foss" flavor provides a stub that hides the Tip Jar.
  */
 object TipJar {
-    const val isAvailable = true
+    // Tip Jar temporarily disabled; set back to true to re-enable.
+    const val isAvailable = false
 
     fun show(fragmentManager: FragmentManager) = TipJarBottomSheet.show(fragmentManager)
 }
