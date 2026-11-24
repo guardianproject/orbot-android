@@ -2,15 +2,17 @@ package org.torproject.android.util
 
 import android.annotation.SuppressLint
 import android.app.AlarmManager
+import android.app.AppOpsManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.net.VpnService
 import android.os.Build
 import android.os.PowerManager
+import android.os.Process
 import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
@@ -58,12 +60,24 @@ fun Context.canStartForegroundServices(): Boolean {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
         return true
 
-    // prepare returns null if the calling app is the active VPN app (has key icon)
-    if (VpnService.prepare(this) == null)
+    // The systemExempted service type is allowed when the user has approved Orbot as a VPN app.
+    // Read that approval (the ACTIVATE_VPN app op) instead of calling VpnService.prepare(): for an
+    // approved app, prepare() takes the VPN slot and disconnects whatever other VPN is running,
+    // and this check runs on every sendIntentToService(), e.g. each time OrbotActivity resumes.
+    if (isApprovedVpnApp())
         return true
 
     val alarmManager = ContextCompat.getSystemService(this, AlarmManager::class.java)
     return alarmManager?.canScheduleExactAlarms() ?: false
+}
+
+@RequiresApi(Build.VERSION_CODES.Q)
+private fun Context.isApprovedVpnApp(): Boolean = try {
+    val appOps = getSystemService(AppOpsManager::class.java)
+    appOps?.unsafeCheckOpNoThrow("android:activate_vpn", Process.myUid(), packageName) ==
+            AppOpsManager.MODE_ALLOWED
+} catch (_: Exception) {
+    false
 }
 
 // gently take users to a screen, where if they dig, they may disable battery optimizations for Orbot
