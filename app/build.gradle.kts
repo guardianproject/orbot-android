@@ -219,7 +219,6 @@ dependencies {
 
     // Tor
     implementation(files("../libs/geoip.jar"))
-    //api(libs.guardian.jtorctl)
     api(libs.tor.android)
     // uncomment to use a local build of tor-android:
     // api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))

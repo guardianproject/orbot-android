@@ -13,7 +13,6 @@ androidx-rules = "1.7.0"
 androidx-runner = "1.7.0"
 androidx-window = "1.5.1"
 coroutines = "1.11.0"
-guardian-jtorctl = "0.4.5.7"
 iptproxy = "5.9.0"
 kotlin-serialization = "2.4.21"
 material = "1.14.0"
@@ -47,7 +46,6 @@ androidx-preference = { module = "androidx.preference:preference", version.ref =
 androidx-rules = { module = "androidx.test:rules", version.ref = "androidx-rules" }
 androidx-runner = { module = "androidx.test:runner", version.ref = "androidx-runner" }
 androidx-window = { module = "androidx.window:window", version.ref = "androidx-window" }
-guardian-jtorctl = { module = "info.guardianproject:jtorctl", version.ref = "guardian-jtorctl" }
 iptproxy = { module = "com.netzarchitekten:IPtProxy", version.ref = "iptproxy" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
