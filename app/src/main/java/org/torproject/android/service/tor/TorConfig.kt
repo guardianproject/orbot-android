@@ -7,12 +7,12 @@ import org.torproject.android.service.db.OnionServiceColumns
 import org.torproject.android.service.db.V3ClientAuthColumns
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
-import java.io.File
+import org.torproject.jni.GeoipUtils
 
 object TorConfig {
 
     @JvmStatic
-    fun build(context: ContextWrapper, geoIpFile: File, geoIp6File: File): String {
+    fun build(context: ContextWrapper): String {
         val conf = mutableListOf(
             "RunAsDaemon 1",
             "AvoidDiskWrites 1"
@@ -72,12 +72,12 @@ object TorConfig {
 
         conf.addAll(transport.getTorConfig(context))
 
-        if (geoIpFile.exists()) { // only apply geoip if it exists
-            conf.add("GeoIPFile ${geoIpFile.canonicalPath}")
+        if (GeoipUtils.getGeoIPFile(context).exists()) { // only apply geoip if it exists
+            conf.add(GeoipUtils.getGeoIPTorrcString(context))
         }
 
-        if (geoIp6File.exists()) {
-            conf.add("GeoIPv6File ${geoIp6File.canonicalPath}")
+        if (GeoipUtils.getGeoIP6File(context).exists()) {
+            conf.add(GeoipUtils.getGeoIP6TorrcString(context))
         }
 
         // Entry nodes can only be defined, when no PT is used.
