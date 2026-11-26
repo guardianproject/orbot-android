@@ -144,7 +144,7 @@
     <string name="connected_title">Connected</string>
     <string name="btn_configure">Choose How To Connect</string>
     <string name="trying_to_connect_title">Connecting…</string>
-    <string name="btn_choose_apps">Choose apps</string>
+    <string name="btn_choose_apps">Choose Apps</string>
     <string name="btn_change_exit">Change exit</string>
     <string name="btn_refresh">Refresh Connection</string>
     <string name="globe" translatable="false">🌎</string>

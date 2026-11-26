@@ -110,12 +110,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                 (context as AppCompatActivity).supportFragmentManager.popBackStack()
             }
 
-            title =
-                requireContext().getString(R.string.btn_choose_apps)
-                    .split(" ")
-                    .joinToString(separator = " ") {
-                        it.replaceFirstChar { c -> if (c.isLowerCase()) c.uppercase() else c.toString() }
-                    }
+            title = requireContext().getString(R.string.btn_choose_apps)
         }
         return binding.root
     }
