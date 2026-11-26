@@ -18,8 +18,6 @@ import static org.torproject.android.service.OrbotConstants.EXTRA_SOCKS_PROXY;
 import static org.torproject.android.service.OrbotConstants.EXTRA_SOCKS_PROXY_HOST;
 import static org.torproject.android.service.OrbotConstants.EXTRA_SOCKS_PROXY_PORT;
 import static org.torproject.android.service.OrbotConstants.EXTRA_TRANS_PORT;
-import static org.torproject.android.service.OrbotConstants.GEOIP6_ASSET_KEY;
-import static org.torproject.android.service.OrbotConstants.GEOIP_ASSET_KEY;
 import static org.torproject.android.service.OrbotConstants.LOCAL_ACTION_LOG;
 import static org.torproject.android.service.OrbotConstants.LOCAL_ACTION_PORTS;
 import static org.torproject.android.service.OrbotConstants.LOCAL_ACTION_QUICK_SETTINGS_NEWNYM;
@@ -70,12 +68,12 @@ import net.freehaven.tor.control.TorControlConnection;
 import org.torproject.android.R;
 import org.torproject.android.service.circumvention.SmartConnect;
 import org.torproject.android.service.db.OnionServiceColumns;
-import org.torproject.android.service.tor.CustomTorResourceInstaller;
 import org.torproject.android.service.tor.ShadowSocks;
 import org.torproject.android.service.tor.TorConfig;
 import org.torproject.android.service.vpn.OrbotVpnManager;
 import org.torproject.android.util.DiskUtils;
 import org.torproject.android.util.Prefs;
+import org.torproject.jni.GeoipUtils;
 import org.torproject.jni.TorService;
 
 import java.io.File;
@@ -320,14 +318,13 @@ public class OrbotService extends VpnService implements TorControlCommands {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                     Notifications.createCamoflaugeableNotificationChannel(this, Notifications.ORBOT_SERVICE_NOTIFICATION_CHANNEL, R.string.app_name);
 
-                var hasGeoip = new File(appBinHome, GEOIP_ASSET_KEY).exists();
-                var hasGeoip6 = new File(appBinHome, GEOIP6_ASSET_KEY).exists();
+                var hasGeoip = GeoipUtils.getGeoIPFile(this).exists();
+                var hasGeoip6 = GeoipUtils.getGeoIP6File(this).exists();
 
                 // only write out geoip files if there's an app update, or they don't exist
                 if (!hasGeoip || !hasGeoip6 || Prefs.isGeoIpReinstallNeeded()) {
                     try {
-                        Log.d(TAG, "Installing geoip files...");
-                        new CustomTorResourceInstaller(this, appBinHome).installGeoIP();
+                        GeoipUtils.overwriteGeoIPFiles(this);
                         Prefs.setGeoIpReinstallNeeded(false);
                     } catch (IOException io) { // user has < 10MB free space on disk...
                         Log.e(TAG, "Error installing geoip files", io);
@@ -355,8 +352,7 @@ public class OrbotService extends VpnService implements TorControlCommands {
 
     @NonNull
     private File updateTorrcCustomFile() throws IOException {
-        var conf = TorConfig.build(this, new File(appBinHome, GEOIP_ASSET_KEY),
-                new File(appBinHome, GEOIP6_ASSET_KEY));
+        var conf = TorConfig.build(this);
 
         logNotice(getString(R.string.log_notice_updating_torrc));
         Log.d(TAG, "torrc.custom=\n" + conf);
@@ -761,8 +757,8 @@ public class OrbotService extends VpnService implements TorControlCommands {
             Prefs.setExitNodes("{" + newExits + "}");
             if (conn == null) return;
             try {
-                conn.setConf("GeoIPFile", new File(appBinHome, GEOIP_ASSET_KEY).getCanonicalPath());
-                conn.setConf("GeoIPv6File", new File(appBinHome, GEOIP6_ASSET_KEY).getCanonicalPath());
+                conn.setConf("GeoIPFile", GeoipUtils.getGeoIPFile(this).getCanonicalPath());
+                conn.setConf("GeoIPv6File", GeoipUtils.getGeoIP6File(this).getCanonicalPath());
                 conn.setConf("ExitNodes", Prefs.getExitNodes());
                 conn.setConf("StrictNodes", "1");
                 conn.setConf("DisableNetwork", "1");

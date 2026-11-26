@@ -6,10 +6,6 @@ object OrbotConstants {
 
     const val DIRECTORY_TOR_DATA = "tordata"
 
-    // geoip data file asset key
-    const val GEOIP_ASSET_KEY = "geoip"
-    const val GEOIP6_ASSET_KEY = "geoip6"
-
     const val HTTP_PROXY_PORT_DEFAULT = "8118"
     const val SOCKS_PROXY_PORT_DEFAULT = "9050"
 
