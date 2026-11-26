@@ -128,7 +128,7 @@
 
     <PreferenceScreen
         android:key="category_connectivity"
-        android:title="Connectivity"
+        android:title="@string/pref_category_connectivity"
         app:iconSpaceReserved="false">
 
         <CheckBoxPreference

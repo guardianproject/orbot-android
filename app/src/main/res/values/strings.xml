@@ -378,4 +378,5 @@
     <!-- Tip Jar button: %1$s is the localized price from Google Play, %2$s is the tip name -->
     <string name="tip_price_format">%1$s %2$s</string>
     <string name="donate_disclaimer">Orbot will always be free to use. No donation is required to use this app.</string>
+    <string name="pref_category_connectivity">Connectivity</string>
 </resources>
