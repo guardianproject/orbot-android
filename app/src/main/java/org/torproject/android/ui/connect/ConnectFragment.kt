@@ -79,7 +79,7 @@ class ConnectFragment : Fragment(),
                         is ConnectUiState.NoInternet -> doLayoutNoInternet()
                         is ConnectUiState.Off -> doLayoutOff()
                         is ConnectUiState.Starting -> {
-                            binding.switchConnect.isChecked = true
+                            setConnectSwitchWithoutEvent(true)
                             state.bootstrapPercent?.let {
                                 viewModel.updateBootstrapPercent(it)
                             }
@@ -87,7 +87,7 @@ class ConnectFragment : Fragment(),
                         }
 
                         is ConnectUiState.On -> {
-                            binding.switchConnect.isChecked = true
+                            setConnectSwitchWithoutEvent(true)
                             lastState = TorService.ACTION_START
                             doLayoutOn()
                         }
@@ -142,9 +142,19 @@ class ConnectFragment : Fragment(),
         }
     }
 
-    private fun turnOffConnectSwitchWithoutEvent() {
+    private fun turnOffConnectSwitchWithoutEvent() = setConnectSwitchWithoutEvent(false)
+
+    /**
+     * Shows Tor's state on the switch without treating it as a tap. Each time the view is rebuilt
+     * (e.g. returning from the More tab) the switch starts unchecked; checking it with the listener
+     * attached ran attemptToStartTor(), whose VpnService.prepare() takes the VPN slot from any
+     * other VPN app (Android lets a previously approved VPN app do so without asking), even when
+     * Orbot is not using the VPN.
+     */
+    private fun setConnectSwitchWithoutEvent(checked: Boolean) {
+        if (binding.switchConnect.isChecked == checked) return
         binding.switchConnect.setOnCheckedChangeListener(null)
-        binding.switchConnect.isChecked = false
+        binding.switchConnect.isChecked = checked
         binding.switchConnect.setOnCheckedChangeListener(onCheckChanged)
     }
 
