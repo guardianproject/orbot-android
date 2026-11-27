@@ -13,14 +13,14 @@ import androidx.recyclerview.widget.GridLayoutManager
 import org.torproject.android.OrbotActivity
 import org.torproject.android.R
 import org.torproject.android.databinding.FragmentMoreBinding
+import org.torproject.android.util.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.vpn.VpnServicePrepareWrapper
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.ui.v3onionservice.OnionServiceActivity
 import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthActivity
-import org.torproject.android.util.StringUtils
-import org.torproject.android.util.sendIntentToService
+import org.torproject.android.widget.StatusSection
 import org.torproject.jni.TorService
 
 class MoreFragment : Fragment() {
@@ -37,36 +37,18 @@ class MoreFragment : Fragment() {
     }
 
     private fun updateStatus() {
-        val labelHttp = getString(R.string.http_port)
-        val labelSocks = getString(R.string.socks_port)
-        val labels = listOf(labelHttp, labelSocks, "Orbot", "Tor")
-        val labelWidth = labels.maxOf { it.length } + 6
-        val isLeftToRight = StringUtils.isLeftToRight()
-        fun row(label: String, value: String): String {
-            return if (isLeftToRight)
-                label.padEnd(labelWidth) + value
-            else value.padEnd(labelWidth) + label
-        }
-
-        val rows = mutableListOf<String>()
-
-        val (httpValue, socksValue) = proxyPortDisplayValues(
-            httpPort,
-            socksPort
-        )
-        rows += listOf(
-            row(labelHttp, httpValue),
-            row(labelSocks, socksValue)
-        )
-
         val pm = requireActivity().packageManager
         val info = pm.getPackageInfo(requireActivity().packageName, 0)
         val normalizedVersion = info.versionName?.substringBefore("tor")?.dropLast(1)
 
-        rows += row("Orbot", "$normalizedVersion")
-        rows += row("Tor", getTorVersion())
-
-        binding.tvPortAndVersionInfo.text = rows.joinToString("\n")
+        binding.tvPortAndVersionInfo.setContent {
+            StatusSection(
+                httpPort = httpPort,
+                socksPort = socksPort,
+                orbotVersion = normalizedVersion!!,
+                torVersion = getTorVersion()
+            )
+        }
     }
 
     private lateinit var binding: FragmentMoreBinding
@@ -136,15 +118,4 @@ class MoreFragment : Fragment() {
         requireActivity().finish()
     }
 
-    companion object {
-        const val PORT_NOT_SET_STRING = "--"
-    }
-
 }
-
-internal fun proxyPortDisplayValues(
-    httpPort: Int,
-    socksPort: Int,
-): Pair<String, String> =
-    (if (httpPort > 0) httpPort.toString() else MoreFragment.PORT_NOT_SET_STRING) to
-            (if (socksPort > 0) socksPort.toString() else MoreFragment.PORT_NOT_SET_STRING)
