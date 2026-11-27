@@ -27,9 +27,11 @@ object DiskUtils {
     }
 
     @JvmStatic
+    @Throws(IOException::class)
     fun readFileFromInputStream(contentResolver: ContentResolver, file: Uri): String {
         val input = contentResolver.openInputStream(file)
-        val reader = BufferedReader(input!!.reader())
+            ?: throw IOException("Could not open input stream for $file")
+        val reader = BufferedReader(input.reader())
         return reader.use(BufferedReader::readText)
     }
 
